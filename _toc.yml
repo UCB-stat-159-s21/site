@@ -1,0 +1,24 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+# First entry here is the website/book's landing page.
+- file: overview
+
+# The rest is structured in *parts* that then have chapters/sections.
+
+- part: Overview
+  chapters:
+  - file: schedule
+  
+- part: Syllabus
+  chapters:
+  - file: syllabus
+
+- part: Homework Assignments
+  numbered: true
+  chapters:
+  - file: Hw/hw01-background.md
+
+- part: Lecture Notes
+  chapters:
+  - file: Notes/01/index
