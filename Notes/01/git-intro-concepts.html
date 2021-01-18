@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>An interactive Git Tutorial: the tool you didn’t know you needed &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Notes/01/git-intro-concepts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/01/git-intro-concepts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-personal-workflows-to-open-collaboration">
+   From personal workflows to open collaboration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wikipedia">
+   Wikipedia
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-is-an-enabling-technology-use-version-control-for-everything">
+   Git is an enabling technology: Use version control for everything
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teaching-courses-with-git">
+   Teaching courses with Git
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#annotated-history-of-each-student-s-worfklow-and-backup">
+   Annotated history of each student’s worfklow (and backup!)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-is-easy">
+   Git is easy!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#very-high-level-picture-an-overview-of-key-concepts">
+   Very high level picture: an overview of key concepts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-things-first-git-must-be-configured-before-first-use">
+   First things first: git must be configured before first use
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-plan-for-this-tutorial">
+   The plan for this tutorial
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="an-interactive-git-tutorial-the-tool-you-didn-t-know-you-needed">
+<h1>An interactive Git Tutorial: the tool you didn’t know you needed<a class="headerlink" href="#an-interactive-git-tutorial-the-tool-you-didn-t-know-you-needed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="from-personal-workflows-to-open-collaboration">
+<h2>From personal workflows to open collaboration<a class="headerlink" href="#from-personal-workflows-to-open-collaboration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong> this tutorial was particularly modeled, and therefore owes a lot, to the excellent materials offered in:</p>
+<ul class="simple">
+<li><p>“Git for Scientists: A Tutorial” by John McDonnell (no link as this tutorial seems to have disappeared from the internet).</p></li>
+<li><p>Emanuele Olivetti’s lecture notes and exercises from the G-Node summer school on <a class="reference external" href="https://python.g-node.org/wiki/schedule">Advanced Scientific Programming in Python</a>.</p></li>
+</ul>
+<p>In particular I’ve reused the excellent images from the <a class="reference external" href="http://git-scm.com/book">Pro Git book</a> that John had already selected and downloaded, as well as some of his outline.  But this version of the tutorial aims to be 100% reproducible by being executed directly as an IPython notebook and is hosted itself on github so that others can more easily make improvements to it by collaborating on Github.  Many thanks to John and Emanuele for making their materials available online.</p>
+<p>After writing this document, I discovered <a class="reference external" href="https://github.com/jrjohansson">J.R. Johansson</a>’s <a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/jrjohansson/scientific-python-lectures/master/Lecture-7-Revision-Control-Software.ipynb">tutorial on version control</a> that is also written as a fully reproducible notebook and is also aimed at a scientific audience.  It has a similar spirit to this one, and is part of his excellent series <a class="reference external" href="https://github.com/jrjohansson/scientific-python-lectures">Lectures on Scientific Computing with Python</a> that is entirely available as Jupyter Notebooks.</p>
+</div>
+<div class="section" id="wikipedia">
+<h2>Wikipedia<a class="headerlink" href="#wikipedia" title="Permalink to this headline">¶</a></h2>
+<p>“Revision control, also known as version control, source control
+or software configuration management (SCM), is the
+<strong>management of changes to documents, programs, and other
+information stored as computer files.</strong>”</p>
+<p><strong>Reproducibility?</strong></p>
+<ul class="simple">
+<li><p>Tracking and recreating every step of your work</p></li>
+<li><p>In the software world: it’s called <em>Version Control</em>!</p></li>
+</ul>
+<p>What do (good) version control tools give you?</p>
+<ul class="simple">
+<li><p>Peace of mind (backups)</p></li>
+<li><p>Freedom (exploratory branching)</p></li>
+<li><p>Collaboration (synchronization)</p></li>
+</ul>
+</div>
+<div class="section" id="git-is-an-enabling-technology-use-version-control-for-everything">
+<h2>Git is an enabling technology: Use version control for everything<a class="headerlink" href="#git-is-an-enabling-technology-use-version-control-for-everything" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper writing (never get <code class="docutils literal notranslate"><span class="pre">paper_v5_john_jane_final_oct22_really_final.tex</span></code> by email again!)</p></li>
+<li><p>Grant writing</p></li>
+<li><p>Everyday research</p></li>
+<li><p>Teaching (never accept an emailed homework assignment again!)</p></li>
+</ul>
+</div>
+<div class="section" id="teaching-courses-with-git">
+<h2>Teaching courses with Git<a class="headerlink" href="#teaching-courses-with-git" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="../../_images/indefero_projects_notes.png" /></p>
+<!-- offline: 
+<img src="files/images/indefero_projects_notes.png" width="100%">
+<img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects_notes.png" width="100%">
+--></div>
+<div class="section" id="annotated-history-of-each-student-s-worfklow-and-backup">
+<h2>Annotated history of each student’s worfklow (and backup!)<a class="headerlink" href="#annotated-history-of-each-student-s-worfklow-and-backup" title="Permalink to this headline">¶</a></h2>
+<!-- offline: 
+    <img src="files/images/indefero_projects1.png" width="100%">
+<img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects1.png" width="100%">
+    -->
+<p><img alt="" src="../../_images/indefero_projects1.png" /></p>
+</div>
+<div class="section" id="git-is-easy">
+<h2>Git is easy!<a class="headerlink" href="#git-is-easy" title="Permalink to this headline">¶</a></h2>
+<a href="https://xkcd.com/1597"> 
+    <img src="images/xkcd-git.png" width="400px"> 
+</a></div>
+<div class="section" id="very-high-level-picture-an-overview-of-key-concepts">
+<h2>Very high level picture: an overview of key concepts<a class="headerlink" href="#very-high-level-picture-an-overview-of-key-concepts" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>commit</strong>: <em>a snapshot of work at a point in time</em></p>
+<!-- offline: 
+![](images/commit_anatomy.png)
+
+<img src="https://raw.github.com/fperez/reprosw/master/fig/commit_anatomy.png">
+-->
+<p><img alt="" src="../../_images/commit_anatomy.png" /></p>
+<p>Credit: ProGit book, by Scott Chacon, CC License.</p>
+<p>A <strong>repository</strong>: a group of <em>linked</em> commits</p>
+<!-- offline: 
+![](files/images/threecommits.png)
+
+<img src="https://raw.github.com/fperez/reprosw/master/fig/threecommits.png" >
+-->
+<p><img alt="" src="../../_images/threecommits.png" /></p>
+<p>Note: these form a Directed Acyclic Graph (DAG), with nodes identified by their <em>hash</em>.</p>
+<p>A <strong>hash</strong>: a <em>fingerprint</em> of the content of each commit <em>and its parent</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha1</span>
+
+<span class="c1"># Our first commit</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;This is the start of my paper.&#39;</span>
+<span class="n">meta1</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;date: 1/1/17&#39;</span>
+<span class="n">hash1</span> <span class="o">=</span> <span class="n">sha1</span><span class="p">(</span><span class="n">data1</span> <span class="o">+</span> <span class="n">meta1</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hash:&#39;</span><span class="p">,</span> <span class="n">hash1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our second commit, linked to the first</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Some more text in my paper...&#39;</span>
+<span class="n">meta2</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;date: 1/2/1&#39;</span>
+<span class="c1"># Note we add the parent hash here!</span>
+<span class="n">hash2</span> <span class="o">=</span> <span class="n">sha1</span><span class="p">(</span><span class="n">data2</span> <span class="o">+</span> <span class="n">meta2</span> <span class="o">+</span> <span class="n">hash1</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hash:&#39;</span><span class="p">,</span> <span class="n">hash2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And this is pretty much the essence of Git!</p>
+</div>
+<div class="section" id="first-things-first-git-must-be-configured-before-first-use">
+<h2>First things first: git must be configured before first use<a class="headerlink" href="#first-things-first-git-must-be-configured-before-first-use" title="Permalink to this headline">¶</a></h2>
+<p>The minimal amount of configuration for git to work without pestering you is to tell it who you are. You should run a version of these commands in your shell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+git config --global user.email <span class="s2">&quot;your.email@yourplace.org&quot;</span>
+</pre></div>
+</div>
+<p>And while we’re at it, we also turn on the use of color, which is very useful</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global color.ui <span class="s2">&quot;auto&quot;</span>
+</pre></div>
+</div>
+<p>Set git to use the credential memory cache so we don’t have to retype passwords too frequently.</p>
+<p>Github offers in its help pages instructions on how to configure the credentials helper for <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac">Mac OSX</a>, <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac">Windows</a> and <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-linux">Linux</a>.</p>
+</div>
+<div class="section" id="the-plan-for-this-tutorial">
+<h2>The plan for this tutorial<a class="headerlink" href="#the-plan-for-this-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>The rests of this tutorial is structured in the following way: after the above brief overview of key concepts you need to understand in order for git to really make sense, we will then dive into hands-on work. We will discuss 5 “stages of git” with scenarios of increasing sophistication and complexity, introducing the necessary commands for each stage:</p>
+<ol class="simple">
+<li><p>Local, single-user, linear workflow</p></li>
+<li><p>Using remotes as a single user</p></li>
+<li><p>An introduction to branches</p></li>
+<li><p>Remotes for collaborating in a small team</p></li>
+<li><p>Full-contact github: distributed collaboration with large teams</p></li>
+</ol>
+<p>In reality, this tutorial only covers stages 1-4, since for #5 there are many software develoment-oriented tutorials and documents of very high quality online.  But most scientists start working alone with a few files or with a small team, so I feel it’s important to build first the key concepts and practices based on problems scientists encounter in their everyday life and without the jargon of the software world.  Once you’ve become familiar with 1-4, the excellent tutorials that exist about collaborating on github on open-source projects should make sense.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes/01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub collaboration exercise &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Notes/01/collaboration-exercise.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/01/collaboration-exercise.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   GitHub collaboration exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collaboration-scenario">
+     Collaboration scenario
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-cloning">
+     Step 1: Cloning
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2-make-some-changes">
+     Step 2: Make some changes!
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3-add-commit">
+     Step 3: add/commit
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4-upload-your-changes-to-github">
+     Step 4: upload your changes to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-options">
+   Advanced Options
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contributing-to-a-repo-via-pull-request">
+     Contributing to a repo via pull request
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-commits-less-painful-with-ssh">
+     Making commits less painful with ssh
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="github-collaboration-exercise">
+<h1>GitHub collaboration exercise<a class="headerlink" href="#github-collaboration-exercise" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise we will use GitHub to experiment with collaborative workflows.</p>
+<p>Until now, you have been tracking your own work using Git version control commands. But what if you would like to share these changes within a team, similar to what we will be doing during our hacking sessions? For this, it makes sense for us to have a copy of the repository on a centralized hub, rather than storing it on someone’s laptop. There are several different flavors of such “hubs”, but for our purposes we will use GitHub.</p>
+<div class="section" id="collaboration-scenario">
+<h2>Collaboration scenario<a class="headerlink" href="#collaboration-scenario" title="Permalink to this headline">¶</a></h2>
+<p>Imagine a colleague has created a repository that is now hosted on GitHub. You would like to take this work and make some additions to it. Here is the workflow we will follow:</p>
+<ul class="simple">
+<li><p>We’ll create a copy of the repository on our own local laptop. This process is called “cloning”.</p></li>
+<li><p>We will make some changes to the files</p></li>
+<li><p>Assuming we have permission to do so, we can then upload these changes back to the GitHub repository (this process is called “pushing”).</p></li>
+</ul>
+</div>
+<div class="section" id="step-1-cloning">
+<h2>Step 1: Cloning<a class="headerlink" href="#step-1-cloning" title="Permalink to this headline">¶</a></h2>
+<p>For this exercise we’ll be using a <a class="reference external" href="https://github.com/ICESAT-2HackWeek/sample-repository">sample GitHub tutorial repository</a>. Navigate to this repository and have a look around. We’ll imagine this is a colleague’s working repository to which we’d like to add some changes.</p>
+<p>Clone this repository to your local directory. Start by copying the URL for this Git repository to your clipboard:</p>
+<p><img alt="copy git URL to clipboard" src="../../_images/clone-copy-clipboard.png" /></p>
+<p>Next, clone this repository to your local directory. Type “git clone” and then paste in the URL:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+git clone https://github.com/ICESAT-2HackWeek/sample-repository.git
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-2-make-some-changes">
+<h2>Step 2: Make some changes!<a class="headerlink" href="#step-2-make-some-changes" title="Permalink to this headline">¶</a></h2>
+<p>Now, make some changes! In order for us all to avoid merge conflicts, let’s create a new folder in the “participants” folder. Give the folder a unique name, for example your first name and last name.</p>
+<p><strong>NOTE</strong>: replace the text in the code block here with your actual name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd sample-repository/participants
+
+mkdir myfirstname-mylastname
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, make a new file in the folder you just created:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd sample-repository/participants/myfirstname-mylastname
+
+touch &quot;sample-file.txt&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, choose whatever method you’d like to add some arbitrary text to that file.</p>
+</div>
+<div class="section" id="step-3-add-commit">
+<h2>Step 3: add/commit<a class="headerlink" href="#step-3-add-commit" title="Permalink to this headline">¶</a></h2>
+<p>After you save changes, we’ll follow our usual steps within any Git workflow: we’ll <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">commit</span></code> the changes we’ve just made:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+git add sample-repository/participants/myfirstname-mylastname/sample-file.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+git commit -m &quot;initial commit&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-4-upload-your-changes-to-github">
+<h2>Step 4: upload your changes to GitHub<a class="headerlink" href="#step-4-upload-your-changes-to-github" title="Permalink to this headline">¶</a></h2>
+<p>To ‘push’ our changes, we have to determine where our changes will be pushed to. When we cloned the repo above, we automatically set the source of the clone as the ‘upstream remote’. You can see the specific details in the file <code class="docutils literal notranslate"><span class="pre">.git/config</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat .git/config
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assuming you have write permissions to the repo <code class="docutils literal notranslate"><span class="pre">[remote</span> <span class="pre">&quot;origin&quot;]</span></code>, pushing is accomplished with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+git push
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above command will generally not complete when run in the iPython notebook, because running git push will prompt for your git username and password, which the jupyter notebook can’t pass thru… but you can run it on a console, and enter your info from the prompt.</p>
+</div>
+</div>
+<div class="section" id="advanced-options">
+<h1>Advanced Options<a class="headerlink" href="#advanced-options" title="Permalink to this headline">¶</a></h1>
+<p>The above is the basic workflow for collaborating with people where you already have commit privileges; however, this is rarely the case outside of repositories that you haven’t created. Below, we’ll go over a few common, but more advanced workflows for using git.</p>
+<div class="section" id="contributing-to-a-repo-via-pull-request">
+<h2>Contributing to a repo via pull request<a class="headerlink" href="#contributing-to-a-repo-via-pull-request" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t have write permission for a repo, you can still suggest changes. This often how community software progresses; you may find a bug which is simple to fix in a popular package, and want to fix it for <em>everyone</em>. The process for doing this is similar to the basic workflow, but starts with forking the repo before you clone. Forking copies the repo for you in github, and makes you the owner, so that you can push changes.</p>
+<p><img alt="image of fork option" src="../../_images/fork.png" /></p>
+<p>If you are associated with any organizations, you’ll have to select where to fork to (personal or organizational)</p>
+<p><img alt="confirm fork" src="../../_images/fork_confirm.png" /></p>
+<p>Once you’ve forked the repo, you can clone as before–only you’ll be cloning <strong>your</strong> fork:</p>
+<p><img alt="cloning the fork" src="../../_images/clone_fork.png" /></p>
+<p>Generally, it’s best practice to create a new branch for the feature you’re adding of the bug that you are fixing. This is so that you can work on multiple seperate features if you’d like. Say for example, you’re working on a new algorithm that will take several months to finish…but have a smaller change you want to make (and push) in the meantime. For now, we’ll just branch to our github user name–note that we git pull before git pushing, to make sure we’re on the most recent version of the repo.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="n">espg</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">espg</span>
+<span class="n">touch</span> <span class="n">espg</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">espg</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;changed files&quot;</span>
+<span class="n">git</span> <span class="n">pull</span>
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Make our changes, and push as before (again, we need to do this in console because of the username and password prompt). Once we do this, we can select the <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Pull</span> <span class="pre">Request</span></code> option in the github web interface, which allows you to enter text and images via markdown, as well as for the repo owners to comment on your work and request changes if they need:</p>
+<p><img alt="PR button" src="../../_images/PR_button.png" /></p>
+<p><em>You can choose which branch to submit the PR to and from</em></p>
+<p><img alt="Confirm PR" src="../../_images/Confirm_PR.png" /></p>
+<p><em>Mark down interface</em></p>
+<p><img alt="PR Form" src="../../_images/PR_form.png" /></p>
+<p>This <strong>PR</strong> workflow is actually pretty common, since it puts a review step in place–it’s how the tutorials you’re using were put together by the instructors. Once the repo owners who have read/write access decide, your code is merged. Until then, you can see your pull request listed on <em>their</em> repo, and other people can comment and view your work.</p>
+<p><img alt="requested PR" src="../../_images/requested_pr.png" /></p>
+<p>This can actually recurse a bit too; if you’re working on something that other people like, they can send you a pull request merge their code into your pull request. Yes, pull requests can have there own pull requests too!</p>
+</div>
+<div class="section" id="making-commits-less-painful-with-ssh">
+<h2>Making commits less painful with ssh<a class="headerlink" href="#making-commits-less-painful-with-ssh" title="Permalink to this headline">¶</a></h2>
+<p>As you may have noticed, pushing can be a bit of a hassle with passwords. Git allows you to use ssh-keys instead, so that you don’t have to input your username or password when you push. <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generating ssh-keys</a> is a bit outside the scope of this tutorial, but github <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">has a good tutorial</a> for what to do. What we can show quickly is how ssh-keys work in practice once you have them install on your system. Note that ssh-keys come as pair, with both a private key and a public key. The private key stays on your computer, but the public key get uploaded to github; this is done per computer, so here for example are my public keys (under the ‘settings’ github profile option):</p>
+<p><img alt="github ssh keys" src="../../_images/ssh_keys.png" /></p>
+<p>There’s one for both my laptop, and my work machine, so I can push from either. (Actually, multiple machines can use the same ssh-key, so ‘talus’ is on both of my personal machines). To tell git to use ssh, we just modify .git/config from:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">remote</span> <span class="s2">&quot;origin&quot;</span><span class="p">]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">espg</span><span class="o">/</span><span class="n">sample</span><span class="o">-</span><span class="n">repository</span><span class="o">.</span><span class="n">git</span>
+	<span class="n">fetch</span> <span class="o">=</span> <span class="o">+</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/*</span><span class="p">:</span><span class="n">refs</span><span class="o">/</span><span class="n">remotes</span><span class="o">/</span><span class="n">origin</span><span class="o">/*</span>
+</pre></div>
+</div>
+<p>To:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">remote</span> <span class="s2">&quot;origin&quot;</span><span class="p">]</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">espg</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">git</span><span class="o">.</span><span class="n">git</span>
+	<span class="n">fetch</span> <span class="o">=</span> <span class="o">+</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/*</span><span class="p">:</span><span class="n">refs</span><span class="o">/</span><span class="n">remotes</span><span class="o">/</span><span class="n">origin</span><span class="o">/*</span>
+</pre></div>
+</div>
+<p>The new remote line tells git to use ssh. If you already have your ssh keys setup, you can avoid modifying .git/config by just choosing the ssh option when you clone, and git will know to set the remote appropriately:</p>
+<p><img alt="ssh option" src="../../_images/ssh_option.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes/01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

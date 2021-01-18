@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git - First tasks with repositories &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Notes/01/git-first-tasks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/01/git-first-tasks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-single-user-linear-workflow">
+   Local, single-user, linear workflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-init-create-an-empty-repository">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       init
+      </span>
+     </code>
+     : create an empty repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-add-tell-git-about-this-new-file">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       add
+      </span>
+     </code>
+     : tell git about this new file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-commit-permanently-record-our-changes-in-git-s-database">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       commit
+      </span>
+     </code>
+     : permanently record our changes in git’s database
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-log-what-has-been-committed-so-far">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       log
+      </span>
+     </code>
+     : what has been committed so far
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-diff-what-have-i-changed">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       diff
+      </span>
+     </code>
+     : what have I changed?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-cycle-of-git-virtue-work-commit-work-commit">
+     The cycle of git virtue: work, commit, work, commit, …
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-log-revisited">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       log
+      </span>
+     </code>
+     revisited
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-mv-and-rm-moving-and-removing-files">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       git
+      </span>
+      <span class="pre">
+       mv
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       rm
+      </span>
+     </code>
+     : moving and removing files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-remotes-as-a-single-user">
+   Using remotes as a single user
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-introduction-to-branches">
+   An introduction to branches
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="git-first-tasks-with-repositories">
+<h1>Git - First tasks with repositories<a class="headerlink" href="#git-first-tasks-with-repositories" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="local-single-user-linear-workflow">
+<h2>Local, single-user, linear workflow<a class="headerlink" href="#local-single-user-linear-workflow" title="Permalink to this headline">¶</a></h2>
+<p>Type <code class="docutils literal notranslate"><span class="pre">git</span></code> to see a full list of all the ‘core’ commands.  We’ll now go through most of these via small practical exercises:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="git-init-create-an-empty-repository">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>: create an empty repository<a class="headerlink" href="#git-init-create-an-empty-repository" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pwd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+rm -rf test
+git init test
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note:</strong> all these cells below are meant to be run by you in a terminal  where  you change <em>once</em> to the <code class="docutils literal notranslate"><span class="pre">test</span></code> directory and continue working there.</p>
+<p>Since we are putting all of them here in a single notebook for the purposes of the tutorial, they will all be prepended with the first two lines:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%%bash
+cd test
+</pre></div>
+</div>
+<p>that tell IPython to do that each time.  But you should ignore those two lines and type the rest of each cell yourself in your terminal.</p>
+<p>Let’s look at what git did:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+ls -la
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+ls -l .git
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s edit our first file in the test directory with a text editor… I’m doing it programatically here for automation purposes, but you’d normally be editing by hand</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+echo &quot;My first bit of text&quot; &gt; file1.txt
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="git-add-tell-git-about-this-new-file">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>: tell git about this new file<a class="headerlink" href="#git-add-tell-git-about-this-new-file" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git add file1.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now ask git about what happened with <code class="docutils literal notranslate"><span class="pre">status</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git status
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="git-commit-permanently-record-our-changes-in-git-s-database">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>: permanently record our changes in git’s database<a class="headerlink" href="#git-commit-permanently-record-our-changes-in-git-s-database" title="Permalink to this headline">¶</a></h3>
+<p>For now, we are <em>always</em> going to call <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> either with the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option <em>or</em> with specific filenames (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">file1</span> <span class="pre">file2...</span></code>).  This delays the discussion of an aspect of git called the <em>index</em> (often referred to also as the ‘staging area’) that we will cover later.  Most everyday work in regular scientific practice doesn’t require understanding the extra moving parts that the index involves, so on a first round we’ll bypass it.  Later on we will discuss how to use it to achieve more fine-grained control of what and how git records our actions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git commit -a -m&quot;This is our first commit&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the commit above, we  used the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag to specify a message at the command line.  If we don’t do that, git will open the editor we specified in our configuration above and require that we enter a message.  By default, git refuses to record changes that don’t have a message to go along with them (though you can obviously ‘cheat’ by using an empty or meaningless string: git only tries to facilitate best practices, it’s not your nanny).</p>
+</div>
+<div class="section" id="git-log-what-has-been-committed-so-far">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>: what has been committed so far<a class="headerlink" href="#git-log-what-has-been-committed-so-far" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git log
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="git-diff-what-have-i-changed">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: what have I changed?<a class="headerlink" href="#git-diff-what-have-i-changed" title="Permalink to this headline">¶</a></h3>
+<p>Let’s do a little bit more work… Again, in practice you’ll be editing the files by hand, here we do it via shell commands for the sake of automation (and therefore the reproducibility of this tutorial!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+echo &quot;And now some more text...&quot; &gt;&gt; file1.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we can ask git what is different:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git diff
+</pre></div>
+</div>
+</div>
+</div>
+<p>The format of the output above is well explained in detail in <a class="reference external" href="https://stackoverflow.com/questions/2529441/how-to-read-the-output-from-git-diff">this Stack Overflow post</a>.  But we can provide a brief summary here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span> <span class="n">b</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>This tells us which files changed overall, with ‘a’ representing the old path and ‘b’ the new one (in this case it’s the same file, though if a file had been renamed it would be different).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="n">ce645c7</span><span class="o">..</span><span class="mi">4</span><span class="n">baa979</span> <span class="mi">100644</span>
+</pre></div>
+</div>
+<p>These are hashes of the file at the two stages, needed by git itself for other operations with the diff output.</p>
+<p>The next block shows the actual changes. The first two lines show which paths are being compared (in this case the same file, <code class="docutils literal notranslate"><span class="pre">file1.txt</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>The next line indicates where the changes happened. The format is <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span> <span class="pre">from-file-range</span> <span class="pre">to-file-range</span> <span class="pre">&#64;&#64;</span></code>, where there’s one more <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> character than there’s parents to the file comparison (git can handle multi-way diff/merges), adn the file range format is <code class="docutils literal notranslate"><span class="pre">-/+&lt;start</span> <span class="pre">line&gt;,&lt;#</span> <span class="pre">of</span> <span class="pre">lines&gt;</span></code>, with <code class="docutils literal notranslate"><span class="pre">-</span></code> for the <code class="docutils literal notranslate"><span class="pre">from-file</span></code> and <code class="docutils literal notranslate"><span class="pre">+</span></code> for the <code class="docutils literal notranslate"><span class="pre">to-file</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">@@</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="o">@@</span>
+</pre></div>
+</div>
+<p>Lines prepended with <code class="docutils literal notranslate"><span class="pre">-</span></code> correspond to deletions (none in this case), and lines with <code class="docutils literal notranslate"><span class="pre">+</span></code> to additions. A few lines around deletions/additions are shown for context:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">My</span> <span class="n">first</span> <span class="n">bit</span> <span class="n">of</span> <span class="n">text</span>
+<span class="o">+</span><span class="n">And</span> <span class="n">now</span> <span class="n">some</span> <span class="n">more</span> <span class="n">text</span><span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-cycle-of-git-virtue-work-commit-work-commit">
+<h3>The cycle of git virtue: work, commit, work, commit, …<a class="headerlink" href="#the-cycle-of-git-virtue-work-commit-work-commit" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git commit -a -m&quot;I have made great progress on this critical matter.&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="git-log-revisited">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> revisited<a class="headerlink" href="#git-log-revisited" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s see what the log shows us now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git log
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes it’s handy to see a very summarized version of the log:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git log --oneline --topo-order --graph
+</pre></div>
+</div>
+</div>
+</div>
+<p>Git supports <em>aliases:</em> new names given to command combinations. Let’s make this handy shortlog an alias, so we only have to type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">slog</span></code> and see this compact log:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+# We create our alias (this saves it in git&#39;s permanent configuration file):
+git config --global alias.slog &quot;log --oneline --topo-order --graph&quot;
+
+# And now we can use it
+git slog
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="git-mv-and-rm-moving-and-removing-files">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span></code> and <code class="docutils literal notranslate"><span class="pre">rm</span></code>: moving and removing files<a class="headerlink" href="#git-mv-and-rm-moving-and-removing-files" title="Permalink to this headline">¶</a></h3>
+<p>While <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> is used to add fils to the list git tracks, we must also tell it if we want their  names to change or for it to stop tracking them.  In familiar Unix fashion, the <code class="docutils literal notranslate"><span class="pre">mv</span></code> and <code class="docutils literal notranslate"><span class="pre">rm</span></code> git commands do precisely this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git mv file1.txt file-newname.txt
+git status
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that these changes must be committed too, to become permanent!  In git’s world, until something hasn’t been committed, it isn’t permanently recorded anywhere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git commit -a -m&quot;I like this new name better&quot;
+echo &quot;Let&#39;s look at the log again:&quot;
+git slog
+</pre></div>
+</div>
+</div>
+</div>
+<p>And <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span></code> works in a similar fashion.</p>
+</div>
+<div class="section" id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
+<p>Add a new file <code class="docutils literal notranslate"><span class="pre">file2.txt</span></code>, commit it, make some changes to it, commit them again, and then remove it (and don’t forget to commit this last step!).</p>
+</div>
+</div>
+<div class="section" id="using-remotes-as-a-single-user">
+<h2>Using remotes as a single user<a class="headerlink" href="#using-remotes-as-a-single-user" title="Permalink to this headline">¶</a></h2>
+<p>We are now going to introduce the concept of a <em>remote repository</em>: a pointer to another copy of the repository that lives on a different location.  This can be simply a different path on the filesystem or a server on the internet.</p>
+<p>For this discussion, we’ll be using remotes hosted on the <a class="reference external" href="http://github.com">GitHub.com</a> service, but you can equally use other services like <a class="reference external" href="http://bitbucket.org">BitBucket</a> or <a class="reference external" href="http://gitorious.org">Gitorious</a> as well as host your own.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+ls
+echo &quot;Let&#39;s see if we have any remote repositories here:&quot;
+git remote -v
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the above cell didn’t produce any output after the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> call, it means we have no remote repositories configured.  We will now proceed to do so.  Once logged into GitHub, go to the <a class="reference external" href="https://github.com/new">new repository page</a> and make a repository called <code class="docutils literal notranslate"><span class="pre">test</span></code>.  Do <strong>not</strong> check the box that says <code class="docutils literal notranslate"><span class="pre">Initialize</span> <span class="pre">this</span> <span class="pre">repository</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">README</span></code>, since we already have an existing repository here.  That option is useful when you’re starting first at Github and don’t have a repo made already on a local computer.</p>
+<p>We can now follow the instructions from the next page:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git remote add origin https://github.com/fperez/test.git
+git push -u origin master
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the remote situation again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git remote -v
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now <a class="reference external" href="https://github.com/fperez/test">see this repository publicly on github</a>.</p>
+<p>Let’s see how this can be useful for backup and syncing work between two different computers.  I’ll simulate a 2nd computer by working in a different directory…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+# Here I clone my &#39;test&#39; repo but with a different name, test2, to simulate a 2nd computer
+git clone https://github.com/fperez/test.git test2
+cd test2
+pwd
+git remote -v
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now make some changes in one ‘computer’ and synchronize them on the second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test2  # working on computer #2
+
+echo &quot;More new content on my experiment&quot; &gt;&gt; experiment.txt
+git commit -a -m&quot;More work, on machine #2&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we put this new work up on the github server so it’s available from the internet</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test2
+
+git push
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s fetch that work from machine #1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git pull
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="an-introduction-to-branches">
+<h2>An introduction to branches<a class="headerlink" href="#an-introduction-to-branches" title="Permalink to this headline">¶</a></h2>
+<p>What is a branch?  Simply a <em>label for the ‘current’ commit in a sequence of ongoing commits</em>:</p>
+<p><img alt="" src="../../_images/masterbranch.png" /></p>
+<!-- offline: 
+<img src="https://raw.github.com/fperez/reprosw/master/fig/masterbranch.png" >
+--><p>There can be multiple branches alive at any point in time; the working directory is the state of a special pointer called HEAD.  In this example there are two branches, <em>master</em> and <em>testing</em>, and <em>testing</em> is the currently active branch since it’s what HEAD points to:</p>
+<p><img alt="" src="../../_images/HEAD_testing.png" /></p>
+<!-- offline: 
+<img src="https://raw.github.com/fperez/reprosw/master/fig/HEAD_testing.png" >
+--><p>Once new commits are made on a branch, HEAD and the branch label move with the new commits:</p>
+<p><img alt="" src="../../_images/branchcommit.png" /></p>
+<p>This allows the history of both branches to diverge:</p>
+<p><img alt="" src="../../_images/mergescenario.png" /></p>
+<p>But based on this graph structure, git can compute the necessary information to merge the divergent branches back and continue with a unified line of development:</p>
+<p><img alt="" src="../../_images/mergeaftermath.png" /></p>
+<p>Let’s now illustrate all of this with a concrete example.  Let’s get our bearings first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git status
+ls
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are now going to try two different routes of development: on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch we will add one file and on the <code class="docutils literal notranslate"><span class="pre">experiment</span></code> branch, which we will create, we will add a different one.  We will then merge the experimental branch into <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git branch experiment
+git checkout experiment
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+echo &quot;Some crazy idea&quot; &gt; experiment.txt
+git add experiment.txt
+git commit -a -m&quot;Trying something new&quot;
+git slog
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git checkout master
+git slog
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+echo &quot;All the while, more work goes on in master...&quot; &gt;&gt; file-newname.txt
+git commit -a -m&quot;The mainline keeps moving&quot;
+git slog
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, all variations of the git <code class="docutils literal notranslate"><span class="pre">log</span></code> commands only show the currently active branch.  If we want to see <em>all</em> branches, we can ask for them with the <code class="docutils literal notranslate"><span class="pre">--all</span></code> flag:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git slog --all
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, we can see the commit whose message is <code class="docutils literal notranslate"><span class="pre">Try</span> <span class="pre">something</span> <span class="pre">new</span></code>, that comes from the <code class="docutils literal notranslate"><span class="pre">experiment</span></code> branch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cd test
+
+git merge experiment
+git slog
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes/01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
