@@ -166,6 +166,9 @@ benefit from their support, please apply online at https://dsp.berkeley.edu/.
 
 + Communication: class Slack channel https://join.slack.com/t/stat-a7u3014/shared_invite/zt-kl7fket1-q8IKC9aTs01cbB5GBEA7PA
 
++ Lectures will be recorded and posted in [Google drive](https://drive.google.com/drive/u/1/folders/1DfuR06LbUaCs0gmWX9QyaUI35-mwnI-S), but attendance is mandatory.
+(Much of the pedagogical value of the class is in participating in discussions and code reviews.)
+
 + Course readings that are not easy to find free on the web or through the UC Berkeley Library will be posted to [Google drive](https://drive.google.com/drive/u/1/folders/1DfuR06LbUaCs0gmWX9QyaUI35-mwnI-S)
 
 + Computing resources
