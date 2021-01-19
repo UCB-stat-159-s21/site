@@ -22,7 +22,7 @@
 - part: Lecture Notes
   chapters:
   - file: Notes/01/index
-  - file: Notes/01/intro-jupyter-pangeo
+  - file: Notes/01/intro-jupyter-hub
   - file: Notes/01/git-intro-concepts
   - file: Notes/01/git-first-tasks
   - file: Notes/01/intro-shell
