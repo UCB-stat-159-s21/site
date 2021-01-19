@@ -12,3 +12,10 @@ logo                        : logo.png  # A path to the book logo
 
 execute:
   execute_notebooks: 'off'
+
+sphinx:
+  config:
+    myst_enable_extensions: 
+    - amsmath
+    - dollarmath
+    - html_image
