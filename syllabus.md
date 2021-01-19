@@ -98,6 +98,15 @@ will be provided, but not all topics required to do the homework will be covered
 + TBA
 + Office hours TBA
 
+### Communication
+
+Please use the course Slack channels for questions about course material and logistics.
+For personal matters (illness, accommodations, etc.) that should remain private, please send email to
+the instructors or GSI.
+
+During the work week, we expect to be able to reply to Slack messages and email within 24 hours.
+On weekends, we might need longer.
+
 ### Grading
 
 The course is *not* graded on a curve. 
