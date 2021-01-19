@@ -112,7 +112,9 @@ On weekends, we might need longer.
 The course is *not* graded on a curve. 
 It is possible for every student to make an A.
 We encourage you to focus on mastering the material, not on your grade.
-
+The weight of each assignment will be announced with the assignment.
+We are still working out the details, but we expect about 10 assignments in all,
+roughly 6 of which will be individual and 4 group.
 
 _Submitting assignments:_ Submit written assignments by making a pull request
 to your private repository within the Berkeley GitHub organization for the class,
