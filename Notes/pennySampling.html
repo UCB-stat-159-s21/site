@@ -139,31 +139,6 @@
    Introduction to Git and Github
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-jupyter-hub.html">
-   Jupyter - Interactive Computing and Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-jupyter-hub.html#jupyter-lab-basics">
-   Jupyter Lab Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/git-intro-concepts.html">
-   An interactive Git Tutorial: the tool you didn’t know you needed
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/git-first-tasks.html">
-   Git - First tasks with repositories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-shell.html">
-   Introduction to the Shell
-  </a>
- </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -278,11 +253,6 @@
      The Two-Step
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sequences-of-iid-variables">
-     Sequences of iid variables
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -348,31 +318,29 @@ for <span class="math notranslate nohighlight">\(\mu\)</span> by dividing by <sp
 <h3>The Two-Step<a class="headerlink" href="#the-two-step" title="Permalink to this headline">¶</a></h3>
 <p>One can think of penny sampling as taking place in two steps: first, select an item <span class="math notranslate nohighlight">\(J\)</span> with PPS sampling, then select a penny uniformly at random from that item. If the penny’s index is less than <span class="math notranslate nohighlight">\(X_J\)</span>, the penny is good. In other words, pennies are selected conditionally uniformly, given the item they are selected from, and compared to the true value of the item.</p>
 <p>In the limit as pennies shrink in value, this amounts to comparing <span class="math notranslate nohighlight">\(X_J\)</span> to a random variable <span class="math notranslate nohighlight">\(Z_J\)</span> that is (continuously) conditionally uniformly distributed on <span class="math notranslate nohighlight">\([0, U_J]\)</span>, where <span class="math notranslate nohighlight">\(U_J\)</span> is the upper bound on the item selected. Let <span class="math notranslate nohighlight">\(W\)</span> be the event that <span class="math notranslate nohighlight">\(Z_J \le X_J\)</span>. Then
-$<span class="math notranslate nohighlight">\(
-\begin{align}
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d76455ab-1398-48a4-acf7-b0941f260ff4">
+<span class="eqno">()<a class="headerlink" href="#equation-d76455ab-1398-48a4-acf7-b0941f260ff4" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \mathbb P \{ W = 1 \} &amp; = \mathbb P \{ Z_J \le X_J \} \\
     &amp;= \sum_{j=1}^N \mathbb P\{Z_J \le X_J | J = j\} \mathbb P \{J=j\} \\
     &amp;= \sum_{j=1}^N u_j/u \mathbb P\{Z_j \le x_j | J = j\} \\
     &amp;= \sum_{j=1}^N u_j/u \cdot x_j/u_j \\
     &amp;= x/u.
-\end{align}
-\)</span><span class="math notranslate nohighlight">\(
-In \)</span>n<span class="math notranslate nohighlight">\( iid draws, the distribution of the sum of the corresponding values of \)</span>W<span class="math notranslate nohighlight">\( is Binomial with parameters \)</span>n<span class="math notranslate nohighlight">\( and \)</span>p=\mu = x/u$.</p>
-<p>Alternatively, we can think of the process as creating a new set of <span class="math notranslate nohighlight">\(n\)</span> random variables <span class="math notranslate nohighlight">\(\{W_i\}\)</span> where <span class="math notranslate nohighlight">\(W_i \sim \mbox{Bernoulli}(X_i/U_i)\)</span>.
-It is clear that unconditionally, <span class="math notranslate nohighlight">\(\{W_i\}\)</span> are iid Benoulli(<span class="math notranslate nohighlight">\(x/u\)</span>), so <span class="math notranslate nohighlight">\(\sum_{i=1}^n W_i \sim \mbox{Binomial}(n, \mu)\)</span>, where <span class="math notranslate nohighlight">\(\mu \equiv x/u\)</span>.</p>
-</div>
-<div class="section" id="sequences-of-iid-variables">
-<h3>Sequences of iid variables<a class="headerlink" href="#sequences-of-iid-variables" title="Permalink to this headline">¶</a></h3>
-<p>This kind of “continuous penny sampling” lets us make confidence bounds for iid samples from an arbitrary bounded distribution, such as the mixture of a uniform and a point-mass at 0. The lower and upper bounds on each draw are 0 and 1. For each <span class="math notranslate nohighlight">\(X_i\)</span> in the sample, we generate a uniformly distributed <span class="math notranslate nohighlight">\(Z_i\)</span>, with all <span class="math notranslate nohighlight">\(\{X_i\}\)</span> and <span class="math notranslate nohighlight">\(\{Z_i\}\)</span> independent. Let <span class="math notranslate nohighlight">\(W_i = 1_{Z_i \le X_i}\)</span>.
-Then <span class="math notranslate nohighlight">\(\{W_i \}_{i=1}^n\)</span> are iid Bernoulli random variables with <span class="math notranslate nohighlight">\(\mathbb P \{W_i = 1\} = \mathbb E X_i = \mu\)</span>:
-$<span class="math notranslate nohighlight">\(
-\begin{align}
+\end{align}\]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+In $n$ iid draws, the distribution of the sum of the corresponding values of $W$ is Binomial with parameters $n$ and $p=\mu = x/u$.\\Alternatively, we can think of the process as creating a new set of $n$ random variables $\{W_i\}$ where $W_i \sim \mbox{Bernoulli}(X_i/U_i)$.
+It is clear that unconditionally, $\{W_i\}$ are iid Benoulli($x/u$), so $\sum_{i=1}^n W_i \sim \mbox{Binomial}(n, \mu)$, where $\mu \equiv x/u$.\\### Sequences of iid variables \\This kind of &quot;continuous penny sampling&quot; lets us make confidence bounds for iid samples from an arbitrary bounded distribution, such as the mixture of a uniform and a point-mass at 0. The lower and upper bounds on each draw are 0 and 1. For each $X_i$ in the sample, we generate a uniformly distributed $Z_i$, with all $\{X_i\}$ and $\{Z_i\}$ independent. Let $W_i = 1_{Z_i \le X_i}$. 
+Then $\{W_i \}_{i=1}^n$ are iid Bernoulli random variables with $\mathbb P \{W_i = 1\} = \mathbb E X_i = \mu$:
+\end{aligned}\end{align} \]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9d636176-164b-49c6-9add-af4add65644e">
+<span class="eqno">()<a class="headerlink" href="#equation-9d636176-164b-49c6-9add-af4add65644e" title="Permalink to this equation">¶</a></span>\[\begin{align}
        \mathbb P \{ W_i = 1 \} &amp; = \mathbb P \{ Z_i \le X_i \} \\
        &amp;= \int_0^1 \mathbb P \{ Z_i \le X_i | Z_i = z\} dz \\
        &amp;= \int_0^1 \mathbb P \{ X_i &gt; z \} dz \\
        &amp;= \mathbb E X_i,
-\end{align}
-\)</span>$
+\end{align}\]</div>
+<p>$$
 by the tail-integral formula for expectation.</p>
 </div>
 </div>

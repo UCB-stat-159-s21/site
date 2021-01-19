@@ -139,31 +139,6 @@
    Introduction to Git and Github
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-jupyter-hub.html">
-   Jupyter - Interactive Computing and Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-jupyter-hub.html#jupyter-lab-basics">
-   Jupyter Lab Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/git-intro-concepts.html">
-   An interactive Git Tutorial: the tool you didn’t know you needed
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/git-first-tasks.html">
-   Git - First tasks with repositories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-shell.html">
-   Introduction to the Shell
-  </a>
- </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -303,29 +278,8 @@
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-covariance-matrix-of-x-is-mbox-cov-x-mathbb-e-left-begin-pmatrix-x-1-mathbb-e-x-1-vdots-x-n-mathbb-e-x-n-end-pmatrix-begin-pmatrix-x-1-mathbb-e-x-1-cdots-x-n-mathbb-e-x-n-end-pmatrix-right">
-   The
-   <em>
-    covariance matrix
-   </em>
-   of
-   <span class="math notranslate nohighlight">
-    \(X\)
-   </span>
-   is
-$$
-\mbox{cov } X =
-{\mathbb E}
-\left (
-\begin{pmatrix}
-X_1 - {\mathbb E} X_1 \
-\vdots \
-X_n - {\mathbb E} X_n
-\end{pmatrix}
-\begin{pmatrix}
-X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
-\end{pmatrix}
-\right )
+  <a class="reference internal nav-link" href="#right">
+   \right )
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -648,64 +602,69 @@ However, the converse is not necessarily true: <span class="math notranslate noh
 <div class="section" id="random-vectors">
 <h2>Random Vectors<a class="headerlink" href="#random-vectors" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> are jointly distributed random variables, and let
-$<span class="math notranslate nohighlight">\(
-X = 
-\begin{pmatrix}
+$$
+X =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d62e53b-9ee3-4731-bf16-e93e182266c3">
+<span class="eqno">()<a class="headerlink" href="#equation-2d62e53b-9ee3-4731-bf16-e93e182266c3" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 \\
 \vdots \\
 X_n
-\end{pmatrix}
-.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<p>.
+$<span class="math notranslate nohighlight">\(
 Then \)</span>X<span class="math notranslate nohighlight">\( is a random vector, a \)</span>n<span class="math notranslate nohighlight">\( by \)</span>1$ vector of real-valued random variables.</p>
 <p>The expected value of <span class="math notranslate nohighlight">\(X\)</span> is
-$<span class="math notranslate nohighlight">\(
-{\mathbb E} X =
-\begin{pmatrix}
+$$
+{\mathbb E} X =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-24efb3f3-7aa3-4208-aada-7196e50c95d1">
+<span class="eqno">()<a class="headerlink" href="#equation-24efb3f3-7aa3-4208-aada-7196e50c95d1" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E} X_1 \\
 \vdots \\
 {\mathbb E} X_n
-\end{pmatrix}
-.
-\)</span>$</p>
-</div>
-</div>
-<div class="section" id="the-covariance-matrix-of-x-is-mbox-cov-x-mathbb-e-left-begin-pmatrix-x-1-mathbb-e-x-1-vdots-x-n-mathbb-e-x-n-end-pmatrix-begin-pmatrix-x-1-mathbb-e-x-1-cdots-x-n-mathbb-e-x-n-end-pmatrix-right">
-<h1>The <em>covariance matrix</em> of <span class="math notranslate nohighlight">\(X\)</span> is
+\end{pmatrix}\]</div>
+<p>.
+$$</p>
+<p>The <em>covariance matrix</em> of <span class="math notranslate nohighlight">\(X\)</span> is
 $$
 \mbox{cov } X =
 {\mathbb E}
-\left (
-\begin{pmatrix}
-X_1 - {\mathbb E} X_1 \
-\vdots \
+\left (</p>
+<div class="amsmath math notranslate nohighlight" id="equation-db211838-8804-4064-b1e7-5b92035f4781">
+<span class="eqno">()<a class="headerlink" href="#equation-db211838-8804-4064-b1e7-5b92035f4781" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+X_1 - {\mathbb E} X_1 \\
+\vdots \\
 X_n - {\mathbb E} X_n
-\end{pmatrix}
-\begin{pmatrix}
+\end{pmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-7c02c2a8-6e98-441f-bc44-fe8d41e982b0">
+<span class="eqno">()<a class="headerlink" href="#equation-7c02c2a8-6e98-441f-bc44-fe8d41e982b0" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
-\end{pmatrix}
-\right )<a class="headerlink" href="#the-covariance-matrix-of-x-is-mbox-cov-x-mathbb-e-left-begin-pmatrix-x-1-mathbb-e-x-1-vdots-x-n-mathbb-e-x-n-end-pmatrix-begin-pmatrix-x-1-mathbb-e-x-1-cdots-x-n-mathbb-e-x-n-end-pmatrix-right" title="Permalink to this headline">¶</a></h1>
-<p>{\mathbb E}
-\begin{pmatrix}
-(X_1 - {\mathbb E} X_1)^2 &amp; (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; \cdots &amp; (X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n) \
-(X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; (X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; (X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n) \
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+\end{pmatrix}\]</div>
+</div>
+</div>
+<div class="section" id="right">
+<h1>\right )<a class="headerlink" href="#right" title="Permalink to this headline">¶</a></h1>
+<p>{\mathbb E}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ea32e5cc-6a5d-40b6-b5a6-9dd42dafded3">
+<span class="eqno">()<a class="headerlink" href="#equation-ea32e5cc-6a5d-40b6-b5a6-9dd42dafded3" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+(X_1 - {\mathbb E} X_1)^2 &amp; (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; \cdots &amp; (X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n) \\
+(X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; (X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; (X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n) \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 (X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n) &amp; (X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n) &amp; \cdots &amp; (X_n - {\mathbb E} X_n)^2
-\end{pmatrix}
-$$</p>
+\end{pmatrix}\]</div>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-= 
-\begin{pmatrix}
+\[\]</div>
+<p>=</p>
+<div class="amsmath math notranslate nohighlight" id="equation-107a2f25-8956-40bf-b581-f5084c83cdf5">
+<span class="eqno">()<a class="headerlink" href="#equation-107a2f25-8956-40bf-b581-f5084c83cdf5" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E}(X_1 - {\mathbb E} X_1)^2 &amp; {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; \cdots &amp; 
 {\mathbb E}(X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n)) \\
 {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; {\mathbb E}(X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; 
 {\mathbb E}((X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n)) \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 {\mathbb E}((X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n)) &amp; {\mathbb E}(X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n)) &amp; \cdots &amp; {\mathbb E}(X_n - {\mathbb E} X_n)^2
-\end{pmatrix}
-.
-\end{split}\]</div>
+\end{pmatrix}\]</div>
+<p>.
+$$</p>
 <p>Covariance matrices are always <em>positive semidefinite</em>.</p>
 <div class="section" id="the-multivariate-normal-distribution">
 <h2>The Multivariate Normal Distribution<a class="headerlink" href="#the-multivariate-normal-distribution" title="Permalink to this headline">¶</a></h2>

@@ -112,7 +112,9 @@ On weekends, we might need longer.
 The course is *not* graded on a curve. 
 It is possible for every student to make an A.
 We encourage you to focus on mastering the material, not on your grade.
-
+The weight of each assignment will be announced with the assignment.
+We are still working out the details, but we expect about 10 assignments in all,
+roughly 6 of which will be individual and 4 group.
 
 _Submitting assignments:_ Submit written assignments by making a pull request
 to your private repository within the Berkeley GitHub organization for the class,
@@ -165,6 +167,9 @@ benefit from their support, please apply online at https://dsp.berkeley.edu/.
 ## Resources
 
 + Communication: class Slack channel https://join.slack.com/t/stat-a7u3014/shared_invite/zt-kl7fket1-q8IKC9aTs01cbB5GBEA7PA
+
++ Lectures will be recorded and posted in [Google drive](https://drive.google.com/drive/u/1/folders/1DfuR06LbUaCs0gmWX9QyaUI35-mwnI-S), but attendance is mandatory.
+(Much of the pedagogical value of the class is in participating in discussions and code reviews.)
 
 + Course readings that are not easy to find free on the web or through the UC Berkeley Library will be posted to [Google drive](https://drive.google.com/drive/u/1/folders/1DfuR06LbUaCs0gmWX9QyaUI35-mwnI-S)
 

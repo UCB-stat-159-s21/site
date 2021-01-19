@@ -139,31 +139,6 @@
    Introduction to Git and Github
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-jupyter-hub.html">
-   Jupyter - Interactive Computing and Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-jupyter-hub.html#jupyter-lab-basics">
-   Jupyter Lab Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/git-intro-concepts.html">
-   An interactive Git Tutorial: the tool you didn’t know you needed
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/git-first-tasks.html">
-   Git - First tasks with repositories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01/intro-shell.html">
-   Introduction to the Shell
-  </a>
- </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -329,25 +304,9 @@
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#let-s-check-the-result-aa-1-begin-pmatrix-1-2-6-7-end-pmatrix-cdot-frac-1-5-begin-pmatrix-7-2-6-1-end-pmatrix">
-   Let’s check the result:
-$$
-AA^{-1} =
-\begin{pmatrix}
-1 &amp; 2 \
-6 &amp; 7
-\end{pmatrix}
-\cdot
--\frac{1}{5}
-\begin{pmatrix}
-7 &amp; -2 \
--6 &amp; 1
-\end{pmatrix}
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frac-1-5-begin-pmatrix-7-12-2-2-42-42-12-7-end-pmatrix">
-   \frac{1}{5}\begin{pmatrix}
+   =
+\frac{1}{5}\begin{pmatrix}
 -7+12 &amp; 2-2 \
 -42 + 42 &amp; 12-7
 \end{pmatrix}
@@ -379,49 +338,13 @@ AA^{-1} =
     <a class="reference internal nav-link" href="#solving-linear-systems">
      Solving Linear Systems
     </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#this-gives-x-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix-multiplying-by-a-gives-ax-begin-pmatrix-2-3-4-6-1-5-3-4-3-end-pmatrix-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix">
-   This gives
-$
-   <span class="math notranslate nohighlight">
-    \(
-x = \begin{pmatrix}
--0.36842 \\
- 0.05263 \\
- 0.63158
-\end{pmatrix}
-.
-\)
-   </span>
-   <span class="math notranslate nohighlight">
-    \(
-Multiplying by \)
-   </span>
-   A
-   <span class="math notranslate nohighlight">
-    \( gives 
-\)
-   </span>
-   $
-Ax = \begin{pmatrix}
-2 &amp; 3 &amp; 4 \
-6 &amp; 1 &amp; 5 \
-3 &amp; 4 &amp; 3
-\end{pmatrix}
-\begin{pmatrix}
--0.36842 \
-0.05263 \
-0.63158
-\end{pmatrix}
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gaussian-elimination-continued">
-     Gaussian elimination, continued.
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gaussian-elimination-continued">
+       Gaussian elimination, continued.
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -621,16 +544,17 @@ $<span class="math notranslate nohighlight">\( \|a \|_\infty \equiv \max_{i=1}^n
 <p><strong>Outer Products.</strong></p>
 <p>If <span class="math notranslate nohighlight">\(a, b \in \Re^n\)</span> then the <em>outer product</em> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the matrix
 <span class="math notranslate nohighlight">\(ab \in {\mathcal M}(n,n)\)</span> with elements <span class="math notranslate nohighlight">\((ab)_{ij} = a_ib_j\)</span>:
-$<span class="math notranslate nohighlight">\(
-ab = 
-\begin{pmatrix} 
+$$
+ab =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0884f2ab-a18e-4d9a-ac2a-7129292e0257">
+<span class="eqno">()<a class="headerlink" href="#equation-0884f2ab-a18e-4d9a-ac2a-7129292e0257" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 a_1b_1 &amp; a_1b_2 &amp; \cdots &amp; a_1b_n \\
 a_2b_2 &amp; a_2b_2 &amp; \cdots &amp; a_2b_n \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 a_nb_1 &amp; a_nb_2 &amp; \cdots &amp; a_nb_n
-\end{pmatrix}
-.
-\)</span>$</p>
+\end{pmatrix}\]</div>
+<p>.
+$$</p>
 </div>
 <div class="section" id="id1">
 <h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -1177,143 +1101,132 @@ where \)</span>\mbox{adj}(A)<span class="math notranslate nohighlight">\( is the
 The \)</span>(i,j)<span class="math notranslate nohighlight">\( element of the co-factor matrix of \)</span>A<span class="math notranslate nohighlight">\( is the determinant of the matrix that
 results from deleting the \)</span>i<span class="math notranslate nohighlight">\(th row and \)</span>j<span class="math notranslate nohighlight">\(th column of \)</span>A<span class="math notranslate nohighlight">\(, multiplied by \)</span>(-1)^{i+j}$.</p>
 <p>For instance, if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(2,2)\)</span>, its adjugate is
-$<span class="math notranslate nohighlight">\(
-\mbox{adj}(A) \equiv 
-\begin{pmatrix}
+$$
+\mbox{adj}(A) \equiv</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ed2234af-a1c3-4a8e-bd39-6c05548f2deb">
+<span class="eqno">()<a class="headerlink" href="#equation-ed2234af-a1c3-4a8e-bd39-6c05548f2deb" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 A_{22} &amp; -A_{12} \\
 -A_{21} &amp; A_{11}
-\end{pmatrix}
-.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<p>.
+$<span class="math notranslate nohighlight">\(
 If \)</span>A \in {\mathcal M}(3,3)<span class="math notranslate nohighlight">\(, its adjugate is
 \)</span>$
-\mbox{adj}(A) \equiv
-\begin{pmatrix}</p>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{22} &amp; A_{23} \
-A_{32} &amp; A_{33}
-\end{vmatrix}
-&amp;</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{21} &amp; A_{23} \
-A_{31} &amp; A_{33}
-\end{vmatrix}
-&amp;</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{21} &amp; A_{22} \
-A_{31} &amp; A_{32}
-\end{vmatrix}
-\</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{12} &amp; A_{13} \
-A_{32} &amp; A_{33}
-\end{vmatrix}
-&amp;</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{11} &amp; A_{13} \
-A_{31} &amp; A_{33}
-\end{vmatrix}
-&amp;</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{11} &amp; A_{12} \
-A_{31} &amp; A_{32}
-\end{vmatrix}
-\</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{12} &amp; A_{13} \
-A_{22} &amp; A_{23}
-\end{vmatrix}
-&amp;</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{11} &amp; A_{13} \
-A_{21} &amp; A_{23}
-\end{vmatrix}
-&amp;</p></li>
-</ul>
-<ul class="simple">
-<li><p>\begin{vmatrix}
-A_{11} &amp; A_{12} \
-A_{21} &amp; A_{22}
-\end{vmatrix}
-\end{pmatrix}
-.
-$$</p></li>
-</ul>
+\mbox{adj}(A) \equiv</p>
+<div class="amsmath math notranslate nohighlight" id="equation-256b7ced-f188-4a54-95f7-b6358d389e70">
+<span class="eqno">()<a class="headerlink" href="#equation-256b7ced-f188-4a54-95f7-b6358d389e70" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+ + \begin{vmatrix} 
+   A_{22} &amp; A_{23} \\
+   A_{32} &amp; A_{33}
+ \end{vmatrix}
+ &amp;
+ - \begin{vmatrix}
+   A_{21} &amp; A_{23} \\
+   A_{31} &amp; A_{33}
+ \end{vmatrix}
+ &amp;
+ + \begin{vmatrix}
+   A_{21} &amp; A_{22} \\
+   A_{31} &amp; A_{32}
+ \end{vmatrix}
+ \\
+ - \begin{vmatrix} 
+   A_{12} &amp; A_{13} \\
+   A_{32} &amp; A_{33}
+ \end{vmatrix}
+ &amp;
+ + \begin{vmatrix}
+   A_{11} &amp; A_{13} \\
+   A_{31} &amp; A_{33}
+ \end{vmatrix}
+ &amp;
+ - \begin{vmatrix}
+   A_{11} &amp; A_{12} \\
+   A_{31} &amp; A_{32}
+ \end{vmatrix}
+ \\
+ + \begin{vmatrix} 
+   A_{12} &amp; A_{13} \\
+   A_{22} &amp; A_{23}
+ \end{vmatrix}
+ &amp;
+ - \begin{vmatrix}
+   A_{11} &amp; A_{13} \\
+   A_{21} &amp; A_{23}
+ \end{vmatrix}
+ &amp;
+ + \begin{vmatrix}
+   A_{11} &amp; A_{12} \\
+   A_{21} &amp; A_{22}
+ \end{vmatrix}
+\end{pmatrix}\]</div>
+<p>.
+$$</p>
 <div class="section" id="examples-of-computing-inverses">
 <h4>Examples of computing inverses<a class="headerlink" href="#examples-of-computing-inverses" title="Permalink to this headline">¶</a></h4>
 <p>Let
-$<span class="math notranslate nohighlight">\(
-A =
-\begin{pmatrix}
+$$
+A =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-38fc57c6-8727-4bbd-9ff4-a06b4a3b64e6">
+<span class="eqno">()<a class="headerlink" href="#equation-38fc57c6-8727-4bbd-9ff4-a06b4a3b64e6" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 1 &amp; 2 \\
 6 &amp; 7
-\end{pmatrix}
-.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<p>.
+$<span class="math notranslate nohighlight">\(
 Then
-\)</span><span class="math notranslate nohighlight">\(
-\mbox{adj}(A) =
-\begin{pmatrix}
+\)</span>$
+\mbox{adj}(A) =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-be200566-2bf5-47ef-861f-b6cfa048b0e2">
+<span class="eqno">()<a class="headerlink" href="#equation-be200566-2bf5-47ef-861f-b6cfa048b0e2" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 7 &amp; -2 \\
 -6 &amp; 1
-\end{pmatrix}
-,
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<p>,
+$<span class="math notranslate nohighlight">\(
 and \)</span>|A| = 1\cdot7 - 6\cdot2 = 7-12 = -5 \ne 0<span class="math notranslate nohighlight">\(, so \)</span>A<span class="math notranslate nohighlight">\( is invertible.
-\)</span><span class="math notranslate nohighlight">\(
+\)</span>$
 A^{-1} = \frac{\mbox{adj}(A)}{|A|} =
--\frac{1}{5} 
-\begin{pmatrix}
+-\frac{1}{5}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9c8e937f-3967-43a2-9376-3e3ae920ab5b">
+<span class="eqno">()<a class="headerlink" href="#equation-9c8e937f-3967-43a2-9376-3e3ae920ab5b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 7 &amp; -2 \\
 -6 &amp; 1
-\end{pmatrix}
-.
-\)</span>$</p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="let-s-check-the-result-aa-1-begin-pmatrix-1-2-6-7-end-pmatrix-cdot-frac-1-5-begin-pmatrix-7-2-6-1-end-pmatrix">
-<h1>Let’s check the result:
+\end{pmatrix}\]</div>
+<p>.
+$$</p>
+<p>Let’s check the result:
 $$
-AA^{-1} =
-\begin{pmatrix}
-1 &amp; 2 \
+AA^{-1} =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ca39ba5a-7191-4fb3-8dcf-ba6c90f08444">
+<span class="eqno">()<a class="headerlink" href="#equation-ca39ba5a-7191-4fb3-8dcf-ba6c90f08444" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+1 &amp; 2 \\
 6 &amp; 7
-\end{pmatrix}
-\cdot
--\frac{1}{5}
-\begin{pmatrix}
-7 &amp; -2 \
+\end{pmatrix}\]</div>
+<p>\cdot
+-\frac{1}{5}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6271420e-3688-4034-b21b-28071d958ea3">
+<span class="eqno">()<a class="headerlink" href="#equation-6271420e-3688-4034-b21b-28071d958ea3" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+7 &amp; -2 \\
 -6 &amp; 1
-\end{pmatrix}<a class="headerlink" href="#let-s-check-the-result-aa-1-begin-pmatrix-1-2-6-7-end-pmatrix-cdot-frac-1-5-begin-pmatrix-7-2-6-1-end-pmatrix" title="Permalink to this headline">¶</a></h1>
+\end{pmatrix}\]</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="frac-1-5-begin-pmatrix-7-12-2-2-42-42-12-7-end-pmatrix">
-<h1>\frac{1}{5}\begin{pmatrix}
+<h1>=
+\frac{1}{5}\begin{pmatrix}
 -7+12 &amp; 2-2 \
 -42 + 42 &amp; 12-7
 \end{pmatrix}<a class="headerlink" href="#frac-1-5-begin-pmatrix-7-12-2-2-42-42-12-7-end-pmatrix" title="Permalink to this headline">¶</a></h1>
-<p>\frac{1}{5}
-\begin{pmatrix}
-5 &amp; 0 \
+<p>\frac{1}{5}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7cfaf6dd-c908-4205-9c6b-705042795528">
+<span class="eqno">()<a class="headerlink" href="#equation-7cfaf6dd-c908-4205-9c6b-705042795528" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+5 &amp; 0 \\
 0 &amp; 5
-\end{pmatrix}
-= {\mathbf 1}_2.
+\end{pmatrix}\]</div>
+<p>= {\mathbf 1}_2.
 $$</p>
 <p>Let’s compute another: take
 $<span class="math notranslate nohighlight">\(
@@ -1453,16 +1366,17 @@ If \)</span>A<span class="math notranslate nohighlight">\( is positive definite,
 <h3>Matrix square-roots<a class="headerlink" href="#matrix-square-roots" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix with all non-negative elements.</p>
 <p>Define the matrix <span class="math notranslate nohighlight">\(\Lambda^{1/2}\)</span> by <span class="math notranslate nohighlight">\((\Lambda^{1/2})_{ij} = \sqrt{\Lambda_{ij}}\)</span>:
-$<span class="math notranslate nohighlight">\(
-\Lambda^{1/2} \equiv 
-\begin{pmatrix}
+$$
+\Lambda^{1/2} \equiv</p>
+<div class="amsmath math notranslate nohighlight" id="equation-643c32aa-715a-4cca-9ee8-313751284b2b">
+<span class="eqno">()<a class="headerlink" href="#equation-643c32aa-715a-4cca-9ee8-313751284b2b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 \sqrt{\Lambda_{11}} &amp; 0 &amp; \cdots &amp; 0 \\
 0 &amp; \sqrt{\Lambda_{22}} &amp; \cdots &amp; 0 \\
 \vdots &amp; \vdots &amp; \ddots &amp; 0 \\
 0 &amp; 0 &amp; \cdots &amp; \sqrt{\Lambda_{nn}}
-\end{pmatrix}
-.
-\)</span>$</p>
+\end{pmatrix}\]</div>
+<p>.
+$$</p>
 <p>Then <span class="math notranslate nohighlight">\(\Lambda^{1/2}\)</span> is the <em>matrix square root</em> of
 <span class="math notranslate nohighlight">\(\Lambda\)</span>, in the sense that <span class="math notranslate nohighlight">\(\Lambda^{1/2}\Lambda^{1/2} = \Lambda\)</span>.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is positive semi-definite, with the eigen-decomposition <span class="math notranslate nohighlight">\(R\Lambda R'\)</span>,
@@ -1804,114 +1718,127 @@ A = \begin{pmatrix}
 \end{pmatrix}
 \)</span><span class="math notranslate nohighlight">\(
 and
-\)</span><span class="math notranslate nohighlight">\(
-b = 
-\begin{pmatrix} 
+\)</span>$
+b =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0138b7f1-1bbb-45ca-bd81-04d7876f064b">
+<span class="eqno">()<a class="headerlink" href="#equation-0138b7f1-1bbb-45ca-bd81-04d7876f064b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 2 \\
 1 \\
 1
-\end{pmatrix}.
-\)</span>$</p>
-<p>We start by forming the “augmented” matrix that consists of appending <span class="math notranslate nohighlight">\(b\)</span> as an additional column of <span class="math notranslate nohighlight">\(A\)</span>:
-$<span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[We start by forming the &quot;augmented&quot; matrix that consists of appending $b$ as an additional column of $A$:
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-92ff5f82-08b1-41d3-b733-dec3ba09177e">
+<span class="eqno">()<a class="headerlink" href="#equation-92ff5f82-08b1-41d3-b733-dec3ba09177e" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 2 &amp; 4 &amp; 4 &amp; 2\\
 6 &amp; 1 &amp; 5 &amp; 1\\
 3 &amp; 4 &amp; 3 &amp; 1
-\end{pmatrix}
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Divide the first row by 2
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f8076901-e0e3-4d43-b159-4acbb6a56208">
+<span class="eqno">()<a class="headerlink" href="#equation-f8076901-e0e3-4d43-b159-4acbb6a56208" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2 &amp; 2 &amp; 1\\
 6 &amp; 1 &amp; 5 &amp; 1\\
 3 &amp; 4 &amp; 3 &amp; 1
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Subtract 6 times the first row from the second row:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-68aec211-7835-4b87-9ae2-83c55a1735a9">
+<span class="eqno">()<a class="headerlink" href="#equation-68aec211-7835-4b87-9ae2-83c55a1735a9" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2   &amp; 2  &amp;  1\\
 0 &amp; -11 &amp; -7 &amp; -5\\
 3 &amp; 4 &amp; 3 &amp; 1
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Subtract three times the first row from the third row:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c3b4c0b6-34ae-44c3-a298-190d114ef8d5">
+<span class="eqno">()<a class="headerlink" href="#equation-c3b4c0b6-34ae-44c3-a298-190d114ef8d5" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2   &amp; 2  &amp;  1\\
 0 &amp; -11 &amp; -7 &amp; -5\\
 0 &amp; -2 &amp; -3 &amp; -2
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Multiply the second and third rows by -1 and swap them:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-cb38df6f-84cd-4980-bbc3-b3a9877233cf">
+<span class="eqno">()<a class="headerlink" href="#equation-cb38df6f-84cd-4980-bbc3-b3a9877233cf" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2   &amp; 2  &amp;  1\\
 0 &amp; 2 &amp; 3 &amp;  2  \\
 0 &amp; 11 &amp; 7 &amp; 5
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Divide the second row by 2:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f7160466-fd3c-433a-a4b6-922a13653cbe">
+<span class="eqno">()<a class="headerlink" href="#equation-f7160466-fd3c-433a-a4b6-922a13653cbe" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2 &amp; 2   &amp;  1\\
 0 &amp; 1 &amp; 1.5 &amp;  1  \\
 0 &amp; 11 &amp; 7 &amp; 5
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Subtract 11 times the second row from the third row:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b3a46b33-f0b3-42ef-a601-cc37853d1215">
+<span class="eqno">()<a class="headerlink" href="#equation-b3a46b33-f0b3-42ef-a601-cc37853d1215" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2 &amp; 2   &amp;  1\\
 0 &amp; 1 &amp; 1.5 &amp;  1  \\
 0 &amp; 0 &amp; -9.5 &amp; -6
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Multiply the last row by -1/9.5:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a1914e43-5390-4358-99ac-ec5d6016e79b">
+<span class="eqno">()<a class="headerlink" href="#equation-a1914e43-5390-4358-99ac-ec5d6016e79b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2 &amp; 2   &amp;  1\\
 0 &amp; 1 &amp; 1.5 &amp;  1  \\
 0 &amp; 0 &amp; 1  &amp; 0.63158
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
-We now use _back substitution_ to find \)</span>x$:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x_3 = 0.63158\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(x_2 + 1.5\times 0.63158 = 1\)</span>, so <span class="math notranslate nohighlight">\(x_2 = 0.05263\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(x_1 + 2\times 0.05263 + 2\times0.63158 = 1\)</span>, so <span class="math notranslate nohighlight">\(x_1 = -0.36842\)</span>.</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="this-gives-x-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix-multiplying-by-a-gives-ax-begin-pmatrix-2-3-4-6-1-5-3-4-3-end-pmatrix-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix">
-<h1>This gives
-$<span class="math notranslate nohighlight">\(
-x = \begin{pmatrix}
--0.36842 \\
- 0.05263 \\
- 0.63158
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+We now use _back substitution_ to find $x$: \\+ $x_3 = 0.63158$.
++ $x_2 + 1.5\times 0.63158 = 1$, so $x_2 = 0.05263$.
++ $x_1 + 2\times 0.05263 + 2\times0.63158 = 1$, so $x_1 = -0.36842$.\\This gives 
+\end{aligned}\end{align} \]</div>
+<p>x = \begin{pmatrix}
+-0.36842 \
+0.05263 \
+0.63158
 \end{pmatrix}
 .
-\)</span><span class="math notranslate nohighlight">\(
+$<span class="math notranslate nohighlight">\(
 Multiplying by \)</span>A<span class="math notranslate nohighlight">\( gives 
 \)</span>$
 Ax = \begin{pmatrix}
 2 &amp; 3 &amp; 4 \
 6 &amp; 1 &amp; 5 \
 3 &amp; 4 &amp; 3
-\end{pmatrix}
-\begin{pmatrix}
--0.36842 \
-0.05263 \
-0.63158
-\end{pmatrix}<a class="headerlink" href="#this-gives-x-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix-multiplying-by-a-gives-ax-begin-pmatrix-2-3-4-6-1-5-3-4-3-end-pmatrix-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix" title="Permalink to this headline">¶</a></h1>
-<p>\begin{pmatrix}
-2 \
-1.00001 \
+\end{pmatrix}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b6b0169f-8d1e-4908-a643-ac4777d4e35d">
+<span class="eqno">()<a class="headerlink" href="#equation-b6b0169f-8d1e-4908-a643-ac4777d4e35d" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+-0.36842 \\
+ 0.05263 \\
+ 0.63158
+\end{pmatrix}\]</div>
+<p>=</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d7cd0ff9-eac2-4239-b98c-8df4e640cf8b">
+<span class="eqno">()<a class="headerlink" href="#equation-d7cd0ff9-eac2-4239-b98c-8df4e640cf8b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+2 \\
+1.00001 \\
 1
-\end{pmatrix}
-.
+\end{pmatrix}\]</div>
+<p>.
 $$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1945,7 +1872,7 @@ $$</p>
 </div></div>
 </div>
 <div class="section" id="gaussian-elimination-continued">
-<h2>Gaussian elimination, continued.<a class="headerlink" href="#gaussian-elimination-continued" title="Permalink to this headline">¶</a></h2>
+<h3>Gaussian elimination, continued.<a class="headerlink" href="#gaussian-elimination-continued" title="Permalink to this headline">¶</a></h3>
 <p>What happens if <span class="math notranslate nohighlight">\(A\)</span> is rank deficient?</p>
 <p>Consider the matrix
 $<span class="math notranslate nohighlight">\(
@@ -1958,37 +1885,44 @@ A = \begin{pmatrix}
 \)</span><span class="math notranslate nohighlight">\(
 Let's perform Gaussian elimination on it.
 Divide the first row by 2
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\)</span>$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-064be3e0-d67b-4e26-8aed-87ef745018d3">
+<span class="eqno">()<a class="headerlink" href="#equation-064be3e0-d67b-4e26-8aed-87ef745018d3" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2 &amp; 2 \\
 6 &amp; 1 &amp; 5 \\
 10 &amp; 9 &amp; 13 
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Subtract 6 times the first row from the second row:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ba49c238-9ebe-4175-8481-5b5224fceff2">
+<span class="eqno">()<a class="headerlink" href="#equation-ba49c238-9ebe-4175-8481-5b5224fceff2" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2   &amp; 2  \\
 0 &amp; -11 &amp; -7 \\
 10 &amp; 9 &amp; 13 
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Subtract ten times the first row from the third row:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e0ba9d65-5a48-4931-8023-230b20feef57">
+<span class="eqno">()<a class="headerlink" href="#equation-e0ba9d65-5a48-4931-8023-230b20feef57" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2   &amp; 2  \\
 0 &amp; -11 &amp; -7\\ 
 0 &amp; -11 &amp; -7 
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<div class="math notranslate nohighlight">
+\[
 Subtract the 2nd row from the third row:
-\)</span><span class="math notranslate nohighlight">\(
-\begin{pmatrix} 
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-518d2f08-9e9e-47fe-8de7-6578e31308c8">
+<span class="eqno">()<a class="headerlink" href="#equation-518d2f08-9e9e-47fe-8de7-6578e31308c8" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix} 
 1 &amp; 2   &amp; 2  \\
 0 &amp; -11 &amp; -7\\ 
 0 &amp; 0 &amp; 0
-\end{pmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
+\end{pmatrix}\]</div>
+<p>$<span class="math notranslate nohighlight">\(
 The third row is now zero: there are only two nonzero rows once we transform to upper-triangular form.
 The rank of the matrix \)</span>A<span class="math notranslate nohighlight">\( is therefore 2, not 3 (it is rank deficient).
 This matrix \)</span>A$ is not invertible.</p>
@@ -2063,6 +1997,7 @@ This matrix \)</span>A$ is not invertible.</p>
 </div></div>
 </div>
 <p>Next chapter: <span class="xref myst">Probability,Random Vectors, and the Multivariate Normal Distribution</span></p>
+</div>
 </div>
 </div>
 
