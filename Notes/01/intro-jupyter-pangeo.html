@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jupyter and Pangeo - Interactive Computing and Data Science &#8212; Collaborative and Reproducible Data Science</title>
+    <title>Jupyter - Interactive Computing and Data Science &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -228,12 +228,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Jupyter and Pangeo - Interactive Computing and Data Science
+   Jupyter - Interactive Computing and Data Science
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyterhub-and-pangeo">
-     JupyterHub and Pangeo
+    <a class="reference internal nav-link" href="#jupyterhub">
+     JupyterHub
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -259,27 +259,23 @@
         
               <div>
                 
-  <div class="section" id="jupyter-and-pangeo-interactive-computing-and-data-science">
-<h1>Jupyter and Pangeo - Interactive Computing and Data Science<a class="headerlink" href="#jupyter-and-pangeo-interactive-computing-and-data-science" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="jupyter-interactive-computing-and-data-science">
+<h1>Jupyter - Interactive Computing and Data Science<a class="headerlink" href="#jupyter-interactive-computing-and-data-science" title="Permalink to this headline">¶</a></h1>
 <p>In this short section, we’ll provide a brief overview of the tools we’ll be using from <a class="reference external" href="https://jupyter.org">Project Jupyter</a>.  We will present this live on the tutorial from a more interactive slide deck, but these notes may be useful as a reading reference.</p>
 <p>In brief, Jupyter provides a variety of tools to help you explore your data and computational worfklows <em>interactively</em>, that is in a context where you use a programming language (Python in our case) to execute (typically small amounts of) code and immediately view the results, informing your next steps where new code is executed. This process, inherently iterative and exploratory, is a natural fit for scientific research and commonly available in many environments like Matlab, IDL, Mathematica and more.</p>
 <p>Jupyter brings a set of open standards and tools to this space: it supports over 100 programming languages, provides interfaces that let you use this workflow similarly on your laptop or on a remote system (like the cloud or a supercomputer), and has a rich ecosystem of related and supporting tools.</p>
 <p>Later we’ll dive deeper into the Jupyter tools, for now we’re going to quickly cover enough of our two key ones to make sure you find your bearings in this tutorial, which focuses on Git and GitHub.</p>
-<div class="section" id="jupyterhub-and-pangeo">
-<h2>JupyterHub and Pangeo<a class="headerlink" href="#jupyterhub-and-pangeo" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jupyterhub">
+<h2>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h2>
 <p>While you can install the Jupyter tools to run on your laptop, we will instead run them on a cloud computing environment that offers scalable computational resources as well as close proximity to the data we want to use. Instead of all of you having to download lots of data each, we can spin up virtual computers in the cloud pre-configured with all the same tools and packages you’d need locally, in close proximity (in a network sense) to the data.</p>
 <p><a class="reference external" href="https://jupyter.org/hub">JupyterHub</a> is the tool in Jupyter that helps us do this: it is a multi-user server that lets us easily host Jupyter and other interactive data science tools (such as R Studio) under one “web roof”.</p>
 <img src="images/jupyterhub-logo.svg" width="300px">
-<p><a class="reference external" href="https://pangeo.io">Pangeo</a> is a project that combines JupyterHub with:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://dask.org">Dask</a>: high-level distributed computing, giving us scalability.</p></li>
-<li><p><a class="reference external" href="https://xarray.pydata.org">xarray</a>: numerical computing on n-dimensional labeled arrays (NetCDF model).</p></li>
-</ul>
-<p>and it provides an effective community platform for big data (geo)science.</p>
-<p>When you go to our pangeo hub at https://icesat-2.hackweek.io, you should see this:</p>
-<img src="images/pangeo-login.png" width="90%">
-<p>after logging in with your GitHub credentials, you should get:</p>
-<img src="images/pangeo-server.png" width="90%">
+<p>When you go to our DataHub at https://icesat-2.hackweek.io, you should see this:</p>
+<img src="images/jupyterhub-login-bcourses.png" width="90%">
+<p>after logging in with your bCourses/CalNet credentials, you will need to authorize the app to connect to Canvas:</p>
+<img src="images/jupyterhub-canvas.png" width="90%">
+<p>You can then click on the launch button to start your s</p>
+<img src="images/jupyterhub-launch.png" width="90%">
 <p>Once you click on the red “Start” button, something like this should come up:</p>
 <img src="images/jupyterlab-00.png" width="90%">
 </div>
