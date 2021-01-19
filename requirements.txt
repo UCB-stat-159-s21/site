@@ -1,5 +1,4 @@
-jupyter-book
-myst_parser == 0.13.1
+jupyter-book == 0.9.1
 matplotlib
 numpy
 scipy
