@@ -2,7 +2,8 @@
 ## Profs. Perez and Stark, Department of Statistics, UC Berkeley
 
 Below is our current plan for the course.
-This is not a contract: it is a plan, and it may change substantially.
+**This is not a contract:** it is a _plan_, and it may change substantially as the
+semester unfolds, especially given extra uncertainties due to COVID-19.
 
 ### Week 1
 
@@ -16,6 +17,7 @@ Lecture: Background and Setting
 * $P$-values
 
 Reading:
+
 * National Academy of Sciences, 2020. Reproducibility and Replicability in Science. https://www.nap.edu/catalog/25303/reproducibility-and-replicability-in-science
 * Barba, L., 2018. Terminologies for Reproducible Research, https://arxiv.org/abs/1802.03311
 * Buckheit, J.B., and D.L. Donoho, 1995. Wavelab and Reproducible Research, https://statweb.stanford.edu/~wavelab/Wavelab_850/wavelab.pdf
@@ -29,7 +31,6 @@ https://www.nature.com/articles/d41586-018-06008-w, doi: 10.1038/d41586-018-0600
 
 [Homework 1](./Hw/hw01-background.pdf): getting started
 
-------
 
 ### Week 2
 
@@ -41,6 +42,7 @@ Lecture: $P$-values
 * Multiplicity and selective inference (first discussion)
 
 Reading:
+
 * Wasserstein, R.L. and N.A. Lazar, 2016.
 The ASA Statement on p-Values: Context, Process, and Purpose,
 _The American Statistician_, _70,_ 129-133
@@ -61,6 +63,7 @@ Lecture: are reproducibility and replicability too much, too little, or just rig
 * The IHME COVID model and "peak COVID"
 
 Reading:
+
 * Barba, L., 2016. The hard road to reproducibility, _Science_, _354_, 142. doi 10.1126/science.354.6308.142
 * Hakim, D. and E. Lipton, 2018.
 Pesticide Studies Won E.P.A.'s Trust, Until Trump's Team Scorned 'Secret Science', _New York Times_,
@@ -77,6 +80,7 @@ https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full-text
 ### Week 4
 
 Lecture: Cargo-cult statistics, cargo-cult science, & "researcher degrees of freedom"
+
 * Where do models come from?
 * "All models are wrong, but some are useful." --George Box. What makes a model useful?
 * It is inappropriate to be concerned with mice when there are tigers abroad." --George Box. Model mice and model tigers.
@@ -86,6 +90,7 @@ Lecture: Cargo-cult statistics, cargo-cult science, & "researcher degrees of fre
     - Racial bias among soccer referees
 
 Reading:
+
 * Feynman, R., 1974. CalTech Commencement Address,
 http://calteches.library.caltech.edu/51/2/CargoCult.htm
 * Gelman, A. and E. Loken, 2014. The Statistical Crisis in Science,
@@ -107,6 +112,7 @@ https://www.significancemagazine.com/593
 ### Week 5
 
 Lecture: Statistical Models, Interpreting Probability, and Public Policy
+
 * Theories of Probability
     - equally likely outcomes, frequency theory, subjective theory
     - model-based probability 
@@ -133,6 +139,7 @@ Lecture: Statistical Models, Interpreting Probability, and Public Policy
     - interpreting parameter estimates when the model is wrong
 
 Reading:
+
 * Freedman, D.A., 1995. Some issues in the foundations of statistics, _Foundations of Science_, _1_, 19--39. https://doi.org/10.1007/BF00208723
 * Freedman, D.A., 2009. _Statistical Models: Theory and Practice_, 2nd edition, Cambridge University Press, sections 6.4-6.6.
 * Freedman, D.A., and R. Berk, 2001. Statistical Assumptions as Empirical Commitments,  
@@ -179,6 +186,7 @@ Lecture: randomization tests and the two-sample problem
     - effect size and confidence intervals
 
 Reading:
+
 * Boring, A., Ottoboni, K., and P.B. Stark, 2016. Student evaluations of teaching (mostly) do not
 measure teaching effectiveness, ScienceOpen Research, https://www.scienceopen.com/document/read?vid=818d8ec0-5908-47d8-86b4-5dc38f04b23e
 * Ottoboni, K. and P.B. Stark, 2018. Random problems with R, ArXiV, https://arxiv.org/abs/1809.06520.
@@ -193,6 +201,7 @@ Assignment:
 ### Week 7
 
 Lecture: Statistical detection of fraud
+
 * Some people have all the luck: lottery fraud
     - scratchers versus picks
     - tail probabilities
@@ -208,8 +217,11 @@ Lecture: Statistical detection of fraud
     - combining dependent tests: NPC
 
 Reading:
+
 * Arratia, R., S. Garibaldi, L. Mower, and P.B. Stark, 2015. Some people have all the luck,
 _Mathematics Magazine_, _88,_, https://doi.org/10.4169/math.mag.88.3.196
+* Lottery odds: To win, you’d have to be a loser. Lawrence Mower, Palm Beach Post, 28 March 2014. (Lottery fraud) 
+http://www.mypalmbeachpost.com/news/news/lottery-odds-to-win-youd-have-to-be-a-loser/nfL57
 * Minecraft Speedrunning team, 2020. Dream Investigation Results, https://mcspeedrun.com/dream.pdf Vidro: https://youtu.be/-MYw9LcLCb4
 * Photoexcitation, 2020. Critique of Dream Investigation Results, https://drive.google.com/file/d/1yfLURFdDhMfrvI2cFMdYM8f_M_IRoAlM/view
 video: https://youtu.be/1iqpSrNVjYQ
