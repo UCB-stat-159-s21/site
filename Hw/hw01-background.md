@@ -19,7 +19,7 @@ Consider a set of ordered pairs, $\{ (x_j, y_j)\}_{j=1}^n$.
 Let $\bar{x} \equiv \frac{1}{n} \sum_{j=1}^n x_j$,
 $\bar{x} \equiv \frac{1}{n} \sum_{j=1}^n x_j$, and
 $\bar{xy} \equiv \frac{1}{n} \sum_{j=1}^n x_j y_j$.
-- Is $\bar{xy} = \bar{x}\bar{y}$? If not, give a counter example.
+- Is $\bar{xy} = \bar{x}\bar{y}$? If so, sketch a proof; if not, give a counter example.
 
 ## [2 points] $P$-values
 
