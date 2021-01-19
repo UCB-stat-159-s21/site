@@ -1,0 +1,1425 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Kaplan-Wald Confidence Bound for a Nonnegative Mean &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/kaplanWald.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/kaplanWald.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-sprt-to-test-h-1-versus-h-0">
+   Using the SPRT to test
+   <span class="math notranslate nohighlight">
+    \(H_1\)
+   </span>
+   versus
+   <span class="math notranslate nohighlight">
+    \(H_0\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lookahead-and-the-sprt">
+     “Lookahead” and the SPRT
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-bounds-from-the-kaplan-wald-test">
+   Confidence bounds from the Kaplan-Wald test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-well-does-it-work">
+   How well does it work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upper-confidence-bounds-and-two-sided-bounds">
+   Upper confidence bounds and two-sided bounds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lower-confidence-bounds-on-the-mean-for-sampling-without-replacement-kolmogorov-s-inequality">
+   Lower confidence bounds on the mean for sampling without replacement: Kolmogorov’s inequality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application-marbles-in-a-jar">
+     Application: marbles in a jar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#another-martingale-test-for-the-mean-for-sampling-without-replacement">
+   Another martingale test for the mean for sampling without replacement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-for-testing-the-recursive-algorithm">
+   Examples for testing the recursive algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-next">
+   What’s next?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-kaplan-wald-confidence-bound-for-a-nonnegative-mean">
+<h1>The Kaplan-Wald Confidence Bound for a Nonnegative Mean<a class="headerlink" href="#the-kaplan-wald-confidence-bound-for-a-nonnegative-mean" title="Permalink to this headline">¶</a></h1>
+<p>This section presents an approach to finding lower confidence bounds for the mean of a nonnegative random variable described in H.M. Kaplan’s (no longer online) website, http://printmacroj.com/martMean.htm. (An Internet Archive version is available at http://web.archive.org/web/20150220073515/http://printmacroj.com/martMean.htm.) That work fleshes out an idea due to Wald (1945, 2004), and is closely related to a technique presented in Kaplan (1987) based on martingale theory.</p>
+<p>We start with a version for sampling with replacement, then develop finite-population (sampling without replacement) versions.</p>
+<p>For another derivation of the IID version, see Stark &amp; Teague (2014) https://www.usenix.org/system/files/jets/issues/0301/overview/jets_0301-stark.pdf</p>
+<p>We have an iid sequence of random variables <span class="math notranslate nohighlight">\(X_1, X_2, \ldots\)</span> such that <span class="math notranslate nohighlight">\(\mathbb P \{X_j \ge 0 \} = 1\)</span>. Let <span class="math notranslate nohighlight">\(F\)</span> be their common distribution function. We seek a lower confidence bound for their common expectation <span class="math notranslate nohighlight">\(\mu \equiv \mathbb E X_1 = \int_0^\infty x dF\)</span>.</p>
+<p>Under the hypothesis that <span class="math notranslate nohighlight">\(\mu = t\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+   t^{-1} \mu =  t^{-1} \int_0^\infty  xdF(x) = \int_0^\infty xt^{-1} dF(x) = 1.
+\]</div>
+<p>Fix <span class="math notranslate nohighlight">\(\gamma \in [0, 1]\)</span>.
+Because <span class="math notranslate nohighlight">\(\int_0^\infty dF = 1\)</span>, it follows that if <span class="math notranslate nohighlight">\(\mu  = t\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[  
+    \mathbb E \left ( (\gamma/t) X_j + (1-\gamma) \right ) = (\gamma/t) \mathbb E X_j + (1-\gamma) =  
+     (\gamma/t)t + (1-\gamma) = 1.
+\]</div>
+<p>Now,
+$<span class="math notranslate nohighlight">\(
+   \mathbb E \left ((\gamma/t) X_j + (1-\gamma) \right ) \equiv 
+     \int_0^\infty \left (x \gamma/t + (1-\gamma) \right ) dF(x).
+\)</span><span class="math notranslate nohighlight">\(
+Since for \)</span>x \ge 0<span class="math notranslate nohighlight">\(, \)</span>(x \gamma/t + (1-\gamma)) \ge 0$, it follows that if we define</p>
+<div class="math notranslate nohighlight">
+\[
+   dG \equiv (x \gamma/t + (1-\gamma))dF
+\]</div>
+<p>then <span class="math notranslate nohighlight">\(G\)</span> is the cdf of a nonnegative random variable.</p>
+<p>Let <span class="math notranslate nohighlight">\(Y\)</span> be a random variable with cdf <span class="math notranslate nohighlight">\(G\)</span>.
+By Jensen’s inequality, <span class="math notranslate nohighlight">\(\mathbb E X_j^2 \ge (\mathbb E X_j)^2 = t \cdot \mathbb E X_j\)</span> (by hypothesis).
+Since <span class="math notranslate nohighlight">\(\mathbb E X_j = t \ge 0\)</span>,</p>
+<p>\begin{align}
+\mathbb E Y  &amp;= \int_0^\infty x dG(x) \
+&amp;= \int_0^\infty x (x \gamma/t + (1-\gamma)) dF(x) \
+&amp;= \gamma/t \int_0^\infty x^2 dF(x) + (1-\gamma) \int_0^\infty x dF(x) \
+&amp;= \gamma/t \cdot \mathbb E X_j^2 + (1-\gamma) \cdot \mathbb E X_j \
+&amp;\ge \gamma \cdot \mathbb E X_j + (1-\gamma) \cdot \mathbb E X_j  = \mathbb E X_j.
+\end{align}
+(The penultimate step uses Jensen’s inequality.)</p>
+<p>If the data allow us to reject the hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> that <span class="math notranslate nohighlight">\(\{ X_j\}\)</span> are IID with cdf <span class="math notranslate nohighlight">\(F\)</span>
+in favor of the alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> that they are iid with cdf <span class="math notranslate nohighlight">\(G\)</span>,
+we have strong statistical evidence that <span class="math notranslate nohighlight">\(\mu = \mathbb E X_j &gt; t\)</span>.</p>
+<div class="section" id="using-the-sprt-to-test-h-1-versus-h-0">
+<h2>Using the SPRT to test <span class="math notranslate nohighlight">\(H_1\)</span> versus <span class="math notranslate nohighlight">\(H_0\)</span><a class="headerlink" href="#using-the-sprt-to-test-h-1-versus-h-0" title="Permalink to this headline">¶</a></h2>
+<p>Now a bit of magic occurs.  For a given observation <span class="math notranslate nohighlight">\(X_j = x_j\)</span>, what is the likelihood ratio of <span class="math notranslate nohighlight">\(H_1\)</span> to <span class="math notranslate nohighlight">\(H_0\)</span>?</p>
+<div class="math notranslate nohighlight">
+\[
+    \mbox{LR} = \frac{dG(x_j)}{dF(x_j)} = \frac{(x_j\gamma/t+(1−\gamma))dF(x_j)}{dF(x_j)} = (x_j\gamma/t+(1−\gamma)).
+\]</div>
+<p>This doesn’t depend on <span class="math notranslate nohighlight">\(F\)</span> or <span class="math notranslate nohighlight">\(G\)</span>!</p>
+<p>The <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> for observations <span class="math notranslate nohighlight">\(X_1, \ldots, X_m\)</span> is
+$<span class="math notranslate nohighlight">\(
+      \mbox{LR} = \prod_{i=1}^m \left [ (\gamma/t) X_i + 1 - \gamma \right ].
+\)</span><span class="math notranslate nohighlight">\(
+This expression shows why \)</span>\gamma<span class="math notranslate nohighlight">\( was introduced in the first place:
+for \)</span>\gamma = 1<span class="math notranslate nohighlight">\(, if even a single observation turned out to be zero, \)</span>\mbox{LR}<span class="math notranslate nohighlight">\( would forever be
+zero no matter how large subsequent observations turned out to be.
+Taking \)</span>\gamma &lt; 1<span class="math notranslate nohighlight">\( hedges against that possibility.
+Any value of \)</span>\gamma \in [0, 1]<span class="math notranslate nohighlight">\( gives a conservative test, but smaller values provide more &quot;protection&quot;
+against small values of \)</span>X_j<span class="math notranslate nohighlight">\( (but incur a loss of power when all \)</span>X_j$ are large).</p>
+<p>Recall that the <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value of <span class="math notranslate nohighlight">\(H_0: \mu = t\)</span> based on the observations <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^m\)</span>.
+We will use this to find a lower confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<div class="section" id="lookahead-and-the-sprt">
+<h3>“Lookahead” and the SPRT<a class="headerlink" href="#lookahead-and-the-sprt" title="Permalink to this headline">¶</a></h3>
+<p>There’s more: recall that the SPRT says the chance that <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> <em>ever</em> gets larger than <span class="math notranslate nohighlight">\(1/\alpha\)</span> is at most <span class="math notranslate nohighlight">\(\alpha\)</span> if <span class="math notranslate nohighlight">\(H_0\)</span> is true.
+That means that we can use the observations sequentially, maximizing over the partial products.
+If any of the partial products exceeds <span class="math notranslate nohighlight">\(1/\alpha\)</span>, we can reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>That is, our level-<span class="math notranslate nohighlight">\(\alpha\)</span> test based on a sample of size <span class="math notranslate nohighlight">\(n\)</span> is
+$<span class="math notranslate nohighlight">\(
+    \mbox{ Reject } H_0 \mbox{ if } \max_{m=1}^n \prod_{i=1}^m \left [ \gamma X_i/t + 1 - \gamma \right ] \ge 1/\alpha.
+\)</span>$</p>
+<p>It is <em>only</em> legitimate to do this maximization if the data are in random order.  For instance, it’s impermissible to sort them from largest to smallest. And if you maximize over partial products, the result will, in general, depend on the order of the data.</p>
+</div>
+</div>
+<div class="section" id="confidence-bounds-from-the-kaplan-wald-test">
+<h2>Confidence bounds from the Kaplan-Wald test<a class="headerlink" href="#confidence-bounds-from-the-kaplan-wald-test" title="Permalink to this headline">¶</a></h2>
+<p>To find a lower confidence bound, we can invert hypothesis tests: the lower endpoint of a one-sided confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span> is the largest value
+of <span class="math notranslate nohighlight">\(t\)</span> for which we would not reject the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>For confidence levels above 50%, this lower confidence bound will certainly be between zero and the sample mean. However, for <span class="math notranslate nohighlight">\(t=0\)</span>, we have a divide-by-zero issue. Hence, for numerical implementation, we search the interval <span class="math notranslate nohighlight">\([\epsilon, \bar{X}]\)</span> for the smallest <span class="math notranslate nohighlight">\(t\)</span> for which we can reject the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>. If that smallest <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>, we set the confidence bound to zero.</p>
+<p>The following code implements this idea, working with the log of the test statistic to improve numerical stability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the first cell with code: set up the Python environment</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">polynomial</span> <span class="k">as</span> <span class="n">P</span>
+
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1.e-12</span><span class="p">,</span> <span class="n">logf</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Calculates the Kaplan-Wald lower 1-alpha confidence bound for the mean of a nonnegative random</span>
+<span class="sd">       variable.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">-</span><span class="n">cl</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Data x must be nonnegative.&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logf</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="n">xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">xtol</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xtol</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">xtol</span><span class="o">=</span><span class="n">xtol</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">lo</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-well-does-it-work">
+<h2>How well does it work?<a class="headerlink" href="#how-well-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>Let’s test the method on our standard test problems: binomial and a mixture of pointmass and uniform.  We will fix <span class="math notranslate nohighlight">\(\gamma\)</span>; you might experiment using different values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at 1 and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># just for demonstration</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.99</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.e-12</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mass at 1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;Kaplan-Wald cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t low&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaplan-Wald low&#39;</span><span class="p">)</span>
+                       <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">p</span>  <span class="c1"># population is a mixture of uniform with mass (1-p) and</span>
+                             <span class="c1"># pointmass at 1 with mass p</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">coverK</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lowT</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># the uniform part of the sample</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># for a bunch of p-coin tosses</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># mix in pointmass at 1, with probability p</span>
+            <span class="c1"># t interval</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="n">samSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">tLo</span> <span class="o">=</span> <span class="n">samMean</span> <span class="o">-</span> <span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span>  <span class="c1"># lower endpoint of the t interval</span>
+            <span class="n">coverT</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">tLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span>
+            <span class="n">lowT</span> <span class="o">+=</span> <span class="n">tLo</span>
+            <span class="c1">#  Kaplan-Wald interval</span>
+            <span class="n">kLo</span> <span class="o">=</span> <span class="n">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">xtol</span><span class="p">)</span> <span class="c1"># lower endpoint of the Kaplan-Wald interval</span>
+            <span class="n">coverK</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span>
+            <span class="n">lowK</span> <span class="o">+=</span> <span class="n">kLo</span>
+
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverK</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowT</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lower endpoint of &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;one-sided Student-t and Kaplan-Wald confidence intervals for &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 1 population&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. Gamma=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">+</span>\
+          <span class="s1">&#39;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected lower endpoint of one-sided Student-t and Kaplan-Wald confidence intervals for mixture of U[0,1] and pointmass at 1 population</h3><strong>Nominal coverage probability 95.0%</strong>. Gamma=0.99.<br /><strong>Estimated from 10000 replications.</strong></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 1</th>
+      <th>sample size</th>
+      <th>Student-t cov</th>
+      <th>Kaplan-Wald cov</th>
+      <th>Student-t low</th>
+      <th>Kaplan-Wald low</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25</td>
+      <td>89.99%</td>
+      <td>100.0%</td>
+      <td>0.6842</td>
+      <td>0.8203</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50</td>
+      <td>98.81%</td>
+      <td>100.0%</td>
+      <td>0.6702</td>
+      <td>0.8708</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100</td>
+      <td>99.98%</td>
+      <td>97.59%</td>
+      <td>0.6641</td>
+      <td>0.8961</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400</td>
+      <td>100.0%</td>
+      <td>96.77%</td>
+      <td>0.6612</td>
+      <td>0.8988</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25</td>
+      <td>21.91%</td>
+      <td>100.0%</td>
+      <td>0.9535</td>
+      <td>0.8792</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50</td>
+      <td>39.32%</td>
+      <td>100.0%</td>
+      <td>0.9413</td>
+      <td>0.9341</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100</td>
+      <td>61.75%</td>
+      <td>100.0%</td>
+      <td>0.9272</td>
+      <td>0.9627</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400</td>
+      <td>97.78%</td>
+      <td>100.0%</td>
+      <td>0.9069</td>
+      <td>0.9847</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25</td>
+      <td>2.48%</td>
+      <td>100.0%</td>
+      <td>0.9952</td>
+      <td>0.8854</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50</td>
+      <td>4.69%</td>
+      <td>100.0%</td>
+      <td>0.9937</td>
+      <td>0.9406</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100</td>
+      <td>9.15%</td>
+      <td>100.0%</td>
+      <td>0.9915</td>
+      <td>0.9695</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400</td>
+      <td>32.84%</td>
+      <td>100.0%</td>
+      <td>0.9845</td>
+      <td>0.9917</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Looks pretty good!  Next we will introduce one more method, then we’ll compare the various methods we’ve seen.</p>
+</div>
+<div class="section" id="upper-confidence-bounds-and-two-sided-bounds">
+<h2>Upper confidence bounds and two-sided bounds<a class="headerlink" href="#upper-confidence-bounds-and-two-sided-bounds" title="Permalink to this headline">¶</a></h2>
+<p>If every <span class="math notranslate nohighlight">\(X_j\)</span> has the same finite, a priori upper bound <span class="math notranslate nohighlight">\(u\)</span>, we can transform the problem by defining <span class="math notranslate nohighlight">\(\tilde{X_j}= u - X_j\)</span>.  Then <span class="math notranslate nohighlight">\(\tilde{X_j}\)</span> is a nonnegative random variable, and a lower confidence bound on its mean translated to can be subtracted from <span class="math notranslate nohighlight">\(u\)</span> to make an upper confidence bound on <span class="math notranslate nohighlight">\(\mathbb E X_j\)</span>.</p>
+<p>If every <span class="math notranslate nohighlight">\(X_j\)</span> has the finite, a priori upper and lower bound, we can find two-sided confidence intervals in the analogous way, applying the Kaplan Wald method to the original data to find lower confidence bounds and to the data subtracted from the a priori upper bound to find upper confidence bounds.</p>
+</div>
+<div class="section" id="lower-confidence-bounds-on-the-mean-for-sampling-without-replacement-kolmogorov-s-inequality">
+<h2>Lower confidence bounds on the mean for sampling without replacement: Kolmogorov’s inequality<a class="headerlink" href="#lower-confidence-bounds-on-the-mean-for-sampling-without-replacement-kolmogorov-s-inequality" title="Permalink to this headline">¶</a></h2>
+<p>This is an alternative derivation of the Kaplan-Wald method, also from <a class="reference external" href="http://web.archive.org/web/20131209044835/http://printmacroj.com/martMean.htm">Harold Kaplan’s website</a>, involving the fact that a suitably constructed sequence is a martingale.
+It relies on Kolmogorov’s inequality for optionally stopped closed martingales.</p>
+<p>Suppose we are sampling without replacement from a finite population of <span class="math notranslate nohighlight">\(N\)</span>
+non-negative items,  <span class="math notranslate nohighlight">\(\{x_1, \ldots, x_N\}\)</span>, with <span class="math notranslate nohighlight">\(x_j \ge 0\)</span> <span class="math notranslate nohighlight">\(\forall j\)</span>.
+The population mean is <span class="math notranslate nohighlight">\(\mu = \frac{1}{N} \sum_{j=1}^N x_j \ge 0\)</span> and the population total
+is <span class="math notranslate nohighlight">\(N\mu \ge 0\)</span>.
+We draw <span class="math notranslate nohighlight">\(\{X_1, \ldots, X_n \}\)</span> sequentially without replacement.
+On the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}X_1 = t\)</span>, so <span class="math notranslate nohighlight">\(\mathbb{E}(X_1/t) = 1\)</span>.
+Conditional on <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span>, the total of the remaining <span class="math notranslate nohighlight">\(N-n\)</span> items is
+<span class="math notranslate nohighlight">\(N\mu - \sum_{j=1}^n X_j\)</span>, so the mean of the remaining items is</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{Nt-\sum_{j=1}^n X_j}{N-n} = \frac{t - \frac{1}{N} \sum_{j=1}^n X_j}{1-n/N}.
+\]</div>
+<p>Thus, the expected value of <span class="math notranslate nohighlight">\(X_{n+1}\)</span> given <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> is
+<span class="math notranslate nohighlight">\(\frac{t - \frac{1}{N} \sum_{j=1}^n X_j}{1-n/N}\)</span>.</p>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y_1(t) \equiv
+\begin{cases}
+X_1/t,&amp; Nt &gt; 0, \\
+1,&amp;   Nt = 0, \\
+\end{cases}
+\end{split}\]</div>
+<p>and for <span class="math notranslate nohighlight">\(1 \le n \le N-1\)</span>,
+$<span class="math notranslate nohighlight">\(
+Y_{n+1}(t) 
+\equiv
+\begin{cases}
+X_{n+1} 
+\frac
+{1 - \frac{n}{N}}
+{t - \frac{1}{N} \sum_{j=1}^n X_j},&amp; \sum_{j=1}^n X_j &lt; Nt, \\
+1,&amp; \sum_{j=1}^n X_j \ge Nt. \\
+\end{cases}
+\)</span>$</p>
+<p>Then <span class="math notranslate nohighlight">\(\mathbb{E}(Y_{n+1}(t) | Y_1, \ldots Y_n) = 1\)</span>.
+Let <span class="math notranslate nohighlight">\(Z_{n}(t) \equiv \prod_{j=1}^n Y_j(t)\)</span>.
+Note that <span class="math notranslate nohighlight">\(Y_k(t)\)</span> can be recovered from <span class="math notranslate nohighlight">\(\{Z_j(t), j \le k\}\)</span>,
+since <span class="math notranslate nohighlight">\(Y_k(t) = Z_k(t)/Z_{k-1}(t)\)</span>.
+Now <span class="math notranslate nohighlight">\(\mathbb{E}|Z_k| \le \max_j x_j &lt; \infty\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[
+   \mathbb{E}\left ( Z_{n+1}(t) | Z_1(t), \ldots Z_n(t) \right ) = 
+   \mathbb{E} \left (Y_{n+1}(t)Z_n(t) | Z_1(t), \ldots Z_n(t) \right ) = Z_n(t).
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+    \left ( Z_1(t), Z_2(t), \;\ldots , Z_N(t) \right )
+\]</div>
+<p>is a non-negative closed martingale.</p>
+<p>By Kolmogorov’s inequality, an application of Markov’s inequality to martingales
+(Feller V2, p.242), for any <span class="math notranslate nohighlight">\(p &gt; 0\)</span> and any <span class="math notranslate nohighlight">\(J \in \{1, \ldots, N \}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+     \Pr \left ( \max_{1 \le j \le J} Z_j(t) &gt; 1/p \right ) \le p \; \mathbb{E}|Z_J|.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\((Z_j)\)</span> is a non-negative martingale, <span class="math notranslate nohighlight">\(\mathbb{E}|Z_J| = \mathbb{E}Z_J = \mathbb{E}Z_1 = 1\)</span>.</p>
+<p>Thus a <span class="math notranslate nohighlight">\(p\)</span>-value for the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span> based on data <span class="math notranslate nohighlight">\(X_1, \ldots X_J\)</span> is
+<span class="math notranslate nohighlight">\(\left (\max_{1 \le j \le J} Z_j(t) \right )^{-1} \wedge 1\)</span>.
+If <span class="math notranslate nohighlight">\(X_j = 0\)</span> for some <span class="math notranslate nohighlight">\(j\)</span>, then <span class="math notranslate nohighlight">\(Z_k = 0\)</span> for all <span class="math notranslate nohighlight">\(k \ge j\)</span>.</p>
+<p>To avoid that problem, we can shift everything to the right: pick <span class="math notranslate nohighlight">\(\gamma &gt; 0\)</span>,
+find a lower confidence bound for <span class="math notranslate nohighlight">\(\delta = \mu+\gamma &gt; \mu &gt; 0\)</span> from data <span class="math notranslate nohighlight">\(\{X_j+\gamma\}\)</span>, then subtract <span class="math notranslate nohighlight">\(\gamma\)</span> from the lower
+confidence bound to get a lower confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.
+There are tradeoffs involved in picking <span class="math notranslate nohighlight">\(\gamma\)</span>: if many <span class="math notranslate nohighlight">\(X_j\)</span> turn out to be
+small, especially for small <span class="math notranslate nohighlight">\(j\)</span>, it helps to have <span class="math notranslate nohighlight">\(\gamma\)</span> large, and vice versa.</p>
+<p>Unpacking the math yields the <span class="math notranslate nohighlight">\(p\)</span> value</p>
+<div class="math notranslate nohighlight">
+\[
+p_{\mathrm{KK}} \equiv 1 \wedge \left ( \max_{1 \le j \le J} \prod_{k=1}^j (X_{k}+\gamma) \frac{1-(k-1)/N}{t - \frac{1}{N} \sum_{\ell=1}^{k-1} (X_\ell+\gamma)} \right )^{-1}
+\]</div>
+<p>for the hypothesis that <span class="math notranslate nohighlight">\(\mu \le t - \gamma\)</span>.</p>
+<p>The corresponding <span class="math notranslate nohighlight">\(1-\alpha\)</span> lower confidence bound is</p>
+<div class="math notranslate nohighlight">
+\[
+   \sup \left \{t \ge 0: \max_{1 \le j \le J}  \prod_{k=1}^j (X_{k}+\gamma) \frac{1-(k-1)/N}{t - \frac{1}{N} \sum_{\ell=1}^{k-1} (X_\ell+\gamma)} \le 1/\alpha \right \} - \gamma.
+\]</div>
+<div class="section" id="application-marbles-in-a-jar">
+<h3>Application: marbles in a jar<a class="headerlink" href="#application-marbles-in-a-jar" title="Permalink to this headline">¶</a></h3>
+<p>A certain jar contains <span class="math notranslate nohighlight">\(N\)</span> (even) marbles, <span class="math notranslate nohighlight">\(G\)</span> green and <span class="math notranslate nohighlight">\(N-G\)</span> non-green.
+We sample marbles sequentially without replacement. We wish to test the hypothesis
+<span class="math notranslate nohighlight">\(G \le N/2\)</span> against the alternative.
+For instance, <span class="math notranslate nohighlight">\(G\)</span> might represent the number of votes for the reported winner of an election
+in which <span class="math notranslate nohighlight">\(N\)</span> votes were cast.
+If the social choice function requires a majority, or if there are only two candidates, then
+green wins if <span class="math notranslate nohighlight">\(G &gt; N/2\)</span> and the outcome is a tie or a loss if <span class="math notranslate nohighlight">\(G \le N/2\)</span>.
+If we can reject the hypothesis that <span class="math notranslate nohighlight">\(G \le N/2\)</span>, we can conclude that the outcome is correct.</p>
+<p>Use the previous method, taking <span class="math notranslate nohighlight">\(t = 1/2\)</span> and shift <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span>.
+A pleasing choice for symmetry would be <span class="math notranslate nohighlight">\(\delta = 1/2\)</span>, but the operating characteristics
+depend on the true value of <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</div>
+</div>
+<div class="section" id="another-martingale-test-for-the-mean-for-sampling-without-replacement">
+<h2>Another martingale test for the mean for sampling without replacement<a class="headerlink" href="#another-martingale-test-for-the-mean-for-sampling-without-replacement" title="Permalink to this headline">¶</a></h2>
+<p>Let’s define a finite-sample version of the Kaplan-Wald approach, to which we can apply Kolmogorov’s Inequality.</p>
+<p>Let <span class="math notranslate nohighlight">\(S_j \equiv \sum_{k=1}^j X_k\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_j \equiv S_j/N\)</span>, and <span class="math notranslate nohighlight">\(\tilde{j} \equiv 1 - (j-1)/N\)</span>.
+Define</p>
+<div class="math notranslate nohighlight">
+\[
+   Y_n \equiv \int_0^1 \prod_{j=1}^n \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma.
+\]</div>
+<p>This is a polynomial in <span class="math notranslate nohighlight">\(\gamma\)</span> of degree at most <span class="math notranslate nohighlight">\(n\)</span>, with constant term <span class="math notranslate nohighlight">\(1\)</span>.
+Each <span class="math notranslate nohighlight">\(X_j\)</span> appears linearly.
+Under the null hypothesis that the population total is <span class="math notranslate nohighlight">\(Nt\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E} X_1 = t\)</span>,
+and</p>
+<div class="math notranslate nohighlight">
+\[
+  \mathbb{E} \left ( X_j \mid X_1, \ldots, X_{j-1} \right ) = 
+  \frac{Nt - S_{j-1}}{N-j+1} = \frac{t - \tilde{S}_{j-1}}{\tilde{j}}.
+\]</div>
+<p>Now</p>
+<div class="math notranslate nohighlight">
+\[
+   Y_1 = \int_0^1 \left ( \gamma [ X_1/t - 1] + 1 \right ) d\gamma = 
+   \left [ (\gamma^2/2) [X_1/t - 1] + \gamma \right ]_{\gamma=0}^1 = [X_1/t - 1]/2 + 1 = \frac{X_1}{2t} + 1/2.
+\]</div>
+<p>Thus, under the null,
+$<span class="math notranslate nohighlight">\(
+   \mathbb{E}Y_1 = \frac{\mathbb{E}X_1}{2t} + 1/2 = 1.
+\)</span>$</p>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+   \mathbb{E}(Y_n | X_1, \ldots, X_{n-1}) =
+   \mathbb{E} \left . \left [ \int_0^1 \prod_{j=1}^n \left (\gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma \right | X_1, \ldots, X_{n-1} \right ]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  = \int_0^1  \left (\gamma \left [ \mathbb{E}(X_n | X_1, \ldots, X_{n-1}) \frac{\tilde{n}}{t - \tilde{S}_{n-1}} -1 \right ] + 1 \right ) \prod_{j=1}^{n-1} \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  = \int_0^1  \left (\gamma \left [ \frac{t - \tilde{S}_{n-1}}{\tilde{n}} \frac{\tilde{n}}{t - \tilde{S}_{n-1}} -1 \right ] + 1 \right ) \prod_{j=1}^{n-1} \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  = \int_0^1  \prod_{j=1}^{n-1} \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma = Y_{n-1}.
+\]</div>
+<p>Thus, under the null hypothesis, <span class="math notranslate nohighlight">\((Y_j )_{j=1}^N\)</span> is a nonnegative closed martingale with expected value 1, and Kolmogorov’s inequality implies that for any <span class="math notranslate nohighlight">\(J \in \{1, \ldots, N\}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+   \Pr \left ( \max_{1 \le j \le J} Y_j(t) &gt; 1/p \right ) \le p.
+\]</div>
+<p>Set</p>
+<div class="math notranslate nohighlight">
+\[
+    c_j \equiv X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1,
+\]</div>
+<p>and re-write the polynomial</p>
+<div class="math notranslate nohighlight">
+\[
+ \prod_{j=1}^n \left (\gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) = \prod_{j: c_j \ne 0} c_j(\gamma + c_j^{-1}).
+\]</div>
+<p>This expresses the polynomial in terms of its roots, facilitating computations in Python.
+Using this notation,</p>
+<div class="math notranslate nohighlight">
+\[
+   Y_j = \int_0^1 \prod_{j: c_j \ne 0} c_j(\gamma + c_j^{-1}) d\gamma =
+   \left ( \prod_{j: c_j \ne 0} c_j \right ) \int_0^1 \prod_{j: c_j \ne 0} (\gamma + c_j^{-1}) d\gamma.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">KK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    p-value for the hypothesis that the mean of a nonnegative population with N</span>
+<span class="sd">    elements is t. The alternative is that the mean is greater than t.</span>
+<span class="sd">    If the random sample x is in the order in which the sample was drawn, it is</span>
+<span class="sd">    legitimate to set random_order = True. </span>
+<span class="sd">    If not, set random_order = False. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>  <span class="s1">&#39;Negative value in a nonnegative population!&#39;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Sample size is larger than the population!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;Population size not positive!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="s1">&#39;Non-integer population size!&#39;</span>
+    <span class="n">sample_total</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">mart</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">t</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="n">mart_max</span> <span class="o">=</span> <span class="n">mart</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="n">mart</span> <span class="o">*=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">j</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">sample_total</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mart</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">mart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sample_total</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">mart_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mart</span><span class="p">,</span> <span class="n">mart_max</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">mart_max</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="mi">1</span><span class="o">/</span><span class="n">mart</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>   
+
+<span class="k">def</span> <span class="nf">HK_ps_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Harold Kaplan p-value for the hypothesis that the mean of a nonnegative </span>
+<span class="sd">    population with N elements is t. </span>
+<span class="sd">    The alternative is that the mean is larger than t.</span>
+<span class="sd">    If the random sample x is in the order in which the sample was drawn, it is</span>
+<span class="sd">    legitimate to set random_order = True. </span>
+<span class="sd">    If not, set random_order = False. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>  <span class="s1">&#39;Negative value in a nonnegative population!&#39;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Sample size is larger than the population!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;Population size not positive!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="s1">&#39;Non-integer population size!&#39;</span>
+    <span class="n">Stilde</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="c1"># \tilde{S}_{j-1}</span>
+    <span class="n">t_minus_Stilde</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">Stilde</span>
+    <span class="n">mart_max</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">t_minus_Stilde</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span> <span class="c1"># sample total exceeds hypothesized population total</span>
+        <span class="n">mart_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># TO FIX: need to deal with zeros in t_minus_stilde</span>
+        <span class="n">jtilde</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span><span class="o">/</span><span class="n">N</span>
+        <span class="c1"># c_j = X_j*\tilde{j}/(t-\tilde{S}_{j-1}) - 1</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">jtilde</span><span class="p">,</span> <span class="n">t_minus_Stilde</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>  <span class="c1"># need to test for zeros!</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="n">cc</span> <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">cc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># roots</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">Y_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cc</span> <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">cc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]))</span> <span class="c1"># multiplicative constant</span>
+                <span class="n">poly</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polyfromroots</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                <span class="n">poly_int</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
+                <span class="n">poly_int_values</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">poly_int</span><span class="p">)</span>
+                <span class="n">mart</span> <span class="o">=</span> <span class="n">Y_norm</span><span class="o">*</span><span class="n">poly_int_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">mart_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mart_max</span><span class="p">,</span> <span class="n">mart</span><span class="p">)</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="n">mart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mart_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mart_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">mart_max</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Recursive integral from 0 to 1 of a polynomial in terms of its roots</span>
+
+<span class="k">def</span> <span class="nf">integral_from_roots_1</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Integrate the polynomial \prod_{k=1}^n (x-c_j) from 0 to 1, i.e.,</span>
+<span class="sd">       \int_0^1 \prod_{k=1}^n (x-c_j) dx</span>
+<span class="sd">    using a recursive algorithm.</span>
+<span class="sd">    </span>
+<span class="sd">    If maximal == True, finds the maximum of the integrals over lower degrees:</span>
+<span class="sd">       \max_{1 \le k \le n} \int_0^1 \prod_{j=1}^k (x-c_j) dx</span>
+<span class="sd">    </span>
+<span class="sd">    Input</span>
+<span class="sd">    ------</span>
+<span class="sd">    c : array of roots</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    ------</span>
+<span class="sd">    the integral or maximum integral</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span><span class="o">/</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">maximal</span><span class="p">:</span>
+        <span class="n">integrals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">integrals</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">,:])</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">integrals</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="p">,:])</span>
+    <span class="k">return</span> <span class="n">integral</span>   
+
+<span class="k">def</span> <span class="nf">integral_from_roots_2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Integrate the polynomial \prod_{k=1}^n (x-c_j) from 0 to 1, i.e.,</span>
+<span class="sd">       \int_0^1 \prod_{k=1}^n (x-c_j) dx</span>
+<span class="sd">    using a recursive algorithm.</span>
+<span class="sd">    </span>
+<span class="sd">    If maximal == True, finds the maximum of the integrals over lower degrees:</span>
+<span class="sd">       \max_{1 \le k \le n} \int_0^1 \prod_{j=1}^k (x-c_j) dx</span>
+<span class="sd">    </span>
+<span class="sd">    Input</span>
+<span class="sd">    ------</span>
+<span class="sd">    c : array of roots</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    ------</span>
+<span class="sd">    the integral or maximum integral</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">maximal</span><span class="p">:</span>
+        <span class="n">integrals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">integrals</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,:])</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">integrals</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">,:])</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">integral</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integral_from_roots_2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integral_from_roots_1</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.000999000999000999
+-8.349948460690676e+281
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examples-for-testing-the-recursive-algorithm">
+<h2>Examples for testing the recursive algorithm<a class="headerlink" href="#examples-for-testing-the-recursive-algorithm" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[
+   \int_0^1 (x-1) dx = -1/2.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+   \int_0^1 (x-1)^2 dx = 1/3.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+   \int_0^1 (x-1)^3 dx = -1/4.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+   \int_0^1 (x-1)^3(x+1) dx = -3/10.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>   <span class="c1"># root 1 occurs with multiplicity i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">integral_from_roots_2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+
+<span class="n">c4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>                 
+<span class="nb">print</span><span class="p">(</span><span class="n">integral_from_roots_2</span><span class="p">(</span><span class="n">c4</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integral_from_roots_2</span><span class="p">(</span><span class="n">c4</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5
+0.3333333333333333
+-0.25
+-0.3
+0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">HK_ps_se_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Harold Kaplan p-value for the hypothesis that the mean of a nonnegative </span>
+<span class="sd">    population with N elements is t. </span>
+<span class="sd">    The alternative is that the mean is larger than t.</span>
+<span class="sd">    If the random sample x is in the order in which the sample was drawn, it is</span>
+<span class="sd">    legitimate to set random_order = True. </span>
+<span class="sd">    If not, set random_order = False. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>  <span class="s1">&#39;Negative value in a nonnegative population!&#39;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Sample size is larger than the population!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;Population size not positive!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="s1">&#39;Non-integer population size!&#39;</span>
+    <span class="n">Stilde</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="c1"># \tilde{S}_{j-1}</span>
+    <span class="n">t_minus_Stilde</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">Stilde</span>
+    <span class="n">mart_max</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">t_minus_Stilde</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span> <span class="c1"># sample total exceeds hypothesized population total</span>
+        <span class="n">mart_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">:</span> <span class="c1"># sample mean does not exceed hypothesized population mean</span>
+        <span class="n">mart_max</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># TO FIX: need to deal with zeros in t_minus_stilde</span>
+        <span class="n">jtilde</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span><span class="o">/</span><span class="n">N</span>
+        <span class="c1"># c_j = X_j*\tilde{j}/(t-\tilde{S}_{j-1}) - 1</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">jtilde</span><span class="p">,</span> <span class="n">t_minus_Stilde</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>  <span class="c1"># need to test for zeros!</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="n">cc</span> <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">cc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># roots</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">Y_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cc</span> <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">cc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]))</span> <span class="c1"># multiplicative constant</span>
+                <span class="n">mart</span> <span class="o">=</span> <span class="n">Y_norm</span><span class="o">*</span><span class="n">integral_from_roots_2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+                <span class="n">mart_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mart_max</span><span class="p">,</span> <span class="n">mart</span><span class="p">)</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="n">mart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mart_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mart_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">mart_max</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Harold Kaplan&#39;s javascript routine asStated() translated into python</span>
+
+<span class="k">def</span> <span class="nf">HK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>  <span class="s1">&#39;Negative value in a nonnegative population!&#39;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Sample size is larger than the population!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;Population size not positive!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="s1">&#39;Non-integer population size!&#39;</span>
+    <span class="n">big</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">sumOfPreviousXValues</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">reduced_t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">sumOfPreviousXValues</span><span class="o">/</span><span class="n">N</span>
+        <span class="k">if</span> <span class="n">reduced_t</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">expectedX</span> <span class="o">=</span> <span class="n">reduced_t</span><span class="o">/</span><span class="p">(</span> <span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">expectedX</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">quotient</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">expectedX</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">quotient</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="n">j</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">j</span>
+            <span class="n">denominator</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+        <span class="n">candidate</span> <span class="o">=</span> <span class="n">tot</span><span class="o">/</span><span class="n">denominator</span>
+        <span class="n">big</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">big</span><span class="p">,</span> <span class="n">candidate</span><span class="p">)</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="n">candidate</span>
+        <span class="n">sumOfPreviousXValues</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">reduced_t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">sumOfPreviousXValues</span><span class="o">/</span><span class="n">N</span>
+        <span class="k">if</span> <span class="n">reduced_t</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">big</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare the python implementation with the translation of Kaplan&#39;s javascript into python</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> 
+<span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">HK_ps_se_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00013854893672071193 0.00013854893672071196
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># term-by-term integration of the polynomial is unstable when the sample size is large:</span>
+
+<span class="n">N</span> <span class="o">=</span><span class="mi">200000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">*</span><span class="mi">400</span> <span class="o">+</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">*</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kaplan:&#39;</span><span class="p">,</span> <span class="n">HK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="s1">&#39; term-by-term:&#39;</span><span class="p">,</span> <span class="n">HK_ps_se_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-11-377c2acb08b6&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">*</span><span class="mi">400</span> <span class="o">+</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">*</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kaplan:&#39;</span><span class="p">,</span> <span class="n">HK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="s1">&#39; term-by-term:&#39;</span><span class="p">,</span> <span class="n">HK_ps_se_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+
+<span class="nn">&lt;ipython-input-8-31daa2d31738&gt;</span> in <span class="ni">HK_ps_se_p</span><span class="nt">(x, N, t, random_order)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>             <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>                 <span class="n">Y_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cc</span> <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">cc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]))</span> <span class="c1"># multiplicative constant</span>
+<span class="ne">---&gt; </span><span class="mi">28</span>                 <span class="n">mart</span> <span class="o">=</span> <span class="n">Y_norm</span><span class="o">*</span><span class="n">integral_from_roots_2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">maximal</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>                 <span class="n">mart_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mart_max</span><span class="p">,</span> <span class="n">mart</span><span class="p">)</span> <span class="k">if</span> <span class="n">random_order</span> <span class="k">else</span> <span class="n">mart</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>             <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">&lt;ipython-input-5-7b0a799b4932&gt;</span> in <span class="ni">integral_from_roots_2</span><span class="nt">(c, maximal)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">58</span>             <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>             <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">if</span> <span class="n">maximal</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CI_from_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                         <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_p</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Lower confidence bound for the mean of a finite, nonnegative population.</span>
+<span class="sd">    </span>
+<span class="sd">    x: data, a random sample without replacement</span>
+<span class="sd">    N: population size</span>
+<span class="sd">    cl: desired confidence level</span>
+<span class="sd">    d: a shift. If d!=0, finds a confidence interval for the mean of x+d, then subtracts d.</span>
+<span class="sd">       d must be selected before looking at the data</span>
+<span class="sd">    random_order: if True, the data x must be in the (random) order in which the sample was</span>
+<span class="sd">        drawn. If x is not known to be in random order, set random_order = False</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">assert</span> <span class="n">cl</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">,</span>    <span class="s1">&#39;Confidence level must be at least 50%.&#39;</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>  <span class="s1">&#39;Negative value in a nonnegative population!&#39;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Sample size is larger than the population!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;Population size not positive!&#39;</span>
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="s1">&#39;Non-integer population size!&#39;</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># a lower confidence bound at cl &gt; 0.5 should not be larger than the sample mean</span>
+    <span class="k">if</span> <span class="n">random_order</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">p_value</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">d</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="n">random_order</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span>
+    <span class="n">lcl</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">lcl</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="o">+</span><span class="n">d</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-</span> <span class="n">d</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">lcl</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-.</span><span class="mi">05</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">50</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">sims_kk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+<span class="n">sims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">sims</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_from_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                                  <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_p</span><span class="p">)</span>
+    <span class="n">sims_kk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_from_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                                  <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_ps_se_p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sims</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sims_kk</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9199431415951652 0.6017412738014762
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">36666</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">53</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_order</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HK_ps_se_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_order</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15235675574875873
+0.15235675574875873
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HK_ps_se_p</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pct</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at 1 and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># just for demonstration</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.e-12</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20000</span> <span class="c1"># hypothetical population size</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mass at 1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaplan-Kolmogorov ES cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;Kaplan-Kolmogorov cov&#39;</span><span class="p">,</span> <span class="s1">&#39;KK ES low&#39;</span><span class="p">,</span> <span class="s1">&#39;KK low&#39;</span><span class="p">)</span>
+                       <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">p</span>  <span class="c1"># population is a mixture of uniform with mass (1-p) and</span>
+                             <span class="c1"># pointmass at 1 with mass p</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">coverK</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lowT</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># the uniform part of the sample</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># for a bunch of p-coin tosses</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># mix in pointmass at 1, with probability p</span>
+            <span class="c1"># Kaplan&#39;s mixture</span>
+            <span class="n">tLo</span> <span class="o">=</span> <span class="n">CI_from_test</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                                  <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_p</span><span class="p">)</span>
+            <span class="n">coverT</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">tLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span>
+            <span class="n">lowT</span> <span class="o">+=</span> <span class="n">tLo</span>
+            <span class="c1">#  Kaplan-Wald interval</span>
+            <span class="n">kLo</span> <span class="o">=</span> <span class="n">CI_from_test</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                                  <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_ps_se_p</span><span class="p">)</span> <span class="c1"># lower endpoint of the Kaplan-Wald interval</span>
+            <span class="n">coverK</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span>
+            <span class="n">lowK</span> <span class="o">+=</span> <span class="n">kLo</span>
+
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverK</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowT</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lower endpoint of &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;one-sided Kaplan-Kolmogorov and Kaplan-Wald confidence intervals for &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 1 population of&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;items&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. d=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span>\
+          <span class="s1">&#39;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at 0 and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># just for demonstration</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.e-12</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20000</span> <span class="c1"># hypothetical population size</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mass at 0&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;HK cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;HK PS SE cov&#39;</span><span class="p">,</span> <span class="s1">&#39;HK low&#39;</span><span class="p">,</span> <span class="s1">&#39;HK PS SE low&#39;</span><span class="p">)</span>
+                       <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">p</span><span class="o">*</span><span class="mi">0</span>  <span class="c1"># population is a mixture of uniform with mass (1-p) and</span>
+                               <span class="c1"># pointmass at 0 with mass p</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">coverK</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lowT</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># the uniform part of the sample</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># for a bunch of p-coin tosses</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># mix in pointmass at 0, with probability p</span>
+            <span class="c1"># Kaplan&#39;s mixture</span>
+            <span class="n">tLo</span> <span class="o">=</span> <span class="n">CI_from_test</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                                  <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_p</span><span class="p">)</span>
+            <span class="n">coverT</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">tLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span>
+            <span class="n">lowT</span> <span class="o">+=</span> <span class="n">tLo</span>
+            <span class="c1">#  Kaplan-Wald interval</span>
+            <span class="n">kLo</span> <span class="o">=</span> <span class="n">CI_from_test</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                                  <span class="n">p_value</span> <span class="o">=</span> <span class="n">HK_ps_se_p</span><span class="p">)</span> <span class="c1"># lower endpoint of the Kaplan-Wald interval</span>
+            <span class="n">coverK</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span>
+            <span class="n">lowK</span> <span class="o">+=</span> <span class="n">kLo</span>
+
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverK</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowT</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lower endpoint of &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;one-sided Kaplan-Kolmogorov and Kaplan-Wald confidence intervals for &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 0 population of&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;items&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. d=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span>\
+          <span class="s1">&#39;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="dus.html"><span class="doc std std-doc">Next: Dollar-unit sampling and taint</span></a></p></li>
+<li><p><a class="reference internal" href="sprt.html"><span class="doc std std-doc">Previous: Wald’s Sequential Probability Ratio Test</span></a></p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

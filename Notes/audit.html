@@ -1,0 +1,1290 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Risk-Limiting Election Audits &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/audit.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/audit.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading">
+   Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relevant-code">
+   Relevant code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relevant-popular-press">
+   Relevant popular press
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#super-simple-simultaneous-comparison-audits-for-plurality-contests">
+   “Super-simple simultaneous” comparison audits for plurality contests:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-kaplan-markov-inequality-wald-s-sequential-probability-ratio-test-and-the-kaplan-wald-inequality">
+     The Kaplan-Markov Inequality, Wald’s Sequential Probability Ratio Test, and the Kaplan-Wald Inequality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation">
+     Notation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#p-values">
+   <span class="math notranslate nohighlight">
+    \(P\)
+   </span>
+   -values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-kaplan-markov-inequality">
+   The Kaplan-Markov Inequality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#padding-the-kaplan-markov-inequality">
+   Padding the Kaplan-Markov Inequality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-approximation">
+     A simple approximation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-required-sample-size">
+   Estimating the required sample size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wald-s-sequential-probability-ratio-test">
+   Wald’s Sequential Probability Ratio Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-kaplan-wald-inequality">
+   The Kaplan-Wald Inequality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auditing-super-majority-contests">
+   Auditing Super-Majority Contests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-gamma">
+     Choosing
+     <span class="math notranslate nohighlight">
+      \(\gamma\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-risk-limiting-election-audits">
+<h1>Introduction to Risk-Limiting Election Audits<a class="headerlink" href="#introduction-to-risk-limiting-election-audits" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Lindeman, M. and P.B. Stark, 2012.
+A Gentle Introduction to Risk-Limiting Audits.
+<em>IEEE Security and Privacy, 10</em>, 42–49. Preprint: https://www.stat.berkeley.edu/~stark/Preprints/gentle12.pdf</p></li>
+<li><p>Stark, P.B., and D.A. Wagner, 2012.
+Evidence-Based Elections. <em>IEEE Security and Privacy, 10</em>, 33–41.
+Preprint: https://www.stat.berkeley.edu/~stark/Preprints/evidenceVote12.pdf</p></li>
+<li><p>Rivest, R.L. and E. Shen, 2012. A Bayesian Method for Auditing Elections, EVT/WOTE,
+https://www.usenix.org/system/files/conference/evtwote12/evtwote12-final30.pdf</p></li>
+</ol>
+</div>
+<div class="section" id="relevant-code">
+<h2>Relevant code<a class="headerlink" href="#relevant-code" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>https://github.com/ron-rivest/audit-lab</p></li>
+<li><p>https://github.com/pbstark/auditTools</p>
+<ol class="simple">
+<li><p>https://www.stat.berkeley.edu/~stark/Java/Html/auditTools.htm</p></li>
+<li><p>https://www.stat.berkeley.edu/~stark/Java/Html/ballotPollTools.htm</p></li>
+</ol>
+</li>
+<li><p>https://github.com/pbstark/DKDHondt14</p></li>
+</ol>
+</div>
+<div class="section" id="relevant-popular-press">
+<h2>Relevant popular press<a class="headerlink" href="#relevant-popular-press" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>http://www.huffingtonpost.com/american-statistical-association/leave-election-integrity-_b_3580649.html</p></li>
+<li><p>https://www.nytimes.com/2017/09/01/us/politics/russia-election-hacking.html</p></li>
+<li><p>https://www.nytimes.com/2017/09/01/insider/in-election-interference-its-what-reporters-didnt-find-that-matters.html</p></li>
+<li><p>https://www.usatoday.com/story/opinion/2016/11/18/election-audit-paper-machines-column/93803752/</p></li>
+<li><p>https://newrepublic.com/article/140254/inside-story-trump-clinton-stein-presidential-election-recount</p></li>
+<li><p>http://fortune.com/2017/07/31/defcon-hackers-us-voting-machines/</p></li>
+<li><p>https://www.theregister.co.uk/2017/07/29/us_voting_machines_hacking/</p></li>
+<li><p>https://www.wired.com/story/voting-machine-hacks-defcon/</p></li>
+<li><p>https://www.washingtonpost.com/local/virginia-politics/virginia-scraps-touch-screen-voting-machines-as-election-for-governor-looms/2017/09/08/e266ead6-94fe-11e7-89fa-bb822a46da5b_story.html</p></li>
+</ol>
+<p>Any way of tabulating votes can and will make mistakes.</p>
+<p>How can we tell whether those mistakes are <em>material</em>, that is, whether they caused the outcome to be wrong?</p>
+<p>If there is a trustworthy audit trail of paper ballots, we can check the electronic tally against a manual inspection of the paper. In principle we could recount all the votes by hand, but that’s unnecessarily expensive.
+Statistical methods can be more efficient.</p>
+<p>What would we like an election audit to do?</p>
+<p>Historically, statutory election audits didn’t really have much of a motivating principle.
+They were of the form “audit X% of the precincts and report what you see.”
+That doesn’t give much of a guarantee of anything. In particular, depending on the margin,
+X% might not even be enough to have a reasonable chance of finding any errors whatsoever even if
+the reported outcome was wrong.
+Proponents of that kind of audit often claim that the purpose of the audit is to check whether the machines
+are working properly.
+But “properly” isn’t a precise thing: because there is always some rate of error, especially in
+machine interpretation of manually marked ballots, the question is whether the machines worked
+“well enough.” They never work perfectly.</p>
+<p>Historically, the next approach to audits involved a “detection” paradigm, which is sensitive
+to the margin (it involves drawing larger samples to check smaller margins).
+In the detection approach, the goal is to draw a large enough sample that,
+if the reported outcome was wrong, there is
+a large chance that the sample will reveal at least one machine error.</p>
+<p>The detection paradigm is an improvement over the more arbitrary “audit X%” style of audit,
+but in my opinion, it doesn’t answer the right question.
+In part, that’s because machines inevitably misinterpret some fraction of hand-marked
+ballots, so an audit of a reasonable number of ballots is bound to find at least one machine error.
+What then?
+Such errors do not necessarily cast doubt on the outcome: the frequency of errors matters.</p>
+<p>I think a better question is, “in light of the errors the audit found in the sample, how confident should we
+be that the reported outcome is correct?”</p>
+<p>Even that doesn’t seem like enough to ask: ideally, we would like the audit to be a quality control measure
+that corrects errors if the errors “matter.”
+(A reasonable standard for <em>materiality</em>, that is, whether the errors matter, is whether they
+changed who or what appeared to win.)</p>
+<p>Risk-limiting audits provide a more efficient approach by formulating auditing as a statistical hypothesis test. The null hypothesis is that the reported outcome is wrong.
+To reject that hypothesis is to conclude that the outcome is correct.
+Absent strong evidence that the outcome is correct, keep inspecting ballots by hand, possibly proceeding to a full
+hand tally.</p>
+<p>There are two basic approaches to risk-limiting election audits:</p>
+<ol class="simple">
+<li><p>Ballot-polling audits. These draw a random sample of ballots but do not rely on the tabulation system at all.</p></li>
+<li><p>Comparison audits. This require the voting system to export subtotals (ideally a subtotal for every individual ballot) in such a way that the physical ballots corresponding to the subtotal can be retrieved and the subtotals can be checked manually. It also requires the local election official (LEO) to “commit” to the subtotals before the audit starts.</p></li>
+</ol>
+<p>Both approaches require a <em>ballot manifest</em> that describes in detail how the physical ballots are organized and stored (e.g., the number of batches, an identifier for each batch, and the number of ballots in each batch), so that a random sample of ballots can be drawn.</p>
+<p>Both approaches involve turning the hypothesis “the reported outcome is wrong” into a quantitative assertion about
+a scalar that gives a necessary condition for the outcome to be wrong.
+For instance, in a <em>plurality</em> contest, the true winner is the candidate (or position) that received the most votes.
+For the reported winner not to be the true winner, there must be some candidate who received at least as many
+votes as the reported winner.
+If we have strong statistical evidence that no candidate received as many votes or more votes than the reported winner, the audit can stop. Otherwise, it continues, potentially to a full hand count.</p>
+<p>The evidence can be direct (evidence about the fraction of votes for a given candidate), or indirect (evidence
+that errors in the count are not large enough to alter the outcome). Ballot-polling audits use the first kind of evidence;
+comparison audits use the second.</p>
+</div>
+<div class="section" id="super-simple-simultaneous-comparison-audits-for-plurality-contests">
+<h2>“Super-simple simultaneous” comparison audits for plurality contests:<a class="headerlink" href="#super-simple-simultaneous-comparison-audits-for-plurality-contests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-kaplan-markov-inequality-wald-s-sequential-probability-ratio-test-and-the-kaplan-wald-inequality">
+<h3>The Kaplan-Markov Inequality, Wald’s Sequential Probability Ratio Test, and the Kaplan-Wald Inequality<a class="headerlink" href="#the-kaplan-markov-inequality-wald-s-sequential-probability-ratio-test-and-the-kaplan-wald-inequality" title="Permalink to this headline">¶</a></h3>
+<p>This section follows https://www.usenix.org/legacy/event/evtwote10/tech/full_papers/Stark.pdf closely, but derives something
+slightly more general.</p>
+</div>
+<div class="section" id="notation">
+<h3>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C\)</span> contests under audit</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> ballots were cast in all. (There might not be any contest that appears on all <span class="math notranslate nohighlight">\(N\)</span> ballots)</p></li>
+<li><p>Contest <span class="math notranslate nohighlight">\(c\)</span> appears on <span class="math notranslate nohighlight">\(N_c\)</span> of the <span class="math notranslate nohighlight">\(N\)</span> cast ballots. (<span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(\{N_c\}_{c=1}^C\)</span> are known.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{W}_c\)</span>: the set of reported winners of contest <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_c\)</span>: the set of reported losers of contest <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_{pi} \in \{0, 1\}\)</span>: the reported votes for candidate <span class="math notranslate nohighlight">\(i\)</span> on ballot <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{pi} \in \{0, 1\}\)</span>: actual votes for candidate <span class="math notranslate nohighlight">\(i\)</span> on ballot <span class="math notranslate nohighlight">\(p\)</span>. If contest <span class="math notranslate nohighlight">\(c\)</span> does not appear on ballot <span class="math notranslate nohighlight">\(p\)</span> then <span class="math notranslate nohighlight">\(a_{pi} = 0\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_{w\ell} \equiv \sum_{p=1}^N (v_{pw} - v_{p\ell}) &gt; 0\)</span>:
+Reported margin of reported winner <span class="math notranslate nohighlight">\(w \in \mathcal{W}_c\)</span> over reported loser
+<span class="math notranslate nohighlight">\(\ell \in \mathcal{L}_c\)</span> in contest <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span>: smallest reported margin among all <span class="math notranslate nohighlight">\(C\)</span> contests:
+<span class="math notranslate nohighlight">\(V \equiv \min_c \min_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} V_{w \ell}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu = V/N\)</span>: the “diluted margin,” the margin in votes divided by the total number of
+ballots</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{w\ell} \equiv \sum_{p=1}^N (a_{pw} - a_{p\ell})\)</span>:
+actual margin of reported winner <span class="math notranslate nohighlight">\(w \in \mathcal{W}_c\)</span> over reported loser
+<span class="math notranslate nohighlight">\(\ell \in \mathcal{L}_c\)</span> in contest <span class="math notranslate nohighlight">\(c\)</span></p></li>
+</ul>
+<p>The reported winners of all <span class="math notranslate nohighlight">\(C\)</span> contests are the actual winners of those contests if
+$<span class="math notranslate nohighlight">\( 
+   \min_c \min_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} A_{w\ell} &gt; 0.
+\)</span>$</p>
+<p>Otherwise, at least one reported electoral outcome is wrong.
+(We aren’t particularly worried about
+whether the votes are counted perfectly—they almost never all—just whether
+the errors were large enough to make a loser appear to be a winner, or <em>vice versa</em>.)</p>
+<p>We won’t test that inequality directly.
+Instead, we will test a condition that is sufficient but not necessary for the
+inequality to hold, to get a computationally simple test that
+is still conservative (the simultaneous risk is below its nominal value).</p>
+<p>One such reduction relies on the maximum across-contest relative overstatement
+(MACRO), which we will now develop.</p>
+<p>The reported winners of contest <span class="math notranslate nohighlight">\(c\)</span> are correct if for every pair <span class="math notranslate nohighlight">\(w \in \mathcal{W}_c\)</span>,
+<span class="math notranslate nohighlight">\(\ell \in \mathcal{L}_c\)</span>,
+$<span class="math notranslate nohighlight">\(
+   \sum_{p=1}^N (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell} &lt; 1.
+\)</span><span class="math notranslate nohighlight">\(
+This condition says that the error in \)</span>V_{w\ell}<span class="math notranslate nohighlight">\( is less than \)</span>V_{w\ell}<span class="math notranslate nohighlight">\(.
+The reported winners of all the contests are correct if for every contest \)</span>c<span class="math notranslate nohighlight">\(,
+the previous relation holds, i.e., if
+\)</span><span class="math notranslate nohighlight">\(
+   \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c}
+   \sum_{p=1}^N (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell} &lt; 1.
+\)</span><span class="math notranslate nohighlight">\(
+Now the maximum (over \)</span>c<span class="math notranslate nohighlight">\( and, for each contest \)</span>c<span class="math notranslate nohighlight">\(, over all winner, loser pairs in
+that contest) of sums
+is not larger than the sum of maxima; that is,
+\)</span><span class="math notranslate nohighlight">\(
+\max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c}
+   \sum_{p=1}^N (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell}
+   \le
+  \sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
+  (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell}.
+\)</span><span class="math notranslate nohighlight">\(
+Hence, if 
+\)</span><span class="math notranslate nohighlight">\(
+\sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
+  (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell} &lt; 1,
+\)</span><span class="math notranslate nohighlight">\(
+all the reported outcomes must be correct.
+Define 
+\)</span><span class="math notranslate nohighlight">\(
+  e_p \equiv \max_c \max_{w \in \mathcal{W}_c \ell \in \mathcal{L}_c} (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell}.
+\)</span><span class="math notranslate nohighlight">\(
+Then the reported outcomes of all the contests must be correct if 
+\)</span><span class="math notranslate nohighlight">\( 
+  E \equiv \sum_{p=1}^N e_p &lt; 1.
+\)</span>$</p>
+<p>To see that a different way, suppose that the outcome of one or more contests is wrong.
+Then there is some contest <span class="math notranslate nohighlight">\(c\)</span> and some reported (winner, loser) pair
+<span class="math notranslate nohighlight">\(w \in \mathcal{W}_c, \ell \in \mathcal{L}_c\)</span> for which</p>
+<div class="math notranslate nohighlight">
+\[ 
+   0 \ge A_{w\ell} = V_{w\ell} - (V_{w\ell} - A_{w\ell}) =
+   V_{w\ell} - \sum_{p=1}^N (v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}),
+\]</div>
+<p>i.e.,
+$<span class="math notranslate nohighlight">\( 
+\sum_{p=1}^N (v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}) \ge V_{w\ell}.
+\)</span><span class="math notranslate nohighlight">\(
+Diving both sides by \)</span>V_{w\ell}<span class="math notranslate nohighlight">\( gives
+\)</span><span class="math notranslate nohighlight">\(
+\sum_{p=1}^N \frac{v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}} \ge 1.
+\)</span><span class="math notranslate nohighlight">\(
+But
+\)</span><span class="math notranslate nohighlight">\(
+\frac{v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}}
+\le 
+\max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\le 
+\max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}}
+= e_p,
+\)</span><span class="math notranslate nohighlight">\(
+so if the outcome is wrong, \)</span>E = \sum_p e_p \ge 1<span class="math notranslate nohighlight">\(.
+Thus a risk-limiting audit can rely on testing whether \)</span>E \ge 1<span class="math notranslate nohighlight">\(.
+If the hypothesis \)</span>E \ge 1<span class="math notranslate nohighlight">\( can be rejected at significance level \)</span>\alpha$,
+we can conclude that all the reported outcomes are correct.</p>
+<p>Testing whether <span class="math notranslate nohighlight">\(E \ge 1\)</span> would require a very large sample if we knew nothing at
+all about <span class="math notranslate nohighlight">\(e_p\)</span> without auditing ballot <span class="math notranslate nohighlight">\(p\)</span>: a single large value of <span class="math notranslate nohighlight">\(e_p\)</span> could make
+<span class="math notranslate nohighlight">\(E\)</span> arbitrarily large.
+Fortunately, there is an <em>a priori</em> upper bound for <span class="math notranslate nohighlight">\(e_p\)</span>.
+Whatever the reported votes <span class="math notranslate nohighlight">\(v_{pi}\)</span> are on ballot <span class="math notranslate nohighlight">\(p\)</span>, we can find the
+potential values of the actual votes <span class="math notranslate nohighlight">\(a_{pi}\)</span> that would make the
+error <span class="math notranslate nohighlight">\(e_p\)</span> largest, because <span class="math notranslate nohighlight">\(a_{pi}\)</span> can only be zero or one:
+$<span class="math notranslate nohighlight">\(
+    \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}} \le 
+    \frac{v_{pw}- 0 - v_{p\ell} + 1}{V_{w\ell}}.
+\)</span><span class="math notranslate nohighlight">\(
+Hence,
+\)</span><span class="math notranslate nohighlight">\(
+    e_p \le \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} 
+    \frac{v_{pw} - v_{p\ell} + 1}{V_{w\ell}} \equiv \tilde{u}_p.
+\)</span>$</p>
+<p>Knowing that <span class="math notranslate nohighlight">\(e_p \le \tilde{u}_p\)</span> might let us conclude reliably that <span class="math notranslate nohighlight">\(E &lt; 1\)</span>
+by examining only a small fraction of the ballots–depending on the
+values <span class="math notranslate nohighlight">\(\{ \tilde{u}_p\}_{p=1}^N\)</span> and on the values of <span class="math notranslate nohighlight">\(\{e_p\}\)</span> for the audited ballots.</p>
+<p>To make inferences about <span class="math notranslate nohighlight">\(E\)</span>, it is helpful to work with the <em>taint</em> <span class="math notranslate nohighlight">\(t_p \equiv \frac{e_p}{\tilde{u}_p} \le 1\)</span>.
+Define <span class="math notranslate nohighlight">\(\tilde{U} \equiv \sum_{p=1}^N \tilde{u}_p\)</span>.
+Suppose we draw ballots at random with replacement, with probability <span class="math notranslate nohighlight">\(\tilde{u}_p/\tilde{U}\)</span>
+of drawing ballot <span class="math notranslate nohighlight">\(p\)</span> in each draw, <span class="math notranslate nohighlight">\(p = 1, \ldots, N\)</span>.
+(Since <span class="math notranslate nohighlight">\(\tilde{u}_p \ge 0\)</span>, these are all positive numbers, and they sum to 1,
+so they define a probability distribution on the <span class="math notranslate nohighlight">\(N\)</span> ballots.)</p>
+<p>Let <span class="math notranslate nohighlight">\(T_j\)</span> be the value of <span class="math notranslate nohighlight">\(t_p\)</span> for the ballot <span class="math notranslate nohighlight">\(p\)</span> selected in the <span class="math notranslate nohighlight">\(j\)</span>th draw.
+Then <span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^n\)</span> are IID, <span class="math notranslate nohighlight">\(\mathbb{P} \{T_j \le 1\} = 1\)</span>, and
+$<span class="math notranslate nohighlight">\(
+  \mathbb{E} T_1 = \sum_{p=1}^N \tilde{u}_p/\tilde{U} t_p =
+  \frac{1}{\tilde{U}}\sum_{p=1}^N \tilde{u}_p \frac{e_p}{\tilde{u}_p} = 
+  \frac{1}{\tilde{U}} \sum_{p=1}^N e_p = E/\tilde{U}.
+\)</span><span class="math notranslate nohighlight">\(
+Thus \)</span>E = \tilde{U} \mathbb{E} T_1$.</p>
+<p>So, if we have strong evidence that
+<span class="math notranslate nohighlight">\(\mathbb{E} T_1 &lt; 1/\tilde{U}\)</span>, we have
+strong evidence that <span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
+<p>This approach can be simplified even further by noting that <span class="math notranslate nohighlight">\(\tilde{u}_p\)</span> has
+a simple upper bound that does not depend on any <span class="math notranslate nohighlight">\(v_{pi}\)</span>.
+At worst, the CVR for ballot <span class="math notranslate nohighlight">\(p\)</span> shows a vote for the “least-winning” apparent winner of the contest with the smallest margin, but a hand interpretation shows a vote for the runner-up in
+that contest.
+Since <span class="math notranslate nohighlight">\(V_{w\ell} \ge V\)</span> and <span class="math notranslate nohighlight">\(0 \le v_{pi} \le 1\)</span>,
+$<span class="math notranslate nohighlight">\( 
+   \tilde{u}_p = \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} 
+    \frac{v_{pw} - v_{p\ell} + 1}{V_{w\ell}}
+    \le \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} 
+    \frac{1 - 0 + 1}{V_{w\ell}}
+    \le \frac{2}{V}.
+\)</span>$</p>
+<p>Thus, if we define <span class="math notranslate nohighlight">\(u_p \equiv 2/V\)</span> and
+sample ballots at random with probability proportional to <span class="math notranslate nohighlight">\(u_p\)</span>, in fact
+we will sample ballots with <em>equal</em> probability.
+Define
+$<span class="math notranslate nohighlight">\( 
+   U \equiv \sum_{p=1}^N \frac{2}{V} = \frac{2N}{V} = 2/\mu
+\)</span><span class="math notranslate nohighlight">\(
+and re-define \)</span>t_p \equiv e_p/u_p<span class="math notranslate nohighlight">\( (rather than \)</span>e_p/\tilde{u}<em>p<span class="math notranslate nohighlight">\();
+let \)</span>T_j<span class="math notranslate nohighlight">\( be the value of \)</span>t_p<span class="math notranslate nohighlight">\( for the ballot selected at random in the
+\)</span>j<span class="math notranslate nohighlight">\(th draw, as before.
+Then still \)</span>{T_j}</em>{j=1}^n<span class="math notranslate nohighlight">\( are IID, \)</span>\mathbb{P} {T_j \le 1} = 1<span class="math notranslate nohighlight">\(,
+and
+\)</span><span class="math notranslate nohighlight">\(
+  \mathbb{E} T_1 = \sum_{p=1}^N \frac{u_p}{U} t_p =
+  \frac{1}{U}\sum_{p=1}^N u_p \frac{e_p}{u_p} = 
+  \frac{1}{U} \sum_{p=1}^N e_p = E/U = \frac{\mu}{2} E,
+\)</span><span class="math notranslate nohighlight">\(
+i.e., 
+\)</span><span class="math notranslate nohighlight">\( 
+    E = \frac{2}{\mu}\mathbb{E} T_1.
+\)</span><span class="math notranslate nohighlight">\(
+So, if we have evidence that \)</span>\mathbb{E} T_1 &lt; \mu/2 = 1/U<span class="math notranslate nohighlight">\(, we have evidence that 
+\)</span>E &lt; 1$.</p>
+</div>
+</div>
+<div class="section" id="p-values">
+<h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
+<p>We digress to define <span class="math notranslate nohighlight">\(P\)</span> values a little more carefully than elementary books typically do. See also Stark, P.B., 2016. The value of P-values, <em>The American Statistician,
+70,</em> DOI:10.1080/00031305.2016.1154108,
+http://amstat.tandfonline.com/doi/suppl/10.1080/00031305.2016.1154108</p>
+<p>There is a hypothesis about the world.
+A (possibly multivariate) datum <span class="math notranslate nohighlight">\(Y\)</span> will be observed;
+<span class="math notranslate nohighlight">\(Y\)</span> is a random variable that takes values in a measurable space <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>.
+If the hypothesis is true, the probability distribution
+<span class="math notranslate nohighlight">\(G\)</span> of <span class="math notranslate nohighlight">\(Y\)</span> is in some known set <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> of probability distributions.</p>
+<p>The null hypothesis is the assertion that <span class="math notranslate nohighlight">\(G \in \mathcal{G}\)</span>; if the null
+hypothesis is false, <span class="math notranslate nohighlight">\(G \notin \mathcal{G}\)</span>.
+(For simplicity, we suppose that all the distributions in <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> are defined on the same <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra,
+denoted <span class="math notranslate nohighlight">\(\Sigma\)</span>.)</p>
+<p>One particularly general and flexible definition of a <span class="math notranslate nohighlight">\(P\)</span>-value is that it is any random variable <span class="math notranslate nohighlight">\(P\)</span> for which <span class="math notranslate nohighlight">\(\Pr_G \{ P \le t \} \le t\)</span> for all <span class="math notranslate nohighlight">\(t \in [0, 1]\)</span>.
+That is, it is <em>stochastically smaller</em> than a uniform random variable if the null hypothesis is true.</p>
+<p>Another definition of <span class="math notranslate nohighlight">\(P\)</span>-values is in terms of <em>rejection regions</em> for a family of tests.
+For every value <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>, we have a measurable set <span class="math notranslate nohighlight">\(R_\alpha \in \Sigma\)</span> such that
+$<span class="math notranslate nohighlight">\(
+    \sup_{G \in \mathcal{G}} \Pr_G \{ Y \in R_\alpha \} \le \alpha.
+\)</span><span class="math notranslate nohighlight">\(
+If the hypothesis \)</span>G \in \mathcal{G}<span class="math notranslate nohighlight">\( is true, the chance that the datum \)</span>Y<span class="math notranslate nohighlight">\( 
+will be in the set \)</span>R_\alpha<span class="math notranslate nohighlight">\( is no greater than \)</span>\alpha<span class="math notranslate nohighlight">\(. 
+The set \)</span>R_\alpha<span class="math notranslate nohighlight">\( is the _rejection region_ of a significance-level 
+\)</span>\alpha<span class="math notranslate nohighlight">\( test of the null hypothesis.
+The hypothesis is rejected at significance level \)</span>\alpha<span class="math notranslate nohighlight">\( if \)</span>Y \in R_\alpha<span class="math notranslate nohighlight">\(.
+If we conclude that the hypothesis is false whenever \)</span>Y \in R_\alpha<span class="math notranslate nohighlight">\(, 
+the chance of erroneously concluding that the hypothesis is false if 
+it is in fact true is at most \)</span>\alpha$.</p>
+<p>To define <span class="math notranslate nohighlight">\(P\)</span>-values, we shall also insist that rejection regions for different significance
+levels nest:
+If <span class="math notranslate nohighlight">\(0 &lt; \beta &lt; \gamma &lt; 1\)</span>, then
+$<span class="math notranslate nohighlight">\(
+    R_\beta \subset R_\gamma.
+\)</span><span class="math notranslate nohighlight">\(
+This ensures that if the family of tests rejects the hypothesis at significance level \)</span>\alpha<span class="math notranslate nohighlight">\(, it
+also rejects the hypothesis at every significance level greater than \)</span>\alpha<span class="math notranslate nohighlight">\(.
+We also define \)</span>R_1 \equiv \mathcal{Y}$.</p>
+<p>Given this structure, the <span class="math notranslate nohighlight">\(P\)</span>-value of the null hypothesis given the
+observation <span class="math notranslate nohighlight">\(Y = y\)</span> is
+$<span class="math notranslate nohighlight">\(
+    P \equiv \inf \{ \alpha \in (0, 1] : y \in R_\alpha \}.
+\)</span><span class="math notranslate nohighlight">\(
+That is, the \)</span>P<span class="math notranslate nohighlight">\(-value is the smallest significance level at 
+which the family of tests rejects the hypothesis.
+Because of the nesting, the family rejects the hypothesis for all significance 
+levels greater than the \)</span>P$-value.</p>
+<p>The <span class="math notranslate nohighlight">\(P\)</span>-value depends not only on the hypothesis <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and the observation that <span class="math notranslate nohighlight">\(Y = y\)</span>,
+but also on the family of hypothesis tests (the sets <span class="math notranslate nohighlight">\(R_\alpha\)</span>, <span class="math notranslate nohighlight">\(\alpha \in (0, 1]\)</span>).
+Different tests in general give different <span class="math notranslate nohighlight">\(P\)</span>-values for the same hypothesis
+given the same data.</p>
+<p>One test is better (more <em>powerful</em>) than another if</p>
+<ul class="simple">
+<li><p>no matter what value <span class="math notranslate nohighlight">\(y\)</span> the datum <span class="math notranslate nohighlight">\(Y\)</span> takes, the first test assigns a <span class="math notranslate nohighlight">\(P\)</span>-value no larger than the second test does, and</p></li>
+<li><p>there is some <span class="math notranslate nohighlight">\(y \in \mathcal{Y}\)</span> such that the first test assigns a smaller <span class="math notranslate nohighlight">\(P\)</span>-value than the second when
+<span class="math notranslate nohighlight">\(Y = y\)</span>.</p></li>
+</ul>
+<p>Many tests are defined by a test statistic–a single-number
+summary <span class="math notranslate nohighlight">\(\phi(Y)\)</span> of the vector <span class="math notranslate nohighlight">\(Y\)</span>, where <span class="math notranslate nohighlight">\(\phi\)</span> is a <span class="math notranslate nohighlight">\(\Sigma\)</span>-measurable function from <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> to <span class="math notranslate nohighlight">\(\Re\)</span>.
+The rejection region is then expressed in terms of <span class="math notranslate nohighlight">\(\phi(Y)\)</span>:
+The null hypothesis is rejected if <span class="math notranslate nohighlight">\(\phi(Y) \le f_\alpha\)</span>,
+where <span class="math notranslate nohighlight">\(f_\alpha\)</span> is chosen to satisfy
+$<span class="math notranslate nohighlight">\(
+    \sup_{G \in \mathcal{G}} \mathbb{P}_G \{ \phi(Y) \le f_\alpha \} \le \alpha.
+\)</span><span class="math notranslate nohighlight">\(
+The nesting condition requires that for \)</span>0 &lt; \beta &lt; \gamma &lt; 1<span class="math notranslate nohighlight">\(,
+\)</span><span class="math notranslate nohighlight">\(
+    \{ y \in \mathcal{Y} : \phi(y) \le f_\beta \} \subset \{ y \in \mathcal{Y} : \phi(y) \le f_\gamma \};
+\)</span><span class="math notranslate nohighlight">\(
+i.e., \)</span>f_\alpha<span class="math notranslate nohighlight">\( should increase monotonically with \)</span>\alpha<span class="math notranslate nohighlight">\(.
+The \)</span>P<span class="math notranslate nohighlight">\(-value of the hypothesis for the observation \)</span>Y = y<span class="math notranslate nohighlight">\( is then
+\)</span><span class="math notranslate nohighlight">\(
+   P = \inf \{ \alpha : \phi(y) \le f_\alpha \}.
+\)</span>$</p>
+</div>
+<div class="section" id="the-kaplan-markov-inequality">
+<h2>The Kaplan-Markov Inequality<a class="headerlink" href="#the-kaplan-markov-inequality" title="Permalink to this headline">¶</a></h2>
+<p>Suppose <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are iid with <span class="math notranslate nohighlight">\(\mathbb{P}\{X_j \ge 0\} = 1\)</span>.
+Form the nonnegative Martingale:
+$<span class="math notranslate nohighlight">\(
+  \left ( X_1/\mathbb{E} X_1, (X_1/\mathbb{E} X_1)\cdot(X_2/\mathbb{E} X_1), ..., \prod_{j=1}^n X_n/\mathbb{E} X_1 \right ).
+\)</span><span class="math notranslate nohighlight">\(
+The expected value of each term is 1.
+Kaplan (1987) notes a result in Breiman (1992, p.88) that applies Markov's inequality to an
+optionally stopped nonnegative martingale \)</span>Z_1, Z_2, \ldots<span class="math notranslate nohighlight">\(: 
+For any \)</span>z &gt; 0<span class="math notranslate nohighlight">\(, \)</span>\mathbb{P} { \max_{j=1}^n Z_j &gt; z } \le \mathbb{E} Z_n/z<span class="math notranslate nohighlight">\(.
+In the case at hand, that gives:
+\)</span><span class="math notranslate nohighlight">\(
+   \mathbb{P} \left \{ \max_{j=1}^n \prod_{i=1}^j X_j/\mathbb{E} X_1 &gt; 1/\alpha \right \} \le \alpha. 
+\)</span>$
+This is the Kaplan-Markov inequality (see also Stark, 2009).</p>
+<p>We can reject the hypothesis that <span class="math notranslate nohighlight">\(\mathbb{E} X_j \le \mu\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> if
+$<span class="math notranslate nohighlight">\(
+   \max_{j=1}^n \prod_{i=1}^j X_i/\mu &gt; 1/\alpha. 
+\)</span><span class="math notranslate nohighlight">\(
+If we observe \)</span>(X_j = x_j)_{j=1}^n<span class="math notranslate nohighlight">\(, the \)</span>P<span class="math notranslate nohighlight">\(-value of the hypothesis that
+\)</span>\mathbb{E} X_1 \le \mu<span class="math notranslate nohighlight">\( is
+\)</span><span class="math notranslate nohighlight">\(
+   \left ( \max_{j=1}^n \prod_{i=1}^j x_j/\mu \right )^{-1}.
+\)</span>$</p>
+<p>This derivation gave a <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis that <span class="math notranslate nohighlight">\(\mathbb{E} X_1 \le \mu\)</span>
+starting with the assumptions that <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are IID and
+<span class="math notranslate nohighlight">\(\mathbb{P}\{X_1 \ge 0\} = 1\)</span>.
+But in election auditing, we want a <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis <span class="math notranslate nohighlight">\(\mathbb{E} T_1 \ge 1/U\)</span>
+and we know that <span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^n\)</span> are IID and <span class="math notranslate nohighlight">\(\mathbb{P}\{T_1 \le 1\} = 1\)</span>.
+The transformation <span class="math notranslate nohighlight">\(X_j = 1 - T_j\)</span> transforms one problem into the other.</p>
+<p>The <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis
+<span class="math notranslate nohighlight">\(E \ge 1\)</span> if we observe <span class="math notranslate nohighlight">\((T_j = t_j)_{j=1}^n\)</span> is
+$<span class="math notranslate nohighlight">\( 
+   P_{KM} \equiv \min_{j=1}^n \prod_{i=1}^j \frac{1 - 1/U}{1 - t_i}.
+\)</span>$</p>
+<p>The <span class="math notranslate nohighlight">\(P\)</span>-value <span class="math notranslate nohighlight">\(P_{KM}\)</span> can depend on the order in which the
+data are collected, which is discomfiting unless the data are in fact
+collected sequentially.</p>
+</div>
+<div class="section" id="padding-the-kaplan-markov-inequality">
+<h2>Padding the Kaplan-Markov Inequality<a class="headerlink" href="#padding-the-kaplan-markov-inequality" title="Permalink to this headline">¶</a></h2>
+<p>The basic Kaplan-Markov inequality isn’t helpful if any observed <span class="math notranslate nohighlight">\(t_p\)</span>
+is equal to 1, that is, if the corresponding ballot was reported to have
+a vote for the winner with the fewest votes (in the tightest contest),
+but an audit shows it to have a vote for the loser with the most votes.
+If equipment is functioning properly, such an error should not occur
+frequently: it would be much more common for a scanner to miss a mark,
+to treat a “hesitation mark” as an overvote, etc.
+However, if the auditors mistakenly retrieve the wrong ballot, such an
+error might occur more frequently, in turn requiring a full hand count
+even when the reported outcome is correct.</p>
+<p>To hedge against the possibility that the ratio of <span class="math notranslate nohighlight">\(e_p\)</span>
+to its upper bound is equal to 1 for any ballot in the sample,
+we can increase the upper bound so that it cannot be attained,
+for instance, by inflating it by a
+small percentage.
+The risk remains strictly controlled.</p>
+<p>To that end, we take the error bound for each ballot to be
+<span class="math notranslate nohighlight">\(
+  u_p \equiv \gamma 2/V &gt; \tilde{u}_p
+\)</span>
+where the “inflator” <span class="math notranslate nohighlight">\(\gamma &gt; 1\)</span>.
+That ensures that <span class="math notranslate nohighlight">\(e_p/u_p\)</span> cannot be larger than <span class="math notranslate nohighlight">\(1/\gamma &lt; 1\)</span>.
+The cost of inflating the upper bound in this way is that a larger sample will be
+needed than if <span class="math notranslate nohighlight">\(\{\tilde{u}_p\}\)</span>
+were used as the bounds and the sample did not happen to include any ballots with <span class="math notranslate nohighlight">\(e_p\)</span>
+equal to <span class="math notranslate nohighlight">\(\tilde{u}_p\)</span>.
+On the other hand, inflating the error bounds can help avoid a full count
+when that full count would merely confirm that all the apparent outcomes are correct;
+that is, using <span class="math notranslate nohighlight">\(\gamma &gt; 1\)</span> can increase the power of the test against some alternatives.
+The larger the value of <span class="math notranslate nohighlight">\(\gamma\)</span>, the larger the initial sample needs to be to allow the audit
+to stop if at most a given number of ballots overstated one or more margins by one vote,
+but the less the sample will need to be expanded if ballots in the sample
+overstate any margin by two votes–unless a full hand count is required.</p>
+<p>With <span class="math notranslate nohighlight">\(u_p\)</span> defined as above, the total error bound across all <span class="math notranslate nohighlight">\(N\)</span> ballots becomes
+<span class="math notranslate nohighlight">\(
+  U \equiv 2\gamma N/V = 2\gamma/\mu,
+\)</span>
+where <span class="math notranslate nohighlight">\(\mu\)</span> is the <em>diluted margin</em> <span class="math notranslate nohighlight">\(V/N\)</span>.
+The diluted margin plays an important role in determining the sample size:
+The initial sample size is <span class="math notranslate nohighlight">\(1/\mu\)</span> multiplied by
+a constant that depends on the desired simultaneous risk limit, the number of errors
+of each kind we would like to be able to tolerate without
+expanding the audit, and the inflator <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(n\)</span> of the <span class="math notranslate nohighlight">\(N\)</span> ballots are drawn with replacement with equal probability.
+Let <span class="math notranslate nohighlight">\(e_j\)</span> be the value of the error <span class="math notranslate nohighlight">\(e_p\)</span>
+for the <span class="math notranslate nohighlight">\(j\)</span>th randomly selected ballot.
+The Kaplan-Markov MACRO <span class="math notranslate nohighlight">\(P\)</span>-value is</p>
+<div class="math notranslate nohighlight">
+\[
+   P_{KM} \le \prod_{j=1}^n \frac{1 - 1/U}{1 - \frac{e_j}{u_j}}
+   = ( 1 - 1/U )^n \prod_{j=1}^n \left ( 1 - e_j\frac{V}{2\gamma} \right )^{-1}.
+\]</div>
+<p>An audit with simultaneous risk limit <span class="math notranslate nohighlight">\(\alpha\)</span> can be conducted by continuing to hand count
+the votes on ballots selected at random
+until <span class="math notranslate nohighlight">\(P_{KM} \le \alpha\)</span> or until the votes on all the ballots have been counted by hand
+(and the correct outcome is therefore known).</p>
+<div class="section" id="a-simple-approximation">
+<h3>A simple approximation<a class="headerlink" href="#a-simple-approximation" title="Permalink to this headline">¶</a></h3>
+<p>The Kaplan-Markov <span class="math notranslate nohighlight">\(P\)</span>-value depends on which margins in which contests are affected by error,
+and the nature of those errors.<br />
+We will develop a simplification that reduces bookkeeping without compromising the
+risk limit, but at the expense of potentially requiring
+the audit to inspect more ballots.</p>
+<p>The first step is to give up some of the advantages of normalizing errors by the
+margins they affect, so that errors that affect wide margins will count the same
+as errors that affect narrow margins.</p>
+<p>Recall that a sufficient condition for all the reported outcomes to be correct is
+$<span class="math notranslate nohighlight">\(
+\sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
+  \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}} &lt; 1.
+\)</span><span class="math notranslate nohighlight">\(
+Since 
+\)</span><span class="math notranslate nohighlight">\(
+   V \equiv \min_c \min_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} V_{w\ell},
+\)</span><span class="math notranslate nohighlight">\(
+an even more restrictive sufficient condition is
+\)</span><span class="math notranslate nohighlight">\(
+\sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
+  \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V} &lt; 1.
+\)</span>$
+This condition insists that the sum over ballots of the largest error
+in <em>any</em> margin in <em>any</em> contest on the ballot be less than the <em>smallest</em> margin
+between any winner and any loser in any contest.
+Clearly, this gives up a lot, since a 1-vote error in a wide margin matters less
+than a 1-vote error in a narrow margin.</p>
+<p>This condition is the same as the condition <span class="math notranslate nohighlight">\(E &lt; 1\)</span> if we replace
+all the individual pairwise margins <span class="math notranslate nohighlight">\(V_{w\ell}\)</span> by <span class="math notranslate nohighlight">\(V\)</span>, the smallese pairwise
+margin.</p>
+<p>An <em>overstatement</em> is an error that caused the margin between some
+reported winner and some reported loser to be larger than it really is.
+That is, an overstatement is an error that, if corrected, would reduce the margin.
+For instance, if the ballot was recorded as an undervote, but manual inspection shows that
+it was a vote for a reported loser, that is an <em>overstatement</em> error. Correcting
+it would reduce at least one reported margin.</p>
+<p>Conversely, an <em>understatement</em> is an error that caused the margin between some
+reported winner and some reported loser to be smaller than it really is.
+That is, an understatement is an error that, if corrected, would increase the margin.
+For instance, if a ballot was recorded as a vote for a reported loser, but manual inspection of
+the ballot shows that it was a vote for a reported winner, that is an <em>understatement</em>
+error. Correcting it would increase at least one reported margin.</p>
+<p>Discovering an overstatement reduces confidence that the reported outcomes are correct;
+discovering an understatement increases confidence in the outcomes—but not by as much.</p>
+<p>To have algebraically simple rules, we can make a conservative approximation to the
+Kaplan-Markov <span class="math notranslate nohighlight">\(P\)</span>-value <span class="math notranslate nohighlight">\(P_{KM}\)</span>, such that the approximate value is always larger than
+the true value, so the approximation will still control the true risk of failing to
+correct an incorrect reported outcome.</p>
+<p>Here is a re-cap where we are in the notation, the question, and the strategy:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e_p \equiv \max_c \max_{w \in \mathcal{W}_c \ell \in \mathcal{L}_c} (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V\)</span> is the maximum overstatement of pairwise margins on ballot <span class="math notranslate nohighlight">\(p\)</span>;
+it is the value of <span class="math notranslate nohighlight">\(e_p\)</span> we used before, but normalizes by <span class="math notranslate nohighlight">\(V\)</span> instead of <span class="math notranslate nohighlight">\(V_{w\ell}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E \equiv \sum_{p=1}^N e_p\)</span> is an upper bound on the total maximum relative overstatement of any pairwise margin; if <span class="math notranslate nohighlight">\(E &lt; 1\)</span> then all contest outcomes are correct</p></li>
+<li><p><span class="math notranslate nohighlight">\(u_p \equiv 2\gamma/V\)</span> is an a priori upper bound on <span class="math notranslate nohighlight">\(e_p\)</span> for every ballot <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U \equiv \sum_p u_p = 2N/V = 2/\mu\)</span> is the total of those upper bounds</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_p \equiv e_p/u_p\)</span> is the <em>taint</em> of ballot <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>we are testing the hypothesis <span class="math notranslate nohighlight">\(E \ge 1\)</span></p></li>
+<li><p>the audit will draw ballots IID with probability <span class="math notranslate nohighlight">\(1/N\)</span> of selecting each ballot in each draw</p></li>
+</ul>
+<p>We will develop a bound that depends on the data only through the number of ballots among
+the <span class="math notranslate nohighlight">\(n\)</span> ballots in the sample in each of four categories:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(o_1\)</span>: #ballots that overstate <em>any</em> margin by one vote but <em>no</em> margin by two votes.
+For such a ballot, <span class="math notranslate nohighlight">\(e_p = 1/V\)</span> and <span class="math notranslate nohighlight">\(t_p = 1/(2\gamma)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(u_1\)</span>: #ballots that understate <em>any</em> margin by exactly one vote, and <em>every</em> margin by at least one vote.
+For such a ballot, <span class="math notranslate nohighlight">\(e_p = -1/V\)</span> and <span class="math notranslate nohighlight">\(t_p = -1/(2\gamma)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(o_2\)</span>: #ballots that overstate <em>any</em> margin by two votes.
+For such a ballot, <span class="math notranslate nohighlight">\(e_p = 2/V\)</span> and <span class="math notranslate nohighlight">\(t_p = 1/\gamma\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(u_2\)</span>: #ballots that understate <em>every</em> margin by two votes (in general, if a contest with has more than one reported loser, there cannot be any such ballots).
+For such a ballot, <span class="math notranslate nohighlight">\(e_p = -2/V\)</span> and <span class="math notranslate nohighlight">\(t_p = -1/\gamma\)</span>.</p></li>
+</ul>
+<p>Then, once we have drawn <span class="math notranslate nohighlight">\(n\)</span> ballots at random
+$<span class="math notranslate nohighlight">\( 
+   P_{KM}  \le  P(n, o_1, u_1, o_2, u_2; U, \gamma) \equiv 
+       \left (1 - 1/U \right )^n \times 
+       \prod_{j=1}^n ( 1 - t_j )^{-1}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+= ( 1 - 1/U )^n
+  \left ( 1 - \frac{1}{2\gamma}\right )^{-o_1} 
+  \left ( 1 - \frac{1}{\gamma}\right )^{-o_2} 
+  \left ( 1 + \frac{1}{2\gamma}\right )^{-u_1} 
+  \left ( 1 + \frac{1}{\gamma}\right )^{-u_2}.   
+\)</span>$</p>
+<p>If the audit stops only when <span class="math notranslate nohighlight">\(P(n, o_1, u_1, o_2, u_2; U, \gamma) \le \alpha\)</span> (or when all ballots have been tallied manually and the result is known), the risk of certifying
+an incorrect outcome is limited to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>In practice, it’s easier to work with logarithms, so that the only operations required are addition and subtraction.  The termination condition becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+  n \log \left ( 1 - \frac{\mu}{2\gamma} \right ) 
+  - o_1 \log \left ( 1 - \frac{1}{2\gamma}\right ) 
+  - o_2 \log \left ( 1 - \frac{1}{\gamma}\right )
+  - u_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
+  - u_2 \log \left ( 1 + \frac{1}{\gamma}\right ) &lt; \log \alpha.
+\]</div>
+</div>
+</div>
+<div class="section" id="estimating-the-required-sample-size">
+<h2>Estimating the required sample size<a class="headerlink" href="#estimating-the-required-sample-size" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we expect to see errors of the various kinds, <span class="math notranslate nohighlight">\((o_1, o_2, u_1, u_2)\)</span>,
+at rates <span class="math notranslate nohighlight">\((\omega_1, \omega_2, \upsilon_1, \upsilon_2)\)</span>, respectively.
+How large should we expect <span class="math notranslate nohighlight">\(n\)</span> will need to be before the audit can stop?</p>
+<p>We expect <span class="math notranslate nohighlight">\(n \omega_1\)</span> 1-vote overstatements in a sample of size <span class="math notranslate nohighlight">\(n\)</span>, etc.
+The expected termination condition is thus:</p>
+<div class="math notranslate nohighlight">
+\[
+   n \left [ \log \left ( 1 - \frac{\mu}{2\gamma} \right ) 
+  - \omega_1 \log \left ( 1 - \frac{1}{2\gamma}\right ) 
+  - \omega_2 \log \left ( 1 - \frac{1}{\gamma}\right )
+  - \upsilon_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
+  - \upsilon_2 \log \left ( 1 + \frac{1}{\gamma}\right ) \right ] &lt; \log \alpha.
+\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(n\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+  n \ge \frac{\log \alpha}{\log \left ( 1 - \frac{\mu}{2\gamma} \right ) 
+  - \omega_1 \log \left ( 1 - \frac{1}{2\gamma}\right ) 
+  - \omega_2 \log \left ( 1 - \frac{1}{\gamma}\right )
+  - \upsilon_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
+  - \upsilon_2 \log \left ( 1 + \frac{1}{\gamma}\right )},
+\]</div>
+<p>provided the denominator of the right hand side is strictly negative—which is
+a necessary condition for the audit to terminate without a full hand count
+(in expectation).</p>
+<p>It should be clear that the audit <em>ought not</em> terminate if the net rate of error is greater than or equal to to the diluted margin, that is, if
+<span class="math notranslate nohighlight">\(\omega_1 + 2\omega_2 - \upsilon_1 - 2\upsilon_2 &gt; \mu\)</span>: if the net
+error could account for the margin, the audit should go to a full hand count.
+The restriction on the denominator is slightly stronger (more restrictive),
+because of the asymmetry between understatements and understatements in the Kaplan-Markov
+<span class="math notranslate nohighlight">\(P\)</span>-value:
+for <span class="math notranslate nohighlight">\(0 &lt; x &lt; 1\)</span>,
+$<span class="math notranslate nohighlight">\(
+  \log ( 1 - x ) &lt; - \log (1 + x),
+\)</span><span class="math notranslate nohighlight">\(
+which one can see from the two Taylor series:
+\)</span><span class="math notranslate nohighlight">\(
+  \log (1+x) = x - x^2/2 + x^3/3 - \cdots
+\)</span><span class="math notranslate nohighlight">\(
+versus
+\)</span><span class="math notranslate nohighlight">\( 
+  \log (1-x) = -x - x^2/2 - x^3/2 - \cdots.
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">KM_P_value</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o1</span><span class="p">,</span> <span class="n">o2</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mu</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="p">))</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">o1</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">o2</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">u1</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">u2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">KM_Expected_sample_size</span><span class="p">(</span><span class="n">or1</span><span class="p">,</span> <span class="n">or2</span><span class="p">,</span> <span class="n">ur1</span><span class="p">,</span> <span class="n">ur2</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">mu</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>\
+            <span class="n">or1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="p">))</span> <span class="o">-</span>\
+            <span class="n">or2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span> <span class="o">-</span>\
+            <span class="n">ur1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="p">))</span> <span class="o">-</span>\
+            <span class="n">ur2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">denom</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.03905</span>  
+
+<span class="n">mu</span> <span class="o">=</span> <span class="p">(</span><span class="mi">354040</span> <span class="o">-</span> <span class="mi">337589</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">354040</span><span class="o">+</span><span class="mi">337589</span><span class="o">+</span><span class="mi">33234</span><span class="p">)</span> <span class="c1"># New Hampshire 2016</span>
+<span class="n">KM_P_value</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21438135077031842
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">KM_Expected_sample_size</span><span class="p">(</span><span class="o">.</span><span class="mi">001</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">001</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>125.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">KM_Expected_sample_size</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wald-s-sequential-probability-ratio-test">
+<h2>Wald’s Sequential Probability Ratio Test<a class="headerlink" href="#wald-s-sequential-probability-ratio-test" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="sprt.html"><span class="doc std std-doc">SPRT</span></a>.</p>
+</div>
+<div class="section" id="the-kaplan-wald-inequality">
+<h2>The Kaplan-Wald Inequality<a class="headerlink" href="#the-kaplan-wald-inequality" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Kaplan-Wald</span></a>.</p>
+</div>
+<div class="section" id="auditing-super-majority-contests">
+<h2>Auditing Super-Majority Contests<a class="headerlink" href="#auditing-super-majority-contests" title="Permalink to this headline">¶</a></h2>
+<p>In many states, some contests (e.g., ballot measures) require a <em>super-majority</em> to pass. For example, some contests require that more than 2/3 of the votes be “yes” votes. Super-majority contests were considered in the first paper on risk-limiting audits (Stark, 2008. Conservative Statistical Post-Election Audits, <em>Ann. Appl. Stat.</em>, <em>2</em>, 550–581 DOI: 10.1214/08-AOAS161), but ballot-level comparison audits have not been developed explicitly for such social choice functions.</p>
+<p>Here is a derivation.</p>
+<p>Let <span class="math notranslate nohighlight">\(\tau\)</span> be the threshold fraction of votes required for the measure to pass, e.g., <span class="math notranslate nohighlight">\(\tau = 2/3\)</span> for a contest that requires a 2/3 majority.</p>
+<p>Suppose that the number of “yes” votes is <span class="math notranslate nohighlight">\(A_{\mathrm{yes}}\)</span>, the number of “no” votes is <span class="math notranslate nohighlight">\(A_{\mathrm{no}}\)</span>, and that <span class="math notranslate nohighlight">\(N \ge A_{\mathrm{yes}} + A_{\mathrm{no}}\)</span> ballots were cast in all, including undervotes and overvotes.</p>
+<p>The “margin” in favor of “yes” in votes is
+<span class="math notranslate nohighlight">\(A_{\mathrm{yes}}-\tau(A_{\mathrm{yes}}+A_{\mathrm{no}})\)</span>.
+If this margin is positive, “yes” wins. Otherwise, “no” wins.
+The reported margin is <span class="math notranslate nohighlight">\(v_{\mathrm{yes}}-\tau(v_{\mathrm{yes}}+v_{\mathrm{no}})\)</span> (if “yes” is the reported winner) or <span class="math notranslate nohighlight">\(\tau(v_{\mathrm{yes}}+v_{\mathrm{no}})-v_{\mathrm{yes}}\)</span> (if “no” is the reported winner).</p>
+<p>How much can error in the interpretation of a single ballot affect the margin?</p>
+<p>First, suppose that “yes” is the reported winner. Then the effects of errors are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>reported as</p></th>
+<th class="text-align:right head"><p>actual value</p></th>
+<th class="text-align:right head"><p>signed error</p></th>
+<th class="text-align:center head"><p>type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(1-\tau\)</span></p></td>
+<td class="text-align:center"><p>overstatement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-align:center"><p>overstatement</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(-\tau\)</span></p></td>
+<td class="text-align:center"><p>understatement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td class="text-align:center"><p>understatement</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(-(1-\tau)\)</span></p></td>
+<td class="text-align:center"><p>understatement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(\tau\)</span></p></td>
+<td class="text-align:center"><p>overstatement</p></td>
+</tr>
+</tbody>
+</table>
+<p>If “no” is the reported winner, then the errors are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>reported as</p></th>
+<th class="text-align:right head"><p>actual value</p></th>
+<th class="text-align:right head"><p>signed error</p></th>
+<th class="text-align:center head"><p>type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(-(1-\tau)\)</span></p></td>
+<td class="text-align:center"><p>understatement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td class="text-align:center"><p>understatement</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(\tau\)</span></p></td>
+<td class="text-align:center"><p>overstatement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-align:center"><p>overstatement</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p>yes</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(1-\tau\)</span></p></td>
+<td class="text-align:center"><p>overstatement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>invalid</p></td>
+<td class="text-align:right"><p>no</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(-\tau\)</span></p></td>
+<td class="text-align:center"><p>understatement</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note the symmetry: if “yes” won, a given error is the negative of what it would have been had “no” won.
+The largest possible error is <span class="math notranslate nohighlight">\(1\)</span> vote, regardless of the reported vote (in contrast, for
+plurality elections the largest possible error is <span class="math notranslate nohighlight">\(2\)</span> votes).
+As a fraction of the reported margin, that is <span class="math notranslate nohighlight">\(u_p \equiv 1/|v_{\mathrm{yes}}-\tau(v_{\mathrm{yes}}+v_{\mathrm{no}})|\)</span>.</p>
+<p>If we want to base the audit on the Kaplan-Markov inequality, we might want to “pad” the bounds as described
+above, defining <span class="math notranslate nohighlight">\(u_p \equiv \gamma/|v_{\mathrm{yes}}-\tau(v_{\mathrm{yes}}+v_{\mathrm{no}})|\)</span>; we shall incorporate that padding here and below.
+Define <span class="math notranslate nohighlight">\(m \equiv v_{\mathrm{yes}}-\tau(v_{\mathrm{yes}}+v_{\mathrm{no}})\)</span>.</p>
+<p>There are three possible magnitudes for an error (<span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(1-\tau\)</span>, and <span class="math notranslate nohighlight">\(\tau\)</span>), each with with two possible signs.</p>
+<p>The total upper bound on the error as a fraction of the margin is</p>
+<div class="math notranslate nohighlight">
+\[
+  U \equiv \sum_{p=1}^N u_p = N\gamma/|m|.
+\]</div>
+<p>Let <span class="math notranslate nohighlight">\(v_{py}\)</span> denote the number of reported votes for “yes” on ballot <span class="math notranslate nohighlight">\(p\)</span> and let <span class="math notranslate nohighlight">\(v_{pn}\)</span> be the
+number of reported votes for “no” on ballot <span class="math notranslate nohighlight">\(p\)</span>, so <span class="math notranslate nohighlight">\(0 \le v_{py} + v_{pn} \le 1\)</span>.</p>
+<p>Define <span class="math notranslate nohighlight">\(e_p\)</span> to be the signed overstatement error in the margin in votes resulting from how the voting system interpreted ballot <span class="math notranslate nohighlight">\(p\)</span>, normalized by the margin.</p>
+<p>For instance, suppose “yes” was reported to have received a supermajority.
+If <span class="math notranslate nohighlight">\(v_{py} = 1\)</span> and <span class="math notranslate nohighlight">\(v_{pn}=0\)</span> (the vote was recorded as a “yes”), but <span class="math notranslate nohighlight">\(a_{py}=0\)</span> and <span class="math notranslate nohighlight">\(a_{pn}=0\)</span> (the vote was actually invalid), then <span class="math notranslate nohighlight">\(e_p = \frac{1-\tau}{|m|}\)</span>.</p>
+<p>The possible values for <span class="math notranslate nohighlight">\(e_p\)</span> are</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\pm 1/|m|\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\pm \tau/|m|\)</span>, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(\pm (1-\tau)/|m|\)</span>.</p></li>
+</ul>
+<p>Let <span class="math notranslate nohighlight">\(E = \sum_p e_p\)</span>. The reported outcome is correct if <span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
+<p>As before, define <span class="math notranslate nohighlight">\(t_p \equiv e_p/u_p = e_p/\gamma\)</span>, draw ballots independently with replacement with probability <span class="math notranslate nohighlight">\(u_p/U\)</span>, and let <span class="math notranslate nohighlight">\(T_j\)</span> be the value of <span class="math notranslate nohighlight">\(t_p\)</span> for the ballot selected on the <span class="math notranslate nohighlight">\(j\)</span>th draw.
+Then
+$<span class="math notranslate nohighlight">\(
+  \mathbb{E} T_1 = \sum_{p=1}^N \frac{u_p}{U} t_p = \frac{1}{U} \sum_{p=1}^N u_p e_p/u_p =  \frac{E}{U},
+\)</span><span class="math notranslate nohighlight">\(
+so \)</span>E = U \mathbb{E} T_1<span class="math notranslate nohighlight">\(, and evidence that \)</span>\mathbb{E}T_1 &lt; 1/U<span class="math notranslate nohighlight">\( is evidence that \)</span>E &lt; 1$.</p>
+<p>A risk-limiting audit with risk limit <span class="math notranslate nohighlight">\(\alpha\)</span> can stop if an when</p>
+<div class="math notranslate nohighlight">
+\[
+   P  = ( 1 - 1/U )^n \prod_{j=1}^n \left ( 1 - e_j/u_j \right )^{-1}  =
+   ( 1 - 1/U )^n \prod_{j=1}^n \left ( 1 - e_j|m|/\gamma \right )^{-1}&lt; \alpha.
+\]</div>
+<p>Taking logs yields the condition</p>
+<div class="math notranslate nohighlight">
+\[
+  n \log ( 1 - 1/U ) - \sum_{j=1}^n \log ( 1 - e_j|m|/\gamma ) &lt; \log \alpha.
+\]</div>
+<div class="section" id="choosing-gamma">
+<h3>Choosing <span class="math notranslate nohighlight">\(\gamma\)</span><a class="headerlink" href="#choosing-gamma" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we want the “cost” (in terms of the increase to the sample size) of mistaking a “no” vote for a “yes” vote <span class="math notranslate nohighlight">\(k\)</span> times larger than the “cost” of mistaking an invalid vote for a “yes” vote.</p>
+<p>[TO BE COMPLETED]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">KM_Super_P_value</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">yes_none</span><span class="p">,</span> <span class="n">yes_no</span><span class="p">,</span> <span class="n">no_none</span><span class="p">,</span> <span class="n">no_yes</span><span class="p">,</span> <span class="n">none_yes</span><span class="p">,</span> <span class="n">none_no</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.03905</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Kaplan-Markov p-value for a super-majority contest, &quot;yes&quot; versus &quot;no&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Input</span>
+<span class="sd">    ------</span>
+<span class="sd">        n:        sample size</span>
+<span class="sd">        N:        number of ballots cast</span>
+<span class="sd">        m:        reported margin of victory: number of &quot;yes&quot; votes minus number required to win </span>
+<span class="sd">                  negative if &quot;yes&quot; lost. votes_for_yes - tau*(votes_for_yes + votes_for_no)</span>
+<span class="sd">        yes_none: number of ballots in the audit sample that were reported as &quot;yes&quot; but </span>
+<span class="sd">                  revealed by the audit to be undervotes, overvotes, or otherwise invalid </span>
+<span class="sd">        yes_no:   number of ballots reported as &quot;yes&quot; that were revealed by the audit to </span>
+<span class="sd">                  be &quot;no&quot;</span>
+<span class="sd">        no_none:  # ballots reported as &quot;no&quot; revealed to be invalid or non-votes</span>
+<span class="sd">        no_yes:   # ballots reported as &quot;no&quot; revealed to be &quot;yes&quot;</span>
+<span class="sd">        none_yes: # ballots reported as invalid/non-votes revealed by the audit to be &quot;yes&quot;</span>
+<span class="sd">        none_no   # ballots reported as invalid/non-votes revealed by the audit to be &quot;no&quot;</span>
+<span class="sd">        ...</span>
+<span class="sd">        tau:      threshold for supermajority win</span>
+<span class="sd">        gamma:    padding in Kaplan Markov. Choose gamma &gt;1.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        P-value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+    <span class="n">U</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># bound on total error</span>
+    <span class="n">sgn</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># 1 if yes is the reported winner; -1 if not</span>
+    <span class="k">return</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">U</span><span class="p">)</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sgn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">tau</span><span class="p">)</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">yes_none</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sgn</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">yes_no</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sgn</span><span class="o">*</span><span class="n">tau</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">no_none</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sgn</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">no_yes</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sgn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">tau</span><span class="p">)</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">none_yes</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sgn</span><span class="o">*</span><span class="n">tau</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">none_no</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inyo Measure J, 2018</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.03905</span>  
+
+<span class="n">tau</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">108757</span>
+<span class="n">V_y</span> <span class="o">=</span> <span class="mi">64280</span>
+<span class="n">V_n</span> <span class="o">=</span> <span class="mi">31494</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">V_y</span><span class="o">-</span><span class="n">tau</span><span class="o">*</span><span class="n">N</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">KM_Super_P_value</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.048671205649608834
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El Dorado Fire Protection District Measure B, 2019</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.03905</span>  
+
+<span class="n">tau</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">12673</span>
+<span class="n">V_y</span> <span class="o">=</span> <span class="mi">4770</span>
+<span class="n">V_n</span> <span class="o">=</span> <span class="mi">7885</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">V_y</span><span class="o">-</span><span class="n">tau</span><span class="o">*</span><span class="n">N</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">KM_Super_P_value</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03776970440608545
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General test based on group invariance &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/permute-distance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/permute-distance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-statistic-t">
+   Test statistic
+   <span class="math notranslate nohighlight">
+    \(T\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-the-rejection-region">
+   Finding the rejection region
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-has-level-alpha-unconditionally">
+   Test has level
+   <span class="math notranslate nohighlight">
+    \(\alpha\)
+   </span>
+   unconditionally
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-for-the-mean-of-a-symmetric-distribution">
+   Tests for the mean of a symmetric distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reflection-group">
+   Reflection group
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-test-h-0-mu-mu-0">
+   How to test
+   <span class="math notranslate nohighlight">
+    \(H_0\)
+   </span>
+   :
+   <span class="math notranslate nohighlight">
+    \(\mu = \mu_0\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-n-is-big">
+   If
+   <span class="math notranslate nohighlight">
+    \(n\)
+   </span>
+   is big …
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-test-statistics">
+   Other test statistics?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sign-test-for-the-median">
+   Sign test for the median
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-the-sign-test-equivalent-to-the-permutation-test-for-the-same-test-statistic">
+   Is the sign test equivalent to the permutation test for the same test statistic?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract-setting-using-vc-classes">
+   Abstract setting using VC classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-hypotheses-and-functions-tau">
+   Examples of hypotheses and functions
+   <span class="math notranslate nohighlight">
+    \(\tau\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independence">
+   Independence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rotational-invariance-in-mathbb-r-2">
+   Rotational invariance in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-testing-whether-seismicity-follows-a-spatially-heterogeneous-temporally-homogeneous-poisson-process">
+   Application: testing whether seismicity follows a spatially heterogeneous, temporally homogeneous Poisson Process
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="general-test-based-on-group-invariance">
+<h1>General test based on group invariance<a class="headerlink" href="#general-test-based-on-group-invariance" title="Permalink to this headline">¶</a></h1>
+<p>References:</p>
+<ul class="simple">
+<li><p>Romano, J.P., 1988. A bootstrap revival of some nonparametric distance tests, <em>J. Amer. Stat. Assoc., 83</em>, 698–708</p></li>
+<li><p>Romano, J.P., 1989. Bootstrap and randomization tests of some nonparametric hypotheses, <em>Ann. Stat., 17</em>, 141–159</p></li>
+</ul>
+<p>Data <span class="math notranslate nohighlight">\(X \sim P\)</span> takes values in <span class="math notranslate nohighlight">\(\mathcal X\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mathcal G\)</span> is a finite group of transformations from <span class="math notranslate nohighlight">\(\mathcal X\)</span> to <span class="math notranslate nohighlight">\(\mathcal X\)</span>.
+<span class="math notranslate nohighlight">\(\# \mathcal G = G\)</span>.</p>
+<p>Want to test null hypothesis <span class="math notranslate nohighlight">\(H_0: P \in \Omega_0\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(H_0\)</span> implies that <span class="math notranslate nohighlight">\(P\)</span> is invariant under <span class="math notranslate nohighlight">\(\mathcal G\)</span>:
+$<span class="math notranslate nohighlight">\(
+   \forall g \in \mathcal{G}, \;\; X \sim gX.
+\)</span>$</p>
+<p>The <em>orbit of <span class="math notranslate nohighlight">\(x\)</span> (under <span class="math notranslate nohighlight">\(\mathcal G\)</span>)</em> is <span class="math notranslate nohighlight">\(\{ gx : g \in \mathcal G \}\)</span>.
+(Does the orbit of <span class="math notranslate nohighlight">\(x\)</span> always contain <span class="math notranslate nohighlight">\(G\)</span> points?)</p>
+<div class="section" id="test-statistic-t">
+<h2>Test statistic <span class="math notranslate nohighlight">\(T\)</span><a class="headerlink" href="#test-statistic-t" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(T: \mathcal{X} \rightarrow \mathbb{R}\)</span> be a test statistic.</p>
+<p>We want to test <span class="math notranslate nohighlight">\(H_0\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>For each fixed <span class="math notranslate nohighlight">\(x\)</span>, let <span class="math notranslate nohighlight">\(T^{(k)}(x)\)</span> be the <span class="math notranslate nohighlight">\(k\)</span>th smallest
+element of the multiset
+$<span class="math notranslate nohighlight">\(
+    [ T(gx): g \in \mathcal G ].
+\)</span>$</p>
+<p>These are the <span class="math notranslate nohighlight">\(G\)</span> (not necessarily distinct) values <span class="math notranslate nohighlight">\(T\)</span> takes on the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</div>
+<div class="section" id="finding-the-rejection-region">
+<h2>Finding the rejection region<a class="headerlink" href="#finding-the-rejection-region" title="Permalink to this headline">¶</a></h2>
+<p>Let
+$<span class="math notranslate nohighlight">\(
+     r \equiv G - \lfloor \alpha G \rfloor.
+\)</span>$</p>
+<p>Define
+$<span class="math notranslate nohighlight">\(
+     G^+(x) \equiv \# \{ g \in \mathcal{G}: T(gx) &gt; T^{(r)}(x) \}
+\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(
+     G^r(x) \equiv \# \{ g \in \mathcal{G}: T(gx) = T^{(r)}(x) \}
+\)</span>$</p>
+<p>Let
+$<span class="math notranslate nohighlight">\(
+      a(x) \equiv \frac{\alpha G - G^+(x)}{G^r(x)}.
+\)</span>$</p>
+<p>Define
+$<span class="math notranslate nohighlight">\(
+   \phi(x) \equiv 
+        \left \{ 
+            \begin{array}{ll}
+                 1,      &amp;  T(x) &gt; T^{(r)}(x), \cr
+                a(x),   &amp;  T(x) = T^{(r)}(x), \cr
+                 0,      &amp;  T(x) &lt; T^{(r)}(x)
+            \end{array}
+         \right .
+\)</span>$</p>
+<p>To test the hypothesis, generate <span class="math notranslate nohighlight">\(U \sim U[0, 1]\)</span> independent of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(\phi(x) \ge U\)</span>.  (Randomized test.)</p>
+</div>
+<div class="section" id="test-has-level-alpha-unconditionally">
+<h2>Test has level <span class="math notranslate nohighlight">\(\alpha\)</span> unconditionally<a class="headerlink" href="#test-has-level-alpha-unconditionally" title="Permalink to this headline">¶</a></h2>
+<p>For each <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+    \sum_{g \in \mathcal{G}} \phi(gx) = G^+(x) + a(x) G^r(x) = \alpha G.
+\]</div>
+<p>So if <span class="math notranslate nohighlight">\(X \sim gX \sim P\)</span> for all <span class="math notranslate nohighlight">\(g \in \mathcal G\)</span>,
+$<span class="math notranslate nohighlight">\(
+\alpha  =  \mathbb{E}_P \frac{1}{G}\sum_{g \in \mathcal {G}} \phi(gX) 
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+ =  \frac{1}{G}\sum_{g \in \mathcal{G}} \mathbb{E}_P \phi(X) 
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+ =  \mathbb{E}_P \phi(X).
+\)</span>$</p>
+<p>The unconditional chance of a Type I error is exactly <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</div>
+<div class="section" id="tests-for-the-mean-of-a-symmetric-distribution">
+<h2>Tests for the mean of a symmetric distribution<a class="headerlink" href="#tests-for-the-mean-of-a-symmetric-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Data <span class="math notranslate nohighlight">\(X = (X_j )_{j=1}^N \in \mathcal{X} = \mathbb{R}^n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\{ X_j \}\)</span> iid <span class="math notranslate nohighlight">\(P\)</span>; <span class="math notranslate nohighlight">\(\mathbb{E} X_j = \mu\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(P\)</span> is symmetric.  Examples?</p>
+</div>
+<div class="section" id="reflection-group">
+<h2>Reflection group<a class="headerlink" href="#reflection-group" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span> be the group of reflections of coordinates about <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>.
+Each <span class="math notranslate nohighlight">\(g \in \mathcal{G}_\mu\)</span> is of the form</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = (\mu + (-1)^{\gamma_j}(x_j - \mu))_{j=1}^n
+\]</div>
+<p>for some <span class="math notranslate nohighlight">\(\gamma = (\gamma_j)_{j=1}^n \in \{0, 1\}^n\)</span>.</p>
+<p>Is <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span> really a group?</p>
+<p>What’s the identity element?<br />
+What’s the inverse of <span class="math notranslate nohighlight">\(g\)</span>?<br />
+What <span class="math notranslate nohighlight">\(\gamma\)</span> corresponds to <span class="math notranslate nohighlight">\(g_1g_2\)</span>?</p>
+<p>What is <span class="math notranslate nohighlight">\(G\)</span>, the number of elements of <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span>?</p>
+<p>What is the orbit of a point <span class="math notranslate nohighlight">\(x\)</span> under <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span>?<br />
+Are there always <span class="math notranslate nohighlight">\(2^n\)</span> distinct elements of the orbit?</p>
+<p>Test statistic:</p>
+<div class="math notranslate nohighlight">
+\[
+   T(X) = | \bar{X} - \mu_0 | = \left | \frac{1}{n} \sum_{j=1}^n X_j - \mu_0 \right |.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\mathbb{E} X_j = \mu_0\)</span>, this is expected to be small—but how
+large a value would be surprising?</p>
+<p>If the expected value of <span class="math notranslate nohighlight">\(X_j\)</span> is <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(P\)</span> is symmetric (i.e., if <span class="math notranslate nohighlight">\(H_0\)</span>
+is true),
+the <span class="math notranslate nohighlight">\(2^n\)</span> potential data</p>
+<div class="math notranslate nohighlight">
+\[
+   \{ gX : g \in \mathcal{G}_\mu \}
+\]</div>
+<p>in the orbit of <span class="math notranslate nohighlight">\(X\)</span> under <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> are equally likely.</p>
+<p>Hence, the values in the multiset</p>
+<div class="math notranslate nohighlight">
+\[
+   [ T(gx) : g \in \mathcal{G}_\mu ]
+\]</div>
+<p>are equally likely, conditional on the event that <span class="math notranslate nohighlight">\(X\)</span> is in the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</div>
+<div class="section" id="how-to-test-h-0-mu-mu-0">
+<h2>How to test <span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\mu = \mu_0\)</span>?<a class="headerlink" href="#how-to-test-h-0-mu-mu-0" title="Permalink to this headline">¶</a></h2>
+<p>We observe <span class="math notranslate nohighlight">\(X = x\)</span>.</p>
+<p>If fewer than <span class="math notranslate nohighlight">\(\alpha G\)</span> values in <span class="math notranslate nohighlight">\([T(gx) : g \in \mathcal{G}_{\mu_0}]\)</span> are greater than
+or equal to
+<span class="math notranslate nohighlight">\(T(x)\)</span>, reject.
+If more than <span class="math notranslate nohighlight">\(\alpha G\)</span> values are greater than <span class="math notranslate nohighlight">\(T(x)\)</span>, don’t reject.
+Otherwise, randomize.</p>
+</div>
+<div class="section" id="if-n-is-big">
+<h2>If <span class="math notranslate nohighlight">\(n\)</span> is big …<a class="headerlink" href="#if-n-is-big" title="Permalink to this headline">¶</a></h2>
+<p>How can we sample at random from the orbit?</p>
+<p>Toss fair coin <span class="math notranslate nohighlight">\(n\)</span> times in sequence, independently.
+Take <span class="math notranslate nohighlight">\(\gamma_j = 1\)</span> if the <span class="math notranslate nohighlight">\(j\)</span>th toss gives heads; <span class="math notranslate nohighlight">\(\gamma_j = 0\)</span> if tails.</p>
+<p>Amounts to sampling with replacement from the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</div>
+<div class="section" id="other-test-statistics">
+<h2>Other test statistics?<a class="headerlink" href="#other-test-statistics" title="Permalink to this headline">¶</a></h2>
+<p>Could use <span class="math notranslate nohighlight">\(t\)</span>-statistic, but calibrate critical value using the permutation distribution.</p>
+<p>Could use a measure of dispersion around the hypothesized mean (the
+true mean minimizes expected RMS difference, assuming variance is finite).</p>
+<p>What about counting the number of values that are above <span class="math notranslate nohighlight">\(\mu_0\)</span>?</p>
+<p>Define
+$<span class="math notranslate nohighlight">\(
+T(x) \equiv \sum_{j=1}^n 1_{x \ge \mu_0}.
+\)</span>$</p>
+</div>
+<div class="section" id="sign-test-for-the-median">
+<h2>Sign test for the median<a class="headerlink" href="#sign-test-for-the-median" title="Permalink to this headline">¶</a></h2>
+<p>We are assuming <span class="math notranslate nohighlight">\(P\)</span> is symmetric, so the expected value and median are equal.</p>
+<p>To avoid unhelpful complexity, suppose <span class="math notranslate nohighlight">\(P\)</span> is continuous.</p>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P} \{ X_j \ge \mu \} = 1/2, 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+   \{ 1_{X_j \ge \mu} \}_{j=1}^n \mbox{ are iid Bernoulli}(1/2),
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+    T(X) \sim \mbox{Binomial}(n, 1/2).
+\]</div>
+<p>This leads to the sign test:  Reject the hypothesis that the median is <span class="math notranslate nohighlight">\(\mu_0\)</span>
+if <span class="math notranslate nohighlight">\(T(X)\)</span> is too large or too small.
+Thresholds set to get level <span class="math notranslate nohighlight">\(\alpha\)</span> test, using the fact that <span class="math notranslate nohighlight">\(T(X)\sim \mbox{Binomial}(n, 1/2)\)</span>.</p>
+</div>
+<div class="section" id="is-the-sign-test-equivalent-to-the-permutation-test-for-the-same-test-statistic">
+<h2>Is the sign test equivalent to the permutation test for the same test statistic?<a class="headerlink" href="#is-the-sign-test-equivalent-to-the-permutation-test-for-the-same-test-statistic" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we are using the test statistic <span class="math notranslate nohighlight">\(T(x) = \sum_{j=1}^n 1_{x \ge \mu_0}\)</span>.
+Do the permutation test and the sign test reject for the same values of <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>?</p>
+<p>Suppose no component of <span class="math notranslate nohighlight">\(x\)</span> is equal to <span class="math notranslate nohighlight">\(\mu_0\)</span>.
+According to the sign test, the chance that <span class="math notranslate nohighlight">\(T(x) = k\)</span> is
+<span class="math notranslate nohighlight">\({{n}\choose{k}} 2^{-n}\)</span> if the null is true.</p>
+<p>What’s the chance that <span class="math notranslate nohighlight">\(T(x) = k\)</span> according to the permutation test?
+There are <span class="math notranslate nohighlight">\(G = 2^n\)</span> points in the orbit of <span class="math notranslate nohighlight">\(x\)</span> under <span class="math notranslate nohighlight">\(\mathcal G\)</span>.
+If the null is true, all have equal probability <span class="math notranslate nohighlight">\(2^{-n}\)</span>.
+Of these points, <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span> have <span class="math notranslate nohighlight">\(k\)</span> components with positive deviations from <span class="math notranslate nohighlight">\(\mu_0\)</span>.
+Hence, for the permutation test, the chance that <span class="math notranslate nohighlight">\(T(x) = k\)</span> is also
+<span class="math notranslate nohighlight">\({{n} \choose {k}} 2^{-n}\)</span>:  The two tests are equivalent.</p>
+</div>
+<div class="section" id="abstract-setting-using-vc-classes">
+<h2>Abstract setting using VC classes<a class="headerlink" href="#abstract-setting-using-vc-classes" title="Permalink to this headline">¶</a></h2>
+<p>The distribution <span class="math notranslate nohighlight">\(P \in \Omega\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> is a known collection of
+distributions on <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
+The null hypothesis is that <span class="math notranslate nohighlight">\(P \in \Omega_0 \subset \Omega\)</span>.  We assume that
+<span class="math notranslate nohighlight">\(\Omega_0\)</span> can be characterized as a set of distributions that are invariant under
+a transformation on <span class="math notranslate nohighlight">\(\Omega\)</span>: let <span class="math notranslate nohighlight">\(\tau: \Omega \rightarrow \Omega_0\)</span>; we assume
+that <span class="math notranslate nohighlight">\(\tau(P) = P\)</span> for all <span class="math notranslate nohighlight">\(P \in \Omega_0\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be a collection of subsets of a set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
+For a finite set <span class="math notranslate nohighlight">\(D \subset \mathcal{X}\)</span>, let <span class="math notranslate nohighlight">\(\Delta^\mathcal{V}(D)\)</span> be the number of distinct sets
+<span class="math notranslate nohighlight">\(\{ V \cap D: V \in \mathcal{V} \}\)</span>.
+For positive integers <span class="math notranslate nohighlight">\(n\)</span>, let
+$<span class="math notranslate nohighlight">\(
+    m^\mathcal{V}(n) = \max_{D \subset \mathcal{X}: \#D = n } \Delta^\mathcal{V}(D).
+\)</span>$</p>
+<p>Let
+$<span class="math notranslate nohighlight">\(
+    c(\mathcal{V}) \equiv \inf \{ n : m^\mathcal{V}(n) &lt; 2^n \}.
+\)</span>$</p>
+<p>If <span class="math notranslate nohighlight">\(c(\mathcal{V}) &lt; \infty\)</span>, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a Vapnik-Cervonenkis (V-C) class.
+That is, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a V-C class
+if the maximum number of distinct intersections of sets in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>
+with sets containing <span class="math notranslate nohighlight">\(n\)</span> points grows sub-exponentially with <span class="math notranslate nohighlight">\(n\)</span>.
+Intersections, finite unions, and Cartesian products of V-C classes are V-C classes.
+In <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, the set of all ellipsoids, the set of all half-spaces, the set of all
+lower-left quadrants, and the set of all convex sets with at most <span class="math notranslate nohighlight">\(p\)</span> extreme
+points are all V-C classes.</p>
+<p>An alternative, equivalent definition of a V-C class is based on the following definition:</p>
+<p>Suppose <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a collection of subsets of a set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, and that <span class="math notranslate nohighlight">\(D\)</span> is a finite subset of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
+We say <span class="math notranslate nohighlight">\(D\)</span> is <em>shattered</em> by <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> if every subset <span class="math notranslate nohighlight">\(d \subset D\)</span>
+can be written <span class="math notranslate nohighlight">\(d = V \cap D\)</span> for some <span class="math notranslate nohighlight">\(V \in \mathcal{V}\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(D\)</span> has <span class="math notranslate nohighlight">\(n\)</span> elements.
+Because there are <span class="math notranslate nohighlight">\(2^n\)</span> subsets of a set with <span class="math notranslate nohighlight">\(n\)</span> elements, this is equivalent to saying
+that there are <span class="math notranslate nohighlight">\(2^n\)</span> different subsets of the form <span class="math notranslate nohighlight">\(D \cap V\)</span> as <span class="math notranslate nohighlight">\(V\)</span> ranges over <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.</p>
+<p>A collection <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a V-C class if for some finite integer <span class="math notranslate nohighlight">\(n\)</span>, there exists a set
+<span class="math notranslate nohighlight">\(D \subset \mathcal{X}\)</span> with <span class="math notranslate nohighlight">\(n\)</span> elements that is not shattered by <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.</p>
+<p><strong>Example</strong>. Half lines on <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.
+Consider a set <span class="math notranslate nohighlight">\(D = \{x_j\}_{j=1}^n\)</span> of points on the real line.
+Let <span class="math notranslate nohighlight">\(\mathcal{V} = \{ (-\infty, y] : y \in \mathbb{R} \}\)</span>.
+How many sets are there  of the form <span class="math notranslate nohighlight">\(V \cap D\)</span>, for <span class="math notranslate nohighlight">\(V \in \mathcal{V}\)</span>?
+Just <span class="math notranslate nohighlight">\(n+1\)</span>.
+Suppose the points are in increasing order, so that <span class="math notranslate nohighlight">\(x_1 &lt; x_2 &lt; \cdots &lt; x_n\)</span>.
+Then the possibilities for <span class="math notranslate nohighlight">\(V \cap D\)</span> are <span class="math notranslate nohighlight">\(\{ \}\)</span>,
+<span class="math notranslate nohighlight">\(\{ x_1 \}\)</span>, <span class="math notranslate nohighlight">\(\{ x_1, x_2 \}\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(\{x_j \}_{j=1}^n\)</span>.
+Thus <span class="math notranslate nohighlight">\(m^{\mathcal{V}}(n) = n+1\)</span>, and <span class="math notranslate nohighlight">\(c(\mathcal{V}) \equiv \inf \{ n : m^\mathcal{V}(n) &lt; 2^n \} = 2\)</span>
+(for <span class="math notranslate nohighlight">\(n=0\)</span>, we have <span class="math notranslate nohighlight">\(0+1 = 2^0\)</span>, and for <span class="math notranslate nohighlight">\(n=1\)</span>,
+we have <span class="math notranslate nohighlight">\(1+1 = 2^1\)</span>, but for <span class="math notranslate nohighlight">\(n=2\)</span>, we have <span class="math notranslate nohighlight">\(2+1 &lt; 2^2\)</span>).</p>
+<p><strong>Example</strong>. Closed intervals <span class="math notranslate nohighlight">\(\{[y, z]\)</span>: <span class="math notranslate nohighlight">\(y &lt; z\}\)</span> on <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.
+For finite sets <span class="math notranslate nohighlight">\(D\)</span> as discussed above,
+the possibilities for <span class="math notranslate nohighlight">\(V \cap D\)</span> include all sets of adjacent values, such as
+<span class="math notranslate nohighlight">\(\{x_1\}\)</span>, <span class="math notranslate nohighlight">\(\{x_2\}\)</span>, <span class="math notranslate nohighlight">\(\{x_3\}\)</span>, <span class="math notranslate nohighlight">\(\{x_1, x_2\}\)</span>, <span class="math notranslate nohighlight">\(\{x_2, x_3\}\)</span>, and <span class="math notranslate nohighlight">\(\{x_1, x_2, x_3\}\)</span>, but not,
+for example, <span class="math notranslate nohighlight">\(\{ x_1, x_3 \}\)</span>.
+Clearly, <span class="math notranslate nohighlight">\(m^{\mathcal{V}}(2) = 4\)</span> but <span class="math notranslate nohighlight">\(m^{\mathcal{V}}(3) = 7\)</span>, so <span class="math notranslate nohighlight">\(c(\mathcal{V}) = 3\)</span>.
+(The general rule is <span class="math notranslate nohighlight">\(m^{\mathcal{V}}(n) = 1 + n + {n}\choose{2}\)</span>. Why?)</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are V-C classes on a common set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
+Then <span class="math notranslate nohighlight">\(\mathcal{V} \cup \mathcal{W}\)</span> is also a V-C class, as is <span class="math notranslate nohighlight">\(\mathcal{V} \cap \mathcal{W}\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be a VC
+class of subsets of <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.
+Define the pseudo-metric
+$<span class="math notranslate nohighlight">\(
+\delta: \Omega \times \Omega \rightarrow \mathbb{R}^+
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+(P, Q)  \rightarrow  \sup_{V \in \mathcal{V}} | P(V) - Q(V) | .
+\)</span>$</p>
+<p>This is a generalization of the Kolmogorov-Smirnov distance for distributions on the
+line.
+In that case, the sets in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> are the half-lines <span class="math notranslate nohighlight">\(\{(-\infty, y] : y \in \mathbb{R}\}\)</span>
+(which comprise a
+V-C class).</p>
+<p>Assume that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> have been selected such that
+<span class="math notranslate nohighlight">\(\delta(P, \tau P) = 0\)</span> iff
+<span class="math notranslate nohighlight">\(P \in \Omega_0\)</span>.
+Romano proposes using the test statistic
+$<span class="math notranslate nohighlight">\(
+    T_n = n^{1/2} \delta(\hat{P}_n, \tau \hat{P}_n ),
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\hat{P}<em>n<span class="math notranslate nohighlight">\( is the empirical measure of \)</span>{X_j }</em>{j=1}^n<span class="math notranslate nohighlight">\(.
+One rejects the hypothesis when  \)</span>\tau\hat{P}_n<span class="math notranslate nohighlight">\( is far from \)</span>\hat{P}_n<span class="math notranslate nohighlight">\(; i.e.,
+when \)</span>T_n$ is sufficiently large.</p>
+<p>But how large?
+One way to obtain a critical value for the test is with the bootstrap:
+resample from <span class="math notranslate nohighlight">\(\tau(\hat{P}_n)\)</span>, tabulate the distribution of the distance
+between the empirical distribution of the bootstrap samples and <span class="math notranslate nohighlight">\(\tau\)</span> applied to them,
+use the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of that distribution as the critical value for an
+approximate level <span class="math notranslate nohighlight">\(\alpha\)</span> test.
+(We have to resample from <span class="math notranslate nohighlight">\(\tau(\hat{P}_n)\)</span> rather than <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> because the
+significance level is computed under the assumption that the null hypothesis is <em>true</em>.
+The null hypothesis is true for <span class="math notranslate nohighlight">\(\tau(\hat{P}_n)\)</span> but not necessarily for <span class="math notranslate nohighlight">\(\hat{P}_n\)</span>.)</p>
+<p>Suppose that there is a (known) group <span class="math notranslate nohighlight">\(\mathcal{G}_n\)</span> of transformations of the sample space
+<span class="math notranslate nohighlight">\(\mathcal{S}_n\)</span>
+such that under the null hypothesis, <span class="math notranslate nohighlight">\(P\)</span> is invariant under <span class="math notranslate nohighlight">\(\mathcal{G}_n\)</span>.
+Then we can also construct a <em>randomization test</em> of the hypothesis <span class="math notranslate nohighlight">\(H_0\)</span>.
+For simplicity, suppose that <span class="math notranslate nohighlight">\(\mathcal{G}_n\)</span> is finite, with <span class="math notranslate nohighlight">\(M_n\)</span> elements
+<span class="math notranslate nohighlight">\(\{ g_{nj} \}_{j=1}^{M_n}\)</span>.
+Under the null hypothesis, conditional on <span class="math notranslate nohighlight">\(X = x\)</span>, the values <span class="math notranslate nohighlight">\(\{ g_{nj}x \}_{j=1}^{M_n}\)</span>
+are equally likely.
+(The <em>orbit</em> of an point <span class="math notranslate nohighlight">\(x\)</span> in a space <span class="math notranslate nohighlight">\(S\)</span> acted on by a group <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> is the set of
+all elements of <span class="math notranslate nohighlight">\(S\)</span> that can be obtained by applying elements of <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> to <span class="math notranslate nohighlight">\(x\)</span>.
+That is, it is the set <span class="math notranslate nohighlight">\(\{ g(x): g \in \mathcal{G}\}\)</span>.
+For example, consider points in the plane and the group of rotations about the
+origin.
+Then the orbit of a point <span class="math notranslate nohighlight">\(x\)</span> is the circle with radius <span class="math notranslate nohighlight">\(\|x\|\)</span>.)</p>
+<p>Compute the  test statistic for each <span class="math notranslate nohighlight">\( g_{nj}x\)</span> in the orbit of <span class="math notranslate nohighlight">\(x\)</span>.
+Reject the null hypothesis if the statistic for <span class="math notranslate nohighlight">\(x\)</span> exceeds the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of
+the test statistic for the set of values obtained from the orbit;
+do not reject if it is less; reject with a given probability if the statistic equals
+the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile, in such a way as to get a level <span class="math notranslate nohighlight">\(\alpha\)</span> test.
+This is a randomization test.
+Because the level of the randomization test is <span class="math notranslate nohighlight">\(\alpha\)</span>, conditional on the data,
+integrating
+over the distribution of the data shows that it is <span class="math notranslate nohighlight">\(\alpha\)</span> unconditionally.</p>
+</div>
+<div class="section" id="examples-of-hypotheses-and-functions-tau">
+<h2>Examples of hypotheses and functions <span class="math notranslate nohighlight">\(\tau\)</span><a class="headerlink" href="#examples-of-hypotheses-and-functions-tau" title="Permalink to this headline">¶</a></h2>
+<p>Examples Romano gives include testing for independence of the components of each <span class="math notranslate nohighlight">\(X_j\)</span>,
+testing for exchangeability of the components of each <span class="math notranslate nohighlight">\(X_j\)</span>, testing for spherical
+symmetry of the distribution of <span class="math notranslate nohighlight">\(X_j\)</span>, testing for homogeneity among the <span class="math notranslate nohighlight">\(X_j\)</span>, and
+testing for a change point.</p>
+<p>In the example of testing for independence, the mapping <span class="math notranslate nohighlight">\(\tau\)</span> takes the marginal
+distributions of the joint distribution, then constructs a joint distribution that
+is the product of the marginals.  For distributions with independent components,
+this is the identity; otherwise, it maps a distribution into one with the same
+marginals, but whose components are independent.
+For testing for spherical symmetry, <span class="math notranslate nohighlight">\(\tau\)</span> maps a distribution into one with the same  mass
+at every distance from the origin, but that is uniform on spherical shells.
+For testing for exchangability, Romano proposes looking at the largest difference between
+<span class="math notranslate nohighlight">\(P\)</span> and a permutation of the coordinates of <span class="math notranslate nohighlight">\(P\)</span>, over all permutations of the coordinates.
+See his paper for more details.</p>
+<p>Romano shows that these tests are consistent against all alternatives, and that
+the critical values given by the bootstrap and by randomization are asymptotically
+equal with probability one.  Because the randomization tests are exact level <span class="math notranslate nohighlight">\(\alpha\)</span>
+tests, they might be preferred.  Romano also briefly discusses how to implement the tests
+computationally.</p>
+<p>Let’s consider the implementation in more detail, for two hypotheses:
+independence of the components of a <span class="math notranslate nohighlight">\(k\)</span>-variate distribution, and
+rotational invariance of a bivariate distribution.</p>
+</div>
+<div class="section" id="independence">
+<h2>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h2>
+<p>We observe <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> iid <span class="math notranslate nohighlight">\(P\)</span>, where each <span class="math notranslate nohighlight">\(X_j = (X_{ij})_{i=1}^k\)</span> takes values in <span class="math notranslate nohighlight">\(\mathbb{R}^k\)</span>.
+Under the null hypothesis, <span class="math notranslate nohighlight">\(P\)</span> is invariant under the mapping <span class="math notranslate nohighlight">\(\tau\)</span> that takes the <span class="math notranslate nohighlight">\(k\)</span>
+marginal distributions of <span class="math notranslate nohighlight">\(P\)</span> and multiplies them together to give a probability on
+<span class="math notranslate nohighlight">\(\mathbb{R}^k\)</span> with independent components.
+Let <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> be the empirical measure; let the V-C class <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be the set of
+lower left quadrants <span class="math notranslate nohighlight">\(\{ Q(x) : x \in \mathbb{R}^k \}\)</span> where
+$<span class="math notranslate nohighlight">\(
+    Q(x) \equiv \{ y \in \mathbb{R}^k : y_i \le x_i, \;\; i = 1, \ldots, k\}.
+\)</span><span class="math notranslate nohighlight">\(
+Then
+\)</span><span class="math notranslate nohighlight">\(
+    \hat{P}_n(Q(x)) = \frac{1}{n} \# \{ X_j : X_{ij} \le x_i, \;\; i = 1, \ldots, k \},
+\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(
+    \tau \hat{P}_n (Q(x)) = \prod_{i=1}^k \frac{1}{n} \# \{ X_j : X_{ij} \le x_i \}.
+\)</span><span class="math notranslate nohighlight">\(
+The maximum difference in the probability of a lower left quadrant \)</span>Q(x)<span class="math notranslate nohighlight">\( occurs when
+\)</span>x<span class="math notranslate nohighlight">\( is one of the points of support of \)</span>\tau \hat{P}_n<span class="math notranslate nohighlight">\(:
+\)</span><span class="math notranslate nohighlight">\(
+\sup_{V \in \mathcal{V}} | \hat{P}_n (V) - \tau \hat{P}_n(V) |
+= \sup_{x \in \mathbb{R}^k} | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+= \max_{x \in \mathbb{R}^k : x_i \in \{X_{ij}\}_{j=1}^n, \;\; i = 1, \ldots, k }
+| \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |.
+\)</span>$</p>
+<p>To test the null hypothesis of independence, we would compute
+$<span class="math notranslate nohighlight">\(
+    T(X) = \max_{x \in \mathbb{R}^k : x_i \in \{X_{ij}\}_{j=1}^n, \;\; i = 1, \ldots, k }
+    | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |
+\)</span><span class="math notranslate nohighlight">\(
+from the data \)</span>X<span class="math notranslate nohighlight">\(, then repeatedly draw iid samples \)</span>X^<em><span class="math notranslate nohighlight">\( of size \)</span>n<span class="math notranslate nohighlight">\( from \)</span>\tau \hat{P}_n<span class="math notranslate nohighlight">\(,
+computing
+\)</span><span class="math notranslate nohighlight">\(
+    T(X^*) = \max_{x \in \mathbb{R}^k : x_i \in \{X_{ij}^*\}_{j=1}^n, \;\; i = 1, \ldots, k }
+    | \hat{P}_n^* (Q(x)) - \tau \hat{P}_n^*(Q(x)) |
+\)</span><span class="math notranslate nohighlight">\(
+for each.
+We would reject the null hypothesis
+that the components of \)</span>P<span class="math notranslate nohighlight">\( are independent (at approximate significance level \)</span>\alpha<span class="math notranslate nohighlight">\() if
+\)</span>T(X)<span class="math notranslate nohighlight">\( exceeds the \)</span>1-\alpha<span class="math notranslate nohighlight">\( quantile of the simulated distribution of \)</span>T(X^</em>)$.</p>
+</div>
+<div class="section" id="rotational-invariance-in-mathbb-r-2">
+<h2>Rotational invariance in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#rotational-invariance-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
+<p>We observe <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> iid <span class="math notranslate nohighlight">\(P\)</span>, where each <span class="math notranslate nohighlight">\(X_j = (X_{1j}, X_{2j})\)</span> takes values in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<p>For <span class="math notranslate nohighlight">\(y \in \mathbb{R}^2\)</span>, define <span class="math notranslate nohighlight">\(|y| \equiv \sqrt{y_1^2 + y_2^2}\)</span> to be the distance from <span class="math notranslate nohighlight">\(y\)</span> to
+the origin.</p>
+<p>Except at the origin, the mapping from Cartesian coordinates <span class="math notranslate nohighlight">\((x_1, x_2)\)</span> to polar coordinates
+<span class="math notranslate nohighlight">\((r, \theta)\)</span> is one-to-one; identify
+the origin with the polar coordinates <span class="math notranslate nohighlight">\((0, 0)\)</span>.
+Under the null hypothesis, <span class="math notranslate nohighlight">\(P\)</span> is invariant under the mapping <span class="math notranslate nohighlight">\(\tau\)</span> that produces
+a distribution with the same marginal distribution of <span class="math notranslate nohighlight">\(|X|\)</span> but that is uniform on
+<span class="math notranslate nohighlight">\(\theta\)</span> for each possible value of <span class="math notranslate nohighlight">\(|X|\)</span>.</p>
+<p>As before, let <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> be the empirical measure; let the V-C class <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be the set of
+lower left quadrants <span class="math notranslate nohighlight">\(\{ Q(x) : x \in \mathbb{R}^2 \}\)</span> where
+$<span class="math notranslate nohighlight">\(
+    Q(x) \equiv \{ y \in \mathbb{R}^k : y_i \le x_i, \;\; i = 1, 2\}.
+\)</span>$</p>
+<p>Then
+$<span class="math notranslate nohighlight">\(
+    \hat{P}_n(Q(x)) = \frac{1}{n} \# \{ X_j : X_{ij} \le x_i, \;\; i = 1, 2 \}.
+\)</span>$</p>
+<p>To proceed, we need to find the probability of lower left quadrants <span class="math notranslate nohighlight">\(Q(x)\)</span> for the
+distribution <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>.
+Consider the contribution from each <span class="math notranslate nohighlight">\(X_j\)</span> separately.
+Let <span class="math notranslate nohighlight">\(R_j = |X_j| = \sqrt{X_{1j}^2 + X_{2j}^2}\)</span>.
+The contribution of <span class="math notranslate nohighlight">\(X_j\)</span> to <span class="math notranslate nohighlight">\(\tau \hat{P}_n (Q(x))\)</span> is <span class="math notranslate nohighlight">\(1/n\)</span> times the fraction of
+the circle <span class="math notranslate nohighlight">\(\{ y \in \mathbb{R}^2 : |y| = R_j\}\)</span> that is in the quadrant <span class="math notranslate nohighlight">\(Q(x)\)</span>.
+There are eight cases to consider:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(x_1, \; x_2 &lt; 0\)</span> or <span class="math notranslate nohighlight">\(x_1 &lt; -R_j\)</span> or <span class="math notranslate nohighlight">\(x_2 &lt; -R_j\)</span>.<br />
+The contribution is 0: the quadrant does not intersect the circle <span class="math notranslate nohighlight">\(|y| = R_j\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1, x_2 &gt; R_j\)</span>.<br />
+The contribution is <span class="math notranslate nohighlight">\(1/n\)</span>: the quadrant contains the entire circle <span class="math notranslate nohighlight">\(|y| = R_j\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 \le R_j^2\)</span>.<br />
+The quadrant includes an arc that is at most half the circle.<br />
+Let the points at which the quadrant boundary intersects
+the circle be <span class="math notranslate nohighlight">\((x_1', x_2)\)</span> and <span class="math notranslate nohighlight">\((x_1, x_2')\)</span>.  Then <span class="math notranslate nohighlight">\(x_1'\)</span> is the negative
+root of <span class="math notranslate nohighlight">\(x_1^{'2} = R_j^2 - x_2^2\)</span> and <span class="math notranslate nohighlight">\(x_2'\)</span> is the negative root
+of <span class="math notranslate nohighlight">\(x_2^{'2} = R_j^2 - x_1^2\)</span>.
+The fraction of the circle included in <span class="math notranslate nohighlight">\(Q(x)\)</span> is
+$$
+\frac{1}{\pi} \sin^{-1} \frac{1}{\sqrt{2}} \left ( 1 + \frac{x_1}{R_j} \sqrt{1 - \frac{x_2^2}{R_j^2}}</p></li>
+</ol>
+<ul class="simple">
+<li><p>\frac{x_2}{R_j} \sqrt{1 - \frac{x_1^2}{R_j^2}} \right )^{1/2}.
+$$</p></li>
+</ul>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(-R_j &lt; x_1 \le 0\)</span>, <span class="math notranslate nohighlight">\(x_2 \ge 0\)</span>.<br />
+The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is
+$<span class="math notranslate nohighlight">\(
+q(x_1) \equiv \frac{1}{\pi} \sin^{-1} \frac{1}{\sqrt{2}} \left ( 1 - \frac{x_1^2}{R_j^2} \right )^{1/2}.
+\)</span>$</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(0 \le x_1 &lt; R_j\)</span>, <span class="math notranslate nohighlight">\(x_2 \ge R_j\)</span>.<br />
+The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is <span class="math notranslate nohighlight">\(1 - q(x_1)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(x_1 \ge 0\)</span>, <span class="math notranslate nohighlight">\(-R_j &lt; x_2 &lt; 0\)</span>.<br />
+The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is <span class="math notranslate nohighlight">\(q(x_2)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(x_1 \ge R_j\)</span>, <span class="math notranslate nohighlight">\(0 \le x_2 &lt; R_j\)</span>.<br />
+The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is <span class="math notranslate nohighlight">\(1-q(x_2)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(0 \le x_1 &lt; R_j\)</span>, <span class="math notranslate nohighlight">\(0 \le x_2 &lt; R_j\)</span>.<br />
+The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is <span class="math notranslate nohighlight">\(1 - q(x_1) - q(x_2)\)</span>.</p></li>
+</ol>
+<p>At which points <span class="math notranslate nohighlight">\(x\)</span> should we evaluate the discrepancy
+<span class="math notranslate nohighlight">\( D(x) = |\hat{P}_n(Q(x)) - \tau \hat{P}_n (Q(x))|\)</span>?</p>
+<p>Let <span class="math notranslate nohighlight">\(R = \max_j R_j\)</span>.  Then for <span class="math notranslate nohighlight">\(x_1, x_2 &gt; R\)</span>, <span class="math notranslate nohighlight">\(D(x) = 0\)</span>.
+Similarly, for <span class="math notranslate nohighlight">\(x_1, x_2 &lt; -R\)</span>, <span class="math notranslate nohighlight">\(D(x) = 0\)</span>.</p>
+<p>We might take <span class="math notranslate nohighlight">\(x\)</span> on a fine grid in the square <span class="math notranslate nohighlight">\([-R, R] \times [-R, R]\)</span>, but this is wasteful.</p>
+<p>Some thought shows that the maximum discrepancy occurs when some datum is just included
+in <span class="math notranslate nohighlight">\(Q(x)\)</span>, which makes <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> relatively large compared with <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>, or when
+some datum is just excluded from <span class="math notranslate nohighlight">\(Q(x)\)</span>,
+which makes <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span> relatively large compared with <span class="math notranslate nohighlight">\(\hat{P}_n\)</span>.</p>
+<p>The possible points of maximum discrepancy are <span class="math notranslate nohighlight">\(x\)</span> of the form <span class="math notranslate nohighlight">\((X_{1j}-s\epsilon, X_{2k}-s\epsilon)\)</span> with
+<span class="math notranslate nohighlight">\(1 \le j, k \le n\)</span>, <span class="math notranslate nohighlight">\(s \in \{0, 1\}\)</span>, and <span class="math notranslate nohighlight">\(\epsilon\)</span> small, together with the points
+<span class="math notranslate nohighlight">\((X_{1j}-s\epsilon, R)\)</span> and <span class="math notranslate nohighlight">\((R, X_{2j}-s\epsilon)\)</span>.</p>
+<p>This is a large (<span class="math notranslate nohighlight">\(2n^2 + 4n\)</span>) but finite number of points.
+Denote this set by <span class="math notranslate nohighlight">\(\mathcal{X} (\{X_j\}, \epsilon)\)</span>.</p>
+<p>To draw an iid sample of size <span class="math notranslate nohighlight">\(n\)</span> from <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>, we draw <span class="math notranslate nohighlight">\(n\)</span> values
+iid uniform on <span class="math notranslate nohighlight">\(\{r_j\}_{j=1}^n\)</span> and draw <span class="math notranslate nohighlight">\(n\)</span> iid <span class="math notranslate nohighlight">\(U[0, 2\pi]\)</span> random variables,
+and treat these as the polar coordinates <span class="math notranslate nohighlight">\((r, \theta)\)</span> of <span class="math notranslate nohighlight">\(n\)</span> points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<p>To test the null hypothesis of rotational invariance, we would compute
+$<span class="math notranslate nohighlight">\(
+    T(X) = \max_{x \in \mathbb{R}^k : x \in \mathcal{X} (\{X_j\}, \epsilon)}
+    | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |
+\)</span><span class="math notranslate nohighlight">\(
+from the data \)</span>X<span class="math notranslate nohighlight">\(, then repeatedly draw iid samples \)</span>{X_j^*}<span class="math notranslate nohighlight">\( of size \)</span>n<span class="math notranslate nohighlight">\( from \)</span>\tau \hat{P}_n<span class="math notranslate nohighlight">\(,
+computing
+\)</span><span class="math notranslate nohighlight">\(
+    T(X^*) = \max_{x \in \mathbb{R}^k : x \in \mathcal{X} (\{X_j^*\}, \epsilon) }
+    | \hat{P}_n^* (Q(x)) - \tau \hat{P}_n^*(Q(x)) |
+\)</span>$
+for each.</p>
+<p>We would reject the null hypothesis
+that <span class="math notranslate nohighlight">\(P\)</span> is rotationally invariant (at approximate significance level <span class="math notranslate nohighlight">\(\alpha\)</span>) if
+<span class="math notranslate nohighlight">\(T(X)\)</span> exceeds the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of the simulated distribution of <span class="math notranslate nohighlight">\(T(X^*)\)</span>.</p>
+<p>Under the null hypothesis, the distribution of the data is invariant under the action
+of the rotation group.</p>
+<p>This is not a finite group, so we cannot exhaust the
+set of transformations on a computer.</p>
+<p>However, we might consider the subgroup of
+rotations by multiples of <span class="math notranslate nohighlight">\(2\pi/M\)</span> for some large integer <span class="math notranslate nohighlight">\(M\)</span>.
+We could get an alternative approximate level <span class="math notranslate nohighlight">\(\alpha\)</span> test of the hypothesis
+of rotational invariance by comparing <span class="math notranslate nohighlight">\(T(X)\)</span> with the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of
+<span class="math notranslate nohighlight">\(T\)</span> over all such rotations of the data—the orbit of the data under this finite
+subgroup.</p>
+</div>
+<div class="section" id="application-testing-whether-seismicity-follows-a-spatially-heterogeneous-temporally-homogeneous-poisson-process">
+<h2>Application: testing whether seismicity follows a spatially heterogeneous, temporally homogeneous Poisson Process<a class="headerlink" href="#application-testing-whether-seismicity-follows-a-spatially-heterogeneous-temporally-homogeneous-poisson-process" title="Permalink to this headline">¶</a></h2>
+<p>Reference: Luen and Stark, 2012. http://onlinelibrary.wiley.com/doi/10.1111/j.1365-246X.2012.05400.x/pdf</p>
+<p>Poisson process: condition on number of events. Given the number of events, temporal distribution uniform, times exchangeable.</p>
+<p>What’s the “projection” operation?</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

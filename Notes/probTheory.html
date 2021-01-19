@@ -1,0 +1,1769 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theories of Probability &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/probTheory.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/probTheory.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equally-likely-outcomes">
+   Equally Likely Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequency-theory">
+   Frequency Theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-subjective-theory">
+   The Subjective Theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-based-probability">
+   Model-Based Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shortcomings-of-the-theories">
+   Shortcomings of the Theories
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-theory-of-equally-likely-outcomes">
+     The Theory of Equally Likely Outcomes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-frequency-theory">
+     The Frequency Theory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     The Subjective Theory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Model-based Probability
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="theories-of-probability">
+<h1>Theories of Probability<a class="headerlink" href="#theories-of-probability" title="Permalink to this headline">¶</a></h1>
+<p>We’ve been looking at the mathematical side of probability, which starts from some axioms
+that probability is assumed to satisfy, and draws conclusions (i.e., theorems).
+But what <em>is</em> probability?
+What does probability <em>mean</em>?
+What connects the mathematics to the real world?</p>
+<p>This is a knotty philosophical problem that scholars still disagree about.
+We will look at several attempts to make sense of statements such as “the probability that a fair coin lands
+heads when you toss it is 1/2.”</p>
+<p>To tie this to scientific questions, we will also think about how to interpret statements such as “there is a 70% chance of a magnitude 7.5 or greater earthquake in the San Francisco Bay Area in the next 25 years,” “there is a 90% chance global temperature will increase 3° in the next 50 years,” “there is a 99.99% chance that the Higgs boson exists (or that it was detected),” and similar statements.</p>
+<div class="section" id="equally-likely-outcomes">
+<h2>Equally Likely Outcomes<a class="headerlink" href="#equally-likely-outcomes" title="Permalink to this headline">¶</a></h2>
+<p>This theory of probability is the oldest.
+It originated in the study of games of chance, such as dice games and card games.
+In the Theory of Equally Likely Outcomes, probability assignments depend on the
+assertion that no particular outcome is preferred over any other by Nature; generally,
+arguments that Nature should show no preference among the outcomes appeal to the
+symmetry of the system studied (such as a “fair” coin or die).</p>
+<p>If a given experiment or trial has <span class="math notranslate nohighlight">\(n\)</span> possible outcomes among
+which—it is assumed—Nature should show no preference, this
+theory defines them to be <em>equally likely</em>.
+The probability of each outcome is then <span class="math notranslate nohighlight">\(100\%/n\)</span>.</p>
+<p>Applying this theory of probability involves arguing that no particular outcome should occur
+in preference to another, typically by appeal to physical symmetries
+or other considerations—e.g., that there is no reason one marble would be predisposed
+to turn up rather than another in drawing a marble from a well-stirred bowl of marbles.
+Laplace’s <em>Principle of Insufficient Reason</em> asserts that if there
+is no reason to think that a set of outcomes is not equally likely, they should
+be taken to be equally likely.  This is poor logic: no evidence of a difference
+is not the same as evidence of no difference.  The fallacy is called
+<em>Appeal to Ignorance</em>. See also
+Stark and Freedman, 2003.</p>
+<p>For example, if a coin is balanced well, there is no reason for it to
+land heads in preference to tails when it is tossed vigorously,
+so according to the Theory of Equally Likely Outcomes,
+the probability that the coin lands heads is equal to the
+probability that the coin lands tails, and both are 100%/2 = 50%.
+(This ignores the nearly impossible outcomes that the coin does not
+land at all or lands balanced on its edge.)
+Similarly, if a die is fair
+(properly balanced) the chance that when it is rolled vigorously
+it lands with the side with one spot on top (the chance that the die <em>shows</em>
+one spot) is the same as the chance that it shows two spots or three
+spots or four spots or five spots or six spots: 100%/6, about 16.7%.</p>
+<p>If an event consists of more than one possible
+outcome, the chance of the event is the number of ways it can occur, divided by the total
+number of things that could occur.
+For example, the chance that a die lands showing an even number of spots
+is the number of ways it could land showing an even number of spots
+(3, namely, landing showing 2, 4, or 6 spots), divided by the total
+number of things that could occur
+(6, namely, landing showing 1, 2, 3, 4, 5, or 6 spots).
+Since the total number of possible outcomes is <span class="math notranslate nohighlight">\(n\)</span>, the maximum possible
+probability of any event is <span class="math notranslate nohighlight">\(100% \times n/n = 100\%\)</span>.
+Thus, in the Theory of Equally Likely Outcomes, probabilities are between 0%
+and 100%, as claimed.</p>
+</div>
+<div class="section" id="frequency-theory">
+<h2>Frequency Theory<a class="headerlink" href="#frequency-theory" title="Permalink to this headline">¶</a></h2>
+<p>In the Frequency Theory of Probability,
+probability is the limit of the relative frequency
+with which an event occurs in repeated trials.
+(The trials must be <em>independent</em>.)</p>
+<p>Relative frequencies are always between 0% (the event essentially never happens)
+and 100% (the event essentially always happens), so in this theory as well, probabilities
+are between 0% and 100%.
+According to the Frequency Theory of Probability, what it means to
+say that “the probability that <span class="math notranslate nohighlight">\(A\)</span> occurs is
+<span class="math notranslate nohighlight">\(p\)</span>%” is that
+if you repeat the experiment over and over again, independently and
+under essentially identical conditions, the percentage of the time
+that <span class="math notranslate nohighlight">\(A\)</span> occurs will converge to <span class="math notranslate nohighlight">\(p\)</span>.
+For example, under the Frequency Theory, to say that the chance
+that a coin lands heads is 50% <em>means</em> that if you toss the coin over and over again,
+independently, the ratio of the number of times the coin lands heads to the
+total number of tosses approaches a limiting value of 50% as the number
+of tosses grows.
+Because the ratio of heads to tosses is always between 0% and 100%, when the
+probability exists it must be between 0% and 100%.</p>
+</div>
+<div class="section" id="the-subjective-theory">
+<h2>The Subjective Theory<a class="headerlink" href="#the-subjective-theory" title="Permalink to this headline">¶</a></h2>
+<p>In the Subjective Theory of Probability, probability measures the speaker’s
+“degree of belief” that the event will occur, on a scale of 0%
+(complete disbelief that the event will happen) to 100%
+(certainty that the event will happen).
+According to the Subjective Theory, what it means for me to say that
+“the probability that <span class="math notranslate nohighlight">\(A\)</span> occurs is 2/3” is that
+I believe that <span class="math notranslate nohighlight">\(A\)</span> will happen twice as strongly as I believe
+that <span class="math notranslate nohighlight">\(A\)</span> will not happen.
+The Subjective Theory is particularly useful in assigning meaning to the
+probability of events that in principle can occur only once.
+For example, how might one assign meaning to a statement like
+“there is a 25% chance of an earthquake on the San Andreas fault
+with magnitude 8 or larger before 2050?”
+(See Stark and Freedman, 2003, for more discussion
+of theories of probability and their application to earthquakes.)
+It is very hard to use either the Theory of Equally Likely Outcomes
+or the Frequency Theory to make sense of the assertion.
+Can you think of other examples?</p>
+<p>These three theories of probability assign different meanings to the statement
+“the chance that <span class="math notranslate nohighlight">\(A\)</span> occurs is <span class="math notranslate nohighlight">\(p%\)</span>.”
+Each theory has situations in which it is most natural, and each
+theory has shortcomings.
+We will use the Frequency Theory primarily.</p>
+</div>
+<div class="section" id="model-based-probability">
+<h2>Model-Based Probability<a class="headerlink" href="#model-based-probability" title="Permalink to this headline">¶</a></h2>
+<p>[To do]</p>
+</div>
+<div class="section" id="shortcomings-of-the-theories">
+<h2>Shortcomings of the Theories<a class="headerlink" href="#shortcomings-of-the-theories" title="Permalink to this headline">¶</a></h2>
+<p>While each of the theories has attractive elements, all have shortcomings as well.
+The shortcomings involve hidden assumptions, limited domains of applicability, and
+changes of subject.
+(The Subjective Theory changes the subject more than the others do, as
+elaborated below.  Arguing for a conclusion superficially related to the
+desired conclusion and pretending you have established the latter is
+<em>The Red Herring</em> fallacy. In contrast, arguing against
+a hypothesis superficially like one you wish to refute then claiming you have
+refuted the latter is <em>The Straw Man</em> fallacy.</p>
+<div class="section" id="the-theory-of-equally-likely-outcomes">
+<h3>The Theory of Equally Likely Outcomes<a class="headerlink" href="#the-theory-of-equally-likely-outcomes" title="Permalink to this headline">¶</a></h3>
+<p>Even when there are only a few possible outcomes, it is not always clear whether
+they should be deemed equally likely.
+For example, consider tossing two coins at the same time.
+The possible outcomes could be {two heads, not two heads} or
+{two heads, one head and one tail, two tails} or
+{two heads, head on coin 1 and tail on coin 2, tail on coin 1 and head on
+coin 2, two tails}.</p>
+<p>The last of these assigns the same probabilities the
+Frequency Theory does.
+For instance, if the equally likely outcomes are taken to be
+{two heads, head on coin 1 and tail on coin 2, tail on coin 1 and head on
+coin 2, two tails}, both the Theory of Equally Likely Outcomes and the Frequency Theory
+would say that the chance of two heads is 25%.
+If one is using probability to bet on games of chance, long-term relative
+frequencies—which the Frequency Theory contemplates—are perhaps the most
+important consideration, because they determine how much one wins or loses in
+the long run.
+It seems rather artificial to introduce a distinction between two otherwise
+identical coins in order to make the probabilities calculated using the
+Theory of Equally Likely Outcomes agree with the probabilities calculated using
+the Frequency Theory.
+Perhaps a more serious limitation of the Theory of Equally Likely Outcomes is that
+many situations do not have natural symmetries to exploit to decide which outcomes
+are equally likely.
+For example, what is the chance that a thumbtack lands with its point up when it
+is tossed vigorously? What is the chance that a die that has been “loaded”
+(modified to be unbalanced) lands showing one spot?
+Neither of these problems has a natural symmetry from which to argue that the
+outcomes are equally likely.
+Moreover, in many situations there are an infinite number of possible outcomes;
+dividing 100% by infinity yields zero.</p>
+</div>
+<div class="section" id="the-frequency-theory">
+<h3>The Frequency Theory<a class="headerlink" href="#the-frequency-theory" title="Permalink to this headline">¶</a></h3>
+<p>The Frequency Theory requires an assumption about how the world works:
+The relative frequency with which an event occurs in repeated trials
+is <em>assumed</em> to converge to a limit.
+What is a limit?
+In the case of coin tossing, the theory says that for any positive
+number <span class="math notranslate nohighlight">\(\epsilon\)</span>, no matter how small, there is some number
+<span class="math notranslate nohighlight">\(M\)</span>, which can depend
+on <span class="math notranslate nohighlight">\(\epsilon\)</span>, such that</p>
+<div class="math notranslate nohighlight">
+\[ | \mbox{(#heads in n tosses)}/n - 50\% | &lt; \epsilon \]</div>
+<p>whenever the number of tosses <span class="math notranslate nohighlight">\(n &gt; M\)</span>.
+Not all sequences of heads and tails satisfy this assumption.
+For example, suppose the first toss gives a head.
+The relative frequency of heads is then 100%.
+Suppose the next 3 tosses give tails.
+The relative frequency of heads is then 25%.
+Suppose the next 100 tosses give heads.
+The relative frequency of heads is then over 97%.
+Suppose the next 5000 tosses give tails.
+The relative frequency of heads is then about 20%.
+If we continue in this way, with ever longer runs of heads and of tails,
+the relative frequency of heads never approaches a limit.</p>
+<p>The <em>Empirical Law of Averages</em>
+says this never happens:
+The world works in such a way that the relative frequency with which a random
+event occurs in repeated trials always settles down to a limit.
+This “law” is an <em>assumption</em> about how the world works.
+It is not a mathematical fact, and it is not an observation because no one can continue
+tossing coins forever to see whether the relative frequency of heads starts to vary
+again after, say, 100,000,000,000,000 tosses.
+The Empirical Law of Averages is essential to the Frequency Theory.</p>
+<p>The second limitation of the Frequency Theory is that many events to which
+we might like to assign probabilities are not the outcomes of repeatable experiments.
+For example, what is the probability that the universe will end in a “big crunch?”
+What is the probability that my 2020 tax return will be audited?
+What is the probability that in 2020 more online textbooks than paper
+textbooks will be sold?
+What is the probability that the Dow Jones Industrial Average reaches 20,000
+before the year 2020?</p>
+</div>
+<div class="section" id="id1">
+<h3>The Subjective Theory<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The principal shortcoming of the Subjective Theory is that colloquially we think
+of probability as being a property of an event in the external (objective) world,
+not merely a reflection of our state of mind.
+When I say “this thumbtack has probability 66% of landing point up when I toss it,”
+you probably think I am talking about the tack, not about my state of mind with
+respect to the tack: this theory changes the subject.
+Similarly, under the Subjective Theory, you and I can disagree about the probability
+of an event and both be correct, which seems unsatisfactory in many scientific
+settings.</p>
+<p>There are a variety of technical difficulties in the Subjective Theory regarding how to
+measure the probability of an event.
+One possible resolution is to study the bets you are willing to take.
+Would you be indifferent between a bet that a coin lands heads and a bet with the
+same stakes that it lands tails?
+If so, some theorists would conclude that your subjective probability that the coin
+lands heads is 50%.
+Some factors can complicate this approach.
+For example, even though you know that buying a lottery ticket is almost certainly
+throwing your money away, you might buy a ticket anyway, reasoning that you would
+not particularly miss the $1 cost of the ticket, while you would definitely notice
+winning $20,000,000.
+In this scenario, the <em>probability</em> of winning is less of an issue than the
+<em>possibility</em> of winning.</p>
+<p>Here is another example: I will bet you $1,000,000 against $500 that there will
+not be a nuclear bomb dropped on Berkeley, California, by the year 2020.
+Even if I am confident that a nuclear bomb will be dropped, if it is dropped,
+I won’t have to pay off the lost bet (I live in Berkeley), but if it is not dropped,
+I could use the $500 you would owe me.</p>
+<p>Another problem with the Subjective Theory has to do with
+scientific method.
+Some philosophers of science maintain that unless an hypothesis can,
+in principle, be shown to be false, it is not scientific.
+An hypothesis that in principle can be disproved is called <em>falsifiable</em>.
+In the Frequency Theory, one can collect evidence against the statement that
+“the probability that <span class="math notranslate nohighlight">\(A\)</span> occurs
+is <span class="math notranslate nohighlight">\(p\)</span>%” by repeating an experiment
+over and over and looking at the fraction of times the event <span class="math notranslate nohighlight">\(A\)</span> occurs.
+In the Subjective Theory, evidence against the hypothesis that
+“the probability that <span class="math notranslate nohighlight">\(A\)</span> occurs is <span class="math notranslate nohighlight">\(p\)</span>%”
+is found by psychological testing to see whether the individual making the
+statement is telling the truth and is internally consistent in his assignments
+of probability.
+Running the real-world experiment over would not be relevant.</p>
+</div>
+<div class="section" id="id2">
+<h3>Model-based Probability<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>[To Do]
+Calibrating/testing the model, availability of relevant data, …</p>
+<p>Previous: <span class="xref myst">Sets, Combinatorics, &amp; Probability</span>
+Next: <span class="xref myst">Random Variables, Expectation, &amp; Random Vectors</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> talkTools.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><link href='http://fonts.googleapis.com/css?family=Lora|Open+Sans' rel='stylesheet' type='text/css'>
+<style>
+
+font-family: 'Lora', serif;
+
+.MathJax_Display {
+  padding: 10px;
+}
+
+div.callout {
+  color: #000000;
+  background-color: #DDDDDD;
+  margin: 20px 20px 20px 20px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 10px 10px;
+}
+
+.rendered_html {
+  color: #2C5494;
+  font-family: 'Lora', serif;
+  font-size: 140%;
+  line-height: 1.1;
+  margin: 0.5em 0;
+}
+
+div.cell {
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div.text_cell_render {
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  color: #4773D1;
+  font-size: 250%;
+  font-weight:bold;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+.subtitle {
+  font-family: 'Open Sans', sans-serif;
+  color: #386BBC;
+  font-size: 180%;
+  font-weight:bold;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+.slide-header, p.slide-header {
+  color: #4773D1;
+  font-size: 200%;
+  font-weight:bold;
+  margin: 0px 20px 10px;
+  page-break-before: always;
+  text-align: center;
+}
+
+.rendered_html .code {
+  background-color: #FFFFFF;
+  font-family: Consolas;
+}
+
+.rendered_html h1 {
+  color: #7898DD;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+  margin: 0.15em 0em 0.5em;
+  page-break-before: always;
+}
+
+
+.rendered_html h2 {
+  color: #4773D1;
+  line-height: 1.2;
+  margin: 1.1em 0em 0.5em;
+}
+
+.rendered_html h3 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 1.1em 0em 0.5em;
+}
+
+.rendered_html .definition, .proposition, .proof, .theorem {
+    padding-top: 20px;
+    color: #222299;
+    font-size: 120%;
+    font-style: italic;
+}
+
+.definition, .proposition, .theorem {
+  background-color: #EEEEEE;
+  border-style: solid;
+  border-width: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rendered_html .definition::before{
+    content: "Definition:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .proposition::before{
+    content: "Proposition:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .proof::before{
+    content: "Proof:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .theorem::before{
+    content: "Theorem:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.rendered_html ol li {
+  padding-top: 20px;
+  padding-bottom: -20px;
+  line-height: 1.5;
+}
+
+.rendered_html ul li {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 1.2;
+}
+
+li:first-of-type {
+  padding-top: -100px;
+}
+
+.input_prompt, .CodeMirror-lines, .output_area {
+  font-family: Consolas;
+  font-size: 120%;
+}
+
+.gap-above {
+  padding-top: 200px;
+}
+
+.gap01 {
+  padding-top: 10px;
+}
+
+.gap05 {
+  padding-top: 50px;
+}
+
+.gap1 {
+  padding-top: 100px;
+}
+
+.gap2 {
+  padding-top: 200px;
+}
+
+.gap3 {
+  padding-top: 300px;
+}
+
+.emph {
+  color: #386BBC;
+}
+
+.warn {
+  color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+.nb_link {
+    padding-bottom: 0.5em;
+}
+
+body {
+    background-color: #ffffff;
+    counter-reset: fncounter;
+    counter-reset: h1counter;
+}
+
+h1,h2 {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: center;
+    margin-top: 2em;
+}
+
+h1.compact {
+    margin-top: 0;
+}
+
+h3,h4,h5,h6 {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2em;
+    margin-right:  0em;
+    padding-right: 0em;
+}
+
+blockquote {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+p,table,li,dl,address {
+    font-family: helvetica, arial, 'sans serif';
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+dd {
+    font-family: helvetica, arial, 'sans serif';
+    margin-left: 5%;
+    margin-right: 0%;
+    font-size: 80%;
+}
+
+fieldset.narrow {
+    font-family: helvetica, arial, 'sans serif';
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+legend {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 80%;
+}
+
+ul.noBullet {
+    list-style-type: none;
+    font-family: helvetica, arial, 'sans serif';
+    margin-left: -3em;
+    margin-right: 0em;
+    font-size: 90%;
+}
+
+ul.noBulletExtraSpace {
+    list-style-type: none;
+    font-family: helvetica, arial, 'sans serif';
+    margin-left: -3em;
+    margin-right: 0em;
+    margin-bottom: 1em;
+    font-size: 100%;
+}
+
+ul.noBulletExtraSpace li {
+    margin-bottom: 1em;
+}
+
+p,li,th,td {
+    font-size: 100%;
+}
+
+p.inline {
+    display: inline;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+div.boxContents {
+    text-align: center;
+    line-height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding-bottom: 10px;
+}
+
+p.boxTickets {
+    text-align: center;
+    display: inline;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    background: #888888;
+    border: solid #888888;
+    border-width: thick;
+    border-style: outset;
+    line-height: 4em;
+}
+
+p.boxLabel {
+    text-align: center;
+    font-variant: small-caps;
+    padding-top: 10%;
+    color: #000055;
+}
+
+p.math {
+    font-family: helvetica, arial, 'sans serif';
+    color: #000000;
+    text-align: center;
+    font-style: italic;
+}
+
+p.inlineMath {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: center;
+    font-style: italic;
+    display: inline;
+}
+
+p.figure {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: center;
+}
+
+p.center {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: center;
+}
+
+p.big {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: left;
+    font-size: 130%;
+}
+
+p.bigCenter {
+    font-family: helvetica, arial, 'sans serif';
+    text-align: center;
+    font-size: 130%;
+}
+
+p.example {
+    font-family: helvetica, arial, 'sans serif';
+    margin-left: 10%;
+    margin-right: 10%;
+    font-style: italic;
+}
+
+table.dataTable {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 80%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: solid #555555;
+}
+
+table.dataTable th {
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+table.dataTable td {
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+table.truthTable {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: solid #0000FF;
+}
+
+table.truthTable th {
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+table.truthTable td {
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+table.truthTable caption {
+    font-weight: bold;
+}
+
+div.boxModel {
+    display: block;
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 120%;
+    min-height: 6em;
+    margin-top: 1.5em;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 2em;
+    border-width: thick;
+    border-top: none;
+    border-left: solid #000000;
+    border-right: solid #000000;
+    border-bottom: solid #000000;
+    background: #dedeff;
+}
+
+div.problem {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-top: 1.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: solid #009900;
+    background: #eeffee;
+}
+
+div.indent {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+div.code {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-top: 1.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: solid #0066ff;
+    background: #eeeedd;
+}
+
+
+div.table {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    border: solid #000099;
+    background: #ccccff;
+}
+
+div.plainTable {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+div.example {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    margin-top: 1.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: solid #0000ff;
+    background: #eeeeff;
+}
+
+div.caption {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 120%;
+    font-weight: bold;
+    color: #000099;
+    margin-left: 0%;
+    margin-right: 5%;
+    text-align: left;
+}
+
+div.figure {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    border: solid #808080;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+}
+
+div.solution {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 100%;
+    color: #000099;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: block;
+}
+
+div.callout {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 105%;
+    font-weight: bold;
+    border: solid #ff0000;
+    background: #ffeeee;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding:     2% 0% 2% 0%;
+    text-align: left;
+}
+
+div.solution {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 85%;
+    color: #000099;
+    margin-left: 0%;
+    margin-right: 0%;
+    display: none;
+}
+
+
+h1,h2,h3{
+    color:#000000;
+}
+
+hr {
+    height: 3px;
+    color:#000000;
+    width: 90%;
+    text-align:center;
+}
+
+
+a:link    {
+    color:#0000ff;
+    text-decoration: none;
+}
+
+a:visited {color:#000fff}
+a:active  {color:#ff0033}
+a:hover   {
+    color: #000000;
+    background:silver;
+}
+a.glossRef:visited {color:#107080}
+
+a.fnLink:link {color:#800080}
+
+span.defSpan {
+     font-size: 100%;
+}
+
+span.appCtrlName {
+     font-stretch: wider;
+     color:  #800000;
+     font-size: 100%;
+     margin-left: 0%;
+}
+
+span.calloutCaption {
+    font-family: helvetica, arial, 'sans serif';
+    font-size: 120%;
+    font-weight: bold;
+    color: #000000;
+}
+
+/*
+span.math {
+    font-family: helvetica, arial, 'sans serif';
+    color:  #000085;
+    text-align: center;
+    font-style: italic;
+}
+*/
+
+span.example {
+    font-family: helvetica, arial, 'sans serif';
+    font-style: italic;
+}
+
+span.qSpan {
+    font-family: helvetica, arial, 'sans serif';
+    color: #009900;
+}
+
+span.termOfArt {
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 105%;
+    font-stretch: wider;
+}
+
+
+pre {
+    font-family: monospace;
+}
+
+span.big {
+   font-size:        120%;
+}
+
+
+/*   CSS for drawing charts   */
+
+div.chart {
+    position:         relative;
+    clear:            both;
+    display:          block;
+    width:            90%;
+    min-height:       25em;
+    height:           auto !important;
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        100%;
+    text-align:       center;
+    margin:           auto;
+}
+
+div.chartCaption {
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        120%;
+    font-weight:      bold;
+    text-align:       center;
+    margin:           auto;
+    margin-bottom:    2em;
+}
+
+div.horizontalPipe {
+    z-index:          0;
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        60%;
+    color:            #ffffff;
+    background-color: #000099;
+    border:           none;
+    margin:           auto;
+    text-align:       center;
+}
+
+div.verticalPipe {
+    z-index:          0;
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        60%;
+    color:            #ffffff;
+    background-color: #000099;
+    border:           none;
+    margin:           auto;
+    text-align:       center;
+}
+
+a.chart {
+    display:          block;
+    color:            #000000;
+    background-color: #f0f0ff;
+    text-decoration:  none;
+}
+
+a.chart:hover {
+    color:            #900000;
+    background-color: #f0f0ff;
+    text-decoration:  none;
+}
+
+div.venn {
+    position:         relative;
+    clear:            right;
+    display:          block;
+    width:            25%;
+    min-height:       14em;
+    height:           auto !important;
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        100%;
+    text-align:       center;
+    margin:           auto;
+}
+
+div.vennCaption {
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        120%;
+    font-weight:      bold;
+    text-align:       center;
+    margin:           auto;
+    margin-bottom:    2em;
+}
+
+div.vennUniverse {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            90%;
+    min-height:       10em;
+    height:           10em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           2%;
+    left:             2%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x30_left_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           13%;
+    left:             20%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x50_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           10%;
+    left:             4%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect70x70_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            70%;
+    min-height:       7em;
+    height:           7em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           10%;
+    left:             4%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x50_left_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           13%;
+    left:             4%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect11x50_left_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            11%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           13%;
+    left:             4%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect30x40_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            30%;
+    min-height:       4em;
+    height:           4em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           10%;
+    left:             4%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect20x30_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            20%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           18%;
+    left:             5%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect15x30_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            15%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           18%;
+    left:             7%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+
+div.rect20x30_center {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            20%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           18%;
+    left:             38%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect20x30_center_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            20%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           18%;
+    left:             22%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x50_center {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           10%;
+    left:             28%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x50_center_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left:             28%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect30x60_center {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            30%;
+    min-height:       6em;
+    height:           6em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           12%;
+    left:             33%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect60x70_center {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            60%;
+    min-height:       7em;
+    height:           7em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           10%;
+    left:             18%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect85x80_center {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            85%;
+    min-height:       8em;
+    height:           8em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           5%;
+    left:             4%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect45x50_right_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            45%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left :            42%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x50_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           10%;
+    left :            50%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect40x50_right_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            40%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left:             50%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect30x30_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            30%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    text-align:       right;
+    bottom:           15%;
+    left :            60%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect30x30_right_high {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            30%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           18%;
+    left:             55%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect30x40_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            30%;
+    min-height:       4em;
+    height:           4em;
+    font-family:      helvetica, arial, 'sans serif';
+    font-size:        100%;
+    bottom:           13%;
+    left:             60%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect25x35_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            25%;
+    min-height:       3.5em;
+    height:           3.5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           13.5%;
+    left:             55%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect28x50_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            28%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left:             50%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect24x50_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            24%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left:             50%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+
+div.rect18x40_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            18%;
+    min-height:       4em;
+    height:           4em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           13%;
+    left:             60%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect12x50_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            12%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left:             66%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect10x30_left {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            10%;
+    min-height:       3em;
+    height:           3em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           18%;
+    left:             5%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+div.rect6x50_right {
+    position:         absolute;
+    padding:          0.2em;
+    display:          block;
+    width:            6%;
+    min-height:       5em;
+    height:           5em;
+    font-family:      helvetica, arial, 'sans serif';
+    bottom:           15%;
+    left:             57%;
+    border-color:     #000000;
+    border-style:     solid;
+    border-width:     3px;
+}
+
+.left {
+    text-align:       left;
+}
+
+.center {
+    text-align:       center;
+}
+
+.right {
+    text-align:       right;
+}
+
+
+
+.blue {
+    background-color: #4444ff;
+}
+
+.yellow {
+    background-color: #cccc00;
+}
+
+.gray {
+    background-color: #cccccc;
+}
+
+.green {
+    background-color: #44ff44;
+}
+
+.white {
+    background-color: #ffffff;
+}
+
+
+</style></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python2",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python2'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

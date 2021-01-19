@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPRT with a nuisance parameter &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/SPRTNuisance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/SPRTNuisance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sprt-with-a-nuisance-parameter">
+<h1>SPRT with a nuisance parameter<a class="headerlink" href="#sprt-with-a-nuisance-parameter" title="Permalink to this headline">¶</a></h1>
+<p>We have a population of <span class="math notranslate nohighlight">\(N\)</span> objects of which <span class="math notranslate nohighlight">\(N_w\)</span> are labeled “w,” <span class="math notranslate nohighlight">\(N_\ell\)</span> are labeled <span class="math notranslate nohighlight">\(l\)</span>, and <span class="math notranslate nohighlight">\(N_u \equiv N - N_w - N_\ell \ge 0\)</span> are labeled “u.”</p>
+<p>We want to test the hypothesis <span class="math notranslate nohighlight">\(H_0: N_w - N_\ell \le c\)</span>.</p>
+<p>This might arise in auditing an election, for instance; then, <span class="math notranslate nohighlight">\(N_w\)</span> might be the number of ballots with a vote for candidate <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(N_\ell\)</span> the number of ballots with a vote for candidate <span class="math notranslate nohighlight">\(\ell\)</span>, and <span class="math notranslate nohighlight">\(N_u\)</span> the number of ballots with votes for other candidates, or ballots with undervotes, overvotes, or that are otherwise invalid.</p>
+<p>Let <span class="math notranslate nohighlight">\(H_k: N_w - N_\ell \le c, N_u = k\)</span> be the hypothesis that <span class="math notranslate nohighlight">\(N_w - N_\ell \le c\)</span> and
+<span class="math notranslate nohighlight">\(N_u = k\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(H_0 = \cup_{0 \le k \le N-c} H_k\)</span>.</p>
+<p>If we can reject every <span class="math notranslate nohighlight">\(H_k\)</span>, <span class="math notranslate nohighlight">\(0 \le k \le N-c\)</span>, we can reject <span class="math notranslate nohighlight">\(H_0\)</span>.
+If we test each <span class="math notranslate nohighlight">\(H_k\)</span> at level <span class="math notranslate nohighlight">\(\alpha\)</span>, then the overall test has level no larger than
+<span class="math notranslate nohighlight">\(\alpha\)</span>: at most one <span class="math notranslate nohighlight">\(H_k\)</span> can be right, and the chance of erroneously rejecting it is at most <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>We do not have to test every <span class="math notranslate nohighlight">\(H_k\)</span> against the same alternative.</p>
+<p>Let us consider testing <span class="math notranslate nohighlight">\(H_k\)</span> against <span class="math notranslate nohighlight">\(H_{kd}: N_w - N_\ell = c+d_k, N_u = k\)</span>.
+The hypotheses are equivalent to</p>
+<div class="math notranslate nohighlight">
+\[
+  H_k: N_u = k, N_w \le (N-k+c)/2, N_\ell \ge (N-k-c)/2
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+  H_{kd}: N_u = k, N_w = (N-k+c+d_k)/2, N_\ell = (N-k-c-d_k)/2.
+\]</div>
+<p>Suppose we draw a sample sequentially without replacement, and that in <span class="math notranslate nohighlight">\(n\)</span>
+draws we see <span class="math notranslate nohighlight">\(W_n\)</span> items labeled “w” and <span class="math notranslate nohighlight">\(L_n\)</span> items labeled “l,”
+and let <span class="math notranslate nohighlight">\(U_n \equiv n - W_n - L_n\)</span>.</p>
+<p><strong>Need a condition on <span class="math notranslate nohighlight">\(W_n\)</span>, <span class="math notranslate nohighlight">\(L_n\)</span> to be able to conclude that the ratio is maximized
+when the inequalities are at the integer boundary of the domain.
+If that isn’t true, there’s another layer of nuisance parameters to deal with.</strong></p>
+<p>Define <span class="math notranslate nohighlight">\(\prod_\emptyset (\cdot) \equiv 1\)</span>.
+Let <span class="math notranslate nohighlight">\(N_{wk} \equiv \lfloor (N-k+c)/2 \rfloor\)</span>, <span class="math notranslate nohighlight">\(N_{\ell k} \equiv \lceil (N-k-c)/2 \rceil\)</span>,
+<span class="math notranslate nohighlight">\(N_{wkd} \equiv \lfloor (N-k+c+d_k)/2 \rfloor\)</span>, and
+<span class="math notranslate nohighlight">\(N_{\ell kd} \equiv \lceil (N-k-c-d_k)/2 \rceil\)</span>.</p>
+<p>The likelihood ratio for <span class="math notranslate nohighlight">\(H_{kd}\)</span> to <span class="math notranslate nohighlight">\(H_k\)</span> to is</p>
+<div class="math notranslate nohighlight">
+\[
+  \mathcal{L}_{k,n} \equiv  \frac{\prod_{i=0}^{W_n} (N_{wkd} - i) \prod_{i=0}^{L_n} (N_{\ell kd} - i) \prod_{i=0}^{U_n} (k - i)}{\prod_{i=0}^{W_n} (N_{wk} - i) \prod_{i=0}^{L_n} (N_{\ell k} - i) \prod_{i=0}^{U_n} (k - i)} = \frac{\prod_{i=0}^{W_n} (N_{wkd} - i) \prod_{i=0}^{L_n} (N_{\ell kd} - i)}{\prod_{i=0}^{W_n} (N_{wk} - i) \prod_{i=0}^{L_n} (N_{\ell k} - i)}.
+\]</div>
+<p><strong>This might need additional restrictions in case a value of <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(d\)</span>, or <span class="math notranslate nohighlight">\(k\)</span>
+is impossible given <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(W_n\)</span>, <span class="math notranslate nohighlight">\(L_n\)</span>.</strong></p>
+<p>If <span class="math notranslate nohighlight">\(\max_{0 \le k \le N-c} \mathcal{L}_{k,n} \ge 1/\alpha\)</span>, we can reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>In an election, we might pick <span class="math notranslate nohighlight">\(d = V_w - V_\ell - c \)</span>, where <span class="math notranslate nohighlight">\(V_w\)</span> are the reported votes for
+<span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(V_\ell\)</span> are the reported votes for <span class="math notranslate nohighlight">\(\ell\)</span>.
+We could take all <span class="math notranslate nohighlight">\(d_k\)</span> equal, or relate <span class="math notranslate nohighlight">\(d_k\)</span> to <span class="math notranslate nohighlight">\(V_w/(V_w+V_\ell)\)</span> and the hypothesized value of <span class="math notranslate nohighlight">\(N_w + N_\ell\)</span>, or something else.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

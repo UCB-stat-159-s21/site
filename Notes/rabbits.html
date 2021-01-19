@@ -1,0 +1,1256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/rabbits.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/rabbits.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#philip-b-stark-www-stat-berkeley-edu-stark-philipbstark-br-department-of-statistics-university-of-california-berkeley">
+   Philip B. Stark, www.stat.berkeley.edu/~stark, @philipbstark
+   <br/>
+   Department of Statistics, University of California, Berkeley
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-does-probability-come-from">
+   Where does probability come from?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-probability">
+     What is Probability?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#axiomatic-aspect-and-philosophical-aspect">
+       Axiomatic aspect and philosophical aspect.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-probability-enter-a-scientific-problem">
+     How does probability enter a scientific problem?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-very-different-situations">
+     Two very different situations:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gotta-check-the-assumptions-against-the-world">
+       Gotta check the assumptions against the world
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cargo-cult-science-feynman">
+       Cargo-Cult Science: Feynman
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-a-p-value">
+   What’s a P-value?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#p-values">
+   <span class="math notranslate nohighlight">
+    \(P\)
+   </span>
+   -values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-f-informal-definition-in-terms-of-extreme-values">
+   C.f. informal definition in terms of “extreme” values?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#it-s-all-about-the-null-hypothesis">
+   It’s all about the null hypothesis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applications-of-the-rabbit-hat-theorem">
+     Applications of the Rabbit-Hat Theorem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#when-did-the-rabbit-enter-the-hat">
+   When did the rabbit enter the hat?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complaints-about-p-values">
+   Complaints about
+   <span class="math notranslate nohighlight">
+    \(P\)
+   </span>
+   -values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cargo-cult-statistics">
+     Cargo-cult statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-the-2-sample-problem">
+   Example: The 2-sample problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-effect-of-treatment-in-a-randomized-controlled-experiment">
+   Example: Effect of treatment in a randomized controlled experiment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informal-hypotheses">
+     Informal Hypotheses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-contenders">
+     Test contenders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions-of-the-tests">
+     Assumptions of the tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-sense-of-probabilities-in-applied-problems">
+     Making sense of probabilities in applied problems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecam-s-coin-tossing-example">
+     LeCam’s coin-tossing example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#experiments-are-not-the-same-as-experiences">
+       Experiments are not the same as experiences
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecam-s-1977-shopkeeper-example">
+     LeCam’s (1977) shopkeeper example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rates-versus-probabilities">
+     Rates versus probabilities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thought-experiments">
+     Thought experiments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cargo-cult-confidence-intervals">
+     Cargo Cult Confidence Intervals
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-s-wrong-with-it">
+       What’s wrong with it?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-haphazard-unpredictable-unknown">
+     Random/haphazard/unpredictable/unknown
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-brief-examples">
+   Two brief examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wind-power-avian-wind-turbine-interactions">
+     Wind power: “avian / wind-turbine interactions”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measurements">
+     Measurements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stochastic-model">
+     Stochastic model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#consultant">
+     Consultant
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-does-this-mean">
+       What does this mean?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#where-do-the-models-come-from">
+     Where do the models come from?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complications-at-altamont">
+     Complications at Altamont
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earthquake-probabilities">
+     Earthquake probabilities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-psha-equation">
+     The PSHA equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earthquake-casinos">
+     Earthquake casinos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earthquake-terrorism">
+     Earthquake terrorism
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rabbits-and-earthquake-casinos">
+     Rabbits and Earthquake Casinos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-would-make-the-casino-metaphor-apt">
+       What would make the casino metaphor apt?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-good-are-the-numbers">
+       What good are the numbers?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="p-values-probability-priors-rabbits-quantifauxcation-and-cargo-cult-statistics">
+<h1>P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics<a class="headerlink" href="#p-values-probability-priors-rabbits-quantifauxcation-and-cargo-cult-statistics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="philip-b-stark-www-stat-berkeley-edu-stark-philipbstark-br-department-of-statistics-university-of-california-berkeley">
+<h2>Philip B. Stark, www.stat.berkeley.edu/~stark, &#64;philipbstark<br /> Department of Statistics, University of California, Berkeley<a class="headerlink" href="#philip-b-stark-www-stat-berkeley-edu-stark-philipbstark-br-department-of-statistics-university-of-california-berkeley" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-info">
+If we are uncritical we shall always find what we want: we shall look for, and find, confirmations, and we shall look away from, and not see, whatever might be dangerous to our pet theories. In this way it is only too easy to obtain what appears to be overwhelming evidence in favor of a theory which, if approached critically, would have been refuted. 
+<br/>
+&mdash;Karl Popper
+</div><div class="alert alert-info">
+The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data. 
+<br/>
+&mdash;J.W. Tukey
+</div><div class="alert alert-info">
+It is inappropriate to be concerned with mice when there are tigers abroad.
+<br/>
+&mdash; George Box
+</div></div>
+<div class="section" id="where-does-probability-come-from">
+<h2>Where does probability come from?<a class="headerlink" href="#where-does-probability-come-from" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Rates are not probabilities</p></li>
+</ul>
+<ul class="simple">
+<li><p>Not all uncertainty is probability. Haphazard/random/unknown</p></li>
+</ul>
+<ul class="simple">
+<li><p>A coefficient in a model may not be a “real” probability, even if it’s called “probability”</p></li>
+</ul>
+<ul class="simple">
+<li><p>A <span class="math notranslate nohighlight">\(P\)</span>-value may not be a relevant probability, even though it is a “probability”</p></li>
+</ul>
+<div class="section" id="what-is-probability">
+<h3>What is Probability?<a class="headerlink" href="#what-is-probability" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="axiomatic-aspect-and-philosophical-aspect">
+<h4>Axiomatic aspect and philosophical aspect.<a class="headerlink" href="#axiomatic-aspect-and-philosophical-aspect" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Kolmogorov’s axioms:</p>
+<ul>
+<li><p>“just math”</p></li>
+<li><p>triple \( (S, \Omega, P)\)</p>
+<ul>
+<li><p>\(S\) a set</p></li>
+<li><p>\(\Omega\) a sigma-algebra on \(S\)</p></li>
+<li><p>\(P\) a non-negative countably additive measure with total mass 1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Philosophical theory that ties the math to the world</p>
+<ul>
+<li><p>What does probability <em>mean</em>?</p></li>
+<li><p>Standard theories</p>
+<ul>
+<li><p>Equally likely outcomes</p></li>
+<li><p>Frequency theory</p></li>
+<li><p>Subjective theory</p></li>
+</ul>
+</li>
+<li><p>Probability models as empirical commitments</p></li>
+<li><p>Probability as metaphor</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-does-probability-enter-a-scientific-problem">
+<h3>How does probability enter a scientific problem?<a class="headerlink" href="#how-does-probability-enter-a-scientific-problem" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>underlying phenomenon is random (radioactive decay)</p></li>
+</ul>
+<ul class="simple">
+<li><p>deliberate randomization (randomized experiments, random sampling)</p></li>
+</ul>
+<ul class="simple">
+<li><p>subjective probability &amp; “pistimetry”</p>
+<ul>
+<li><p>posterior distributions require prior distributions</p></li>
+<li><p>prior generally matters but rarely given attention (Freedman)</p></li>
+<li><p>elicitation issues</p></li>
+<li><p>arguments from consistency, “Dutch book,” …</p></li>
+<li><p>why should I care about your subjective probability?</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>invented model that’s supposed to describe the phenomenon</p>
+<ul>
+<li><p>in what sense?</p></li>
+<li><p>to what level of accuracy?</p></li>
+<li><p>description v. prediction v. predicting effect of intervention</p></li>
+<li><p>testable to desired level of accuracy?</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>metaphor: phenomenon behaves “as if random”</p></li>
+</ul>
+</div>
+<div class="section" id="two-very-different-situations">
+<h3>Two very different situations:<a class="headerlink" href="#two-very-different-situations" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Scientist creates randomness by taking a random sample,
+assigning subjects at random to treatment or control, etc.</p></li>
+<li><p>Scientist invents (assumes) a probability model for data the world gives.</p></li>
+</ol>
+<p>(1) allows sound inferences.</p>
+<p>(2) is only as good as the assumptions.</p>
+<div class="section" id="gotta-check-the-assumptions-against-the-world">
+<h4>Gotta check the assumptions against the world<a class="headerlink" href="#gotta-check-the-assumptions-against-the-world" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Empirical support?</p></li>
+<li><p>Plausible?</p></li>
+<li><p>Iffy?</p></li>
+<li><p>Absurd?</p></li>
+</ul>
+</div>
+<div class="section" id="cargo-cult-science-feynman">
+<h4>Cargo-Cult Science: Feynman<a class="headerlink" href="#cargo-cult-science-feynman" title="Permalink to this headline">¶</a></h4>
+<p>In the South Seas there is a cargo cult of people. During the war they saw airplanes land with lots of good materials, and they want the same thing to happen now. So they’ve arranged to imitate things like runways, to put fires along the sides of the runways, to make a wooden hut for a man to sit in, with two wooden pieces on his head like headphones and bars of bamboo sticking out like antennas—he’s the controller—and they wait for the airplanes to land. They’re doing everything right. The form is perfect. It looks exactly the way it looked before. But it doesn’t work. No airplanes land. So I call these things cargo cult science, because they follow all the apparent precepts and forms of scientific investigation, but they’re missing something essential, because the planes don’t land.</p>
+<p>Now it behooves me, of course, to tell you what they’re missing. But it would he just about as difficult to explain to the South Sea Islanders how they have to arrange things so that they get some wealth in their system. It is not something simple like telling them how to improve the shapes of the earphones. But there is one feature I notice that is generally missing in Cargo Cult Science. That is the idea that we all hope you have learned in studying science in school—we never explicitly say what this is, but just hope that you catch on by all the examples of scientific investigation. It is interesting, therefore, to bring it out now and speak of it explicitly. It’s a kind of scientific integrity, a principle of scientific thought that corresponds to a kind of utter honesty—a kind of leaning over backwards. For example, if you’re doing an experiment, you should report everything that you think might make it invalid—not only what you think is right about it: other causes that could possibly explain your results; and things you thought of that you’ve eliminated by some other experiment, and how they worked—to make sure the other fellow can tell they have been eliminated.</p>
+<p>Details that could throw doubt on your interpretation must be given, if you know them.  You must do the best you can—if you know anything at all wrong, or possibly wrong—to explain it. If you make a theory, for example, and advertise it, or put it out, then you must also put down all the facts that disagree with it, as well as those that agree with it.  There is also a more subtle problem. When you have put a lot of ideas together to make an elaborate theory, you want to make sure, when explaining what it fits, that those things it fits are not just the things that gave you the idea for the theory; but that the finished theory makes something else come out right, in addition.</p>
+<p>In summary, the idea is to try to give all of the information to help others to judge the value of your contribution; not just the information that leads to judgment in one particular direction or another.</p>
+<p>[] We’ve learned from experience that the truth will come out. Other experimenters will repeat your experiment and find out whether you were wrong or right. Nature’s phenomena will agree or they’ll disagree with your theory. And, although you may gain some temporary fame and excitement, you will not gain a good reputation as a scientist if you haven’t tried to be very careful in this kind of work. And it’s this type of integrity, this kind of care not to fool yourself, that is missing to a large extent in much of the research in cargo cult science.</p>
+<p>The first principle is that you must not fool yourself—and you are the easiest person to fool. So you have to be very careful about that. After you’ve not fooled yourself, it’s easy not to fool other scientists.  You just have to be honest in a conventional way after that.</p>
+<p>—Richard Feynman, 1974. http://calteches.library.caltech.edu/51/2/CargoCult.htm</p>
+</div>
+</div>
+</div>
+<div class="section" id="what-s-a-p-value">
+<h2>What’s a P-value?<a class="headerlink" href="#what-s-a-p-value" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A probability</p></li>
+</ul>
+<ul class="simple">
+<li><p>But of what?</p></li>
+</ul>
+</div>
+<div class="section" id="p-values">
+<h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Observe data <span class="math notranslate nohighlight">\(X \sim \mathbb{P}\)</span>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Null hypothesis <span class="math notranslate nohighlight">\(\mathbb{P} = \mathbb{P}_0\)</span> (or more generally, <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}_0\)</span>).</p></li>
+</ul>
+<ul class="simple">
+<li><p>Nested (monotone) hypothesis tests:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\{A_\alpha : \alpha \in (0, 1] \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}_0 \{ X \notin A_\alpha \} \le \alpha\)</span> (or more generally, <span class="math notranslate nohighlight">\(\mathbb{P} \{ X \notin A_\alpha \} \le \alpha, \; \forall \mathbb{P} \in \mathcal{P}_0\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_\alpha \subset A_\beta\)</span> if <span class="math notranslate nohighlight">\(\beta &lt; \alpha\)</span> (Can always re-define <span class="math notranslate nohighlight">\(A_\alpha \leftarrow \cup_{\beta \ge \alpha } A_\beta\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>If we observe <span class="math notranslate nohighlight">\(X = x\)</span>, <span class="math notranslate nohighlight">\(P\)</span>-value is <span class="math notranslate nohighlight">\(\sup \{ \alpha: x \in A_\alpha \}\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="c-f-informal-definition-in-terms-of-extreme-values">
+<h2>C.f. informal definition in terms of “extreme” values?<a class="headerlink" href="#c-f-informal-definition-in-terms-of-extreme-values" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>What does “more extreme” mean?</p></li>
+</ul>
+</div>
+<div class="section" id="it-s-all-about-the-null-hypothesis">
+<h2>It’s all about the null hypothesis<a class="headerlink" href="#it-s-all-about-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>P-values measure the strength of the evidence against the null: smaller values, stronger evidence.</p></li>
+<li><p>If the <span class="math notranslate nohighlight">\(P\)</span>-value equals <span class="math notranslate nohighlight">\(p\)</span>, either:</p>
+<ol class="simple">
+<li><p>the null hypothesis is false</p></li>
+<li><p>an event occurred that had probability no greater than <span class="math notranslate nohighlight">\(p\)</span></p></li>
+</ol>
+</li>
+<li><p>Alternative hypothesis matters for power, but not for level.</p></li>
+<li><p>Rejecting the null is not evidence <em>for</em> the alternative: it’s evidence <em>against</em> the null.</p></li>
+<li><p>If the null is unreasonable, no surprise if we reject it. Null needs to make sense.</p></li>
+<li><p>Unreasonable null is not support for the alternative.</p></li>
+</ul>
+<div class="alert alert-info">
+<strong>The Rabbit Axioms</strong><br />
+<ol class="simple">
+<li><p>For the number of rabbits in a closed system to increase,
+the system must contain at least two rabbits.<br /></p></li>
+<li><p>No negative rabbits.</p></li>
+</ol>
+</div><p> </p>
+<div class="alert alert-success">
+<strong>Freedman's Rabbit-Hat Theorem</strong> <br />
+<p>You cannot pull a rabbit from a hat unless at least one
+rabbit has previously been placed in the hat.</p>
+</div><p> </p>
+<div class="alert alert-success">
+<strong>Corollary</strong> <br />
+<p>You cannot “borrow” a rabbit from an empty
+hat, even with a binding promise to return the rabbit later.</p>
+</div><div class="section" id="applications-of-the-rabbit-hat-theorem">
+<h3>Applications of the Rabbit-Hat Theorem<a class="headerlink" href="#applications-of-the-rabbit-hat-theorem" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Probablility doesn’t come out of a calculation unless probability went into the calculation.</p>
+<ul>
+<li><p>Can’t turn a rate into a probability without assuming the phenomenon is random in the first place.</p></li>
+</ul>
+</li>
+<li><p>Can’t conclude that a process is random without making assumptions
+that amount to assuming that the process is random.
+(Something has to put the randomness rabbit into the hat.)</p></li>
+<li><p>Testing whether the process appears to be random using the
+<em>assumption</em> that it is random cannot prove that it is
+random. (You can’t borrow a rabbit from an empty hat.)</p></li>
+<li><p>Posterior distributions don’t exist without prior distributions.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="when-did-the-rabbit-enter-the-hat">
+<h2>When did the rabbit enter the hat?<a class="headerlink" href="#when-did-the-rabbit-enter-the-hat" title="Permalink to this headline">¶</a></h2>
+<p>Anytime you see a <span class="math notranslate nohighlight">\(P\)</span>-value, you should ask what the null hypothesis is.</p>
+<p>E.g., <span class="math notranslate nohighlight">\(\mu = 0\)</span> is not the whole null hypothesis:</p>
+<ul class="simple">
+<li><p>null has to completely specify (a family of possible) probability distributions of the data</p></li>
+<li><p>otherwise, can’t set acceptance regions <span class="math notranslate nohighlight">\(\{A_\alpha\}\)</span>.</p></li>
+</ul>
+<p>Anytime you see a posterior probability, you should ask what the prior was.</p>
+<ul class="simple">
+<li><p>no posterior distribution without a prior distribution.</p></li>
+<li><p>prior usually matters, despite claims about asymptopic results</p></li>
+</ul>
+<p>Anytime you see a confidence interval or standard error, you should ask what was random.</p>
+<ul class="simple">
+<li><p>no confidence intervals or standard errors without either random sampling or stochastic errors.</p></li>
+<li><p>box models</p></li>
+</ul>
+</div>
+<div class="section" id="complaints-about-p-values">
+<h2>Complaints about <span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#complaints-about-p-values" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>“Don’t tell us what we want to know.”</p></li>
+<li><p>Often abused.</p></li>
+<li><p>Confusing</p></li>
+</ul>
+<div class="alert alert-warning">
+<strong>Quantifauxcation</strong><br />
+<p>Assign a meaningless number, then pretend that since it’s quantitative, it’s meaningful.</p>
+</div>
+<p>Many P-values and other “probabilities” and most cost-benefit analyses are quantifauxcation.</p>
+<div class="section" id="cargo-cult-statistics">
+<h3>Cargo-cult statistics<a class="headerlink" href="#cargo-cult-statistics" title="Permalink to this headline">¶</a></h3>
+<p>Usually involves some combination of
+data, pure invention, <em>ad hoc</em> models, inappropriate statistics, and logical lacunae.</p>
+</div>
+</div>
+<div class="section" id="example-the-2-sample-problem">
+<h2>Example: The 2-sample problem<a class="headerlink" href="#example-the-2-sample-problem" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Randomization model: two lists. Are they “different”?</p></li>
+<li><p><span class="math notranslate nohighlight">\(t\)</span>-test. Assumptions?</p></li>
+<li><p>Permutation distribution</p></li>
+</ul>
+</div>
+<div class="section" id="example-effect-of-treatment-in-a-randomized-controlled-experiment">
+<h2>Example: Effect of treatment in a randomized controlled experiment<a class="headerlink" href="#example-effect-of-treatment-in-a-randomized-controlled-experiment" title="Permalink to this headline">¶</a></h2>
+<p>11 pairs of rats, each pair from the same litter.</p>
+<p>Randomly—by coin tosses—put one of each pair into
+“enriched” environment; other sib gets “normal” environment.</p>
+<p>After 65 days, measure cortical mass (mg).</p>
+<table>
+<tr>
+<td> enriched </td><td> 689 </td><td> 656 </td><td> 668 </td><td> 660 </td><td> 679 </td><td> 663 </td><td> 664 </td><td> 647 </td><td> 694 </td><td> 633 </td><td>653 </td>
+</tr>
+<tr>
+<td> impoverished </td><td> 657</td><td> 623</td><td> 652</td><td> 654</td><td> 658</td><td> 646</td><td> 600</td><td> 640</td><td> 605</td><td> 635</td><td> 642 </td>
+</tr>
+<tr>
+<td> difference </td><td> 32</td><td>  33</td><td>  16</td><td>   6</td><td>  21</td><td>  17</td><td>  64</td><td>   7</td><td>  89</td><td>  -2</td><td>  11
+</tr>
+</table>
+<p><strong>How should we analyze the data?</strong></p>
+<p>Cartoon of Rosenzweig, M.R., E.L. Bennet, and M.C. Diamond, 1972. Brain changes in response to experience, <em>Scientific American</em>, <em>226</em>, 22–29 report an experiment in which 11 triples of male rats, each triple from the same litter, were
+assigned at random to three different environments, “enriched” (E), standard, and “impoverished.”
+See also Bennett et al., 1969.</p>
+<div class="section" id="informal-hypotheses">
+<h3>Informal Hypotheses<a class="headerlink" href="#informal-hypotheses" title="Permalink to this headline">¶</a></h3>
+<p>Null hypothesis: treatment has “no effect.”</p>
+<p>Alternative hypothesis: treatment increases cortical mass.</p>
+<p>Suggests 1-sided test for an increase.</p>
+</div>
+<div class="section" id="test-contenders">
+<h3>Test contenders<a class="headerlink" href="#test-contenders" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>2-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 
+              \frac{\mbox{mean(treatment) - mean(control)}}
+                   {\mbox{pooled estimate of SD of difference of means}}
+\]</div>
+<ul class="simple">
+<li><p>1-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+	      \frac{\mbox{mean(differences)}}{\mbox{SD(differences)}/\sqrt{11}}
+\]</div>
+<p>Better, since littermates are presumably more homogeneous.</p>
+<ul class="simple">
+<li><p>Permutation test using <span class="math notranslate nohighlight">\(t\)</span>-statistic of differences:
+same statistic, different way to calculate <span class="math notranslate nohighlight">\(P\)</span>-value.</p></li>
+</ul>
+</div>
+<div class="section" id="assumptions-of-the-tests">
+<h3>Assumptions of the tests<a class="headerlink" href="#assumptions-of-the-tests" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>2-sample <span class="math notranslate nohighlight">\(t\)</span>-test:</p>
+<ul class="simple">
+<li><p>masses are iid sample from normal distribution, same unknown variance, same unknown mean.</p></li>
+<li><p>Tests weak null hypothesis (plus normality, independence, non-interference, etc.).</p></li>
+</ul>
+</li>
+<li><p>1-sample <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:</p>
+<ul class="simple">
+<li><p>mass differences are iid sample from normal distribution, unknown variance, zero mean.</p></li>
+<li><p>Tests weak null hypothesis (plus normality, independence, non-interference, etc.)</p></li>
+</ul>
+</li>
+<li><p>Permutation test:</p>
+<ul class="simple">
+<li><p>Randomization fair, independent across pairs.</p></li>
+<li><p>Tests strong null hypothesis.</p></li>
+</ul>
+</li>
+</ol>
+<p>Assumptions of the permutation test are true by design: That’s how treatment
+was assigned.</p>
+<p>If we reject the null for the 1-sample <span class="math notranslate nohighlight">\(t\)</span>-test, what have we learned?</p>
+<blockquote>
+<div><p>That the data are not (statistically) consistent with the assumption that they are an IID random sample from a normal distribution with mean 0.</p>
+</div></blockquote>
+<p>So what? We never thought they were.</p>
+<p>This is a <strong>straw man</strong> null hypothesis.</p>
+</div>
+<div class="section" id="making-sense-of-probabilities-in-applied-problems">
+<h3>Making sense of probabilities in applied problems<a class="headerlink" href="#making-sense-of-probabilities-in-applied-problems" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Reflexive way to try to represent uncertainty (post-WWII phenomenon)</p></li>
+<li><p>Not all uncertainty can be represented by a probability</p></li>
+<li><p>“Aleatory” versus “Epistemic”</p></li>
+</ul>
+<ul class="simple">
+<li><p>Aleatory</p>
+<ul>
+<li><p>Canonical examples: coin toss, die roll, lotto, roulette</p></li>
+<li><p>under some circumstances, behave “as if” random (but not perfectly)</p></li>
+</ul>
+</li>
+<li><p>Epistemic: stuff we don’t know</p></li>
+<li><p>“Pistimetry”: measuring beliefs</p></li>
+</ul>
+<ul class="simple">
+<li><p>Le Cam’s (1977) three examples of uncertainty:</p>
+<ul>
+<li><p>did Eudoxus have larger feet than Euclid? (ignorance)</p></li>
+<li><p>will a fair coin land “heads” the next time it is tossed? (randomness)</p></li>
+<li><p>is the <span class="math notranslate nohighlight">\(10^{137}+1\)</span>st digit of <span class="math notranslate nohighlight">\(\pi\)</span> a 7? (limited resources)</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Bayesian way of combining aleatory variability epistemic uncertainty puts beliefs on a par with an unbiased physical measurement w/ known uncertainty.</p>
+<ul>
+<li><p>Claims that by introspection, can estimate without bias, with known accuracy—as if one’s brain were unbiased instrument with known accuracy</p></li>
+<li><p>Bacon’s triumph over Aristotle should put this to rest, but empirically:</p>
+<ul>
+<li><p>people are bad at making even rough quantitative estimates</p></li>
+<li><p>quantitative estimates are usually biased</p></li>
+<li><p>bias can be manipulated by anchoring, priming, etc.</p></li>
+<li><p>people are bad at judging weights <em>in their hands</em>:  biased by shape &amp; density</p></li>
+<li><p>people are bad at judging when something is random</p></li>
+<li><p>people are overconfident in their estimates and predictions</p></li>
+<li><p>confidence  unconnected to actual accuracy.</p></li>
+<li><p>anchoring effects entire disciplines (e.g., Millikan, c, Fe in spinach)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>what if I don’t trust your internal scale, or your assessment of its accuracy?</p></li>
+<li><p>same observations that are factored in as “data” are also used to form
+beliefs: the “measurements” made by introspection are not independent of the data</p></li>
+</ul>
+</div>
+<div class="section" id="lecam-s-coin-tossing-example">
+<h3>LeCam’s coin-tossing example<a class="headerlink" href="#lecam-s-coin-tossing-example" title="Permalink to this headline">¶</a></h3>
+<p>Toss a fair coin <span class="math notranslate nohighlight">\(k\)</span> times independently; <span class="math notranslate nohighlight">\(X\)</span> is the number of heads; <span class="math notranslate nohighlight">\(\theta\)</span> is the chance of heads.</p>
+<div class="math notranslate nohighlight">
+\[
+   \mathbb{P}(X=k || \theta) = {n \choose k} \theta^k (1-\theta)^{n-k}.
+\]</div>
+<p>Suppose prior is of the form</p>
+<div class="math notranslate nohighlight">
+\[
+   \pi(\theta) = \frac{\theta^\alpha (1-\theta)^\beta}{\int t^\alpha (1-t)^\beta dt}.
+\]</div>
+<p>After tossing the coin, the posterior distribution will be of the same form.</p>
+<p>Suppose it turns out to be</p>
+<div class="math notranslate nohighlight">
+\[
+   p(\theta) = C \theta^{100}(1-\theta)^{100}.
+\]</div>
+<p>According to Bayesian inference, that is everything there is to know about <span class="math notranslate nohighlight">\(\theta\)</span> based on prior beliefs and
+the experiment.</p>
+<p>But doesn’t it matter whether this is simply a prior, the posterior after 5 tosses, or the posterior after 200 tosses?</p>
+<p>Bayesian formalism does not distinguish between these cases.</p>
+<div class="section" id="experiments-are-not-the-same-as-experiences">
+<h4>Experiments are not the same as experiences<a class="headerlink" href="#experiments-are-not-the-same-as-experiences" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="lecam-s-1977-shopkeeper-example">
+<h3>LeCam’s (1977) shopkeeper example<a class="headerlink" href="#lecam-s-1977-shopkeeper-example" title="Permalink to this headline">¶</a></h3>
+<p><img alt="LeCam Shopkeeper 1" src="../_images/lecam74-shopkeeper-1.png" /></p>
+<p><img alt="LeCam Shopkeeper 2" src="../_images/lecam74-shopkeeper-2.png" /></p>
+</div>
+<div class="section" id="rates-versus-probabilities">
+<h3>Rates versus probabilities<a class="headerlink" href="#rates-versus-probabilities" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In a series of trials, if each trial has the same probability <span class="math notranslate nohighlight">\(p\)</span> of success,
+and if the trials are independent, then the rate of successes converges (in probability)
+to <span class="math notranslate nohighlight">\(p\)</span>.  Law of Large Numbers</p></li>
+<li><p>If a finite series of trials has an empirical rate <span class="math notranslate nohighlight">\(p\)</span> of success, that says
+nothing about whether the trials are random.</p></li>
+<li><p>If the trials are random <em>and</em> have the same chance of success, the empirical rate
+is an estimate of <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+<li><p>If the trials are random <em>and</em> have the same chance of success <em>and</em> the dependence
+of the trials is known (e.g., the trials are independent), can quantify the uncertainty
+of the estimate.</p></li>
+</ul>
+</div>
+<div class="section" id="thought-experiments">
+<h3>Thought experiments<a class="headerlink" href="#thought-experiments" title="Permalink to this headline">¶</a></h3>
+<p> </p>
+<div class="alert alert-info">
+You are one of a group of 100 people, of whom one will die in the next year.<br />
+<p>What’s the chance it is you?</p>
+</div><p> </p>
+<div class="alert alert-info">You are one of a group of 100 people,
+of whom one is named "Philip."<br />
+<p>What’s the chance it is you?</p>
+</div><p>Why does the first invite an answer, and the second not?</p>
+<div class="alert alert-warning">
+Ignorance &ne; Randomness
+</div></div>
+<div class="section" id="cargo-cult-confidence-intervals">
+<h3>Cargo Cult Confidence Intervals<a class="headerlink" href="#cargo-cult-confidence-intervals" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Have a collection of numbers, e.g., MME climate model predictions of
+warming</p></li>
+<li><p>Take mean and standard deviation.</p></li>
+<li><p>Report mean as the estimate; construct a confidence interval or “probability” statement from the results, generally using Gaussian critical values</p></li>
+<li><p>IPCC does this, as do many others.</p></li>
+</ul>
+<div class="section" id="what-s-wrong-with-it">
+<h4>What’s wrong with it?<a class="headerlink" href="#what-s-wrong-with-it" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>No random sample; no stochastic errors.</p></li>
+<li><p>Even if there were a random sample, what justifies using normal theory?</p></li>
+<li><p>Even if random and normal, misinterprets confidence as probability. Garbled;
+something like Fisher’s fiducial inference</p></li>
+<li><p>Ignores known errors in physical approximations</p></li>
+<li><p>Ultimately, quantifauxcation.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="random-haphazard-unpredictable-unknown">
+<h3>Random/haphazard/unpredictable/unknown<a class="headerlink" href="#random-haphazard-unpredictable-unknown" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Consider taking a sample of soup to tell whether it is too salty.</p>
+<ul>
+<li><p>Stir the soup well, then take a tablespoon: random sample</p></li>
+<li><p>Stick in a tablespoon without looking: haphazard sample</p></li>
+</ul>
+</li>
+<li><p>Tendency to treat haphazard as random</p>
+<ul>
+<li><p>random requires deliberate, precise action</p></li>
+<li><p>haphazard is jusy sloppy</p></li>
+</ul>
+</li>
+<li><p>Notions like probability, p-value, confidence intervals, etc.,
+<em>apply only if the sample is random</em> (or for some kinds of measurement errors)</p>
+<ul>
+<li><p>Don’t apply to samples of convenience, haphazard samples, etc.</p></li>
+<li><p>Don’t apply to populations.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="two-brief-examples">
+<h2>Two brief examples<a class="headerlink" href="#two-brief-examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Avian / wind-turbine interactions</p></li>
+<li><p>Earthquake probabilities</p></li>
+</ul>
+<div class="section" id="wind-power-avian-wind-turbine-interactions">
+<h3>Wind power: “avian / wind-turbine interactions”<a class="headerlink" href="#wind-power-avian-wind-turbine-interactions" title="Permalink to this headline">¶</a></h3>
+<p>Wind turbines kill birds, notably raptors.</p>
+<ul class="simple">
+<li><p>how many, and of what species?</p></li>
+<li><p>how concerned should we be?</p></li>
+<li><p>what design and siting features matter?</p></li>
+<li><p>how do you build/site less lethal turbines?</p></li>
+</ul>
+</div>
+<div class="section" id="measurements">
+<h3>Measurements<a class="headerlink" href="#measurements" title="Permalink to this headline">¶</a></h3>
+<p>Periodic on-the-ground surveys, subject to:</p>
+<ul class="simple">
+<li><p>censoring</p></li>
+<li><p>shrinkage/scavenging</p></li>
+<li><p>background mortality</p></li>
+<li><p>is this pieces of two birds, or two pieces of one bird?</p></li>
+<li><p>how far from the point of injury does a bird land? attribution…</p></li>
+</ul>
+<p>Is it possible to …</p>
+<ul class="simple">
+<li><p>make an unbiased estimate of mortality?</p></li>
+<li><p>reliably relate the mortality to individual turbines in wind farms?</p></li>
+</ul>
+</div>
+<div class="section" id="stochastic-model">
+<h3>Stochastic model<a class="headerlink" href="#stochastic-model" title="Permalink to this headline">¶</a></h3>
+<p>Common: Mixture of a point mass at zero and some distribution on the positive axis.
+E.g., “Zero-inflated Poisson”</p>
+<p>Countless alternatives, e.g.:</p>
+<ul class="simple">
+<li><p>observe <span class="math notranslate nohighlight">\(\max\{0, \mbox{Poisson}(\lambda_j)-b_j\}\)</span>, <span class="math notranslate nohighlight">\(b_j &gt; 0\)</span></p></li>
+<li><p>observe <span class="math notranslate nohighlight">\(b_j\times \mbox{Poisson}(\lambda_j)\)</span>, <span class="math notranslate nohighlight">\(b_j \in (0, 1)\)</span>.</p></li>
+<li><p>observe true count in area <span class="math notranslate nohighlight">\(j\)</span> with error <span class="math notranslate nohighlight">\(\epsilon_j\)</span>,
+where <span class="math notranslate nohighlight">\(\{\epsilon_j\}\)</span> are dependent, not identically distributed,
+nonzero mean</p></li>
+</ul>
+</div>
+<div class="section" id="consultant">
+<h3>Consultant<a class="headerlink" href="#consultant" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>bird collisions random, Poisson distributed</p></li>
+<li><p>same for all birds</p></li>
+<li><p>independent across birds</p></li>
+<li><p>rates follow hierarchical Bayesian model that depends on
+covariates: properties of site and turbine design</p></li>
+</ul>
+<div class="section" id="what-does-this-mean">
+<h4>What does this mean?<a class="headerlink" href="#what-does-this-mean" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>when a bird approaches a turbine, it tosses a coin to decide
+whether to throw itself on the blades</p></li>
+<li><p>chance coin lands heads depends on site and turbine design</p></li>
+<li><p>all birds use the same coin for each site/design</p></li>
+<li><p>birds toss their coins independently</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="where-do-the-models-come-from">
+<h3>Where do the models come from?<a class="headerlink" href="#where-do-the-models-come-from" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Why random?</p></li>
+<li><p>Why Poisson?</p></li>
+<li><p>Why independent from site to site? From period to period? From bird to bird? From encounter to encounter?</p></li>
+<li><p>Why doesn’t chance of detection depend on size, coloration, groundcover, …?</p></li>
+<li><p>Why do different observers miss carcasses at the same rate?</p></li>
+<li><p>What about background mortality?</p></li>
+</ul>
+</div>
+<div class="section" id="complications-at-altamont">
+<h3>Complications at Altamont<a class="headerlink" href="#complications-at-altamont" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Why is randomness a good model?  Random is not the same as haphazard or unpredictable.</p></li>
+<li><p>Why is Poisson in particular reasonable?
+Do birds in effect toss coins, independently, with
+same chance of heads, every encounter with a turbine?
+Is <code class="docutils literal notranslate"><span class="pre">#encounters</span></code> <span class="math notranslate nohighlight">\(\times P(\mbox{heads})\)</span> constant?</p></li>
+<li><p>Why estimate the parameter of a contrived model rather than actual mortality?</p></li>
+<li><p>Do we want to know how many birds die, or the value of <span class="math notranslate nohighlight">\(\lambda\)</span> in an implausible stochastic model?</p></li>
+<li><p>Background mortality—varies by time, species, etc.</p></li>
+<li><p>Are all birds equally likely to be missed?  Smaller more likely than larger? Does coloration matter?</p></li>
+<li><p>Nonstationarity (seasonal effects—migration, nesting, etc.; weather; variations in
+bird populations)</p></li>
+<li><p>Spatial and seasonal variation in shrinkage due to groundcover, coloration, illumination, etc.</p></li>
+<li><p>Interactions and dependence.</p></li>
+<li><p>Variations in scavenging. (Dependence on kill rates? Satiation? Food preferences? Groundcover?)</p></li>
+<li><p>Birds killed earlier in the monitoring interval have longer time on trial for scavengers.</p></li>
+<li><p>Differences or absolute numbers? (Often easier to estimate differences accurately.)</p></li>
+<li><p>Same-site comparisons across time, or comparisons across sites?</p></li>
+</ul>
+</div>
+<div class="section" id="earthquake-probabilities">
+<h3>Earthquake probabilities<a class="headerlink" href="#earthquake-probabilities" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Probabilistic seismic hazard analysis (PSHA): basis for
+building codes in many countries &amp; for siting nuclear power plants</p></li>
+<li><p>Models locations &amp; magnitudes of earthquakes as random; mags iid</p></li>
+<li><p>Models ground motion as random, given event. Distribution
+depends on the location and magnitude of the event.</p></li>
+<li><p>Claim to estimate “exceedance probabilities”: chance acceleration exceeds some
+threshold in some number of years</p></li>
+<li><p>In U.S.A., codes generally require design to withstand accelerations w probability ≥2% in 50y.</p></li>
+<li><p>PSHA arose from probabilistic risk assessment (PRA) in aerospace and nuclear power.
+<br />Those are engineered systems whose inner workings are known but for some system parameters and inputs.</p></li>
+<li><p>Inner workings of earthquakes are almost entirely unknown: PSHA is based on metaphors and heuristics, not physics.</p></li>
+<li><p>Some assumptions are at best weakly supported by evidence; some are contradicted.</p></li>
+</ul>
+</div>
+<div class="section" id="the-psha-equation">
+<h3>The PSHA equation<a class="headerlink" href="#the-psha-equation" title="Permalink to this headline">¶</a></h3>
+<p>Model earthquake occurrence as a marked stochastic process with known parameters.</p>
+<p>Model ground motion in a given place as a stochastic process, given the quake location and magnitude.</p>
+<p>Then,</p>
+<blockquote>
+<div><p>probability of a given level of ground movement in a given place is the integral (over space and magnitude)
+of the conditional probability
+of that level of movement given that there’s an event of a particular magnitude in a particular place,
+times the probability that there’s an event of a particular magnitude in that place</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>That earthquakes occur at random is an <em>assumption</em> not based in theory or observation.</p></li>
+<li><p>involves taking rates as probabilities</p>
+<ul>
+<li><p>Standard argument:</p>
+<ul>
+<li><p>M = 8 events happen about once a century.</p></li>
+<li><p>Therefore, the chance is about 1% per year.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="earthquake-casinos">
+<h3>Earthquake casinos<a class="headerlink" href="#earthquake-casinos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Models amount to saying there’s an “earthquake deck”</p></li>
+<li><p>Turn over one card per period. If the card has a number, that’s the
+size quake you get.</p></li>
+<li><p>Journals and journals full of arguments about how many “8”s in the deck,
+whether the deck is fully shuffled, whether cards are replaced and re-shuffled
+after dealing, etc.</p></li>
+</ul>
+<div class="warn warn-error">
+But this is just a metaphor!
+</div></div>
+<div class="section" id="earthquake-terrorism">
+<h3>Earthquake terrorism<a class="headerlink" href="#earthquake-terrorism" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Why not say earthquakes are like terrorist bombings?</p>
+<ul>
+<li><p>don’t know where or when</p></li>
+<li><p>know they will be large enough to kill</p></li>
+<li><p>know some places are “likely targets”</p></li>
+<li><p>but no probabilities</p></li>
+</ul>
+</li>
+<li><p>What advantage is there to the casino metaphor?</p></li>
+</ul>
+</div>
+<div class="section" id="rabbits-and-earthquake-casinos">
+<h3>Rabbits and Earthquake Casinos<a class="headerlink" href="#rabbits-and-earthquake-casinos" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="what-would-make-the-casino-metaphor-apt">
+<h4>What would make the casino metaphor apt?<a class="headerlink" href="#what-would-make-the-casino-metaphor-apt" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>The physics of earthquakes might be stochastic. But it isn’t.</p></li>
+<li><p>A stochastic model might provide a compact, accurate description
+of earthquake phenomenology. But it doesn’t.</p></li>
+<li><p>A stochastic model might be useful for predicting future seismicity.
+But it isn’t (Poisson, Gamma renewal, ETAS)</p></li>
+</ol>
+<p>3 of the most destructive recent earthquakes were in regions seismic hazard maps showed to be relatively safe
+(2008 Wenchuan M7.9, 2010 Haiti M7.1, &amp; 2011 Tohoku M9)
+<a class="reference external" href="http://web.missouri.edu/~lium/pdfs/Papers/seth2012-tecto-hazardmap.pdf">Stein, Geller, &amp; Liu, 2012</a></p>
+<p>See also <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/S0031920116303016">Mulargia, Geller, &amp; Stark, 2017</a></p>
+</div>
+<div class="section" id="what-good-are-the-numbers">
+<h4>What good are the numbers?<a class="headerlink" href="#what-good-are-the-numbers" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Freedman, D.A., 1995, Some issues in the foundations of Statistics, <em>Foundations of Science</em>, <em>1</em>, 19–39.</p></li>
+<li><p>LeCam, L., 1977. A note on metastatistics or ‘an essay towards stating a problem in the doctrine of chances’,
+<em>Synthese</em>, <em>36</em>, 133–160.</p></li>
+<li><p>Mulargia, F., R.J. Geller, and P.B. Stark, 2017. Why is Probabilistic Seismic Hazard Analysis (PSHA) still used?,
+<em>Physics of the Earth and Planetary Interiors</em>, <em>264</em>, 63–75.</p></li>
+<li><p>Stark, P.B. and D.A. Freedman, 2003. What is the Chance of an Earthquake? in Earthquake Science and Seismic Risk Reduction, F. Mulargia and R.J. Geller, eds., NATO Science Series IV: Earth and Environmental Sciences, v. 32, Kluwer, Dordrecht, The Netherlands, 201–213. Preprint:
+https://www.stat.berkeley.edu/~stark/Preprints/611.pdf</p></li>
+<li><p>Stark, P.B. and L. Tenorio, 2010. A Primer of Frequentist and Bayesian Inference in Inverse Problems. In Large Scale Inverse Problems and Quantification of Uncertainty, Biegler, L., G. Biros, O. Ghattas, M. Heinkenschloss, D. Keyes, B. Mallick, L. Tenorio, B. van Bloemen Waanders and K. Willcox, eds. John Wiley and Sons, NY. Preprint:
+https://www.stat.berkeley.edu/~stark/Preprints/freqBayes09.pdf</p></li>
+<li><p>Stark, P.B., 2015. Constraints versus priors. SIAM/ASA Journal on Uncertainty Quantification, 3(1), 586–598. doi:10.1137/130920721, Reprint: http://epubs.siam.org/doi/10.1137/130920721, Preprint: https://www.stat.berkeley.edu/~stark/Preprints/constraintsPriors15.pdf</p></li>
+<li><p>Stark, P.B., 2016. Pay no attention to the model behind the curtain. https://www.stat.berkeley.edu/~stark/Preprints/eucCurtain15.pdf</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

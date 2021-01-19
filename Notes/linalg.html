@@ -1,0 +1,2096 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primer of Linear Algebra and Matrices &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/linalg.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/linalg.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Primer of Linear Algebra and Matrices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation">
+     Notation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercises">
+       Exercises
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-interlude">
+     R interlude
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interlude-a-bit-more-computation-and-r">
+     Interlude: a bit more computation and R
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trace-determinant-inverse">
+     Trace, Determinant, Inverse
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#trace">
+       Trace
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#determinants">
+       Determinants
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#computing-the-determinant">
+         Computing the determinant
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inverses">
+       Inverses
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#examples-of-computing-inverses">
+         Examples of computing inverses
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-check-the-result-aa-1-begin-pmatrix-1-2-6-7-end-pmatrix-cdot-frac-1-5-begin-pmatrix-7-2-6-1-end-pmatrix">
+   Let’s check the result:
+$$
+AA^{-1} =
+\begin{pmatrix}
+1 &amp; 2 \
+6 &amp; 7
+\end{pmatrix}
+\cdot
+-\frac{1}{5}
+\begin{pmatrix}
+7 &amp; -2 \
+-6 &amp; 1
+\end{pmatrix}
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frac-1-5-begin-pmatrix-7-12-2-2-42-42-12-7-end-pmatrix">
+   \frac{1}{5}\begin{pmatrix}
+-7+12 &amp; 2-2 \
+-42 + 42 &amp; 12-7
+\end{pmatrix}
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eigenvalue-eigenvector-decompositions">
+     Eigenvalue / Eigenvector decompositions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-square-roots">
+       Matrix square-roots
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inverses-of-positive-definite-matrices">
+       Inverses of Positive-Definite Matrices
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-linear-systems">
+     Solving Linear Systems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#this-gives-x-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix-multiplying-by-a-gives-ax-begin-pmatrix-2-3-4-6-1-5-3-4-3-end-pmatrix-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix">
+   This gives
+$
+   <span class="math notranslate nohighlight">
+    \(
+x = \begin{pmatrix}
+-0.36842 \\
+ 0.05263 \\
+ 0.63158
+\end{pmatrix}
+.
+\)
+   </span>
+   <span class="math notranslate nohighlight">
+    \(
+Multiplying by \)
+   </span>
+   A
+   <span class="math notranslate nohighlight">
+    \( gives 
+\)
+   </span>
+   $
+Ax = \begin{pmatrix}
+2 &amp; 3 &amp; 4 \
+6 &amp; 1 &amp; 5 \
+3 &amp; 4 &amp; 3
+\end{pmatrix}
+\begin{pmatrix}
+-0.36842 \
+0.05263 \
+0.63158
+\end{pmatrix}
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-elimination-continued">
+     Gaussian elimination, continued.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="primer-of-linear-algebra-and-matrices">
+<h1>Primer of Linear Algebra and Matrices<a class="headerlink" href="#primer-of-linear-algebra-and-matrices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\({\mathcal M}(m,n)\)</span> will denote the set of <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices.
+<span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> has elements <span class="math notranslate nohighlight">\(A_{ij}\)</span>, <span class="math notranslate nohighlight">\(i \in \{1, \ldots, m\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, \ldots, n\}\)</span>.</p>
+<p>We will identify <span class="math notranslate nohighlight">\({\mathcal M}(1,n)\)</span> and <span class="math notranslate nohighlight">\({\mathcal M}(n,1)\)</span> with <span class="math notranslate nohighlight">\(\Re^n\)</span>, in a deliberate abuse
+of notation.
+Whether <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> should be considered a <em>column vector</em> (an element of  <span class="math notranslate nohighlight">\({\mathcal M}(n,1)\)</span>)
+or a <em>row vector</em> (an element of <span class="math notranslate nohighlight">\({\mathcal M}(1,n)\)</span>) should be clear from context or will be
+called out explicitly.
+For <span class="math notranslate nohighlight">\(a \in {\mathcal M}(1,n)\)</span> or <span class="math notranslate nohighlight">\({\mathcal M}(n,1)\)</span>, we generally write only one index,
+suppressing the index that is always equal to 1
+(for instance, we would write <span class="math notranslate nohighlight">\(a_i\)</span> in place of <span class="math notranslate nohighlight">\(a_{1i}\)</span> or <span class="math notranslate nohighlight">\(a_{i1}\)</span>, respectively).</p>
+<p>It is convenient to write matrices as rectangular arrays, e.g.,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = (A_{ij}) = \begin{pmatrix} A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1n} \\
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+A_{m1} &amp; A_{m2} &amp; \cdots &amp; A_{mn} 
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p>The <span class="math notranslate nohighlight">\(i\)</span>th <em>row</em> of the matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> is the matrix <span class="math notranslate nohighlight">\(B \in {\mathcal M}(1,n)\)</span>
+with elements <span class="math notranslate nohighlight">\(B_j = A_{ij}\)</span>, <span class="math notranslate nohighlight">\(j=1, \ldots, n\)</span>.</p>
+<p>The <span class="math notranslate nohighlight">\(j\)</span>th <em>column</em> of the matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span>, is the matrix <span class="math notranslate nohighlight">\(C \in {\mathcal M}(m,j)\)</span>
+with elements <span class="math notranslate nohighlight">\(C_i = A_{ij}\)</span>, i=1, \ldots, m$.</p>
+<p>The <em>transpose</em> of a matrix interchanges the row and column indices of the original matrix.
+If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> then the transpose of <span class="math notranslate nohighlight">\(A\)</span>, denoted <span class="math notranslate nohighlight">\(A'\)</span> or <span class="math notranslate nohighlight">\(A^T\)</span>, is an element of
+<span class="math notranslate nohighlight">\({\mathcal M}(m,n)\)</span> (If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix then <span class="math notranslate nohighlight">\(A'\)</span> is an <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(m\)</span> matrix).
+If <span class="math notranslate nohighlight">\(A\)</span> has elements <span class="math notranslate nohighlight">\(A_{ij}\)</span>, then
+<span class="math notranslate nohighlight">\(A' = A^T\)</span> has elements <span class="math notranslate nohighlight">\(A_{ij}^T = A_{ji}\)</span>.</p>
+<p><strong>Scalar multiplication.</strong>
+If <span class="math notranslate nohighlight">\(\alpha \in \Re\)</span> and <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span>, the matrix <span class="math notranslate nohighlight">\(\alpha A \in {\mathcal M}(m,n)\)</span> has elements <span class="math notranslate nohighlight">\(\alpha A_{ij}\)</span>, <span class="math notranslate nohighlight">\(i \in \{1, \ldots, m\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, \ldots, n\}\)</span>.
+I.e.,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\alpha A = \begin{pmatrix} \alpha A_{11} &amp; \alpha A_{12} &amp; \cdots &amp; \alpha A_{1n} \\
+\alpha A_{21} &amp; \alpha A_{22} &amp; \cdots &amp; \alpha A_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\alpha A_{m1} &amp; \alpha A_{m2} &amp; \cdots &amp; \alpha A_{mn} 
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(-A = -1\cdot A\)</span> be the matrix with elements <span class="math notranslate nohighlight">\((-A)_{ij} = -A_{ij}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+-A = \begin{pmatrix} -A_{11} &amp; -A_{12} &amp; \cdots &amp; -A_{1n} \\
+-A_{21} &amp; -A_{22} &amp; \cdots &amp; -A_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+-A_{m1} &amp; -A_{m2} &amp; \cdots &amp; -A_{mn} 
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p><strong>Matrix addition.</strong>
+If <span class="math notranslate nohighlight">\(A, B \in {\mathcal M}(m,n)\)</span>, then the matrix <span class="math notranslate nohighlight">\(A+B \in {\mathcal M}(m,n)\)</span> has elements <span class="math notranslate nohighlight">\(A_{ij}+B_{ij}\)</span>, <span class="math notranslate nohighlight">\(i \in \{1, \ldots, m\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, \ldots, n\}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A+B = \begin{pmatrix} A_{11}+B_{11} &amp; A_{12}+B_{12} &amp; \cdots &amp; A_{1n}+B_{1n} \\
+A_{21}+B_{21} &amp; A_{22}+B_{22} &amp; \cdots &amp; A_{2n}+B_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+A_{m1}+B_{m1} &amp; A_{m2}+B_{m2} &amp; \cdots &amp; A_{mn}+B_{mn} 
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(0_{mn} \in {\mathcal M}(m,n)\)</span> denote the <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix all of whose elements are zero; i.e.,
+<span class="math notranslate nohighlight">\((0_{mn})_{ij} = 0\)</span>, <span class="math notranslate nohighlight">\(i \in \{1, \ldots, m\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, \ldots, n\}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+0_{mn} = \begin{pmatrix} 0 &amp; \cdots &amp; 0 \\ \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; \cdots &amp; 0 \end{pmatrix}
+.
+\end{split}\]</div>
+<p>With these definitions, <span class="math notranslate nohighlight">\({\mathcal M}(m,n)\)</span> is a linear vector space over the reals, with scalar identity element <span class="math notranslate nohighlight">\(1\)</span> and vector identity element <span class="math notranslate nohighlight">\(0_{mn}\)</span>.</p>
+<p><strong>Transposition.</strong>
+The <em>transpose</em> of <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span>, <span class="math notranslate nohighlight">\(A^T = A' \in {\mathcal M}(n,m)\)</span> has elements
+<span class="math notranslate nohighlight">\((A')_{ij} = A_{ji}\)</span>, <span class="math notranslate nohighlight">\(i \in \{1, \ldots, n\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, \ldots, m\}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A' = \begin{pmatrix} A_{11} &amp; A_{21} &amp; \cdots &amp; A_{m1} \\
+ A_{12} &amp;  A_{22} &amp; \cdots &amp;  A_{m2} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+ A_{1n} &amp;  A_{2n} &amp; \cdots &amp;  A_{mn} 
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A = A'\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> is <em>symmetric</em>.</p>
+<p>Let <span class="math notranslate nohighlight">\({\mathbf 1}_{n} \in {\mathcal M}(n,n)\)</span> denote the <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> <em>identity</em> matrix
+with elements <span class="math notranslate nohighlight">\((1_{n})_{ij} = 1\)</span>, <span class="math notranslate nohighlight">\(i=j \in \{1, \ldots, n\}\)</span>, and <span class="math notranslate nohighlight">\((1_{n})_{ij} = 0\)</span>, <span class="math notranslate nohighlight">\(i \ne j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+1_{n} = \begin{pmatrix} 
+1 &amp; 0 &amp; \cdots &amp; 0 \\ 
+0 &amp; 1  &amp; \cdots &amp; 0 \\  
+\vdots &amp; \vdots  &amp; \ddots &amp; 0\\
+0 &amp; 0 &amp;  \cdots &amp; 1 
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p>The identity matrix is an example of a <em>diagonal matrix</em>. A matrix <span class="math notranslate nohighlight">\(A\)</span> is <em>diagonal</em> if <span class="math notranslate nohighlight">\(A_{ij}=0\)</span>
+whenever <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<p><strong>Matrix multiplication.</strong>
+If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> and <span class="math notranslate nohighlight">\(B \in {\mathcal M}(n,k)\)</span>, then <span class="math notranslate nohighlight">\(AB \in {\mathcal M}(m,k)\)</span> is the matrix with
+elements <span class="math notranslate nohighlight">\((AB)_{ij} = \sum_{\ell=1}^m A_{i \ell}B_{\ell j}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+AB = \begin{pmatrix} 
+\sum_{\ell=1}^n A_{1 \ell}B_{\ell 1} &amp; \sum_{\ell=1}^n A_{1 \ell}B_{\ell 2} &amp; \cdots &amp; 
+\sum_{\ell=1}^n A_{1 \ell}B_{\ell k} \\
+\sum_{\ell=1}^n A_{2 \ell}B_{\ell 1} &amp; \sum_{\ell=1}^n A_{2 \ell}B_{\ell 2} &amp; \cdots &amp; 
+\sum_{\ell=1}^n A_{2 \ell}B_{\ell k} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\sum_{\ell=1}^n A_{m \ell}B_{\ell 1} &amp; \sum_{\ell=1}^n A_{m \ell}B_{\ell 2} &amp; \cdots &amp; 
+\sum_{\ell=1}^n A_{m \ell}B_{\ell k}
+\end{pmatrix}
+.
+\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span>, then  <span class="math notranslate nohighlight">\(A {\mathbf 1}_{n} = {\mathbf 1}_{m} A = A\)</span>.</p>
+<p>A matrix <span class="math notranslate nohighlight">\(A\)</span> is <em>square</em> if it has the same number of rows and columns, that is, if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span>
+for some <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p><strong>Inverses.</strong>
+Given a square matrix <span class="math notranslate nohighlight">\(A\in {\mathcal M}(n,n)\)</span>, <span class="math notranslate nohighlight">\(A^{-1}\)</span> is the <em>inverse</em>
+of <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(A^{-1}A = {\mathbf 1}_n\)</span>.</p>
+<p>Not every square matrix has an inverse; the zero matrix <span class="math notranslate nohighlight">\({\mathbf 0}_n\)</span> is an example.
+If <span class="math notranslate nohighlight">\(A\)</span> has an inverse, <span class="math notranslate nohighlight">\(A\)</span> is <em>invertible</em>.
+A square matrix that is not invertible is <em>singular</em>.</p>
+<p>Properties of inverses:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> has an inverse, the inverse is unique</p></li>
+<li><p><span class="math notranslate nohighlight">\(AA^{-1} = A^{-1}A = {\mathbf 1}_n\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((A^{-1})^{-1} = A\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((A')^{-1} = (A^{-1})'\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, <span class="math notranslate nohighlight">\((\alpha A)^{-1} = \alpha^{-1} A^{-1}\)</span> for all nonzero <span class="math notranslate nohighlight">\(\alpha \in \Re\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are invertible and have the same dimension, <span class="math notranslate nohighlight">\((AB)^{-1} = B^{-1}A^{-1}\)</span>.</p></li>
+</ul>
+<p><strong>Linear Independence and Rank.</strong>
+Let <span class="math notranslate nohighlight">\(\{a_j \} \in \Re^n\)</span> be a collection of vectors.
+Recall that <span class="math notranslate nohighlight">\(\{a_j \}\)</span> are <em>linearly independent</em> if
+<span class="math notranslate nohighlight">\(\sum_j \alpha_j a_j = {\mathbf 0}_n\)</span> implies that <span class="math notranslate nohighlight">\(\alpha_j = 0\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>The <em>row rank</em> of a matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> is the maximal number of linearly independent rows it has;
+equivalently, it is the dimension of the subspace of <span class="math notranslate nohighlight">\(\Re^m\)</span> spanned by the rows of <span class="math notranslate nohighlight">\(A\)</span>.
+The <em>column rank</em> of <span class="math notranslate nohighlight">\(A\)</span> is to the maximal number of linearly independent columns it has;
+equivalently, it is the dimension of the subspace of <span class="math notranslate nohighlight">\(\Re^n\)</span> spanned by the columns of <span class="math notranslate nohighlight">\(A\)</span>.
+The row rank and the column rank if any matrix are equal; we denote them <span class="math notranslate nohighlight">\({\mbox{rank}}(A)\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> then <span class="math notranslate nohighlight">\({\mbox{rank}}(A) \le \min(m, n)\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> can be multiplied, <span class="math notranslate nohighlight">\({\mbox{rank}}(AB) \le \min({\mbox{rank}}(A), {\mbox{rank}}(B))\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same dimensions, <span class="math notranslate nohighlight">\({\mbox{rank}}(A+B) \le {\mbox{rank}}(A) + {\mbox{rank}}(B)\)</span>.</p>
+<p>A square matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is invertible if and only if <span class="math notranslate nohighlight">\({\mbox{rank}}(A) = n\)</span>.</p>
+<hr />
+#### Definitions
+Let $A \in {\mathcal M}(n,n)$.
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A^{-1} = A'\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> is <em>orthogonal</em>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A_{ij} = 0\)</span> for all <span class="math notranslate nohighlight">\(i \ne j\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>diagonal</em>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(x'Ax \ge 0\)</span> for all <span class="math notranslate nohighlight">\(x \in \Re^n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>nonnegative definite</em> (or <em>positive semi-definite</em>)</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(x'Ax &gt; 0\)</span> for all <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> except <span class="math notranslate nohighlight">\(x = {\mathbf 0}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>positive definite</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> has <em>full rank</em> if <span class="math notranslate nohighlight">\({\mbox{rank}}(A) = n\)</span>. Otherwise, <span class="math notranslate nohighlight">\(A\)</span> is <em>rank deficient</em>.</p></li>
+</ul>
+<hr /><div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Show that if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> and <span class="math notranslate nohighlight">\(B \in {\mathcal M}(n,p)\)</span> then <span class="math notranslate nohighlight">\((AB)' = B'A'\)</span>.</p></li>
+<li><p>Show that the identity matrix is its own inverse.</p></li>
+<li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> is invertible, its inverse is unique (a matrix has at most one inverse).</p></li>
+<li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> is invertible, then <span class="math notranslate nohighlight">\(A^{-1}A = AA^{-1}\)</span>.</p></li>
+<li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are both invertible matrices with the same dimensions, then <span class="math notranslate nohighlight">\((AB)^{-1} = B^{-1}A^{-1}\)</span>.</p></li>
+<li><p>Show that one row of a square matrix <span class="math notranslate nohighlight">\(A\)</span> is a multiple of another row of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> is rank deficient.</p></li>
+<li><p>Show that if a square matrix is rank deficient, it is not invertible.</p></li>
+<li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> is a diagonal matrix with strictly positive diagonal elements, then <span class="math notranslate nohighlight">\(A\)</span> is positive definite.</p></li>
+<li><p>Show that the row rank of a matrix is equal to its column rank.</p></li>
+</ol>
+<p><strong>Dot (inner) Products and the Euclidean norm.</strong></p>
+<p>If <span class="math notranslate nohighlight">\(a, b \in \Re^n\)</span> then the <em>dot product</em> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is
+$<span class="math notranslate nohighlight">\(a \cdot b = a^Tb = a'b = a_1b_1 + a_2b_2 + \cdots + a_nb_n.\)</span>$</p>
+<p>If <span class="math notranslate nohighlight">\(a \cdot b = 0\)</span>, we say <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are <em>orthogonal</em>, and we write <span class="math notranslate nohighlight">\(a \perp b\)</span>.</p>
+<p>The <em>Euclidean norm</em> or <em>2-norm</em> of <span class="math notranslate nohighlight">\(a\)</span> is
+$<span class="math notranslate nohighlight">\( \|a \|_2 = \|a \| = |a| \equiv \sqrt{a \cdot a}.\)</span>$
+(The subscript 2 is often omitted for the 2-norm.)</p>
+<p>For <span class="math notranslate nohighlight">\(1 \le p &lt; \infty\)</span>, the <em><span class="math notranslate nohighlight">\(p\)</span>-norm</em> of <span class="math notranslate nohighlight">\(a\)</span> is
+$<span class="math notranslate nohighlight">\( \|a \|_p \equiv \left ( \sum_{i=1}^n \left |a_i \right |^p \right )^{1/p}.\)</span>$</p>
+<p>The <em>infinity norm</em> of <span class="math notranslate nohighlight">\(a\)</span> is
+$<span class="math notranslate nohighlight">\( \|a \|_\infty \equiv \max_{i=1}^n \left | a_i \right |.\)</span>$</p>
+<p><strong>Outer Products.</strong></p>
+<p>If <span class="math notranslate nohighlight">\(a, b \in \Re^n\)</span> then the <em>outer product</em> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the matrix
+<span class="math notranslate nohighlight">\(ab \in {\mathcal M}(n,n)\)</span> with elements <span class="math notranslate nohighlight">\((ab)_{ij} = a_ib_j\)</span>:
+$<span class="math notranslate nohighlight">\(
+ab = 
+\begin{pmatrix} 
+a_1b_1 &amp; a_1b_2 &amp; \cdots &amp; a_1b_n \\
+a_2b_2 &amp; a_2b_2 &amp; \cdots &amp; a_2b_n \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_nb_1 &amp; a_nb_2 &amp; \cdots &amp; a_nb_n
+\end{pmatrix}
+.
+\)</span>$</p>
+</div>
+<div class="section" id="id1">
+<h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Show that if <span class="math notranslate nohighlight">\(R \in {\mathcal M}(n,n)\)</span> is an orthogonal matrix, then for
+all <span class="math notranslate nohighlight">\(x \in \Re^n\)</span>, <span class="math notranslate nohighlight">\(\|Rx\|_2 = \|x\|_2\)</span>.</p></li>
+<li><p>Show that if <span class="math notranslate nohighlight">\(G\in {\mathcal M}(n,n) \)</span> is positive definite, then <span class="math notranslate nohighlight">\(\| \cdot \|_G\)</span> is a norm on <span class="math notranslate nohighlight">\(\Re^n\)</span>,
+where <span class="math notranslate nohighlight">\(\|x\|_G \equiv \sqrt{x'Gx}\)</span>.</p></li>
+<li><p>Show that the dot product is an inner product (over the real numbers) on <span class="math notranslate nohighlight">\(\Re^n\)</span>.</p></li>
+<li><p>Show that the 2-norm <span class="math notranslate nohighlight">\( \|a \| \equiv \sqrt{a \cdot a}\)</span> is a norm on <span class="math notranslate nohighlight">\(\Re^n\)</span>.</p></li>
+<li><p>Show that the 1-norm <span class="math notranslate nohighlight">\(\|a\|_1 \equiv \sum_{i=1}^n | a_{i1} |\)</span> is a norm on <span class="math notranslate nohighlight">\(\Re^n\)</span>.</p></li>
+<li><p>Show that <span class="math notranslate nohighlight">\(\lim_{p \rightarrow \infty} \|a\|_p = \|a\|_\infty\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="r-interlude">
+<h2>R interlude<a class="headerlink" href="#r-interlude" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at all these entities and operations in R.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a matrix</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">;</span>  <span class="c1"># A is a 1-dimensional array of the integers 1-12</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>  <span class="c1"># Change the dimension of A to be 4 by 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">A</span>  <span class="c1"># the matrix A, which is 4 by 3</span>
+<span class="c1"># Another way to do the same thing</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span> 
+<span class="o">+</span>   <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="c1"># data</span>
+    <span class="n">nrow</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>              <span class="c1"># number of rows </span>
+    <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>              <span class="c1"># number of columns </span>
+    <span class="n">byrow</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span> <span class="p">;</span>     <span class="c1"># read the data by column</span>
+<span class="n">A</span>
+<span class="c1"># Another way</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span> 
+    <span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="c1"># data</span>
+    <span class="n">nrow</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>              <span class="c1"># number of rows </span>
+    <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>              <span class="c1"># number of columns </span>
+    <span class="n">byrow</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span> <span class="p">;</span>     <span class="c1"># read the data by column</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;A&quot;
+</pre></div>
+</div>
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>5</td><td>9</td></tr>
+	<tr><td> 2</td><td> 6</td><td>10</td></tr>
+	<tr><td> 3</td><td> 7</td><td>11</td></tr>
+	<tr><td> 4</td><td> 8</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>5</td><td>9</td></tr>
+	<tr><td> 2</td><td> 6</td><td>10</td></tr>
+	<tr><td> 3</td><td> 7</td><td>11</td></tr>
+	<tr><td> 4</td><td> 8</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>5</td><td>9</td></tr>
+	<tr><td> 2</td><td> 6</td><td>10</td></tr>
+	<tr><td> 3</td><td> 7</td><td>11</td></tr>
+	<tr><td> 4</td><td> 8</td><td>12</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transpose A</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transpose of A&quot;</span><span class="p">)</span>
+<span class="n">t</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># the transpose of A, which is 3 by 4</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>  <span class="c1"># overwrite A with its transpose: A is now a 3 by 4 array</span>
+<span class="n">A</span>
+<span class="c1"># Another way to make this matrix</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span> 
+    <span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="c1"># data</span>
+    <span class="n">nrow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>              <span class="c1"># number of rows </span>
+    <span class="n">ncol</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>              <span class="c1"># number of columns </span>
+    <span class="n">byrow</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span> <span class="p">;</span>      <span class="c1"># read the data by row</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Transpose of A&quot;
+</pre></div>
+</div>
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scalar multiplication</span>
+<span class="n">alpha</span> <span class="o">&lt;-</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">A</span>
+<span class="n">alpha</span><span class="o">*</span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td> 3</td><td> 6</td><td> 9</td><td>12</td></tr>
+	<tr><td>15</td><td>18</td><td>21</td><td>24</td></tr>
+	<tr><td>27</td><td>30</td><td>33</td><td>36</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># R understands matrix negation</span>
+<span class="o">-</span><span class="n">A</span>
+<span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>-1</td><td>-2</td><td>-3</td><td>-4</td></tr>
+	<tr><td>-5</td><td>-6</td><td>-7</td><td>-8</td></tr>
+	<tr><td> -9</td><td>-10</td><td>-11</td><td>-12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>-1</td><td>-2</td><td>-3</td><td>-4</td></tr>
+	<tr><td>-5</td><td>-6</td><td>-7</td><td>-8</td></tr>
+	<tr><td> -9</td><td>-10</td><td>-11</td><td>-12</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in R, you can create an m by n zero matrix as follows:</span>
+<span class="n">Z</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="n">Z</span>
+<span class="n">A</span> <span class="o">+</span> <span class="n">Z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To create an n by n identity matrix in R, make a diagonal matrix of ones:</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># a diagonal matrix of 1s, with dimension 3 by 3</span>
+<span class="n">I</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># a diagonal matrix with the vector (1,1,1) along the diagonal</span>
+<span class="n">I2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>0</td><td>0</td></tr>
+	<tr><td>0</td><td>1</td><td>0</td></tr>
+	<tr><td>0</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>0</td><td>0</td></tr>
+	<tr><td>0</td><td>1</td><td>0</td></tr>
+	<tr><td>0</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># R supports scalar addition; this is not a formal operation in linear algebra</span>
+<span class="n">alpha</span> <span class="o">+</span> <span class="n">A</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+	<tr><td> 8</td><td> 9</td><td>10</td><td>11</td></tr>
+	<tr><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix addition</span>
+<span class="n">B</span> <span class="o">&lt;-</span> <span class="mi">24</span><span class="p">:</span><span class="mi">13</span><span class="p">;</span>  <span class="c1"># B is an array with the integers 24 to 13 in descending order </span>
+<span class="n">dim</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1"># B is now a 4 by 3 array</span>
+<span class="n">B</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="p">(</span><span class="n">B</span><span class="p">);</span> <span class="c1"># B is now a 3 by 4 array</span>
+<span class="n">A</span> <span class="c1"># 1:12</span>
+<span class="n">B</span> <span class="c1"># 24:13</span>
+<span class="n">A</span><span class="o">+</span><span class="n">B</span> <span class="c1"># a 3 by 4 array; all entries are 25</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>24</td><td>23</td><td>22</td><td>21</td></tr>
+	<tr><td>20</td><td>19</td><td>18</td><td>17</td></tr>
+	<tr><td>16</td><td>15</td><td>14</td><td>13</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>25</td><td>25</td><td>25</td><td>25</td></tr>
+	<tr><td>25</td><td>25</td><td>25</td><td>25</td></tr>
+	<tr><td>25</td><td>25</td><td>25</td><td>25</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix multiplication</span>
+<span class="n">C</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">;</span>
+<span class="n">C</span>
+<span class="n">A</span><span class="o">%*%</span><span class="k">C</span>  # a 3 by 2 matrix
+<span class="n">cat</span><span class="p">(</span><span class="s2">&quot;the (3,1) entry should be&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="o">*</span><span class="mi">1</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">11</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">12</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Check the (3,1) entry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ol>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>30</td></tr>
+	<tr><td>70</td></tr>
+	<tr><td>110</td></tr>
+</tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the (3,1) entry should be 110
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now multiplying a matrix by a matrix  The matrix multiplication operator is %*%</span>
+<span class="n">A</span> <span class="o">%*%</span> <span class="n">t</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>  <span class="c1"># a 3 by 3 matrix</span>
+<span class="n">t</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">B</span>  <span class="c1"># a 4 by 4 matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>220</td><td>180</td><td>140</td></tr>
+	<tr><td>580</td><td>476</td><td>372</td></tr>
+	<tr><td>940</td><td>772</td><td>604</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>268</td><td>253</td><td>238</td><td>223</td></tr>
+	<tr><td>328</td><td>310</td><td>292</td><td>274</td></tr>
+	<tr><td>388</td><td>367</td><td>346</td><td>325</td></tr>
+	<tr><td>448</td><td>424</td><td>400</td><td>376</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiplication by the identity matrix</span>
+<span class="n">I3</span> <span class="o">&lt;-</span> <span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1"># I3 is the 3 by 3 identity matrix</span>
+<span class="n">I3</span> <span class="o">%*%</span> <span class="n">A</span>  <span class="c1"># multiplying from the left by the 3 by 3 identity matrix gives us back A</span>
+<span class="c1">#</span>
+<span class="n">I4</span> <span class="o">&lt;-</span> <span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1"># I4 is the 4 by 4 identity matrix</span>
+<span class="n">A</span> <span class="o">%*%</span> <span class="n">I4</span> <span class="c1"># multiplying from the right by the 4 by 4 identity matrix gives us back A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+	<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+	<tr><td> 9</td><td>10</td><td>11</td><td>12</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># R also does elementwise multiplication; again, this is not a formal operation in linear algebra</span>
+<span class="n">A</span><span class="o">*</span><span class="n">C</span>  <span class="c1"># R copies C repeatedly to fill out the dimension of A, </span>
+     <span class="c1"># then multiplies elements of A by the corresponding element</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>8</td><td>9</td><td>8</td></tr>
+	<tr><td>10</td><td> 6</td><td>28</td><td>24</td></tr>
+	<tr><td>27</td><td>20</td><td>11</td><td>48</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The dot product</span>
+<span class="n">a</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>  <span class="c1"># new function: define a vector by repeating values</span>
+<span class="n">b</span>
+<span class="n">t</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">b</span>
+<span class="c1"># another way to do it</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>1</li>
+	<li>1</li>
+	<li>1</li>
+	<li>2</li>
+	<li>2</li>
+</ol>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>24</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html">24</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the 2-norm</span>
+<span class="n">norm</span><span class="p">(</span><span class="k">as</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>  <span class="c1"># the &quot;norm&quot; function operates on matrices--not lists. </span>
+                              <span class="c1"># The function &quot;as.matrix()&quot; turns the list a into a matrix.</span>
+<span class="c1"># alternative 1</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+<span class="c1"># alternative 2</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">a</span><span class="p">)</span>
+<span class="c1"># check:</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">5</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">7.41619848709566</div><div class="output text_html">7.41619848709566</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>7.416198</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html">7.41619848709566</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the 1-norm</span>
+<span class="n">norm</span><span class="p">(</span><span class="k">as</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="c1"># alternative </span>
+<span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="c1"># check:</span>
+<span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">15</div><div class="output text_html">15</div><div class="output text_html">15</div></div>
+</div>
+</div>
+<div class="section" id="interlude-a-bit-more-computation-and-r">
+<h2>Interlude: a bit more computation and R<a class="headerlink" href="#interlude-a-bit-more-computation-and-r" title="Permalink to this headline">¶</a></h2>
+<p>The notation <span class="math notranslate nohighlight">\(X \sim P\)</span> means that the random variable <span class="math notranslate nohighlight">\(X\)</span> has the probability distribution <span class="math notranslate nohighlight">\(P\)</span>.
+Recall that <span class="math notranslate nohighlight">\(U[a, b]\)</span> denotes the uniform distribution on the interval <span class="math notranslate nohighlight">\([a, b]\)</span>.</p>
+<p>Recall that the R function <tt>runif()</tt> generates uniformly distributed pseudo-random numbers between 0 and 1.
+To generate pseudo-random numbers that are uniformly distributed on the interval <span class="math notranslate nohighlight">\([a, b]\)</span>, we can re-scale
+numbers from the interval <span class="math notranslate nohighlight">\([0,1]\)</span> as follows:</p>
+<p>If <span class="math notranslate nohighlight">\(X \sim U[0,1]\)</span>, then <span class="math notranslate nohighlight">\(a+(b-a)X \sim U[a,b]\)</span>.</p>
+<p>Example: to generate pseudo-random numbers on the interval <span class="math notranslate nohighlight">\([-1, 2]\)</span>, we can generate pseudo-random numbers
+on the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, multiply them by 3, and subtract 1 from the result.</p>
+<p>The R function <tt>runif()</tt> takes options <tt>min</tt> and <tt>max</tt> to set the range in this way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here&#39;s how to plot a histogram in R. You will need this for the exercise below.</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">runif</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># generate pseudorandom numbers uniformly distributed between -1 and 2.</span>
+<span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># plot a histogram of the results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/linalg_22_0.png" src="../_images/linalg_22_0.png" />
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Write an R script that computes the <span class="math notranslate nohighlight">\(p\)</span>-norm for general <span class="math notranslate nohighlight">\(p\)</span>, two different ways, from scratch. Do not use the “norm” function.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(A\)</span> be the 2 by 2 rotation matrix:
+$<span class="math notranslate nohighlight">\(
+A(\theta) = \begin{pmatrix}
+\cos \theta &amp; -\sin \theta \\
+\sin \theta &amp; \cos \theta
+\end{pmatrix}
+.
+\)</span>$</p>
+<ul>
+<li><p>Prove algebraically that <span class="math notranslate nohighlight">\(A(\theta)\)</span> is an orthogonal matrix.</p></li>
+<li><p>Write an R script that checks whether <span class="math notranslate nohighlight">\(A(\theta)\)</span> is orthogonal by computing <span class="math notranslate nohighlight">\(A(\theta)A'(\theta)\)</span> numerically for 1,000 values of <span class="math notranslate nohighlight">\(\theta\)</span> selected at random, uniformly from <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>:</p>
+<ul>
+<li><p>For each randomly selected value of <span class="math notranslate nohighlight">\(\theta\)</span>, calculate <span class="math notranslate nohighlight">\(\sum_{i=1}^2 \sum_{j=1}^2 \left ( (A(\theta)A'(\theta))_{ij} - ({\mathbf 1}_2)_{ij} \right )^2\)</span>. (Note: this is the square of the Frobenius matrix norm of the difference between <span class="math notranslate nohighlight">\(AA'\)</span> and <span class="math notranslate nohighlight">\(\mathbf 1\)</span>. You can code it from scratch or use the R function <tt>norm()</tt> by setting <tt>type=”F”</tt> in the call to <tt>norm</tt>.)</p></li>
+<li><p>Find the maximum value of those 1,000 sums of squares.</p></li>
+<li><p>Plot a histogram of those 1,000 sums of squares.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="trace-determinant-inverse">
+<h2>Trace, Determinant, Inverse<a class="headerlink" href="#trace-determinant-inverse" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="trace">
+<h3>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h3>
+<p>If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span>, the <em>trace</em> of <span class="math notranslate nohighlight">\(A\)</span> is the sum of the <em>diagonal elements</em> of <span class="math notranslate nohighlight">\(A\)</span>:
+$<span class="math notranslate nohighlight">\( {\mbox{trace}}(A) = \sum_{i=1}^n A_{ii}.\)</span>$</p>
+</div>
+<div class="section" id="determinants">
+<h3>Determinants<a class="headerlink" href="#determinants" title="Permalink to this headline">¶</a></h3>
+<p>The <em>determinant</em> of a square matrix is a real number; how to compute the determinant
+of a matrix is described below.</p>
+<p>Properties of determinants:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|A| = |A'|\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> can be multiplied, <span class="math notranslate nohighlight">\(|AB| = |A|\cdot |B|\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(|{\mathbf 1}_n| = 1\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, <span class="math notranslate nohighlight">\(|A^{-1}| = |A|^{-1}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is invertible if and only if its determinant is nonzero.</p></li>
+</ul>
+<div class="section" id="computing-the-determinant">
+<h4>Computing the determinant<a class="headerlink" href="#computing-the-determinant" title="Permalink to this headline">¶</a></h4>
+<p>The determinant of a matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(2,2)\)</span> is
+$<span class="math notranslate nohighlight">\(
+|A| = A_{11}A_{22} - A_{12}A_{21}.
+\)</span>$</p>
+<p>The determinant of a matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(3,3)\)</span> is
+$$
+|A| =
+A_{11}(A_{22}A_{33} - A_{23}A_{32})</p>
+<ul class="simple">
+<li><p>A_{12}(A_{21}A_{33}-A_{23}A_{31})</p></li>
+</ul>
+<ul class="simple">
+<li><p>A_{13}(A_{21}A_{32}-A_{22}A_{31}).
+$$</p></li>
+</ul>
+<p>Let <span class="math notranslate nohighlight">\(S_n\)</span> be the set of all permutations of <span class="math notranslate nohighlight">\({1, \ldots, n}\)</span>.
+Define the <em>signature</em> of the permutation <span class="math notranslate nohighlight">\(\pi \in S_n\)</span>, <span class="math notranslate nohighlight">\(\mbox{sgn}(\pi)\)</span> to be <span class="math notranslate nohighlight">\(+1\)</span> if
+<span class="math notranslate nohighlight">\(\pi\)</span> can be derived from <span class="math notranslate nohighlight">\((1, \ldots, n)\)</span> by interchanging an even number of pairs of elements
+and <span class="math notranslate nohighlight">\(-1\)</span> if <span class="math notranslate nohighlight">\(\pi\)</span> can be derived from <span class="math notranslate nohighlight">\((1, \ldots, n)\)</span> by interchanging an even number of
+pairs of elements.</p>
+<p>E.g., for <span class="math notranslate nohighlight">\(n=4\)</span>, <span class="math notranslate nohighlight">\(\mbox{sgn}(1,3,2,4) = -1\)</span>, since this permutation can be derived from <span class="math notranslate nohighlight">\((1,2,3,4)\)</span> by swapping
+<span class="math notranslate nohighlight">\(3\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p>The determinant of a matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is then given by
+$<span class="math notranslate nohighlight">\(
+\left |A \right | \equiv \sum_{\pi \in S_n} \mbox{sgn}(\pi) \prod_{i=1}^n A_{i,\pi_i}.
+\)</span>$</p>
+</div>
+</div>
+<div class="section" id="inverses">
+<h3>Inverses<a class="headerlink" href="#inverses" title="Permalink to this headline">¶</a></h3>
+<p>If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is invertible, its inverse is
+$<span class="math notranslate nohighlight">\(
+A^{-1} = \frac{\mbox{adj}(A)}{|A|},
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\mbox{adj}(A)<span class="math notranslate nohighlight">\( is the _adjugate_ of \)</span>A<span class="math notranslate nohighlight">\(, the transpose of the _matrix of co-factors_.
+The \)</span>(i,j)<span class="math notranslate nohighlight">\( element of the co-factor matrix of \)</span>A<span class="math notranslate nohighlight">\( is the determinant of the matrix that
+results from deleting the \)</span>i<span class="math notranslate nohighlight">\(th row and \)</span>j<span class="math notranslate nohighlight">\(th column of \)</span>A<span class="math notranslate nohighlight">\(, multiplied by \)</span>(-1)^{i+j}$.</p>
+<p>For instance, if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(2,2)\)</span>, its adjugate is
+$<span class="math notranslate nohighlight">\(
+\mbox{adj}(A) \equiv 
+\begin{pmatrix}
+A_{22} &amp; -A_{12} \\
+-A_{21} &amp; A_{11}
+\end{pmatrix}
+.
+\)</span><span class="math notranslate nohighlight">\(
+If \)</span>A \in {\mathcal M}(3,3)<span class="math notranslate nohighlight">\(, its adjugate is
+\)</span>$
+\mbox{adj}(A) \equiv
+\begin{pmatrix}</p>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{22} &amp; A_{23} \
+A_{32} &amp; A_{33}
+\end{vmatrix}
+&amp;</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{21} &amp; A_{23} \
+A_{31} &amp; A_{33}
+\end{vmatrix}
+&amp;</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{21} &amp; A_{22} \
+A_{31} &amp; A_{32}
+\end{vmatrix}
+\</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{12} &amp; A_{13} \
+A_{32} &amp; A_{33}
+\end{vmatrix}
+&amp;</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{11} &amp; A_{13} \
+A_{31} &amp; A_{33}
+\end{vmatrix}
+&amp;</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{11} &amp; A_{12} \
+A_{31} &amp; A_{32}
+\end{vmatrix}
+\</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{12} &amp; A_{13} \
+A_{22} &amp; A_{23}
+\end{vmatrix}
+&amp;</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{11} &amp; A_{13} \
+A_{21} &amp; A_{23}
+\end{vmatrix}
+&amp;</p></li>
+</ul>
+<ul class="simple">
+<li><p>\begin{vmatrix}
+A_{11} &amp; A_{12} \
+A_{21} &amp; A_{22}
+\end{vmatrix}
+\end{pmatrix}
+.
+$$</p></li>
+</ul>
+<div class="section" id="examples-of-computing-inverses">
+<h4>Examples of computing inverses<a class="headerlink" href="#examples-of-computing-inverses" title="Permalink to this headline">¶</a></h4>
+<p>Let
+$<span class="math notranslate nohighlight">\(
+A =
+\begin{pmatrix}
+1 &amp; 2 \\
+6 &amp; 7
+\end{pmatrix}
+.
+\)</span><span class="math notranslate nohighlight">\(
+Then
+\)</span><span class="math notranslate nohighlight">\(
+\mbox{adj}(A) =
+\begin{pmatrix}
+7 &amp; -2 \\
+-6 &amp; 1
+\end{pmatrix}
+,
+\)</span><span class="math notranslate nohighlight">\(
+and \)</span>|A| = 1\cdot7 - 6\cdot2 = 7-12 = -5 \ne 0<span class="math notranslate nohighlight">\(, so \)</span>A<span class="math notranslate nohighlight">\( is invertible.
+\)</span><span class="math notranslate nohighlight">\(
+A^{-1} = \frac{\mbox{adj}(A)}{|A|} =
+-\frac{1}{5} 
+\begin{pmatrix}
+7 &amp; -2 \\
+-6 &amp; 1
+\end{pmatrix}
+.
+\)</span>$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-check-the-result-aa-1-begin-pmatrix-1-2-6-7-end-pmatrix-cdot-frac-1-5-begin-pmatrix-7-2-6-1-end-pmatrix">
+<h1>Let’s check the result:
+$$
+AA^{-1} =
+\begin{pmatrix}
+1 &amp; 2 \
+6 &amp; 7
+\end{pmatrix}
+\cdot
+-\frac{1}{5}
+\begin{pmatrix}
+7 &amp; -2 \
+-6 &amp; 1
+\end{pmatrix}<a class="headerlink" href="#let-s-check-the-result-aa-1-begin-pmatrix-1-2-6-7-end-pmatrix-cdot-frac-1-5-begin-pmatrix-7-2-6-1-end-pmatrix" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="frac-1-5-begin-pmatrix-7-12-2-2-42-42-12-7-end-pmatrix">
+<h1>\frac{1}{5}\begin{pmatrix}
+-7+12 &amp; 2-2 \
+-42 + 42 &amp; 12-7
+\end{pmatrix}<a class="headerlink" href="#frac-1-5-begin-pmatrix-7-12-2-2-42-42-12-7-end-pmatrix" title="Permalink to this headline">¶</a></h1>
+<p>\frac{1}{5}
+\begin{pmatrix}
+5 &amp; 0 \
+0 &amp; 5
+\end{pmatrix}
+= {\mathbf 1}_2.
+$$</p>
+<p>Let’s compute another: take
+$<span class="math notranslate nohighlight">\(
+A = \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 4 &amp; 6 \\
+3 &amp; 4 &amp; 5
+\end{pmatrix}
+.
+\)</span><span class="math notranslate nohighlight">\(
+Then
+\)</span><span class="math notranslate nohighlight">\( \left |A \right | = 1 (4 \cdot 5 - 4 \cdot 6) -2(2 \cdot 5 - 3 \cdot 6) + 3(2 \cdot 4 - 3 \cdot 4) = -4 + 16 - 12 = 0.
+\)</span><span class="math notranslate nohighlight">\(
+Hence, \)</span>A$ is not full rank and is not invertible.
+(The second row is a multiple of the first row, so the rows are linearly dependent.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trace in R</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">A</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">diag</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>  <span class="c1"># diag() extracts the diagonal of a matrix; sum() adds the elements of a list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+	<tr><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+	<tr><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+	<tr><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+	<tr><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html">15</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Determinant</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">A</span>  <span class="c1"># the rows and columns are multiples of each other, so A is singular (not invertible)</span>
+<span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># 0</span>
+
+<span class="c1"># The set of singular matrices has Lebesgue measure 0, so a random matrix is nonsingular with probability 1</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">array</span><span class="p">(</span><span class="n">runif</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># 5 by 5 matrix with uniformly distributed elements</span>
+<span class="n">A</span>
+<span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+	<tr><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+	<tr><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+	<tr><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+	<tr><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html">0</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>0.44494921</td><td>0.52317376</td><td>0.03632915</td><td>0.32502890</td><td>0.11407382</td></tr>
+	<tr><td>0.1517755</td><td>0.8576347</td><td>0.6506324</td><td>0.7805578</td><td>0.1062984</td></tr>
+	<tr><td>0.7462715</td><td>0.4619980</td><td>0.1625752</td><td>0.6339368</td><td>0.6016028</td></tr>
+	<tr><td>0.60668472</td><td>0.64195808</td><td>0.09207884</td><td>0.71420528</td><td>0.62334836</td></tr>
+	<tr><td>0.79192360</td><td>0.03372087</td><td>0.35195751</td><td>0.07350370</td><td>0.58952493</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html">0.0233555320383095</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inverse</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># this is almost never the right thing to do</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td> 1.6532796</td><td>-0.3517214</td><td> 3.0738478</td><td>-3.0826031</td><td>-0.1338509</td></tr>
+	<tr><td> 1.86271860</td><td> 0.08329378</td><td>-5.52354965</td><td> 3.84048152</td><td> 1.20043061</td></tr>
+	<tr><td>-0.7561739</td><td> 1.1796194</td><td>-0.2336376</td><td>-0.8476521</td><td> 1.0683307</td></tr>
+	<tr><td>-1.5079462</td><td> 0.3122524</td><td> 6.2728416</td><td>-3.5774260</td><td>-2.3831924</td></tr>
+	<tr><td>-1.6879742</td><td>-0.2754759</td><td>-4.4558594</td><td> 4.8733703</td><td> 1.4667515</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="section" id="eigenvalue-eigenvector-decompositions">
+<h2>Eigenvalue / Eigenvector decompositions<a class="headerlink" href="#eigenvalue-eigenvector-decompositions" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> be a square matrix.
+An <em>eigenvector</em> of <span class="math notranslate nohighlight">\(A\)</span> is a non-zero vector <span class="math notranslate nohighlight">\(v \in \Re^n\)</span> such that, for some scalar <span class="math notranslate nohighlight">\(\lambda \in \Re\)</span>, <span class="math notranslate nohighlight">\(\lambda \ne 0\)</span>,
+<span class="math notranslate nohighlight">\(Av = \lambda v\)</span>.
+That is, the effect of multiplying <span class="math notranslate nohighlight">\(v\)</span> by the matrix <span class="math notranslate nohighlight">\(A\)</span> is to “stretch or shrink” <span class="math notranslate nohighlight">\(v\)</span> by the scalar
+<span class="math notranslate nohighlight">\(\lambda\)</span>, without changing the direction of <span class="math notranslate nohighlight">\(v\)</span> (except perhaps to change its sign).
+The scalar <span class="math notranslate nohighlight">\(\lambda\)</span> is the <em>eigenvalue</em> associated with the eigenvector <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is a diagonal matrix, its eigenvectors are the coordinate vectors <span class="math notranslate nohighlight">\(e_1 = (1, 0, \ldots, 0)\)</span>,
+<span class="math notranslate nohighlight">\(e_2 = (0, 1, \ldots, 0)\)</span>,
+<span class="math notranslate nohighlight">\(e_n = (0, 0, \ldots, 1)\)</span>, and the associated eigenvalues are the diagonal elements of <span class="math notranslate nohighlight">\(A\)</span>.
+That is, the eigenvalue associated with the eigenvector <span class="math notranslate nohighlight">\(e_j\)</span> is <span class="math notranslate nohighlight">\(A_{jj}\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(Av = \lambda v\)</span>, then <span class="math notranslate nohighlight">\((A- \lambda {\mathbf 1}_n)v = 0\)</span>.
+For that to occur with <span class="math notranslate nohighlight">\(v \ne {\mathbf 0}_n\)</span>, it is necessary that the determinant of <span class="math notranslate nohighlight">\(A - \lambda {\mathbf 1}_n\)</span>
+be zero.
+That condition, <span class="math notranslate nohighlight">\(\left |A - \lambda {\mathbf 1}_n \right | = 0\)</span> means that any eigenvalue
+must be a root of an <span class="math notranslate nohighlight">\(n\)</span>th degree polynomial in <span class="math notranslate nohighlight">\(\lambda\)</span>
+called the <em>characteristic polynomial</em> of the matrix <span class="math notranslate nohighlight">\(A\)</span>.
+(The leading term in the polynomial is <span class="math notranslate nohighlight">\((-1)^n \lambda^n\)</span>.)
+It follows that <span class="math notranslate nohighlight">\(A\)</span> has at most <span class="math notranslate nohighlight">\(n\)</span> real eigenvalues and always has <span class="math notranslate nohighlight">\(n\)</span> complex eigenvalues (counting
+multiple roots as often as they occur).</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(A\)</span> has the <span class="math notranslate nohighlight">\(n\)</span> complex eigenvalues <span class="math notranslate nohighlight">\(\{\lambda_i \}\)</span>
+(counting multiples as often as they occur).</p>
+<p>Then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mbox{trace}(A) = \sum_{i=1}^n \lambda_i\)</span>: the trace of <span class="math notranslate nohighlight">\(A\)</span> is the sum of its eigenvalues.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\left | A \right | = \prod_{i=1}^n \lambda_i\)</span>: the determinant of <span class="math notranslate nohighlight">\(A\)</span> is the product of its eigenvalues.</p></li>
+<li><p>The eigenvalues of <span class="math notranslate nohighlight">\(A^k\)</span> are <span class="math notranslate nohighlight">\(\{\lambda_i^k\}_{k=1}^n\)</span>.</p></li>
+<li><p>If all <span class="math notranslate nohighlight">\(\{\lambda_i\}\)</span> are real and non-negative, <span class="math notranslate nohighlight">\(A\)</span> is positive semi-definite.</p></li>
+<li><p>If all <span class="math notranslate nohighlight">\(\{\lambda_i\}\)</span> are real and positive, then <span class="math notranslate nohighlight">\(A\)</span> is positive definite.</p></li>
+<li><p>If all <span class="math notranslate nohighlight">\(\{\lambda_i\}\)</span> are real and nonzero, then <span class="math notranslate nohighlight">\(A\)</span> is invertible, and the eigenvalues of <span class="math notranslate nohighlight">\(A^{-1}\)</span> are
+<span class="math notranslate nohighlight">\(\{\lambda_i^{-1}\}\)</span>.</p></li>
+</ul>
+<p>Let <span class="math notranslate nohighlight">\(V \in {\mathcal M}(n,n)\)</span> be the matrix whose columns are the eigenvectors of a matrix <span class="math notranslate nohighlight">\(A\)</span>,
+and let <span class="math notranslate nohighlight">\(\Lambda\)</span> be the diagonal matrix of the corresponding eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>. Then
+<span class="math notranslate nohighlight">\(A = V \Lambda V^{-1}\)</span>.
+This factorization is the <em>eigen-decomposition</em> of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(A\)</span> is positive semi-definite. Then <span class="math notranslate nohighlight">\(A\)</span> can be written
+$<span class="math notranslate nohighlight">\(
+  A = R \Lambda R',
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>R<span class="math notranslate nohighlight">\( is an orthogonal matrix and \)</span>\Lambda<span class="math notranslate nohighlight">\( is the diagonal matrix whose diagonal elements are
+the eigenvalues of \)</span>A<span class="math notranslate nohighlight">\(, all of which are non-negative.
+The columns of \)</span>R<span class="math notranslate nohighlight">\( are the eigenvectors of \)</span>A<span class="math notranslate nohighlight">\(.
+If \)</span>A<span class="math notranslate nohighlight">\( is positive definite, then the diagonal elements of \)</span>\Lambda$ are strictly positive.</p>
+<div class="section" id="matrix-square-roots">
+<h3>Matrix square-roots<a class="headerlink" href="#matrix-square-roots" title="Permalink to this headline">¶</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix with all non-negative elements.</p>
+<p>Define the matrix <span class="math notranslate nohighlight">\(\Lambda^{1/2}\)</span> by <span class="math notranslate nohighlight">\((\Lambda^{1/2})_{ij} = \sqrt{\Lambda_{ij}}\)</span>:
+$<span class="math notranslate nohighlight">\(
+\Lambda^{1/2} \equiv 
+\begin{pmatrix}
+\sqrt{\Lambda_{11}} &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \sqrt{\Lambda_{22}} &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; 0 \\
+0 &amp; 0 &amp; \cdots &amp; \sqrt{\Lambda_{nn}}
+\end{pmatrix}
+.
+\)</span>$</p>
+<p>Then <span class="math notranslate nohighlight">\(\Lambda^{1/2}\)</span> is the <em>matrix square root</em> of
+<span class="math notranslate nohighlight">\(\Lambda\)</span>, in the sense that <span class="math notranslate nohighlight">\(\Lambda^{1/2}\Lambda^{1/2} = \Lambda\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is positive semi-definite, with the eigen-decomposition <span class="math notranslate nohighlight">\(R\Lambda R'\)</span>,
+<span class="math notranslate nohighlight">\(R\)</span> orthogonal, <span class="math notranslate nohighlight">\(\Lambda\)</span> diagonal with non-negative elements.
+Define the matrix
+$<span class="math notranslate nohighlight">\(
+A^{1/2} \equiv R \Lambda^{1/2} R'.
+\)</span><span class="math notranslate nohighlight">\(
+Then \)</span>A^{1/2}<span class="math notranslate nohighlight">\( is the matrix square root of \)</span>A<span class="math notranslate nohighlight">\(, in the sense that \)</span>A^{1/2}A^{1/2} = A$.</p>
+</div>
+<div class="section" id="inverses-of-positive-definite-matrices">
+<h3>Inverses of Positive-Definite Matrices<a class="headerlink" href="#inverses-of-positive-definite-matrices" title="Permalink to this headline">¶</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(\Lambda \in {\mathcal M}(n,n)\)</span> is a diagonal matrix with strictly positive
+diagonal elements (i.e., <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal, positive definite matrix).
+Then the inverse of <span class="math notranslate nohighlight">\(\Lambda\)</span> has elements
+$<span class="math notranslate nohighlight">\(
+(\Lambda^{-1})_{ij} = 
+\left \{ 
+\begin{array}{ll} 
+0, &amp; i \ne j \\ 
+\Lambda_{ij}^{-1}, &amp; i=j. 
+\end{array} 
+\right . 
+\)</span>$</p>
+<p>We can verify this by direct multiplication:
+$<span class="math notranslate nohighlight">\(
+(\Lambda \Lambda^{-1})_{ij} = 
+\sum_{\ell=1}^n \Lambda_{i\ell} (\Lambda^{-1})_{\ell j}
+= \left \{ \begin{array}{ll} 0, &amp; i \ne j \\ 1, &amp; i=j. \end{array} \right .
+\)</span>$</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is positive definite, with the eigen-decomposition <span class="math notranslate nohighlight">\(R\Lambda R'\)</span>.
+Then <span class="math notranslate nohighlight">\(A^{-1} = R \Lambda^{-1} R'\)</span>.</p>
+</div>
+<div class="section" id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Show that if <span class="math notranslate nohighlight">\(\Lambda \in {\mathcal M}(n,n)\)</span> is a diagonal matrix with non-negative elements, then
+the matrix with elements <span class="math notranslate nohighlight">\((\Lambda^{1/2})_{ij} = \sqrt{\Lambda_{ij}}\)</span> is its matrix square root.</p></li>
+<li><p>Show that if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is positive definite with the eigen-decomposition <span class="math notranslate nohighlight">\(R\Lambda R'\)</span>, then
+<span class="math notranslate nohighlight">\(A^{1/2} \equiv R\Lambda^{1/2}R'\)</span> is the matrix square root of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Eigen decompositions in R
+A &lt;- array(c(1,1,1,1,2,3,0,1,1), dim=c(3,3));
+eigen(A)
+
+# eigen() is an example of a function that returns more than one variable. Here&#39;s how you access them:
+decomp &lt;- eigen(A);
+decomp$values
+decomp$vectors
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl>
+	<dt>$values</dt>
+		<dd><ol class=list-inline>
+	<li>3.65109340893717</li>
+	<li>0.726109445035784</li>
+	<li>-0.377202853972958</li>
+</ol>
+</dd>
+	<dt>$vectors</dt>
+		<dd><table>
+<tbody>
+	<tr><td>-0.2268408</td><td>-0.8167856</td><td> 0.3520763</td></tr>
+	<tr><td>-0.6013762</td><td> 0.2237099</td><td>-0.4848805</td></tr>
+	<tr><td>-0.7660874</td><td> 0.5318037</td><td> 0.8005830</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div><div class="output text_html"><ol class=list-inline>
+	<li>3.65109340893717</li>
+	<li>0.726109445035784</li>
+	<li>-0.377202853972958</li>
+</ol>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>-0.2268408</td><td>-0.8167856</td><td> 0.3520763</td></tr>
+	<tr><td>-0.6013762</td><td> 0.2237099</td><td>-0.4848805</td></tr>
+	<tr><td>-0.7660874</td><td> 0.5318037</td><td> 0.8005830</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># let&#39;s check whether these really are eigenvectors!
+ev1 &lt;- decomp$vectors[,1];  # the first column of the eigenvector matrix: an eigenvector
+ev1
+A %*% ev1 / decomp$values[1]  # this should give us back the first eigenvector
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>-0.2268408088325</li>
+	<li>-0.601376173173819</li>
+	<li>-0.766087426986653</li>
+</ol>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>-0.2268408</td></tr>
+	<tr><td>-0.6013762</td></tr>
+	<tr><td>-0.7660874</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check that the eigen-decomposition of A actually holds
+A
+decomp$vectors %*% diag(decomp$values) %*% solve(decomp$vectors)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td><td>1</td><td>0</td></tr>
+	<tr><td>1</td><td>2</td><td>1</td></tr>
+	<tr><td>1</td><td>3</td><td>1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td> 1.000000e+00</td><td> 1.000000e+00</td><td>-5.551115e-16</td></tr>
+	<tr><td>1</td><td>2</td><td>1</td></tr>
+	<tr><td>1</td><td>3</td><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check that the sum of the eigenvalues is the trace
+sum(diag(A))
+sum(decomp$values)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">4</div><div class="output text_html">4</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check that the product of the eigenvalues is the determinant
+det(A)
+prod(decomp$values)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-1</div><div class="output text_html">-1</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check whether we can invert A using its eigen-decomposition
+Ainv &lt;- decomp$vectors %*% diag(1/decomp$values) %*% solve(decomp$vectors);
+Ainv
+A %*% Ainv  # this should be the identity matrix
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td> 1</td><td> 1</td><td>-1</td></tr>
+	<tr><td> 1.026956e-15</td><td>-1.000000e+00</td><td> 1.000000e+00</td></tr>
+	<tr><td>-1</td><td> 2</td><td>-1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td> 1.000000e+00</td><td>-6.661338e-16</td><td> 1.221245e-15</td></tr>
+	<tr><td>-1.110223e-16</td><td> 1.000000e+00</td><td>-4.440892e-16</td></tr>
+	<tr><td>8.881784e-16</td><td>1.110223e-15</td><td>1.000000e+00</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># this matrix is not positive-definite, so the eigenvector matrix is not orthogonal: its
+# transpose is not its inverse. Let&#39;s verify that:
+t(decomp$vectors)
+solve(decomp$vectors)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>-0.2268408</td><td>-0.6013762</td><td>-0.7660874</td></tr>
+	<tr><td>-0.8167856</td><td> 0.2237099</td><td> 0.5318037</td></tr>
+	<tr><td> 0.3520763</td><td>-0.4848805</td><td> 0.8005830</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>-0.5152664</td><td>-0.9918796</td><td>-0.3741398</td></tr>
+	<tr><td>-1.0057615</td><td>-0.1039075</td><td> 0.3793761</td></tr>
+	<tr><td> 0.1750332</td><td>-0.8801187</td><td> 0.6390625</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Now let&#39;s try it with a positive-definite matrix. We can make a positive definite matrix from a nonsingular matrix
+Apd &lt;- t(A) %*% A;
+Apd
+decomp &lt;- eigen(Apd);
+decomp$values  # the eigenvalues should be non-negative
+decomp$vectors %*% t(decomp$vectors) # and the matrix of eigenvectors should be orthogonal
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>3</td><td>6</td><td>2</td></tr>
+	<tr><td> 6</td><td>14</td><td> 5</td></tr>
+	<tr><td>2</td><td>5</td><td>2</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><ol class=list-inline>
+	<li>18.4052979838975</li>
+	<li>0.481973433502735</li>
+	<li>0.11272858259973</li>
+</ol>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td> 1.000000e+00</td><td>-1.110223e-16</td><td>-1.665335e-16</td></tr>
+	<tr><td>-1.110223e-16</td><td> 1.000000e+00</td><td>-5.551115e-17</td></tr>
+	<tr><td>-1.387779e-16</td><td>-5.551115e-17</td><td> 1.000000e+00</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># the eigenvector matrix should be orthogonal. Let&#39;s check:
+t(decomp$vectors)
+solve(decomp$vectors) # should be equal to the transpose
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>0.3797058</td><td>0.8709960</td><td>0.3117524</td></tr>
+	<tr><td> 0.8226923</td><td>-0.1638011</td><td>-0.5443773</td></tr>
+	<tr><td> 0.4230850</td><td>-0.4631795</td><td> 0.7787579</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>0.3797058</td><td>0.8709960</td><td>0.3117524</td></tr>
+	<tr><td> 0.8226923</td><td>-0.1638011</td><td>-0.5443773</td></tr>
+	<tr><td> 0.4230850</td><td>-0.4631795</td><td> 0.7787579</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># lets make the matrix square root of Apd
+ApdHalf &lt;- decomp$vectors %*% diag(sqrt(decomp$values)) %*% t(decomp$vectors);
+ApdHalf
+ApdHalf %*% ApdHalf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>1.148516</td><td>1.259494</td><td>0.307545</td></tr>
+	<tr><td>1.259494</td><td>3.345303</td><td>1.105722</td></tr>
+	<tr><td>0.3075450</td><td>1.1057220</td><td>0.8263141</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>3</td><td>6</td><td>2</td></tr>
+	<tr><td> 6</td><td>14</td><td> 5</td></tr>
+	<tr><td>2</td><td>5</td><td>2</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="solving-linear-systems">
+<h2>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this headline">¶</a></h2>
+<p>We will often need to solve linear equations of the form <span class="math notranslate nohighlight">\(Ax = b\)</span>, where <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> and
+<span class="math notranslate nohighlight">\(b \in {\mathcal M}(1,m)\)</span> are known, and <span class="math notranslate nohighlight">\(x \in {\mathcal M}(n,1)\)</span> is the unknown vector we seek.</p>
+<p>If the rows of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent and <span class="math notranslate nohighlight">\(n \ge m\)</span>, there is at least one solution.
+If <span class="math notranslate nohighlight">\(n &lt; m\)</span>, there may be no solution.</p>
+<p>For the moment, suppose <span class="math notranslate nohighlight">\(A\)</span> is an invertible square matrix with dimension <span class="math notranslate nohighlight">\(n\)</span>.
+Then, formally, we can find <span class="math notranslate nohighlight">\(x\)</span> by multiplying both sides by the inverse of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  A^{-1} A x = A^{-1} b.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(A^{-1}A = {\mathbf 1}_n\)</span>, this becomes
+$<span class="math notranslate nohighlight">\(
+  {\mathbf 1}_n x = x = A^{-1} b.
+\)</span>$</p>
+<p>However, this is not a good way to find <span class="math notranslate nohighlight">\(x\)</span>: it is unnecessarily numerically unstable (ill conditioned) compared
+with other ways of solving the linear system.</p>
+<p>Better methods include matrix factorizations or decompositions (LU, QR, Cholesky), Gaussian elimination, etc.
+We won’t study those methods in detail, but will present Gaussian elimination briefly.</p>
+<p><strong>Gaussian elimination.</strong>
+Gaussian elimination is a method that can be used to find the rank of a matrix and to solve a linear system.
+Gaussian elimination involves three operations:</p>
+<ul class="simple">
+<li><p>swap two rows</p></li>
+<li><p>multiply a row by a nonzero scalar</p></li>
+<li><p>add a scalar times one row to another row</p></li>
+</ul>
+<p>All of those operations preserves the linear system:
+a vector <span class="math notranslate nohighlight">\(x\)</span> solves the original system if and only if it solves the transformed system.</p>
+<p>The goal of Gaussian elimination is to use those operations to transform
+<span class="math notranslate nohighlight">\(A\)</span> into <em>upper triangular form</em>, in which all elements “below” the diagonal are zero.
+More specifically, it transforms to <em>row eschelon form</em>, in which the first non-zero element of each row is
+to the right of the first non-zero element of the row above it.
+It is trivial to solve a linear system (using <em>back substitution</em>)
+once it is in upper-triangular form, as we shall see.</p>
+<p>Here’s an illustration.  Let
+$<span class="math notranslate nohighlight">\(
+A = \begin{pmatrix} 
+2 &amp; 4 &amp; 4 \\
+6 &amp; 1 &amp; 5 \\
+3 &amp; 4 &amp; 3
+\end{pmatrix}
+\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(
+b = 
+\begin{pmatrix} 
+2 \\
+1 \\
+1
+\end{pmatrix}.
+\)</span>$</p>
+<p>We start by forming the “augmented” matrix that consists of appending <span class="math notranslate nohighlight">\(b\)</span> as an additional column of <span class="math notranslate nohighlight">\(A\)</span>:
+$<span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+2 &amp; 4 &amp; 4 &amp; 2\\
+6 &amp; 1 &amp; 5 &amp; 1\\
+3 &amp; 4 &amp; 3 &amp; 1
+\end{pmatrix}
+\)</span><span class="math notranslate nohighlight">\(
+Divide the first row by 2
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2 &amp; 2 &amp; 1\\
+6 &amp; 1 &amp; 5 &amp; 1\\
+3 &amp; 4 &amp; 3 &amp; 1
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Subtract 6 times the first row from the second row:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2   &amp; 2  &amp;  1\\
+0 &amp; -11 &amp; -7 &amp; -5\\
+3 &amp; 4 &amp; 3 &amp; 1
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Subtract three times the first row from the third row:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2   &amp; 2  &amp;  1\\
+0 &amp; -11 &amp; -7 &amp; -5\\
+0 &amp; -2 &amp; -3 &amp; -2
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Multiply the second and third rows by -1 and swap them:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2   &amp; 2  &amp;  1\\
+0 &amp; 2 &amp; 3 &amp;  2  \\
+0 &amp; 11 &amp; 7 &amp; 5
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Divide the second row by 2:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2 &amp; 2   &amp;  1\\
+0 &amp; 1 &amp; 1.5 &amp;  1  \\
+0 &amp; 11 &amp; 7 &amp; 5
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Subtract 11 times the second row from the third row:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2 &amp; 2   &amp;  1\\
+0 &amp; 1 &amp; 1.5 &amp;  1  \\
+0 &amp; 0 &amp; -9.5 &amp; -6
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Multiply the last row by -1/9.5:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2 &amp; 2   &amp;  1\\
+0 &amp; 1 &amp; 1.5 &amp;  1  \\
+0 &amp; 0 &amp; 1  &amp; 0.63158
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+We now use _back substitution_ to find \)</span>x$:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_3 = 0.63158\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_2 + 1.5\times 0.63158 = 1\)</span>, so <span class="math notranslate nohighlight">\(x_2 = 0.05263\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 + 2\times 0.05263 + 2\times0.63158 = 1\)</span>, so <span class="math notranslate nohighlight">\(x_1 = -0.36842\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="this-gives-x-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix-multiplying-by-a-gives-ax-begin-pmatrix-2-3-4-6-1-5-3-4-3-end-pmatrix-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix">
+<h1>This gives
+$<span class="math notranslate nohighlight">\(
+x = \begin{pmatrix}
+-0.36842 \\
+ 0.05263 \\
+ 0.63158
+\end{pmatrix}
+.
+\)</span><span class="math notranslate nohighlight">\(
+Multiplying by \)</span>A<span class="math notranslate nohighlight">\( gives 
+\)</span>$
+Ax = \begin{pmatrix}
+2 &amp; 3 &amp; 4 \
+6 &amp; 1 &amp; 5 \
+3 &amp; 4 &amp; 3
+\end{pmatrix}
+\begin{pmatrix}
+-0.36842 \
+0.05263 \
+0.63158
+\end{pmatrix}<a class="headerlink" href="#this-gives-x-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix-multiplying-by-a-gives-ax-begin-pmatrix-2-3-4-6-1-5-3-4-3-end-pmatrix-begin-pmatrix-0-36842-0-05263-0-63158-end-pmatrix" title="Permalink to this headline">¶</a></h1>
+<p>\begin{pmatrix}
+2 \
+1.00001 \
+1
+\end{pmatrix}
+.
+$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s try this in R</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">array</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+<span class="n">A</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">b</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>2</td><td>4</td><td>4</td></tr>
+	<tr><td>6</td><td>1</td><td>5</td></tr>
+	<tr><td>3</td><td>4</td><td>3</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><ol class=list-inline>
+	<li>2</li>
+	<li>1</li>
+	<li>1</li>
+</ol>
+</div><div class="output text_html"><ol class=list-inline>
+	<li>-0.368421052631579</li>
+	<li>0.0526315789473685</li>
+	<li>0.631578947368421</li>
+</ol>
+</div></div>
+</div>
+<div class="section" id="gaussian-elimination-continued">
+<h2>Gaussian elimination, continued.<a class="headerlink" href="#gaussian-elimination-continued" title="Permalink to this headline">¶</a></h2>
+<p>What happens if <span class="math notranslate nohighlight">\(A\)</span> is rank deficient?</p>
+<p>Consider the matrix
+$<span class="math notranslate nohighlight">\(
+A = \begin{pmatrix} 
+2 &amp; 4 &amp; 4 \\
+6 &amp; 1 &amp; 5 \\
+10 &amp; 9 &amp; 13
+\end{pmatrix}
+.
+\)</span><span class="math notranslate nohighlight">\(
+Let's perform Gaussian elimination on it.
+Divide the first row by 2
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2 &amp; 2 \\
+6 &amp; 1 &amp; 5 \\
+10 &amp; 9 &amp; 13 
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Subtract 6 times the first row from the second row:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2   &amp; 2  \\
+0 &amp; -11 &amp; -7 \\
+10 &amp; 9 &amp; 13 
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Subtract ten times the first row from the third row:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2   &amp; 2  \\
+0 &amp; -11 &amp; -7\\ 
+0 &amp; -11 &amp; -7 
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+Subtract the 2nd row from the third row:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+1 &amp; 2   &amp; 2  \\
+0 &amp; -11 &amp; -7\\ 
+0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\)</span><span class="math notranslate nohighlight">\(
+The third row is now zero: there are only two nonzero rows once we transform to upper-triangular form.
+The rank of the matrix \)</span>A<span class="math notranslate nohighlight">\( is therefore 2, not 3 (it is rank deficient).
+This matrix \)</span>A$ is not invertible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solve a linear system using R</span>
+<span class="n">A</span> <span class="o">&lt;-</span> <span class="n">array</span><span class="p">(</span><span class="n">runif</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># 5 by 5 matrix with uniformly distributed elements</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+<span class="n">x</span>
+<span class="n">A</span> <span class="o">%*%</span> <span class="n">x</span>   <span class="c1"># check that x solves the linear system</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>3.28678678551627</li>
+	<li>0.31387097276445</li>
+	<li>-3.02500161149644</li>
+	<li>1.36130631294013</li>
+	<li>0.650061555869014</li>
+</ol>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ainv</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+<span class="n">Ainv</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">Ainv</span> <span class="o">%*%</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">x</span>
+<span class="n">A</span> <span class="o">%*%</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td> 4.992164</td><td> 2.381509</td><td> 5.862320</td><td>-6.310363</td><td>-3.638844</td></tr>
+	<tr><td> 0.282778</td><td>-1.400723</td><td>-1.985402</td><td> 1.730754</td><td> 1.686464</td></tr>
+	<tr><td>-4.7926526</td><td>-1.1627247</td><td>-2.8455445</td><td> 4.9559795</td><td> 0.8199406</td></tr>
+	<tr><td> 0.7890497</td><td>-0.3361745</td><td> 0.2298502</td><td>-0.7290643</td><td> 1.4076452</td></tr>
+	<tr><td>-0.008949328</td><td> 1.184794406</td><td>-0.242017138</td><td> 0.032201496</td><td>-0.315967880</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>3.286787</td></tr>
+	<tr><td>0.313871</td></tr>
+	<tr><td>-3.025002</td></tr>
+	<tr><td>1.361306</td></tr>
+	<tr><td>0.6500616</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table>
+<tbody>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+	<tr><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Next chapter: <span class="xref myst">Probability,Random Vectors, and the Multivariate Normal Distribution</span></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

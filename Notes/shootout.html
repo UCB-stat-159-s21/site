@@ -1,0 +1,1480 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nonparametric Method Shootout &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/shootout.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/shootout.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-penny-sampling-kaplan-wald-hoeffding-and-mdkw">
+   Continuous Penny Sampling, Kaplan-Wald, Hoeffding, and MDKW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-next">
+   What’s next?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="nonparametric-method-shootout">
+<h1>Nonparametric Method Shootout<a class="headerlink" href="#nonparametric-method-shootout" title="Permalink to this headline">¶</a></h1>
+<p>I hope you’re convinced that Student-t intervals don’t necessarily have true coverage levels close to their nominal coverage levels, even for large sample sizes.</p>
+<p>Moreover, there are a variety of conservative nonparametric methods that can be used for populations with one-sided or two-sided bounds to produce one-sided or two-sided confidence intervals guaranteed to have coverage probabilities at least as large as their nominal confidence level.</p>
+<p>Which is best?</p>
+<p>If the population really consists of only two values, it is impossible to improve on exact Binomial intervals for samples drawn with replacement or Hypergeometric intervals for sampling without replacement (for one-sided bounds; for two-sided bounds, there is no unique “best” choice).</p>
+<p>For more general populations, your mileage may vary.</p>
+<p>Let’s do some experiments to compare them. None is best in every situation. Relative performance depends on the population distribution and on sample sizes.</p>
+<div class="section" id="continuous-penny-sampling-kaplan-wald-hoeffding-and-mdkw">
+<h2>Continuous Penny Sampling, Kaplan-Wald, Hoeffding, and MDKW<a class="headerlink" href="#continuous-penny-sampling-kaplan-wald-hoeffding-and-mdkw" title="Permalink to this headline">¶</a></h2>
+<p>Let’s compare the principal methods we’ve developed, using simulations from a broader variety of populations. We will skip the thresholded binomial, Chebychev’s inequality, and Markov’s inequality: they are dominated by other methods.</p>
+<p>Some of the methods (Hoeffding, Penny Sampling) require upper and lower population bounds. When they are applicable, we might expect them to do better than methods that require only one-sided population bounds (MDKW, Kaplan-Wald), since they use more information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the first cell with code: set up the Python environment</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.975</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Lower confidence level cl confidence interval for Binomial p, for x successes in n trials&quot;</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">cl</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lo</span>
+
+<span class="k">def</span> <span class="nf">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.975</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Upper confidence level cl confidence interval for Binomial p, for x successes in n trials&quot;</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span>
+            <span class="n">hi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">hi</span>
+
+<span class="k">def</span> <span class="nf">ecdf</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       calculates the empirical cdf of data x</span>
+<span class="sd">       returns the unique values of x in ascending order and the cumulative probabity at those values</span>
+<span class="sd">       NOTE: This is not an efficient algorithm: it is O(n^2), where n is the length of x. </span>
+<span class="sd">       A better algorithm would rely on the Collections package or something similar and could work</span>
+<span class="sd">       in O(n log n)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">theVals</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">theProbs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">theVals</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">theVals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="n">theVals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">theVals</span><span class="p">)</span>
+        <span class="n">theProbs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">theProbs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">theVals</span><span class="p">,</span> <span class="n">theProbs</span>    
+    
+<span class="k">def</span> <span class="nf">ksLowerMean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       lower confidence bound for the mean of a nonnegative population</span>
+<span class="sd">       x is an iid sample with replacement from the population</span>
+<span class="sd">       c is the Massart constant for the desired coverage</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># find the ecdf</span>
+    <span class="n">vals</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">ecdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fmin</span><span class="p">(</span><span class="n">probs</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># This is G^-</span>
+    <span class="n">gProbs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">probs</span><span class="p">))</span>  <span class="c1"># pre-pend a 0 so that diff does the right thing; </span>
+                                               <span class="c1"># gProbs is the vector of masses</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">vals</span><span class="o">*</span><span class="n">gProbs</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1.e-12</span><span class="p">,</span> <span class="n">logf</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Calculates the Kaplan-Wald lower 1-alpha confidence bound for the mean of a nonnegative random</span>
+<span class="sd">       variable.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">-</span><span class="n">cl</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Data x must be nonnegative.&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logf</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="n">xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">xtol</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xtol</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">xtol</span><span class="o">=</span><span class="n">xtol</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">lo</span>
+
+<span class="k">def</span> <span class="nf">pennySampleReplacement</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Weighted random sample of size n drawn with replacement.</span>
+<span class="sd">       Returns indices of the selected items, the &quot;remainder pennies,&quot;</span>
+<span class="sd">       and the raw uniform values used to select the sample</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">weights</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s1">&#39;negative weight in weightedRandomSample&#39;</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">totWt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">wc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="n">totWt</span>  <span class="c1"># ensure weights sum to 1</span>
+        <span class="n">theSam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">((</span><span class="n">n</span><span class="p">,))</span>
+        <span class="n">inx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wc</span><span class="p">)</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">theSam</span><span class="p">)</span>
+        <span class="n">penny</span> <span class="o">=</span> <span class="p">[(</span><span class="n">wc</span><span class="p">[</span><span class="n">inx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">-</span><span class="n">theSam</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">totWt</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">inx</span><span class="p">,</span> <span class="n">penny</span><span class="p">,</span> <span class="n">theSam</span>
+
+<span class="k">def</span> <span class="nf">pennyBinomialLowerBound</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">inx</span><span class="p">,</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Penny sampling lower (one-sided) 1-alpha confidence bound on the mean, for sampling with replacement.</span>
+<span class="sd">       x is the vector of observed values</span>
+<span class="sd">       pennies is the vector of _which_ &quot;penny&quot; in each sampled item is to be adjudicated as &quot;good&quot; or &quot;bad&quot;</span>
+<span class="sd">       The first x_j pennies in item j are deemed &quot;good,&quot; the remaining (u_j - x_j) are &quot;bad.&quot;</span>
+<span class="sd">       Returns the lower bound and the number of &quot;good&quot; pennies in the sample.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">pennies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">inx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pennies</span><span class="p">))])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">),</span> <span class="n">s</span>
+
+<span class="k">def</span> <span class="nf">pennyBinomialBounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">inx</span><span class="p">,</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Penny sampling 2-sided confidence interval for the mean, for sampling with replacement.</span>
+<span class="sd">       x is the vector of observed values</span>
+<span class="sd">       pennies is the vector of _which_ &quot;penny&quot; in each sampled item is to be adjudicated as &quot;good&quot; or &quot;bad&quot;</span>
+<span class="sd">       The first x_j pennies in item j are deemed &quot;good,&quot; the remaining (u_j - x_j) are &quot;bad.&quot;</span>
+<span class="sd">       Returns the lower bound, the upper bound and the number of &quot;good&quot; pennies in the sample.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">pennies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">inx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pennies</span><span class="p">))])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will compare lower confidence bounds using truncated Hoeffding, MDKW, Kaplan-Wald, and Continuous Penny Sampling</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at zero and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span> <span class="c1"># just for demonstration</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.99</span>  <span class="c1"># tuning constant in Kaplan-Wald</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.0e-6</span>  <span class="c1"># numerical tolerance for Kaplan-Wald</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mass at 0&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Trunc Hoeff cov&#39;</span><span class="p">,</span> <span class="s1">&#39;MDKW cov&#39;</span><span class="p">,</span> <span class="s1">&#39;KW cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Penny cov&#39;</span><span class="p">,</span>\
+        <span class="s1">&#39;Trunc Hoeff low&#39;</span><span class="p">,</span> <span class="s1">&#39;MDKW low&#39;</span><span class="p">,</span> <span class="s1">&#39;KW low&#39;</span><span class="p">,</span> <span class="s1">&#39;Penny low&#39;</span><span class="p">]</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>  <span class="c1">#  p*0 + (1-p)*.5</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">hCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>  <span class="c1"># Hoeffding concentration bound</span>
+        <span class="n">mCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>  <span class="c1"># the 1-sided MDKW constant</span>
+        <span class="n">covH</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">covM</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">covK</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">covP</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lowH</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowM</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowP</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">pennies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="n">hLow</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">samMean</span> <span class="o">-</span> <span class="n">hCrit</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="n">covH</span> <span class="o">+=</span> <span class="p">(</span><span class="n">hLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowH</span> <span class="o">+=</span> <span class="n">hLow</span>
+            <span class="c1">#</span>
+            <span class="n">mLow</span> <span class="o">=</span> <span class="n">ksLowerMean</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">mCrit</span><span class="p">)</span>
+            <span class="n">covM</span> <span class="o">+=</span> <span class="p">(</span><span class="n">mLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowM</span> <span class="o">+=</span> <span class="n">mLow</span>
+            <span class="c1">#</span>
+            <span class="n">kLow</span> <span class="o">=</span> <span class="n">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">xtol</span> <span class="o">=</span> <span class="n">xtol</span><span class="p">)</span>
+            <span class="n">covK</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowK</span> <span class="o">+=</span> <span class="n">kLow</span>
+            <span class="c1">#</span>
+            <span class="n">pLow</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pennyBinomialLowerBound</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">],</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span>
+            <span class="n">covP</span> <span class="o">+=</span> <span class="p">(</span><span class="n">pLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowP</span> <span class="o">+=</span> <span class="n">pLow</span>
+            
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covH</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covM</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covK</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covP</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowH</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowM</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 0&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. &lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals mixture of U[0,1] and pointmass at 0</h3><strong>Nominal coverage probability 95.0%</strong>. <br /><strong>Estimated from 10000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 0</th>
+      <th>sample size</th>
+      <th>Trunc Hoeff cov</th>
+      <th>MDKW cov</th>
+      <th>KW cov</th>
+      <th>Penny cov</th>
+      <th>Trunc Hoeff low</th>
+      <th>MDKW low</th>
+      <th>KW low</th>
+      <th>Penny low</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>99.98%</td>
+      <td>99.69%</td>
+      <td>96.74%</td>
+      <td>0.0</td>
+      <td>0.0001</td>
+      <td>0.0025</td>
+      <td>0.0093</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.89%</td>
+      <td>96.18%</td>
+      <td>0.0</td>
+      <td>0.0002</td>
+      <td>0.0023</td>
+      <td>0.0143</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.91%</td>
+      <td>97.14%</td>
+      <td>0.0</td>
+      <td>0.0006</td>
+      <td>0.0022</td>
+      <td>0.0208</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.97%</td>
+      <td>95.3%</td>
+      <td>0.0001</td>
+      <td>0.0083</td>
+      <td>0.0023</td>
+      <td>0.0336</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.8%</td>
+      <td>99.36%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0001</td>
+      <td>0.0003</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.85%</td>
+      <td>97.27%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0004</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.88%</td>
+      <td>98.53%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0006</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.96%</td>
+      <td>98.53%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0012</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>98.76%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>97.71%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>99.99%</td>
+      <td>94.98%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>98.45%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Truncated Hoeffding intervals do not appear to be competitive—despite the fact that they use more information than the Kaplan-Wald interval.  The Kaplan-Wald interval is slightly worse than the continuous penny sampling interval for this population (using this value of <span class="math notranslate nohighlight">\(\gamma\)</span>), but KW requires only nonnegativity.</p>
+<p>Let’s look at what happens with a pointmass at 1 instead of 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at 1 and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span> <span class="c1"># just for demonstration</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.99</span>  <span class="c1"># tuning constant in Kaplan-Wald</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.0e-12</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mass at 1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;trunc Hoeff cov&#39;</span><span class="p">,</span> <span class="s1">&#39;MDKW cov&#39;</span><span class="p">,</span> <span class="s1">&#39;KW cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Penny cov&#39;</span><span class="p">,</span>\
+        <span class="s1">&#39;trunc Hoeff low&#39;</span><span class="p">,</span> <span class="s1">&#39;MDKW low&#39;</span><span class="p">,</span> <span class="s1">&#39;KW low&#39;</span><span class="p">,</span> <span class="s1">&#39;Penny low&#39;</span><span class="p">]</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">p</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">hCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>  <span class="c1"># Hoeffding concentration bound</span>
+        <span class="n">mCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>  <span class="c1"># the 1-sided MDKW constant</span>
+        <span class="n">covH</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">covM</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">covK</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">covP</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lowH</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowM</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">lowP</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">pennies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="n">hLow</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">samMean</span> <span class="o">-</span> <span class="n">hCrit</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="n">covH</span> <span class="o">+=</span> <span class="p">(</span><span class="n">hLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowH</span> <span class="o">+=</span> <span class="n">hLow</span>
+            <span class="c1">#</span>
+            <span class="n">mLow</span> <span class="o">=</span> <span class="n">ksLowerMean</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">mCrit</span><span class="p">)</span>
+            <span class="n">covM</span> <span class="o">+=</span> <span class="p">(</span><span class="n">mLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowM</span> <span class="o">+=</span> <span class="n">mLow</span>
+            <span class="c1">#</span>
+            <span class="n">kLow</span> <span class="o">=</span> <span class="n">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">xtol</span> <span class="o">=</span> <span class="n">xtol</span><span class="p">)</span>
+            <span class="n">covK</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowK</span> <span class="o">+=</span> <span class="n">kLow</span>
+            <span class="c1">#</span>
+            <span class="n">pLow</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pennyBinomialLowerBound</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">],</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span>
+            <span class="n">covP</span> <span class="o">+=</span> <span class="p">(</span><span class="n">pLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+            <span class="n">lowP</span> <span class="o">+=</span> <span class="n">pLow</span>
+            
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covH</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covM</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covK</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covP</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowH</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowM</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 1&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. &lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals mixture of U[0,1] and pointmass at 1</h3><strong>Nominal coverage probability 95.0%</strong>. <br /><strong>Estimated from 10000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 1</th>
+      <th>sample size</th>
+      <th>trunc Hoeff cov</th>
+      <th>MDKW cov</th>
+      <th>KW cov</th>
+      <th>Penny cov</th>
+      <th>trunc Hoeff low</th>
+      <th>MDKW low</th>
+      <th>KW low</th>
+      <th>Penny low</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.6783</td>
+      <td>0.7052</td>
+      <td>0.8196</td>
+      <td>0.8136</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.7577</td>
+      <td>0.7767</td>
+      <td>0.8703</td>
+      <td>0.8672</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>97.59%</td>
+      <td>96.1%</td>
+      <td>0.8143</td>
+      <td>0.8277</td>
+      <td>0.8961</td>
+      <td>0.8989</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>96.77%</td>
+      <td>96.45%</td>
+      <td>0.8822</td>
+      <td>0.8889</td>
+      <td>0.896</td>
+      <td>0.9284</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.7234</td>
+      <td>0.7502</td>
+      <td>0.8793</td>
+      <td>0.8792</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.803</td>
+      <td>0.822</td>
+      <td>0.9342</td>
+      <td>0.934</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.8591</td>
+      <td>0.8725</td>
+      <td>0.9626</td>
+      <td>0.9621</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.9271</td>
+      <td>0.9338</td>
+      <td>0.9848</td>
+      <td>0.9846</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.7279</td>
+      <td>0.7547</td>
+      <td>0.8854</td>
+      <td>0.8863</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.8075</td>
+      <td>0.8264</td>
+      <td>0.9406</td>
+      <td>0.941</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.8637</td>
+      <td>0.8771</td>
+      <td>0.9695</td>
+      <td>0.9697</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.9316</td>
+      <td>0.9383</td>
+      <td>0.9917</td>
+      <td>0.9917</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here again, the Kaplan-Wald method performs essentially the same as Continuous Penny Sampling (with <span class="math notranslate nohighlight">\(\gamma = 0.99\)</span>), even though KW only requires nonnegativity, and Continuous Penny Sampling requires an upper bound on the population as well.</p>
+<p>Let’s see what happens as <span class="math notranslate nohighlight">\(\gamma\)</span> varies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at 0 and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span> <span class="c1"># just for demonstration</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>  <span class="c1"># tuning constant in Kaplan-Wald</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.0e-12</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mass at 0&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">]</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;KW cov &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gamma</span><span class="p">])</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;KW low &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gamma</span><span class="p">])</span>
+
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">covK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">pennies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">)):</span>
+                <span class="n">kLow</span> <span class="o">=</span> <span class="n">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xtol</span> <span class="o">=</span> <span class="n">xtol</span><span class="p">)</span>
+                <span class="n">covK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+                <span class="n">lowK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">kLow</span>
+            <span class="c1">#</span>
+            
+        <span class="n">theRow</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span>
+        <span class="n">theRow</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covK</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))])</span>
+        <span class="n">theRow</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))])</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span> <span class="n">theRow</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 0&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. &lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals mixture of U[0,1] and pointmass at 0</h3><strong>Nominal coverage probability 95.0%</strong>. <br /><strong>Estimated from 10000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 0</th>
+      <th>sample size</th>
+      <th>KW cov 0.01</th>
+      <th>KW cov 0.1</th>
+      <th>KW cov 0.5</th>
+      <th>KW cov 0.9</th>
+      <th>KW cov 0.999</th>
+      <th>KW low 0.01</th>
+      <th>KW low 0.1</th>
+      <th>KW low 0.5</th>
+      <th>KW low 0.9</th>
+      <th>KW low 0.999</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>99.24%</td>
+      <td>97.77%</td>
+      <td>99.3%</td>
+      <td>99.76%</td>
+      <td>0.002</td>
+      <td>0.0101</td>
+      <td>0.0072</td>
+      <td>0.0033</td>
+      <td>0.0023</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>98.39%</td>
+      <td>98.67%</td>
+      <td>99.57%</td>
+      <td>99.84%</td>
+      <td>0.0048</td>
+      <td>0.0163</td>
+      <td>0.0069</td>
+      <td>0.0028</td>
+      <td>0.0021</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>97.08%</td>
+      <td>98.94%</td>
+      <td>99.79%</td>
+      <td>99.91%</td>
+      <td>0.01</td>
+      <td>0.0225</td>
+      <td>0.0069</td>
+      <td>0.0027</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>97.43%</td>
+      <td>99.49%</td>
+      <td>99.86%</td>
+      <td>99.98%</td>
+      <td>0.0263</td>
+      <td>0.0289</td>
+      <td>0.0067</td>
+      <td>0.0029</td>
+      <td>0.0022</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>98.79%</td>
+      <td>98.32%</td>
+      <td>99.84%</td>
+      <td>99.87%</td>
+      <td>0.0001</td>
+      <td>0.0003</td>
+      <td>0.0003</td>
+      <td>0.0001</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>99.99%</td>
+      <td>98.25%</td>
+      <td>98.76%</td>
+      <td>99.92%</td>
+      <td>99.91%</td>
+      <td>0.0002</td>
+      <td>0.0004</td>
+      <td>0.0002</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>99.9%</td>
+      <td>98.06%</td>
+      <td>99.32%</td>
+      <td>99.89%</td>
+      <td>99.92%</td>
+      <td>0.0004</td>
+      <td>0.0005</td>
+      <td>0.0001</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>98.51%</td>
+      <td>98.92%</td>
+      <td>99.56%</td>
+      <td>99.94%</td>
+      <td>99.98%</td>
+      <td>0.0014</td>
+      <td>0.0005</td>
+      <td>0.0001</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>99.92%</td>
+      <td>98.64%</td>
+      <td>99.47%</td>
+      <td>99.86%</td>
+      <td>99.99%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>99.91%</td>
+      <td>98.48%</td>
+      <td>99.63%</td>
+      <td>99.84%</td>
+      <td>100.0%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>99.61%</td>
+      <td>98.5%</td>
+      <td>99.74%</td>
+      <td>99.92%</td>
+      <td>100.0%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>98.4%</td>
+      <td>99.09%</td>
+      <td>99.89%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As you can see, smaller values of <span class="math notranslate nohighlight">\(\gamma\)</span> improve the confidence bound when many observations are (nearly) zero. The Kaplan-Wald method is quite competitive with Continuous Penny Sampling in this case when <span class="math notranslate nohighlight">\(\gamma = 0.1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at 1 and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span> <span class="c1"># just for demonstration</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>  <span class="c1"># tuning constant in Kaplan-Wald</span>
+<span class="n">xtol</span> <span class="o">=</span> <span class="mf">1.0e-12</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mass at 1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">]</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;KW cov &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gamma</span><span class="p">])</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;KW low &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gamma</span><span class="p">])</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">p</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">covK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span>
+        <span class="n">lowK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">pennies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">)):</span>
+                <span class="n">kLow</span> <span class="o">=</span> <span class="n">kaplanWaldLowerCI</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xtol</span> <span class="o">=</span> <span class="n">xtol</span><span class="p">)</span>
+                <span class="n">covK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">kLow</span> <span class="o">&lt;=</span> <span class="n">popMean</span><span class="p">)</span>
+                <span class="n">lowK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">kLow</span>
+            <span class="c1">#</span>
+            
+        <span class="n">theRow</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span>
+        <span class="n">theRow</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">covK</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))])</span>
+        <span class="n">theRow</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lowK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">))])</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span> <span class="n">theRow</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 1&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. &lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected lengths of one-sided nonparametric confidence intervals mixture of U[0,1] and pointmass at 1</h3><strong>Nominal coverage probability 95.0%</strong>. <br /><strong>Estimated from 10000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 1</th>
+      <th>sample size</th>
+      <th>KW cov 0.01</th>
+      <th>KW cov 0.1</th>
+      <th>KW cov 0.5</th>
+      <th>KW cov 0.9</th>
+      <th>KW cov 0.999</th>
+      <th>KW low 0.01</th>
+      <th>KW low 0.1</th>
+      <th>KW low 0.5</th>
+      <th>KW low 0.9</th>
+      <th>KW low 0.999</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.069</td>
+      <td>0.4164</td>
+      <td>0.7496</td>
+      <td>0.8145</td>
+      <td>0.8193</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.1322</td>
+      <td>0.5859</td>
+      <td>0.8383</td>
+      <td>0.8707</td>
+      <td>0.8699</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>98.33%</td>
+      <td>97.6%</td>
+      <td>0.2349</td>
+      <td>0.7269</td>
+      <td>0.888</td>
+      <td>0.899</td>
+      <td>0.8938</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>98.08%</td>
+      <td>96.18%</td>
+      <td>96.67%</td>
+      <td>0.5422</td>
+      <td>0.8824</td>
+      <td>0.928</td>
+      <td>0.9067</td>
+      <td>0.8941</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.0724</td>
+      <td>0.4375</td>
+      <td>0.7921</td>
+      <td>0.8696</td>
+      <td>0.8798</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.1386</td>
+      <td>0.6149</td>
+      <td>0.8846</td>
+      <td>0.9288</td>
+      <td>0.934</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.2462</td>
+      <td>0.7628</td>
+      <td>0.9372</td>
+      <td>0.9605</td>
+      <td>0.9629</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.568</td>
+      <td>0.9253</td>
+      <td>0.9795</td>
+      <td>0.9848</td>
+      <td>0.9848</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.0728</td>
+      <td>0.4397</td>
+      <td>0.7965</td>
+      <td>0.8754</td>
+      <td>0.8862</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.1393</td>
+      <td>0.6179</td>
+      <td>0.8896</td>
+      <td>0.9351</td>
+      <td>0.9411</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.2473</td>
+      <td>0.7664</td>
+      <td>0.9421</td>
+      <td>0.9666</td>
+      <td>0.9697</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.5706</td>
+      <td>0.9296</td>
+      <td>0.9847</td>
+      <td>0.9911</td>
+      <td>0.9918</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>However, using a small value of <span class="math notranslate nohighlight">\(\gamma\)</span> hurts the confidence bound—at least for small sample sizes—when <span class="math notranslate nohighlight">\(x\)</span> tends to have <em>few</em> values near zero.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="pennySampling.html"><span class="doc std std-doc">Previous: Penny Sampling</span></a></p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

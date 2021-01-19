@@ -1,0 +1,1065 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-random number generators &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/pseudo-random.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/pseudo-random.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Pseudo-random number generators
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-prngs">
+   Properties of PRNGs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-prngs">
+   Some PRNGs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#middle-square">
+     Middle Square
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-congruential-generators-lcgs">
+     Linear Congruential Generators (LCGs)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff">
+       Hull-Dobell Theorem: the period of an LCG is
+       <span class="math notranslate nohighlight">
+        \(m\)
+       </span>
+       for all seeds
+       <span class="math notranslate nohighlight">
+        \(X_0\)
+       </span>
+       iff
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#marsaglia-pnas-1968-random-numbers-fall-mainly-in-the-planes">
+       Marsaglia (PNAS, 1968): Random Numbers Fall Mainly in the Planes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#randu">
+     RANDU
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wichmann-hill-1982">
+     Wichmann-Hill (1982)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-right-way-the-wrong-way-and-the-microsoft-way">
+       The right way, the wrong way, and the Microsoft way.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mersenne-twister-mt-matsumoto-nishimura-1997">
+     Mersenne Twister (MT)  Matsumoto &amp; Nishimura (1997)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#xorshift-family">
+     xorshift family
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-non-cryptographic-prngs">
+   Other non-cryptographic PRNGs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prngs-based-on-cryptographic-hash-functions">
+   PRNGs based on cryptographic hash functions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-of-sha-256">
+   1 step of SHA-256
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-hash-based-prng">
+     Simple, hash-based PRNG
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-trainwrecks">
+   Some trainwrecks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#microsoft-visual-studio-system-random-2011">
+     Microsoft Visual Studio system.random, 2011
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aristocrat-leisure-of-australia-slot-machines">
+     Aristocrat Leisure of Australia Slot Machines
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dual-elliptic-curve">
+     Dual Elliptic Curve
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gnupg-rng-bug-18-years-1998-2016">
+     GnuPG RNG bug (18 years, 1998–2016)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rsa">
+     RSA
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#php">
+     PHP
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bitcoin-on-android-java-nonce-collision">
+     Bitcoin on Android: Java nonce collision
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#debian-openssl">
+     Debian OpenSSL
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generating-a-random-integer-uniformly-distributed-on-1-ldots-m">
+       Generating a random integer uniformly distributed on
+       <span class="math notranslate nohighlight">
+        \(\{1, \ldots, m\}\)
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#naive-method">
+         Naive method
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#more-accurate-method">
+         More accurate method
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-random-integer-generator-sample">
+     R random integer generator / sample()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-you-tell-whether-a-sequence-is-random">
+     How can you tell whether a sequence is random?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tests-of-prngs">
+     Tests of PRNGS
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knuth-1969-the-art-of-computer-programming-v-2">
+       Knuth (1969)
+       <em>
+        The Art of Computer Programming
+       </em>
+       , v.2
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#marsaglia-1996-diehard-tests">
+       Marsaglia (1996) DIEHARD tests
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lecuyer-and-simard-2007-testu01-http-dl-acm-org-citation-cfm-doid-1268776-1268777">
+       L’Ecuyer and Simard (2007) TestU01 http://dl.acm.org/citation.cfm?doid=1268776.1268777
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nist-tests">
+       NIST Tests
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pseudo-random-number-generators">
+<h1>Pseudo-random number generators<a class="headerlink" href="#pseudo-random-number-generators" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="properties-of-prngs">
+<h1>Properties of PRNGs<a class="headerlink" href="#properties-of-prngs" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>dimension of output</p>
+<ul>
+<li><p>commonly 32 bits, but some have more</p></li>
+</ul>
+</li>
+<li><p>number of states</p>
+<ul>
+<li><p>dimension of state space in bits</p></li>
+<li><p>sometimes state = output, but better generators generally have output = f(state)</p></li>
+</ul>
+</li>
+<li><p>period</p>
+<ul>
+<li><p>maximum over initial states of the number of states visited before repeating</p></li>
+<li><p>period ≤ number of states</p></li>
+<li><p>if state has <span class="math notranslate nohighlight">\(s\)</span> bits, period <span class="math notranslate nohighlight">\(\le 2^s\)</span></p></li>
+<li><p>for some PRNGs, period is much less than number of states</p></li>
+<li><p>for some seeds for some PRNGs, number of states visited is much less than period</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span>-distribution</p>
+<ul>
+<li><p>suppose <span class="math notranslate nohighlight">\(\{X_i\}\)</span> is sequence of <span class="math notranslate nohighlight">\(P\)</span> <span class="math notranslate nohighlight">\(w\)</span>-bit integers</p></li>
+<li><p>define <span class="math notranslate nohighlight">\(t_v(X_i)\)</span> to be the first <span class="math notranslate nohighlight">\(v\)</span> bits of <span class="math notranslate nohighlight">\(X_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{X_i\}\)</span> is <span class="math notranslate nohighlight">\(k\)</span>-distributed to <span class="math notranslate nohighlight">\(v\)</span>-bit accuracy if each of the <span class="math notranslate nohighlight">\(2^{kv}-1\)</span> possible nonzero <span class="math notranslate nohighlight">\(kv\)</span>-bit vectors occurs equally often among the <span class="math notranslate nohighlight">\(P\)</span> <span class="math notranslate nohighlight">\(kv\)</span>-bit vectors
+$<span class="math notranslate nohighlight">\( (t_v(X_i),\,t_v(X_{i+1}), \ldots ,t_v(X_{i+k-1}))\quad (0\le i&lt;P),\)</span>$
+and the zero vector occurs once less often.</p></li>
+<li><p>amounts to a form of uniformity in <span class="math notranslate nohighlight">\(k\)</span>-dimensional space, over an entire cycle</p></li>
+<li><p>does not measure dependence or other “serial” properties</p></li>
+</ul>
+</li>
+<li><p>sensitivity to initial state; burn-in</p>
+<ul>
+<li><p>many PRNGs don’t do well if the seed has too many zeros</p></li>
+<li><p>some require many iterations before output behaves well</p></li>
+<li><p>for some seeds, some PRNGs repeat very quickly</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="some-prngs">
+<h1>Some PRNGs<a class="headerlink" href="#some-prngs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="middle-square">
+<h2>Middle Square<a class="headerlink" href="#middle-square" title="Permalink to this headline">¶</a></h2>
+<p>Dates to Franciscan friar ca. 1240 (per <a class="reference external" href="https://en.wikipedia.org/wiki/Middle-square_method">Wikipedia</a>); reinvented by von Neumann ca. 1949.</p>
+<p>Take <span class="math notranslate nohighlight">\(n\)</span>-digit number, square it, use middle <span class="math notranslate nohighlight">\(n\)</span> digits as the “random” and the new seed.</p>
+<p>E.g., for <span class="math notranslate nohighlight">\(n=4\)</span>, take <span class="math notranslate nohighlight">\(X_0 = 1234\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(1234^2 = 1522756\)</span>, so <span class="math notranslate nohighlight">\(X_1 = 2275\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(2275^2 = 5175625\)</span>, so <span class="math notranslate nohighlight">\(X_2 = 7562\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(10^n\)</span> possible states, but not all attainable from a given seed</p></li>
+<li><p>period at most <span class="math notranslate nohighlight">\(8^n\)</span>, but can be very short. E.g., for <span class="math notranslate nohighlight">\(n=4\)</span>,</p>
+<ul>
+<li><p>0000, 0100, 2500, 3792, &amp; 7600 repeat forever</p></li>
+<li><p>0540 → 2916 → 5030 → 3009 → 0540</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="linear-congruential-generators-lcgs">
+<h2>Linear Congruential Generators (LCGs)<a class="headerlink" href="#linear-congruential-generators-lcgs" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ X_{n+1} = (aX_n +c)\mod m.\]</div>
+<p>LCG period is at most <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<div class="section" id="hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff">
+<h3>Hull-Dobell Theorem: the period of an LCG is <span class="math notranslate nohighlight">\(m\)</span> for all seeds <span class="math notranslate nohighlight">\(X_0\)</span> iff<a class="headerlink" href="#hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are relatively prime</p></li>
+<li><p><span class="math notranslate nohighlight">\(a-1\)</span>  is divisible by all prime factors of <span class="math notranslate nohighlight">\(m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a-1\)</span>  is divisible by 4 if <span class="math notranslate nohighlight">\(m\)</span> is divisible by 4</p></li>
+</ul>
+</div>
+<div class="section" id="marsaglia-pnas-1968-random-numbers-fall-mainly-in-the-planes">
+<h3>Marsaglia (PNAS, 1968): Random Numbers Fall Mainly in the Planes<a class="headerlink" href="#marsaglia-pnas-1968-random-numbers-fall-mainly-in-the-planes" title="Permalink to this headline">¶</a></h3>
+<p>Multiplicative congruential generators (<span class="math notranslate nohighlight">\(c=0\)</span>), Lehmer (1949).</p>
+<p><img alt="Marsaglia68" src="../_images/marsaglia68.png" /></p>
+</div>
+</div>
+<div class="section" id="randu">
+<h2>RANDU<a class="headerlink" href="#randu" title="Permalink to this headline">¶</a></h2>
+<p>RANDU is a particularly bad <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">linear congruential generator</a> promulgated in the 1960s and widely copied.</p>
+<p>RANDU is given by the recursion</p>
+<div class="math notranslate nohighlight">
+\[ X_{j+1} = 65539 X_j\mod 2^{31}.\]</div>
+<p>Period is (<span class="math notranslate nohighlight">\(2^{29}\)</span>); all outputs are odd integers.</p>
+<p>Triples of values from RANDU fall on 15 planes in 3-dimensional space, as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">comb</span><span class="p">,</span> <span class="n">factorial</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chisquare</span><span class="p">,</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LCG; defaults to RANDU, a particularly bad choice</span>
+<span class="k">class</span> <span class="nc">lcgRandom</span><span class="p">:</span> <span class="c1"># defaults to RANDU: BEWARE!</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1234567890</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">65539</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">31</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span>
+        
+    <span class="k">def</span> <span class="nf">getState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span>
+    
+    <span class="k">def</span> <span class="nf">setState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">1234567890</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">65539</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">31</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span>
+
+    <span class="k">def</span> <span class="nf">nextRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">B</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span>
+
+    <span class="k">def</span> <span class="nf">random</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># vector of rands</span>
+        <span class="k">if</span> <span class="n">size</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nextRandom</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nextRandom</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">size</span><span class="p">))]),</span> <span class="n">size</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">randint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># integer between low (inclusive) and high (exclusive)</span>
+        <span class="k">if</span> <span class="n">high</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>  <span class="c1"># numpy.random.randint()-like behavior</span>
+            <span class="n">high</span><span class="p">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">low</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">size</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">low</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nextRandom</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">high</span><span class="o">-</span><span class="n">low</span><span class="p">))</span> <span class="c1"># NOT AN ACCURATE ALGORITHM! See below.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">low</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">high</span><span class="o">-</span><span class="n">low</span><span class="p">))</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate triples using RANDU</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">randu</span> <span class="o">=</span> <span class="n">lcgRandom</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">randu</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">reps</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the triples as points in R^3</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">18.0</span><span class="p">,</span> <span class="mf">18.0</span><span class="p">)</span> 
+
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pseudo-random_10_0.png" src="../_images/pseudo-random_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="wichmann-hill-1982">
+<h2>Wichmann-Hill (1982)<a class="headerlink" href="#wichmann-hill-1982" title="Permalink to this headline">¶</a></h2>
+<p>Sum of 3 LCGs. Period is 6,953,607,871,644.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def WH(s1, s2, s3):
+    s1 = (171 * s1) % 30269
+    s2 = (172 * s2) % 30307
+    s3 = (170 * s3) % 30323
+    r = (s1/30269 + s2/30307 + s3/30323) %  1
+    return [r, s1, s2, s3]
+</pre></div>
+</div>
+<div class="section" id="the-right-way-the-wrong-way-and-the-microsoft-way">
+<h3>The right way, the wrong way, and the Microsoft way.<a class="headerlink" href="#the-right-way-the-wrong-way-and-the-microsoft-way" title="Permalink to this headline">¶</a></h3>
+<p>WH generally not considered adequate for statistics, but was (nominally) the PRNG in Excel for several
+generations. Excel did not allow the seed to be set, so analyses were not reproducible.</p>
+<p><img alt="mcCullough" src="../_images/notWichmannHill08.png" />
+McCullough, B.D., 2008. Microsoft Excel’s ‘Not The Wichmann–Hill’ random number generators
+<em>Computational Statistics &amp; Data Analysis</em>, <em>52</em>, 4587–4593
+doi:10.1016/j.csda.2008.03.006</p>
+</div>
+</div>
+<div class="section" id="mersenne-twister-mt-matsumoto-nishimura-1997">
+<h2>Mersenne Twister (MT)  Matsumoto &amp; Nishimura (1997)<a class="headerlink" href="#mersenne-twister-mt-matsumoto-nishimura-1997" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>example of “twisted generalized feedback shift register”</p></li>
+<li><p>period <span class="math notranslate nohighlight">\(2^{19937}-1\)</span>, a Mersenne Prime</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span>-distributed to 32-bit accuracy for all <span class="math notranslate nohighlight">\(k \in \{1, \ldots, 623\}\)</span>.</p></li>
+<li><p>passes DIEHARD and most of TestU01 (see below)</p></li>
+<li><p>standard in many packages:</p>
+<ul>
+<li><p>GNU Octave, Maple, MATLAB, Mathematica, Python, R, Stata</p></li>
+<li><p>Apache, CMU Common Lisp, Embeddable Common Lisp, Free Pascal, GLib, PHP, GAUSS, IDL, Julia, Ruby, SageMath, Steel Bank Common Lisp, Scilab, Stata, GNU Scientific Library, GNU Multiple Precision Arithmetic Library, Microsoft Visual C++.</p></li>
+<li><p>SPSS and SAS offer MT, as does C++ (v11 and up)</p></li>
+</ul>
+</li>
+<li><p>generally considered adequate for statistics (but not for cryptography); however, will trouble that in this work, esp. for “big data”</p></li>
+<li><p>usual implementation has 624-dimensional state space, but TinyMT uses only 127 bits</p></li>
+<li><p>seeding complicated, since state is an array</p></li>
+<li><p>can take a while to “burn in,” especially for seeds with many zeros</p></li>
+<li><p>output for close seed states can be close</p></li>
+<li><p>2002 update improves seeding</p></li>
+<li><p>completely predictable from 624 successive outputs</p></li>
+<li><p>problems discovered in 2007 (see TestU01, below)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implementation of MT19937 from Wikipedia </span>
+<span class="c1"># https://en.wikipedia.org/wiki/Mersenne_Twister#Python_implementation</span>
+
+<span class="k">def</span> <span class="nf">_int32</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Get the 32 least significant bits.</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="mh">0xFFFFFFFF</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">MT19937</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+        <span class="c1"># Initialize the index to 0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">624</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">624</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">seed</span>  <span class="c1"># Initialize the initial state to the seed</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">624</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_int32</span><span class="p">(</span>
+                <span class="mi">1812433253</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">^</span> <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">extract_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">624</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">twist</span><span class="p">()</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="c1"># Right shift by 11 bits</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">^</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="mi">11</span>
+        <span class="c1"># Shift y left by 7 and take the bitwise and of 2636928640</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">^</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="mi">7</span> <span class="o">&amp;</span> <span class="mi">2636928640</span>
+        <span class="c1"># Shift y left by 15 and take the bitwise and of y and 4022730752</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">^</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="mi">15</span> <span class="o">&amp;</span> <span class="mi">4022730752</span>
+        <span class="c1"># Right shift by 18 bits</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">^</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="mi">18</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">_int32</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">twist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">624</span><span class="p">):</span>
+            <span class="c1"># Get the most significant bit and add it to the less significant</span>
+            <span class="c1"># bits of the next number</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">_int32</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">)</span> <span class="o">+</span>
+                       <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">624</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x7fffffff</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">397</span><span class="p">)</span> <span class="o">%</span> <span class="mi">624</span><span class="p">]</span> <span class="o">^</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="mh">0x9908b0df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="xorshift-family">
+<h2>xorshift family<a class="headerlink" href="#xorshift-family" title="Permalink to this headline">¶</a></h2>
+<p>Originated by Marsaglia, 2003.</p>
+<p>Vigna, S., 2014. Further scramblings of Marsaglia’s xorshift generators. https://arxiv.org/abs/1404.0390</p>
+<p>128-bit xorshift+  Implemented in Python package randomstate https://pypi.python.org/pypi/randomstate/1.10.1</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>uint64_t s[2];
+
+uint64_t xorshift128plus(void) {
+    uint64_t x = s[0];
+    uint64_t const y = s[1];
+    s[0] = y;
+    x ^= x &lt;&lt; 23; // a
+    s[1] = x ^ y ^ (x &gt;&gt; 17) ^ (y &gt;&gt; 26); // b, c
+    return s[1] + y;
+}
+</pre></div>
+</div>
+<p>1024-bit xorshift+</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>uint64_t s[16];
+int p;
+
+uint64_t next(void) {
+    const uint64_t s0 = s[p];
+    uint64_t s1 = s[p = (p + 1) &amp; 15];
+    const uint64_t result = s0 + s1;
+    s1 ^= s1 &lt;&lt; 31; // a
+    s[p] = s1 ^ s0 ^ (s1 &gt;&gt; 11) ^ (s0 &gt;&gt; 30); // b, c
+return result;
+</pre></div>
+</div>
+<p>}</p>
+<p>xorshift+ passes all the tests in BigCrush, has 128-bit state space and period <span class="math notranslate nohighlight">\(2^{128}-1\)</span>, but is
+only <span class="math notranslate nohighlight">\((k-1)\)</span>-dimensionally equidistributed, where <span class="math notranslate nohighlight">\(k\)</span> is the dimension of the distribution of the xorshift
+generator from which it’s derived. E.g., for the 128-bit version, xorshift+ is only 1-dimensionally equidistributed.</p>
+</div>
+</div>
+<div class="section" id="other-non-cryptographic-prngs">
+<h1>Other non-cryptographic PRNGs<a class="headerlink" href="#other-non-cryptographic-prngs" title="Permalink to this headline">¶</a></h1>
+<p>See http://www.pcg-random.org/ and the talk http://www.pcg-random.org/posts/stanford-colloquium-talk.html</p>
+<p>PCG family permutes the output of a LCG; good statistical properties and very fast and compact. Related to Rivest’s RC5 cipher.</p>
+<p>Seems better than MT, xorshift+, et al.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// *Really* minimal PCG32 code / (c) 2014 M.E. O&#39;Neill / pcg-random.org
+// Licensed under Apache License 2.0 (NO WARRANTY, etc. see website)
+
+typedef struct { uint64_t state;  uint64_t inc; } pcg32_random_t;
+
+uint32_t pcg32_random_r(pcg32_random_t* rng)
+{
+    uint64_t oldstate = rng-&gt;state;
+    // Advance internal state
+    rng-&gt;state = oldstate * 6364136223846793005ULL + (rng-&gt;inc|1);
+    // Calculate output function (XSH RR), uses old state for max ILP
+    uint32_t xorshifted = ((oldstate &gt;&gt; 18u) ^ oldstate) &gt;&gt; 27u;
+    uint32_t rot = oldstate &gt;&gt; 59u;
+    return (xorshifted &gt;&gt; rot) | (xorshifted &lt;&lt; ((-rot) &amp; 31));
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="prngs-based-on-cryptographic-hash-functions">
+<h1>PRNGs based on cryptographic hash functions<a class="headerlink" href="#prngs-based-on-cryptographic-hash-functions" title="Permalink to this headline">¶</a></h1>
+<p>Cryptographic hash functions have several basic properties:</p>
+<ol class="simple">
+<li><p>produce fixed-length “digest” of an arbitrarily long “message”: <span class="math notranslate nohighlight">\(H:\{0, 1\}^* \rightarrow \{0, 1\}^L\)</span>.</p></li>
+<li><p>inexpensive to compute</p></li>
+<li><p>non-invertible (“one-way,” hard to find pre-image of any hash except by exhaustive enumeration)</p></li>
+<li><p>collision-resistant (hard to find <span class="math notranslate nohighlight">\(M_1 \ne M_2\)</span> such that <span class="math notranslate nohighlight">\(H(M_1) = H(M_2)\)</span>)</p></li>
+<li><p>small change to input produces big change to output (“unpredictable,” input and output effectively independent)</p></li>
+<li><p>equidistributed: bits of the hash are essentially random</p></li>
+</ol>
+<p>Summary: <em>as if</em> <span class="math notranslate nohighlight">\(H(M)\)</span> is random <span class="math notranslate nohighlight">\(L\)</span>-bit string is assigned to <span class="math notranslate nohighlight">\(M\)</span> in a way that’s essentially unique.</p>
+</div>
+<div class="section" id="step-of-sha-256">
+<h1>1 step of SHA-256<a class="headerlink" href="#step-of-sha-256" title="Permalink to this headline">¶</a></h1>
+<p>By User:kockmeyer - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1823488</p>
+<p><img alt="SHA-2" src="../_images/SHA-2.svg" /></p>
+<div class="math notranslate nohighlight">
+\[ \mbox{Ch} (E,F,G) \equiv (E\land F)\oplus (\neg E\land G) \]</div>
+<div class="math notranslate nohighlight">
+\[ \mbox{Ma} (A,B,C) \equiv (A\land B)\oplus (A\land C)\oplus (B\land C) \]</div>
+<div class="math notranslate nohighlight">
+\[ \Sigma _0 (A) \equiv (A\!\ggg \!2)\oplus (A\!\ggg \!13)\oplus (A\!\ggg \!22) \]</div>
+<div class="math notranslate nohighlight">
+\[ \Sigma _1 (E) \equiv (E\!\ggg \!6)\oplus (E\!\ggg \!11)\oplus (E\!\ggg \!25) \]</div>
+<div class="math notranslate nohighlight">
+\[\boxplus  \mbox{ is addition mod } 2^{32}\]</div>
+<div class="section" id="simple-hash-based-prng">
+<h2>Simple, hash-based PRNG<a class="headerlink" href="#simple-hash-based-prng" title="Permalink to this headline">¶</a></h2>
+<p>Generate a random string <span class="math notranslate nohighlight">\(S\)</span> of reasonable length, e.g., 20 digits.</p>
+<div class="math notranslate nohighlight">
+\[ X_i = {\mbox{Hash}}(S+i),\]</div>
+<p>where <span class="math notranslate nohighlight">\(+\)</span> denotes string concatenation, and the resulting string is interpreted as a (long) hexadecimal number.</p>
+<p><strong>“Counter mode.”  Hash-based generators of this type have unbounded state spaces.</strong></p>
+<p>Implementation in Python by Ron Rivest: http://people.csail.mit.edu/rivest/sampler.py</p>
+<p>Implementation in angular-js by Chris Jerdonek: https://github.com/cjerdonek/quick-sampler</p>
+<p>Implementation in JavaScript by Philip Stark: https://www.stat.berkeley.edu/~stark/Java/Html/sha256Rand.htm</p>
+</div>
+</div>
+<div class="section" id="some-trainwrecks">
+<h1>Some trainwrecks<a class="headerlink" href="#some-trainwrecks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="microsoft-visual-studio-system-random-2011">
+<h2>Microsoft Visual Studio system.random, 2011<a class="headerlink" href="#microsoft-visual-studio-system-random-2011" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Microsoft" src="../_images/visualStudiosysRand.png" /></p>
+<p>https://connect.microsoft.com/VisualStudio/feedback/details/634761/system-random-serious-bug</p>
+<p><img alt="XP2" src="../_images/xp2k.png" /></p>
+</div>
+<div class="section" id="aristocrat-leisure-of-australia-slot-machines">
+<h2>Aristocrat Leisure of Australia Slot Machines<a class="headerlink" href="#aristocrat-leisure-of-australia-slot-machines" title="Permalink to this headline">¶</a></h2>
+<img src="./RandPics/wiredRussianSlot.png" alt="Wired Slots" height="600px" /><img src="./RandPics/russiaLeisure.png" alt="Russian hack" height="600px" /></div>
+<div class="section" id="dual-elliptic-curve">
+<h2>Dual Elliptic Curve<a class="headerlink" href="#dual-elliptic-curve" title="Permalink to this headline">¶</a></h2>
+<p><img alt="dual EC" src="../_images/dualEC-1.png" /></p>
+<hr class="docutils" />
+<p><img alt="dual EC" src="../_images/dualEC-2.png" />
+Bernstein, D.J., T. Lange, and R. Niederhagen, 2016. Dual EC: A Standardized Backdoor, in <em>The New Codebreakers, Essays Dedicated to David Kahn on the Occasion of his 85th Birthday</em>, Ryan, P.Y.A., D. Naccache, and J-J Quisquater, eds., Springer, Berlin.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="gnupg-rng-bug-18-years-1998-2016">
+<h2>GnuPG RNG bug (18 years, 1998–2016)<a class="headerlink" href="#gnupg-rng-bug-18-years-1998-2016" title="Permalink to this headline">¶</a></h2>
+<p>“An attacker who obtains 4640 bits from the RNG can trivially predict the next 160 bits of output”</p>
+<p>https://threatpost.com/gpg-patches-18-year-old-libgcrypt-rng-bug/119984/</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="rsa">
+<h2>RSA<a class="headerlink" href="#rsa" title="Permalink to this headline">¶</a></h2>
+<p>https://www.schneier.com/blog/archives/2012/02/lousy_random_nu.html</p>
+<p><img alt="Lenstra" src="../_images/lenstraEtal.png" /></p>
+<p>“An analysis comparing millions of RSA public keys gathered from the Internet was announced in 2012 by Lenstra, Hughes, Augier, Bos, Kleinjung, and Wachter. They were able to factor 0.2% of the keys using only Euclid’s algorithm. They exploited a weakness unique to cryptosystems based on integer factorization. If n = pq is one public key and n′ = p′q′ is another, then if by chance p = p′, then a simple computation of gcd(n,n′) = p factors both n and n′, totally compromising both keys. Nadia Heninger, part of a group that did a similar experiment, said that the bad keys occurred almost entirely in embedded applications, and explains that the one-shared-prime problem uncovered by the two groups results from situations where the pseudorandom number generator is poorly seeded initially and then reseeded between the generation of the first and second primes.”</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="php">
+<h2>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
+<p><img alt="php" src="../_images/argyrosKiayias.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bitcoin-on-android-java-nonce-collision">
+<h2>Bitcoin on Android: Java nonce collision<a class="headerlink" href="#bitcoin-on-android-java-nonce-collision" title="Permalink to this headline">¶</a></h2>
+<p>“In August 2013, it was revealed that bugs in the Java class SecureRandom could generate collisions in the k nonce values used for ECDSA in implementations of Bitcoin on Android. When this occurred the private key could be recovered, in turn allowing stealing Bitcoins from the containing wallet.”</p>
+<p>https://en.wikipedia.org/wiki/Random_number_generator_attack#Java_nonce_collision</p>
+</div>
+<div class="section" id="debian-openssl">
+<h2>Debian OpenSSL<a class="headerlink" href="#debian-openssl" title="Permalink to this headline">¶</a></h2>
+<p><img alt="openSSL" src="../_images/openSSL.png" /></p>
+<p>Valgrind and Purify warned about uninitialized data.
+Only remaining entropy in seed was the process ID.</p>
+<p>Default maximum process ID is 32,768 in Linux.</p>
+<p>Took 2 years (2006–2008) to notice the bug.</p>
+<p>XKCD
+<img alt="xkcd" src="https://imgs.xkcd.com/comics/security_holes.png" /></p>
+<hr class="docutils" />
+<div class="section" id="generating-a-random-integer-uniformly-distributed-on-1-ldots-m">
+<h3>Generating a random integer uniformly distributed on <span class="math notranslate nohighlight">\(\{1, \ldots, m\}\)</span><a class="headerlink" href="#generating-a-random-integer-uniformly-distributed-on-1-ldots-m" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="naive-method">
+<h4>Naive method<a class="headerlink" href="#naive-method" title="Permalink to this headline">¶</a></h4>
+<p>A standard way to generate a random integer is to start with <span class="math notranslate nohighlight">\(X \sim U[0,1)\)</span> and define <span class="math notranslate nohighlight">\(Y \equiv 1 + \lfloor mX \rfloor\)</span>.</p>
+<p>In theory, that’s fine. But in practice, <span class="math notranslate nohighlight">\(X\)</span> is not really <span class="math notranslate nohighlight">\(U[0,1)\)</span> but instead is derived by normalizing a PRN
+that’s uniform on <span class="math notranslate nohighlight">\(w\)</span>-bit integers. Then, unless <span class="math notranslate nohighlight">\(m\)</span> is a power of 2, the distribution of <span class="math notranslate nohighlight">\(Y\)</span> isn’t uniform on <span class="math notranslate nohighlight">\(\{1, \ldots, m\}\)</span>. For <span class="math notranslate nohighlight">\(m &lt; 2^w\)</span>, the ratio of the largest to smallest selection probability
+is, to first order,  <span class="math notranslate nohighlight">\(1+ m 2^{-w}\)</span>. (See, e.g., Knuth v2 3.4.1.A.)</p>
+<p>For <span class="math notranslate nohighlight">\(m = 10^9\)</span> and <span class="math notranslate nohighlight">\(w=32\)</span>, <span class="math notranslate nohighlight">\(1 + m 2^{-w} \approx 1.233\)</span>. That could easily matter.</p>
+<p>For <span class="math notranslate nohighlight">\(m &gt; 2^{w}\)</span>, at least <span class="math notranslate nohighlight">\(m-2^w\)</span> values will have probability 0 instead of probability <span class="math notranslate nohighlight">\(1/m\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(w=32\)</span>, then for <span class="math notranslate nohighlight">\(m&gt;2^{32}=4.24e9\)</span>, some values will have probability 0. Until relatively recently, R did not support 64-bit integers.</p>
+</div>
+<div class="section" id="more-accurate-method">
+<h4>More accurate method<a class="headerlink" href="#more-accurate-method" title="Permalink to this headline">¶</a></h4>
+<p>A better way to generate a (pseudo-)random integer on <span class="math notranslate nohighlight">\(\{1, \ldots m\}\)</span> from a (pseudo-random) <span class="math notranslate nohighlight">\(w\)</span>-bit integer in practice is as follows:</p>
+<ol class="simple">
+<li><p>Set <span class="math notranslate nohighlight">\(\mu = \log_2(m-1)\)</span>.</p></li>
+<li><p>Define a <span class="math notranslate nohighlight">\(w\)</span>-bit <em>mask</em> consisting of <span class="math notranslate nohighlight">\(\mu\)</span> bits set to 1 and <span class="math notranslate nohighlight">\((w-\mu)\)</span> bits set to zero.</p></li>
+<li><p>Generate a random <span class="math notranslate nohighlight">\(w\)</span>-bit integer <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
+<li><p>Define <span class="math notranslate nohighlight">\(y\)</span> to be the bitwise <code class="docutils literal notranslate"><span class="pre">and</span></code> of <span class="math notranslate nohighlight">\(Y\)</span> and the mask.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(y \le m-1\)</span>, output <span class="math notranslate nohighlight">\(x = y+1\)</span>; otherwise, return to step 3.</p></li>
+</ol>
+<p>This is how random integers are generated in numpy by <code class="docutils literal notranslate"><span class="pre">numpy.random.randint()</span></code>.
+However, <code class="docutils literal notranslate"><span class="pre">numpy.random.choice()</span></code> does something else that’s biased: it finds the closest integer to <span class="math notranslate nohighlight">\(mX\)</span>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">R</span></code>, one would generally use the function <code class="docutils literal notranslate"><span class="pre">sample(1:m,</span> <span class="pre">k,</span> <span class="pre">replace=FALSE)</span></code> to draw pseudo-random
+integers.
+It seems that <code class="docutils literal notranslate"><span class="pre">sample()</span></code> uses the faulty <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">floor(m*X)</span></code> approach.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="r-random-integer-generator-sample">
+<h2>R random integer generator / sample()<a class="headerlink" href="#r-random-integer-generator-sample" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dn</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span><span class="p">)</span> <span class="p">{</span>
+	    <span class="n">PROTECT</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">allocVector</span><span class="p">(</span><span class="n">REALSXP</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
+	    <span class="k">if</span> <span class="p">(</span><span class="n">replace</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">double</span> <span class="o">*</span><span class="n">ry</span> <span class="o">=</span> <span class="n">REAL</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">R_xlen_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">ry</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">dn</span> <span class="o">*</span> <span class="n">ru</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+ 	    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="c1">#ifdef LONG_VECTOR_SUPPORT</span>
+		<span class="n">R_xlen_t</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_xlen_t</span><span class="p">)</span> <span class="n">dn</span><span class="p">;</span>
+		<span class="n">double</span> <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">double</span> <span class="o">*</span><span class="p">)</span><span class="n">R_alloc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">double</span><span class="p">));</span>
+		<span class="n">double</span> <span class="o">*</span><span class="n">ry</span> <span class="o">=</span> <span class="n">REAL</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">R_xlen_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">i</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">R_xlen_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		    <span class="n">R_xlen_t</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_xlen_t</span><span class="p">)</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">ru</span><span class="p">());</span>
+		    <span class="n">ry</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+		    <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">--</span><span class="n">n</span><span class="p">];</span>
+		<span class="p">}</span>
+<span class="c1">#else</span>
+		<span class="n">error</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;n &gt;= 2^31, replace = FALSE is only supported on 64-bit platforms&quot;</span><span class="p">));</span>
+<span class="c1">#endif</span>
+	    <span class="p">}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	    <span class="nb">int</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">dn</span><span class="p">;</span>
+	    <span class="n">PROTECT</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">allocVector</span><span class="p">(</span><span class="n">INTSXP</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
+	    <span class="nb">int</span> <span class="o">*</span><span class="n">iy</span> <span class="o">=</span> <span class="n">INTEGER</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+	    <span class="o">/*</span> <span class="n">avoid</span> <span class="n">allocation</span> <span class="k">for</span> <span class="n">a</span> <span class="n">single</span> <span class="n">sample</span> <span class="o">*/</span>
+	    <span class="k">if</span> <span class="p">(</span><span class="n">replace</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">iy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)(</span><span class="n">dn</span> <span class="o">*</span> <span class="n">unif_rand</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+	    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nb">int</span> <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span> <span class="o">*</span><span class="p">)</span><span class="n">R_alloc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+ 		    <span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)(</span><span class="n">n</span> <span class="o">*</span> <span class="n">unif_rand</span><span class="p">());</span>
+ 		    <span class="n">iy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+ 		    <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">--</span><span class="n">n</span><span class="p">];</span>
+ 		<span class="p">}</span>
+ 	<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Our</span> <span class="n">PRNGs</span> <span class="n">have</span> <span class="n">at</span> <span class="n">most</span> <span class="mi">32</span> <span class="n">bit</span> <span class="n">of</span> <span class="n">precision</span><span class="p">,</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">have</span> <span class="n">at</span> <span class="n">least</span> <span class="mi">25</span> <span class="o">*/</span>
+
+<span class="n">static</span> <span class="n">R_INLINE</span> <span class="n">double</span> <span class="n">ru</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">double</span> <span class="n">U</span> <span class="o">=</span> <span class="mf">33554432.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">U</span><span class="o">*</span><span class="n">unif_rand</span><span class="p">())</span> <span class="o">+</span> <span class="n">unif_rand</span><span class="p">())</span><span class="o">/</span><span class="n">U</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="how-can-you-tell-whether-a-sequence-is-random">
+<h2>How can you tell whether a sequence is random?<a class="headerlink" href="#how-can-you-tell-whether-a-sequence-is-random" title="Permalink to this headline">¶</a></h2>
+<p>http://dilbert.com/strip/2001-10-25</p>
+</div>
+<div class="section" id="tests-of-prngs">
+<h2>Tests of PRNGS<a class="headerlink" href="#tests-of-prngs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Theoretical analyses, e.g., Knuth (1969), Marsaglia (1968)</p></li>
+<li><p>Statistical tests</p></li>
+</ul>
+<div class="section" id="knuth-1969-the-art-of-computer-programming-v-2">
+<h3>Knuth (1969) <em>The Art of Computer Programming</em>, v.2<a class="headerlink" href="#knuth-1969-the-art-of-computer-programming-v-2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>11 types of behavior: equidistribution, series, gaps, poker, coupon collector, permutation frequency, runs, max of <span class="math notranslate nohighlight">\(t\)</span>, collisions, birthday spacings, serial correlation</p></li>
+<li><p>tests on subsequences, spectral test</p></li>
+<li><p>Many <span class="math notranslate nohighlight">\(\chi^2\)</span>-based tests</p></li>
+<li><p>Kolmogorov-Smirnov test for uniformity</p></li>
+<li><p>Sphere-packing</p></li>
+<li><p><strong>MORE</strong></p></li>
+</ul>
+</div>
+<div class="section" id="marsaglia-1996-diehard-tests">
+<h3>Marsaglia (1996) DIEHARD tests<a class="headerlink" href="#marsaglia-1996-diehard-tests" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Birthday spacings</p></li>
+<li><p>Overlapping permutations of 5 random numbers</p></li>
+<li><p>Ranks of binary matrices of various dimensions</p></li>
+<li><p>Monkeys at typewriters: count overlapping “words” in strings of bits</p></li>
+<li><p>Count the 1s in bytes; translate to “words.”</p></li>
+<li><p>Parking lot test, 100 × 100 square lot. Count non-collisions.</p></li>
+<li><p>Minimum distance test: Min distance between 8,000 random points in a 10,000 × 10,000 square.</p></li>
+<li><p>Sphere-packing in a cube at random; diameter of smallest sphere.</p></li>
+<li><p>Squeeze test: Multiply 231 by random floats on (0,1) until hitting 1.</p></li>
+<li><p>Overlapping sums of 100 random (0,1) floats.</p></li>
+<li><p>Runs test for random floats</p></li>
+<li><p>#wins and #rolls in 200,000 games of craps</p></li>
+</ul>
+</div>
+<div class="section" id="lecuyer-and-simard-2007-testu01-http-dl-acm-org-citation-cfm-doid-1268776-1268777">
+<h3>L’Ecuyer and Simard (2007) TestU01 http://dl.acm.org/citation.cfm?doid=1268776.1268777<a class="headerlink" href="#lecuyer-and-simard-2007-testu01-http-dl-acm-org-citation-cfm-doid-1268776-1268777" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kolmogorov-Smirnov, Crámer-von Mises, Anderson-Darling, clustering, runs, gaps, hits in partition of a hypercube (collisions, empty cells, time between visits, …), birthday spacings, close pairs, coupon collector, sum collector, complexity of bit strings (<strong>linear complexity</strong>, jump complexity, jump size complexity, Lempel-Ziv complexity), spectral tests on bit strings, autocorrelation of bits, runs and gaps in bits, …, ranks of binary matrices, longest runs, Hamming weights, random walks, close pairs of binary sequences,</p></li>
+</ul>
+</div>
+<div class="section" id="nist-tests">
+<h3>NIST Tests<a class="headerlink" href="#nist-tests" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>http://csrc.nist.gov/groups/ST/toolkit/rng/stats_tests.html</p></li>
+<li><p>http://csrc.nist.gov/groups/ST/toolkit/rng/documents/SP800-22rev1a.pdf</p></li>
+</ul>
+<p><img alt="NIST" src="../_images/NISTTests.png" /></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

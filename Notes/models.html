@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Models, response schedules, and estimators &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-common-probability-distributions">
+   Some common probability distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete">
+     Discrete
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuous">
+     Continuous
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-a-model">
+   What’s a model?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-models">
+   Some models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#response-schedules-and-causal-inference">
+   Response schedules and causal inference
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#poisson-regression">
+     Poisson regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maximum-likelihood">
+     Maximum likelihood
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="models-response-schedules-and-estimators">
+<h1>Models, response schedules, and estimators<a class="headerlink" href="#models-response-schedules-and-estimators" title="Permalink to this headline">¶</a></h1>
+<p>This notebook summarizes some probability distributions and models related to them, and draws a distinction between a model and a response schedule.</p>
+<div class="section" id="some-common-probability-distributions">
+<h2>Some common probability distributions<a class="headerlink" href="#some-common-probability-distributions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="discrete">
+<h3>Discrete<a class="headerlink" href="#discrete" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bernoulli: distribution of a single trial that can result in “success” (1) or “failure” (0). A random variable <span class="math notranslate nohighlight">\(X\)</span> has the Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) distribution iff
+$<span class="math notranslate nohighlight">\(\Pr \{ X=1 \} = p, \;\; \Pr \{X=0\} = 1-p.\)</span>$</p></li>
+<li><p>Binomial: distribution of the number of successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) trials. Special case: Bernoulli (<span class="math notranslate nohighlight">\(n=1\)</span>). A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Binomial(<span class="math notranslate nohighlight">\(n,p\)</span>) distribution iff
+$<span class="math notranslate nohighlight">\(\Pr \{X=j\} =  {{n}\choose{j}}p^j(1-p)^{n-j}, \; j=0, 1, \ldots, n.\)</span>$</p></li>
+<li><p>Geometric: distribution of the number of trials until the 1st success in independent Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) trials. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Geometric(<span class="math notranslate nohighlight">\(p\)</span>) distribution iff
+$<span class="math notranslate nohighlight">\( \Pr \{X=j\} = (1-p)^{j-1}p, \;\; j=1, 2, \ldots .\)</span>$</p></li>
+<li><p>Negative binomial: distribution of the number of trials until the <span class="math notranslate nohighlight">\(k\)</span>th success in independent Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) trials. Special case: geometric (<span class="math notranslate nohighlight">\(k=1\)</span>). A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Negative Binomial distribution with parameters <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(k\)</span> distribution iff
+$<span class="math notranslate nohighlight">\(\Pr \{X=j\} = {{j-1}\choose{k-1}}(1-p)^{j-k}p^k, \;\; j=k, k+1, \ldots .\)</span>$</p></li>
+<li><p>Poisson: limit of Binomial as <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span> and <span class="math notranslate nohighlight">\(p \rightarrow 0\)</span>, with <span class="math notranslate nohighlight">\(np= \lambda\)</span>. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Poisson(<span class="math notranslate nohighlight">\(\lambda\)</span>) distribution iff
+$<span class="math notranslate nohighlight">\( \Pr \{X=j\} = e^{-\lambda} \frac{\lambda^j}{j!}, \;\;j=0, 1, \ldots .\)</span>$</p></li>
+<li><p>Hypergeometric: number of “good” items in a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of <span class="math notranslate nohighlight">\(N\)</span> items of which <span class="math notranslate nohighlight">\(G\)</span> are good. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span> iff
+$<span class="math notranslate nohighlight">\( \Pr \{X = j,\; j = 1, \ldots, k\} = \frac{{{G}\choose{j}}{{N-G}\choose{n-j}}}{{N}\choose{n}}, \;\; j = \max(0,n-(N-G)), \ldots, \min(n, G).\)</span>$</p></li>
+<li><p>Multinomial: joint distribution of the number of values in each of <span class="math notranslate nohighlight">\(k \ge 2\)</span> categories
+for <span class="math notranslate nohighlight">\(n\)</span> IID draws with probability <span class="math notranslate nohighlight">\(\pi_j\)</span> of selecting value <span class="math notranslate nohighlight">\(j\)</span> in each draw. Special cases: uniform distribution on <span class="math notranslate nohighlight">\(k\)</span> outcomes (<span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(\pi_j = 1/k\)</span>), binomial (<span class="math notranslate nohighlight">\(k=2\)</span>). A random vector <span class="math notranslate nohighlight">\((X_1, \ldots, X_k)\)</span> has a multinomial joint distribution with parameters <span class="math notranslate nohighlight">\(n\)</span>
+and <span class="math notranslate nohighlight">\(\{\pi_j\}_{j=1}^k\)</span> iff
+$<span class="math notranslate nohighlight">\( \Pr \{X_j = x_j \} = \prod_{j=1}^k \pi_j^{x_j} \frac{n!}{x_1!x_2! \cdots x_j!}, \;\; x_j \ge 0,\;\; \sum_{j=1}^k x_j = n.\)</span>$</p></li>
+<li><p>Multi-hypergeometric: joint distribution of the number of values in each of <span class="math notranslate nohighlight">\(k \ge 2\)</span> categories for <span class="math notranslate nohighlight">\(n\)</span> draws without replacement from a finite population of <span class="math notranslate nohighlight">\(N\)</span> items of
+which <span class="math notranslate nohighlight">\(N_j\)</span> are in category <span class="math notranslate nohighlight">\(j\)</span>. Special case: hypergeometric (<span class="math notranslate nohighlight">\(k = 2\)</span>). A random vector <span class="math notranslate nohighlight">\((X_1, \ldots, X_k)\)</span> has a multi-hypergeometric joint distribution with parameters <span class="math notranslate nohighlight">\(\{N_j\}_{j=1}^k\)</span> iff
+$<span class="math notranslate nohighlight">\( \Pr \{ X_j = x_j,\; j = 1, \ldots, k \} = \frac{{{N_1}\choose{x_1}} \cdots {{N_k}\choose{x_k}}}{{{N}\choose{n}}}, \;\; x_j \ge 0;\;\; \sum_j x_j = n; \;\; \sum_j N_j = N.\)</span>$</p></li>
+</ul>
+</div>
+<div class="section" id="continuous">
+<h3>Continuous<a class="headerlink" href="#continuous" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Uniform on a domain <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Uniform distribution on <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> iff
+$<span class="math notranslate nohighlight">\( \Pr \{X \in A\} = \frac{\int_{A \cap S} dx}{\int_{S} dx}.\)</span><span class="math notranslate nohighlight">\(
+(Here and below, \)</span>A$ needs to be a Lebesgue-measurable set; we will not worry about measurability.)</p></li>
+<li><p>Normal. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> iff
+$<span class="math notranslate nohighlight">\( \Pr \{ X \in A \} = \int_A \frac{1}{\sqrt{2 \pi} \sigma} e^{-(x-\mu)^2/(2\sigma^2)} dx.\)</span>$</p></li>
+<li><p>Distributions derived from the normal: Student’s t, F, chi-square</p></li>
+<li><p>Exponential. A random variable <span class="math notranslate nohighlight">\(X\)</span> has an exponential distribution with rate <span class="math notranslate nohighlight">\(\lambda\)</span>
+(mean <span class="math notranslate nohighlight">\(\lambda^{-1}\)</span>) iff
+$<span class="math notranslate nohighlight">\( \Pr \{ X \in A \} = \int_{A \cap [0, \infty)} \lambda e^{-\lambda x} dx.\)</span>$</p></li>
+<li><p>Gamma. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Gamma distribution with shape parameter <span class="math notranslate nohighlight">\(\alpha\)</span>
+and rate parameter <span class="math notranslate nohighlight">\(\beta\)</span> iff
+$<span class="math notranslate nohighlight">\( \Pr \{ X \in A \} = \int_{A \cap [0, \infty)}\frac{\beta ^{\alpha }}{\Gamma (\alpha )}x^{\alpha -1}e^{-\beta x} dx.\)</span>$</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="what-s-a-model">
+<h2>What’s a model?<a class="headerlink" href="#what-s-a-model" title="Permalink to this headline">¶</a></h2>
+<p>An expression for the probability distribution of data <span class="math notranslate nohighlight">\(X\)</span>, usually “indexed” by a (possibly abstract, possibly infinite-dimensional) parameter, often relating some observables (<em>independent variables</em>, <em>covariates</em>, <em>explanatory variables</em>, <em>predictors</em>) to others (<em>dependent variables</em>, <em>response variables</em>, <em>data</em>, …).</p>
+<div class="math notranslate nohighlight">
+\[
+   X \sim \mathbb{P}_\theta, \;\; \theta \in \Theta.
+\]</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>coins and 0-1 boxes</p>
+<ul>
+<li><p>number of heads in 1 toss</p></li>
+<li><p>number of heads in <span class="math notranslate nohighlight">\(n\)</span> tosses</p></li>
+<li><p>number of tosses to the first head</p></li>
+<li><p>number of tosses to the <span class="math notranslate nohighlight">\(k\)</span>th head</p></li>
+</ul>
+</li>
+<li><p>draws without replacement</p>
+<ul>
+<li><p>boxes of numbers</p></li>
+<li><p>boxes of categories</p></li>
+</ul>
+</li>
+<li><p>radioactive decay</p></li>
+<li><p>Hooke’s Law, Ohm’s Law, Boyle’s Law</p></li>
+<li><p>Conjoint analysis</p></li>
+<li><p>avian-turbine interactions</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="some-models">
+<h2>Some models<a class="headerlink" href="#some-models" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Linear regression</p></li>
+<li><p>Linear probability model</p></li>
+<li><p>Logit</p></li>
+<li><p>Probit</p></li>
+<li><p>Multinomial logit</p></li>
+<li><p>Poisson regression</p></li>
+</ul>
+</div>
+<div class="section" id="response-schedules-and-causal-inference">
+<h2>Response schedules and causal inference<a class="headerlink" href="#response-schedules-and-causal-inference" title="Permalink to this headline">¶</a></h2>
+<p>A response schedule is an assertion about how Nature generated the data: it says how one variable would respond if you intervened and changed the value of other variables.</p>
+<p>Regression is about <em>conditional expectation</em>: the expected value of
+the response variable for cases <em>selected</em> on the basis of the values of the predictor variables.</p>
+<p>Causal inference is about <em>intervention</em>: what would happen if the values of the predictor variables were exogenously set to some values.</p>
+<p>Response schedules connect <em>selection</em> to <em>intervention</em>.</p>
+<p>For conditioning to give the same result as intervention, the model has to be a response schedule, and the response schedule has to be correct.</p>
+<ul class="simple">
+<li><p>Linear: a model for real-valued outcomes. <span class="math notranslate nohighlight">\(Y_X = X\beta + \epsilon\)</span>. Nature picks <span class="math notranslate nohighlight">\(X\)</span>, multiplies by <span class="math notranslate nohighlight">\(\beta\)</span>, adds <span class="math notranslate nohighlight">\(\epsilon\)</span>. <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(\epsilon\)</span> are independent.</p>
+<ul>
+<li><p>Good examples (for suitable ranges of <span class="math notranslate nohighlight">\(X\)</span> and suitable instrumental error): Hooke’s law, Ohm’s law, Boyle’s law</p></li>
+<li><p>Bad examples: most (if not all) applications in social science, including econometrics.</p></li>
+</ul>
+</li>
+<li><p>Linear probability model: a model for binary outcomes. <span class="math notranslate nohighlight">\(\Pr \{Y_j = 1 | X \} = X_j\beta + \epsilon\)</span>, where the components of <span class="math notranslate nohighlight">\(\epsilon\)</span> are IID with mean zero. Not guaranteed to give probabilities between 0 and 1 when fitted to data.</p></li>
+<li><p>Logit: a model for binary outcomes. Logistic distribution function is <span class="math notranslate nohighlight">\(\Lambda(x) = e^x/(1+e^x)\)</span>. The logit function is <span class="math notranslate nohighlight">\(\mathrm{logit} p \equiv \log [p/(1-p)]\)</span>, also called the <em>log odds ratio</em>. The logit model is that <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent with <span class="math notranslate nohighlight">\(\Pr \{Y_j = 1 | X \} = \Lambda(X_j \beta)\)</span>.  Equivalently, <span class="math notranslate nohighlight">\(\mathrm{logit} \Pr(Y_j=1 | X) = X_j \beta\)</span>. Also equivalently, the <em>latent variable</em> formulation
+$<span class="math notranslate nohighlight">\( Y_j = \begin{cases} 1, &amp; X_j\beta + U_j \ge 0\\ 0, &amp; \mathrm{otherwise,} \end{cases}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>{U_j }<span class="math notranslate nohighlight">\( are IID random variables with the logistic distribution, and are independent of \)</span>X$.</p></li>
+<li><p>Probit: a model for binary outcomes. Let <span class="math notranslate nohighlight">\(\Phi\)</span> denote the standard normal cdf. The probit model is that <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent with <span class="math notranslate nohighlight">\(\Pr \{Y_j = 1 | X) = \Phi(X_j \beta)\)</span>. Equivalently, the latent variable formulation
+$<span class="math notranslate nohighlight">\( Y_j = \begin{cases} 1, &amp; X_j\beta + U_j \ge 0\\ 0, &amp;\mathrm{otherwise,} \end{cases}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>{U_j }<span class="math notranslate nohighlight">\( are IID random variables with the standard normal distribution, and are independent of \)</span>X$.</p></li>
+<li><p>Multinomial logit: a model for categorical outcomes. Suppose there are <span class="math notranslate nohighlight">\(K\)</span> categories.
+The multinomial logit model is that <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent with
+$<span class="math notranslate nohighlight">\( \Pr \{Y_j = k | X \} = \begin{cases} \frac{e^{X_j \beta_k}}{1 + \sum_{\ell=1}^{K-1}e^{X_j \beta_\ell}}, &amp; k=1, \ldots, K-1 \\ \frac{1}{1 + \sum_{\ell=1}^{K-1}e^{X_j \beta_\ell}}, &amp; k=K.
+\end{cases}
+\)</span>$</p></li>
+<li><p>Poisson regression: a model for non-negative counts. The model is that <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent Poisson random variables with corresponding rates <span class="math notranslate nohighlight">\(\{\lambda_j\}\)</span> and that
+$<span class="math notranslate nohighlight">\( \log \lambda_j | X = X_j \beta.\)</span>$</p></li>
+</ul>
+<div class="section" id="poisson-regression">
+<h3>Poisson regression<a class="headerlink" href="#poisson-regression" title="Permalink to this headline">¶</a></h3>
+<p>Poisson regression fits Poisson models with parametrically related rates <span class="math notranslate nohighlight">\(\lambda_j\)</span> to count data <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> and a vector of covariates <span class="math notranslate nohighlight">\(\{X_j\}\)</span> (each <span class="math notranslate nohighlight">\(X_j\)</span> is a <span class="math notranslate nohighlight">\(p\)</span>-vector).</p>
+<p>According to the model, <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent, and</p>
+<div class="math notranslate nohighlight">
+\[
+   Y_j \sim \mbox{Poisson}(\lambda_j),
+\]</div>
+<p>where, given <span class="math notranslate nohighlight">\(X_j\)</span>, <span class="math notranslate nohighlight">\(\ln \lambda_j = X_j \beta\)</span>, for some <span class="math notranslate nohighlight">\(\beta \in \Re^p\)</span>.</p>
+<p>Equivalently, <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent and <span class="math notranslate nohighlight">\(\log \mathbb{E}(Y_j | X_j) = X_j \beta\)</span>.</p>
+<p>Poisson regression estimates <span class="math notranslate nohighlight">\(\beta\)</span> from observations of <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div>
+<div class="section" id="maximum-likelihood">
+<h3>Maximum likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this headline">¶</a></h3>
+<p>The most common estimator for this model is the maximum-likelihood estimator (MLE), which we shall derive.</p>
+<p>Given <span class="math notranslate nohighlight">\(X_j=x_j\)</span>, the pmf of <span class="math notranslate nohighlight">\(Y_j\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+   \Pr \{Y_j = y | X_j = x_j || \beta \} = e^{-\lambda} \lambda^y/y! = 
+   e^{-e^{x_j \beta}} (e^{x_j\beta })^y/y!
+   = e^{y x_j\beta  - e^{x_j\beta }}/y!, y = 0, 1, \ldots
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent, their joint pmf is the product of their marginal pmfs.
+Thus, the likelihood as a function of <span class="math notranslate nohighlight">\(\gamma\)</span> given <span class="math notranslate nohighlight">\(X = (x_1, \ldots, x_j)\)</span>
+and <span class="math notranslate nohighlight">\(Y = (y_1, \ldots, y_j)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+   L(\gamma) \equiv \prod_{j=1}^n e^{y_j x_j\gamma - e^{x_j\gamma}}/y_j!
+\]</div>
+<p>A value of <span class="math notranslate nohighlight">\(\gamma \in \Re^p\)</span> that maximizes this is the <em>maximum-likelihood estimator</em> (MLE),
+<span class="math notranslate nohighlight">\(\hat{\beta}_{\mathrm{MLE}}\)</span>.
+Since the logarithm is a monotonic function, <span class="math notranslate nohighlight">\(\hat{\beta}_{\mathrm{MLE}}\)</span> is also
+the value of <span class="math notranslate nohighlight">\(\gamma\)</span> that maximizes</p>
+<div class="math notranslate nohighlight">
+\[
+   \ln L(\gamma) = \sum_{j=1}^n (y_j x_j\gamma - e^{x_j\gamma} - \ln y_j!)
+\]</div>
+<p>The last term in the summand, <span class="math notranslate nohighlight">\(\ln y_j!\)</span>, does not depend on <span class="math notranslate nohighlight">\(\gamma\)</span>, so <span class="math notranslate nohighlight">\(\hat{\beta}_{\mathrm{MLE}}\)</span> is also
+the value of <span class="math notranslate nohighlight">\(\gamma \in \Re^p\)</span> that maximizes</p>
+<div class="math notranslate nohighlight">
+\[ 
+   \ell(\gamma) \equiv \sum_{j=1}^n (y_j x_j\gamma - e^{x_j\gamma}).
+\]</div>
+<p>How can we find a maximizer?
+As a function of <span class="math notranslate nohighlight">\(\gamma\)</span>, <span class="math notranslate nohighlight">\(\ell\)</span> is twice differentiable.
+Since there are no constraints on <span class="math notranslate nohighlight">\(\gamma \in \Re^p\)</span>, the maximum (if it is finite)
+occurs at a stationary point.</p>
+<p>The first derivative of <span class="math notranslate nohighlight">\(\ell\)</span> with respect to <span class="math notranslate nohighlight">\(\gamma\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+   \ell'(\gamma) = \sum_{j=1}^n (y_j x_j - e^{x_j\gamma} x_j).
+\]</div>
+<p>The second derivative is</p>
+<div class="math notranslate nohighlight">
+\[
+   \ell''(\gamma) = - \sum_{j=1}^n e^{x_j\gamma} x_j x_j.
+\]</div>
+<p>This is the negative of a sum of positive semi-definite matrices: it is negative semidefinite.
+Hence <span class="math notranslate nohighlight">\(\ell(\gamma)\)</span> is concave, and <span class="math notranslate nohighlight">\(\ell\)</span> has a unique maximum, which occurs at
+a stationary point.</p>
+<p>The MLE is thus the value of <span class="math notranslate nohighlight">\(\gamma \in \Re^p\)</span> for which</p>
+<div class="math notranslate nohighlight">
+\[
+   \sum_{j=1}^n (y_j x_j - e^{x_j\gamma} x_j) = \sum_{j=1}^n (y_j - e^{x_j\gamma}) x_j = 0_p.
+\]</div>
+<p>This is a nonlinear system of equations.
+Since <span class="math notranslate nohighlight">\(-\ell(\gamma)\)</span> is a convex function, numerical methods for
+convex optimization can be used to minimize <span class="math notranslate nohighlight">\(-\ell(\gamma)\)</span> instead; that may be more stable
+in practice.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has a number of algorithmic options for optimization and for vector root-finding.
+Be aware that numerical optimization is delicate, even for convex problems.
+In this problem, we have analytic expressions for the derivative and Hessian matrix, so it can help to use methods that can incorporate that information.
+(Many methods use numerical approximations to the derivative and the Hessian;
+depending on the computational cost of evaluating the derivative or Hessian, they can save time.)</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

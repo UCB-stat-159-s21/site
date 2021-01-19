@@ -1,0 +1,1137 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We will use basic combinatorics to find upper and lower confidence bounds for the mean of a bounded population. &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/binom.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/binom.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   We will use basic combinatorics to find upper and lower confidence bounds for the mean of a bounded population.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-with-the-normal-approximation">
+   Comparison with the normal approximation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypergeometric-confidence-bounds">
+   Hypergeometric confidence bounds
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-valued-populations">
+   Two-valued populations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thresholding-for-bounded-populations">
+   Thresholding for bounded populations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trinomial-bounds-multinomial-bounds-and-the-stringer-bound">
+   Trinomial Bounds, Multinomial Bounds, and the Stringer Bound
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-next">
+   What’s next?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p class="title">Confidence bounds for the mean of a bounded population: Binomial and Hypergeometric</p>
+<div class="section" id="we-will-use-basic-combinatorics-to-find-upper-and-lower-confidence-bounds-for-the-mean-of-a-bounded-population">
+<h1>We will use basic combinatorics to find upper and lower confidence bounds for the mean of a bounded population.<a class="headerlink" href="#we-will-use-basic-combinatorics-to-find-upper-and-lower-confidence-bounds-for-the-mean-of-a-bounded-population" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Elementary derivation for {0, 1} populations</p></li>
+<li><p>Obvious extension to 2-valued populations</p></li>
+<li><p>Thresholding for general bounded populations</p></li>
+<li><p>Trinomial and Multinomial bounds</p></li>
+</ul>
+</div>
+<div class="section" id="comparison-with-the-normal-approximation">
+<h1>Comparison with the normal approximation<a class="headerlink" href="#comparison-with-the-normal-approximation" title="Permalink to this headline">¶</a></h1>
+<p>Let’s start by constructing two-sided confidence intervals for the same {0, 1} cases in which the Normal approximation did so badly.</p>
+<p>To find two-sided intervals, we find lower and upper confidence bounds at half the value of <span class="math notranslate nohighlight">\(\alpha\)</span>. This is equivalent to constructing acceptance regions that are “balanced” in the sense that, under the null hypothesis, the chance of rejecting the hypothesis because <span class="math notranslate nohighlight">\(X\)</span> is too big is equal to the chance of rejecting the hypothesis because <span class="math notranslate nohighlight">\(X\)</span> is too small.</p>
+<p>The code tells the story:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the first cell with code: set up the Python environment</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.975</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Lower confidence level cl confidence interval for Binomial p, for x successes in n trials&quot;</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">cl</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lo</span>
+
+<span class="k">def</span> <span class="nf">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.975</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Upper confidence level cl confidence interval for Binomial p, for x successes in n trials&quot;</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span>
+            <span class="n">hi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">hi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population of two values, {0, 1}, in various proportions.  Amounts to Binomial random variable</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">001</span><span class="p">,</span> <span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>    <span class="c1"># mixture fractions, proportion of 1s in the population</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e3</span><span class="p">)</span>   <span class="c1"># just for demonstration</span>
+<span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;fraction of 1s&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;Binom cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t len&#39;</span><span class="p">,</span> <span class="s1">&#39;Binom len&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mf">1.0</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+        <span class="n">sam</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">reps</span><span class="p">)</span>
+        <span class="n">samMean</span> <span class="o">=</span> <span class="n">sam</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">samSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">samMean</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">samMean</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">popMean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">aveLenT</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">coverB</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">totLenB</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>  
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sam</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">cl</span><span class="o">=</span><span class="mf">1.0</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">hi</span> <span class="o">=</span> <span class="n">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sam</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">cl</span><span class="o">=</span><span class="mf">1.0</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">coverB</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="n">lo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">hi</span><span class="p">)</span>
+            <span class="n">totLenB</span> <span class="o">+=</span> <span class="n">hi</span><span class="o">-</span><span class="n">lo</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> \
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverB</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">aveLenT</span><span class="p">,</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">totLenB</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected length of Student-t and Binomial confidence intervals for a {0, 1} population&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected length of Student-t and Binomial confidence intervals for a {0, 1} population</h3><strong>Nominal coverage probability 95.0%</strong>.<br /><strong>Estimated from 1000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fraction of 1s</th>
+      <th>sample size</th>
+      <th>Student-t cov</th>
+      <th>Binom cov</th>
+      <th>Student-t len</th>
+      <th>Binom len</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.001</td>
+      <td>25.0</td>
+      <td>2.8%</td>
+      <td>97.2%</td>
+      <td>0.0047</td>
+      <td>0.1391</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.001</td>
+      <td>50.0</td>
+      <td>5.1%</td>
+      <td>99.9%</td>
+      <td>0.0041</td>
+      <td>0.0729</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.001</td>
+      <td>100.0</td>
+      <td>9.5%</td>
+      <td>99.6%</td>
+      <td>0.0038</td>
+      <td>0.038</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.001</td>
+      <td>400.0</td>
+      <td>34.6%</td>
+      <td>99.0%</td>
+      <td>0.0037</td>
+      <td>0.011</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.010</td>
+      <td>25.0</td>
+      <td>20.8%</td>
+      <td>99.8%</td>
+      <td>0.0357</td>
+      <td>0.1518</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.010</td>
+      <td>50.0</td>
+      <td>40.7%</td>
+      <td>98.6%</td>
+      <td>0.0361</td>
+      <td>0.0881</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.010</td>
+      <td>100.0</td>
+      <td>60.9%</td>
+      <td>97.5%</td>
+      <td>0.0297</td>
+      <td>0.052</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.010</td>
+      <td>400.0</td>
+      <td>90.8%</td>
+      <td>95.8%</td>
+      <td>0.0188</td>
+      <td>0.0221</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.100</td>
+      <td>25.0</td>
+      <td>93.4%</td>
+      <td>99.3%</td>
+      <td>0.2377</td>
+      <td>0.2631</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.100</td>
+      <td>50.0</td>
+      <td>87.9%</td>
+      <td>96.3%</td>
+      <td>0.1675</td>
+      <td>0.1812</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.100</td>
+      <td>100.0</td>
+      <td>93.4%</td>
+      <td>95.2%</td>
+      <td>0.1183</td>
+      <td>0.126</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.100</td>
+      <td>400.0</td>
+      <td>93.9%</td>
+      <td>95.1%</td>
+      <td>0.0588</td>
+      <td>0.061</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The empirical coverage rates are gnerally much <em>higher</em> than 95% when <span class="math notranslate nohighlight">\(n\)</span> is small, because of the discreteness of the Binomial distribution: to ensure that a test rejects <em>at most</em> 5% of the time might require rejecting far less than 5% of the time. That is, the tests are conservative rather than exact.</p>
+<p>We could construct <em>randomized</em> tests that have exactly level <span class="math notranslate nohighlight">\(\alpha\)</span>, but we won’t go there…</p>
+</div>
+<div class="section" id="hypergeometric-confidence-bounds">
+<h1>Hypergeometric confidence bounds<a class="headerlink" href="#hypergeometric-confidence-bounds" title="Permalink to this headline">¶</a></h1>
+<p>Consider <span class="math notranslate nohighlight">\(n\)</span> uniform draws <em>without</em> replacement from a <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> population of known size <span class="math notranslate nohighlight">\(N\)</span> that contains an unknown number <span class="math notranslate nohighlight">\(G\)</span> of 1s—i.e., a <em>simple random sample</em> of size <span class="math notranslate nohighlight">\(n\)</span>.
+Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of 1s in the sample.
+Then <span class="math notranslate nohighlight">\(X\)</span> has a Hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>In particular,
+$<span class="math notranslate nohighlight">\(  \mathbb P_{N, G, n} (X = k) = \frac{{G \choose k}{N-G \choose n-k}}{{N \choose n}}\)</span><span class="math notranslate nohighlight">\(
+for \)</span>\max(0, n − (N−G)) \le k \le  \min(n, G)$.</p>
+<p>We can get sharper confidence bounds in this case by inverting hypergeometric tests instead of Binomial tests.</p>
+<p>The strategy is the same: construct a family of acceptance regions for each possible value of the parameter, then let the confidence set be the parameter values for which, given the observed data, the test would not reject.</p>
+<p>To find a one-sided lower confidence bound for <span class="math notranslate nohighlight">\(G\)</span> in a Hypergeometric<span class="math notranslate nohighlight">\((N, G, n)\)</span> distribution, with <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span> known, we would invert one-sided upper tests, that is, tests that reject the hypothesis <span class="math notranslate nohighlight">\(G = g\)</span> when <span class="math notranslate nohighlight">\(X\)</span> is large.  (The corresponding confidence bound for the population mean is the confidence bound for
+<span class="math notranslate nohighlight">\(G\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.)</p>
+<p>The form of the acceptance region for the test is:
+$<span class="math notranslate nohighlight">\( A_G \equiv \ [0, a_G],\)</span><span class="math notranslate nohighlight">\(
+where 
+\)</span><span class="math notranslate nohighlight">\( a_G \equiv \min \left \{ k: \sum_{i=k+1}^n \frac{{G \choose i}{N-G \choose n-i}}{{N \choose n}} \le \alpha \right \}.\)</span>$</p>
+</div>
+<div class="section" id="two-valued-populations">
+<h1>Two-valued populations<a class="headerlink" href="#two-valued-populations" title="Permalink to this headline">¶</a></h1>
+<p>Clearly, if the population is known to contain only the values <span class="math notranslate nohighlight">\(\{a, b\}\)</span> instead of the values <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>, it’s trivial to re-scale binomial or hypergeometric confidence bounds.</p>
+<p>If we observe the sum <span class="math notranslate nohighlight">\(Y\)</span> of <span class="math notranslate nohighlight">\(n\)</span> iid uniform draws from the population,</p>
+<ul class="simple">
+<li><p>let <span class="math notranslate nohighlight">\(X \equiv (Y - na)/(b-a)\)</span></p></li>
+<li><p>find the Binomial confidence bound for <span class="math notranslate nohighlight">\(p\)</span> based on <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(n\)</span> trials</p></li>
+<li><p>transform each endpoint <span class="math notranslate nohighlight">\(q\)</span> of that interval to <span class="math notranslate nohighlight">\((1-q)a + qb\)</span> to get the corresponding endpoint of the interval for the mean of the original population.</p></li>
+</ul>
+<p>For example, suppose the population was known to contain only the values 1 and 10, but in unknown proportions.</p>
+<p>We draw an iid uniform sample of 50 items; the sample sum is 320 (corresponding to drawing “1” twenty times and “10” thirty times).</p>
+<p>Then a 95% upper confidence bound for the fraction of 10s in the population is <span class="code">binoUpperCL(50, 30, cl=0.95)</span> = 0.7169, so a 95% upper confidence bound for the population mean is</p>
+<div class="math notranslate nohighlight">
+\[(1-0.7169)\times 1 + 0.7169\times 10) = 7.45182.\]</div>
+</div>
+<div class="section" id="thresholding-for-bounded-populations">
+<h1>Thresholding for bounded populations<a class="headerlink" href="#thresholding-for-bounded-populations" title="Permalink to this headline">¶</a></h1>
+<p>The applications that motivate this inquiry generally call for <strong>one-sided confidence bounds</strong> rather than confidence intervals. For instance:</p>
+<ul class="simple">
+<li><p>A plaintiff may want to show that, with high confidence, the damages are <em>at least</em> $ <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p>A prosecutor may want to show that, with high confidence, the accused committed fraud worth <em>at least</em> $ <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p>A financial auditor might want to certify that, with high confidence, a company’s assets are overstated by <em>at most</em> $<span class="math notranslate nohighlight">\(x\)</span> and its liabilities are understated by <em>at most</em> $<span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>A local election official might want determine whether, with high confidence, the error in tallying the votes is <em>not as large as</em> the margin</p></li>
+<li><p>An online marketer might want to show that, with high confidence, its technology increases sales by <em>at least</em> <span class="math notranslate nohighlight">\(x\)</span>%.</p></li>
+<li><p>A pharmaceutical company might want to show that, with high confidence, its headache remedy decreases the average duration of headaches by <em>at least</em> <span class="math notranslate nohighlight">\(x\)</span> hours, or that its Ebola vaccine increases the rate of survival by <em>at least</em> <span class="math notranslate nohighlight">\(x\)</span>%.</p></li>
+</ul>
+<p>In general, <em>some</em> constraint is needed to get even a one-sided (conservative or exact) confidence bound.</p>
+<p>In these problems, there are natural constraints, for instance:</p>
+<ul class="simple">
+<li><p>Damages cannot be negative (the plaintiff doesn’t owe the defendant—unless the defendant sues the plaintiff, becoming the plaintiff in a new action)</p></li>
+<li><p>Fraudulent billing is non-negative; the frauduent portion of a bill does not exceed total bill</p></li>
+</ul>
+<p class="gap01">
+   Consider the second example in the Normal Approximation notebook, a mixture of a uniform and a point mass at    zero.
+   Suppose for the moment that we are interested in an upper confidence bound, e.g., an upper bound on the    
+   overstatement of a collection of accounts, for the purpose of establishing that a company's books are fairly 
+   represented.
+</p>
+<p class="gap01">
+   We have an unknown population $\{ x_j \}_{j=1}^N$.
+   We want an upper confidence bound for $\mu_x \equiv \frac{1}{N} \sum_{j=1}^N x_j$.
+</p>
+<p class="gap01">
+   Suppose we have an a priori upper bound $u_j$ on the value $x_j$ of item $j$, $\forall j$.
+   For simplicity, let's take $u_j = 1$.
+   Pick a threshold $t < 1$.
+   Imagine a new population $\{ y_j \}_{j=1}^N$, where 
+</p>
+<div class="math notranslate nohighlight">
+\[y_j \equiv \left \{ \begin{array}{ll} t, &amp; x_j \le t \cr 1, &amp; x_j &gt; t. \end{array} \right . \]</div>
+<p class="gap01">
+  Clearly $\mu_y \equiv \frac{1}{N} \sum_{j=1}^N y_j \ge \mu_x$, so an upper confidence bound for $\mu_y$
+  is also an upper confidence bound for $\mu_x$.
+  But we can find an upper confidence bound for $\mu_y$ using a random sample with replacement and
+  the general two-value transformation of the Binomial,
+  as sketched above.
+</p>
+<ul class="simple">
+<li><p>draw a random sample with replacement of size <span class="math notranslate nohighlight">\(n\)</span> from the population</p></li>
+<li><p>let <span class="math notranslate nohighlight">\(X\)</span> denote the number of items in the sample with value greater than <span class="math notranslate nohighlight">\(t\)</span>. Then <span class="math notranslate nohighlight">\(X\)</span> has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, where <span class="math notranslate nohighlight">\(p\)</span> is the population fraction of items with value greater than <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p>find an upper <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound <span class="math notranslate nohighlight">\(p^+\)</span> for <span class="math notranslate nohighlight">\(p\)</span> by inverting Binomial tests</p></li>
+<li><p>an upper <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span> is <span class="math notranslate nohighlight">\((1-p^+)t + p^+\)</span>.</p></li>
+</ul>
+<p>Let’s see how this does compared to a one-sided Student-t interval.  We will estimate the coverage for a variety of thresholds <span class="math notranslate nohighlight">\(t\)</span>.  We will also estimate the average length of the intervals, to get an idea of the tradeoff between coverage and precision.</p>
+<p>It is perhaps discomfiting to have a tuning parameter <span class="math notranslate nohighlight">\(t\)</span> in the method, but regardless of the choice of <span class="math notranslate nohighlight">\(t\)</span>, the intervals are guaranteed to be <em>conservative</em> (true converage probability at least <span class="math notranslate nohighlight">\(1-\alpha\)</span>.
+However, the expected <em>length</em> of the interval depends on <span class="math notranslate nohighlight">\(t\)</span> and on the underlying population of values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at zero and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">thresh</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="o">.</span><span class="mi">001</span><span class="p">]</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mf">1.0e3</span>   <span class="c1"># just for demonstration</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mass at 0&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t cov&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">)):</span>
+    <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Bin t=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thresh</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; cov&#39;</span><span class="p">)</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Student-t len&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">)):</span>
+    <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Bin t=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thresh</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; len&#39;</span><span class="p">)</span>
+
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>  <span class="c1">#  p*0 + (1-p)*.5</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># coverage of t intervals</span>
+        <span class="n">tUp</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># mean upper bound of t intervals</span>
+        <span class="n">coverB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">))</span>  <span class="c1"># coverage of binomial threshold intervals</span>
+        <span class="n">bUp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">))</span>     <span class="c1"># mean upper bound of binomial threshold intervals</span>
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="n">samSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">tlim</span> <span class="o">=</span> <span class="n">samMean</span> <span class="o">+</span> <span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span>
+            <span class="n">coverT</span> <span class="o">+=</span> <span class="p">(</span><span class="n">popMean</span> <span class="o">&lt;=</span> <span class="n">tlim</span><span class="p">)</span>  <span class="c1"># one-sided Student-t</span>
+            <span class="n">tUp</span> <span class="o">+=</span> <span class="n">tlim</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">)):</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">sam</span> <span class="o">&gt;</span> <span class="n">thresh</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># number of binomial &quot;successes&quot;</span>
+                <span class="n">pPlus</span> <span class="o">=</span> <span class="n">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span>
+                <span class="n">blim</span> <span class="o">=</span> <span class="n">thresh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">pPlus</span><span class="p">)</span> <span class="o">+</span> <span class="n">pPlus</span>
+                <span class="n">coverB</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">popMean</span> <span class="o">&lt;=</span> <span class="n">blim</span><span class="p">)</span>
+                <span class="n">bUp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">blim</span>
+        <span class="n">theRow</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">)):</span>
+            <span class="n">theRow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverB</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+        <span class="n">theRow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">tUp</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span> <span class="mi">3</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresh</span><span class="p">)):</span>
+            <span class="n">theRow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">bUp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span> <span class="mi">3</span><span class="p">)))</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">theRow</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability and expected lengths of one-sided Student-t confidence intervals and threshold &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;Binomial intervals for mixture of U[0,1] and pointmass at 0&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;. &lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability and expected lengths of one-sided Student-t confidence intervals and threshold Binomial intervals for mixture of U[0,1] and pointmass at 0</h3><strong>Nominal coverage probability 95.0%</strong>. <br /><strong>Estimated from 1000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 0</th>
+      <th>sample size</th>
+      <th>Student-t cov</th>
+      <th>Bin t=0.2 cov</th>
+      <th>Bin t=0.1 cov</th>
+      <th>Bin t=0.01 cov</th>
+      <th>Bin t=0.001 cov</th>
+      <th>Student-t len</th>
+      <th>Bin t=0.2 len</th>
+      <th>Bin t=0.1 len</th>
+      <th>Bin t=0.01 len</th>
+      <th>Bin t=0.001 len</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>89.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.316</td>
+      <td>0.383</td>
+      <td>0.318</td>
+      <td>0.262</td>
+      <td>0.257</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>98.8%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.332</td>
+      <td>0.337</td>
+      <td>0.266</td>
+      <td>0.204</td>
+      <td>0.198</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>99.9%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.334</td>
+      <td>0.311</td>
+      <td>0.236</td>
+      <td>0.17</td>
+      <td>0.163</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.339</td>
+      <td>0.285</td>
+      <td>0.206</td>
+      <td>0.136</td>
+      <td>0.129</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>22.9%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.047</td>
+      <td>0.301</td>
+      <td>0.214</td>
+      <td>0.137</td>
+      <td>0.129</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>38.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.058</td>
+      <td>0.257</td>
+      <td>0.165</td>
+      <td>0.083</td>
+      <td>0.075</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>60.2%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.069</td>
+      <td>0.234</td>
+      <td>0.139</td>
+      <td>0.055</td>
+      <td>0.046</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>96.7%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.093</td>
+      <td>0.216</td>
+      <td>0.119</td>
+      <td>0.032</td>
+      <td>0.023</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>2.3%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.004</td>
+      <td>0.291</td>
+      <td>0.203</td>
+      <td>0.123</td>
+      <td>0.115</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>6.3%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.008</td>
+      <td>0.248</td>
+      <td>0.154</td>
+      <td>0.07</td>
+      <td>0.061</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>9.8%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.008</td>
+      <td>0.225</td>
+      <td>0.128</td>
+      <td>0.041</td>
+      <td>0.032</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>32.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.015</td>
+      <td>0.207</td>
+      <td>0.108</td>
+      <td>0.019</td>
+      <td>0.01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice that in many cases the expected length of the Student-t interval is <em>greater</em> than the length of the binomial interval, even though the coverage probability of the Student-t interval is smaller.</p>
+</div>
+<div class="section" id="trinomial-bounds-multinomial-bounds-and-the-stringer-bound">
+<h1>Trinomial Bounds, Multinomial Bounds, and the Stringer Bound<a class="headerlink" href="#trinomial-bounds-multinomial-bounds-and-the-stringer-bound" title="Permalink to this headline">¶</a></h1>
+<p>Instead of thresholding at one value (yielding a binomial variable: “success” means “above threshold”), we could discretize the support of <span class="math notranslate nohighlight">\(\bar{X}\)</span> into three or more ranges, and make inferences based on the trinomial or multinomial distribution that induces.</p>
+<p>Specifying the acceptance regions in a way that allows the tests to be inverted in a simple way is not simple (and there are issues with published methods).</p>
+<p>The Stringer Bound is well known in financial auditing. It amounts to combining confidence limits for data-dependent ranges (adaptive thresholds) into an overall confidence limit.
+Empirically, it is conservative, and Bickel has shown that it is asymptotically conservative, but as far as I know, there is no proof that it is conservative for finite samples.</p>
+<p>Moreover, computational evidence suggests that methods we will explore in later lectures perform better than multinomial methods and the Stringer bound in practice, so we will not dwell on them.</p>
+</div>
+<div class="section" id="what-s-next">
+<h1>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h1>
+<p>Now we will consider some conservative methods for constructing lower confidence intervals for the mean of nonnegative populations</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="hoeffding.html"><span class="doc std std-doc">Next: Confidence bounds from the Chebychev and Hoeffding Inequalities</span></a></p></li>
+<li><p><a class="reference internal" href="duality.html"><span class="doc std std-doc">Previous: Duality between confidence sets and hypothesis tests</span></a></p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> talkTools.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><link href='http://fonts.googleapis.com/css?family=Lora|Open+Sans' rel='stylesheet' type='text/css'>
+<style>
+
+font-family: 'Lora', serif;
+
+.MathJax_Display {
+  padding: 10px;
+}
+
+div.callout {
+  color: #000000;
+  background-color: #DDDDDD;
+  margin: 20px 20px 20px 20px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 10px 10px;
+}
+
+.rendered_html {
+  color: #2C5494;
+  font-family: 'Lora', serif;
+  font-size: 140%;
+  line-height: 1.1;
+  margin: 0.5em 0;
+}
+
+div.cell {
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div.text_cell_render {
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  color: #4773D1;
+  font-size: 250%;
+  font-weight:bold;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+.subtitle {
+  font-family: 'Open Sans', sans-serif;
+  color: #386BBC;
+  font-size: 180%;
+  font-weight:bold;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+.slide-header, p.slide-header {
+  color: #4773D1;
+  font-size: 200%;
+  font-weight:bold;
+  margin: 0px 20px 10px;
+  page-break-before: always;
+  text-align: center;
+}
+
+.rendered_html .code {
+  background-color: #999999;
+}
+
+.rendered_html h1 {
+  color: #7898DD;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+  margin: 0.15em 0em 0.5em;
+  page-break-before: always;
+}
+
+
+.rendered_html h2 {
+  color: #4773D1;
+  line-height: 1.2;
+  margin: 1.1em 0em 0.5em;
+}
+
+.rendered_html h3 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 1.1em 0em 0.5em;
+}
+
+.rendered_html .definition, .proposition, .proof, .theorem {
+    padding-top: 20px;
+    color: #222299;
+    font-size: 120%;
+    font-style: italic;
+}
+
+.definition, .proposition, .theorem {
+  background-color: #EEEEEE;
+  border-style: solid;
+  border-width: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rendered_html .definition::before{
+    content: "Definition:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .proposition::before{
+    content: "Proposition:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .proof::before{
+    content: "Proof:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .theorem::before{
+    content: "Theorem:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.rendered_html ol li {
+  padding-top: 20px;
+  padding-bottom: -20px;
+  line-height: 1.5;
+}
+
+.rendered_html ul li {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 1.2;
+}
+
+li:first-of-type {
+  padding-top: -100px;
+}
+
+.input_prompt, .CodeMirror-lines, .output_area {
+  font-family: Consolas;
+  font-size: 120%;
+}
+
+.gap-above {
+  padding-top: 200px;
+}
+
+.gap01 {
+  padding-top: 10px;
+}
+
+.gap05 {
+  padding-top: 50px;
+}
+
+.gap1 {
+  padding-top: 100px;
+}
+
+.gap2 {
+  padding-top: 200px;
+}
+
+.gap3 {
+  padding-top: 300px;
+}
+
+.emph {
+  color: #386BBC;
+}
+
+.warn {
+  color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+.nb_link {
+    padding-bottom: 0.5em;
+}
+
+</style></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

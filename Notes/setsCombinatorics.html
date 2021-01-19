@@ -1,0 +1,988 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sets, Combinatorics, &amp; Probability &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/setsCombinatorics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/setsCombinatorics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-versus-statistics">
+   Probability versus Statistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sets">
+   Sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-useful-set-relations">
+     Some useful set relations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cartesian-products">
+   Cartesian Products
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinatorics">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strategies-for-counting">
+   Strategies for counting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-stability-and-order-of-operations">
+   Numerical stability and order of operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-probability-to-set-theory">
+   Connecting Probability to Set Theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bayes-rule">
+   Bayes’ Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-law-of-total-probability">
+   The Law of Total Probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercises.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sets-combinatorics-probability">
+<h1>Sets, Combinatorics, &amp; Probability<a class="headerlink" href="#sets-combinatorics-probability" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="probability-versus-statistics">
+<h2>Probability versus Statistics<a class="headerlink" href="#probability-versus-statistics" title="Permalink to this headline">¶</a></h2>
+<p>In probability, we assume we know what the world is like, and predict what we would then see.</p>
+<p>In statistics, we make observations and use them to learn something about the world.
+That generally requires a mathematical model for how the obervations were generated, to relate the observations to properties of the world.
+Sometimes, that model arises naturally from knowledge of the process that generated the data,
+for instance, a randomized experiment or a physical measurement where the
+underlying physics is understood.
+In other cases, the model is basically an assumption.
+When the model does not have a firm basis in actual knowledge, inferences are suspect.
+As Robert L. Parker says, “the more you assume, the less you know.”</p>
+<p>Probability is like a <em>forward problem</em> in science or engineering: the the physics, including any parameters,
+is known. The issue is to predict what will be observed, up to instrumental error and other noise.</p>
+<p>Statistics, at least inferential statistics, is like an <em>inverse problem</em>. The physics is known
+but there are unknown parameters. The issue is to use the (noisy) data to learn about parameters
+of the system.</p>
+<p>Probability is a combination of mathematics and philosophy.
+The philosophy connects the mathematics to the world.</p>
+<p>We will start with the mathematics.</p>
+</div>
+<div class="section" id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
+<p>The mathematics of probability is expressed most naturally using set theory.
+We will review the basic terminology and reviews naive set theory: how to define and
+manipulate sets, operations on sets that yield other sets, special
+relationships among sets, and so on.</p>
+<p>A <em>set</em> is a collection of objects, called <em>members</em> or <em>elements</em> of the set, without
+regard for their order.
+<span class="math notranslate nohighlight">\(a \in A\)</span>, pronounced “<span class="math notranslate nohighlight">\(a\)</span> is an element of <span class="math notranslate nohighlight">\(A\)</span>,”  “<span class="math notranslate nohighlight">\(a\)</span> is in <span class="math notranslate nohighlight">\(A\)</span>,” or “<span class="math notranslate nohighlight">\(a\)</span> is a member of
+<span class="math notranslate nohighlight">\(A\)</span>” means that <span class="math notranslate nohighlight">\(a\)</span> is an element of the set <span class="math notranslate nohighlight">\(A\)</span>.
+This is the same as writing <span class="math notranslate nohighlight">\(A \ni a\)</span>, which is pronounced “<span class="math notranslate nohighlight">\(A\)</span> contains <span class="math notranslate nohighlight">\(a\)</span>.”
+If <span class="math notranslate nohighlight">\(a\)</span> is not an element of <span class="math notranslate nohighlight">\(A\)</span>, we write <span class="math notranslate nohighlight">\(a \not \in A\)</span>.
+Sets may be described explicitly by listing their contents, or implicitly
+by specifying a property that all elements of the set share, or a condition
+that they satisfy.
+The contents of sets are enclosed in curly braces: <span class="math notranslate nohighlight">\(\{ \}\)</span>.</p>
+<p>Here are some examples:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = \{a, b, c, d \}\)</span>: the set containing the four elements <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\emptyset = \{ \}\)</span>: the empty set, the set that contains no elements.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbf Z}  \equiv \{ \ldots, -2, -1, 0, 1, 2, \ldots \}\)</span>: the integers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbf N}  \equiv \{1, 2, 3, \ldots \}\)</span>: the natural (counting) numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Re \equiv (-\infty, \infty)\)</span>: the real numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Re^+   \equiv [-\infty, \infty]\)</span>: the extended real numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbf C}  \equiv \{ a + bi: a, b \in \Re \}\)</span>, where <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span>: the complex numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbf Q}  \equiv \{ a/b: a, b \in {\mathbf Z}, b \ne 0\}\)</span>: the rational numbers.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(B\)</span> is a <em>subset</em> of <span class="math notranslate nohighlight">\(A\)</span>, written <span class="math notranslate nohighlight">\(B \subset A\)</span> or <span class="math notranslate nohighlight">\(A \supset B\)</span>, if every element
+of the set <span class="math notranslate nohighlight">\(B\)</span> is also an element of the set <span class="math notranslate nohighlight">\(A\)</span>.
+Thus <span class="math notranslate nohighlight">\({\mathbf N}  \subset {\mathbf Z}  \subset {\mathbf Q}  \subset \Re \subset {\mathbf C}\)</span>.
+The empty set <span class="math notranslate nohighlight">\(\emptyset\)</span> is a subset of every set.
+If <span class="math notranslate nohighlight">\(A \subset B\)</span> and <span class="math notranslate nohighlight">\(B \subset A\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same set, and we write <span class="math notranslate nohighlight">\(A = B\)</span>.
+If <span class="math notranslate nohighlight">\(B\)</span> is not a subset of <span class="math notranslate nohighlight">\(A\)</span>, we write <span class="math notranslate nohighlight">\(B \not \subset A\)</span> or <span class="math notranslate nohighlight">\(A \not \supset B\)</span>.
+<span class="math notranslate nohighlight">\(B\)</span> is a <em>proper subset</em> of <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(B \subset A\)</span> but
+<span class="math notranslate nohighlight">\(A \not \subset B\)</span>.</p>
+<p>The <em>complement</em> of <span class="math notranslate nohighlight">\(A\)</span> (with respect to the universe <span class="math notranslate nohighlight">\({\mathcal X}\)</span>), written <span class="math notranslate nohighlight">\(A^c\)</span> or <span class="math notranslate nohighlight">\(A'\)</span>,
+is the set of all objects under consideration (<span class="math notranslate nohighlight">\({\mathcal X}\)</span>) that are not elements of <span class="math notranslate nohighlight">\(A\)</span>.
+That is, <span class="math notranslate nohighlight">\(A^c \equiv \{ a \in {\mathcal X} : a \not \in A\}\)</span>.</p>
+<p>The <em>intersection</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cap B\)</span> or <span class="math notranslate nohighlight">\(AB\)</span>, is the set of all objects that
+are elements of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:
+$<span class="math notranslate nohighlight">\(
+A \cap B \equiv \{a: a \in A \mbox{ and } a \in B \}.
+\)</span><span class="math notranslate nohighlight">\(
+If \)</span>A \cap B = \emptyset<span class="math notranslate nohighlight">\(, we say \)</span>A<span class="math notranslate nohighlight">\( and \)</span>B$ are <em>disjoint</em> or <em>mutually
+exclusive</em>.</p>
+<p>The <em>union</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cup B\)</span>, is the set of all objects that
+are elements of <span class="math notranslate nohighlight">\(A\)</span> or of <span class="math notranslate nohighlight">\(B\)</span> (or both):
+$<span class="math notranslate nohighlight">\(
+A \cup B \equiv \{a: a \in A \mbox{ or } a \in B \mbox{ or both} \}.
+\)</span>$</p>
+<p>The <em>difference</em> or <em>set difference</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A \setminus B\)</span>, pronounced “<span class="math notranslate nohighlight">\(A\)</span> minus <span class="math notranslate nohighlight">\(B\)</span>,” is
+the set of all elements of <span class="math notranslate nohighlight">\(A\)</span> that are not elements of <span class="math notranslate nohighlight">\(B\)</span>:
+$<span class="math notranslate nohighlight">\(
+A \setminus B \equiv \{a \in A : a \not \in B \} = A \cap B^c.
+\)</span>$</p>
+<p><em>Intervals</em> are special subsets of <span class="math notranslate nohighlight">\({\mathbf R}\)</span>:
+$<span class="math notranslate nohighlight">\(
+[a, b] \equiv \{x \in \Re : a \le x \le b\}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+(a, b] \equiv \{x \in \Re : a &lt; x \le b\}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+[a, b) \equiv \{x \in \Re : a \le x &lt; b\}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+(a, b) \equiv \{x \in \Re : a &lt; x &lt; b\}.
+\)</span><span class="math notranslate nohighlight">\(
+Sometimes we have a collection of sets, _indexed_ by elements of another
+set: \)</span>{A_\beta : \beta \in B }<span class="math notranslate nohighlight">\(.
+Then \)</span>B<span class="math notranslate nohighlight">\( is called an _index set_.
+If \)</span>B<span class="math notranslate nohighlight">\( is a subset of the integers \)</span>{\mathbf Z}<span class="math notranslate nohighlight">\(, usually we write \)</span>A_i<span class="math notranslate nohighlight">\( or \)</span>A_j<span class="math notranslate nohighlight">\(, etc.,
+rather than \)</span>A_\beta<span class="math notranslate nohighlight">\(.
+If \)</span>B = {\mathbf N}<span class="math notranslate nohighlight">\(, we usually write \)</span>{A_j}<em>{j=1}^\infty<span class="math notranslate nohighlight">\( rather than
+\)</span>{A</em>\beta : \beta \in {\mathbf N}  }<span class="math notranslate nohighlight">\(.
+\)</span><span class="math notranslate nohighlight">\(
+\bigcap_{\beta \in B} A_\beta \equiv \{a: a \in A_\beta \;\;\forall \beta \in B \}.
+\)</span><span class="math notranslate nohighlight">\(
+(\)</span>\forall<span class="math notranslate nohighlight">\( means &quot;for all.&quot;)
+If \)</span>B = {1, 2, \ldots, n}<span class="math notranslate nohighlight">\(, we usually write \)</span>\bigcap_{j=1}^n A_j<span class="math notranslate nohighlight">\( rather than
+\)</span>\bigcap_{j \in {1, 2, \ldots, n}} A_j<span class="math notranslate nohighlight">\(.
+The notation \)</span>\bigcup_{\beta \in B} A_\beta<span class="math notranslate nohighlight">\( and \)</span>\bigcup_{j=1}^n A_j$ are defined analogously.</p>
+<p>A collection of sets <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> is <em>pairwise disjoint</em>
+if <span class="math notranslate nohighlight">\(A_\beta \cap A_{\beta'} = \emptyset\)</span> whenever <span class="math notranslate nohighlight">\(\beta \ne \beta'\)</span>.
+The collection <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B\}\)</span> <em>exhausts</em> or <em>covers</em>
+the set <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(A \subset \bigcup_{\beta \in B} A_\beta\)</span>.
+The collection <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> is a <em>partition</em> of the
+set <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(A = \cup_{\beta \in B} A_\beta\)</span> and the
+sets <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span>
+are pairwise disjoint.
+If <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> are pairwise disjoint and exhaust <span class="math notranslate nohighlight">\(A\)</span>, then
+<span class="math notranslate nohighlight">\(\{A_\beta \cap A : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>A set is <em>countable</em> if its elements can be put in one-to-one correspondence with
+a subset of <span class="math notranslate nohighlight">\({\mathbf N}\)</span>.
+A set is <em>finite</em> if its elements can be put in one-to-one correspondence with
+<span class="math notranslate nohighlight">\(\{1, 2, \ldots, n\}\)</span> for some <span class="math notranslate nohighlight">\(n \in {\mathbf N}\)</span>.
+If a set is not finite, it is infinite.
+<span class="math notranslate nohighlight">\({\mathbf N}\)</span>, <span class="math notranslate nohighlight">\({\mathbf Z}\)</span>, and <span class="math notranslate nohighlight">\({\mathbf Q}\)</span> are infinite and countable
+(<em>countably infinite</em>);
+<span class="math notranslate nohighlight">\({\mathbf R}\)</span> is infinite and uncountable.</p>
+<p>The notation <span class="math notranslate nohighlight">\(\# A\)</span>, pronounced “the cardinality of <span class="math notranslate nohighlight">\(A\)</span>” is the size of the set <span class="math notranslate nohighlight">\(A\)</span>, suitably defined.
+If <span class="math notranslate nohighlight">\(A\)</span> is finite, <span class="math notranslate nohighlight">\(\# A\)</span> is the number of elements in <span class="math notranslate nohighlight">\(A\)</span>.
+If <span class="math notranslate nohighlight">\(A\)</span> is not finite but <span class="math notranslate nohighlight">\(A\)</span> is countable (if its elements can be put in one-to-one
+correspondence with the elements of <span class="math notranslate nohighlight">\({\mathbf N}\)</span>), then <span class="math notranslate nohighlight">\(\# A = \aleph_0\)</span> (aleph-null).
+If the elements of <span class="math notranslate nohighlight">\(A\)</span> can be put in one-to-one correspondence with the elements of <span class="math notranslate nohighlight">\(\mathbf{R}\)</span>, then
+<span class="math notranslate nohighlight">\(\#A = c\)</span>, <em>the cardinality of the continuum</em>.</p>
+<p>The <em>power set</em> of a set <span class="math notranslate nohighlight">\(A\)</span>, denoted <span class="math notranslate nohighlight">\(2^A\)</span>, is the set of all subsets of the set <span class="math notranslate nohighlight">\(A\)</span>.
+For example, the power set of <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is
+$<span class="math notranslate nohighlight">\(
+\{ \emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\} \}.
+\)</span><span class="math notranslate nohighlight">\(
+If \)</span>A<span class="math notranslate nohighlight">\( is a finite set, the cardinality of the power set of \)</span>A<span class="math notranslate nohighlight">\( is \)</span>2^{# A}<span class="math notranslate nohighlight">\(.
+This can be seen as follows: suppose \)</span># A = n<span class="math notranslate nohighlight">\( is finite.
+Consider the elements of \)</span>A<span class="math notranslate nohighlight">\( to be written in some canonical order.
+We can specify an element of the power set by an \)</span>n<span class="math notranslate nohighlight">\(-digit binary number.
+The first digit is 1 if the first element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise.
+The second digit is 1 if the second element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise,
+etc.
+There are \)</span>2^n<span class="math notranslate nohighlight">\( \)</span>n<span class="math notranslate nohighlight">\(-digit binary numbers, so there are \)</span>2^n<span class="math notranslate nohighlight">\( subsets.
+The cardinality of the power set of \)</span>{\mathbf N}<span class="math notranslate nohighlight">\( is not \)</span>\aleph_0$.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, <span class="math notranslate nohighlight">\(B\)</span> is a countable set
+and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>, then
+$<span class="math notranslate nohighlight">\(
+\# A = \sum_{\beta \in B} \# A_\beta.
+\)</span>$</p>
+<p>Suppose <span class="math notranslate nohighlight">\(A = A_1 \cup A_2\)</span>, but that possibly <span class="math notranslate nohighlight">\(A_1 A_2 \ne \emptyset\)</span>,
+so <span class="math notranslate nohighlight">\(\{A_1, A_2\}\)</span> might not be a partition of <span class="math notranslate nohighlight">\(A\)</span>, because
+<span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span> are not necessarily disjoint.
+Then still
+$<span class="math notranslate nohighlight">\(\#A = \#A_1 + \#A_2 - \#A_1A_2.\)</span>$</p>
+<p>This is seen most easily using a Venn diagram, and can be proved
+by constructing a partition of <span class="math notranslate nohighlight">\(A\)</span>,
+<span class="math notranslate nohighlight">\(A = A_1A_2^c \cup A_1^cA_2 \cup A_1A_2\)</span>, and noting that
+<span class="math notranslate nohighlight">\(\#A_1 + \#A_2 = \#A_1A_2^c + \#A_1^cA_2 + 2\#A_1A_2\)</span>.</p>
+<p>If
+<span class="math notranslate nohighlight">\(A = A_1 \cup A_2 \cup A_3\)</span> but <span class="math notranslate nohighlight">\(\{A_1, A_2, A_3\}\)</span> are not necessarily disjoint,
+then still</p>
+<div class="math notranslate nohighlight">
+\[\#A = \#A_1 + \#A_2 + \#A_3 - \#A_1A_2 - \#A_1A_3 - \#A_2A_3 + \#A_1A_2A_3.\]</div>
+<p>More generally, if <span class="math notranslate nohighlight">\(A = \cup_{i=1}^n A_i\)</span>, then the <em>Inclusion-Exclusion Principle</em> holds:</p>
+<div class="math notranslate nohighlight">
+\[ \#A = \sum_{i=1}^n \#A_i - \sum_{1 \le i_1 &lt; i_2 \le n} \#(A_{i_1}A_{i_2}) +
+\sum_{1 \le i_1 &lt; i_2 &lt; i_3 \le n} \#(A_{i_1}A_{i_2}A_{i_3}) - \cdots 
++(-1)^{k-1} \sum_{1 \le i_1 &lt; i_2 &lt; \cdots &lt; i_k \le n} \# (A_{i_1}A_{i_2} \cdots A_{i_k}) + \cdots
+\]</div>
+<div class="section" id="some-useful-set-relations">
+<h3>Some useful set relations<a class="headerlink" href="#some-useful-set-relations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\subset B\)</span> and <span class="math notranslate nohighlight">\(B\subset A\)</span> then <span class="math notranslate nohighlight">\(A = B\)</span>. (If two sets are subsets of each other, they are the same set.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\emptyset \subset A\)</span>. (The empty set is a subset of every set.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\emptyset \cup A = A\)</span>.
+(The union of the empty set and any other set is that set.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\emptyset \cap A = \emptyset\)</span>.
+(The intersection of the empty set and any other set is empty.)</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A \subset B\)</span> and <span class="math notranslate nohighlight">\(B \subset C\)</span> then <span class="math notranslate nohighlight">\(A \subset C\)</span>. (The subset relation is transitive.)</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A \subset B\)</span> then <span class="math notranslate nohighlight">\(B^c \subset A^c\)</span>.
+(Complementation reverses the subset relation.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \cap B \subset  A\)</span>.  Moreover, <span class="math notranslate nohighlight">\(A\cap B = A\)</span> if and only if <span class="math notranslate nohighlight">\(A \subset B\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \subset  A\cup B\)</span>.   Moreover, <span class="math notranslate nohighlight">\(A = A\cup B\)</span> if and only if <span class="math notranslate nohighlight">\(B \subset A\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((A\cap B)^c = A^c \cup B^c\)</span>. (de Morgan)</p></li>
+<li><p><span class="math notranslate nohighlight">\((A\cup B)^c = A^c\cap B^c\)</span>. (de Morgan)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \cap B = B \cap A\)</span>. (Intersection is commutative.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cup B = B\cup A\)</span>. (Union is commutative.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cap (B\cap C) = (A\cap B)\cap C\)</span>. (Intersection is associative.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cup (B\cup C) = (A\cup B)\cup C\)</span>. (Union is associative.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cap (B\cup C) = (A\cap B)\cup (A\cap C)\)</span>. (Distribution of intersection over union.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cup (B\cap C) = (A\cup B)\cap (A\cup C)\)</span>. (Distribution of union over intersection.)</p></li>
+</ul>
+</div>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Prove that if <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> are pairwise disjoint and exhaust <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\{A_\beta \cap A : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>Prove de Morgan’s identity <span class="math notranslate nohighlight">\((A\cup B)^c = A^c\cap B^c\)</span>.</p></li>
+<li><p>Prove that <span class="math notranslate nohighlight">\(\{A_1A_2^c, A_1^cA_2, A_1A_2\}\)</span> is a partition of <span class="math notranslate nohighlight">\(A_1 \cup A_2\)</span>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># boilerplate</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sets in Python</span>
+<span class="c1"># Make three sets, A = {1, 2, 3}, B = {&quot;a&quot;, &quot;b&quot;, &quot;green&quot;, 3}, C = {1, 2}</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1"># this is a list but not a set, because 3 is listed twice</span>
+<span class="nb">print</span> <span class="s1">&#39;A: &#39;</span><span class="p">,</span> <span class="n">A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># this is a set containing the unique elements of A</span>
+<span class="nb">print</span> <span class="s1">&#39;A as a set (duplicates removed):&#39;</span><span class="p">,</span><span class="n">A</span>
+<span class="n">B</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span> <span class="s1">&#39;B:&#39;</span><span class="p">,</span> <span class="n">B</span>
+<span class="n">C</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># a different construction</span>
+<span class="nb">print</span> <span class="s1">&#39;C:&#39;</span><span class="p">,</span> <span class="n">C</span>
+<span class="c1">#</span>
+<span class="c1"># Set membership</span>
+<span class="nb">print</span> <span class="s1">&#39;1 is in A:&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">A</span>  <span class="c1"># is 1 an element of A?</span>
+<span class="nb">print</span> <span class="s1">&#39;&quot;green&quot; is in A:&#39;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span> <span class="ow">in</span> <span class="n">A</span>
+<span class="nb">print</span> <span class="s1">&#39;&quot;green&quot; is in B:&#39;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span> <span class="ow">in</span> <span class="n">B</span>
+<span class="nb">print</span> <span class="s1">&#39;A is a subset of C:&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s1">&#39;C is a subset of A:&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s1">&#39;A intersect B:&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A:  [1, 2, 3, 3]
+A as a set (duplicates removed): set([1, 2, 3])
+B: set([&#39;a&#39;, 3, &#39;b&#39;, &#39;green&#39;])
+C: set([1, 2])
+1 is in A: True
+&quot;green&quot; is in A: False
+&quot;green&quot; is in B: True
+A is a subset of C: False
+C is a subset of A: True
+A intersect B: set([3])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cartesian-products">
+<h2>Cartesian Products<a class="headerlink" href="#cartesian-products" title="Permalink to this headline">¶</a></h2>
+<p>The notation <span class="math notranslate nohighlight">\((s_1, s_2, \ldots, s_n) \equiv (s_j)_{j=1}^n\)</span> denotes an
+<em>ordered <span class="math notranslate nohighlight">\(n\)</span>-tuple</em> consisting of
+<span class="math notranslate nohighlight">\(s_1\)</span> in the first position, <span class="math notranslate nohighlight">\(s_2\)</span> in the second position, etc.
+The parentheses are used instead of curly braces to distinguish
+<span class="math notranslate nohighlight">\(n\)</span>-tuples from sets: <span class="math notranslate nohighlight">\((s_j)_{j=1}^n \ne \{s_j\}_{j=1}^n\)</span>.
+The <span class="math notranslate nohighlight">\(k\)</span>th
+<em>component</em> of the <span class="math notranslate nohighlight">\(n\)</span>-tuple <span class="math notranslate nohighlight">\(s = (s_j)_{j=1}^n\)</span>, is <span class="math notranslate nohighlight">\(s_k\)</span>,
+<span class="math notranslate nohighlight">\(k = 1, 2, \ldots, n\)</span>.
+Two <span class="math notranslate nohighlight">\(n\)</span>-tuples are equal if their components are equal.
+That is, <span class="math notranslate nohighlight">\((s_j)_{j=1}^n = (t_j)_{j=1}^n\)</span> means that
+<span class="math notranslate nohighlight">\(s_j = t_j\)</span> for <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>.
+In particular, <span class="math notranslate nohighlight">\((s, t) \ne (t, s)\)</span> unless <span class="math notranslate nohighlight">\(s=t\)</span>.
+In contrast, <span class="math notranslate nohighlight">\(\{s, t \} = \{ t, s \}\)</span> always.</p>
+<p>The <em>Cartesian product of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span></em> is
+<span class="math notranslate nohighlight">\(S \bigotimes T \equiv \{(s, t): s \in S \mbox{ and } t \in T\}\)</span>.
+Unless <span class="math notranslate nohighlight">\(S = T\)</span>, <span class="math notranslate nohighlight">\(S \bigotimes T \ne T \bigotimes S\)</span>.
+<span class="math notranslate nohighlight">\({\mathbf R}^n\)</span> is the Cartesian product of <span class="math notranslate nohighlight">\({\mathbf R}\)</span> with itself, <span class="math notranslate nohighlight">\(n\)</span> times; its elements
+are <span class="math notranslate nohighlight">\(n\)</span>-tuples of real numbers.
+If <span class="math notranslate nohighlight">\(s\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-tuple <span class="math notranslate nohighlight">\((s_1, s_2, \ldots, s_n) = (s_j)_{j=1}^n\)</span>
+and <span class="math notranslate nohighlight">\(t\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-tuple <span class="math notranslate nohighlight">\((t_1, t_2, \ldots, t_n) = (t_j)_{j=1}^n\)</span>,
+then <span class="math notranslate nohighlight">\(s = t\)</span> iff <span class="math notranslate nohighlight">\(s_j = t_j\)</span> for all <span class="math notranslate nohighlight">\(j=1, \ldots, n\)</span>.</p>
+<p>The Python library <tt>itertools</tt> has utilities for generating Cartesian products, power sets, permutations, and the like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cartesian products using itertools</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;a&#39;, 0), (&#39;a&#39;, 1), (&#39;a&#39;, 2), (&#39;b&#39;, 0), (&#39;b&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 0), (&#39;c&#39;, 1), (&#39;c&#39;, 2), (&#39;d&#39;, 0), (&#39;d&#39;, 1), (&#39;d&#39;, 2)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="combinatorics">
+<h2>Combinatorics<a class="headerlink" href="#combinatorics" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be a finite set with <span class="math notranslate nohighlight">\(\# A = n\)</span>.
+A <em>permutation</em> of (the elements of) <span class="math notranslate nohighlight">\(A\)</span> is an element <span class="math notranslate nohighlight">\(s\)</span> of
+<span class="math notranslate nohighlight">\(\bigotimes_{j=1}^n A = A^n\)</span>
+whose components are distinct elements of <span class="math notranslate nohighlight">\(A\)</span>.
+That is, <span class="math notranslate nohighlight">\(s = (s_j)_{j=1}^n \in A^n\)</span> is a permutation of <span class="math notranslate nohighlight">\(A\)</span> if
+<span class="math notranslate nohighlight">\(\# \{s_j\}_{j=1}^n = n\)</span>.
+There are <span class="math notranslate nohighlight">\(n! = n(n-1)\cdots 1\)</span> permutations of a set with <span class="math notranslate nohighlight">\(n\)</span> elements:
+there are <span class="math notranslate nohighlight">\(n\)</span> choices for the first component of the permutation, <span class="math notranslate nohighlight">\(n-1\)</span> choices for
+the second (whatever the
+first might be), <span class="math notranslate nohighlight">\(n-2\)</span> for the third (whatever the first two might be), etc.</p>
+<p>This is an illustration of the <em>Fundamental Rule of Counting</em>:
+If specifying each (unique) element of a set can be expressed as a series <span class="math notranslate nohighlight">\(n\)</span> of choices, and the number of options at step <span class="math notranslate nohighlight">\(i\)</span> of the series is <span class="math notranslate nohighlight">\(n_i\)</span> regardless of the choices made before step <span class="math notranslate nohighlight">\(i\)</span>, then the total number of elements of the set is <span class="math notranslate nohighlight">\(\prod_{i=1}^n n_i\)</span>.</p>
+<p>The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> things taken <span class="math notranslate nohighlight">\(k\)</span> at a time, <span class="math notranslate nohighlight">\({}_nP_k\)</span>,
+is the number of ways there are of selecting <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> things, then permuting
+those <span class="math notranslate nohighlight">\(k\)</span> things.
+There are <span class="math notranslate nohighlight">\(n\)</span> choices for the object that will be in the first place in the permutation,
+<span class="math notranslate nohighlight">\(n-1\)</span> for the second place (regardless of which is first), etc., and <span class="math notranslate nohighlight">\(n-k+1\)</span> choices
+for the item that will be in the <span class="math notranslate nohighlight">\(k\)</span>th place.
+By the fundamental rule of counting, it follows that
+<span class="math notranslate nohighlight">\({}_nP_k = n(n-1)\cdots(n-k+1) = n!/(n-k)!\)</span>.</p>
+<p>The number of subsets of size <span class="math notranslate nohighlight">\(k\)</span> that can be formed from <span class="math notranslate nohighlight">\(n\)</span> objects is
+$<span class="math notranslate nohighlight">\(
+{}_nC_k = {{n}\choose{k}} =
+{}_nP_k/k! = n(n-1)\cdots(n-k+1)/k! = \frac{n!}{k!(n-k)!},
+\)</span><span class="math notranslate nohighlight">\(
+since each subset of size \)</span>k<span class="math notranslate nohighlight">\( can be ordered into \)</span>k!$ permutations.</p>
+<p>Here are some useful identities:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\( {{n}\choose{k}} = {{n}\choose{n-k}} \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( {{n}\choose{0}} = {{n}\choose{n}} = 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( {{n}\choose{1}} = {{n}\choose{n-1}} = n \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( {{n} \choose {k}} = \prod_{m=0}^{k-1} \frac{n-m}{m+1} \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( {{n} \choose {k}} = {{n-1}\choose{k-1}} + {{n-1} \choose {k}}\)</span>.</p></li>
+</ol>
+<p>Because the power set of a set with <span class="math notranslate nohighlight">\(n\)</span> elements can be partitioned as</p>
+<div class="math notranslate nohighlight">
+\[
+\cup_{k=0}^n \left \{ \mbox{all distinct subsets of size $k$}
+\right \},
+\]</div>
+<p>and since the power set has <span class="math notranslate nohighlight">\(2^n\)</span> elements, it follows that
+$<span class="math notranslate nohighlight">\(
+\sum_{j=0}^n {{n} \choose {j}} = 2^n.
+\)</span>$</p>
+<hr />
+### Exercise
+Prove the five identities about binomial coefficients given above.
+<hr /><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combinatorics in Python</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span> <span class="s1">&#39;n!:&#39;</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># number of combinations of n objects taken k at a time</span>
+<span class="nb">print</span> <span class="s1">&#39;nCk:&#39;</span><span class="p">,</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+
+<span class="c1"># number of permutations of n objects taken k at a time</span>
+
+<span class="k">def</span> <span class="nf">permu</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">permu</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">):</span>
+        <span class="n">permu</span> <span class="o">=</span> <span class="n">permu</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">permu</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="s1">&#39;nPk:&#39;</span><span class="p">,</span><span class="n">permu</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n!: 120
+nCk: 10.0
+nPk: 60
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># enumerate combinations and permutations using itertools</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="s1">&#39;A:&#39;</span><span class="p">,</span> <span class="n">A</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span> <span class="s1">&#39;all combinations of&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;elements of A:&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">)]</span>
+<span class="nb">print</span> <span class="s1">&#39;all permutations of&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;elements of A:&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+combinations of  2 elements of A: [(&#39;a&#39;, &#39;b&#39;), (&#39;a&#39;, &#39;c&#39;), (&#39;a&#39;, &#39;d&#39;), (&#39;a&#39;, &#39;e&#39;), (&#39;b&#39;, &#39;c&#39;), (&#39;b&#39;, &#39;d&#39;), (&#39;b&#39;, &#39;e&#39;), (&#39;c&#39;, &#39;d&#39;), (&#39;c&#39;, &#39;e&#39;), (&#39;d&#39;, &#39;e&#39;)]
+permutations of  2 elements of A: [(&#39;a&#39;, &#39;b&#39;), (&#39;a&#39;, &#39;c&#39;), (&#39;a&#39;, &#39;d&#39;), (&#39;a&#39;, &#39;e&#39;), (&#39;b&#39;, &#39;a&#39;), (&#39;b&#39;, &#39;c&#39;), (&#39;b&#39;, &#39;d&#39;), (&#39;b&#39;, &#39;e&#39;), (&#39;c&#39;, &#39;a&#39;), (&#39;c&#39;, &#39;b&#39;), (&#39;c&#39;, &#39;d&#39;), (&#39;c&#39;, &#39;e&#39;), (&#39;d&#39;, &#39;a&#39;), (&#39;d&#39;, &#39;b&#39;), (&#39;d&#39;, &#39;c&#39;), (&#39;d&#39;, &#39;e&#39;), (&#39;e&#39;, &#39;a&#39;), (&#39;e&#39;, &#39;b&#39;), (&#39;e&#39;, &#39;c&#39;), (&#39;e&#39;, &#39;d&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strategies-for-counting">
+<h2>Strategies for counting<a class="headerlink" href="#strategies-for-counting" title="Permalink to this headline">¶</a></h2>
+<p>There are several approaches to counting the elements of a set that can be helpful in practice, aside from simply enumerating the elements.</p>
+<ol class="simple">
+<li><p>Divide and conquer: partition the set.</p></li>
+<li><p>Use the Fundamental Rule of Counting. (This is how we found the number of permutations of <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> things.)</p></li>
+<li><p>Overcount: count each item <span class="math notranslate nohighlight">\(k\)</span> times, then divide by <span class="math notranslate nohighlight">\(k\)</span>. (This is how we derived the number of combinations of <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> things from the number of permutations of <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> things: each combination of <span class="math notranslate nohighlight">\(k\)</span> things occurs <span class="math notranslate nohighlight">\(k!\)</span> times among the set of permutations.)</p></li>
+<li><p>Overinclude, then adjust: count a set that is larger than the set in question, then subtract the extras.</p></li>
+<li><p>Use the Inclusion-Exclusion Principle.</p></li>
+</ol>
+<hr />
+### Computational exercise
+<p>Write a Python function that constructs all permutations of a finite list.</p>
+<p>The function should take as input a list s, and produce as output all permutations of the elements of the list. Items should be considered unique based on their position in the list.</p>
+<p>For instance,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>s = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+permute(s)
+</pre></div>
+</div>
+<p>should return the 6 permutations of a, b, and c:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a b c
+a c b
+b a c
+b c a
+c a b
+c b a
+</pre></div>
+</div>
+<p>Write your function from scratch; i.e., do not use any libraries that are not part of the core of Python (e.g., do not use the <span class="code">itertools</span> library).</p>
+<hr /></div>
+<div class="section" id="numerical-stability-and-order-of-operations">
+<h2>Numerical stability and order of operations<a class="headerlink" href="#numerical-stability-and-order-of-operations" title="Permalink to this headline">¶</a></h2>
+<p>As a matter of mathematics, <span class="math notranslate nohighlight">\({{n}\choose{k}} = \frac{n!}{k!(n-k)!}\)</span>, but this is a bad way to compute <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span>.
+When <span class="math notranslate nohighlight">\(n\)</span> is large, the numerator <span class="math notranslate nohighlight">\(n!\)</span> is enormous, and can overflow finite-precision calculations even for values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> for which <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span> is small.
+Moreover, relying on cancellation in finite-precision arithmetic can lead to large errors, whether the cancellation is through division or subtraction.</p>
+<p>So, rather than compute <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span> by dividing factorials, it’s better to build it by multiplying ratios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># illustrating issues calculating nCk as a ratio of factorials for large n</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span> <span class="s1">&#39;1000!:&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># Really Big Number: </span>
+                                  <span class="c1"># would overflow in many languages, </span>
+                                  <span class="c1"># including R, MATLAB, Fortran</span>
+<span class="c1"># however, 1000 choose 2 is only (1000*999)/2 = 499500</span>
+<span class="nb">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">998!:&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">1000C2:&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="c1"># let&#39;s code this from scratch in a stable way</span>
+<span class="k">def</span> <span class="nf">myChoose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="c1"># no error checking. If this were for production, we&#39;d check that the arguments are integers</span>
+    <span class="c1"># and that n &gt;= k &gt;= 0.</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">myc</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">):</span>
+        <span class="n">myc</span> <span class="o">=</span> <span class="n">myc</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">myc</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="s1">&#39;1000C2 (2nd way):&#39;</span><span class="p">,</span> <span class="n">myChoose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000!: 402387260077093773543702433923003985719374864210714632543799910429938512398629020592044208486969404800479988610197196058631666872994808558901323829669944590997424504087073759918823627727188732519779505950995276120874975462497043601418278094646496291056393887437886487337119181045825783647849977012476632889835955735432513185323958463075557409114262417474349347553428646576611667797396668820291207379143853719588249808126867838374559731746136085379534524221586593201928090878297308431392844403281231558611036976801357304216168747609675871348312025478589320767169132448426236131412508780208000261683151027341827977704784635868170164365024153691398281264810213092761244896359928705114964975419909342221566832572080821333186116811553615836546984046708975602900950537616475847728421889679646244945160765353408198901385442487984959953319101723355556602139450399736280750137837615307127761926849034352625200015888535147331611702103968175921510907788019393178114194545257223865541461062892187960223838971476088506276862967146674697562911234082439208160153780889893964518263243671616762179168909779911903754031274622289988005195444414282012187361745992642956581746628302955570299024324153181617210465832036786906117260158783520751516284225540265170483304226143974286933061690897968482590125458327168226458066526769958652682272807075781391858178889652208164348344825993266043367660176999612831860788386150279465955131156552036093988180612138558600301435694527224206344631797460594682573103790084024432438465657245014402821885252470935190620929023136493273497565513958720559654228749774011413346962715422845862377387538230483865688976461927383814900140767310446640259899490222221765904339901886018566526485061799702356193897017860040811889729918311021171229845901641921068884387121855646124960798722908519296819372388642614839657382291123125024186649353143970137428531926649875337218940694281434118520158014123344828015051399694290153483077644569099073152433278288269864602789864321139083506217095002597389863554277196742822248757586765752344220207573630569498825087968928162753848863396909959826280956121450994871701244516461260379029309120889086942028510640182154399457156805941872748998094254742173582401063677404595741785160829230135358081840096996372524230560855903700624271243416909004153690105933983835777939410970027753472000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+998!: 402790050127220994538240674597601587306681545756471103647447357787726238637266286878923131618587992793273261872069265323955622495490298857759082912582527118115540044131204964883707335062250983503282788739735011132006982444941985587005283378024520811868262149587473961298417598644470253901751728741217850740576532267700213398722681144219777186300562980454804151705133780356968636433830499319610818197341194914502752560687555393768328059805942027406941465687273867068997087966263572003396240643925156715326363340141498803019187935545221092440752778256846166934103235684110346477890399179387387649332483510852680658363147783651821986351375529220618900164975188281042287183543472177292257232652561904125692525097177999332518635447000616452999984030739715318219169707323799647375797687367013258203364129482891089991376819307292252205524626349705261864003453853589870620758596211518646408335184218571196396412300835983314926628732700876798309217005024417595709904449706930796337798861753941902125964936412501007284147114260935633196107341423863071231385166055949914432695939611227990169338248027939843597628903525815803809004448863145157344706452445088044626373001304259830129153477630812429640105937974761667785045203987508259776060285826091261745049275419393680613675366264232715305430889216384611069135662432391043725998805881663054913091981633842006354699525518784828195856033032645477338126512662942408363494651203239333321502114252811411713148843370594801145777575035630312885989779863888320759224882127141544366251503974910100721650673810303577074640154112833393047276025799811224571534249672518380758145683914398263952929391318702517417558325636082722982882372594816582486826728614633199726211273072775131325222240100140952842572490801822994224069971613534603487874996852498623584383106014533830650022411053668508165547838962087111297947300444414551980512439088964301520461155436870989509667681805149977993044444138428582065142787356455528681114392680950815418208072393532616122339434437034424287842119316058881129887474239992336556764337968538036861949918847009763612475872782742568849805927378373244946190707168428807837146267156243185213724364546701100557714520462335084082176431173346929330394071476071813598759588818954312394234331327700224455015871775476100371615031940945098788894828812648426365776746774528000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+1000C2: 499500.0
+1000C2 (2nd way): 499500.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>A related same issue comes up in subtracting large numbers.</p>
+<p>For instance, algebraically, <span class="math notranslate nohighlight">\(x^2 - (x-1)^2 = 2x-1\)</span>.
+But if the mantissa of <span class="math notranslate nohighlight">\(x\)</span> is large, squaring
+<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x-1\)</span> can overflow the precision of the calculation, and their difference of the computed squares will be numerically wrong.</p>
+</div>
+<div class="section" id="connecting-probability-to-set-theory">
+<h2>Connecting Probability to Set Theory<a class="headerlink" href="#connecting-probability-to-set-theory" title="Permalink to this headline">¶</a></h2>
+<p>A <em>random experiment</em> or <em>random trial</em>
+is basically any
+situation whose outcome is not perfectly predictable, but for which we
+can specify all possible outcomes, and that shows long-term regularities.
+For example, when we toss a coin, we do not know how it will land,
+but it certainly must land heads, tails, on its edge, or not land at all.
+There is no other possibility.
+The set of all possible outcomes of a random experiment is called the
+<em>outcome space</em>.
+The letter <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> will denote outcome space.
+We are free to choose the outcome space to correspond to what we deem
+relevant for the experiment, as long as it is essentially inevitable that the
+random experiment will result in some outcome in the outcome space.
+For example, the outcome space we just described was {heads, tails, edge, doesn’t land}.
+It might be adequate for our purposes for the outcome space to be {heads, not heads}.</p>
+<p>Often we shall tailor outcome spaces for specific problems.
+Here is an example: Imagine a box containing tickets that are indistinguishable
+except that each has written upon it a unique number between 1 and the number
+of tickets, <span class="math notranslate nohighlight">\(n\)</span>.
+We shake the box, draw a ticket from the box without looking, and record
+the number written on the ticket we happened to draw.
+The natural outcome space of this experiment is the set of numbers
+<span class="math notranslate nohighlight">\(\{1, 2, \ldots, n\}\)</span>.
+However, suppose we are interested only in whether the number on the
+ticket we draw is even.
+The outcome space then could be reduced to {even number on ticket, odd number on ticket},
+or coded even more abstractly as <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>,
+where the outcome is the number of even-numbered tickets drawn.</p>
+<p>An <em>event</em> is a subset of outcome space: a collection of outcomes in the
+outcome space.
+<span class="math notranslate nohighlight">\(A\)</span> is an event if <span class="math notranslate nohighlight">\(A \subset \mathcal{S}\)</span>.
+For example, in the experiment of drawing a numbered ticket from the box,
+suppose there are 10 tickets in all, and that we choose the outcome space
+<span class="math notranslate nohighlight">\(\mathcal{S}\)</span> to be the numbers
+<span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots, 9, 10\}\)</span>.
+Then “we draw the number 1” is the event <span class="math notranslate nohighlight">\(\{1\}\)</span>, and
+“we draw an even number” is the event <span class="math notranslate nohighlight">\(\{2, 4, 6, 8, 10\}\)</span>,
+both of which are subsets of the set of possible outcomes, the outcome space
+<span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.</p>
+<p>The treatment is quite informal, omitting important technical concepts such as sigma-algebras,
+measurability, and the like.</p>
+<p>Modern probability theory starts with Kolmogorov’s Axioms; here is an informal startement of the axioms.
+For more (but still a very informal treatment), see:
+<a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/probabilityPhilosophy.htm">Probability: Philosophy and Mathematical Background</a>,
+<a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/sets.htm">Set theory</a>,
+and
+<a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/probabilityAxioms.htm">Probability: Axioms and Fundaments</a>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> denote the <em>outcome space</em>, the set of all possible outcomes of a random experiment,
+and let <span class="math notranslate nohighlight">\(\{A_i\}_{i=1}^\infty\)</span> be a countable collection of
+subsets of <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.
+Then any probability function <span class="math notranslate nohighlight">\({\mathbb P}\)</span> must satisfy these axioms:</p>
+<ol class="simple">
+<li><p>For every <span class="math notranslate nohighlight">\(A \subset \mathcal{S}\)</span>, <span class="math notranslate nohighlight">\({\mathbb P}(A) \ge 0\)</span> (probabilities are nonnegative)</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb P}(\mathcal{S}) = 1\)</span> (the chance that <em>something</em> happens is 100%)</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A_i \cap A_j = \emptyset\)</span> for <span class="math notranslate nohighlight">\(i \ne j\)</span>, then <span class="math notranslate nohighlight">\({\mathbb P} \cup_{i=1}^\infty A_i = \sum_{i=1}^\infty {\mathbb P}(A_i)\)</span>
+(If a countable collection of events is <em>pairwise disjoint</em>, then the chance that any of the
+events occurs is the sum of the chances that they occur individually.)</p></li>
+</ol>
+<p>These axioms have many useful consequences, among them that <span class="math notranslate nohighlight">\({\mathbb P}(\emptyset) = 0\)</span>, <span class="math notranslate nohighlight">\({\mathbb P}(A^c) = 1 - {\mathbb P}(A)\)</span>,
+and <span class="math notranslate nohighlight">\({\mathbb P}(A \cup B) = {\mathbb P}(A) + {\mathbb P}(B) - {\mathbb P}(AB)\)</span>.
+More generally, the Inclusion-Exclusion Principle gives us</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P} \cup_{i=1}^n A_i  = \sum_{i=1}^n \mathbb{P} A_i 
+- \sum_{1 \le i_1 &lt; i_2 \le n} \mathbb{P}(A_{i_1}A_{i_2}) +
+\sum_{1 \le i_1 &lt; i_2 &lt; i_3 \le n} \mathbb{P}(A_{i_1}A_{i_2}A_{i_3}) - \cdots 
++(-1)^{k-1} \sum_{1 \le i_1 &lt; i_2 &lt; \cdots &lt; i_k \le n} \mathbb{P} (A_{i_1}A_{i_2} \cdots A_{i_k}) + \cdots
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= \sum_{i=1}^n \left((-1)^{i-1}\sum_{\mathcal{I} \subset\{1,\ldots,n\}: \#\mathcal I =i} \mathbb{P}(\cap_{j \in \mathcal{I}} A_j \right).
+\]</div>
+<hr />
+### Definitions
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be subsets of outcome space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(AB = \emptyset\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>mutually exclusive</em>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A \subset B\)</span> then <span class="math notranslate nohighlight">\(A\)</span> <em>implies</em> <span class="math notranslate nohighlight">\(B\)</span>:  if <span class="math notranslate nohighlight">\(A\)</span> occurs, <span class="math notranslate nohighlight">\(B\)</span> must
+also occur (if the outcome that occurs is in <span class="math notranslate nohighlight">\(A\)</span>, the outcome
+that occurs is also in <span class="math notranslate nohighlight">\(B\)</span>, because every element of <span class="math notranslate nohighlight">\(A\)</span>
+is an element of <span class="math notranslate nohighlight">\(B\)</span>).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\({\mathbb P}(AB) = {\mathbb P}(A){\mathbb P}(B)\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>independent</em>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\({\mathbb P}(B) &gt; 0\)</span>, then the <em>conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span></em> is
+<span class="math notranslate nohighlight">\({\mathbb P}(A | B) \equiv {\mathbb P}(AB)/{\mathbb P}(B)\)</span>.</p></li>
+</ul>
+<hr />
+<p>Independence is an extremely specific relationship.
+At one extreme, <span class="math notranslate nohighlight">\(AB = \emptyset\)</span>; then <span class="math notranslate nohighlight">\({\mathbb P}(AB) = 0 \le {\mathbb P}(A){\mathbb P}(B)\)</span>.
+At another extreme, either <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(B\)</span> or vice versa; then <span class="math notranslate nohighlight">\({\mathbb P}(AB) = \min({\mathbb P}(A),{\mathbb P}(B)) \ge {\mathbb P}(A){\mathbb P}(B)\)</span>.
+Independence lies at a precise point in between.</p>
+<hr />
+### Exercises.
+<ol class="simple">
+<li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent and <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt;0\)</span>, then
+<span class="math notranslate nohighlight">\(\mathbb{P}(A|B) = \mathbb{P}(A)\)</span>.</p></li>
+<li><p>Show that conditional probability behaves like “ordinary” probability: suppose <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\{A_i\}\)</span> are such that <span class="math notranslate nohighlight">\(\{A_i \cap B\}_{i=1}^\infty\)</span> are pairwise disjoint. Then</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(A | B) \ge 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(B | B) = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\cup_{i=1}^\infty A_i | B) = \sum_{i=1}^\infty \mathbb{P} (A_i | B)\)</span></p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="bayes-rule">
+<h2>Bayes’ Rule<a class="headerlink" href="#bayes-rule" title="Permalink to this headline">¶</a></h2>
+<p>Suppose <span class="math notranslate nohighlight">\(\mathbb{P}(A)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{P}(B) \ne 0\)</span>.
+Then</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A|B) = \frac{\mathbb{P}(B|A)\mathbb{P}(A)}{\mathbb{P}(B)}.
+\]</div>
+<p>Bayes’ rule lets you “invert” conditional probabilities to find <span class="math notranslate nohighlight">\(\mathbb{P}(A|B)\)</span> in terms of <span class="math notranslate nohighlight">\(\mathbb{P}(B|A)\)</span>.</p>
+</div>
+<div class="section" id="the-law-of-total-probability">
+<h2>The Law of Total Probability<a class="headerlink" href="#the-law-of-total-probability" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be an event and suppose <span class="math notranslate nohighlight">\(\{ A_i \}\)</span> (a finite or countable collection of sets) is a partition of outcome space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> such that <span class="math notranslate nohighlight">\(\mathbb{P}(A_i) &gt; 0\)</span> <span class="math notranslate nohighlight">\(\forall i\)</span>.
+Then</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A) = \sum_i \mathbb{P}(A|A_i) \mathbb{P}(A_i).
+\]</div>
+<p>The Law of Total Probability is basically just an application of the definition of conditional probability and Kolmogorov’s third axiom, but it’s extremely useful.</p>
+<div class="section" id="examples">
+<h3>Examples.<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Here is a classic application of Bayes’ Rule. Suppose that a screening test for a medical condition
+is 95% accurate, in the sense that if one has the condition, there is a 95% chance that the test will be positive, and if one does not have the condition, there is a 95% chance that the test will be negative.
+Suppose that 1% of the population actually has the condition.
+We select someone at random from the population and test him or her.
+The test result is positive.
+What’s the chance that the person actually has the condition?</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{P}(\mbox{has condition}|\mbox{tests positive})
+= \frac{\mathbb{P}(\mbox{tests positive }|\mbox{ has condition}) \mathbb{P}(\mbox{has condition })}{\mathbb{P}(\mbox{tests positive})}
+=
+\frac{\mathbb{P}(\mbox{tests positive }|\mbox{ has condition}) 
+\mathbb{P}(\mbox{has condition})}
+{\mathbb{P}(\mbox{tests positive } | \mbox{ has condition})\mathbb{P}(\mbox{has condition}) + \mathbb{P}(\mbox{tests positive } | \mbox{ doesn't have condition})\mathbb{P}(\mbox{doesn't have condition})}
+=
+\frac{0.95}{0.95 \times 0.01 + 0.05 \times 0.99}
+= 16.1\%.
+\]</div>
+<p>(The denominator involves applying the Law of Total Probability.)</p>
+</div>
+<div class="section" id="id1">
+<h3>Exercises.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>[To do]</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

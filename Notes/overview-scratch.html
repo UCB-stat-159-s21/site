@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topics &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/overview-scratch.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Topics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-hygiene-and-best-practices-python-centric">
+     Computational hygiene and best practices (python-centric)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reproducibility-replicability-applied-statistics">
+     Reproducibility, replicability, applied statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#best-uses-for-jupyter-notebooks">
+   Best uses for Jupyter notebooks
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="topics">
+<h1>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="computational-hygiene-and-best-practices-python-centric">
+<h2>Computational hygiene and best practices (python-centric)<a class="headerlink" href="#computational-hygiene-and-best-practices-python-centric" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>style standards</p>
+<ul>
+<li><p>coding <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a></p></li>
+<li><p>docstrings <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP-257</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://www.literateprogramming.com/">“literate” programming</a>: code for clarity. “Documentation containing code, not code containing documentation”</p></li>
+<li><p>modularity, abstraction, function signatures</p></li>
+<li><p>revision control systems</p>
+<ul>
+<li><p>Git fundamentals</p></li>
+<li><p>Git as an intelligent backup tool</p></li>
+<li><p>Git as a collaboration tool</p></li>
+<li><p>Git development workflows</p></li>
+</ul>
+</li>
+<li><p>testing</p>
+<ul>
+<li><p>unit tests</p></li>
+<li><p>regression tests</p></li>
+<li><p>coverage tests</p></li>
+<li><p>continuous integration; Github actions</p></li>
+</ul>
+</li>
+<li><p>code performance, profiling</p></li>
+</ul>
+</div>
+<div class="section" id="reproducibility-replicability-applied-statistics">
+<h2>Reproducibility, replicability, applied statistics<a class="headerlink" href="#reproducibility-replicability-applied-statistics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>What is reproducibility?</p>
+<ul>
+<li><p>Why is reproducibility an issue?</p></li>
+<li><p>Terms in different fields: computational, experimental, …</p></li>
+<li><p>“Preproducibility”</p></li>
+<li><p>What is contributing to lack of reproducibility in science?</p></li>
+<li><p>Importance of replication in the philosophy of science</p></li>
+<li><p>“Virtual witnessing”</p></li>
+</ul>
+</li>
+<li><p>Attempting computational reproducibility in data analysis</p>
+<ul>
+<li><p>data</p>
+<ul>
+<li><p>get the data</p>
+<ul>
+<li><p>can be hard even if journal/funder requires making data available</p></li>
+</ul>
+</li>
+<li><p>figure out what format it’s really in</p>
+<ul>
+<li><p>data dictionaries sometimes help</p></li>
+<li><p>proprietary formats common</p></li>
+</ul>
+</li>
+<li><p>figure out whether it’s the right data</p>
+<ul>
+<li><p>sniff tests</p></li>
+<li><p>consistency tests</p></li>
+<li><p>sleuthing</p></li>
+</ul>
+</li>
+<li><p>pre-processing, cleaning, etc.</p></li>
+</ul>
+</li>
+<li><p>analysis</p>
+<ul>
+<li><p>figure out what they claim to have done</p></li>
+<li><p>figure out what they did</p>
+<ul>
+<li><p>usually impossible from just the methods section</p></li>
+<li><p>much harder if the analysis was not scripted</p></li>
+<li><p>might be impossible even with their code</p></li>
+</ul>
+</li>
+<li><p>figure out what they should have done</p></li>
+<li><p>compare</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Sciencing is hard</p>
+<ul>
+<li><p>confirmation bias</p></li>
+<li><p>easiest person to fool is yourself. “The core of [the scientific method] is remembering your own level of ignorance.” —Jaron Lanier</p></li>
+<li><p>misperceptions of probability, cognitive biases (see seminal research by Tversky and Kahneman)</p></li>
+<li><p>confidence and accuracy unrelated</p></li>
+<li><p>shiny models and methods often distract rather than illuminate</p></li>
+<li><p>broken reward structure</p></li>
+<li><p>ritualization</p></li>
+<li><p>Cargo-cult science and statistics</p></li>
+</ul>
+</li>
+<li><p>Papers/Datasets for the term</p>
+<ul>
+<li><p>papers where there seemed to be a chance to get the data</p></li>
+<li><p>topics with social impact: politics, health, …</p></li>
+<li><p>some papers we think are bogus</p></li>
+<li><p>some papers whose conclusions we like–inviting scrutiny to combat our own confirmation bias</p></li>
+</ul>
+</li>
+<li><p>Software engineering</p>
+<ul>
+<li><p>revision/version control</p></li>
+<li><p>documentation</p></li>
+<li><p>modularity and abstraction</p>
+<ul>
+<li><p>consistency: APIs, calling signatures, object-oriented coding</p></li>
+<li><p>separating data, computation, presentation</p></li>
+<li><p>how general is the problem your approach can solve?</p>
+<ul>
+<li><p>what’s the right level of abstraction?</p></li>
+<li><p>does it solving it require other broadly useful tools?</p></li>
+<li><p>consider other approaches to subproblems?</p></li>
+<li><p>don’t re-invent the wheel…but understand how wheels work</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>unit tests, integration tests, regression tests, coverage tests</p></li>
+<li><p>code review</p></li>
+<li><p>pair programming</p></li>
+<li><p>scripted analyses</p></li>
+<li><p>automation</p></li>
+<li><p>accountability</p></li>
+</ul>
+</li>
+<li><p>Case study: Karp et al., 2015</p>
+<ul>
+<li><p>access to data</p></li>
+<li><p>reproducing the main results from the data</p></li>
+<li><p>regression models</p>
+<ul>
+<li><p>assumptions required to perform OLS</p></li>
+<li><p>assumptions required for OLS to be unbiased</p></li>
+<li><p>assumptions required to compute SE</p></li>
+<li><p>assumptions required for <span class="math notranslate nohighlight">\(\hat{\beta}/SE\)</span> to have a t-distribution</p></li>
+</ul>
+</li>
+<li><p>interpreting P-values</p>
+<ul>
+<li><p>what’s the null hypothesis?</p></li>
+<li><p>appropriateness of t-tests in regression</p></li>
+<li><p>p-values from observational data: hypothetical randomness</p></li>
+</ul>
+</li>
+<li><p>permutation tests</p>
+<ul>
+<li><p>group invariances and exchangeability</p></li>
+<li><p>the Neyman “ticket” model</p>
+<ul>
+<li><p>the strong null hypothesis and weak null hypotheses</p></li>
+</ul>
+</li>
+<li><p>interference</p>
+<ul>
+<li><p>when is non-interference a reasonable assumption?</p></li>
+</ul>
+</li>
+<li><p>null hypotheses, tests, and test statistics</p>
+<ul>
+<li><p>key restrictions</p></li>
+<li><p>significance versus power</p></li>
+<li><p>specific alternatives and omnibus alternatives</p></li>
+<li><p>p-values versus fixed-level tests</p></li>
+</ul>
+</li>
+<li><p>generating random permutations. See <a class="reference external" href="https://www.stat.berkeley.edu/~stark/Seminars/prngCDAR17.slides.html">Stark 2017</a></p>
+<ul>
+<li><p>generating pseudo-random numbers and pseudo-random integers</p></li>
+<li><p>LCGs, Mersenne Twister, cryptographic PRNGs</p></li>
+<li><p>shuffling algorithms</p></li>
+<li><p>the <a class="reference external" href="https://github.com/statlab/cryptorandom/tree/master/cryptorandom">cryptorandom library</a></p></li>
+<li><p>problems with R’s algorithms for generating random integers and random samples <a class="reference external" href="https://arxiv.org/abs/1809.06520">Ottoboni &amp; Stark</a></p></li>
+</ul>
+</li>
+<li><p>confidence bounds for p-values by inverting binomial tests See <a class="reference external" href="https://github.com/statlab/permute/blob/master/permute/utils.py">Permute/utils binom_conf_interval</a></p></li>
+</ul>
+</li>
+<li><p>from reproducibility to replicability, stability, and generalizability</p>
+<ul>
+<li><p>transforming data before regression: “Garden of forking paths.” See <a class="reference external" href="http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf">Gelman &amp; Loken</a></p></li>
+<li><p>sensitivity of conclusions to transformations</p></li>
+<li><p>sensitivity of conclusions to individual data: “influential observations”</p></li>
+<li><p>testing before modeling and post-selection inference (POSI)</p></li>
+<li><p>why reporting everything you tried matters; pre-registration</p>
+<ul>
+<li><p><a class="reference external" href="http://www.alltrials.net">AllTrials.net</a></p></li>
+<li><p>changing clinical endpoints. Example: <a class="reference external" href="http://www.virology.ws/wp-content/uploads/2016/09/preliminary-analysis.pdf">PACE trial for CFS/ME</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/models.ipynb">Statistical models and response schedules</a></p>
+<ul>
+<li><p>Response schedules and “physics.” See <span class="xref myst">Freedman SMTP Ch6</span></p></li>
+<li><p>Linear probability models</p></li>
+<li><p>Logit and probit models</p></li>
+<li><p>Poisson regression</p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Goodness of fit tests</span></p></li>
+<li><p><span class="xref myst">Bayesian and frequentist estimation and inference</span></p>
+<ul>
+<li><p>Foundational issues</p></li>
+<li><p>Interpretation of probability</p>
+<ul>
+<li><p>prior probabilities</p></li>
+</ul>
+</li>
+<li><p>Example problems</p>
+<ul>
+<li><p>Bounded normal mean</p></li>
+<li><p>Election auditing</p></li>
+</ul>
+</li>
+<li><p>Abstract framework</p></li>
+<li><p>Types of uncertainty</p>
+<ul>
+<li><p>Epistemic and aleatory uncertainty</p></li>
+<li><p>constraints versus priors</p></li>
+</ul>
+</li>
+<li><p>Bayesian and frequentist measures of uncertainty</p></li>
+<li><p>Duality between minimax and Bayes estimation</p></li>
+</ul>
+</li>
+<li><p>Example: <a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/audit.ipynb">Election audits</a></p>
+<ul>
+<li><p>The auditing challenge and <a class="reference external" href="https://www.stat.berkeley.edu/~stark/Preprints/lhc18.pdf">evidence-based elections</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1707.08619.pdf">Public evidence from secret ballots</a></p></li>
+<li><p>Sequential tests</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/sprt.ipynb">Wald’s SPRT for Binomial <span class="math notranslate nohighlight">\(p\)</span></a></p></li>
+<li><p><a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/pSPRTnoReplacement.ipynb">Wald’s SPRT for dependent observations</a></p></li>
+</ul>
+</li>
+<li><p>Transparency, reproducibility, auditability, and evidence in elections</p>
+<ul>
+<li><p>public observation, public notice</p>
+<ul>
+<li><p>observation versus evidence</p></li>
+</ul>
+</li>
+<li><p>data disclosure, “commitments”</p></li>
+<li><p><a class="reference external" href="https://youtu.be/ysG4pFFmQ-E?t=960">selecting the seed as a public ritual</a></p></li>
+<li><p>source disclosure</p>
+<ul>
+<li><p>PRNG</p></li>
+<li><p>mapping from PRNG to sample</p></li>
+<li><p>risk calculations</p></li>
+<li><p>escalation rule and (most importantly) stopping rule</p></li>
+</ul>
+</li>
+<li><p>procedural complexity</p>
+<ul>
+<li><p>what can a single observer observe?</p></li>
+<li><p>what does the public have to trust to have trust in election outcomes?</p></li>
+</ul>
+</li>
+<li><p>examples of disclosed tools</p>
+<ul>
+<li><p><a class="reference external" href="https://www.stat.berkeley.edu/~stark/Vote/auditTools.htm">tools for ballot-level comparison audits</a></p></li>
+<li><p><a class="reference external" href="https://www.stat.berkeley.edu/~stark/Vote/ballotPollTools.htm">tools for ballot-polling audits</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pbstark/CORLA18">SUITE</a></p></li>
+<li><p><a class="reference external" href="https://github.com/FreeAndFair/ColoradoRLA">RLATool</a> <a class="reference external" href="https://github.com/democracyworks/ColoradoRLA">new version</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Contrasting RLAs and Bayesian audits</p>
+<ul>
+<li><p>what question does the audit answer?</p>
+<ul>
+<li><p>this election, or a hypothetical population of elections generated from known distribution?</p></li>
+</ul>
+</li>
+<li><p>whence the prior?</p></li>
+<li><p>when are Bayesian audits RLAs?</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/combining-tests.ipynb">Stratified tests and Fisher’s Combining Function</a></p>
+<ul>
+<li><p>why stratify or combine tests?</p></li>
+<li><p>intersection-union tests and union-intersection tests</p></li>
+<li><p>combining functions</p></li>
+<li><p>combinations of independent <span class="math notranslate nohighlight">\(p\)</span>-values</p>
+<ul>
+<li><p>chi-square distribution for continuous <span class="math notranslate nohighlight">\(p\)</span>-values (under the null)</p></li>
+<li><p>stochastic dominance by chi-square when the distribution has atoms</p></li>
+<li><p>dependent tests and lockstep permutations</p></li>
+</ul>
+</li>
+<li><p>nuisance parameters</p></li>
+<li><p><a class="reference external" href="https://github.com/pbstark/CORLA18">SUITE</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="best-uses-for-jupyter-notebooks">
+<h1>Best uses for Jupyter notebooks<a class="headerlink" href="#best-uses-for-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Jupyter notebooks are a wonderful tool for exploratory data analysis, to present results
+and to provide a “narrative” analysis: quantitative storytelling, showing the steps of the
+analysis and explaining the underlying mathematics, science, etc.</p></li>
+<li><p>Jupyter notebooks are not an ideal tool to develop a codebase for a project, to house production tools,
+etc. Jupyter isn’t suited to automated testing or continuous integration
+(there’s no tool for that in Jupyter, as far as I know). A software development project is generally
+easier to build and maintain if you separate tests from the code, in different files.</p></li>
+<li><p>Jupyter isn’t suitable for packaging/distributing code or for providing tools
+to be imported into other analyses. For those purposes, you want python files.</p></li>
+<li><p>Once you have built the software tools (and tests of those tools) you need for an analysis
+project, running analyses using
+those tools in a well documented Jupyter notebook that tells the story of what you did so
+that others can reproduce it is a good use of the overall tool ecosystem.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

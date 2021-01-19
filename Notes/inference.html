@@ -1,0 +1,1003 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistical Inference &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/inference.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/inference.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-method-of-comparison">
+   The Method of Comparison
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-2-sample-problem">
+   The 2-sample problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-random-number-generation-and-simulation">
+   Aside: Random number generation and simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-sampling">
+   Random sampling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-knuth-shuffle">
+     The Knuth Shuffle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-assignment">
+     Computational Assignment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypothesis-testing">
+   Hypothesis testing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#null-and-alternative-hypotheses">
+     Null and alternative hypotheses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#significance-level-and-power">
+   Significance level and power
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#p-values">
+   <span class="math notranslate nohighlight">
+    \(P\)
+   </span>
+   -values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-sets">
+   Confidence Sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confidence-bounds-for-binomial-p-and-hypergeometric-g">
+     Confidence bounds for Binomial
+     <span class="math notranslate nohighlight">
+      \(p\)
+     </span>
+     and Hypergeometric
+     <span class="math notranslate nohighlight">
+      \(G\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-tests">
+   Permutation tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neyman-model-for-causal-inference">
+   Neyman model for causal inference
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generalizations">
+     Generalizations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gender-bias-in-teaching-evaluations">
+   Gender Bias in Teaching Evaluations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interlude-partitioning-sets-into-more-than-two-subsets">
+     Interlude: partitioning sets into more than two subsets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Computational assignment
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="statistical-inference">
+<h1>Statistical Inference<a class="headerlink" href="#statistical-inference" title="Permalink to this headline">¶</a></h1>
+<p>One of the most fundamental problems statistics tries to address is <em>causal inference</em>, determining what effect some <em>treatment</em> has.</p>
+<p>One of the most serious difficulties in making causal inferences is <em>confounding</em>, the differences due to something other than treatment masquerading as the effect of treatment.</p>
+<div class="section" id="the-method-of-comparison">
+<h2>The Method of Comparison<a class="headerlink" href="#the-method-of-comparison" title="Permalink to this headline">¶</a></h2>
+<p>The basic method to mitigate confounding is to compare (at least) two groups, one that receives <em>treatment</em> and a <em>control group</em> that does not (or that gets a different treatment).
+To minimize bias, the treatment group and the control group should be as similar as possible but for the fact that
+one gets treatment and the other does not.</p>
+<p>If subjects <em>self-select</em> for treatment, that generally results in bias. So does allowing the experimenter flexibility to select the groups.
+The best way to minimize bias, and to be able to quantify the uncertainty in the resulting inferences, is to assign subjects to treatment or control <em>randomly</em>.</p>
+<p>For human subjects, the mere fact of receiving treatment—even a treatment with no real effect—can
+produce changes in response. This is called <em>the placebo effect</em>.
+For that reason, it is important that human subjects be <em>blind</em> to whether they are treated or not, for instance,
+by giving subjects in the control group a <em>placebo</em>.
+That makes the treatment and control groups more similar.
+Both groups receive something: the difference is in <em>what</em> they
+receive, rather than <em>whether</em> they receive anything.</p>
+<p>Also, subjective elements can deliberately or inadvertently enter the assessment of subjects’ responses to treatment,
+making it important for the people assessing the responses to be <em>blind</em> to which subjects received treatment.
+When neither the subjects nor the assessors know who was treated, the experiment is <em>double blind</em>.</p>
+<p>See <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm">SticiGui: Does Treatment Have an Effect?</a> for more discussion.</p>
+</div>
+<div class="section" id="the-2-sample-problem">
+<h2>The 2-sample problem<a class="headerlink" href="#the-2-sample-problem" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we have a group of <span class="math notranslate nohighlight">\(N\)</span> individuals who are randomized into two groups, a <em>treatment</em> group of size <span class="math notranslate nohighlight">\(N_t\)</span> and a <em>control</em> group of size <span class="math notranslate nohighlight">\(N_c = N - N_t\)</span>.
+Label the individuals from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.
+Let <span class="math notranslate nohighlight">\({\mathcal T}\)</span> denote the labels of individuals assigned to treatment and <span class="math notranslate nohighlight">\({\mathcal C}\)</span> denote
+the labels of those assigned to control.</p>
+<p>For each of the <span class="math notranslate nohighlight">\(N\)</span> individuals, we measure a quantitative (real-valued) response.
+Each individual <span class="math notranslate nohighlight">\(i\)</span> has two <em>potential responses</em>: the response <span class="math notranslate nohighlight">\(c_i \)</span>individual would have if assigned to
+the control group, and the response <span class="math notranslate nohighlight">\(t_i\)</span> the individual would have if assigned to the treatment group.</p>
+<p>We assume that individual <span class="math notranslate nohighlight">\(i\)</span>’s response depends <em>only</em> on that individual’s assigment, and not on anyone else’s assignment.
+This is the assumption of <em>non-interference</em>.
+In some cases, this assumption is reasonable; in others, it is not.</p>
+<p>For instance, imagine testing a vaccine for a communicable disease.
+If you and I have contact, whether you get the disease might depend on whether I am vaccinated—and <em>vice versa</em>—since if the vaccine protects me from illness, I won’t infect you.
+Similarly, suppose we are testing the effectiveness of an advertisement for a product.
+If you and I are connected and you buy the product, I might be more likely to buy it, even if I don’t
+see the advertisement.</p>
+<p>Conversely, suppose that “treatment” is exposure to a carcinogen, and the response whether the
+subject contracts cancer.
+On the assumption that cancer is not communicable, my exposure and your disease
+status have no connection.</p>
+<p>The <em>strong null hypothesis</em> is that individual by individual, treatment makes no difference whatsoever: <span class="math notranslate nohighlight">\(c_i = t_i\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>If so, any differences between statistics computed for the treatment and control groups are entirely due to the luck of the draw: which individuals happened to be assigned to treatment and which to control.</p>
+<p>We can find the <em>null distribution</em> of any statistic computed from the responses of the two groups: if the strong null hypothesis is true, we know what individual <span class="math notranslate nohighlight">\(i\)</span>’s response would have been whether assigned to treatment or to control—namely, the same.</p>
+<p>For instance, suppose we suspect that treatment tends to increase response: in general, <span class="math notranslate nohighlight">\(t_i \ge c_i\)</span>.
+Then we might expect <span class="math notranslate nohighlight">\(\bar{c} = \frac{1}{N_c} \sum_{i \in {\mathcal C}} c_i\)</span> to be less than
+<span class="math notranslate nohighlight">\(\bar{t} = \frac{1}{N_t} \sum_{i \in {\mathcal T}} t_i\)</span>.
+How large a difference between <span class="math notranslate nohighlight">\(\bar{c}\)</span> and <span class="math notranslate nohighlight">\(\bar{t}\)</span> would be evidence that treatment increases the response,
+beyond what might happen by chance through the luck of the draw?</p>
+<p>This amounts to asking whether the observed difference in means between the two groups is a high percentile
+of the distribution of that difference in means, calculated on the assumption that the null hypothesis is true.</p>
+<p>Because of how subjects are assigned to treatment or to control, all allocations of <span class="math notranslate nohighlight">\(N_t\)</span> subjects to
+treatment are equally likely.</p>
+<p>One way to partition the <span class="math notranslate nohighlight">\(N\)</span> subjects randomly into a group of size <span class="math notranslate nohighlight">\(N_c\)</span> and a group of size <span class="math notranslate nohighlight">\(N_t\)</span> is
+to permute the <span class="math notranslate nohighlight">\(N\)</span> subjects at random, then take the first <span class="math notranslate nohighlight">\(N_c\)</span> in the permuted list to be the control
+group, and the remaining <span class="math notranslate nohighlight">\(N_t\)</span> to be the treatment group.</p>
+</div>
+<div class="section" id="aside-random-number-generation-and-simulation">
+<h2>Aside: Random number generation and simulation<a class="headerlink" href="#aside-random-number-generation-and-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Most computers cannot generate true random numbers (there are rare exceptions that have <em>hardware random
+number generators</em>).
+Instead, they generate <em>psdudo-random numbers</em> using algorithms called <em>pseudo-random number generators</em> (PRNGs).
+PRNGs are deterministic, but the sequence of numbers they generate can behave like random numbers for
+some purposes—depending on the PRNG and the purpose.</p>
+<p>Older languages, operating systems, and non-statistical software (including Excel) tend to use low-quality
+PRNGs that are not suitable for statistical inference.</p>
+<p>A <em>linear congruential generator</em> makes sequences of the form</p>
+<div class="math notranslate nohighlight">
+\[ X_{n+1} = ( a X_n + c ) \mbox{ mod } m,\]</div>
+<p>with <span class="math notranslate nohighlight">\(m &gt; 0\)</span>, <span class="math notranslate nohighlight">\(0 \le c &lt; m\)</span>, <span class="math notranslate nohighlight">\(0 &lt; a &lt; m\)</span>, and “seed” <span class="math notranslate nohighlight">\(X_0\)</span>.
+This generator has the benefit of simplicity, but the quality is not adequate for statistics.
+Moreover, for some choices of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(m\)</span>, this can have especially poor behavior.
+One particularly bad generator, <span class="code">RANDU</span>, was used on IBM mainframes in the 1960s.
+It has <span class="math notranslate nohighlight">\(m = 2^{31}\)</span>, <span class="math notranslate nohighlight">\(c=0\)</span>, and <span class="math notranslate nohighlight">\(a = 65539\)</span>.
+It generates sequences with a very strong correlation: if you plot triples of numbers it generates
+as points in <span class="math notranslate nohighlight">\(\Re^3\)</span>, the numbers line up on 15 planes.
+Despite the fact that problems with this generator were already known in the early 1960s,
+it was implemented in the IBM/360 in the 1970s and widely promulgated.
+(See Marsaglia, G., 1968. Random numbers fall mainly in the planes. <em>PNAS</em>, <em>61</em> 25-28. http://www.pnas.org/content/61/1/25.full.pdf)
+Many scientific “results” are now in question because they relied on <span class="code">RANDU</span>.</p>
+<p>The Wichmann-Hill generator (published in 1982)
+was popular for a while; it combines three linear congruential generators.
+Excel purported to implement it, but at least through 2008, its implementation had bugs.
+(For instance,
+despite the fact that the Wichmann-Hill generator gives numbers between 0 and 1, the Excel
+PRNG occasionally gave negative numbers.
+See McCullough, B.D., 2008. Microsoft’s ‘Not the Wichmann-Hill’ random number generator. <em>Computational Statistics and Data Analysis</em>, <em>52</em>, 4587–4593.)</p>
+<p>Current high-end statistics packages and programming languages (e.g., R, Python, SAS, MATLAB) use the Mersenne Twister
+PRNG.
+The Mersenne Twister has a very long period (<span class="math notranslate nohighlight">\(2^{19937}-1\)</span>) and passed the <a class="reference external" href="https://en.wikipedia.org/wiki/Diehard_tests">DIEHARD tests</a> for equidistribution, etc.
+However, it is not adequate for cryptography (the <em>state space</em> is so small that its future values can be predicted
+from a relatively small number of observations).
+<em>Linear congruential</em> generators are generally not adequate for statistics.
+In particular, beware the algorithms in <em>Numerical Recipes</em> and the Excel PRNG.</p>
+</div>
+<div class="section" id="random-sampling">
+<h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
+<p>One standard way to draw a (pseudo-)random sample from a list is to assign a pseudo-random number to each
+element of the list, then sort the list by those numbers.
+Thus, the first element of the sample is the element of the list that was assigned the smallest number,
+the second element of the sample is the list element assigned the second-smallest number, etc.
+This generates a random sample in the same way that shuffling cards well generates random “hands” of cards.</p>
+<p>Formally, this is fine, but PRNGs have limitations.
+Even the Mersenne Twister runs into trouble generating random permutations of long vectors using the naiive approach (assign a random number to each element of the vector, then sort by those numbers).
+The period of the Mersenne Twister is about <span class="math notranslate nohighlight">\(4 \times 10^{6002}\)</span>.
+That’s less than the number of
+permutations of 2081 objects.</p>
+<div class="section" id="the-knuth-shuffle">
+<h3>The Knuth Shuffle<a class="headerlink" href="#the-knuth-shuffle" title="Permalink to this headline">¶</a></h3>
+<p>Constructing a random permutation as described above is inefficient, in part because it requires sorting.
+The <em>Knuth Shuffle</em> is more efficient and can generate a random permutation in place.
+The Knuth shuffle goes through the list, randomly swapping the current element
+with elements above it in the list (or leaving it in place).
+That is, item <span class="math notranslate nohighlight">\(i\)</span> is swapped with item <span class="math notranslate nohighlight">\(j \le i\)</span> with probability <span class="math notranslate nohighlight">\(1/i\)</span>
+(swapping item <span class="math notranslate nohighlight">\(i\)</span> with item <span class="math notranslate nohighlight">\(i\)</span> leaves it in place, of course).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># boilerplate</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>  <span class="c1"># distributions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span> <span class="c1"># special functions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">random</span> <span class="c1"># random variables, distributions, etc.</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">widgets</span>
+<span class="c1"># from ipywidgets import interact, interactive, FloatSliderWidget, fixed # interactive stuff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random sampling using random permutations</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># dummy data for illustration</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">20150824</span><span class="p">)</span>  <span class="c1"># deliberately set the seed for reproducible results</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># to use scipy instead of numpy, we could set x = sp.random.uniform(low=0, high=1, size=n)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">sam</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span> <span class="s1">&#39;x:&#39;</span><span class="p">,</span> <span class="n">x</span>
+<span class="nb">print</span> <span class="s1">&#39;i:&#39;</span><span class="p">,</span> <span class="n">i</span>
+<span class="nb">print</span> <span class="s1">&#39;shuffled data:&#39;</span><span class="p">,</span> <span class="n">sam</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: [ 0.38376584  0.56143969  0.93319055  0.31239854  0.32030197  0.79957872
+  0.79578209  0.54639143  0.66867049  0.39427116  0.61276661  0.07677212
+  0.37835371  0.11060475  0.16613878  0.77981969  0.42478138  0.69276422
+  0.89906575  0.17081513]
+i: [11 13 14 19  3  4 12  0  9 16  7  1 10  8 17 15  6  5 18  2]
+shuffled data: [12, 14, 15, 20, 4, 5, 13, 1, 10, 17, 8, 2, 11, 9, 18, 16, 7, 6, 19, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="computational-assignment">
+<h3>Computational Assignment<a class="headerlink" href="#computational-assignment" title="Permalink to this headline">¶</a></h3>
+<p>Implement Knuth’s algorithm in Python from scratch, using numpy.random.random().</p>
+<p>Compare the cpu time taken to generate <span class="math notranslate nohighlight">\(10^4\)</span> random permutations of arrays of length <span class="math notranslate nohighlight">\(10^k\)</span>, for <span class="math notranslate nohighlight">\(k = 2, 3, 4, 5\)</span> for</p>
+<ol class="simple">
+<li><p>your implementation of Knuth’s algorithm</p></li>
+<li><p>the method above generating <span class="math notranslate nohighlight">\(10^k\)</span> uniform random numbers and sorting the results</p></li>
+<li><p>the numpy.random.shuffle(), which randomly shuffles the array in place</p></li>
+<li><p>numpy.random.permutation(), which generates a new permutated array</p></li>
+</ol>
+<p>IPython has a “magic” command %%timeit that will help you do this. For an example, see the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it n = 10**3
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 loops, best of 3: 134 ms per loop
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it n = 10**3
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 loops, best of 3: 837 ms per loop
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it n= 10**3
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># to use scipy instead of numpy, we could set x = sp.random.uniform(low=0, high=1, size=n)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">sam</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 loops, best of 3: 766 ms per loop
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hypothesis-testing">
+<h2>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h2>
+<p>[To do.]</p>
+<div class="section" id="null-and-alternative-hypotheses">
+<h3>Null and alternative hypotheses<a class="headerlink" href="#null-and-alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
+<p>[To do.]</p>
+</div>
+</div>
+<div class="section" id="significance-level-and-power">
+<h2>Significance level and power<a class="headerlink" href="#significance-level-and-power" title="Permalink to this headline">¶</a></h2>
+<p>Chance of the same event: rejecting the null hypothesis.</p>
+<p>Currently vilified, partly because it is misused.</p>
+<p>[To do.]</p>
+</div>
+<div class="section" id="p-values">
+<h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
+<p>[To do.]
+Start with family of hypothesis tests for any desired significance level…</p>
+</div>
+<div class="section" id="confidence-sets">
+<h2>Confidence Sets<a class="headerlink" href="#confidence-sets" title="Permalink to this headline">¶</a></h2>
+<p>[To do.]</p>
+<div class="section" id="confidence-bounds-for-binomial-p-and-hypergeometric-g">
+<h3>Confidence bounds for Binomial <span class="math notranslate nohighlight">\(p\)</span>  and Hypergeometric <span class="math notranslate nohighlight">\(G\)</span><a class="headerlink" href="#confidence-bounds-for-binomial-p-and-hypergeometric-g" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="p">(</span><span class="n">binom</span><span class="p">,</span> <span class="n">hypergeom</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">binom_conf_interval</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute a confidence interval for a binomial p, the probability of success in each trial.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        The number of Bernoulli trials.</span>
+<span class="sd">    x : int</span>
+<span class="sd">        The number of successes.</span>
+<span class="sd">    cl : float in (0, 1)</span>
+<span class="sd">        The desired confidence level.</span>
+<span class="sd">    alternative : {&quot;two-sided&quot;, &quot;lower&quot;, &quot;upper&quot;}</span>
+<span class="sd">        Indicates the alternative hypothesis.</span>
+<span class="sd">    p : float in (0, 1)</span>
+<span class="sd">        Starting point in search for confidence bounds for probability of success in each trial.</span>
+<span class="sd">    kwargs : dict</span>
+<span class="sd">        Key word arguments</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        lower and upper confidence level with coverage (approximately)</span>
+<span class="sd">        1-alpha.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    xtol : float</span>
+<span class="sd">        Tolerance</span>
+<span class="sd">    rtol : float</span>
+<span class="sd">        Tolerance</span>
+<span class="sd">    maxiter : int</span>
+<span class="sd">        Maximum number of iterations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="s2">&quot;upper&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">ci_low</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">ci_upp</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;two-sided&#39;</span><span class="p">:</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">!=</span> <span class="s2">&quot;upper&quot;</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">cl</span> <span class="o">-</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+        <span class="n">ci_low</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">!=</span> <span class="s2">&quot;lower&quot;</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cl</span><span class="p">)</span>
+        <span class="n">ci_upp</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_upp</span>
+
+
+<span class="k">def</span> <span class="nf">hypergeom_conf_interval</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Confidence interval for a hypergeometric distribution parameter G, the number of good </span>
+<span class="sd">    objects in a population in size N, based on the number x of good objects in a simple</span>
+<span class="sd">    random sample of size n.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        The number of draws without replacement.</span>
+<span class="sd">    x : int</span>
+<span class="sd">        The number of &quot;good&quot; objects in the sample.</span>
+<span class="sd">    N : int</span>
+<span class="sd">        The number of objects in the population.</span>
+<span class="sd">    cl : float in (0, 1)</span>
+<span class="sd">        The desired confidence level.</span>
+<span class="sd">    alternative : {&quot;two-sided&quot;, &quot;lower&quot;, &quot;upper&quot;}</span>
+<span class="sd">        Indicates the alternative hypothesis.</span>
+<span class="sd">    G : int in [0, N]</span>
+<span class="sd">        Starting point in search for confidence bounds for the hypergeometric parameter G.</span>
+<span class="sd">    kwargs : dict</span>
+<span class="sd">        Key word arguments</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        lower and upper confidence level with coverage (at least)</span>
+<span class="sd">        1-alpha.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    xtol : float</span>
+<span class="sd">        Tolerance</span>
+<span class="sd">    rtol : float</span>
+<span class="sd">        Tolerance</span>
+<span class="sd">    maxiter : int</span>
+<span class="sd">        Maximum number of iterations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="s2">&quot;upper&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">G</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">N</span>
+    <span class="n">ci_low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ci_upp</span> <span class="o">=</span> <span class="n">N</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;two-sided&#39;</span><span class="p">:</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">!=</span> <span class="s2">&quot;upper&quot;</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">cl</span> <span class="o">-</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">ci_low</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">!=</span> <span class="s2">&quot;lower&quot;</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span>
+        <span class="n">ci_upp</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_upp</span>
+
+<span class="n">binom_conf_interval</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.00043638656412672464, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="mi">141</span><span class="o">/</span><span class="mi">339159</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.000415734213156661
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="permutation-tests">
+<h2>Permutation tests<a class="headerlink" href="#permutation-tests" title="Permalink to this headline">¶</a></h2>
+<p>Basic setup: null hypothesis under which the probability distribution of the data is invariant under the action of some group.
+That is, if the null hypothesis is true, then there are many sets of data that would be (known to be) just as
+likely as the data actually observed.</p>
+<p>Examples: symmetry about a point, rotational invariance, …
+[To do.]</p>
+</div>
+<div class="section" id="neyman-model-for-causal-inference">
+<h2>Neyman model for causal inference<a class="headerlink" href="#neyman-model-for-causal-inference" title="Permalink to this headline">¶</a></h2>
+<p>The ticket model.
+Each “subject” is represented by a ticket with two numbers on it, the response that the subject would have
+if assigned to control, and the response if assigned to treatment.
+These are assumed to be pre-ordained, fixed numbers.
+(Note that non-interference is built into this framework.)</p>
+<p>We assign subjects at random according to the experimental design.</p>
+<p>Non-interference: when is it realistic?
+Strong null hypothesis.</p>
+<div class="section" id="generalizations">
+<h3>Generalizations<a class="headerlink" href="#generalizations" title="Permalink to this headline">¶</a></h3>
+<p>Two probability distributions on each ticket instead of two numbers.</p>
+</div>
+</div>
+<div class="section" id="gender-bias-in-teaching-evaluations">
+<h2>Gender Bias in Teaching Evaluations<a class="headerlink" href="#gender-bias-in-teaching-evaluations" title="Permalink to this headline">¶</a></h2>
+<p>MacNell, Driscoll, and Hunt (2014. <a class="reference external" href="http://link.springer.com/article/10.1007%2Fs10755-014-9313-4">What’s in a Name: Exposing Gender Bias in Student Ratings of Teaching</a>, <em>Innovative Higher Education</em>) conducted a controlled, randomized experiment on
+the effect of students’ perception of instructors’ gender on teaching evaluations
+in an online course.
+Students in the class did not know the instructors’ true genders.</p>
+<p>MacNell et al. randomized 43 students in an online course into four groups: two taught by a female
+instructor and two by a male instructor.
+One of the groups taught by each instructor was led to believe the instructor was male;
+the other was led to believe the instructor was female.
+Comparable instructor biographies were given to all students.
+Instructors treated the groups identically, including returning assignments at the same time.</p>
+<p>When students thought the instructor was female, students rated the instructor lower, on average,
+in every regard.</p>
+<table>
+<tr><th>Characteristic</th> <th>F - M</th></tr>
+<tr><td>Caring</td><td> -0.52</td></tr>
+<tr><td> Consistent</td><td> -0.47</td></tr>
+<tr><td> Enthusiastic</td><td> -0.57</td></tr>
+<tr><td> Fair </td><td>-0.76</td></tr>
+<tr><td> Feedback</td><td> -0.47</td></tr>
+<tr><td> Helpful</td><td> -0.46</td></tr>
+<tr><td> Knowledgeable</td><td> -0.35</td></tr>
+<tr><td> Praise</td><td> -0.67</td></tr>
+<tr><td> Professional</td><td> -0.61</td></tr>
+<tr><td> Prompt</td><td> -0.80</td></tr>
+<tr><td> Respectful</td><td> -0.61</td></tr>
+<tr><td> Responsive</td><td> -0.22</td></tr>
+</table>
+<p>Those results are for a 5-point scale, so a difference of 0.8 is 16% of the entire scale.</p>
+<p>MacNell et al. graciously shared their data.
+The evaluation data are coded as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Group
+      3 (12 students) - TA identified as male, true TA gender female 
+      4 (11 students) - TA identified as male, true TA gender male
+      5 (8 students) - TA identified as female, true TA gender female
+      6 (12 students) - TA identified as female, true TA gender male
+tagender - 1 if TA is actually male, 0 if actually female 
+taidgender - 1 if TA is identified as male, 0 if identified as female 
+gender - 1 if student is male, 0 if student is female
+</pre></div>
+</div>
+<p>There are grades for 47 students but evaluations for only 43 (4 did not respond: three in group 5 and one in group 6).
+The grades are not linked to the evaluations, per the IRB protocol.</p>
+<div class="section" id="interlude-partitioning-sets-into-more-than-two-subsets">
+<h3>Interlude: partitioning sets into more than two subsets<a class="headerlink" href="#interlude-partitioning-sets-into-more-than-two-subsets" title="Permalink to this headline">¶</a></h3>
+<p>Recall that there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of picking a subset of size <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(n\)</span> items;
+hence there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of dividing a set into a subset of size <span class="math notranslate nohighlight">\(k\)</span> and one of size <span class="math notranslate nohighlight">\(n-k\)</span>
+(once you select those that belong to the subset of size <span class="math notranslate nohighlight">\(k\)</span>, the rest must be in the complementary
+subset of size <span class="math notranslate nohighlight">\(n-k\)</span>.</p>
+<p>In this problem, we are partitioning 43 things into 4 subsets, one of size 8, one of size 11, and
+two of size 12.
+How many ways are there of doing that?</p>
+<p>Recall the <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/SticiGui/Text/counting.htm#fundamental_rule">Fundamental Rule of Counting</a>:
+If a set of choices, <span class="math notranslate nohighlight">\(T_1, T_2, \ldots,  T_k\)</span>, could result, respectively,
+in <span class="math notranslate nohighlight">\(n_1, n_2, \ldots, n_k\)</span> possible outcomes, the entire set of <span class="math notranslate nohighlight">\(k\)</span> choices has
+<span class="math notranslate nohighlight">\(\prod_{i=1}^k n_k\)</span> possible outcomes.</p>
+<p>We can think of the allocation of students to the four groups as choosing 8 of the 43
+students for the first group, then 11 of the remaining 35 for the second,
+then 12 of the remaining 24 for the third.
+The fourth group must containe the remaining 12.</p>
+<p>The number of ways of doing that is</p>
+<div class="math notranslate nohighlight">
+\[  
+   {43 \choose 8}{35 \choose 11}{24 \choose 12} =
+   \frac{43}{8! 35!} \frac{35!}{11! 24!} \frac{24!}{12! 12!} = \frac{43!}{8! 11! 12! 12!}.
+\]</div>
+<p>Does the number depend on the order in which we made the choices?
+Suppose we made the choices in a different order: first 12 students for one group, then
+8 for the second, then 12 for the third (the fourth gets the remaining 11 students).
+The number of ways of doing that is
+$<span class="math notranslate nohighlight">\(  
+   {43 \choose 12}{31 \choose 8}{23 \choose 12} =
+   \frac{43}{12! 31!} \frac{31!}{8! 23!} \frac{23!}{12! 11!} = \frac{43!}{8! 11! 12! 12!}.
+\)</span>$
+The number does not depend on the order in which we make the choices.</p>
+<p>By the same reasoning, the number of ways of dividing a set of <span class="math notranslate nohighlight">\(n\)</span> objects into
+<span class="math notranslate nohighlight">\(m\)</span> subsets of sizes <span class="math notranslate nohighlight">\(k_1, \ldots k_m\)</span> is given by the <em>multinomial coefficient</em>
+$<span class="math notranslate nohighlight">\(
+   {n \choose k_1, k_2, \ldots, k_m} =
+   {n \choose k_1}{n-k_1 \choose k_2} {n-k_1-k_2 \choose k_3} \cdots {n - \sum_{i=1}^{m-1} k_i \choose k_{m-1}}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[ = \frac{n! (n-k_1)! (n-k_1 - k_2)! \cdots 
+   (n - k_1 - \cdots - k_{m-1}!}{k_1! (n-k_1)! k_2! (n-k_1-k_2)! \cdots k_m!}
+   = \frac{n!}{\prod_{i=1}^m k_i!}.
+\]</div>
+<p>We will check how surprising it would be for the means to be so much lower when the TA is identified as female, if in fact there is “no real difference” in how they were rated, and the apparent difference is just due to the luck of the draw: which students happened to end up in which section.</p>
+<p>In the actual randomization, all <span class="math notranslate nohighlight">\(43 \choose 8, 11, 12, 12\)</span> allocations
+were equally likely.
+But there might be real differences between the two instructors.
+Hence, we’d like to use each of them as his or her own “control.”</p>
+<p>Each student’s potential responses are represented by a ticket with 4 numbers:</p>
+<ul class="simple">
+<li><p>the rating that the student would assign to instructor A if instructor A is identified as male</p></li>
+<li><p>the rating that the student would assign to instructor A if instructor A is identified as female</p></li>
+<li><p>the rating that the student would assign to instructor B if instructor B is identified as male</p></li>
+<li><p>the rating that the student would assign to instructor B if instructor B is identified as female</p></li>
+</ul>
+<p>The null hypothesis is that the first two numbers are equal and the second two numbers are equal,
+but the first two numbers might be different from the second two numbers.
+This corresponds to the hypohtesis that<br />
+students assigned to a given TA would rate him or her the same, whether that TA seemed to be male or female.
+For all students assigned instructor 1, we know both of the first two numbers if the hull hypothesis
+is true; but we know neither of the second two numbers.
+Similarly, if the null hypothesis is true, we know both of the second two numbers for all students
+assigned to instructor 2, but we know neither of the first two numbers for those students.</p>
+<p>Because of how the randomization was performed, all allocations
+of students to sections that keep the number of students in each section the same are equally likely, so
+in particular all allocations that keep the same students assigned to each actual instructor
+the same are equally likely.</p>
+<p>Hence, all <span class="math notranslate nohighlight">\({20 \choose 8}\)</span> ways of splitting the 20 students assigned to the female instructor into two groups, one with 8 students and one with 12, are equally likely. Similarly, all
+<span class="math notranslate nohighlight">\({23 \choose 12}\)</span> ways of splitting the 23 students assigned to the male instructor into two groups, one with 12 students and one with 11, are equally likely.
+We can thus imagine shuffling the female TA’s students between her sections, and the male TA’s students
+between his sections, and examine the distribution of the difference between the mean score for the sections where the
+TA was identified as male is larger than the mean score for the sections where the TA was identified as
+female.</p>
+<p>If the difference is rarely as large as the observed mean difference, the observed mean difference gives
+evidence that being identified as female really does lower the scores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of allocations to 8, 11, 12, 12</span>
+<span class="nb">print</span> <span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">43</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># big number!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the data are in a .csv file called &quot;Macnell-RatingsData.csv&quot; in the directory Data</span>
+<span class="kn">import</span> <span class="nn">csv</span>  <span class="c1"># library for dealing with .csv files</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span> <span class="p">(</span><span class="s1">&#39;./Data/Macnell-RatingsData.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">ratings</span>
+<span class="nb">print</span> <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Computational assignment<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Rosenzweig, M.R., E.L. Bennet, and M.C. Diamond, 1972. Brain changes in response to experience, <em>Scientific American</em>, <em>226</em>, 22–29 report an experiment in which 11 triples of male rats, each triple from the same litter, were
+assigned at random to three different environments, “enriched” (E), standard, and “impoverished.”</p>
+<p>After 65 days, they euthanized the rats and measured their cortical masses (mg).
+Here are the results: [To do: check that this is impoverished, not standard.]</p>
+<table>
+<tr>
+<td> enriched </td><td> 689 </td><td> 656 </td><td> 668 </td><td> 660 </td><td> 679 </td><td> 663 </td><td> 664 </td><td> 647 </td><td> 694 </td><td> 633 </td><td>653 </td>
+</tr>
+<tr>
+<td> impoverished </td><td> 657</td><td> 623</td><td> 652</td><td> 654</td><td> 658</td><td> 646</td><td> 600</td><td> 640</td><td> 605</td><td> 635</td><td> 642 </td>
+</tr>
+<tr>
+<td> difference </td><td> 32</td><td>  33</td><td>  16</td><td>   6</td><td>  21</td><td>  17</td><td>  64</td><td>   7</td><td>  89</td><td>  -2</td><td>  11
+</tr>
+</table>
+<ol class="simple">
+<li><p>Code, from scratch, an appropriate 2-sample permutation test in Python using the sum of the 11 differences as the test statistic. The permutation scheme should match the actual randomization in the experiment.
+You may either construct a test that generates permutations at random, or write code that enumerates all permutations (since there are only 2048 possible equally-likely data in this case).
+If you choose to enumerate all permutations, you can use the <span class="code">itertools</span> library.</p></li>
+<li><p>Explain whether a 1-sided or 2-sided test is appropriate.</p></li>
+<li><p>Under the Neyman model, find the <span class="math notranslate nohighlight">\(P\)</span>-value of the strong null hypothesis that the treatment makes no difference whatsoever.
+Use <span class="math notranslate nohighlight">\(10^4\)</span> random assignments or enumerate all possible assignments.
+Your code should work in the general case (different data, different number of litters), not only the particular set of 22 numbers given.
+That said, for reference, the <span class="math notranslate nohighlight">\(P\)</span>-value for a 2-sided test should be <span class="math notranslate nohighlight">\(1/2^9\)</span> for
+these data, so you can check your answer.</p></li>
+<li><p>Find an upper confidence bound for the <span class="math notranslate nohighlight">\(P\)</span>-value by inverting Binomial tests. You may re-use code from the class to do this.</p></li>
+</ol>
+<p>For your convenience, the data are below in a numpy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">brain_wts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">689</span><span class="p">,</span> <span class="mi">656</span><span class="p">,</span> <span class="mi">668</span><span class="p">,</span> <span class="mi">660</span><span class="p">,</span> <span class="mi">679</span><span class="p">,</span> <span class="mi">663</span><span class="p">,</span> <span class="mi">664</span><span class="p">,</span> <span class="mi">647</span><span class="p">,</span> <span class="mi">694</span><span class="p">,</span> <span class="mi">633</span><span class="p">,</span> <span class="mi">653</span><span class="p">],</span>\
+                       <span class="p">[</span><span class="mi">657</span><span class="p">,</span> <span class="mi">623</span><span class="p">,</span> <span class="mi">652</span><span class="p">,</span> <span class="mi">654</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span> <span class="mi">646</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">605</span><span class="p">,</span> <span class="mi">635</span><span class="p">,</span> <span class="mi">642</span><span class="p">]</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> talkTools.py
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python2",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python2'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

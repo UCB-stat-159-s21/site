@@ -1,0 +1,1111 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chebychev’s inequality &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/hoeffding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/hoeffding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Chebychev’s inequality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-chebychev-s-inequality-for-confidence-intervals">
+     Using Chebychev’s inequality for confidence intervals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hoeffding-s-inequality">
+   Hoeffding’s Inequality
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#truncation">
+   Truncation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-hoeffding-s-inequality-and-chebychev-s-inequality-for-the-sample-mean-from-finite-bounded-populations">
+   Comparing Hoeffding’s Inequality and Chebychev’s Inequality for the sample mean from finite bounded populations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-hoeffding-s-inequality-for-confidence-intervals">
+   Using Hoeffding’s inequality for confidence intervals
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-in-this-direction">
+   More in this direction…
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-next">
+   What’s next?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p class="title">Confidence bounds via the Chebychev and Hoeffding Inequalities</p><div class="section" id="chebychev-s-inequality">
+<h1>Chebychev’s inequality<a class="headerlink" href="#chebychev-s-inequality" title="Permalink to this headline">¶</a></h1>
+<div class="theorem">
+   Suppose $X$ has finite expected value $\mu$ and variance $\sigma^2$. Then
+$$
+  \mathbb P_\mu (| X - \mu | \ge k \sigma ) \le 1/k^2.
+$$
+</div>
+<div class="section" id="using-chebychev-s-inequality-for-confidence-intervals">
+<h2>Using Chebychev’s inequality for confidence intervals<a class="headerlink" href="#using-chebychev-s-inequality-for-confidence-intervals" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are independent random variables and <span class="math notranslate nohighlight">\(\{\ell_j\}_{j=1}^n\)</span> and
+<span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^n\)</span> are real numbers such that</p>
+<div class="math notranslate nohighlight">
+\[\mathbb P (X_j \in [\ell_j, u_j]) = 1,  \forall j = 1, \ldots, n.\]</div>
+<p>Let <span class="math notranslate nohighlight">\(\bar{X} \equiv \frac{1}{n} \sum_{j=1}^n X_j\)</span>, <span class="math notranslate nohighlight">\(\mu = \mathbb E \bar{X}\)</span>, and
+<span class="math notranslate nohighlight">\(\tau^2 \equiv \sum_{j=1}^n (u_j - \ell_j)^2\)</span>.</p>
+<p>Let’s bound <span class="math notranslate nohighlight">\(\mbox{Var } X_j = \mathbb E (X_j - \mathbb E X_j)^2\)</span>.
+Intuitively, the variance is maximized by “spreading out” the distribution as much
+as possible, which would mean putting mass 1/2 at <span class="math notranslate nohighlight">\(\ell_j\)</span> and mass 1/2 at <span class="math notranslate nohighlight">\(u_j\)</span>.
+(This is directly analogous to the fact that the variance of a Bernoulli distribution
+is maximal when <span class="math notranslate nohighlight">\(p = 1/2\)</span>.)
+The mean of the corresponding distribution is <span class="math notranslate nohighlight">\((\ell_j + u_j)/2\)</span>, and the
+variance is</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{2} \left ( \ell_j - (\ell_j + u_j)/2 \right )^2 + 
+    \frac{1}{2} \left ( u_j - (\ell_j + u_j)/2 \right )^2
+   = \frac{1}{2} \left ( \frac{\ell_j - u_j}{2} \right )^2 +
+      \frac{1}{2} \left ( \frac{u_j - \ell_j}{2} \right )^2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+   = \left ( \frac{\ell_j - u_j}{2} \right )^2
+   = \frac{(u_j - \ell_j)^2}{4} .
+\]</div>
+<p>(As a sanity check, this variable is a shifted and scaled Bernoulli with <span class="math notranslate nohighlight">\(p=1/2\)</span>,
+which has variance <span class="math notranslate nohighlight">\(1/4\)</span>. The shift doesn’t affect the variance, and the scale factor is
+<span class="math notranslate nohighlight">\(u_j - \ell_j\)</span>, so the new variance should be <span class="math notranslate nohighlight">\(1/4 \times (u_j - \ell_j)^2\)</span>.)</p>
+<p>Hence
+$<span class="math notranslate nohighlight">\( \mbox{Var } \bar{X} \equiv \sigma^2 = \frac{1}{n^2} \sum_{j=1}^n \mbox{Var }X_j  \le \frac{\tau^2}{4n^2}.\)</span>$</p>
+<p>Since <span class="math notranslate nohighlight">\(\sigma \le \tau/(2n)\)</span>,
+$<span class="math notranslate nohighlight">\( \mathbb P_\mu \left (| \bar{X} - \mu | \ge k \frac{\tau}{2 n} \right )
+  \le \mathbb P_\mu \left (| \bar{X} - \mu | \ge k \sigma \right )
+  \le 1/k^2,
+\)</span><span class="math notranslate nohighlight">\(
+and thus
+\)</span><span class="math notranslate nohighlight">\( \mathbb P_\mu \left (| \bar{X} - \mu | \ge a \right )
+  \le \frac{\tau^2}{4n^2 a^2}.
+\)</span><span class="math notranslate nohighlight">\(
+This bound is trivial (because it is greater than 1) until
+\)</span><span class="math notranslate nohighlight">\( 
+   \frac{\tau^2}{4n^2 a^2} &lt; 1,
+\)</span><span class="math notranslate nohighlight">\(
+i.e.,
+\)</span><span class="math notranslate nohighlight">\(
+   a &gt; \frac{\tau}{2 n}.
+\)</span>$</p>
+</div>
+</div>
+<div class="section" id="hoeffding-s-inequality">
+<h1>Hoeffding’s Inequality<a class="headerlink" href="#hoeffding-s-inequality" title="Permalink to this headline">¶</a></h1>
+<div class="theorem">
+Let $\{X_j\}_{j=1}^n$ be independent random variables and $\{\ell_j\}_{j=1}^n$ and
+$\{u_j\}_{j=1}^n$ be real numbers such that
+<div class="math notranslate nohighlight">
+\[\mathbb P (X_j \in [\ell_j, u_j]) = 1,  \forall j = 1, \ldots, n,\]</div>
+<p>and define <span class="math notranslate nohighlight">\(\bar{X} \equiv \frac{1}{n} \sum_j X_j\)</span>, <span class="math notranslate nohighlight">\(\mu \equiv \mathbb E \bar{X}\)</span>, and
+<span class="math notranslate nohighlight">\(\tau^2 \equiv \sum_{j=1}^n (u_j - \ell_j)^2\)</span>.</p>
+<p class="gap01">
+Then 
+$$ 
+   \mathbb P_\mu ( \bar{X} - \mu \ge a ) \le 
+      \exp \left (-\frac{2n^2 a^2}{\tau^2} \right ) 
+$$
+and
+$$
+   \mathbb P_\mu ( |\bar{X} - \mu | \ge a ) \le  
+         2 \exp \left(-\frac{2n^2 a^2}{\tau^2} \right ).
+$$
+</p>
+</div>
+<p>This bound is useful once
+$<span class="math notranslate nohighlight">\( 
+  2 \exp \left(-\frac{2n^2 a^2}{\tau^2} \right ) &lt; 1,
+\)</span><span class="math notranslate nohighlight">\(
+i.e.,
+\)</span><span class="math notranslate nohighlight">\(
+   a &gt; \sqrt{-2\ln 1/2} \cdot \frac{\tau}{2  n}.
+\)</span><span class="math notranslate nohighlight">\(
+Since \)</span>\sqrt{-2 \ln 1/2} \approx 1.18<span class="math notranslate nohighlight">\(, Hoeffding's inequality requires \)</span>a<span class="math notranslate nohighlight">\( to be about 18% larger to
+be useful compared to Chebychev's inequality, but it is exponentially better as \)</span>n$ grows.</p>
+</div>
+<div class="section" id="truncation">
+<h1>Truncation<a class="headerlink" href="#truncation" title="Permalink to this headline">¶</a></h1>
+<p>If we know <em>a priori</em> that <span class="math notranslate nohighlight">\(\mu \in [\ell, u]\)</span>, we can take the intersection of any confidence interval <span class="math notranslate nohighlight">\(\mathcal I\)</span> with <span class="math notranslate nohighlight">\([\ell, u]\)</span> without losing any coverage probability: if <span class="math notranslate nohighlight">\(\mathcal I \ni \mu\)</span>, then <span class="math notranslate nohighlight">\(\mathcal I \cap [\ell, u] \ni \mu\)</span>.
+Hence, we can <em>truncate</em> any confidence interval by taking its intersection with <span class="math notranslate nohighlight">\([\ell, u]\)</span> without
+reducing the confidence level.</p>
+<p>For instance, suppose <span class="math notranslate nohighlight">\(\mathbb P X_j \in [\ell_j, u_j]) = 1,  \forall j = 1, \ldots, n\)</span>.
+Define <span class="math notranslate nohighlight">\(\ell \equiv \frac{1}{n} \sum_{j=1}^n \ell_j\)</span> and <span class="math notranslate nohighlight">\(u \equiv \frac{1}{n} \sum_{j=1}^n u_j\)</span>.
+Then</p>
+<div class="math notranslate nohighlight">
+\[\mathbb P \{ \bar{X} \in [\ell, u] \} = 1,\]</div>
+<p>and thus <span class="math notranslate nohighlight">\(\mu \equiv \mathbb E \bar{X} \in [\ell, u]\)</span>.  Since we know with certainty that <span class="math notranslate nohighlight">\(\mu \in [\ell, u]\)</span>,
+any portion of a confidence interval <span class="math notranslate nohighlight">\(\mathcal I\)</span> that lies outside <span class="math notranslate nohighlight">\([\ell, u]\)</span> cannot help it cover <span class="math notranslate nohighlight">\(\mu\)</span>, and we might as well use <span class="math notranslate nohighlight">\(\mathcal I \cap [\ell, u]\)</span> if it is shorter than <span class="math notranslate nohighlight">\(\mathcal I\)</span>: we gain precision without losing coverage.</p>
+<p>Basing a confidence interval on Chebychev’s inequality or Hoeffding’s inequality sometimes produces an interval that can be improved by truncation, decreasing the length (and expected length) without sacrificing coverage.</p>
+</div>
+<div class="section" id="comparing-hoeffding-s-inequality-and-chebychev-s-inequality-for-the-sample-mean-from-finite-bounded-populations">
+<h1>Comparing Hoeffding’s Inequality and Chebychev’s Inequality for the sample mean from finite bounded populations<a class="headerlink" href="#comparing-hoeffding-s-inequality-and-chebychev-s-inequality-for-the-sample-mean-from-finite-bounded-populations" title="Permalink to this headline">¶</a></h1>
+<p>Both inequalities bound <span class="math notranslate nohighlight">\(\mathbb P_\mu (|\bar{X} - \mu | \ge a)\)</span> in terms of <span class="math notranslate nohighlight">\(\frac{\sum_{j=1}^n (u_j - \ell_j)^2}{n^2 a^2}\)</span>,
+but Hoeffding’s bound is exponentially better.</p>
+<p>Here is a comparison, normalized by taking <span class="math notranslate nohighlight">\(\tau^2 \equiv \sum_{j=1}^n (u_j - \ell_j)^2 = n\)</span> so that <span class="math notranslate nohighlight">\(\tau^2/n = 1\)</span>, as would be the case if <span class="math notranslate nohighlight">\(\ell_j = 0\)</span> and <span class="math notranslate nohighlight">\(u_j = 1\)</span>, <span class="math notranslate nohighlight">\(\forall j\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the first cell with code: set up the Python environment</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ipywidgets.widgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chebychev</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ssByn</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ssByn</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">hoeffding</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ssByn</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">ssByn</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">chebychevHoeffdingBoundPlot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ssByn</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">aMax</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">pts</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">       Plots the bounds on P( |\bar{X} - \mu | \ge a) for Chebychev&#39;s inequality and </span>
+<span class="sd">       Hoeffding&#39;s inequality.</span>
+<span class="sd">       \bar{X} is the sample mean of n independent bounded random variables.</span>
+<span class="sd">       ssBy is the mean sum of squares of the differences between the upper and lower bounds on </span>
+<span class="sd">       each of those n variables.</span>
+<span class="sd">       Plots the curves as pts points</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">aMin</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">ssByn</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>  <span class="c1"># smallest a for which Hoeffding bound is nontrivial</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">aMin</span><span class="p">,</span> <span class="n">aMax</span><span class="p">,</span> <span class="n">pts</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cheb</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">fmin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">chebychev</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ssByn</span><span class="p">,</span> <span class="n">x</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Chebychev&#39;</span><span class="p">)</span>
+    <span class="n">hoef</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hoeffding</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ssByn</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Hoeffding&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Bound on $\mathbf</span><span class="si">{P}</span><span class="s1"> (|\bar</span><span class="si">{X}</span><span class="s1"> - \mu| &gt; a)$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;best&#39;</span><span class="p">)</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">chebychevHoeffdingBoundPlot</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>\
+         <span class="n">ssByn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>\
+         <span class="n">aMax</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">pts</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.chebychevHoeffdingBoundPlot&gt;
+</pre></div>
+</div>
+<img alt="../_images/hoeffding_6_1.png" src="../_images/hoeffding_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="using-hoeffding-s-inequality-for-confidence-intervals">
+<h1>Using Hoeffding’s inequality for confidence intervals<a class="headerlink" href="#using-hoeffding-s-inequality-for-confidence-intervals" title="Permalink to this headline">¶</a></h1>
+<p>Suppose that <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span> are iid with support <span class="math notranslate nohighlight">\([0, 1]\)</span>.
+Then <span class="math notranslate nohighlight">\(\tau = \sqrt{n}\)</span>.</p>
+<p class="gap01">
+It follows that
+$$
+   A_\alpha(\theta) = \left [0, \theta + \sqrt{\frac{-\ln \alpha}{2n}} \right ]
+$$
+is the (one-sided) acceptance region for a level-$\alpha$ test of the hypothesis $\mu = \theta$;
+$$
+   \mathbb P_\mu \left (\bar{X} - \sqrt{\frac{-\ln \alpha}{2n}} \ge \mu \right ) \le \alpha;
+$$
+and 
+$$\left [\bar{X} - \sqrt{\frac{-\ln \alpha}{2n}}, 1 \right ]$$ 
+is a one-sided
+confidence interval for $\mu$, with confidence level $1-\alpha$.
+</p>
+<p class="gap01">
+Similarly,
+$$
+   A_\alpha(\theta) = 
+   \left [\theta - \sqrt{\frac{-\ln \alpha/2}{2n}}, \theta + \sqrt{\frac{-\ln \alpha/2}{2n}} \right ]
+$$
+is the two-sided acceptance region for a level-$\alpha$ test of the hypothesis $\mu = \theta$;
+$$
+   \mathbb P_\mu \left ( \left | \bar{X} - \sqrt{\frac{-\ln \alpha/2}{2n}} \right | \ge \mu \right ) \le \alpha;
+$$
+and 
+$$\left [\bar{X} - \sqrt{\frac{-\ln \alpha/2}{2n}}, \bar{X} + \sqrt{\frac{-\ln \alpha/2}{2n}} \right ]$$
+is a two-sided
+confidence interval for $\mu$, with confidence level $1-\alpha$.
+</p>
+<p class="gap01">
+Let's compare Hoeffding confidence intervals and intervals based on the normal approximation by simulation, in the cases we saw previously in [Confidence intervals based on the normal approximation](normApprox.ipynb). We will use two-sided bounds, even though in applications one-sided bounds are often more interesting.
+</p>
+<p class="gap01">
+Of course, if we know a priori that $\mu \in [\ell, u]$, the intersection of the Hoeffding
+confidence interval with $[\ell, u]$ is still a $1-\alpha$ confidence interval.
+</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population of two values, {0, 1}, in various proportions.  Amounts to Binomial random variable</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">001</span><span class="p">,</span> <span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>    <span class="c1"># mixture fractions, proportion of 1s in the population</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span>  <span class="c1"># just for demonstration</span>
+<span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;fraction of 1s&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;Hoeffding cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t len&#39;</span><span class="p">,</span> <span class="s1">&#39;Trunc Hoeffding len&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">hCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+        <span class="n">sam</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">reps</span><span class="p">)</span>
+        <span class="n">samMean</span> <span class="o">=</span> <span class="n">sam</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">samSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">samMean</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">samMean</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">popMean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">lenT</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">lenH</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">samMean</span><span class="o">+</span><span class="n">hCrit</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">hCrit</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">coverH</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">popMean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">hCrit</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> \
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverH</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lenT</span><span class="p">,</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">lenH</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability for Student-t and truncated Hoeffding confidence intervals for a {0, 1} population&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability for Student-t and truncated Hoeffding confidence intervals for a {0, 1} population</h3><strong>Nominal coverage probability 95.0%</strong>.<br /><strong>Estimated from 10000.0 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fraction of 1s</th>
+      <th>sample size</th>
+      <th>Student-t cov</th>
+      <th>Hoeffding cov</th>
+      <th>Student-t len</th>
+      <th>Trunc Hoeffding len</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.001</td>
+      <td>25.0</td>
+      <td>2.47%</td>
+      <td>100.0%</td>
+      <td>0.0041</td>
+      <td>0.2726</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.001</td>
+      <td>50.0</td>
+      <td>5.08%</td>
+      <td>100.0%</td>
+      <td>0.0041</td>
+      <td>0.1931</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.001</td>
+      <td>100.0</td>
+      <td>10.03%</td>
+      <td>100.0%</td>
+      <td>0.0041</td>
+      <td>0.1369</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.001</td>
+      <td>400.0</td>
+      <td>33.47%</td>
+      <td>100.0%</td>
+      <td>0.0036</td>
+      <td>0.0689</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.010</td>
+      <td>25.0</td>
+      <td>22.29%</td>
+      <td>100.0%</td>
+      <td>0.0386</td>
+      <td>0.2817</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.010</td>
+      <td>50.0</td>
+      <td>40.03%</td>
+      <td>100.0%</td>
+      <td>0.0356</td>
+      <td>0.2023</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.010</td>
+      <td>100.0</td>
+      <td>63.72%</td>
+      <td>100.0%</td>
+      <td>0.0309</td>
+      <td>0.1459</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.010</td>
+      <td>400.0</td>
+      <td>90.81%</td>
+      <td>100.0%</td>
+      <td>0.0188</td>
+      <td>0.0779</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.100</td>
+      <td>25.0</td>
+      <td>92.54%</td>
+      <td>100.0%</td>
+      <td>0.2329</td>
+      <td>0.3721</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.100</td>
+      <td>50.0</td>
+      <td>87.75%</td>
+      <td>100.0%</td>
+      <td>0.1669</td>
+      <td>0.2918</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.100</td>
+      <td>100.0</td>
+      <td>92.99%</td>
+      <td>100.0%</td>
+      <td>0.1177</td>
+      <td>0.2335</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.100</td>
+      <td>400.0</td>
+      <td>94.88%</td>
+      <td>100.0%</td>
+      <td>0.0589</td>
+      <td>0.1358</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at zero and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span>   <span class="c1"># just for demonstration</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mass at 0&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;Hoeffding cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t len&#39;</span><span class="p">,</span> <span class="s1">&#39;Trunc Hoeffding len&#39;</span><span class="p">)</span>
+                       <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>  <span class="c1">#  p*0 + (1-p)*.5</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">hCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">coverH</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">totT</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">totH</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="n">samSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">coverT</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">popMean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span> <span class="p">)</span>
+            <span class="n">totT</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span>
+            <span class="n">coverH</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">popMean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">hCrit</span> <span class="p">)</span>
+            <span class="n">totH</span> <span class="o">+=</span>  <span class="nb">min</span><span class="p">(</span><span class="n">samMean</span><span class="o">+</span><span class="n">hCrit</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">-</span><span class="nb">max</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">hCrit</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverH</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">totT</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">totH</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability of Student-t and truncated Hoeffding confidence intervals for &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 0 population&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">reps</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability of Student-t and truncated Hoeffding confidence intervals for mixture of U[0,1] and pointmass at 0 population</h3><strong>Nominal coverage probability 95.0%</strong>.<br /><strong>Estimated from 10000.0 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 0</th>
+      <th>sample size</th>
+      <th>Student-t cov</th>
+      <th>Hoeffding cov</th>
+      <th>Student-t len</th>
+      <th>Trunc Hoeffding len</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>90.56%</td>
+      <td>100.0%</td>
+      <td>0.6459</td>
+      <td>0.3219</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>98.75%</td>
+      <td>100.0%</td>
+      <td>0.6707</td>
+      <td>0.2421</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>99.97%</td>
+      <td>100.0%</td>
+      <td>0.6816</td>
+      <td>0.1858</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>0.6868</td>
+      <td>0.1178</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>22.2%</td>
+      <td>100.0%</td>
+      <td>0.0988</td>
+      <td>0.2767</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>38.95%</td>
+      <td>100.0%</td>
+      <td>0.1268</td>
+      <td>0.1971</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>62.96%</td>
+      <td>100.0%</td>
+      <td>0.1616</td>
+      <td>0.1408</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>97.81%</td>
+      <td>100.0%</td>
+      <td>0.2101</td>
+      <td>0.0729</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>2.66%</td>
+      <td>100.0%</td>
+      <td>0.0112</td>
+      <td>0.2722</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>4.87%</td>
+      <td>100.0%</td>
+      <td>0.0139</td>
+      <td>0.1926</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>9.54%</td>
+      <td>100.0%</td>
+      <td>0.019</td>
+      <td>0.1363</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>32.32%</td>
+      <td>100.0%</td>
+      <td>0.0352</td>
+      <td>0.0684</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Remarkably, the truncated Hoeffding intervals are often <em>shorter</em> on average than the Student-t intervals, but have far better coverage.</p>
+</div>
+<div class="section" id="more-in-this-direction">
+<h1>More in this direction…<a class="headerlink" href="#more-in-this-direction" title="Permalink to this headline">¶</a></h1>
+<p>We could also apply other inequalities, such as Serfling’s Inequality (a version of Hoeffding’s inequality for sampling without replacement) or Feige’s Inequality.</p>
+<p>For sampling without replacement, the “Empirical Bernstein-Serfling Inequality” of Bardenet and Maillard (2013) seems particularly worth exploring.</p>
+</div>
+<div class="section" id="what-s-next">
+<h1>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h1>
+<p>Now we will consider some conservative methods for constructing lower confidence intervals for the mean of nonnegative populations</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="markov.html"><span class="doc std std-doc">Next: Lower confidence bounds for the mean of a nonnegative population: Markov’s Inequality and Methods based on the Empirical Distribution Function</span></a></p></li>
+<li><p><a class="reference internal" href="binom.html"><span class="doc std std-doc">Previous: Confidence bounds for the mean of a bounded population: Binomial and Hypergeometric</span></a></p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> talkTools.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><link href='http://fonts.googleapis.com/css?family=Lora|Open+Sans' rel='stylesheet' type='text/css'>
+<style>
+
+font-family: 'Lora', serif;
+
+.MathJax_Display {
+  padding: 10px;
+}
+
+div.callout {
+  color: #000000;
+  background-color: #DDDDDD;
+  margin: 20px 20px 20px 20px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 10px 10px;
+}
+
+.rendered_html {
+  color: #2C5494;
+  font-family: 'Lora', serif;
+  font-size: 140%;
+  line-height: 1.1;
+  margin: 0.5em 0;
+}
+
+div.cell {
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div.text_cell_render {
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  color: #4773D1;
+  font-size: 250%;
+  font-weight:bold;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+.subtitle {
+  font-family: 'Open Sans', sans-serif;
+  color: #386BBC;
+  font-size: 180%;
+  font-weight:bold;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+.slide-header, p.slide-header {
+  color: #4773D1;
+  font-size: 200%;
+  font-weight:bold;
+  margin: 0px 20px 10px;
+  page-break-before: always;
+  text-align: center;
+}
+
+.rendered_html .code {
+  background-color: #999999;
+}
+
+.rendered_html h1 {
+  color: #7898DD;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+  margin: 0.15em 0em 0.5em;
+  page-break-before: always;
+}
+
+
+.rendered_html h2 {
+  color: #4773D1;
+  line-height: 1.2;
+  margin: 1.1em 0em 0.5em;
+}
+
+.rendered_html h3 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 1.1em 0em 0.5em;
+}
+
+.rendered_html .definition, .proposition, .proof, .theorem {
+    padding-top: 20px;
+    color: #222299;
+    font-size: 120%;
+    font-style: italic;
+}
+
+.definition, .proposition, .theorem {
+  background-color: #EEEEEE;
+  border-style: solid;
+  border-width: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rendered_html .definition::before{
+    content: "Definition:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .proposition::before{
+    content: "Proposition:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .proof::before{
+    content: "Proof:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.rendered_html .theorem::before{
+    content: "Theorem:";
+    background-color: #DDDDDD;
+    color: #222299;
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.rendered_html ol li {
+  padding-top: 20px;
+  padding-bottom: -20px;
+  line-height: 1.5;
+}
+
+.rendered_html ul li {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 1.2;
+}
+
+li:first-of-type {
+  padding-top: -100px;
+}
+
+.input_prompt, .CodeMirror-lines, .output_area {
+  font-family: Consolas;
+  font-size: 120%;
+}
+
+.gap-above {
+  padding-top: 200px;
+}
+
+.gap01 {
+  padding-top: 10px;
+}
+
+.gap05 {
+  padding-top: 50px;
+}
+
+.gap1 {
+  padding-top: 100px;
+}
+
+.gap2 {
+  padding-top: 200px;
+}
+
+.gap3 {
+  padding-top: 300px;
+}
+
+.emph {
+  color: #386BBC;
+}
+
+.warn {
+  color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+.nb_link {
+    padding-bottom: 0.5em;
+}
+
+</style></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

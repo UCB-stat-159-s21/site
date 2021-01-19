@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penny sampling and Conditional Expectation &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/pennySampling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/pennySampling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penny-sampling">
+   Penny Sampling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-penny-sampling">
+     Basic Penny Sampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relation-between-penny-sampling-and-pps-dus-sampling">
+     Relation between penny sampling and PPS/DUS sampling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-penny-sampling-and-the-conditional-expectation">
+   Continuous Penny Sampling and the Conditional Expectation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-two-step">
+     The Two-Step
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequences-of-iid-variables">
+     Sequences of iid variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#illustration">
+   Illustration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-s-next">
+   What’s next?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="penny-sampling-and-conditional-expectation">
+<h1>Penny sampling and Conditional Expectation<a class="headerlink" href="#penny-sampling-and-conditional-expectation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="penny-sampling">
+<h2>Penny Sampling<a class="headerlink" href="#penny-sampling" title="Permalink to this headline">¶</a></h2>
+<p>“Penny sampling” is a sampling and estimation approach closely related to DUS, but that allows particularly simple analysis. It was introduced by Edwards et al. (2013).</p>
+<p>We shall derive a continuous version of Penny Sampling that turns the problem of making confidence bounds for the mean of a bounded random variable into the problem of making confidence bounds for a Binomial <span class="math notranslate nohighlight">\(p\)</span>, by introducing auxiliary independent randomization.</p>
+<div class="section" id="basic-penny-sampling">
+<h3>Basic Penny Sampling<a class="headerlink" href="#basic-penny-sampling" title="Permalink to this headline">¶</a></h3>
+<p>We shall derive basic Penny Sampling in the context of financial auditing.</p>
+<p>Again, we have a population of <span class="math notranslate nohighlight">\(N\)</span> items; item <span class="math notranslate nohighlight">\(j\)</span> has unknown value <span class="math notranslate nohighlight">\(x_j\)</span>, but the value is known to be nonnegative and less than <span class="math notranslate nohighlight">\(u_j\)</span>.</p>
+<p>We divide the upper bound on into “pennies.”  Item <span class="math notranslate nohighlight">\(j\)</span> contains <span class="math notranslate nohighlight">\(u_j\)</span> pennies, of which <span class="math notranslate nohighlight">\(x_j\)</span> are “good” and <span class="math notranslate nohighlight">\((u_j - x_j)\)</span> are “bad.”</p>
+<p>Let <span class="math notranslate nohighlight">\(u \equiv \sum_{j=1}^N u_j\)</span> and <span class="math notranslate nohighlight">\(x \equiv \sum_{j=1}^N x_j\)</span>.</p>
+<p>We want to estimate the population fraction of “good” pennies:</p>
+<div class="math notranslate nohighlight">
+\[\mu \equiv \frac{x}{u}.\]</div>
+<p>We then sample “pennies” at random, without replacement, from the entire population.</p>
+<p>If we draw a penny associated with item <span class="math notranslate nohighlight">\(j\)</span>, we inspect that item to determine the value <span class="math notranslate nohighlight">\(x_j\)</span>.</p>
+<p>If the index of the penny within item <span class="math notranslate nohighlight">\(j\)</span> is less than or equal to <span class="math notranslate nohighlight">\(x_j\)</span>, we consider the penny
+that was drawn to be “good.” Otherwise the penny is “bad.”</p>
+<p>The number of “good” pennies in the sample has a hypergeometric distribution with parameters
+<span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(x = u \mu\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>; the expected fraction of “good” pennies in the sample is <span class="math notranslate nohighlight">\(\mu = x/u\)</span>.</p>
+<p>We invert hypergeometric tests to find confidence bounds for <span class="math notranslate nohighlight">\(x\)</span>, which we can translate into confidence bounds
+for <span class="math notranslate nohighlight">\(\mu\)</span> by dividing by <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<p>Again, we are imagining situations in which the sample is very small compared to the number of items in the population—much less the number of pennies in those items—so we will act as if we are sampling with replacement, which gives a conservative result in any case.</p>
+<p>Thus we treat the distribution of the number of “good” pennies in the sample as Binomial with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p = \mu = x/u\)</span>, rather than hypergeometric.</p>
+</div>
+<div class="section" id="relation-between-penny-sampling-and-pps-dus-sampling">
+<h3>Relation between penny sampling and PPS/DUS sampling<a class="headerlink" href="#relation-between-penny-sampling-and-pps-dus-sampling" title="Permalink to this headline">¶</a></h3>
+<p>While the chance of selecting each “penny” is equal, the chance of selecting item <span class="math notranslate nohighlight">\(j\)</span> is proportional to <span class="math notranslate nohighlight">\(u_j\)</span>, just as in dollar-unit sampling.  The difference is in how the data are analyzed: using <span class="math notranslate nohighlight">\(X_i\)</span>, the value of <span class="math notranslate nohighlight">\(x_j\)</span> for the item selected on the <span class="math notranslate nohighlight">\(i\)</span>th draw, or using information about whether just the single “penny” is good or bad.</p>
+</div>
+</div>
+<div class="section" id="continuous-penny-sampling-and-the-conditional-expectation">
+<h2>Continuous Penny Sampling and the Conditional Expectation<a class="headerlink" href="#continuous-penny-sampling-and-the-conditional-expectation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-two-step">
+<h3>The Two-Step<a class="headerlink" href="#the-two-step" title="Permalink to this headline">¶</a></h3>
+<p>One can think of penny sampling as taking place in two steps: first, select an item <span class="math notranslate nohighlight">\(J\)</span> with PPS sampling, then select a penny uniformly at random from that item. If the penny’s index is less than <span class="math notranslate nohighlight">\(X_J\)</span>, the penny is good. In other words, pennies are selected conditionally uniformly, given the item they are selected from, and compared to the true value of the item.</p>
+<p>In the limit as pennies shrink in value, this amounts to comparing <span class="math notranslate nohighlight">\(X_J\)</span> to a random variable <span class="math notranslate nohighlight">\(Z_J\)</span> that is (continuously) conditionally uniformly distributed on <span class="math notranslate nohighlight">\([0, U_J]\)</span>, where <span class="math notranslate nohighlight">\(U_J\)</span> is the upper bound on the item selected. Let <span class="math notranslate nohighlight">\(W\)</span> be the event that <span class="math notranslate nohighlight">\(Z_J \le X_J\)</span>. Then
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+    \mathbb P \{ W = 1 \} &amp; = \mathbb P \{ Z_J \le X_J \} \\
+    &amp;= \sum_{j=1}^N \mathbb P\{Z_J \le X_J | J = j\} \mathbb P \{J=j\} \\
+    &amp;= \sum_{j=1}^N u_j/u \mathbb P\{Z_j \le x_j | J = j\} \\
+    &amp;= \sum_{j=1}^N u_j/u \cdot x_j/u_j \\
+    &amp;= x/u.
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+In \)</span>n<span class="math notranslate nohighlight">\( iid draws, the distribution of the sum of the corresponding values of \)</span>W<span class="math notranslate nohighlight">\( is Binomial with parameters \)</span>n<span class="math notranslate nohighlight">\( and \)</span>p=\mu = x/u$.</p>
+<p>Alternatively, we can think of the process as creating a new set of <span class="math notranslate nohighlight">\(n\)</span> random variables <span class="math notranslate nohighlight">\(\{W_i\}\)</span> where <span class="math notranslate nohighlight">\(W_i \sim \mbox{Bernoulli}(X_i/U_i)\)</span>.
+It is clear that unconditionally, <span class="math notranslate nohighlight">\(\{W_i\}\)</span> are iid Benoulli(<span class="math notranslate nohighlight">\(x/u\)</span>), so <span class="math notranslate nohighlight">\(\sum_{i=1}^n W_i \sim \mbox{Binomial}(n, \mu)\)</span>, where <span class="math notranslate nohighlight">\(\mu \equiv x/u\)</span>.</p>
+</div>
+<div class="section" id="sequences-of-iid-variables">
+<h3>Sequences of iid variables<a class="headerlink" href="#sequences-of-iid-variables" title="Permalink to this headline">¶</a></h3>
+<p>This kind of “continuous penny sampling” lets us make confidence bounds for iid samples from an arbitrary bounded distribution, such as the mixture of a uniform and a point-mass at 0. The lower and upper bounds on each draw are 0 and 1. For each <span class="math notranslate nohighlight">\(X_i\)</span> in the sample, we generate a uniformly distributed <span class="math notranslate nohighlight">\(Z_i\)</span>, with all <span class="math notranslate nohighlight">\(\{X_i\}\)</span> and <span class="math notranslate nohighlight">\(\{Z_i\}\)</span> independent. Let <span class="math notranslate nohighlight">\(W_i = 1_{Z_i \le X_i}\)</span>.
+Then <span class="math notranslate nohighlight">\(\{W_i \}_{i=1}^n\)</span> are iid Bernoulli random variables with <span class="math notranslate nohighlight">\(\mathbb P \{W_i = 1\} = \mathbb E X_i = \mu\)</span>:
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+       \mathbb P \{ W_i = 1 \} &amp; = \mathbb P \{ Z_i \le X_i \} \\
+       &amp;= \int_0^1 \mathbb P \{ Z_i \le X_i | Z_i = z\} dz \\
+       &amp;= \int_0^1 \mathbb P \{ X_i &gt; z \} dz \\
+       &amp;= \mathbb E X_i,
+\end{align}
+\)</span>$
+by the tail-integral formula for expectation.</p>
+</div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>Let’s implement continuous penny sampling in Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the first cell with code: set up the Python environment</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.975</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Lower confidence level cl confidence interval for Binomial p, for x successes in n trials&quot;</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">cl</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lo</span>
+
+<span class="k">def</span> <span class="nf">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.975</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Upper confidence level cl confidence interval for Binomial p, for x successes in n trials&quot;</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span>
+            <span class="n">hi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">hi</span>
+
+<span class="k">def</span> <span class="nf">pennySampleReplacement</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Weighted random sample of size n drawn with replacement.</span>
+<span class="sd">       Returns indices of the selected items, the &quot;remainder pennies&quot; (the conditionally uniform</span>
+<span class="sd">       auxiliary randomization within items) and the raw uniform values used to select the sample</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">weights</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;negative weight in weightedRandomSample&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">totWt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">wc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="n">totWt</span>  <span class="c1"># ensure weights sum to 1</span>
+        <span class="n">theSam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">((</span><span class="n">n</span><span class="p">,))</span>
+        <span class="n">inx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wc</span><span class="p">)</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">theSam</span><span class="p">)</span>
+        <span class="n">penny</span> <span class="o">=</span> <span class="p">[(</span><span class="n">wc</span><span class="p">[</span><span class="n">inx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">-</span><span class="n">theSam</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">totWt</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">inx</span><span class="p">,</span> <span class="n">penny</span><span class="p">,</span> <span class="n">theSam</span>
+
+<span class="k">def</span> <span class="nf">pennyBinomialLowerBound</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">inx</span><span class="p">,</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Penny sampling lower (one-sided) 1-alpha confidence bound on the mean, for sampling with replacement.</span>
+<span class="sd">       x is the vector of observed values</span>
+<span class="sd">       pennies is the vector of _which_ &quot;penny&quot; in each sampled item is to be adjudicated as &quot;good&quot; or &quot;bad&quot;</span>
+<span class="sd">       The first x_j pennies in item j are deemed &quot;good,&quot; the remaining (u_j - x_j) are &quot;bad.&quot;</span>
+<span class="sd">       Returns the lower bound and the number of &quot;good&quot; pennies in the sample.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">pennies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">inx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pennies</span><span class="p">))])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">),</span> <span class="n">s</span>
+
+<span class="k">def</span> <span class="nf">pennyBinomialBounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">inx</span><span class="p">,</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Penny sampling 2-sided confidence interval for the mean, for sampling with replacement.</span>
+<span class="sd">       x is the vector of observed values</span>
+<span class="sd">       pennies is the vector of _which_ &quot;penny&quot; in each sampled item is to be adjudicated as &quot;good&quot; or &quot;bad&quot;</span>
+<span class="sd">       The first x_j pennies in item j are deemed &quot;good,&quot; the remaining (u_j - x_j) are &quot;bad.&quot;</span>
+<span class="sd">       Returns the lower bound, the upper bound and the number of &quot;good&quot; pennies in the sample.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">pennies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">inx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pennies</span><span class="p">))])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binoLowerCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">binoUpperCL</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="illustration">
+<h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h2>
+<p>Let’s imagine a population of <span class="math notranslate nohighlight">\(N\)</span> items bounded between 0 and 1.</p>
+<p>Let’s test this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nonstandard mixture: a pointmass at zero and a uniform[0,1]</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>  <span class="c1"># sample sizes</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>    <span class="c1"># mixture fraction, weight of pointmass</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 1- (confidence level)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0e4</span><span class="p">)</span> <span class="c1"># just for demonstration</span>
+
+<span class="n">simTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mass at 0&#39;</span><span class="p">,</span> <span class="s1">&#39;sample size&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t cov&#39;</span><span class="p">,</span>\
+                                 <span class="s1">&#39;Penny cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Student-t len&#39;</span><span class="p">,</span> <span class="s1">&#39;Penny len&#39;</span><span class="p">)</span>
+                       <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+    <span class="n">popMean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>  <span class="c1">#  p*0 + (1-p)*.5</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+        <span class="n">tCrit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">coverT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">coverP</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">totT</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">totP</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">)):</span>
+            <span class="n">sam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">ptMass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">pennies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># auxiliary uniform randomization within items</span>
+            <span class="n">sam</span><span class="p">[</span><span class="n">ptMass</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>                <span class="c1"># point mass at zero</span>
+            <span class="n">samMean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
+            <span class="n">samSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">coverT</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">samMean</span><span class="o">-</span><span class="n">popMean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span> <span class="p">)</span>
+            <span class="n">totT</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="n">tCrit</span><span class="o">*</span><span class="n">samSD</span>   
+            <span class="n">pLo</span><span class="p">,</span> <span class="n">pHi</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pennyBinomialBounds</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">],</span> <span class="n">pennies</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span> <span class="p">)</span>
+            <span class="n">coverP</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">pLo</span> <span class="o">&lt;=</span> <span class="n">popMean</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">popMean</span> <span class="o">&lt;=</span> <span class="n">pHi</span><span class="p">)</span>
+            <span class="n">totP</span> <span class="o">+=</span> <span class="n">pHi</span> <span class="o">-</span> <span class="n">pLo</span>
+        <span class="n">simTable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">simTable</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverT</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">coverP</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">totT</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span>\
+            <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">totP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">reps</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">ansStr</span> <span class="o">=</span>  <span class="s1">&#39;&lt;h3&gt;Simulated coverage probability of Student-t and Continuous Penny Sampling confidence intervals for &#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;mixture of U[0,1] and pointmass at 0 population&lt;/h3&gt;&#39;</span> <span class="o">+</span>\
+          <span class="s1">&#39;&lt;strong&gt;Nominal coverage probability &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">+</span>\
+          <span class="s1">&#39;%&lt;/strong&gt;.&lt;br /&gt;&lt;strong&gt;Estimated from &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; replications.&lt;/strong&gt;&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">ansStr</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">simTable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Simulated coverage probability of Student-t and Continuous Penny Sampling confidence intervals for mixture of U[0,1] and pointmass at 0 population</h3><strong>Nominal coverage probability 95.0%</strong>.<br /><strong>Estimated from 10000 replications.</strong></div><div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mass at 0</th>
+      <th>sample size</th>
+      <th>Student-t cov</th>
+      <th>Penny cov</th>
+      <th>Student-t len</th>
+      <th>Penny len</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.900</td>
+      <td>25.0</td>
+      <td>90.37%</td>
+      <td>99.35%</td>
+      <td>0.6419</td>
+      <td>0.207</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.900</td>
+      <td>50.0</td>
+      <td>98.89%</td>
+      <td>98.7%</td>
+      <td>0.6724</td>
+      <td>0.1382</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.900</td>
+      <td>100.0</td>
+      <td>99.99%</td>
+      <td>98.41%</td>
+      <td>0.6817</td>
+      <td>0.0942</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.900</td>
+      <td>400.0</td>
+      <td>100.0%</td>
+      <td>95.9%</td>
+      <td>0.6868</td>
+      <td>0.0451</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.990</td>
+      <td>25.0</td>
+      <td>21.96%</td>
+      <td>99.32%</td>
+      <td>0.0975</td>
+      <td>0.1451</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.990</td>
+      <td>50.0</td>
+      <td>38.61%</td>
+      <td>99.82%</td>
+      <td>0.1253</td>
+      <td>0.0795</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.990</td>
+      <td>100.0</td>
+      <td>62.16%</td>
+      <td>98.49%</td>
+      <td>0.1604</td>
+      <td>0.0447</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.990</td>
+      <td>400.0</td>
+      <td>97.98%</td>
+      <td>98.31%</td>
+      <td>0.2098</td>
+      <td>0.0167</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.999</td>
+      <td>25.0</td>
+      <td>2.57%</td>
+      <td>98.67%</td>
+      <td>0.0106</td>
+      <td>0.1381</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.999</td>
+      <td>50.0</td>
+      <td>4.44%</td>
+      <td>97.87%</td>
+      <td>0.0127</td>
+      <td>0.0719</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.999</td>
+      <td>100.0</td>
+      <td>8.94%</td>
+      <td>99.93%</td>
+      <td>0.0178</td>
+      <td>0.0371</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.999</td>
+      <td>400.0</td>
+      <td>32.85%</td>
+      <td>98.16%</td>
+      <td>0.0357</td>
+      <td>0.0101</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As is the case with the other nonparametric methods, the Continuous Penny Sample intervals are in some cases shorter on average than Student-t intervals, but have higher coverage.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="shootout.html"><span class="doc std std-doc">Next: Nonparametric Method Shootout</span></a></p></li>
+<li><p><a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Previous: The Kaplan-Wald Confidence Bound for a Nonnegative Mean</span></a></p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

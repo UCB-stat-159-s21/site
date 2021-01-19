@@ -1,0 +1,1332 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Child Online Protection Act and Internet Content Filtering &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/copa.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/copa.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#legal">
+   Legal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copa">
+     COPA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supreme-court">
+     Supreme Court
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#my-role">
+     My Role
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#my-job-figure-out">
+       My job: figure out …
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-sources-search-engines">
+     Data Sources: Search Engines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorizing-pages">
+     Categorizing Pages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raw-results">
+     Raw results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prevalence-of-adult-content">
+     Prevalence of Adult Content
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sizes-of-populations-and-samples-searches-weighted-by-frequency">
+       Sizes of populations and samples. Searches weighted by frequency.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#estimated-prevalence-of-adult-pages">
+       Estimated prevalence of adult pages
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conservative-95-lower-confidence-limits-found-by-inverting-binomial-tests">
+     Conservative 95% lower confidence limits found by inverting binomial tests.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering">
+   Filtering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimated-underblocking-overblocking">
+     Estimated underblocking &amp;  overblocking
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conservative-95-lower-confidence-limits">
+       Conservative 95% lower confidence limits
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#of-adult-pages-not-blocked-estimated-percentage-that-are-domestic">
+       Of adult pages not blocked, estimated percentage that are domestic
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimated-underblocking-and-overblocking-for-aol-msn-yahoo-search-results">
+     Estimated underblocking and overblocking for AOL, MSN, &amp; Yahoo! search results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underblocking-estimated-overblocking-for-wordtracker-query-results">
+     Underblocking | estimated overblocking for Wordtracker query results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-results">
+     Filter Results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#location-foreign-adult-websites-with-commercial-ties-to-the-us">
+     Location: Foreign Adult Websites with Commercial Ties to the US
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-other-side">
+   The other side
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-studies-cited-by-plaintiffs-expert">
+     Filtering studies cited by Plaintiffs’ Expert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plaintiffs-internet-geography-study">
+     Plaintiffs’ “Internet Geography” Study
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-public">
+     The Public
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-child-online-protection-act-and-internet-content-filtering">
+<h1>The Child Online Protection Act and Internet Content Filtering<a class="headerlink" href="#the-child-online-protection-act-and-internet-content-filtering" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/QKNnwLL991c&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/QKNnwLL991c" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Study commissioned by DoJ re Child Online Protection Act of 1998 (COPA).</p></li>
+<li><p>Apologies: stale data. 2005–2006.  Required subpoenas of Google, AOL, MSN, Yahoo!</p></li>
+<li><p>Attempts to legislate protection of minors: CDA, CIPA, COPA.</p></li>
+<li><p>I worked primarily on COPA; a little on CIPA.</p></li>
+<li><p>Team at CRAI led by Paul Mewett collected and categorized the webpages and ran filter tests.</p></li>
+<li><p>I designed the experiments, drew the random samples, analyzed the data.</p></li>
+<li><p>News coverage of Google subpoena generated lots of hate mail.</p></li>
+</ul>
+</div>
+<div class="section" id="legal">
+<h2>Legal<a class="headerlink" href="#legal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="copa">
+<h3>COPA<a class="headerlink" href="#copa" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>2nd attempt to legislate protection from commercial “harmful-to-minors” content</p></li>
+<li><p>NOT ABOUT CHILD PORNOGRAPHY</p></li>
+<li><p>Exemptions for literary, artistic, and educational content, ISPs, search engines.</p></li>
+<li><p>Requires age screen for commercial porn.</p></li>
+<li><p>Credit card number deemed adequate proof of age.</p></li>
+</ul>
+</div>
+<div class="section" id="supreme-court">
+<h3>Supreme Court<a class="headerlink" href="#supreme-court" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Feds have legitimate interest in protecting children.</p></li>
+<li><p>COPA potentially “chilling” of free speech.</p></li>
+<li><p>DoJ had to show that COPA is “least restrictive alternative.”</p></li>
+<li><p>How well do filters work?</p></li>
+</ul>
+</div>
+<div class="section" id="my-role">
+<h3>My Role<a class="headerlink" href="#my-role" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="my-job-figure-out">
+<h4>My job: figure out …<a class="headerlink" href="#my-job-figure-out" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>How much porn is there on the Internet?</p></li>
+<li><p>How often do people come across it?</p></li>
+<li><p>How effective are filters at blocking it?</p></li>
+<li><p>How much “clean stuff” do filters block?</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-sources-search-engines">
+<h3>Data Sources: Search Engines<a class="headerlink" href="#data-sources-search-engines" title="Permalink to this headline">¶</a></h3>
+<p>Filters over-block and under-block (make Type I and II errors).</p>
+<p>Population of pages matters.  What’s relevant?</p>
+<p>Internet largely mediated by search engines.</p>
+<ul class="simple">
+<li><p>Random sample of 50,000 webpages from Google search index in 2006. (Pages users might find.)</p></li>
+<li><p>Random sample of 1~million webpages from MSN search index in 2005. (Pages users might find.)</p></li>
+<li><p>Week of search queries from AOL, MSN and Yahoo! by subpoena, about 1.3 billion
+(Pages users do find.)</p></li>
+<li><p>685 most popular queries from Wordtracker 11/12/05–2/20/06. (Pages users find most often.)</p></li>
+</ul>
+</div>
+<div class="section" id="categorizing-pages">
+<h3>Categorizing Pages<a class="headerlink" href="#categorizing-pages" title="Permalink to this headline">¶</a></h3>
+<p>Team at CRA~International attempted to view and categorize</p>
+<ul class="simple">
+<li><p>39,999 random webpages from MSN index</p></li>
+<li><p>11,000 random the webpages from Google index</p></li>
+<li><p>first 10 results of each of a stratified random sample of 7,541 queries  (total weight 15,461)</p></li>
+<li><p>first 10 results of the 685 Wordtracker searches</p></li>
+</ul>
+</div>
+<div class="section" id="raw-results">
+<h3>Raw results<a class="headerlink" href="#raw-results" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>68,150 webpages of which 63,105 worked.</p></li>
+<li><p>60,833 Category 1a: no reference to sex and no nudity.</p></li>
+<li><p>1,382 Category 5f: adult entertainment.</p></li>
+<li><p>890 in other categories, e.g., show genitalia in an artistic or
+educational context.</p></li>
+</ul>
+<p>I drew random samples of the Category 1a pages to test filters.</p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prevalence-of-adult-content">
+<h3>Prevalence of Adult Content<a class="headerlink" href="#prevalence-of-adult-content" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sizes-of-populations-and-samples-searches-weighted-by-frequency">
+<h4>Sizes of populations and samples. Searches weighted by frequency.<a class="headerlink" href="#sizes-of-populations-and-samples-searches-weighted-by-frequency" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>result</p></th>
+<th class="head"><p>Google inx</p></th>
+<th class="head"><p>MSN inx</p></th>
+<th class="head"><p>AOL, MSN, Y! srch</p></th>
+<th class="head"><p>Wordtracker srch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pages in sample</p></td>
+<td><p>11,100</p></td>
+<td><p>39,999</p></td>
+<td><p>22,405</p></td>
+<td><p>206 million</p></td>
+</tr>
+<tr class="row-odd"><td><p>working pages in sample</p></td>
+<td><p>10,009</p></td>
+<td><p>36,557</p></td>
+<td><p>21,870</p></td>
+<td><p>195 million</p></td>
+</tr>
+<tr class="row-even"><td><p>queries in pop</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>1.3 billion</p></td>
+<td><p>20.6 million</p></td>
+</tr>
+<tr class="row-odd"><td><p>queries in sample</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2,345</p></td>
+<td><p>20.6 million</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="estimated-prevalence-of-adult-pages">
+<h4>Estimated prevalence of adult pages<a class="headerlink" href="#estimated-prevalence-of-adult-pages" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>Google inx</p></th>
+<th class="head"><p>MSN inx</p></th>
+<th class="head"><p>AOL, MSN, Y! srch</p></th>
+<th class="head"><p>Wordtracker srch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>adult webpages</p></td>
+<td><p>1.1%</p></td>
+<td><p>1.1%</p></td>
+<td><p>1.7%</p></td>
+<td><p>14.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>domestic adult webpages</p></td>
+<td><p>44.2%</p></td>
+<td><p>56.7%</p></td>
+<td><p>88.4%</p></td>
+<td><p>87.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>searches w adult results</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>6.0%</p></td>
+<td><p>37.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>searches w domestic adult results</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>5.7%</p></td>
+<td><p>37.0%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="conservative-95-lower-confidence-limits-found-by-inverting-binomial-tests">
+<h3>Conservative 95% lower confidence limits found by inverting binomial tests.<a class="headerlink" href="#conservative-95-lower-confidence-limits-found-by-inverting-binomial-tests" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>bound</p></th>
+<th class="head"><p>Google inx</p></th>
+<th class="head"><p>MSN inx</p></th>
+<th class="head"><p>AOL, MSN, Y! srch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>adult</p></td>
+<td><p>1.0%</p></td>
+<td><p>1.0%</p></td>
+<td><p>2.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>domestic adult</p></td>
+<td><p>0.4%</p></td>
+<td><p>0.5%</p></td>
+<td><p>2.2%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="estimated-underblocking-overblocking">
+<h3>Estimated underblocking &amp;  overblocking<a class="headerlink" href="#estimated-underblocking-overblocking" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Filter</p></th>
+<th class="text-align:right head"><p>Underblocking</p></th>
+<th class="text-align:right head"><p></p></th>
+<th class="text-align:right head"><p>Overblocking</p></th>
+<th class="text-align:right head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td class="text-align:right"><p>Google</p></td>
+<td class="text-align:right"><p>MSN</p></td>
+<td class="text-align:right"><p>Google</p></td>
+<td class="text-align:right"><p>MSN</p></td>
+</tr>
+<tr class="row-odd"><td><p>AOL Mature Teen</p></td>
+<td class="text-align:right"><p>8.9%</p></td>
+<td class="text-align:right"><p>8.6%</p></td>
+<td class="text-align:right"><p>22.6%</p></td>
+<td class="text-align:right"><p>23.6%</p></td>
+</tr>
+<tr class="row-even"><td><p>MSN Pornography</p></td>
+<td class="text-align:right"><p>16.8%</p></td>
+<td class="text-align:right"><p>18.7%</p></td>
+<td class="text-align:right"><p>19.6%</p></td>
+<td class="text-align:right"><p>10.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSN Teen</p></td>
+<td class="text-align:right"><p>17.7%</p></td>
+<td class="text-align:right"><p>20.5%</p></td>
+<td class="text-align:right"><p>21.9%</p></td>
+<td class="text-align:right"><p>18.9%</p></td>
+</tr>
+<tr class="row-even"><td><p>ContentProtect Default</p></td>
+<td class="text-align:right"><p>38.3%</p></td>
+<td class="text-align:right"><p>45.4%</p></td>
+<td class="text-align:right"><p>2.8%</p></td>
+<td class="text-align:right"><p>3.0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>ContentProtect Custom</p></td>
+<td class="text-align:right"><p>28.3%</p></td>
+<td class="text-align:right"><p>46.7%</p></td>
+<td class="text-align:right"><p>1.4%</p></td>
+<td class="text-align:right"><p>0.7%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberPatrol Custom</p></td>
+<td class="text-align:right"><p>31.0%</p></td>
+<td class="text-align:right"><p>33.5%</p></td>
+<td class="text-align:right"><p>1.4%</p></td>
+<td class="text-align:right"><p>0.9%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberSitter Default</p></td>
+<td class="text-align:right"><p>12.7%</p></td>
+<td class="text-align:right"><p>16.5%</p></td>
+<td class="text-align:right"><p>3.6%</p></td>
+<td class="text-align:right"><p>4.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberSitter Custom</p></td>
+<td class="text-align:right"><p>12.4%</p></td>
+<td class="text-align:right"><p>18.9%</p></td>
+<td class="text-align:right"><p>4.0%</p></td>
+<td class="text-align:right"><p>3.7%</p></td>
+</tr>
+<tr class="row-odd"><td><p>McAfee Young Teen</p></td>
+<td class="text-align:right"><p>16.1%</p></td>
+<td class="text-align:right"><p>26.0%</p></td>
+<td class="text-align:right"><p>12.4%</p></td>
+<td class="text-align:right"><p>13.2%</p></td>
+</tr>
+<tr class="row-even"><td><p>Net Nanny Level 2</p></td>
+<td class="text-align:right"><p>44.0%</p></td>
+<td class="text-align:right"><p>46.1%</p></td>
+<td class="text-align:right"><p>3.3%</p></td>
+<td class="text-align:right"><p>2.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Norton Default</p></td>
+<td class="text-align:right"><p>60.2%</p></td>
+<td class="text-align:right"><p>54.9%</p></td>
+<td class="text-align:right"><p>1.4%</p></td>
+<td class="text-align:right"><p>0.7%</p></td>
+</tr>
+<tr class="row-even"><td><p>Norton Custom</p></td>
+<td class="text-align:right"><p>58.4%</p></td>
+<td class="text-align:right"><p>54.2%</p></td>
+<td class="text-align:right"><p>0.9%</p></td>
+<td class="text-align:right"><p>0.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verizon</p></td>
+<td class="text-align:right"><p>41.8%</p></td>
+<td class="text-align:right"><p>40.3%</p></td>
+<td class="text-align:right"><p>9.4%</p></td>
+<td class="text-align:right"><p>5.7%</p></td>
+</tr>
+<tr class="row-even"><td><p>8e6</p></td>
+<td class="text-align:right"><p>18.3%</p></td>
+<td class="text-align:right"><p>23.0%</p></td>
+<td class="text-align:right"><p>9.4%</p></td>
+<td class="text-align:right"><p>7.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>SafeEyes</p></td>
+<td class="text-align:right"><p>16.2%</p></td>
+<td class="text-align:right"><p>15.2%</p></td>
+<td class="text-align:right"><p>3.3%</p></td>
+<td class="text-align:right"><p>3.2%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="conservative-95-lower-confidence-limits">
+<h4>Conservative 95% lower confidence limits<a class="headerlink" href="#conservative-95-lower-confidence-limits" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Filter</p></th>
+<th class="head"><p>underblocking</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>overblocking</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>Google</p></td>
+<td><p>MSN</p></td>
+<td><p>Google</p></td>
+<td><p>MSN</p></td>
+</tr>
+<tr class="row-odd"><td><p>AOL Mature Teen</p></td>
+<td><p>5.6%</p></td>
+<td><p>6.5%</p></td>
+<td><p>18.4%</p></td>
+<td><p>21.0%</p></td>
+</tr>
+<tr class="row-even"><td><p>MSN Pornography</p></td>
+<td><p>12.1%</p></td>
+<td><p>15.7%</p></td>
+<td><p>15.8%</p></td>
+<td><p>8.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSN Teen</p></td>
+<td><p>12.8%</p></td>
+<td><p>17.4%</p></td>
+<td><p>17.8%</p></td>
+<td><p>16.6%</p></td>
+</tr>
+<tr class="row-even"><td><p>ContentProtect Default</p></td>
+<td><p>31.3%</p></td>
+<td><p>41.3%</p></td>
+<td><p>1.5%</p></td>
+<td><p>2.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>ContentProtect Custom</p></td>
+<td><p>22.2%</p></td>
+<td><p>42.6%</p></td>
+<td><p>0.6%</p></td>
+<td><p>0.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberPatrol Custom</p></td>
+<td><p>24.6%</p></td>
+<td><p>29.7%</p></td>
+<td><p>0.6%</p></td>
+<td><p>0.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberSitter Default</p></td>
+<td><p>8.6%</p></td>
+<td><p>13.6%</p></td>
+<td><p>2.1%</p></td>
+<td><p>3.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberSitter Custom</p></td>
+<td><p>8.4%</p></td>
+<td><p>15.9%</p></td>
+<td><p>2.4%</p></td>
+<td><p>2.7%</p></td>
+</tr>
+<tr class="row-odd"><td><p>McAfee Young  Teen</p></td>
+<td><p>11.4%</p></td>
+<td><p>22.5%</p></td>
+<td><p>9.3%</p></td>
+<td><p>11.3%</p></td>
+</tr>
+<tr class="row-even"><td><p>Net Nanny Level 2</p></td>
+<td><p>36.8%</p></td>
+<td><p>41.9%</p></td>
+<td><p>1.9%</p></td>
+<td><p>1.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Norton Default</p></td>
+<td><p>52.9%</p></td>
+<td><p>50.7%</p></td>
+<td><p>0.6%</p></td>
+<td><p>0.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>Norton Custom</p></td>
+<td><p>51.1%</p></td>
+<td><p>50.1%</p></td>
+<td><p>0.4%</p></td>
+<td><p>0.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verizon</p></td>
+<td><p>34.7%</p></td>
+<td><p>36.2%</p></td>
+<td><p>6.7%</p></td>
+<td><p>4.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>8e6</p></td>
+<td><p>13.1%</p></td>
+<td><p>19.6%</p></td>
+<td><p>6.7%</p></td>
+<td><p>6.0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>SafeEyes</p></td>
+<td><p>11.4%</p></td>
+<td><p>12.3%</p></td>
+<td><p>1.9%</p></td>
+<td><p>2.3%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="of-adult-pages-not-blocked-estimated-percentage-that-are-domestic">
+<h4>Of adult pages not blocked, estimated percentage that are domestic<a class="headerlink" href="#of-adult-pages-not-blocked-estimated-percentage-that-are-domestic" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Filter</p></th>
+<th class="head"><p>Google</p></th>
+<th class="head"><p>MSN</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AOL Mature Teen</p></td>
+<td><p>40.0%</p></td>
+<td><p>40.6%</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSN Pornography</p></td>
+<td><p>31.6%</p></td>
+<td><p>42.9%</p></td>
+</tr>
+<tr class="row-even"><td><p>MSN Teen</p></td>
+<td><p>40.0%</p></td>
+<td><p>37.7%</p></td>
+</tr>
+<tr class="row-odd"><td><p>ContentProtect Default</p></td>
+<td><p>39.0%</p></td>
+<td><p>45.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>ContentProtect Custom</p></td>
+<td><p>40.6%</p></td>
+<td><p>47.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberPatrol Custom</p></td>
+<td><p>48.6%</p></td>
+<td><p>44.0%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberSitter Default</p></td>
+<td><p>50.0%</p></td>
+<td><p>32.8%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberSitter Custom</p></td>
+<td><p>57.1%</p></td>
+<td><p>36.2%</p></td>
+</tr>
+<tr class="row-even"><td><p>McAfee Young Teen</p></td>
+<td><p>44.4%</p></td>
+<td><p>37.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Net Nanny Level 2</p></td>
+<td><p>41.7%</p></td>
+<td><p>48.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>Norton Default</p></td>
+<td><p>35.3%</p></td>
+<td><p>49.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Norton Custom</p></td>
+<td><p>36.4%</p></td>
+<td><p>49.7%</p></td>
+</tr>
+<tr class="row-even"><td><p>Verizon</p></td>
+<td><p>37.0%</p></td>
+<td><p>42.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>8e6</p></td>
+<td><p>42.1%</p></td>
+<td><p>46.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>SafeEyes</p></td>
+<td><p>35.3%</p></td>
+<td><p>40.4%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="estimated-underblocking-and-overblocking-for-aol-msn-yahoo-search-results">
+<h3>Estimated underblocking and overblocking for AOL, MSN, &amp; Yahoo! search results<a class="headerlink" href="#estimated-underblocking-and-overblocking-for-aol-msn-yahoo-search-results" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>filter</p></th>
+<th class="head"><p>underblocking reslts</p></th>
+<th class="head"><p>overblocking reslts</p></th>
+<th class="head"><p>domestic  underb</p></th>
+<th class="head"><p>underblocking  queries</p></th>
+<th class="head"><p>95% CL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AOL Mature Teen</p></td>
+<td><p>6.2%</p></td>
+<td><p>12.5%</p></td>
+<td><p>57.0%</p></td>
+<td><p>15.6%</p></td>
+<td><p>5.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSN Pornography</p></td>
+<td><p>21.4%</p></td>
+<td><p>4.4%</p></td>
+<td><p>86.1%</p></td>
+<td><p>32.3%</p></td>
+<td><p>20.9%</p></td>
+</tr>
+<tr class="row-even"><td><p>MSN Teen</p></td>
+<td><p>20.8%</p></td>
+<td><p>5.8%</p></td>
+<td><p>91.9%</p></td>
+<td><p>28.1%</p></td>
+<td><p>18.8%</p></td>
+</tr>
+<tr class="row-odd"><td><p>ContentProtect Default</p></td>
+<td><p>18.4%</p></td>
+<td><p>6.4%</p></td>
+<td><p>70.1%</p></td>
+<td><p>46.2%</p></td>
+<td><p>10.0%</p></td>
+</tr>
+<tr class="row-even"><td><p>ContentProtect Custom</p></td>
+<td><p>20.4%</p></td>
+<td><p>0.0%</p></td>
+<td><p>62.1%</p></td>
+<td><p>42.2%</p></td>
+<td><p>25.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberPatrol Custom</p></td>
+<td><p>34.6%</p></td>
+<td><p>0.4%</p></td>
+<td><p>94.9%</p></td>
+<td><p>65.6%</p></td>
+<td><p>24.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberSitter Default</p></td>
+<td><p>11.2%</p></td>
+<td><p>4.6%</p></td>
+<td><p>33.8%</p></td>
+<td><p>23.2%</p></td>
+<td><p>11.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberSitter Custom</p></td>
+<td><p>10.0%</p></td>
+<td><p>5.3%</p></td>
+<td><p>44.1%</p></td>
+<td><p>20.1%</p></td>
+<td><p>8.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>McAfee Young Teen</p></td>
+<td><p>14.2%</p></td>
+<td><p>20.7%</p></td>
+<td><p>80.7%</p></td>
+<td><p>30.9%</p></td>
+<td><p>10.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Net Nanny Level 2</p></td>
+<td><p>28.1%</p></td>
+<td><p>3.7%</p></td>
+<td><p>79.4%</p></td>
+<td><p>36.6%</p></td>
+<td><p>20.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>Norton Default</p></td>
+<td><p>42.1%</p></td>
+<td><p>0.8%</p></td>
+<td><p>85.3%</p></td>
+<td><p>51.6%</p></td>
+<td><p>49.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Norton Custom</p></td>
+<td><p>43.4%</p></td>
+<td><p>0.0%</p></td>
+<td><p>85.6%</p></td>
+<td><p>56.1%</p></td>
+<td><p>54.3%</p></td>
+</tr>
+<tr class="row-even"><td><p>Verizon</p></td>
+<td><p>23.1%</p></td>
+<td><p>1.3%</p></td>
+<td><p>80.9%</p></td>
+<td><p>41.6%</p></td>
+<td><p>31.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>8e6</p></td>
+<td><p>7.3%</p></td>
+<td><p>7.5%</p></td>
+<td><p>78.0%</p></td>
+<td><p>23.4%</p></td>
+<td><p>11.7%</p></td>
+</tr>
+<tr class="row-even"><td><p>SafeEyes</p></td>
+<td><p>13.7%</p></td>
+<td><p>1.9%</p></td>
+<td><p>87.8%</p></td>
+<td><p>29.8%</p></td>
+<td><p>14.9%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="underblocking-estimated-overblocking-for-wordtracker-query-results">
+<h3>Underblocking | estimated overblocking for Wordtracker query results<a class="headerlink" href="#underblocking-estimated-overblocking-for-wordtracker-query-results" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>filter</p></th>
+<th class="head"><p>underblocking reslts</p></th>
+<th class="head"><p>overblocking reslts</p></th>
+<th class="head"><p>domestic underblk</p></th>
+<th class="head"><p>underblocking  queries</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AOL Mature Teen</p></td>
+<td><p>1.3%</p></td>
+<td><p>19.6%</p></td>
+<td><p>69.2%</p></td>
+<td><p>4.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSN Pornography</p></td>
+<td><p>2.7%</p></td>
+<td><p>13.3%</p></td>
+<td><p>86.1%</p></td>
+<td><p>8.2%</p></td>
+</tr>
+<tr class="row-even"><td><p>MSN Teen</p></td>
+<td><p>2.6%</p></td>
+<td><p>13.7%</p></td>
+<td><p>83.1%</p></td>
+<td><p>8.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>ContentProtect Default</p></td>
+<td><p>7.5%</p></td>
+<td><p>12.4%</p></td>
+<td><p>84.1%</p></td>
+<td><p>23.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>ContentProtect Custom</p></td>
+<td><p>8.1%</p></td>
+<td><p>7.8%</p></td>
+<td><p>84.9%</p></td>
+<td><p>25.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberPatrol Custom</p></td>
+<td><p>3.9%</p></td>
+<td><p>9.2%</p></td>
+<td><p>86.4%</p></td>
+<td><p>10.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>CyberSitter</p></td>
+<td><p>1.4%</p></td>
+<td><p>19.9%</p></td>
+<td><p>69.3%</p></td>
+<td><p>5.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CyberSitter Custom</p></td>
+<td><p>2.9%</p></td>
+<td><p>18.2%</p></td>
+<td><p>84.0%</p></td>
+<td><p>9.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>McAfee Young  Teen</p></td>
+<td><p>2.8%</p></td>
+<td><p>32.8%</p></td>
+<td><p>70.7%</p></td>
+<td><p>9.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Net Nanny Level 2</p></td>
+<td><p>12.6%</p></td>
+<td><p>9.5%</p></td>
+<td><p>82.9%</p></td>
+<td><p>34.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>Norton Default</p></td>
+<td><p>9.9%</p></td>
+<td><p>4.8%</p></td>
+<td><p>79.4%</p></td>
+<td><p>25.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Norton Custom</p></td>
+<td><p>10.2%</p></td>
+<td><p>2.9%</p></td>
+<td><p>79.4%</p></td>
+<td><p>25.9%</p></td>
+</tr>
+<tr class="row-even"><td><p>Verizon</p></td>
+<td><p>4.4%</p></td>
+<td><p>16.1%</p></td>
+<td><p>67.9%</p></td>
+<td><p>15.0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>8e6</p></td>
+<td><p>3.4%</p></td>
+<td><p>25.1%</p></td>
+<td><p>93.0%</p></td>
+<td><p>10.3%</p></td>
+</tr>
+<tr class="row-even"><td><p>SafeEyes</p></td>
+<td><p>2.0%</p></td>
+<td><p>16.5%</p></td>
+<td><p>96.6%</p></td>
+<td><p>6.4%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filter-results">
+<h3>Filter Results<a class="headerlink" href="#filter-results" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Most restrictive filter blocked 91% of adult pages; also blocked about 23-24%
+of the clean webpages in the indexes.</p></li>
+<li><p>Would block 22–23 clean webpages for each adult page it blocks
+in Google or MSN search index</p></li>
+<li><p>Less restrictive filters blocked as little as 40% of the adult pages.</p></li>
+<li><p>The most restrictive filter blocked about 94% of the adult
+pages among search results; also blocked about 13% of
+clean search results.</p></li>
+<li><p>On average, it would block about 7.6 clean results for every adult result it blocks.</p></li>
+<li><p>For the most popular queries, the most restrictive filter blocks over 98% of adult results;
+also blocked  ~20% of clean results.</p></li>
+<li><p>Would block  ~1.1 clean results of popular searches for each adult result it blocks.</p></li>
+</ul>
+</div>
+<div class="section" id="location-foreign-adult-websites-with-commercial-ties-to-the-us">
+<h3>Location: Foreign Adult Websites with Commercial Ties to the US<a class="headerlink" href="#location-foreign-adult-websites-with-commercial-ties-to-the-us" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Source</p></th>
+<th class="head"><p>Percentage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Google index</p></td>
+<td><p>90.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSN index</p></td>
+<td><p>89.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>AOL, MSN &amp; Y! queries</p></td>
+<td><p>88.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wordtracker queries</p></td>
+<td><p>95.9%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Estimated percentage of nominally free adult foreign webpages
+that have commercial ties to the United States, based on data provided by
+CRA International.
+Estimates for query results take into account query weights.</p>
+</div>
+</div>
+<div class="section" id="the-other-side">
+<h2>The other side<a class="headerlink" href="#the-other-side" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filtering-studies-cited-by-plaintiffs-expert">
+<h3>Filtering studies cited by Plaintiffs’ Expert<a class="headerlink" href="#filtering-studies-cited-by-plaintiffs-expert" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Reference</p></th>
+<th class="head"><p>Year</p></th>
+<th class="head"><p>Sample type</p></th>
+<th class="head"><p>Quantitative</p></th>
+<th class="head"><p>Source of pages</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eTesting Labs</p></td>
+<td><p>2001</p></td>
+<td><p>convenience</p></td>
+<td><p>yes</p></td>
+<td><p>searches on Google</p></td>
+</tr>
+<tr class="row-odd"><td><p>eTesting Labs</p></td>
+<td><p>2002</p></td>
+<td><p>convenience</p></td>
+<td><p>yes</p></td>
+<td><p>searches on Google; DMOZ</p></td>
+</tr>
+<tr class="row-even"><td><p>NetAlert</p></td>
+<td><p>2001</p></td>
+<td><p>quota</p></td>
+<td><p>yes</p></td>
+<td><p>unknown</p></td>
+</tr>
+<tr class="row-odd"><td><p>PC Magazine</p></td>
+<td><p>2004</p></td>
+<td><p>unknown</p></td>
+<td><p>no</p></td>
+<td><p>unknown</p></td>
+</tr>
+<tr class="row-even"><td><p>Consumer Reports</p></td>
+<td><p>2005</p></td>
+<td><p>convenience</p></td>
+<td><p>no</p></td>
+<td><p>unknown</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rulespace depo</p></td>
+<td><p>2006</p></td>
+<td><p>convenience</p></td>
+<td><p>yes</p></td>
+<td><p>unknown</p></td>
+</tr>
+</tbody>
+</table>
+<p>eTesting 1: Google search for “free adult sex.”</p>
+<p>eTesting 2: Added DMOZ; took sample of results.</p>
+<p>NetAlert: at most 30 webpages.</p>
+<div class="alert alert-error">This isn't science.</div></div>
+<div class="section" id="plaintiffs-internet-geography-study">
+<h3>Plaintiffs’ “Internet Geography” Study<a class="headerlink" href="#plaintiffs-internet-geography-study" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Claim: less than half of “free” porn sites are in US, and about
+2/3 of adult membership websites are in US</p></li>
+<li><p>Universe: Adultreviews.net, Adultwebmasters.org, Google Web Directory, Sextracker.com.</p></li>
+<li><p>Sample of convenience, not census or random sample.</p></li>
+<li><p>According to his database, the following are porn sites: aol.com, msn.com, yahoo.com, about.com
+lycos.fr, lycos.co.uk, com.ar, com.au, com.br, co.hu, co.il, co.kr, com.mx, co.nz, com.pl,
+com.pt, com.tw, com.ua, co.uk, com.ve, co.yu, co.za</p></li>
+<li><p>Serious bug: claims entire commercial domains of at least 17 countries are porn sites.</p></li>
+</ul>
+<div class="alert alert-error">This isn't science.  Judge took his results at face value nonetheless.
+</div></div>
+<div class="section" id="the-public">
+<h3>The Public<a class="headerlink" href="#the-public" title="Permalink to this headline">¶</a></h3>
+<p>Surprising outcry: thought the suit enabled DOJ to get personal info. Of course,</p>
+<ul class="simple">
+<li><p>every ISP, search engine, &amp; e-commeerce site had the info…as did the NSA.</p></li>
+<li><p>the subpoenas specifically said not to include IP addresses or any other information that would identify users  http://www.nytimes.com/2006/01/20/technology/google-resists-us-subpoena-of-search-data.html</p></li>
+<li><p>the queries were not the point: the point was what results the queries retrieved</p></li>
+<li><p><a class="reference external" href="https://www.npr.org/templates/story/story.php?storyId=5165530">Google fought the subpoena for search records</a> at the same time it was <a class="reference external" href="http://money.cnn.com/2006/02/21/news/international/pluggedin_fortune/">censoring search results in China</a></p></li>
+<li><p><a class="reference external" href="https://www.cnet.com/news/judge-google-must-give-feds-limited-access-to-records/">Court ordered Google to give sample from search index</a>, but no queries</p></li>
+</ul>
+<p>well now good for you – instead of teaching parents/caregivers of minors how to block unwanted porn sites you have given this administration an EXCUSE to peruse search
+engine data bases.</p>
+<p>enough erosion of civil liberties</p>
+<p>Dorothy Grimes</p>
+<p>earthchildren&#64;comcast.net</p>
+<p>Heartwood Books Heartwood&#64;cstone.net to stark
+show details 1/20/06
+Dear Professor Stark,</p>
+<p>The Google user is an actual person, not just a statistic, and your attempt
+to expose my personal information (even buried in a large quantity of data)
+is at best short sighted on your part. It is also annoying. It is
+absolutely NONE OF YOUR BUSINESS what I search for on Google.</p>
+<p>I am aware of the fact that some people (especially the young) seem to
+place no value on privacy. But this is not the case for everyone. Do you
+think for a minute that the government will be satisfied with “anonymous”
+data if it sees “suspicious” patterns? Using statistical methods to
+identify criminals has enormous potential for misuse. Look at the early use
+of genetics that produced eugenics. Before you accept your next consulting
+fee, stop and talk with someone about the ethics of your work.</p>
+<p>Even if you do not value your personal privacy in this matter, ask yourself
+if you would want the public or the government examining all of your
+communication or internet use. When the government gains the right to watch
+our private non-criminal lives, this power will not exist only for the
+current well meaning Bush administration but will be available for the next
+Bush, Clinton or Nixon as well.</p>
+<p>It is absolutely NONE OF YOUR BUSINESS what I search for on Google. It is
+none of my business whether the baseball cap just looks cute or is hiding
+thinning hair. Some things are private.</p>
+<p>Paul Collinge</p>
+<p>Heartwood Books
+5 Elliewood Ave.
+Charlottesville, Va. 22903
+434 295 7083</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

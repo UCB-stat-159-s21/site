@@ -1,0 +1,2464 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permutation Tests &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/permute-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/permute-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-idea">
+   Basic idea:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-effect-of-treatment-in-a-randomized-controlled-experiment">
+   Example: Effect of treatment in a randomized controlled experiment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informal-hypotheses">
+     Informal Hypotheses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-contenders">
+     Test contenders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strong-null-hypothesis">
+     Strong null hypothesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weak-null-hypothesis">
+     Weak null hypothesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternatives">
+     Alternatives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions-of-the-tests">
+     Assumptions of the tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-s-the-group">
+     What’s the group?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#student-t-test-calculations">
+     Student
+     <span class="math notranslate nohighlight">
+      \(t\)
+     </span>
+     -test calculations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutation-t-test-calculations">
+     Permutation
+     <span class="math notranslate nohighlight">
+      \(t\)
+     </span>
+     -test calculations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-tests-sign-test-wilcoxon-signed-rank-test">
+     Other tests: sign test, Wilcoxon signed-rank test
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sign-test">
+       Sign test:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wilcoxon-signed-rank-test">
+       Wilcoxon signed-rank test
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#still-more-tests-for-other-alternatives">
+     Still more tests, for other alternatives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#silliness">
+     Silliness
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#back-to-rosenzweig-et-al">
+   Back to Rosenzweig et al.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Test contenders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Strong null hypothesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Weak null hypothesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Assumptions of the tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-test-assumptionsreasonable">
+     <span class="math notranslate nohighlight">
+      \(F\)
+     </span>
+     -test assumptions—reasonable?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-test-against-an-ordered-alternative">
+     A test against an ordered alternative
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-different-test-against-an-ordered-alternative">
+     A different test against an ordered alternative
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-2-sample-problem">
+   The 2-sample problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gender-bias-in-teaching-evaluations">
+   Gender Bias in Teaching Evaluations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interlude-partitioning-sets-into-more-than-two-subsets">
+     Interlude: partitioning sets into more than two subsets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="permutation-tests">
+<h1>Permutation Tests<a class="headerlink" href="#permutation-tests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-idea">
+<h2>Basic idea:<a class="headerlink" href="#basic-idea" title="Permalink to this headline">¶</a></h2>
+<p>If, under the null hypothesis, the probability distribution of the data is invariant under the action of some group <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>, then once we observe the actual data, we know other possible data sets that are equally likely.</p>
+<p>In particular, every element of the <em>orbit</em> of the observed data under <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> was just as probable as the
+observed data.</p>
+<p>Test <em>conditionally</em> on the orbit in which the observed data lie.</p>
+</div>
+<div class="section" id="example-effect-of-treatment-in-a-randomized-controlled-experiment">
+<h2>Example: Effect of treatment in a randomized controlled experiment<a class="headerlink" href="#example-effect-of-treatment-in-a-randomized-controlled-experiment" title="Permalink to this headline">¶</a></h2>
+<p>11 pairs of rats, each pair from the same litter.</p>
+<p>Randomly—by coin tosses—put one of each pair into
+“enriched” environment; other sib gets “normal” environment.</p>
+<p>After 65 days, measure cortical mass (mg).</p>
+<table>
+<tr>
+<td> enriched </td><td> 689 </td><td> 656 </td><td> 668 </td><td> 660 </td><td> 679 </td><td> 663 </td><td> 664 </td><td> 647 </td><td> 694 </td><td> 633 </td><td>653 </td>
+</tr>
+<tr>
+<td> impoverished </td><td> 657</td><td> 623</td><td> 652</td><td> 654</td><td> 658</td><td> 646</td><td> 600</td><td> 640</td><td> 605</td><td> 635</td><td> 642 </td>
+</tr>
+<tr>
+<td> difference </td><td> 32</td><td>  33</td><td>  16</td><td>   6</td><td>  21</td><td>  17</td><td>  64</td><td>   7</td><td>  89</td><td>  -2</td><td>  11
+</tr>
+</table>
+<p><strong>How should we analyze the data?</strong></p>
+<p>Cartoon of Rosenzweig, M.R., E.L. Bennet, and M.C. Diamond, 1972. Brain changes in response to experience, <em>Scientific American</em>, <em>226</em>, 22–29 report an experiment in which 11 triples of male rats, each triple from the same litter, were
+assigned at random to three different environments, “enriched” (E), standard, and “impoverished.”
+See also Bennett et al., 1969.</p>
+<div class="section" id="informal-hypotheses">
+<h3>Informal Hypotheses<a class="headerlink" href="#informal-hypotheses" title="Permalink to this headline">¶</a></h3>
+<p>Null hypothesis: treatment has “no effect.”</p>
+<p>Alternative hypothesis: treatment increases cortical mass.</p>
+<p>Suggests 1-sided test for an increase.</p>
+</div>
+<div class="section" id="test-contenders">
+<h3>Test contenders<a class="headerlink" href="#test-contenders" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>2-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test:
+$<span class="math notranslate nohighlight">\( 
+            \frac{\mbox{mean(treatment) - mean(control)}}
+                 {\mbox{pooled estimate of SD of difference of means}}
+\)</span>$</p></li>
+<li><p>1-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:
+$<span class="math notranslate nohighlight">\(
+        \frac{\mbox{mean(differences)}}{\mbox{SD(differences)}/\sqrt{11}}
+\)</span>$<br />
+Better, since littermates are presumably more homogeneous.</p></li>
+<li><p>Permutation test using <span class="math notranslate nohighlight">\(t\)</span>-statistic of differences:
+same statistic, different way to calculate <span class="math notranslate nohighlight">\(P\)</span>-value.
+Even better?</p></li>
+</ul>
+</div>
+<div class="section" id="strong-null-hypothesis">
+<h3>Strong null hypothesis<a class="headerlink" href="#strong-null-hypothesis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Treatment has no effect whatsoever—as if cortical mass were
+assigned to each rat before the randomization.</strong></p>
+<p>Then equally likely that the rat with the heavier cortex will be assigned
+to treatment or to control, independently across littermate pairs.</p>
+<p>Gives <span class="math notranslate nohighlight">\(2^{11} = 2,048\)</span> equally likely possibilities:</p>
+<table>
+<tr>
+<td>difference </td><td> $\pm$32 </td><td> $\pm$33 </td><td> $\pm$16 </td><td> $\pm$6 </td><td> $\pm$21 </td><td> $\pm$17 </td><td> $\pm$64 </td><td> $\pm$7 </td><td> $\pm$89 </td><td> $\pm$2 </td><td> $\pm$11 </td>
+</tr>
+</table>
+<p>For example, just as likely to observe original differences as</p>
+<table>
+<tr>
+	<td>difference </td><td>-32 </td><td> -33 </td><td> -16 </td><td> -6 </td><td> -21 </td><td> -17 </td><td>
+    -64</td><td> -7 </td><td> -89 </td><td> -2 </td><td> -11</td>
+</tr>
+</table>
+</div>
+<div class="section" id="weak-null-hypothesis">
+<h3>Weak null hypothesis<a class="headerlink" href="#weak-null-hypothesis" title="Permalink to this headline">¶</a></h3>
+<p>On average across pairs, treatment makes no difference.</p>
+</div>
+<div class="section" id="alternatives">
+<h3>Alternatives<a class="headerlink" href="#alternatives" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Individual’s response depends only on that individual’s assignment</p>
+<ul class="simple">
+<li><p>Special cases: shift, scale, etc.</p></li>
+</ul>
+</li>
+<li><p>Interactions/Interference: my response could depend on whether you are assigned to treatment or control.</p></li>
+</ol>
+</div>
+<div class="section" id="assumptions-of-the-tests">
+<h3>Assumptions of the tests<a class="headerlink" href="#assumptions-of-the-tests" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>2-sample <span class="math notranslate nohighlight">\(t\)</span>-test:</p>
+<ul class="simple">
+<li><p>masses are iid sample from normal distribution, same unknown variance, same unknown mean.</p></li>
+<li><p>Tests weak null hypothesis (plus normality, independence, non-interference, etc.).</p></li>
+</ul>
+</li>
+<li><p>1-sample <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:</p>
+<ul class="simple">
+<li><p>mass differences are iid sample from normal distribution, unknown variance, zero mean.</p></li>
+<li><p>Tests weak null hypothesis (plus normality, independence, non-interference, etc.)</p></li>
+</ul>
+</li>
+<li><p>Permutation test:</p>
+<ul class="simple">
+<li><p>Randomization fair, independent across pairs.</p></li>
+<li><p>Tests strong null hypothesis.</p></li>
+</ul>
+</li>
+</ol>
+<p>Assumptions of the permutation test are true by design: That’s how treatment
+was assigned.</p>
+</div>
+<div class="section" id="what-s-the-group">
+<h3>What’s the group?<a class="headerlink" href="#what-s-the-group" title="Permalink to this headline">¶</a></h3>
+<p>The data are elements of <span class="math notranslate nohighlight">\(\Re^{11}\)</span>. The group operations reflect coordinates
+about the axes—they flip the signs of elements of the vectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># boilerplate</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>  <span class="c1"># distributions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span> <span class="c1"># special functions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">random</span> <span class="c1"># random variables, distributions, etc.</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="p">(</span><span class="n">binom</span><span class="p">,</span> <span class="n">hypergeom</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">widgets</span>
+
+<span class="n">treat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">689</span><span class="p">,</span> <span class="mi">656</span><span class="p">,</span> <span class="mi">668</span><span class="p">,</span> <span class="mi">660</span><span class="p">,</span> <span class="mi">679</span><span class="p">,</span> <span class="mi">663</span><span class="p">,</span> <span class="mi">664</span><span class="p">,</span> <span class="mi">647</span><span class="p">,</span> <span class="mi">694</span><span class="p">,</span> <span class="mi">633</span><span class="p">,</span> <span class="mi">653</span><span class="p">])</span>
+<span class="n">control</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">657</span><span class="p">,</span> <span class="mi">623</span><span class="p">,</span> <span class="mi">652</span><span class="p">,</span> <span class="mi">654</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span> <span class="mi">646</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">605</span><span class="p">,</span> <span class="mi">635</span><span class="p">,</span> <span class="mi">642</span><span class="p">])</span>
+<span class="n">diffr</span> <span class="o">=</span> <span class="n">treat</span> <span class="o">-</span> <span class="n">control</span>
+
+<span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">diffr</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  <span class="c1"># two-sided one-sample t-test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_1sampResult(statistic=3.243721403780522, pvalue=0.008813693207259936)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="student-t-test-calculations">
+<h3>Student <span class="math notranslate nohighlight">\(t\)</span>-test calculations<a class="headerlink" href="#student-t-test-calculations" title="Permalink to this headline">¶</a></h3>
+<p>Mean of differences:  26.73mg<br />
+Sample SD of differences:  27.33mg<br />
+<span class="math notranslate nohighlight">\(t\)</span>-statistic: <span class="math notranslate nohighlight">\(26.73/(27.33/\sqrt{11}) = 3.244\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(P\)</span>-value for 2-sided <span class="math notranslate nohighlight">\(t\)</span>-test:  0.0088</p>
+<ul class="simple">
+<li><p>Why do cortical weights have normal distribution?</p></li>
+<li><p>Why is variance of the difference between treatment and control the same for different litters?</p></li>
+<li><p>Treatment and control are <em>dependent</em> because assigning a rat to treatment excludes it from the control group, and vice versa.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span>-value depends on assuming differences are iid sample from a normal distribution.</p></li>
+<li><p>If we reject the null, is that because there is a treatment effect, or because the other assumptions are wrong?</p></li>
+</ul>
+</div>
+<div class="section" id="permutation-t-test-calculations">
+<h3>Permutation <span class="math notranslate nohighlight">\(t\)</span>-test calculations<a class="headerlink" href="#permutation-t-test-calculations" title="Permalink to this headline">¶</a></h3>
+<p>Could enumerate all <span class="math notranslate nohighlight">\(2^{11} = 2,048\)</span> equally likely possibilities.
+Calculate <span class="math notranslate nohighlight">\(t\)</span>-statistic for each.</p>
+<p><span class="math notranslate nohighlight">\(P\)</span>-value is
+$<span class="math notranslate nohighlight">\(
+	P = \frac{\mbox{number of possibilities with \)</span>t \ge 3.244<span class="math notranslate nohighlight">\(}}{\mbox{2,048}}
+\)</span><span class="math notranslate nohighlight">\(
+(Using the mean as the test statistic instead of \)</span>t<span class="math notranslate nohighlight">\(-statistic
+would yield \)</span>P = 2/2048 =  0.00098$.)</p>
+<p>If there were many more pairs, it would be impractical to enumerate, but
+we can simulate:</p>
+<p>Assign a random sign to each difference. \
+Compute <span class="math notranslate nohighlight">\(t\)</span>-statistic \
+Repeat <span class="math notranslate nohighlight">\(N\)</span> times
+$<span class="math notranslate nohighlight">\(
+	P \approx \frac{\mbox{number of simulations with \)</span>t \ge 3.244<span class="math notranslate nohighlight">\(}}{N}
+\)</span><span class="math notranslate nohighlight">\(
+Can invert Binomial tests to make an exact confidence interval for \)</span>P$ from the simulation results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">20151013</span><span class="p">)</span>  <span class="c1"># set seed for reproducibility</span>
+
+<span class="nb">iter</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># N</span>
+<span class="k">def</span> <span class="nf">simPermuTP</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="nb">iter</span><span class="p">):</span>
+<span class="c1"># P.B. Stark, statistics.berkeley.edu/~stark </span>
+<span class="c1"># simulated P-value for 2-sided 1-sample t-test under the </span>
+<span class="c1"># randomization model.</span>
+    <span class="n">tsf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">tsf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span> <span class="p">(</span><span class="n">tsf</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">ts</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">iter</span><span class="p">)])</span>
+    
+<span class="n">estP</span> <span class="o">=</span> <span class="n">simPermuTP</span><span class="p">(</span><span class="n">diffr</span><span class="p">,</span> <span class="nb">iter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estP</span><span class="p">,</span> <span class="n">estP</span><span class="o">*</span><span class="nb">iter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/stark/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:10: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
+  # Remove the CWD from sys.path while we load stuff.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00178 178.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># confidence interval for the p-value</span>
+<span class="c1"># This function is in the _permute_ library; see http://statlab.github.io/permute/</span>
+
+<span class="k">def</span> <span class="nf">binom_conf_interval</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute a confidence interval for a binomial p, the probability of success in each trial.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        The number of Bernoulli trials.</span>
+<span class="sd">    x : int</span>
+<span class="sd">        The number of successes.</span>
+<span class="sd">    cl : float in (0, 1)</span>
+<span class="sd">        The desired confidence level.</span>
+<span class="sd">    alternative : {&quot;two-sided&quot;, &quot;lower&quot;, &quot;upper&quot;}</span>
+<span class="sd">        Indicates the alternative hypothesis.</span>
+<span class="sd">    p : float in (0, 1)</span>
+<span class="sd">        Starting point in search for confidence bounds for probability of success in each trial.</span>
+<span class="sd">    kwargs : dict</span>
+<span class="sd">        Key word arguments</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        lower and upper confidence level with coverage (approximately)</span>
+<span class="sd">        1-alpha.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    xtol : float</span>
+<span class="sd">        Tolerance</span>
+<span class="sd">    rtol : float</span>
+<span class="sd">        Tolerance</span>
+<span class="sd">    maxiter : int</span>
+<span class="sd">        Maximum number of iterations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="s2">&quot;upper&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">ci_low</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">ci_upp</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;two-sided&#39;</span><span class="p">:</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">!=</span> <span class="s2">&quot;upper&quot;</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">cl</span> <span class="o">-</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+        <span class="n">ci_low</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">!=</span> <span class="s2">&quot;lower&quot;</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cl</span><span class="p">)</span>
+        <span class="n">ci_upp</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_upp</span>
+
+<span class="n">binom_conf_interval</span><span class="p">(</span><span class="nb">iter</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">estP</span><span class="o">*</span><span class="nb">iter</span><span class="p">),</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">estP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0015282895505098987, 0.0020612743102104377)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binom_conf_interval</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="mi">907</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;upper&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 0.009792108717906225)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="other-tests-sign-test-wilcoxon-signed-rank-test">
+<h3>Other tests: sign test, Wilcoxon signed-rank test<a class="headerlink" href="#other-tests-sign-test-wilcoxon-signed-rank-test" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sign-test">
+<h4>Sign test:<a class="headerlink" href="#sign-test" title="Permalink to this headline">¶</a></h4>
+<p>Count pairs where treated rat has heavier cortex, i.e., where
+difference is positive.</p>
+<p>Under strong null, distribution of the number of positive differences
+is Binomial(11, 1/2).  Like number of heads in 11 independent tosses
+of a fair coin.  (Assumes no ties w/i pairs.)</p>
+<p><span class="math notranslate nohighlight">\(P\)</span>-value is chance of 10 or more heads in 11 tosses of a fair coin: 0.0059.</p>
+<p>Only uses signs of differences, not information that only the smallest absolute
+difference was negative.</p>
+</div>
+<div class="section" id="wilcoxon-signed-rank-test">
+<h4>Wilcoxon signed-rank test<a class="headerlink" href="#wilcoxon-signed-rank-test" title="Permalink to this headline">¶</a></h4>
+<p>uses information about the ordering of the
+differences: rank the absolute values of the differences, then give them
+the observed signs and sum them.  Null distribution: assign signs at random
+and sum.</p>
+</div>
+</div>
+<div class="section" id="still-more-tests-for-other-alternatives">
+<h3>Still more tests, for other alternatives<a class="headerlink" href="#still-more-tests-for-other-alternatives" title="Permalink to this headline">¶</a></h3>
+<p>All the tests we’ve seen here are sensitive to <em>shifts</em>–the alternative
+hypothesis is that treatment increases response (cortical mass).</p>
+<p>There are also nonparametric tests that are sensitive to other
+treatment effects, e.g., treatment increases the variability of the
+response.</p>
+<p>And there are tests for whether treatment has any effect at all on
+the distribution of the responses.</p>
+<p>You can design a test statistic to be sensitive to any change that
+interests you, then use the permutation distribution to get a <span class="math notranslate nohighlight">\(P\)</span>-value
+(and simulation to approximate that <span class="math notranslate nohighlight">\(P\)</span>-value).</p>
+</div>
+<div class="section" id="silliness">
+<h3>Silliness<a class="headerlink" href="#silliness" title="Permalink to this headline">¶</a></h3>
+<p>Treat ordinal data (e.g., Likert scale) as if measured on a linear scale;
+use Student <span class="math notranslate nohighlight">\(t\)</span>-test.</p>
+<p>Maybe not so silly for large samples<span class="math notranslate nohighlight">\(\ldots\)</span></p>
+<p><span class="math notranslate nohighlight">\(t\)</span>-test asymptotically distribution-free.</p>
+<p>How big is big?</p>
+</div>
+</div>
+<div class="section" id="back-to-rosenzweig-et-al">
+<h2>Back to Rosenzweig et al.<a class="headerlink" href="#back-to-rosenzweig-et-al" title="Permalink to this headline">¶</a></h2>
+<p>Actually had 3 treatments:  enriched, standard, deprived.</p>
+<p>Randomized 3 rats per litter into the 3 treatments, independently across
+<span class="math notranslate nohighlight">\(n\)</span> litters.</p>
+<p><strong>How should we analyze these data?</strong></p>
+<div class="section" id="id1">
+<h3>Test contenders<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(n\)</span> litters, <span class="math notranslate nohighlight">\(s\)</span> treatments (sibs per litter).</p>
+<ul class="simple">
+<li><p>ANOVA–the <span class="math notranslate nohighlight">\(F\)</span>-test:
+$<span class="math notranslate nohighlight">\( 
+F = \frac{\mbox{BSS}/(s-1)}{\mbox{WSS}/(n-s)}
+\)</span>$</p></li>
+<li><p>Permutation <span class="math notranslate nohighlight">\(F\)</span>-test: use permutation distribution instead of <span class="math notranslate nohighlight">\(F\)</span> distribution to get <span class="math notranslate nohighlight">\(P\)</span>-value.</p></li>
+<li><p>Friedman test: Rank within litters. Mean rank for treatment <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(\bar{R}_i\)</span>.
+$<span class="math notranslate nohighlight">\( 
+Q = \frac{12n}{s(s+1)} \sum_{i=1}^s \left ( \bar{R}_i - \frac{s+1}{2} \right )^2.
+\)</span><span class="math notranslate nohighlight">\(
+\)</span>P$-value from permutation distribution.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Strong null hypothesis<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Treatment has no effect whatsoever—as if cortical mass were
+assigned to each rat before the randomization.</strong></p>
+<p>Then it’s equally likely that each littermate is assigned to each treatment,
+independently across litters.</p>
+<p>There are <span class="math notranslate nohighlight">\(3! = 6\)</span> assignments of each triple to treatments. Thus, there <span class="math notranslate nohighlight">\(6^n\)</span> equally likely assignments across all litters.</p>
+<p>For 11 litters, that’s 362,797,056 possibilities.</p>
+<p>(The group under which the distribution of the data is invariant is a subgroup of the permutation group: if you think of the data as an element of <span class="math notranslate nohighlight">\(\Re^{33}\)</span> (33 rats), the group consists of all permutations of the 33 elements that shuffle only adjacent sets of 3 components: components 1–3, components 4–6, … components 31–33.)</p>
+</div>
+<div class="section" id="id3">
+<h3>Weak null hypothesis<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><strong>The average cortical weight for all three treatment groups are equal.
+On average across triples, treatment makes no difference.</strong></p>
+</div>
+<div class="section" id="id4">
+<h3>Assumptions of the tests<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F\)</span>-test: masses are iid sample from normal distribution, same unknown variance, same unknown mean for all litters and treatments.<br />
+Tests weak null hypothesis.</p></li>
+<li><p>Permutation <span class="math notranslate nohighlight">\(F\)</span>-test: Randomization was as advertised: fair, independent across triples.<br />
+Tests strong null hypothesis.</p></li>
+<li><p>Friedman test: Ditto.</p></li>
+</ul>
+<p>Assumptions of the permutation test and Friedman test are true by design:
+that’s how treatment was assigned.</p>
+<p>Friedman test statistic has  <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution asymptotically.  Ties are a complication.</p>
+</div>
+<div class="section" id="f-test-assumptionsreasonable">
+<h3><span class="math notranslate nohighlight">\(F\)</span>-test assumptions—reasonable?<a class="headerlink" href="#f-test-assumptionsreasonable" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Why do cortical weights have normal distribution for each litter and for each treatment?</p></li>
+<li><p>Why is the variance of cortical weights the same for different litters?</p></li>
+<li><p>Why is the variance of cortical weights the same for different treatments?</p></li>
+</ul>
+<p>Is <span class="math notranslate nohighlight">\(F\)</span> a good statistic for this alternative?</p>
+<p><span class="math notranslate nohighlight">\(F\)</span>-test (and Friedman statistic) sensitive to differences among the
+mean responses for each treatment group, no matter what pattern the differences
+have.</p>
+<p>But the treatments and the responses can be ordered: we hypothesize that
+more stimulation produces greater cortical mass.</p>
+<p>deprived <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  normal  <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  enriched<br />
+low mass  <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  medium mass  <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  high mass</p>
+<p><em>Can we use that to make a more sensitive test?</em></p>
+</div>
+<div class="section" id="a-test-against-an-ordered-alternative">
+<h3>A test against an ordered alternative<a class="headerlink" href="#a-test-against-an-ordered-alternative" title="Permalink to this headline">¶</a></h3>
+<p>Within each litter triple, count pairs of responses
+that are “in order.”  Sum across litters.</p>
+<p>E.g., if one triple had cortical masses</p>
+<table>
+<tr>
+<td>deprived </td><td> 640 </td>
+</tr>
+<tr>
+<td>normal </td><td> 660 </td>
+</tr>
+<tr>
+<td>enriched </td><td>  650 </td>
+</table>
+<p>that would contribute 2 to the sum: <span class="math notranslate nohighlight">\(660 \ge 640\)</span>, <span class="math notranslate nohighlight">\(650 \ge 640\)</span>, but <span class="math notranslate nohighlight">\(640 &lt; 650\)</span>.</p>
+<p>Each litter triple contributes between 0 and 3 to the overall sum.</p>
+<p>Null distribution for the test based on the permutation distribution: 6
+equally likely assignments per litter, independent assignments across litters.</p>
+</div>
+<div class="section" id="a-different-test-against-an-ordered-alternative">
+<h3>A different test against an ordered alternative<a class="headerlink" href="#a-different-test-against-an-ordered-alternative" title="Permalink to this headline">¶</a></h3>
+<p>Within each litter triple, add differences
+that are “in order.”  Sum across litters.</p>
+<p>E.g., if one triple had cortical masses</p>
+<table>
+<tr>
+<td>deprived </td><td> 640 </td>
+</tr>
+<tr>
+<td>normal </td><td> 660 </td>
+</tr>
+<tr>
+<td>enriched </td><td>  650 </td>
+</table>
+<p>that would contribute 30 to the sum: <span class="math notranslate nohighlight">\(660 - 640 = 20\)</span> and <span class="math notranslate nohighlight">\(650 - 640 = 10\)</span>, but <span class="math notranslate nohighlight">\(640 &lt; 650\)</span>,
+so that pair contributes zero.</p>
+<p>Each litter triple contributes between 0 and <span class="math notranslate nohighlight">\(2\times{\mbox{ range }}\)</span> to the sum.</p>
+<p>Null distribution for the test based on the permutation distribution: 6
+equally likely assignments per litter, independent across litters.</p>
+</div>
+</div>
+<div class="section" id="the-2-sample-problem">
+<h2>The 2-sample problem<a class="headerlink" href="#the-2-sample-problem" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we have a group of <span class="math notranslate nohighlight">\(N\)</span> individuals who are randomized into two groups, a <em>treatment</em> group of size <span class="math notranslate nohighlight">\(N_t\)</span> and a <em>control</em> group of size <span class="math notranslate nohighlight">\(N_c = N - N_t\)</span>.
+Label the individuals from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.
+Let <span class="math notranslate nohighlight">\({\mathcal T}\)</span> denote the labels of individuals assigned to treatment and <span class="math notranslate nohighlight">\({\mathcal C}\)</span> denote
+the labels of those assigned to control.</p>
+<p>For each of the <span class="math notranslate nohighlight">\(N\)</span> individuals, we measure a quantitative (real-valued) response.
+Each individual <span class="math notranslate nohighlight">\(i\)</span> has two <em>potential responses</em>: the response <span class="math notranslate nohighlight">\(c_i \)</span>individual would have if assigned to
+the control group, and the response <span class="math notranslate nohighlight">\(t_i\)</span> the individual would have if assigned to the treatment group.</p>
+<p>We assume that individual <span class="math notranslate nohighlight">\(i\)</span>’s response depends <em>only</em> on that individual’s assigment, and not on anyone else’s assignment.
+This is the assumption of <em>non-interference</em>.
+In some cases, this assumption is reasonable; in others, it is not.</p>
+<p>For instance, imagine testing a vaccine for a communicable disease.
+If you and I have contact, whether you get the disease might depend on whether I am vaccinated—and <em>vice versa</em>—since if the vaccine protects me from illness, I won’t infect you.
+Similarly, suppose we are testing the effectiveness of an advertisement for a product.
+If you and I are connected and you buy the product, I might be more likely to buy it, even if I don’t
+see the advertisement.</p>
+<p>Conversely, suppose that “treatment” is exposure to a carcinogen, and the response whether the
+subject contracts cancer.
+On the assumption that cancer is not communicable, my exposure and your disease
+status have no connection.</p>
+<p>The <em>strong null hypothesis</em> is that individual by individual, treatment makes no difference whatsoever: <span class="math notranslate nohighlight">\(c_i = t_i\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>If so, any differences between statistics computed for the treatment and control groups are entirely due to the luck of the draw: which individuals happened to be assigned to treatment and which to control.</p>
+<p>We can find the <em>null distribution</em> of any statistic computed from the responses of the two groups: if the strong null hypothesis is true, we know what individual <span class="math notranslate nohighlight">\(i\)</span>’s response would have been whether assigned to treatment or to control—namely, the same.</p>
+<p>For instance, suppose we suspect that treatment tends to increase response: in general, <span class="math notranslate nohighlight">\(t_i \ge c_i\)</span>.
+Then we might expect <span class="math notranslate nohighlight">\(\bar{c} = \frac{1}{N_c} \sum_{i \in {\mathcal C}} c_i\)</span> to be less than
+<span class="math notranslate nohighlight">\(\bar{t} = \frac{1}{N_t} \sum_{i \in {\mathcal T}} t_i\)</span>.
+How large a difference between <span class="math notranslate nohighlight">\(\bar{c}\)</span> and <span class="math notranslate nohighlight">\(\bar{t}\)</span> would be evidence that treatment increases the response,
+beyond what might happen by chance through the luck of the draw?</p>
+<p>This amounts to asking whether the observed difference in means between the two groups is a high percentile
+of the distribution of that difference in means, calculated on the assumption that the null hypothesis is true.</p>
+<p>Because of how subjects are assigned to treatment or to control, all allocations of <span class="math notranslate nohighlight">\(N_t\)</span> subjects to
+treatment are equally likely.</p>
+<p>One way to partition the <span class="math notranslate nohighlight">\(N\)</span> subjects randomly into a group of size <span class="math notranslate nohighlight">\(N_c\)</span> and a group of size <span class="math notranslate nohighlight">\(N_t\)</span> is
+to permute the <span class="math notranslate nohighlight">\(N\)</span> subjects at random, then take the first <span class="math notranslate nohighlight">\(N_c\)</span> in the permuted list to be the control
+group, and the remaining <span class="math notranslate nohighlight">\(N_t\)</span> to be the treatment group.</p>
+</div>
+<div class="section" id="gender-bias-in-teaching-evaluations">
+<h2>Gender Bias in Teaching Evaluations<a class="headerlink" href="#gender-bias-in-teaching-evaluations" title="Permalink to this headline">¶</a></h2>
+<p>MacNell, Driscoll, and Hunt (2014. <a class="reference external" href="http://link.springer.com/article/10.1007%2Fs10755-014-9313-4">What’s in a Name: Exposing Gender Bias in Student Ratings of Teaching</a>, <em>Innovative Higher Education</em>) conducted a controlled, randomized experiment on
+the effect of students’ perception of instructors’ gender on teaching evaluations
+in an online course.
+Students in the class did not know the instructors’ true genders.</p>
+<p>MacNell et al. randomized 47 students in an online course into four groups: two taught by a female
+instructor and two by a male instructor.
+One of the groups taught by each instructor was led to believe the instructor was male;
+the other was led to believe the instructor was female.
+Comparable instructor biographies were given to all students.
+Instructors treated the groups identically, including returning assignments at the same time.</p>
+<p>When students thought the instructor was female, the responding students rated the instructor lower, on average,
+in every regard.</p>
+<table>
+<tr><th>Characteristic</th> <th>F - M</th></tr>
+<tr><td>Caring</td><td> -0.52</td></tr>
+<tr><td> Consistent</td><td> -0.47</td></tr>
+<tr><td> Enthusiastic</td><td> -0.57</td></tr>
+<tr><td> Fair </td><td>-0.76</td></tr>
+<tr><td> Feedback</td><td> -0.47</td></tr>
+<tr><td> Helpful</td><td> -0.46</td></tr>
+<tr><td> Knowledgeable</td><td> -0.35</td></tr>
+<tr><td> Praise</td><td> -0.67</td></tr>
+<tr><td> Professional</td><td> -0.61</td></tr>
+<tr><td> Prompt</td><td> -0.80</td></tr>
+<tr><td> Respectful</td><td> -0.61</td></tr>
+<tr><td> Responsive</td><td> -0.22</td></tr>
+</table>
+<p>Those results are for a 5-point scale, so a difference of 0.8 (Promptness) is 16% of the entire scale.</p>
+<p>MacNell et al. graciously shared their data.
+The evaluation data are coded as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Group
+      3 (12 students) - TA identified as male, true TA gender female 
+      4 (11 students) - TA identified as male, true TA gender male
+      5 (11 students, 8 responders) - TA identified as female, true TA gender female
+      6 (13 students, 12 responders) - TA identified as female, true TA gender male
+tagender - 1 if TA is actually male, 0 if actually female 
+taidgender - 1 if TA is identified as male, 0 if identified as female 
+gender - 1 if student is male, 0 if student is female
+</pre></div>
+</div>
+<p>There are grades for 47 students but evaluations for only 43 (4 did not respond: three in group 5 and one in group 6).
+The grades are not linked to the evaluations, per the IRB protocol.</p>
+<p>Our null hypothesis will include the assumption that whether a student responds does not depend on the identified gender of the TA: the 4 nonresponders would have remained nonresponders had they been in that instructor’s other section, and no additional students would become nonresponders if they had been assigned to the same instructor’s other section.</p>
+<div class="section" id="interlude-partitioning-sets-into-more-than-two-subsets">
+<h3>Interlude: partitioning sets into more than two subsets<a class="headerlink" href="#interlude-partitioning-sets-into-more-than-two-subsets" title="Permalink to this headline">¶</a></h3>
+<p>Recall that there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of picking a subset of size <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(n\)</span> items;
+hence there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of dividing a set into a subset of size <span class="math notranslate nohighlight">\(k\)</span> and one of size <span class="math notranslate nohighlight">\(n-k\)</span>
+(once you select those that belong to the subset of size <span class="math notranslate nohighlight">\(k\)</span>, the rest must be in the complementary
+subset of size <span class="math notranslate nohighlight">\(n-k\)</span>.</p>
+<p>In this problem, we are partitioning 47 things into 4 subsets, two of size 11, one of size 12, and
+one of size 13.
+How many ways are there of doing that?</p>
+<p>Recall the <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/SticiGui/Text/counting.htm#fundamental_rule">Fundamental Rule of Counting</a>:
+If a set of choices, <span class="math notranslate nohighlight">\(T_1, T_2, \ldots,  T_k\)</span>, could result, respectively,
+in <span class="math notranslate nohighlight">\(n_1, n_2, \ldots, n_k\)</span> possible outcomes, the entire set of <span class="math notranslate nohighlight">\(k\)</span> choices has
+<span class="math notranslate nohighlight">\(\prod_{i=1}^k n_k\)</span> possible outcomes.</p>
+<p>We can think of the allocation of students to the four groups as choosing 11 of the 47
+students for the first group, then 11 of the remaining 36 for the second,
+then 12 of the remaining 25 for the third.
+The fourth group must contain the remaining 13.</p>
+<p>The number of ways of doing that is</p>
+<div class="math notranslate nohighlight">
+\[  
+   {47 \choose 11}{36 \choose 11}{25 \choose 12} =
+   \frac{47!}{11! 36!} \frac{36!}{11! 25!} \frac{25!}{12! 13!} = \frac{47!}{11! 11! 12! 13!}.
+\]</div>
+<p>Does the number depend on the order in which we made the choices?
+Suppose we made the choices in a different order: first 12 students for one group, then
+11 for the second, then 13 for the third (the fourth gets the remaining 11 students).
+The number of ways of doing that is
+$<span class="math notranslate nohighlight">\(  
+   {47 \choose 12}{35 \choose 11}{24 \choose 13} =
+   \frac{47!}{12! 35!} \frac{35!}{11! 24!} \frac{24!}{13! 11!} = \frac{47!}{12! 11! 13! 11!} = .
+\)</span>$
+The number does not depend on the order in which we make the choices.</p>
+<p>By the same reasoning, the number of ways of dividing a set of <span class="math notranslate nohighlight">\(n\)</span> objects into
+<span class="math notranslate nohighlight">\(m\)</span> subsets of sizes <span class="math notranslate nohighlight">\(k_1, \ldots k_m\)</span> is given by the <em>multinomial coefficient</em>
+$<span class="math notranslate nohighlight">\(
+   {n \choose k_1, k_2, \ldots, k_m} =
+   {n \choose k_1}{n-k_1 \choose k_2} {n-k_1-k_2 \choose k_3} \cdots {n - \sum_{i=1}^{m-1} k_i \choose k_{m-1}}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[ = \frac{n! (n-k_1)! (n-k_1 - k_2)! \cdots 
+   (n - k_1 - \cdots - k_{m-1}!}{k_1! (n-k_1)! k_2! (n-k_1-k_2)! \cdots k_m!}
+   = \frac{n!}{\prod_{i=1}^m k_i!}.
+\]</div>
+<p>We will check how surprising it would be for the means to be so much lower when the TA is identified as female, if in fact there is “no real difference” in how they were rated, and the apparent difference is just due to the luck of the draw: which students happened to end up in which section.</p>
+<p>In the actual randomization, all <span class="math notranslate nohighlight">\(47 \choose 11, 11, 12, 13\)</span> allocations
+were equally likely.
+But there might be real differences between the two instructors.
+Hence, we’d like to use each of them as his or her own “control.”</p>
+<p>Each student’s potential responses are represented by a ticket with 4 numbers:</p>
+<ul class="simple">
+<li><p>the rating that the student would assign to instructor A if instructor A is identified as male</p></li>
+<li><p>the rating that the student would assign to instructor A if instructor A is identified as female</p></li>
+<li><p>the rating that the student would assign to instructor B if instructor B is identified as male</p></li>
+<li><p>the rating that the student would assign to instructor B if instructor B is identified as female</p></li>
+</ul>
+<p>The null hypothesis is that the first two numbers are equal and the second two numbers are equal,
+but the first two numbers might be different from the second two numbers.
+This corresponds to the hypohtesis that<br />
+students assigned to a given TA would rate him or her the same, whether that TA seemed to be male or female.
+For all students assigned instructor A, we know both of the first two numbers if the hull hypothesis
+is true; but we know neither of the second two numbers.
+Similarly, if the null hypothesis is true, we know both of the second two numbers for all students
+assigned to instructor B, but we know neither of the first two numbers for those students.</p>
+<p>Because of how the randomization was performed, all allocations
+of students to sections that keep the number of students in each section the same are equally likely, so
+in particular all allocations that keep the same students assigned to each actual instructor
+the same are equally likely.
+This is a subgroup of the full permutation group.</p>
+<p>Hence, all <span class="math notranslate nohighlight">\({23 \choose 12}\)</span> ways of splitting the 23 students assigned to the female instructor into two groups, one with 11 students and one with 12, are equally likely. Similarly, all
+<span class="math notranslate nohighlight">\({24 \choose 11}\)</span> ways of splitting the 24 students assigned to the male instructor into two groups, one with 13 students and one with 11, are equally likely.
+We can thus imagine shuffling the female TA’s students between her sections, and the male TA’s students
+between his sections, and examine the distribution of the difference between the mean score for the sections where the
+TA was identified as male is larger than the mean score for the sections where the TA was identified as
+female.
+(The 4 nonresponders are also allocated at random between sections of the same
+instructor; they are not included in the averages.)</p>
+<p>If the difference is rarely as large as the observed mean difference, the observed mean difference gives
+evidence that being identified as female really does lower the scores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of allocations to 11, 11, 12, 13</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>  <span class="c1"># big number!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.441753110664829e+25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span> <span class="o">*</span> \
+    <span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11956521739130435
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the data are in a .csv file called &quot;Macnell-RatingsData.csv&quot; in the directory Data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Data/Macnell-RatingsData.csv&quot;</span><span class="p">)</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ratings</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   group  professional  respect  caring  enthusiastic  communicate  helpful  \
+0      3           5.0      5.0     4.0           4.0          4.0      3.0   
+1      3           4.0      4.0     4.0           4.0          5.0      5.0   
+2      3           5.0      5.0     5.0           5.0          5.0      5.0   
+3      3           5.0      5.0     5.0           5.0          5.0      3.0   
+4      3           5.0      5.0     5.0           5.0          5.0      5.0   
+
+   feedback  prompt  consistent  fair  responsive  praised  knowledgeable  \
+0       4.0     4.0         4.0   4.0         4.0      4.0            3.0   
+1       5.0     5.0         3.0   4.0         5.0      5.0            5.0   
+2       5.0     5.0         5.0   5.0         5.0      5.0            5.0   
+3       5.0     5.0         5.0   5.0         3.0      5.0            5.0   
+4       5.0     3.0         4.0   5.0         5.0      5.0            5.0   
+
+   clear  overall  gender     age  tagender  taidgender  
+0    5.0      4.0     2.0  1990.0         0           1  
+1    5.0      4.0     1.0  1992.0         0           1  
+2    5.0      5.0     2.0  1991.0         0           1  
+3    5.0      5.0     2.0  1991.0         0           1  
+4    5.0      5.0     2.0  1992.0         0           1  
+           group  professional    respect     caring  enthusiastic  \
+count  47.000000     43.000000  43.000000  43.000000     43.000000   
+mean    4.531915      4.325581   4.325581   3.930233      3.906977   
+std     1.158167      1.062811   1.062811   1.055492      1.019196   
+min     3.000000      1.000000   1.000000   1.000000      1.000000   
+25%     3.500000      4.000000   4.000000   3.500000      4.000000   
+50%     5.000000      5.000000   5.000000   4.000000      4.000000   
+75%     6.000000      5.000000   5.000000   5.000000      4.500000   
+max     6.000000      5.000000   5.000000   5.000000      5.000000   
+
+       communicate    helpful   feedback     prompt  consistent       fair  \
+count    43.000000  43.000000  43.000000  43.000000   43.000000  43.000000   
+mean      3.953488   3.744186   3.953488   3.976744    3.744186   3.906977   
+std       1.068009   1.071115   1.132916   1.079867    1.156617   0.995560   
+min       1.000000   1.000000   1.000000   1.000000    1.000000   1.000000   
+25%       4.000000   3.000000   4.000000   4.000000    3.000000   3.500000   
+50%       4.000000   4.000000   4.000000   4.000000    4.000000   4.000000   
+75%       5.000000   5.000000   5.000000   5.000000    5.000000   5.000000   
+max       5.000000   5.000000   5.000000   5.000000    5.000000   5.000000   
+
+       responsive    praised  knowledgeable      clear    overall     gender  \
+count   43.000000  43.000000      43.000000  43.000000  43.000000  43.000000   
+mean     3.767442   4.209302       4.139535   3.720930   3.953488   1.534884   
+std      0.996116   0.940064       0.989983   1.259735   1.022450   0.504685   
+min      1.000000   1.000000       1.000000   1.000000   1.000000   1.000000   
+25%      3.000000   4.000000       4.000000   3.000000   4.000000   1.000000   
+50%      4.000000   4.000000       4.000000   4.000000   4.000000   2.000000   
+75%      4.500000   5.000000       5.000000   5.000000   5.000000   2.000000   
+max      5.000000   5.000000       5.000000   5.000000   5.000000   2.000000   
+
+               age   tagender  taidgender  
+count    43.000000  47.000000   47.000000  
+mean   1990.325581   0.510638    0.489362  
+std       4.115713   0.505291    0.505291  
+min    1982.000000   0.000000    0.000000  
+25%    1990.000000   0.000000    0.000000  
+50%    1990.000000   1.000000    0.000000  
+75%    1991.000000   1.000000    1.000000  
+max    2012.000000   1.000000    1.000000  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">permute.core</span> <span class="kn">import</span> <span class="n">corr</span><span class="p">,</span> <span class="n">two_sample</span>
+<span class="kn">from</span> <span class="nn">permute.utils</span> <span class="kn">import</span> <span class="n">get_prng</span><span class="p">,</span> <span class="n">permute_within_groups</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123456789</span><span class="p">)</span>  <span class="c1"># set the seed of the PRNG, for reproducibility</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stratified_two_sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">group_x</span><span class="p">,</span> <span class="n">group_y</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;greater&quot;</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span> 
+                          <span class="n">keep_dist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    One-sided or two-sided, two-sample permutation test for equality of</span>
+<span class="sd">    two means, with p-value estimated by simulated random sampling with</span>
+<span class="sd">    reps replications.</span>
+
+<span class="sd">    Tests the hypothesis that x and y are a random partition of x,y</span>
+<span class="sd">    against the alternative that x comes from a population with mean</span>
+
+<span class="sd">    (a) greater than that of the population from which y comes,</span>
+<span class="sd">        if side = &#39;greater&#39;</span>
+<span class="sd">    (b) less than that of the population from which y comes,</span>
+<span class="sd">        if side = &#39;less&#39;</span>
+<span class="sd">    (c) different from that of the population from which y comes,</span>
+<span class="sd">        if side = &#39;two-sided&#39;</span>
+
+<span class="sd">    Permutations are carried out within the given groups.  Under the null hypothesis,</span>
+<span class="sd">    observations within each group are exchangeable.</span>
+
+<span class="sd">    If ``keep_dist``, return the distribution of values of the test statistic;</span>
+<span class="sd">    otherwise, return only the number of permutations for which the value of</span>
+<span class="sd">    the test statistic and p-value.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array-like</span>
+<span class="sd">        Sample 1</span>
+<span class="sd">    y : array-like</span>
+<span class="sd">        Sample 2</span>
+<span class="sd">    group_x : array-like</span>
+<span class="sd">        Group assignments for sample 1</span>
+<span class="sd">    group_y : array-like</span>
+<span class="sd">        Group assignments for sample 2</span>
+<span class="sd">    stat : {&#39;mean&#39;, &#39;t&#39;}</span>
+<span class="sd">        The test statistic.</span>
+
+<span class="sd">        (a) If stat == &#39;mean&#39;, the test statistic is (mean(x) - mean(y))</span>
+<span class="sd">            (equivalently, sum(x), since those are monotonically related), omitting</span>
+<span class="sd">            NaNs, which therefore can be used to code non-responders</span>
+<span class="sd">        (b) If stat == &#39;t&#39;, the test statistic is the two-sample t-statistic--</span>
+<span class="sd">            but the p-value is still estimated by the randomization,</span>
+<span class="sd">            approximating the permutation distribution.</span>
+<span class="sd">            The t-statistic is computed using scipy.stats.ttest_ind</span>
+<span class="sd">        (c) If stat is a function (a callable object), the test statistic is</span>
+<span class="sd">            that function.  The function should take a permutation of the pooled</span>
+<span class="sd">            data and compute the test function from it. For instance, if the</span>
+<span class="sd">            test statistic is the Kolmogorov-Smirnov distance between the</span>
+<span class="sd">            empirical distributions of the two samples, max_t |F_x(t) - F_y(t)|,</span>
+<span class="sd">            the test statistic could be written:</span>
+
+<span class="sd">            f = lambda u: np.max( \</span>
+<span class="sd">                [abs(sum(u[:len(x)]&lt;=v)/len(x)-sum(u[len(x):]&lt;=v)/len(y)) for v in u]\</span>
+<span class="sd">                )        </span>
+<span class="sd">    alternative : {&#39;greater&#39;, &#39;less&#39;, &#39;two-sided&#39;}</span>
+<span class="sd">        The alternative hypothesis to test</span>
+<span class="sd">    reps : int</span>
+<span class="sd">        Number of permutations</span>
+<span class="sd">    keep_dist : bool</span>
+<span class="sd">        flag for whether to store and return the array of values</span>
+<span class="sd">        of the irr test statistic</span>
+<span class="sd">    seed : RandomState instance or {None, int, RandomState instance}</span>
+<span class="sd">        If None, the pseudorandom number generator is the RandomState</span>
+<span class="sd">        instance used by `np.random`;</span>
+<span class="sd">        If int, seed is the seed used by the random number generator;</span>
+<span class="sd">        If RandomState instance, seed is the pseudorandom number generator.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        the estimated p-value</span>
+<span class="sd">    float</span>
+<span class="sd">        the test statistic</span>
+<span class="sd">    list</span>
+<span class="sd">        The distribution of test statistics.</span>
+<span class="sd">        These values are only returned if `keep_dist` == True        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">prng</span> <span class="o">=</span> <span class="n">get_prng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>   <span class="c1"># pooled responses</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">group_x</span><span class="p">,</span> <span class="n">group_y</span><span class="p">])</span>   <span class="c1"># pooled group assignments</span>
+    
+    <span class="c1"># If stat is callable, use it as the test function. Otherwise, look in the dictionary</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">u</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">):]),</span>
+        <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">ttest_ind</span><span class="p">(</span>
+            <span class="n">u</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)][</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">u</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)])],</span> 
+            <span class="n">u</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):][</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):])],</span> 
+            <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">stat</span><span class="p">):</span>
+        <span class="n">tst_fun</span> <span class="o">=</span> <span class="n">stat</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tst_fun</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span>
+
+    <span class="n">theStat</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;greater&#39;</span><span class="p">:</span> <span class="n">tst_fun</span><span class="p">,</span>
+        <span class="s1">&#39;less&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="o">-</span><span class="n">tst_fun</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+        <span class="s1">&#39;two-sided&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">tst_fun</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="p">}</span>
+    <span class="n">tst</span> <span class="o">=</span> <span class="n">theStat</span><span class="p">[</span><span class="n">alternative</span><span class="p">](</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">observed_tst</span> <span class="o">=</span> <span class="n">tst_fun</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">keep_dist</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theStat</span><span class="p">[</span><span class="n">alternative</span><span class="p">](</span><span class="n">permute_within_groups</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">prng</span><span class="p">))</span>
+        <span class="n">hits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dist</span> <span class="o">&gt;=</span> <span class="n">tst</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">hits</span><span class="o">/</span><span class="n">reps</span><span class="p">,</span> <span class="n">tst</span><span class="p">,</span> <span class="n">dist</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([(</span><span class="n">theStat</span><span class="p">[</span><span class="n">alternative</span><span class="p">](</span><span class="n">permute_within_groups</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">prng</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">tst</span><span class="p">)</span>
+                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="n">hits</span><span class="o">/</span><span class="n">reps</span><span class="p">,</span> <span class="n">tst</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">stratified_two_sample</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span><span class="o">==</span><span class="mi">1</span><span class="p">],</span> <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> 
+                               <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;tagender&#39;</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> 
+                               <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;tagender&#39;</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="n">alternative</span> <span class="o">=</span> <span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">rs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Overall rating:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Difference in means:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P-value (two-sided):&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="si">{0:24}</span><span class="s1"> </span><span class="si">{1:8}</span><span class="s1"> </span><span class="si">{2:8}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="s1">&#39;Diff means&#39;</span><span class="p">,</span> <span class="s1">&#39;P-value&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">stratified_two_sample</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span><span class="o">==</span><span class="mi">1</span><span class="p">],</span> <span class="n">ratings</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> 
+                               <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;tagender&#39;</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span>
+                               <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;tagender&#39;</span><span class="p">][</span><span class="n">ratings</span><span class="o">.</span><span class="n">taidgender</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="n">alternative</span> <span class="o">=</span> <span class="s2">&quot;two-sided&quot;</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">rs</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:20}</span><span class="s1"> </span><span class="si">{1:8.2f}</span><span class="s1"> </span><span class="si">{2:8.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall rating:
+Difference in means: 0.4739130434782606
+P-value (two-sided): 0.1201 
+
+
+
+Category                 Diff means P-value 
+professional             0.61     0.07
+respect                  0.61     0.07
+caring                   0.52     0.10
+enthusiastic             0.57     0.06
+communicate              0.57     0.07
+helpful                  0.46     0.18
+feedback                 0.47     0.16
+prompt                   0.80     0.01
+consistent               0.46     0.21
+fair                     0.76     0.01
+responsive               0.22     0.48
+praised                  0.67     0.02
+knowledgeable            0.35     0.29
+clear                    0.41     0.29
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next: <a class="reference internal" href="permute-distance.html"><span class="doc std std-doc">General permutation tests</span></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>professional</th>
+      <th>respect</th>
+      <th>caring</th>
+      <th>enthusiastic</th>
+      <th>communicate</th>
+      <th>helpful</th>
+      <th>feedback</th>
+      <th>prompt</th>
+      <th>consistent</th>
+      <th>fair</th>
+      <th>responsive</th>
+      <th>praised</th>
+      <th>knowledgeable</th>
+      <th>clear</th>
+      <th>overall</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>tagender</th>
+      <th>taidgender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1992.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1991.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1991.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1992.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1991.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1984.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>3</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1989.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>3</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2012.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>3</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1985.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1986.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1993.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1986.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1992.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>4</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1991.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1991.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1992.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>4</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>4</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1991.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>4</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1989.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1992.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1991.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>5</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1993.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>6</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>6</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1988.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>6</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1992.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>6</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1991.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>6</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>6</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>6</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1986.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>6</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1991.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>6</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1989.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>6</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1990.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>6</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1991.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>6</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1982.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

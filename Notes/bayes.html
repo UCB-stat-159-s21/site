@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bayesian and Frequentist Estimation and Inference &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/bayes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/bayes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-bayesian">
+   What is a Bayesian?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayesian-estimates">
+     Bayesian estimates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncertainties">
+     Uncertainties
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#toy-problem-bounded-normal-mean">
+     Toy problem: bounded normal mean
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duality-between-bayes-and-minimax-approaches">
+     Duality between Bayes and minimax approaches
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uncertainty">
+       Uncertainty
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayesian-and-frequentist-uncertainties">
+     Bayesian and Frequentist Uncertainties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-framework">
+   Statistical Framework
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayesian-election-audits">
+     Bayesian election audits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dirichlet-priors">
+     Dirichlet priors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concerns-about-bayes-audits">
+     Concerns about Bayes audits
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bayesian-estimation-and-inference">
+   Bayesian Estimation and Inference
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arguments-for-the-bayesian-approach">
+     Arguments for the Bayesian approach
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#priors">
+     Priors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretation-of-bayesian-priors-and-estimates">
+     Interpretation of Bayesian priors and estimates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-role-of-the-posterior">
+     The role of the posterior
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-frequentist-approach">
+   The Frequentist approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-uncertainty">
+   Summarizing uncertainty
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-squared-error">
+     Mean Squared Error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confidence-sets-and-credible-regions">
+     Confidence Sets and Credible Regions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decision-theory">
+   Decision theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-the-bayesian-version-of-the-game-nature-selects-theta-at-random-according-to-the-prior-distribution-pi-and-the-analyst-knows-pi">
+     In the Bayesian version of the game, Nature selects
+     <span class="math notranslate nohighlight">
+      \(\theta\)
+     </span>
+     at random according to the prior distribution
+     <span class="math notranslate nohighlight">
+      \(\pi\)
+     </span>
+     , and the analyst knows
+     <span class="math notranslate nohighlight">
+      \(\pi\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-the-frequentist-version-of-the-game-the-analyst-does-not-know-how-nature-will-select-theta-from-theta">
+     In the frequentist version of the game, the analyst does not know how Nature will select
+     <span class="math notranslate nohighlight">
+      \(\theta\)
+     </span>
+     from
+     <span class="math notranslate nohighlight">
+      \(\Theta\)
+     </span>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#duality-between-bayes-risk-and-minimax-risk">
+   Duality between Bayes Risk and Minimax Risk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequentist-properties-of-bayes-estimates">
+   Frequentist properties of Bayes Estimates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-and-practice">
+   Theory and practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="bayesian-and-frequentist-estimation-and-inference">
+<h1>Bayesian and Frequentist Estimation and Inference<a class="headerlink" href="#bayesian-and-frequentist-estimation-and-inference" title="Permalink to this headline">¶</a></h1>
+<p>This notebook explores Bayesian methods from a foundational perspective, contrasting the assumptions required for Bayesian inferences with the assumptions required for frequentist inferences, and the differences in interpretation of uncertainties for the two paradigms.</p>
+<p>It also discusses using frequentist measures of uncertainty for Bayesian estimates.</p>
+<p>It is adapted from Stark (2015) and Stark and Tenorio (2010), with additional material on election audits.</p>
+<div class="section" id="what-is-a-bayesian">
+<h2>What is a Bayesian?<a class="headerlink" href="#what-is-a-bayesian" title="Permalink to this headline">¶</a></h2>
+<p>Per I.J. Good, a Bayesian is someone for whom it makes sense to talk about the conditional probability that a hypothesis <span class="math notranslate nohighlight">\(H\)</span> is true, given evidence <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>For a frequentist, such a question generally does not make sense: <span class="math notranslate nohighlight">\(H\)</span> is either true or not. Its truth is not random, just unknown.</p>
+<div class="section" id="bayesian-estimates">
+<h3>Bayesian estimates<a class="headerlink" href="#bayesian-estimates" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>General approach (viz, don’t even need data to make an estimate)</p></li>
+<li><p>Guaranteed to have some good frequentist properties (if the prior is proper and the model is finite-dimensional)</p></li>
+<li><p>Can be thought of as a kind of “regularization”</p></li>
+<li><p>Elegant math from perspective of decision theory: convexify strategy space</p></li>
+</ul>
+</div>
+<div class="section" id="uncertainties">
+<h3>Uncertainties<a class="headerlink" href="#uncertainties" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bayesian and frequentist uncertainties have completely different interpretations</p>
+<ul>
+<li><p>Frequentist: hold parameter constant, characterize behavior under repeated measurement</p></li>
+<li><p>Bayesian: hold measurement constant, characterize behavior under repeated selection of the parameter from the prior</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Credible regions versus confidence regions</p>
+<ul>
+<li><p>credible level: probability that by drawing from prior, nature generates an element of the set, given the data</p></li>
+<li><p>confidence level: probability that procedure gives a set that contains the truth</p></li>
+</ul>
+</li>
+<li><p>Can grade Bayesian methods using frequentist criteria</p>
+<ul>
+<li><p>E.g., what is the coverage probability of a credible region?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="toy-problem-bounded-normal-mean">
+<h3>Toy problem: bounded normal mean<a class="headerlink" href="#toy-problem-bounded-normal-mean" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Observe <span class="math notranslate nohighlight">\(Y \sim N(\theta, 1)\)</span>.</p></li>
+<li><p>Know <em>a priori</em> that <span class="math notranslate nohighlight">\(\theta \in [-\tau, \tau]\)</span></p></li>
+<li><p>Bayes “uninformative” prior: <span class="math notranslate nohighlight">\(\theta \sim U[-\tau, \tau]\)</span></p></li>
+</ul>
+<img src="../Figs/starkTenorio09-length.png" style="height: 650px;" /><img src="../Figs/starkTenorio09-coverage.png" style="height: 650px;" /></div>
+<div class="section" id="duality-between-bayes-and-minimax-approaches">
+<h3>Duality between Bayes and minimax approaches<a class="headerlink" href="#duality-between-bayes-and-minimax-approaches" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Formal Bayesian uncertainty can be made as small as desired by choosing prior appropriately.</p></li>
+<li><p>Under suitable conditions, the minimax frequentist risk is equal to the Bayes risk for the “least-favorable” prior.</p></li>
+<li><p>If Bayes risk is less than minimax risk, prior artificially reduced the (apparent) uncertainty. Regardless, means something different.</p></li>
+<li><p>Least-favorable prior can be approximated numerically even for “black-box” numerical models, a la Schafer &amp; Stark (2009)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Posterior uncertainty measures meaningful only if you believe prior</p></li>
+<li><p>Changes the subject</p></li>
+<li><p>Is the truth unknown? Is it a realization of a known probability distribution?</p></li>
+<li><p>Where does prior come from?</p>
+<ul>
+<li><p>Usually chosen for computational convenience or habit, not “physics”</p></li>
+<li><p>Priors get their own literature</p></li>
+<li><p>Eliciting priors deeply problemmatic</p></li>
+<li><p>Why should I care about your posterior, if I don’t share your prior?</p></li>
+</ul>
+</li>
+<li><p>How much does prior matter?</p></li>
+<li><p>Slogan “the data swamp the prior.” Theorem has conditions that aren’t always met.</p></li>
+</ul>
+<div class="section" id="uncertainty">
+<h4>Uncertainty<a class="headerlink" href="#uncertainty" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Not all uncertainty can be represented by a probability</p></li>
+<li><p>“Aleatory” randomness</p>
+<ul>
+<li><p>Canonical examples: coin toss, die roll, lotto, roulette</p></li>
+<li><p>under some circumstances, behave “as if” random (but not perfectly)</p></li>
+</ul>
+</li>
+<li><p>Epistemic: stuff we don’t know</p></li>
+</ul>
+<img alt="LeCam 1977" src="../Figs/leCam77Probs.png" width="80%" /><ul class="simple">
+<li><p>Bayesian way to combine aleatory variability epistemic uncertainty puts beliefs on a par with an unbiased physical measurement w/ known uncertainty.</p></li>
+<li><p>Claims by introspection, can estimate without bias, with known accuracy,
+as if one’s brain were unbiased instrument with known accuracy</p></li>
+<li><p>Bacon put this to rest philosophically. Moreover, empirically:</p>
+<ul>
+<li><p>people are bad at making even rough quantitative estimates</p></li>
+<li><p>quantitative estimates are usually biased</p></li>
+<li><p>bias can be manipulated by anchoring, priming, etc.</p></li>
+<li><p>people are bad at judging weights <em>in their hands</em>:  biased by shape &amp; density</p></li>
+<li><p>people are bad at judging when something is random</p></li>
+<li><p>people are overconfident in their estimates and predictions</p></li>
+<li><p>confidence  unconnected to actual accuracy.</p></li>
+<li><p>anchoring affects entire disciplines (e.g., Millikan, c, Fe in spinach)</p></li>
+</ul>
+</li>
+<li><p>what if I don’t trust your internal scale, or your assessment of its accuracy?</p></li>
+<li><p>same observations that are factored in as “data” are also used to form beliefs: the “measurements” made by introspection are not independent of the data</p></li>
+<li><p>if you try several priors, you are not using Bayesian statistics</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bayesian-and-frequentist-uncertainties">
+<h3>Bayesian and Frequentist Uncertainties<a class="headerlink" href="#bayesian-and-frequentist-uncertainties" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>What varies?</p></li>
+<li><p>What is constant (conditioned on)?</p></li>
+<li><p>How do we know how the variable thing varies?</p></li>
+<li><p>Are we talking about our world, or a set of possible worlds?</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="statistical-framework">
+<h2>Statistical Framework<a class="headerlink" href="#statistical-framework" title="Permalink to this headline">¶</a></h2>
+<p>We want to use the measurement <span class="math notranslate nohighlight">\(Y\)</span> to learn about <span class="math notranslate nohighlight">\(\theta\)</span>, an unknown parameter.</p>
+<p>The datum <span class="math notranslate nohighlight">\(Y\)</span> is an <span class="math notranslate nohighlight">\(n\)</span>-vector of real numbers, i.e., elements
+of <span class="math notranslate nohighlight">\(\Re^n\)</span>.
+Mathematics, physics, or previous experiments tell us the possible values
+of <span class="math notranslate nohighlight">\(\theta\)</span>, which are represented by the set <span class="math notranslate nohighlight">\(\Theta\)</span>.
+The set <span class="math notranslate nohighlight">\(\Theta\)</span> can be high-dimensional, even infinite-dimensional.</p>
+<p>The datum <span class="math notranslate nohighlight">\(Y\)</span> is related to <span class="math notranslate nohighlight">\(\theta\)</span> through a <em>measurement model</em>
+that gives the probability distribution <span class="math notranslate nohighlight">\(\Pr_\eta\)</span> of <span class="math notranslate nohighlight">\(Y\)</span> for each
+<span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>.
+It connects the parameter to the probability distribution of the data.</p>
+<p>If <span class="math notranslate nohighlight">\(\theta = \eta\)</span>, then <span class="math notranslate nohighlight">\(Y \sim \Pr_\eta\)</span>.</p>
+<p>For any particular set <span class="math notranslate nohighlight">\(A \subset \Re^n\)</span>, <span class="math notranslate nohighlight">\(\Pr_\eta \{ Y \in A \}\)</span> generally will
+not be equal to <span class="math notranslate nohighlight">\(\Pr_{\eta'} \{ Y \in A \}\)</span> if <span class="math notranslate nohighlight">\(\eta \ne \eta'\)</span>.
+If there are parameters <span class="math notranslate nohighlight">\(\eta \ne \eta'\)</span> such that
+<span class="math notranslate nohighlight">\(\Pr_\eta \{ Y \in A \} = \Pr_{\eta'} \{ Y \in A \}\)</span> for all (measurable) subsets <span class="math notranslate nohighlight">\(A \subset \Re^n\)</span>, then <span class="math notranslate nohighlight">\(\theta\)</span> is not <em>identifiable</em>.</p>
+<p><strong>Technical note.</strong> We assume that there is a known measure <span class="math notranslate nohighlight">\(\mu\)</span> that dominates
+the set of distributions <span class="math notranslate nohighlight">\(\mathcal{P} \equiv \{ \Pr_\eta : \eta \in \Theta\}\)</span>, so
+we can use “densities” even if some members of <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> have atoms.
+This assumption makes it easier to define likelihoods, which are required
+for the Bayesian framework; it also implies that all the measures <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>
+are defined on a common sigma-algebra <span class="math notranslate nohighlight">\(\cal A\)</span> of subsets of <span class="math notranslate nohighlight">\(\Re^n\)</span>,
+which avoids some potential pathologies.
+If this language isn’t familiar, just assume for now that no matter what <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>
+might be, <span class="math notranslate nohighlight">\(Y\)</span> has an ordinary probability density (or assume that <span class="math notranslate nohighlight">\(Y\)</span> has a
+discrete distribution).</p>
+<p>With respect to <span class="math notranslate nohighlight">\(\mu\)</span>, the density of <span class="math notranslate nohighlight">\(\Pr_\eta\)</span> at <span class="math notranslate nohighlight">\(y\)</span> is
+$<span class="math notranslate nohighlight">\(
+p_\eta(y) \equiv \left . \frac{d\Pr_\eta}{d\mu} \right |_y.
+\)</span>$</p>
+<p>For any fixed <span class="math notranslate nohighlight">\(y\)</span>, the <em>likelihood of <span class="math notranslate nohighlight">\(\eta\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span></em> is
+<span class="math notranslate nohighlight">\(p_\eta(y)\)</span>, viewed as a function of <span class="math notranslate nohighlight">\(\eta\)</span> with <span class="math notranslate nohighlight">\(y\)</span> held constant.</p>
+<p>It is often impossible to estimate <span class="math notranslate nohighlight">\(\theta\)</span>
+with any useful level of accuracy; in many problems, <span class="math notranslate nohighlight">\(\theta\)</span> is not even identifiable.</p>
+<p>But it still may be possible and scientifically interesting to estimate a
+<em>parameter</em> <span class="math notranslate nohighlight">\(\lambda = \lambda[\theta]\)</span>, a property of <span class="math notranslate nohighlight">\(\theta\)</span>.
+The parameter might be the average of <span class="math notranslate nohighlight">\(\theta\)</span> over some volume of space or time,
+a norm or semi norm of <span class="math notranslate nohighlight">\(\theta\)</span>, or the number of local maxima <span class="math notranslate nohighlight">\(\theta\)</span> has,
+for instance.
+We shall assume that the possible values of <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> are also elements of
+a Hilbert space.</p>
+<div class="section" id="bayesian-election-audits">
+<h3>Bayesian election audits<a class="headerlink" href="#bayesian-election-audits" title="Permalink to this headline">¶</a></h3>
+<p>A Bayesian election audit (Rivest and Shen, 2012) uses Bayes rule applied to a prior probability distribiution on voter preferences, together with audit data, to find the posterior probability that the reported outcome is incorrect.
+The audit stops only if that posterior probability is smaller than a specified limit.</p>
+<p>Rivest and Shen (2012) frame it as:</p>
+<blockquote>
+<div><p>What is the probability that each candidate
+would be determined to be the actual winner, if
+the auditing process continued to examine all
+the ballots, and the remaining ballots audited
+showed results similar to what we’ve seen in
+the ballots audited so far?</p>
+</div></blockquote>
+<p>If the probability that anybody other than the reported winner actually won is small enough, the audit stops: the <em>upset probability</em> is small.</p>
+</div>
+<div class="section" id="dirichlet-priors">
+<h3>Dirichlet priors<a class="headerlink" href="#dirichlet-priors" title="Permalink to this headline">¶</a></h3>
+<p>A Bayesian auditor requires a prior probability distribution for voter preferences–for the votes that each ballot shows.</p>
+<p>A typical form assumes that the prior probability that a ballot is of type <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(1 \le k \le K \ge 2\)</span> has a <em>Dirichlet distribution</em>:</p>
+<p>Fix <span class="math notranslate nohighlight">\( a = (a_j)_{j=1}^k\)</span> with <span class="math notranslate nohighlight">\(a_j &gt; 0\)</span>.
+Let <span class="math notranslate nohighlight">\(S_K\)</span> denote the <em>unit simplex</em> in <span class="math notranslate nohighlight">\(K\)</span>-dimensional space, that is,</p>
+<div class="math notranslate nohighlight">
+\[
+   S_K \equiv \{ (x_k)_{k=1}^K \in \Re^K : x_k \in (0, 1) \mbox{ and } \sum_k x_k = 1.
+\]</div>
+<p>Then for <span class="math notranslate nohighlight">\(x \in S_k\)</span>, the joint density is</p>
+<div class="math notranslate nohighlight">
+\[
+   f_a(x) \equiv \frac{1}{B(a)} \prod_{k=1}^K x_k^{a_k-1},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+   B(a) \equiv \frac{\prod_k \Gamma(a_k)}{\Gamma \left ( \sum_k a_k \right )}.
+\]</div>
+<p>The Dirichlet distribution is <em>conjugate</em> to the multinomial distribution, in the sense that if <span class="math notranslate nohighlight">\(X \sim \mbox{Multinomial}(\eta)\)</span> and <span class="math notranslate nohighlight">\(\eta \sim \mbox{Dirichlet}(a)\)</span> then the posterior distribution of <span class="math notranslate nohighlight">\(\eta\)</span> given <span class="math notranslate nohighlight">\(X=x = (x_1, \ldots, x_K)\)</span> is <span class="math notranslate nohighlight">\(\mbox{Dirichlet}(a+x)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.tri</span> <span class="k">as</span> <span class="nn">tri</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">dirichlet</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda/lib/python3.6/site-packages/matplotlib/font_manager.py:229: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  &#39;Matplotlib is building the font cache using fc-list. &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This code is adapted from </span>
+<span class="c1"># http://blog.bogatron.net/blog/2014/02/02/visualizing-dirichlet-distributions/</span>
+<span class="c1"># and updated for compatibility with Python 3</span>
+
+<span class="n">corners</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="o">**</span><span class="mf">0.5</span><span class="p">]])</span>
+<span class="n">triangle</span> <span class="o">=</span> <span class="n">tri</span><span class="o">.</span><span class="n">Triangulation</span><span class="p">(</span><span class="n">corners</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">corners</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">refiner</span> <span class="o">=</span> <span class="n">tri</span><span class="o">.</span><span class="n">UniformTriRefiner</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+<span class="n">trimesh</span> <span class="o">=</span> <span class="n">refiner</span><span class="o">.</span><span class="n">refine_triangulation</span><span class="p">(</span><span class="n">subdiv</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">midpoints</span> <span class="o">=</span> <span class="p">[(</span><span class="n">corners</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">corners</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span> \
+             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">xy2bc</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.e-3</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Converts 2D Cartesian coordinates to barycentric coordinates.&#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[(</span><span class="n">corners</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">midpoints</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">xy</span> <span class="o">-</span> <span class="n">midpoints</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="mf">0.75</span> \
+         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">tol</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dirichlet</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gamma</span>
+        <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">mul</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coef</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span><span class="p">))</span> <span class="o">/</span> \
+                     <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">gamma</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span><span class="p">]))</span>
+    <span class="k">def</span> <span class="nf">pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Returns Dirichlet pdf at `x`.&#39;&#39;&#39;</span>
+        <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">mul</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coef</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xx</span> <span class="o">**</span> <span class="p">(</span><span class="n">aa</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                                         <span class="k">for</span> <span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">aa</span><span class="p">)</span><span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span><span class="p">)]))</span>
+
+<span class="k">def</span> <span class="nf">draw_pdf_contours</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">nlevels</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">subdiv</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">refiner</span> <span class="o">=</span> <span class="n">tri</span><span class="o">.</span><span class="n">UniformTriRefiner</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+    <span class="n">trimesh</span> <span class="o">=</span> <span class="n">refiner</span><span class="o">.</span><span class="n">refine_triangulation</span><span class="p">(</span><span class="n">subdiv</span><span class="o">=</span><span class="n">subdiv</span><span class="p">)</span>
+    <span class="n">pvals</span> <span class="o">=</span> <span class="p">[</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xy2bc</span><span class="p">(</span><span class="n">xy</span><span class="p">))</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">trimesh</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">y</span><span class="p">)]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span><span class="n">trimesh</span><span class="p">,</span> <span class="n">pvals</span><span class="p">,</span> <span class="n">nlevels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a3</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">draw_pdf_contours</span><span class="p">(</span><span class="n">Dirichlet</span><span class="p">([</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a1</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">a2</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">a3</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bayes_21_0.png" src="../_images/bayes_21_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.f(a1=1, a2=1, a3=1)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Conceptually, Bayes election audits work as follows:</p>
+<ol class="simple">
+<li><p>Model voter preferences as random.</p></li>
+<li><p>Invent a joint prior probability distribution for voter preferences in that model.</p></li>
+<li><p>Simulate infinitely many elections from that prior model for voter preferences.</p></li>
+<li><p>Audit each of those elections; discard those for which the audit data does not match the actual audit data.</p></li>
+</ol>
+<ul class="simple">
+<li><p>A Bayes audit then answers the question, “among the elections that remain after step 4, what fraction have actual winners that match the reported winners for this election?”</p></li>
+<li><p>That question is about an infinite hypothetical ensemble of elections generated from an invented model. It is not about the current election. (It does use the current audit data.)</p></li>
+<li><p>For the posterior probability to mean anything about the current election, you also have to assume that the current election is like an election selected at random from those left in the hypothetical population after step 4.</p>
+<ul>
+<li><p>In that case, you are asserting that step 1 makes sense for real elections and that at step 2, you accurately included all features of the distribution of voter preferences that might affect your conclusion.</p></li>
+<li><p>For instance, if there’s dependence among preferences within families, or if there’s a piece of “fake news” that affects people’s preferences just before election day, those are included to the extent that they could change the posterior probability meaningfully.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="concerns-about-bayes-audits">
+<h3>Concerns about Bayes audits<a class="headerlink" href="#concerns-about-bayes-audits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A Bayes audit does not necessarily provide strong evidence that <em>this</em> election found the right winners.</p></li>
+<li><p>Instead, it assesses whether a large fraction of synthetic elections in some hypothetical population based on some postulated (and simple) model, conditioned on the audit data, have the same winners as those reported in the current election.</p></li>
+<li><p>There’s no closed form calculation for the risk: finding the posterior generally involves simulations, and somewhat complex software. That makes audits less than transparent.</p></li>
+<li><p>Bayesian audits don’t necessarily provide a quantifiable limit on the risk, and they depend on a prior probability distribution that the user can choose–it’s an ad hoc choice.</p></li>
+<li><p>Different priors lead to different posterior probabilities of the outcome being incorrect.</p></li>
+<li><p>It might be the case that if the prior is chosen to be “least favorable,” the resulting Bayes risk would be equal to the frequentist risk limit in an RLA. This would require some mathematical theory to demonstrate, and would require even more complex software to implement.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bayesian-estimation-and-inference">
+<h2>Bayesian Estimation and Inference<a class="headerlink" href="#bayesian-estimation-and-inference" title="Permalink to this headline">¶</a></h2>
+<p>The Bayesian approach starts with a <em>prior probability distribution</em> <span class="math notranslate nohighlight">\(\pi\)</span> on <span class="math notranslate nohighlight">\(\Theta\)</span>,
+and the likelihood function <span class="math notranslate nohighlight">\(p_\eta(y)\)</span>.</p>
+<p>To have a prior probability distribution involves some technical restrictions
+that will not be considered here.
+(For instance, <span class="math notranslate nohighlight">\(\Theta\)</span> must be a measurable subset of a measurable space, and
+the likelihood function must be jointly measurable with respect to <span class="math notranslate nohighlight">\(\eta\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.)</p>
+<p>A prior <span class="math notranslate nohighlight">\(\pi\)</span> is <em>proper</em> if it has total mass 1, that is, if <span class="math notranslate nohighlight">\(\pi(\Theta) = 1\)</span>.
+(Some people use <em>improper priors</em>, for instance, the uniform distribution on
+the real numbers <span class="math notranslate nohighlight">\(\Re\)</span>, which assignes infinite probability to <span class="math notranslate nohighlight">\(\Theta = \Re\)</span>.)</p>
+<p>Together, <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(p_\eta\)</span> imply a joint distribution of <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.
+The <em>marginal distribution</em> or <em>predictive distribution</em> of <span class="math notranslate nohighlight">\(Y\)</span> is
+$<span class="math notranslate nohighlight">\(
+	   m(y) = \int_\Theta p_\eta(y) \, \pi(d\eta).
+\)</span>$</p>
+<p>If we observe that <span class="math notranslate nohighlight">\(Y=y\)</span>, we use that information in
+Bayes’ rule to find the <em>posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span> given <span class="math notranslate nohighlight">\(Y=y\)</span></em>:
+$<span class="math notranslate nohighlight">\( 
+\pi (d\eta | Y = y)  = \frac{p_\eta(y) \; \pi(d\eta) }{m(y)} .
+\)</span>$</p>
+<p>The marginal density <span class="math notranslate nohighlight">\(m(y)\)</span> can be zero, but the probability that happens is zero.</p>
+<p>In principle, the posterior distribution is a complete solution to the inference problem:
+All the information from the prior and the data is combined in the posterior
+distribution.
+The posterior distribution <span class="math notranslate nohighlight">\(\pi_\lambda(d \ell | Y = y)\)</span>
+of <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> is the distribution induced by the posterior distribution
+of <span class="math notranslate nohighlight">\(\theta\)</span>:
+For any (measurable) set <span class="math notranslate nohighlight">\(A\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\Pr(\lambda[\theta] \in A | Y = y) = \int_{\ell \in A} \pi_\lambda(d \ell | Y = y)
+\equiv \int_{\eta: \lambda[\eta] \in A} \pi(d \eta | Y = y).
+\]</div>
+<p>If we get additional data, we apply Bayes’ rule again: the current posterior
+becomes the new prior.</p>
+<div class="section" id="arguments-for-the-bayesian-approach">
+<h3>Arguments for the Bayesian approach<a class="headerlink" href="#arguments-for-the-bayesian-approach" title="Permalink to this headline">¶</a></h3>
+<p>One argument for the Bayesian approach is that people <em>are</em> Bayesian: the approach is <em>descriptive</em>.
+There is considerable evidence that this is false.
+I do not know of anyone who uses Bayes’ theorem to combine and
+update prior beliefs in ordinary life.
+Extensive empirical research, starting with the seminal work
+of Tversky and Kahneman (1974), shows that even people with training in
+probability fail to incorporate Bayes rule in their day-to-day reasoning.</p>
+<p>Another argument is that people <em>should be</em> Bayesian: the approach is
+<em>normative</em>.
+According to the argument, if people are not Bayesians,
+their probability assignments are “incoherent” and others can make “Dutch book” against
+them.
+(“Dutch book” is a combination of bets such that no matter what the outcome, the bettor
+loses money.)
+The coherence argument depends in part on the assumption that all beliefs
+can be expressed as probability distributions–which I thinks is false.
+The “Dutch book” argument depends on the non-Bayesian analyst’s willingness to
+cover an unlimited number of bets, and on the assumption that the Bayesian analyst’s
+prior is <em>proper</em>, that is, that the total mass of the prior is 1.
+In practice, improper priors are common; for instance, it is common to use a uniform
+prior for parameters on unbounded domains.</p>
+<p>A third argument is that the choice of the prior does not matter much, because the data
+eventually “overwhelm” the prior: given enough
+data, you end up with essentially the same posterior distribution for “every” prior.
+This convergence occurs in some circumstances and not in
+others: theorems have conditions.</p>
+<p>Bayesian methods
+generally make the uncertainty appear smaller than a frequentist analysis would show,
+which makes the results more optimistic, and in part because
+they give a (numerically computable) recipe that can be applied to essentially
+any problem–if you have a prior, a fast enough computer, and a good algorithm.
+(The development of Markov Chain Monte Carlo, MCMC, made it possible to
+compute posterior distributions in a far larger class of problems, greatly
+increasing the appeal of Bayesian methods.)
+Of course, the fact that you can compute something does not automatically make
+the answer meaningful, relevant, or useful.</p>
+<ul class="simple">
+<li><p>A Bayesian can tell you the probability of an act of nuclear terrorism in the year 2025; a frequentist cannot make sense of what “probability” could mean in that context.</p></li>
+<li><p>A Bayesian can tell you the probability that there are civilizations of intelligent beings in other galaxies; a frequentist cannot make sense of the question.</p></li>
+<li><p>A Bayesian can tell you the probability that a particular coin in your pocket is fair, sight unseen; a frequentist cannot make sense of the question.</p></li>
+<li><p>A Bayesian can tell you the probability that a particular hypothesis is true; a frequentist thinks hypotheses are either true or false.</p></li>
+</ul>
+<p>When both frequentist and Bayesian methods can be applied,
+probability and uncertainty mean quite different things to frequentists and to
+Bayesians, as elaborated below.</p>
+</div>
+<div class="section" id="priors">
+<h3>Priors<a class="headerlink" href="#priors" title="Permalink to this headline">¶</a></h3>
+<p>In the Bayesian approach, all information about <span class="math notranslate nohighlight">\(\theta\)</span> is expressed as
+a probability distribution, and all probabilities quantify degree of belief.
+(In the frequentist framework, probability is defined in terms of long-run relative frequency.)</p>
+<ul class="simple">
+<li><p>If the analyst is certain that <span class="math notranslate nohighlight">\(A\)</span> is true, <span class="math notranslate nohighlight">\(A\)</span> has probability 1.</p></li>
+<li><p>If she is certain that <span class="math notranslate nohighlight">\(A\)</span> is false, <span class="math notranslate nohighlight">\(A\)</span> has probability 0.</p></li>
+<li><p>If she believes that <span class="math notranslate nohighlight">\(A\)</span> is true (or that <span class="math notranslate nohighlight">\(A\)</span> will occur) with the same strength that she believes that <span class="math notranslate nohighlight">\(A\)</span> is false (or that <span class="math notranslate nohighlight">\(A\)</span> will not occur), <span class="math notranslate nohighlight">\(A\)</span> has probability <span class="math notranslate nohighlight">\(1/2\)</span>.</p></li>
+<li><p>If she believes twice as strongly that <span class="math notranslate nohighlight">\(A\)</span> is true as she believes <span class="math notranslate nohighlight">\(A\)</span> is false, <span class="math notranslate nohighlight">\(A\)</span> has probability <span class="math notranslate nohighlight">\(2/3\)</span>.</p></li>
+</ul>
+<p>More generally, if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are two statements
+and the analyst believes <span class="math notranslate nohighlight">\(r\)</span> times as strongly
+that <span class="math notranslate nohighlight">\(A\)</span> is true than she believes that <span class="math notranslate nohighlight">\(B\)</span> is true, then the probability of <span class="math notranslate nohighlight">\(A\)</span> is
+<span class="math notranslate nohighlight">\(r\)</span> times the probability of <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>To use the Bayesian framework to quantify uncertainty,
+one <em>must</em> quantify beliefs and
+constraints by means of probability distributions.
+(As discussed below, there can be good reasons to use Bayesian estimators
+without necessarily using the Bayesian framework to quantify uncertainty.)
+The prior probability distribution
+quantifies the analyst’s beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> before data are collected:
+The constraint <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> means the prior probability
+distribution <span class="math notranslate nohighlight">\(\pi\)</span> must assign probability <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(\Theta\)</span>.</p>
+<p>Even in the simplest non-degenerate case, there are infinitely many probability distributions
+that assign probability 1 to <span class="math notranslate nohighlight">\(\Theta\)</span>.
+In principle, it is up to the analyst to introspect to find the unique prior that reflects
+her beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>; in turn those beliefs should be constructed from previous
+experience and previous beliefs through the repeated application of Bayes’ theorem.</p>
+<p>I have never seen a Bayesian analysis of real data in which
+the data analyst made a serious attempt to quantify her beliefs using a prior.
+(Nor, to my knowledge, have I met anyone who uses Bayes’ theorem in real life to
+update her beliefs.)
+Instead, in my experience, priors are generally taken as given, and
+appear to be selected or justified in five ways:</p>
+<ol class="simple">
+<li><p>to make the calculations simple (e.g., closed form, using a “conjugate” prior)</p></li>
+<li><p>because the particular prior is conventional</p></li>
+<li><p>so that the prior satisfies some invariance principle</p></li>
+<li><p>with the assertion that the prior is “uninformative,”</p></li>
+<li><p>because the prior roughly matches the relative frequencies of values in some population.</p></li>
+</ol>
+<p>Some researchers use <em>Laplace’s Principle of Insufficient Reason</em>
+to select an “uninformative” prior:
+If there is no reason to  believe that outcomes are not equally likely, assume that
+they are equally likely.
+Of course, the outcomes considered may depend on the parametrization,
+among other things.
+Generally, however, the principle generally leads to a prior <span class="math notranslate nohighlight">\(\pi\)</span> that is uniform
+on <span class="math notranslate nohighlight">\(\Theta\)</span>.
+That is, the probability of any subset of <span class="math notranslate nohighlight">\(\Theta\)</span> is assumed to be proportional to its
+Lebesgue measure.</p>
+<p>For instance, the “uninformative” prior for a real parameter known
+to be in <span class="math notranslate nohighlight">\(\Theta \equiv [-1, 1]\)</span>
+is the uniform distribution on <span class="math notranslate nohighlight">\([-1, 1]\)</span>,
+which has density <span class="math notranslate nohighlight">\(f(\eta) = \{ 1/2, \eta \in [-1, 1]; \;\; 0, \mbox{ otherwise}\}\)</span>.</p>
+<p>This prior captures the constraint <span class="math notranslate nohighlight">\(\theta \in [-1, 1]\)</span>, but it does far more than that:
+It assigns probabilities to all measurable subsets of <span class="math notranslate nohighlight">\([-1, 1]\)</span>.
+For instance, it says that there is a 50% chance that <span class="math notranslate nohighlight">\(\theta\)</span> is positive,
+a 50% chance that the absolute value of <span class="math notranslate nohighlight">\(\theta\)</span> is greater than <span class="math notranslate nohighlight">\(1/2\)</span>,
+and a 90% chance that the absolute value of <span class="math notranslate nohighlight">\(\theta\)</span> is greater than <span class="math notranslate nohighlight">\(1/10\)</span>.
+This is not information that came from the constraint: It is information added by the
+prior.
+The constraint <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> requires <span class="math notranslate nohighlight">\(\pi\)</span> to assign probability <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(\Theta\)</span>,
+but it does not restrict the probabilities <span class="math notranslate nohighlight">\(\pi\)</span> assigns to subsets of <span class="math notranslate nohighlight">\(\Theta\)</span>.
+Any choice of <span class="math notranslate nohighlight">\(\pi\)</span>, “uninformative” or not, says more about <span class="math notranslate nohighlight">\(\theta\)</span> than the original
+constraint did.</p>
+<p>This problem—that turning constraints into priors adds information–grows worse as the
+dimension of the parameter <span class="math notranslate nohighlight">\(\theta\)</span> grows.
+For instance, suppose the unknown <span class="math notranslate nohighlight">\(\theta\)</span> is a vector in <span class="math notranslate nohighlight">\(n\)</span>-dimensional Euclidean space
+<span class="math notranslate nohighlight">\(\Re^n\)</span>, and we know that <span class="math notranslate nohighlight">\(\| \theta \| \le 1\)</span>–that is, <span class="math notranslate nohighlight">\(\Theta\)</span> is the unit
+ball in <span class="math notranslate nohighlight">\(\Re^n\)</span>.</p>
+<p>The volume of a spherical shell from radius <span class="math notranslate nohighlight">\(1-\epsilon\)</span> to <span class="math notranslate nohighlight">\(1\)</span> is a larger and larger
+fraction of the volume of the unit sphere as the dimension <span class="math notranslate nohighlight">\(n\)</span> grows.
+For any <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span> and <span class="math notranslate nohighlight">\(\epsilon \in (0, 1)\)</span>, there is a dimension
+<span class="math notranslate nohighlight">\(n\)</span> so that the (uniform) probability of
+<span class="math notranslate nohighlight">\(\{ \eta : \| \eta \| \in [1-\epsilon, 1]\}\)</span>,
+the spherical shell from radius <span class="math notranslate nohighlight">\(1-\epsilon\)</span> to <span class="math notranslate nohighlight">\(1\)</span>,
+is at least <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>What does this mean?
+Starting with the constraint that <span class="math notranslate nohighlight">\(\| \theta \| \le 1\)</span>–and without collecting any data–we
+end up with arbitrarily high certainty that in fact <span class="math notranslate nohighlight">\(\| \theta \| \ge 1-\epsilon\)</span>.
+It is the prior that gives us this certainty, not the constraint.
+The prior is not “uninformative” about the norm.</p>
+<p>Conversely, suppose we put a rotationally invariant prior on the unit ball in such a
+way that the marginal
+distribution of the norm is uniform.
+Consider the ball of radius <span class="math notranslate nohighlight">\(1-\epsilon\)</span>.
+It has probability <span class="math notranslate nohighlight">\(1-\epsilon\)</span> regardless of the dimension of the space, even though
+its volume is a negligible fraction of the volume of the unit ball if the dimension of the
+space is large.
+This prior is not “uninformative” with respect to volume:  It says that the model is extremely
+likely to be in a subset of <span class="math notranslate nohighlight">\(\Theta\)</span> that has very small volume.</p>
+<p>The approach collapses in infinite-dimensional spaces.
+For instance, suppose <span class="math notranslate nohighlight">\(\theta\)</span> is an element of an infinite-dimensional separable Hilbert space,
+and that the constraint set <span class="math notranslate nohighlight">\(\Theta\)</span> is rotationally invariant
+(an example would be <span class="math notranslate nohighlight">\(\Theta \equiv \{ \eta : \| \eta \| \le 1 \}\)</span>).
+If the prior respects that rotational invariance, it is a theorem that
+the prior either assigns probability 1 to the event that <span class="math notranslate nohighlight">\(\theta = 0\)</span>
+or it assigns probability 1 to the event that the norm of <span class="math notranslate nohighlight">\(\theta\)</span> is
+infinite–contradicting
+the constraint!</p>
+</div>
+<div class="section" id="interpretation-of-bayesian-priors-and-estimates">
+<h3>Interpretation of Bayesian priors and estimates<a class="headerlink" href="#interpretation-of-bayesian-priors-and-estimates" title="Permalink to this headline">¶</a></h3>
+<p>Prior probability distributions–and hence posterior distributions–are quantifications
+of the analyst’s degree of belief.
+As such, they change the subject from the experiment and the external world
+to the analyst’s state of mind.
+Suppose I claim that my prior probability distribution for the load on a structure as a fraction of
+its breaking strength is the uniform distribution on <span class="math notranslate nohighlight">\([0, 1]\)</span>.
+I am right if that accurately reflects what I believe.
+I am wrong if it does not accurately reflect what I believe.
+The relationship between the prior and the world has no bearing on whether I am right or wrong.
+Experiments that could show I am wrong involve checking what I actually believe–for instance,
+psychological testing or determining what bets I would take at what odds–rather than
+measurements of the structure or similar structures.</p>
+<p>Two analysts can have very different priors and both be right, because what makes
+a prior right is that it correctly quantifies the analyst’s belief.
+If I do not share your prior beliefs in detail, then even if we agree on the likelihood function and the data,
+we will have different posterior distributions for <span class="math notranslate nohighlight">\(\theta\)</span>.
+Why should your posterior distribution matter to me?</p>
+<p>If a Bayesian analysis results in the statement, “there is a 99.9% chance that the applied load
+will be less than 10% the breaking strength,”
+it means that the analyst is quite sure that the load will be low,
+but it is not at all clear what it means about safety.</p>
+<p>For a different prior, an equally correct analysis might find that
+there is a 99.9% chance that the applied load will exceed 90% the breaking strength.
+If so, a Bayesian analysis might appropriately be viewed with skepticism.</p>
+<p>On the other hand, if one could show that no matter what prior is used, there is at least a 99.9% chance
+that the applied load will be less than 10% of the breaking strength, the Bayesian position seems much
+more persuasive.</p>
+<p>The utility and persuasiveness of Bayesian analyses may hinge on the
+sensitivity of the conclusions to the choice of prior.</p>
+</div>
+<div class="section" id="the-role-of-the-posterior">
+<h3>The role of the posterior<a class="headerlink" href="#the-role-of-the-posterior" title="Permalink to this headline">¶</a></h3>
+<p>One fundamental feature (indeed, an axiom) of Bayesian estimation and inference is that the posterior distribution of the model given the data contains <strong>all</strong> the information about the model, including information from the prior and from the data.
+No information other than the posterior is needed to completely describe our state of knowledge about the parameter.</p>
+<p>The following example from LeCam (1977) shows that this is problematic.</p>
+<p>Suppose we are interested in the probability <span class="math notranslate nohighlight">\(\theta\)</span> that a particular coin lands heads. We start with a prior probability distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.
+Suppose we start with a Dirichlet prior, which, in this case, simplifies to a prior density</p>
+<div class="math notranslate nohighlight">
+\[
+   f(\theta) \propto \theta^{a_1} (1-\theta)^{a_2}.
+\]</div>
+<p>Since the Dirichlet distribution is conjugate to the multinomial, and the binomial distribution is a special case of the multinomial, after tossing the coin <span class="math notranslate nohighlight">\(n\)</span> times independently and updating the prior to find the posterior, the posterior will be of the form</p>
+<div class="math notranslate nohighlight">
+\[
+   f(\theta) \propto \theta^{a_1+k} (1-\theta)^{a_2+n-k},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the number of heads among the <span class="math notranslate nohighlight">\(n\)</span> tosses.</p>
+<p>A Bayesian now reports the posterior distribution. For instance, the posterior might turn out to be</p>
+<div class="math notranslate nohighlight">
+\[
+  f(\theta) \propto \theta^{100} (1-\theta)^{100}.
+\]</div>
+<p>The problem is this: that posterior might be the result of a “flat” prior after 200 tosses, or just as easily be simply the prior after zero tosses.</p>
+<p>To quote LeCam:</p>
+<blockquote>
+<div><p>If the neo-Bayesian has to give not only his final measure, but also his
+initial measure, the description of the experiment and the result obtained
+there, the simplicity of the Bayes approach is lost.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="the-frequentist-approach">
+<h2>The Frequentist approach<a class="headerlink" href="#the-frequentist-approach" title="Permalink to this headline">¶</a></h2>
+<p>The main difference between Bayesian and frequentist approaches to constraints
+is the difference between
+believing that <span class="math notranslate nohighlight">\(\theta\)</span> is drawn at random from <span class="math notranslate nohighlight">\(\Theta\)</span> according to the
+known distribution <span class="math notranslate nohighlight">\(\pi\)</span>
+and believing that <span class="math notranslate nohighlight">\(\theta\)</span> is simply an unknown element of <span class="math notranslate nohighlight">\(\Theta\)</span>.
+(The interpretation of probability also differs substantially between the two points of view.)</p>
+<p>For Bayesians, probability quantifies degree of belief.</p>
+<p>For frequentists, probability has to do with long-term regularities in repeated trials.
+The probability of an event is defined to be the long-run limiting relative frequency with which
+the event occurs in independent trials under ‘essentially identical’ conditions.
+(If the conditions were exactly identical,
+then–within classical physics, at least–the outcome would be identical.)</p>
+<p>The canonical random experiment, tossing a fair coin, will give heads every time or tails every time
+if the coin is tossed with initial conditions that are similar enough.
+Defining “essentially identical” is a hard problem for the frequentist approach.
+Another issue is the assumption that repeated trials result in relative frequencies that converge to
+a limit.</p>
+<p>The frequentist approach restricts the
+kinds of things one can make probability statements about:
+Only trials that, in principle, can be repeated indefinitely lead to
+probabilities.
+For instance, a conventional frequentist approach cannot make sense of questions like
+“what is the chance of an act of nuclear terrorism in the year 2025?” or
+“what is the chance of an earthquake with magnitude 8.0 or above in the San Francisco Bay
+Area in the next 20 years?,” much less supply
+numerical values for those chances.</p>
+<p>In the frequentist approach, probability generally comes from the measurement process or the
+experiment, not from the parameter or “state of the world.”
+There is statistical uncertainty because there is sampling variability or measurement error
+or random assignment of subjects to treatments,
+not because the underlying parameter is random.</p>
+<p>There is no need to assume that <span class="math notranslate nohighlight">\(\theta\)</span> is random to use the frequentist approach,
+so there is no need to invent a prior distribution <span class="math notranslate nohighlight">\(\pi\)</span></p>
+</div>
+<div class="section" id="summarizing-uncertainty">
+<h2>Summarizing uncertainty<a class="headerlink" href="#summarizing-uncertainty" title="Permalink to this headline">¶</a></h2>
+<p>There are many ways to quantify uncertainty.
+We shall consider two, each of which has a Bayesian and a frequentist variant:
+mean squared error (a frequentist measure) and posterior mean squared error
+(the related Bayesian measure); and confidence sets (a frequentist construct)
+and credible regions (the related Bayesian construct).</p>
+<div class="section" id="mean-squared-error">
+<h3>Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permalink to this headline">¶</a></h3>
+<p>Recall that we have assumed that <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> takes values in a Hilbert space.</p>
+<p>Suppose we choose to estimate <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> by the estimator <span class="math notranslate nohighlight">\(\widehat{\lambda}(Y)\)</span>,
+a (measurable) map from possible data values <span class="math notranslate nohighlight">\(y\)</span> into possible values of <span class="math notranslate nohighlight">\(\lambda[\eta]\)</span>,
+<span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>.</p>
+<p>The mean squared error (MSE) of <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> when <span class="math notranslate nohighlight">\(\theta = \eta\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{MSE}(\widehat{\lambda}(Y), \eta) \equiv \mathbb{E}_\eta \| \widehat{\lambda}(Y) - \lambda[\eta] \|^2.
+\]</div>
+<ul class="simple">
+<li><p>MSE depends on <span class="math notranslate nohighlight">\(\eta\)</span>.</p></li>
+<li><p>The expectation is with respect to <span class="math notranslate nohighlight">\(\Pr_\eta\)</span>, the distribution of the data <span class="math notranslate nohighlight">\(Y\)</span> on the assumption that <span class="math notranslate nohighlight">\(\theta = \eta\)</span>.</p></li>
+<li><p>If we get to select the estimator <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span>, we might seek an estimator that makes <span class="math notranslate nohighlight">\(\mbox{MSE}(\widehat{\lambda}(Y), \theta)\)</span> small.</p></li>
+<li><p>Since the true value of <span class="math notranslate nohighlight">\(\theta\)</span> is unknown, in general we cannot select the estimator <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> to make the actual MSE as small as possible.</p></li>
+<li><p>Instead, we might choose <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> to make the largest MSE as <span class="math notranslate nohighlight">\(\eta\)</span> ranges over <span class="math notranslate nohighlight">\(\Theta\)</span> as small as possible: <em>minimax MSE estimator</em>.</p></li>
+</ul>
+<p>Related Bayesian measure: posterior mean squared error (PMSE),</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{PMSE}(\widehat{\lambda}(y), \pi) \equiv \mathbb{E}_\pi \| \widehat{\lambda}(y) - \lambda[\eta] \|^2.
+\]</div>
+<ul class="simple">
+<li><p>PMSE depends on <span class="math notranslate nohighlight">\(\pi\)</span> and the observed value of <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>The expectation is with respect to the posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span>.</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(\pi\)</span> is known, we can select (for each <span class="math notranslate nohighlight">\(y\)</span>) the estimator that has the smallest possible <span class="math notranslate nohighlight">\(\mbox{PMSE}\)</span>.</p></li>
+<li><p>That estimator, the Bayes estimator for PMSE, is the <em>marginal posterior mean</em>, the mean of
+<span class="math notranslate nohighlight">\(\pi_\lambda(d \ell | Y=y)\)</span>, the marginal posterior distribution of <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span>
+given <span class="math notranslate nohighlight">\(Y\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\lambda}_\pi(y) \equiv \int \ell \pi_\lambda(d \ell | Y = y).
+\]</div>
+<p>MSE and PMSE both involve expectations of the squared norm of the
+difference between the parameter estimate and the true value of the parameter,
+but are conceptually quite different:</p>
+<ul class="simple">
+<li><p>The MSE is an expectation with respect to the distribution of the data <span class="math notranslate nohighlight">\(Y\)</span>, holding the parameter <span class="math notranslate nohighlight">\(\theta = \eta\)</span> fixed</p></li>
+<li><p>PMSE is an expectation with respect to the posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span>, holding the data <span class="math notranslate nohighlight">\(Y = y\)</span> fixed.</p></li>
+</ul>
+</div>
+<div class="section" id="confidence-sets-and-credible-regions">
+<h3>Confidence Sets and Credible Regions<a class="headerlink" href="#confidence-sets-and-credible-regions" title="Permalink to this headline">¶</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
+A random set <span class="math notranslate nohighlight">\(\mathcal{I}(Y)\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span> is
+a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> if</p>
+<div class="math notranslate nohighlight">
+\[
+\Pr_\eta \{ \mathcal{I}(Y) \ni \lambda[\eta] \} \ge 1 - \alpha, \;\; \forall \eta \in \Theta.
+\]</div>
+<ul class="simple">
+<li><p>The probability on the left is with respect to the distribution of the data <span class="math notranslate nohighlight">\(Y\)</span>, holding <span class="math notranslate nohighlight">\(\eta\)</span> fixed.</p></li>
+<li><p>In the frequentist view, once the data are collected and we know that <span class="math notranslate nohighlight">\(Y = y\)</span>,
+there is no longer any probability: <span class="math notranslate nohighlight">\(\mathcal{I}(y)\)</span> is some particular
+set and the value <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> is some particular (but unknown)
+vector, so either <span class="math notranslate nohighlight">\(\mathcal{I}(y)\)</span> contains <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> or it does not.</p></li>
+<li><p>“Coverage probability” of the rule <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> is the (smallest) chance that
+<span class="math notranslate nohighlight">\(\mathcal{I}(Y)\)</span> will include <span class="math notranslate nohighlight">\(\lambda[\eta]\)</span> as <span class="math notranslate nohighlight">\(\eta\)</span> ranges over <span class="math notranslate nohighlight">\(\Theta\)</span>,
+with <span class="math notranslate nohighlight">\(Y\)</span> generated from <span class="math notranslate nohighlight">\(\Pr_\eta(y)\)</span>.</p></li>
+</ul>
+<p>A related Bayesian construct is a <em>posterior credible region</em>.</p>
+<p>A set <span class="math notranslate nohighlight">\(\mathcal{I}(y)\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span> is
+a <span class="math notranslate nohighlight">\(1-\alpha\)</span> posterior credible region for <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> if</p>
+<div class="math notranslate nohighlight">
+\[
+\Pr_{\pi( d\theta | Y=y)} (\lambda[\theta] \in \mathcal{I}(y))
+\equiv \int_{\mathcal{I}(y)} \pi_\lambda(d \ell | Y = y) \ge 1-\alpha.
+\]</div>
+<ul class="simple">
+<li><p>The probability on the left is with respect to the marginal posterior distribution of
+<span class="math notranslate nohighlight">\(\lambda[\theta]\)</span>, holding the data fixed:
+It is is the posterior probability that
+<span class="math notranslate nohighlight">\(\mathcal{I}(y)\)</span> contains <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> given that <span class="math notranslate nohighlight">\(Y = y\)</span>.</p></li>
+<li><p>In the Bayesian view, once the data are collected and we know that <span class="math notranslate nohighlight">\(Y = y\)</span>, there is still probability, because the value of <span class="math notranslate nohighlight">\(\theta\)</span> itself remains random: its value is uncertain, and all uncertainty is represented as probability.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="decision-theory">
+<h2>Decision theory<a class="headerlink" href="#decision-theory" title="Permalink to this headline">¶</a></h2>
+<p>Decision theory treats estimation as a two-player game: Nature versus analyst.
+The game frequentists play has slightly different rules from the game Bayesians play.</p>
+<ul class="simple">
+<li><p>According to both sets of rules, Nature and the analyst know <span class="math notranslate nohighlight">\(\Theta\)</span>, <span class="math notranslate nohighlight">\(\Pr_\eta\)</span> for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>, and the payoff rule (loss function) <span class="math notranslate nohighlight">\(\loss(\ell, \lambda[\eta])\)</span>, the amount of money the analyst loses if she guesses that <span class="math notranslate nohighlight">\(\lambda[\eta] = \ell\)</span> when in fact <span class="math notranslate nohighlight">\(\theta = \eta\)</span>.</p></li>
+<li><p>Nature selects an element <span class="math notranslate nohighlight">\(\theta\)</span> of <span class="math notranslate nohighlight">\(\Theta\)</span>.</p></li>
+<li><p>The analyst selects an estimator <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span>.</p></li>
+<li><p>The analyst does not know the value of <span class="math notranslate nohighlight">\(\theta\)</span> and Nature does not know what estimator the analyst plans to use.</p></li>
+<li><p>Data <span class="math notranslate nohighlight">\(Y\)</span> are generated using the value of <span class="math notranslate nohighlight">\(\theta\)</span> that Nature selected; the data are plugged into <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span>, and <span class="math notranslate nohighlight">\(\loss(\widehat{\lambda}(Y), \lambda[\theta])\)</span> is calculated.</p></li>
+<li><p>Holding <span class="math notranslate nohighlight">\(\theta\)</span> constant, a new value of <span class="math notranslate nohighlight">\(Y\)</span> is generated, and <span class="math notranslate nohighlight">\(\loss(\widehat{\lambda}(Y), \lambda[\theta])\)</span> is calculated again. This is repeated many times.</p></li>
+<li><p>The analyst has to pay the average value of <span class="math notranslate nohighlight">\(\loss(\widehat{\lambda}(Y), \lambda[\theta])\)</span> over all those values of <span class="math notranslate nohighlight">\(Y\)</span>, the <em>risk of <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> at <span class="math notranslate nohighlight">\(\theta\)</span></em>, denoted <span class="math notranslate nohighlight">\(\rho_\theta(\widehat{\lambda}, \lambda[\theta])\)</span>.</p></li>
+<li><p>The analyst’s goal is to lose as little as possible in repeated play.</p></li>
+</ul>
+<div class="section" id="in-the-bayesian-version-of-the-game-nature-selects-theta-at-random-according-to-the-prior-distribution-pi-and-the-analyst-knows-pi">
+<h3>In the Bayesian version of the game, Nature selects <span class="math notranslate nohighlight">\(\theta\)</span> at random according to the prior distribution <span class="math notranslate nohighlight">\(\pi\)</span>, and the analyst knows <span class="math notranslate nohighlight">\(\pi\)</span>.<a class="headerlink" href="#in-the-bayesian-version-of-the-game-nature-selects-theta-at-random-according-to-the-prior-distribution-pi-and-the-analyst-knows-pi" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="in-the-frequentist-version-of-the-game-the-analyst-does-not-know-how-nature-will-select-theta-from-theta">
+<h3>In the frequentist version of the game, the analyst does not know how Nature will select <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(\Theta\)</span>.<a class="headerlink" href="#in-the-frequentist-version-of-the-game-the-analyst-does-not-know-how-nature-will-select-theta-from-theta" title="Permalink to this headline">¶</a></h3>
+<p>This is perhaps the most important difference between the
+frequentist and Bayesian viewpoints:
+Bayesians claim to know more about how Nature generates the data.</p>
+<ul class="simple">
+<li><p>A cautious frequentist might wish to select <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> to minimize her worst-case risk, on the assumption that Nature might play deliberately to win as much as possible.</p></li>
+<li><p>An estimator that minimizes the worst-case risk over <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span> (for some specified class of estimators) is called a <em>minimax estimator</em>; its maximum risk is the <em>minimax risk</em>.</p></li>
+<li><p>Minimax estimates are not the only option for frequentists (indeed, in many problems the minimax estimator is not known, and frequentists rely on estimators that have simple recipes and generally good asymptotic properties, e.g., maximum likelihood), but minimaxity is a common principle for optimality, as is <em>minimax regret</em>.</p></li>
+<li><p>A Bayesian might instead select the estimator that minimizes the <em>average</em> risk on the assumption that Nature selects <span class="math notranslate nohighlight">\(\theta\)</span> at random following the prior probability distribution <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+<li><p>An estimator that minimizes the average risk when <span class="math notranslate nohighlight">\(\theta\)</span> is selected from <span class="math notranslate nohighlight">\(\pi\)</span> (for some specified class of estimators) is called a <em>Bayes estimator</em>; its average risk for prior <span class="math notranslate nohighlight">\(\pi\)</span> is the <em>Bayes risk</em>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="duality-between-bayes-risk-and-minimax-risk">
+<h2>Duality between Bayes Risk and Minimax Risk<a class="headerlink" href="#duality-between-bayes-risk-and-minimax-risk" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The Bayes risk depends not only on <span class="math notranslate nohighlight">\(\Theta\)</span>, the distributions
+<span class="math notranslate nohighlight">\(\{ \Pr_\eta: \eta \in \Theta\}\)</span>, the parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, and the loss function <span class="math notranslate nohighlight">\(\loss\)</span>: It also depends on <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+<li><p>Consider allowing <span class="math notranslate nohighlight">\(\pi\)</span> to vary over a (suitably) rich set of possible priors. The prior <span class="math notranslate nohighlight">\(\pi^*\)</span> for which the Bayes risk is largest is the <em>least favorable</em> prior.</p></li>
+<li><p>The least favorable prior typically is not the “uninformative” or “flat” prior.</p></li>
+<li><p>Under some technical conditions, the Bayes risk for the least favorable prior is equal to the minimax risk.</p></li>
+<li><p>If the Bayes risk is smaller than the minimax risk, it is because the prior added information not present in the constraint itself.</p></li>
+</ul>
+</div>
+<div class="section" id="frequentist-properties-of-bayes-estimates">
+<h2>Frequentist properties of Bayes Estimates<a class="headerlink" href="#frequentist-properties-of-bayes-estimates" title="Permalink to this headline">¶</a></h2>
+<p>A frequentist need not believe the prior or even think that the parameter
+is random to use a Bayesian estimator.</p>
+<p>The Bayesian approach gives a recipe for calculating
+an estimate, just like maximum likelihood gives a recipe for calculating an estimate.</p>
+<p>The performance of that estimate can be measured using
+frequentist constructs without relying on the posterior distribution or the interpretation
+of the prior or the posterior.</p>
+<p>Sometimes, Bayesian estimates have good frequentist properties.</p>
+</div>
+<div class="section" id="theory-and-practice">
+<h2>Theory and practice<a class="headerlink" href="#theory-and-practice" title="Permalink to this headline">¶</a></h2>
+<p>In complex scientific applications, there are very few “orthodox” frequentist <em>or</em>
+Bayesian analyses.</p>
+<p>Models and priors tend to be chosen for convenience or tractability–or to respond to
+criticisms by adding layers of complexity.
+To paraphrase David Freedman, frequentist analyses tend to make up models, and Bayesian analyses tend to make up priors.
+I would argue that <em>both</em> camps tend to make up models, by which I mean the mapping
+<span class="math notranslate nohighlight">\(\eta \rightarrow \Pr_\eta\)</span> and the set <span class="math notranslate nohighlight">\(\Theta\)</span>.
+And both groups tend to <em>invent</em> constraints
+far more stringent than the constraints that actually come from the underlying
+scientific problem,
+artificially reducing the apparent uncertainty.</p>
+<p>If you point out a missing source of uncertainty or variability,
+a frequentist may model it; a Bayesian may model it and put a prior on any new parameters.
+The result—in both camps—is a tendency towards rococo
+recursion in which the embellishments have embellishments,
+and the weakness of the foundation is obscured by the complexity of the edifice.
+In the end, one still has a model or a prior, but an incomprehensible one that can’t
+possibly correspond to anyone’s true beliefs, or to Nature.</p>
+<p>The verse by Augustus de Morgan (known for de Morgan’s rules, which both frequentists and Bayesians rely on)
+describes multilevel modeling and hierarchical priors well:</p>
+<blockquote>
+<div><p>Great fleas have little fleas upon their backs to bite ‘em,
+And little fleas have lesser fleas, and so <em>ad infinitum</em>.
+And the great fleas themselves, in turn, have greater fleas to go on,
+While these again have greater still, and greater still, and so on.</p>
+</div></blockquote>
+<p>Frequentist analyses of complex problems often have model-selection phases (e.g., deciding which variables to use in a regression model)
+that are not accounted for properly in the quantification
+of uncertainty through confidence sets and so on.
+This problem has been recognized for decades, but only recently have rigorous
+methods to deal with it been proposed, and only in quite limited contexts.</p>
+<p>The best frequentist analyses tend to be bespoke: tailored to the scientific
+details of the problem.
+That requires substantive and statistical knowledge.
+Calculating frequentist estimates may require solving
+difficult–and sometimes numerically intractable–constrained numerical optimization problems.
+The set of tractable problems will grow over time, as algorithms improve and computational power increases.</p>
+<p>The advent of fast MCMC codes makes it possible to compute Bayesian estimates in a broad
+variety of applications, sometimes without much scientific thought:
+insert a prior, a likelihood, and data, run MCMC to sample the posterior,
+and out comes an estimate and an uncertainty appraisal.
+What that appraisal means is generally not examined, much less questioned.
+The warning “if all you have is a hammer, everything everything looks like a nail” is apropos.
+This is especially true if you love your hammer; it is especially pernicious if true nails are rare.</p>
+<p>In much the same way, frequentists often rush to apply the latest modeling technique
+to every set of data with the right “signature,” with little attention to how the
+data were collected or the underlying science.</p>
+<p>The result in both cases is unlikely to advance scientific knowledge.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In many applications, there is prior information about unknown parameters. For instance,</p>
+<ul>
+<li><p>masses and energies are nonnegative and finite</p></li>
+<li><p>velocities do not exceed the speed of light</p></li>
+<li><p>a financial overcharge cannot exceed the entire charge</p></li>
+<li><p>vote-counting error that favored the winner cannot exceed the number of ballots</p></li>
+</ul>
+</li>
+<li><p>Frequentist methods can use constraints directly.</p></li>
+<li><p>Bayesian methods require augmenting the constraints with prior probability distributions.</p></li>
+<li><p>The difference between the frequentist and Bayesian viewpoints is that Bayesians
+<em>claim to know more about how the data are generated</em>:</p>
+<ul>
+<li><p>Frequentists claim to know that the parameter <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>, but not how <span class="math notranslate nohighlight">\(\theta\)</span> was selected from <span class="math notranslate nohighlight">\(\Theta\)</span>.</p></li>
+<li><p>Bayesians claim to know that the parameter <span class="math notranslate nohighlight">\(\theta\)</span> was selected at random from <span class="math notranslate nohighlight">\(\Theta\)</span> according to a prior probability distribution <span class="math notranslate nohighlight">\(\pi\)</span> known to them.</p></li>
+<li><p>Both claim to know <span class="math notranslate nohighlight">\(\Pr_\eta\)</span>, the probability distribution that the data would have if the value of <span class="math notranslate nohighlight">\(\theta\)</span> is <span class="math notranslate nohighlight">\(\eta\)</span>, for each <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>.</p></li>
+</ul>
+</li>
+<li><p>In Bayesian analysis, the prior probability distribution captures the analyst’s beliefs about the parameter before the data are collected.</p>
+<ul>
+<li><p>The prior is updated using the data to construct the posterior distribution via Bayes’ rule.</p></li>
+<li><p>The posterior combines the analyst’s prior beliefs with information from the data.</p></li>
+<li><p>An analyst with different prior beliefs will in general arrive at a different posterior distribution.</p></li>
+<li><p>To measure a probability in the Bayesian framework is to discover what the analyst thinks, while to measure a probability in the frequentist framework is to discover empirical regularities.</p></li>
+</ul>
+</li>
+<li><p>Because of the difference in interpretations of probability, the Bayesian framework allows probability statements to be made about a much larger range of phenomena. But the probability might be relevant only to the person performing the analysis.</p></li>
+<li><p>Bayesian and frequentist measures of uncertainty differ.</p>
+<ul>
+<li><p>For instance, mean squared error and posterior mean squared error are expectations of the same quantity, but with respect to different distributions:</p>
+<ul>
+<li><p>MSE is an expectation with respect to the distribution of the data, holding the parameter fixed</p></li>
+<li><p>PMSE is an expectation with respect to the posterior distribution of the parameter, holding the data fixed.</p></li>
+</ul>
+</li>
+<li><p>coverage probability and credible level are the chance that a set contains the parameter, but</p>
+<ul>
+<li><p>coverage probability is computed with respect to the distribution of the data, holding the parameter fixed and allowing the set to vary randomly</p></li>
+<li><p>credible level is computed with respect to posterior distribution of the parameter, holding the data and the set fixed and allowing the parameter to vary randomly.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The interpretation and intended use
+of the results matter, and these may depend on the application.</p>
+<ul>
+<li><p>Is the parameter in question actually random?</p></li>
+<li><p>If so, is its prior distribution known?</p></li>
+<li><p>Which is the more interesting question: what would happen if Nature generated a new value of the parameter and the data happened to remain the same, or what would happen for the same value of the parameter if the measurement were repeated?</p></li>
+</ul>
+</li>
+<li><p>Under some conditions, the largest Bayes risk as the prior is allowed to vary is equal to smallest maximum risk (the minimax risk) of any estimator as the parameter is allowed to vary.</p>
+<ul>
+<li><p>If the Bayes risk for a given prior is less than the minimax risk, the prior added information not present in the constraint</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Evans, S.N., B. Hansen, and P.B. Stark, 2005. Minimax Expected Measure Confidence Sets for Restricted Location Parameters, Bernoulli, 11, 571–590. Also Tech. Rept. 617, Dept. Statistics Univ. Calif Berkeley (May 2002, revised May 2003). Preprint:
+https://www.stat.berkeley.edu/~stark/Preprints/617.pdf</p></li>
+<li><p>Freedman, D.A., 1995. Some issues in the foundations of statistics, <em>Foundations of Science</em>, <em>1</em>, 19–39. https://doi.org/10.1007/BF00208723</p></li>
+<li><p>LeCam, L., 1977.  Note on metastatistics or ‘An essay toward stating a problem in the doctrine of chances,’ <em>Synthese</em>, <em>36</em>, 133-160.</p></li>
+<li><p>Rivest, R.L., and E. Shen, 2012. A Bayesian Method for Auditing Elections, 2012 Electronic Voting Technology Workshop / Workshop on Transparent Elections (EVT/WOTE 2012), https://www.usenix.org/system/files/conference/evtwote12/evtwote12-final30.pdf</p></li>
+<li><p>Schafer, C.M., and P.B. Stark, 2009. Constructing Confidence Sets of Optimal Expected Size. Journal of the American Statistical Association, 104, 1080–1089. Reprint:
+https://www.stat.berkeley.edu/~stark/Preprints/schaferStark09.pdf</p></li>
+<li><p>Stark, P.B. and D.A. Freedman, 2003. What is the Chance of an Earthquake? in Earthquake Science and Seismic Risk Reduction, F. Mulargia and R.J. Geller, eds., NATO Science Series IV: Earth and Environmental Sciences, v. 32, Kluwer, Dordrecht, The Netherlands, 201–213. Preprint:
+https://www.stat.berkeley.edu/~stark/Preprints/611.pdf</p></li>
+<li><p>Stark, P.B. and L. Tenorio, 2010. A Primer of Frequentist and Bayesian Inference in Inverse Problems. In <em>Large Scale Inverse Problems and Quantification of Uncertainty</em>, Biegler, L., G. Biros, O. Ghattas, M. Heinkenschloss, D. Keyes, B. Mallick, L. Tenorio, B. van Bloemen Waanders and K. Willcox, eds. John Wiley and Sons, NY. Preprint:
+https://www.stat.berkeley.edu/~stark/Preprints/freqBayes09.pdf</p></li>
+<li><p>Stark, P.B., 2015. Constraints versus priors. <em>SIAM/ASA Journal on Uncertainty Quantification, 3</em>(1), 586–598. doi:10.1137/130920721, Reprint: http://epubs.siam.org/doi/10.1137/130920721, Preprint: https://www.stat.berkeley.edu/~stark/Preprints/constraintsPriors15.pdf</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Nw1</span><span class="o">=</span> <span class="mi">4550</span>
+<span class="n">Nl1</span><span class="o">=</span><span class="mi">4950</span>
+<span class="n">N1</span><span class="o">=</span><span class="mi">10000</span>
+<span class="n">Nw2</span><span class="o">=</span><span class="mi">750</span>
+<span class="n">Nl2</span><span class="o">=</span><span class="mi">150</span>
+<span class="n">N2</span><span class="o">=</span><span class="mi">1000</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Nw1</span><span class="o">-</span><span class="n">Nl1</span><span class="o">-</span><span class="n">N1</span><span class="p">,</span><span class="n">V</span><span class="o">-</span><span class="p">(</span><span class="n">Nw2</span><span class="o">-</span><span class="n">Nl2</span><span class="o">+</span><span class="n">N2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Nw1</span><span class="o">-</span><span class="n">Nl1</span><span class="o">+</span><span class="n">N1</span><span class="p">,</span><span class="n">V</span><span class="o">-</span><span class="p">(</span><span class="n">Nw2</span><span class="o">-</span><span class="n">Nl2</span><span class="o">-</span><span class="n">N2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-10400 -1400
+9600 600
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

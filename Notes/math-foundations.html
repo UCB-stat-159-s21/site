@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematical Preliminaries &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/math-foundations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/math-foundations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sets">
+   Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cartesian-products">
+   Cartesian Products
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mappings-and-functions">
+   Mappings and Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multisets">
+   Multisets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relations-and-orders">
+   Relations and Orders
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groups">
+   Groups
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fields">
+   Fields
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arithmetic-with-infty">
+   Arithmetic with
+   <span class="math notranslate nohighlight">
+    \(\infty\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groups-of-transformations-on-a-set">
+   Groups of transformations on a set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformations-of-probability-distributions">
+   Transformations of probability distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-linear-vector-spaces">
+   Real Linear Vector Spaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-independence-and-algebraic-bases">
+     Linear Independence and Algebraic Bases
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-inner-product-spaces">
+   Real Inner Product Spaces
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#norms">
+   Norms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cauchy-sequences">
+     Cauchy sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#completeness">
+     Completeness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#balls">
+     Balls
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hilbert-space">
+   Hilbert Space
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-riesz-representation-theorem">
+     The Riesz Representation Theorem
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mathematical-preliminaries">
+<h1>Mathematical Preliminaries<a class="headerlink" href="#mathematical-preliminaries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
+<p>A set is a collection of objects, called <em>members</em> or <em>elements</em> of the set, without
+regard for their order.
+<span class="math notranslate nohighlight">\(a \in A\)</span>, pronounced “<span class="math notranslate nohighlight">\(a\)</span> is an element of <span class="math notranslate nohighlight">\(A\)</span>,”  “<span class="math notranslate nohighlight">\(a\)</span> is in <span class="math notranslate nohighlight">\(A\)</span>,” or “<span class="math notranslate nohighlight">\(a\)</span> is a member of
+<span class="math notranslate nohighlight">\(A\)</span>” means that <span class="math notranslate nohighlight">\(a\)</span> is an element of the set <span class="math notranslate nohighlight">\(A\)</span>.
+This is the same as writing <span class="math notranslate nohighlight">\(A \ni a\)</span>, which is pronounced “<span class="math notranslate nohighlight">\(A\)</span> contains <span class="math notranslate nohighlight">\(a\)</span>.”
+If <span class="math notranslate nohighlight">\(a\)</span> is not an element of <span class="math notranslate nohighlight">\(A\)</span>, we write <span class="math notranslate nohighlight">\(a \not \in A\)</span>.
+Sets may be described explicitly by listing their contents, or implicitly
+by specifying a property that all elements of the set share, or a condition
+that they satisfy.
+The contents of sets are enclosed in curly braces: <span class="math notranslate nohighlight">\(\{ \}\)</span>.
+Examples:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = \{a, b, c, d \}\)</span>: the set containing the four elements <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\emptyset = \{ \}\)</span>: the empty set, the set that contains no elements.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb Z} \equiv \{ \ldots, -2, -1, 0, 1, 2, \ldots \}\)</span>: the integers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb N} \equiv \{1, 2, 3, \ldots \}\)</span>: the natural (counting) numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb R} \equiv (-\infty, \infty)\)</span>: the real numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb R}^+ \equiv [-\infty, \infty]\)</span>: the extended real numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb C} \equiv \{ a + bi: a, b \in {\mathbb R} \}\)</span>, where <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span>: the complex numbers.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\mathbb Q} \equiv \{ a/b: a, b \in {\mathbb Z}\}\)</span>: the rational numbers.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(B\)</span> is a _ subset_ of <span class="math notranslate nohighlight">\(A\)</span>, written <span class="math notranslate nohighlight">\(B \subset A\)</span> or <span class="math notranslate nohighlight">\(A \supset B\)</span>, if every element
+of the set <span class="math notranslate nohighlight">\(B\)</span> is also an element of the set <span class="math notranslate nohighlight">\(A\)</span>.
+Thus <span class="math notranslate nohighlight">\({\mathbb N} \subset {\mathbb Z} \subset {\mathbb Q} \subset {\mathbb R} \subset {\mathbb C}\)</span>.
+The empty set <span class="math notranslate nohighlight">\(\emptyset\)</span> is a subset of every set.
+If <span class="math notranslate nohighlight">\(A \subset B\)</span> and <span class="math notranslate nohighlight">\(B \subset A\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same set, and we write <span class="math notranslate nohighlight">\(A = B\)</span>.
+If <span class="math notranslate nohighlight">\(B\)</span> is not a subset of <span class="math notranslate nohighlight">\(A\)</span>, we write <span class="math notranslate nohighlight">\(B \not \subset A\)</span> or <span class="math notranslate nohighlight">\(A \not \supset B\)</span>.
+<span class="math notranslate nohighlight">\(B\)</span> is a <em>proper subset</em> of <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(B \subset A\)</span> but
+<span class="math notranslate nohighlight">\(A \not \subset B\)</span>.</p>
+<p>The <em>complement</em> of <span class="math notranslate nohighlight">\(A\)</span> (with respect to the universe <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>), written <span class="math notranslate nohighlight">\(A^c\)</span> or <span class="math notranslate nohighlight">\(A'\)</span>,
+is the set of all objects under consideration (<span class="math notranslate nohighlight">\(\mathcal{X}\)</span>) that are not elements of <span class="math notranslate nohighlight">\(A\)</span>.
+That is, <span class="math notranslate nohighlight">\(A^c \equiv \{ a \in \mathcal{X} : a \not \in A\}\)</span>.</p>
+<p>The <em>intersection</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cap B\)</span> or <span class="math notranslate nohighlight">\(AB\)</span>, is the set of all objects that
+are elements of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:
+$<span class="math notranslate nohighlight">\(
+        A \cap B \equiv \{a: a \in A \mbox{ and } a \in B \}.
+\)</span><span class="math notranslate nohighlight">\(
+If \)</span>A \cap B = \emptyset<span class="math notranslate nohighlight">\(, we say \)</span>A<span class="math notranslate nohighlight">\( and \)</span>B$ are <em>disjoint</em> or <em>mutually
+exclusive</em>.</p>
+<p>The <em>union</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cup B\)</span>, is the set of all objects that
+are elements of <span class="math notranslate nohighlight">\(A\)</span> or of <span class="math notranslate nohighlight">\(B\)</span> (or both):
+$<span class="math notranslate nohighlight">\(
+        A \cup B \equiv \{a: a \in A \mbox{ or } a \in B \mbox{ or both} \}.
+\)</span>$</p>
+<p>The <em>difference</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A \setminus B\)</span>, pronounced “<span class="math notranslate nohighlight">\(A\)</span> minus <span class="math notranslate nohighlight">\(B\)</span>,” is
+the set of all elements of <span class="math notranslate nohighlight">\(A\)</span> that are not elements of <span class="math notranslate nohighlight">\(B\)</span>:
+$<span class="math notranslate nohighlight">\(
+        A \setminus B \equiv \{a \in A : a \not \in B \} = A \cap B^c.
+\)</span>$</p>
+<p><em>Intervals</em> are special subsets of <span class="math notranslate nohighlight">\({\mathbb R}\)</span>:
+\begin{eqnarray*}
+[a, b] &amp;\equiv&amp; {x \in {\mathbb R} : a \le x \le b}\cr
+(a, b] &amp;\equiv&amp; {x \in {\mathbb R} : a &lt; x \le b}\cr
+[a, b) &amp;\equiv&amp; {x \in {\mathbb R} : a \le x &lt; b}\cr
+(a, b) &amp;\equiv&amp; {x \in {\mathbb R} : a &lt; x &lt; b}.
+\end{eqnarray*}</p>
+<p>Sometimes we have a collection of sets, indexed by elements of another
+set: <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span>.
+Then <span class="math notranslate nohighlight">\(B\)</span> is called an <em>index set</em>.
+If <span class="math notranslate nohighlight">\(B\)</span> is a subset of the integers <span class="math notranslate nohighlight">\({\mathbb Z}\)</span>, usually we write <span class="math notranslate nohighlight">\(A_i\)</span> or <span class="math notranslate nohighlight">\(A_j\)</span>, etc.,
+rather than <span class="math notranslate nohighlight">\(A_\beta\)</span>.
+If <span class="math notranslate nohighlight">\(B = {\mathbb N}\)</span>, we usually write <span class="math notranslate nohighlight">\(\{A_j\}_{j=1}^\infty\)</span> rather than
+<span class="math notranslate nohighlight">\(\{A_\beta : \beta \in {\mathbb N} \}\)</span>.
+$<span class="math notranslate nohighlight">\(
+        \bigcap_{\beta \in B} A_\beta \equiv \{a: a \in A_\beta \;\;\forall \beta \in B \}.
+\)</span><span class="math notranslate nohighlight">\(
+(\)</span>\forall<span class="math notranslate nohighlight">\( means &quot;for all.&quot;)
+If \)</span>B = {1, 2, \ldots, n}<span class="math notranslate nohighlight">\(, we usually write \)</span>\bigcap_{j=1}^n A_j<span class="math notranslate nohighlight">\( rather than
+\)</span>\bigcap_{j \in {1, 2, \ldots, n}} A_j<span class="math notranslate nohighlight">\(.
+The notation \)</span>\bigcup_{\beta \in B} A_\beta<span class="math notranslate nohighlight">\( and \)</span>\bigcup_{j=1}^n A_j$ are defined analogously.</p>
+<p>A collection of sets <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> is <em>pairwise disjoint</em>
+if <span class="math notranslate nohighlight">\(A_\beta \cap A_{\beta'} = \emptyset\)</span> whenever <span class="math notranslate nohighlight">\(\beta \ne \beta'\)</span>.
+The collection <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B\}\)</span> <em>exhausts</em> or <em>covers</em>
+the set <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(A \subset \bigcup_{\beta \in B} A_\beta\)</span>.
+The collection <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> is a <em>partition</em> of the
+set <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(A = \cup_{\beta \in B} A_\beta\)</span> and the sets <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span>
+are pairwise disjoint.
+If <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> are pairwise disjoint and exhaust <span class="math notranslate nohighlight">\(A\)</span>, then
+<span class="math notranslate nohighlight">\(\{A_\beta \cap A : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>A set is <em>countable</em> if its elements can be put in one-to-one correspondence with
+a subset of <span class="math notranslate nohighlight">\({\mathbb N}\)</span>.
+A set is <em>finite</em> if its elements can be put in one-to-one correspondence with
+<span class="math notranslate nohighlight">\(\{1, 2, \ldots, n\}\)</span> for some <span class="math notranslate nohighlight">\(n \in {\mathbb N}\)</span>.
+If a set is not finite, it is infinite.
+<span class="math notranslate nohighlight">\({\mathbb N}\)</span>, <span class="math notranslate nohighlight">\({\mathbb Z}\)</span>, and <span class="math notranslate nohighlight">\({\mathbb Q}\)</span> are infinite but countable; <span class="math notranslate nohighlight">\({\mathbb R}\)</span> is infinite and uncountable.</p>
+<p>The notation <span class="math notranslate nohighlight">\(\# A\)</span>, pronounced “the cardinality of <span class="math notranslate nohighlight">\(A\)</span>” is the size of the set <span class="math notranslate nohighlight">\(A\)</span>.
+If <span class="math notranslate nohighlight">\(A\)</span> is finite, <span class="math notranslate nohighlight">\(\# A\)</span> is the number of elements in <span class="math notranslate nohighlight">\(A\)</span>.
+If <span class="math notranslate nohighlight">\(A\)</span> is not finite but <span class="math notranslate nohighlight">\(A\)</span> is countable (if its elements can be put in one-to-one
+correspondence with the elements of <span class="math notranslate nohighlight">\({\mathbb N}\)</span>), then <span class="math notranslate nohighlight">\(\# A = \aleph_0\)</span> (aleph-null).</p>
+<p>The <em>power set</em> of a set <span class="math notranslate nohighlight">\(A\)</span> is the set of all subsets of the set <span class="math notranslate nohighlight">\(A\)</span>.
+For example, the power set of <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is
+$<span class="math notranslate nohighlight">\(
+        \{ \emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\} \}.
+\)</span><span class="math notranslate nohighlight">\(
+If \)</span>A<span class="math notranslate nohighlight">\( is a finite set, the cardinality of the power set of \)</span>A<span class="math notranslate nohighlight">\( is \)</span>2^{# A}<span class="math notranslate nohighlight">\(.
+This can be seen as follows: suppose \)</span># A = n<span class="math notranslate nohighlight">\( is finite.
+Consider the elements of \)</span>A<span class="math notranslate nohighlight">\( to be written in some canonical order.
+We can specify an element of the power set by an \)</span>n<span class="math notranslate nohighlight">\(-digit binary number.
+The first digit is 1 if the first element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise.
+The second digit is 1 if the second element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise,
+etc.
+There are \)</span>2^n<span class="math notranslate nohighlight">\( \)</span>n<span class="math notranslate nohighlight">\(-digit binary numbers, so there are \)</span>2^n<span class="math notranslate nohighlight">\( subsets.
+The cardinality of the power set of \)</span>{\mathbb N}<span class="math notranslate nohighlight">\( is not \)</span>\aleph_0$.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, <span class="math notranslate nohighlight">\(B\)</span> is a countable set
+and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>, then
+$<span class="math notranslate nohighlight">\(
+        \# A = \sum_{\beta \in B} \# A_\beta.
+\)</span>$</p>
+</div>
+<div class="section" id="cartesian-products">
+<h2>Cartesian Products<a class="headerlink" href="#cartesian-products" title="Permalink to this headline">¶</a></h2>
+<p>The notation <span class="math notranslate nohighlight">\((s_1, s_2, \ldots, s_n) \equiv (s_j)_{j=1}^n\)</span> denotes an
+<em>ordered <span class="math notranslate nohighlight">\(n\)</span>-tuple</em> consisting of
+<span class="math notranslate nohighlight">\(s_1\)</span> in the first position, <span class="math notranslate nohighlight">\(s_2\)</span> in the second position, etc.
+The parentheses are used instead of curly braces to distinguish
+<span class="math notranslate nohighlight">\(n\)</span>-tuples from sets: <span class="math notranslate nohighlight">\((s_j)_{j=1}^n \ne \{s_j\}_{j=1}^n\)</span>.
+The <span class="math notranslate nohighlight">\(k\)</span>th
+<em>component</em> of the <span class="math notranslate nohighlight">\(n\)</span>-tuple <span class="math notranslate nohighlight">\(s = (s_j)_{j=1}^n\)</span>, is <span class="math notranslate nohighlight">\(s_k\)</span>,
+<span class="math notranslate nohighlight">\(k = 1, 2, \ldots, n\)</span>.
+Two <span class="math notranslate nohighlight">\(n\)</span>-tuples are equal if their components are equal.
+That is, <span class="math notranslate nohighlight">\((s_j)_{j=1}^n = (t_j)_{j=1}^n\)</span> means that
+<span class="math notranslate nohighlight">\(s_j = t_j\)</span> for <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>.
+In particular, <span class="math notranslate nohighlight">\((s, t) \ne (t, s)\)</span> unless <span class="math notranslate nohighlight">\(s=t\)</span>.
+In contrast, <span class="math notranslate nohighlight">\(\{s, t \} = \{ t, s \}\)</span> always.</p>
+<p>The <em>Cartesian product of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span></em> is
+<span class="math notranslate nohighlight">\(S \times T \equiv \{(s, t): s \in S \mbox{ and } t \in T\}\)</span>.
+Unless <span class="math notranslate nohighlight">\(S = T\)</span>, <span class="math notranslate nohighlight">\(S \times T \ne T \times S\)</span>.
+<span class="math notranslate nohighlight">\({\mathbb R}^n\)</span> is the Cartesian product of <span class="math notranslate nohighlight">\({\mathbb R}\)</span> with itself, <span class="math notranslate nohighlight">\(n\)</span> times; its elements
+are <span class="math notranslate nohighlight">\(n\)</span>-tuples of real numbers.
+If <span class="math notranslate nohighlight">\(s\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-tuple <span class="math notranslate nohighlight">\((s_1, s_2, \ldots, s_n) = (s_j)_{j=1}^n\)</span>,</p>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be a finite set with <span class="math notranslate nohighlight">\(\# A = n\)</span>.
+A <em>permutation</em> of (the elements of) <span class="math notranslate nohighlight">\(A\)</span> is an element <span class="math notranslate nohighlight">\(s\)</span> of
+<span class="math notranslate nohighlight">\(\times_{j=1}^n A = A^n\)</span>
+whose components are distinct elements of <span class="math notranslate nohighlight">\(A\)</span>.
+That is, <span class="math notranslate nohighlight">\(s = (s_j)_{j=1}^n \in A^n\)</span> is a permutation of <span class="math notranslate nohighlight">\(A\)</span> if
+<span class="math notranslate nohighlight">\(\# \{s_j\}_{j=1}^n = n\)</span>.
+There are <span class="math notranslate nohighlight">\(n! = n(n-1)\cdots 1\)</span> permutations of a set with <span class="math notranslate nohighlight">\(n\)</span> elements:
+there are <span class="math notranslate nohighlight">\(n\)</span> choices for the first component of the permutation, <span class="math notranslate nohighlight">\(n-1\)</span> choices for
+the second (whatever the
+first might be), <span class="math notranslate nohighlight">\(n-2\)</span> for the third (whatever the first two might be), etc.
+This is an illustration of the <em>fundamental rule of counting</em>:
+in a sequence of <span class="math notranslate nohighlight">\(n\)</span> choices, if there are <span class="math notranslate nohighlight">\(m_1\)</span> possibilites for the first choice,
+<span class="math notranslate nohighlight">\(m_2\)</span> possibilities for the second choice (no matter which was chosen in the first place),
+<span class="math notranslate nohighlight">\(m_3\)</span> possibilities for the third choice
+(no matter which were chosen in the first two places),
+and so on, then there are <span class="math notranslate nohighlight">\(m_1 m_2 \cdots m_n = \prod_{j=1}^n m_j\)</span> possible sequences
+of choices in all.</p>
+<p>The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> things taken <span class="math notranslate nohighlight">\(k\)</span> at a time, <span class="math notranslate nohighlight">\({}_nP_k\)</span>,
+is the number of ways there are of selecting <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> things, then permuting
+those <span class="math notranslate nohighlight">\(k\)</span> things.
+There are <span class="math notranslate nohighlight">\(n\)</span> choices for the object that will be in the first place in the permutation,
+<span class="math notranslate nohighlight">\(n-1\)</span> for the second place (regardless of which is first), etc., and <span class="math notranslate nohighlight">\(n-k+1\)</span> choices
+for the item that will be in the <span class="math notranslate nohighlight">\(k\)</span>th place.
+By the fundamental rule of counting, it follows that
+<span class="math notranslate nohighlight">\({}_nP_k = n(n-1)\cdots(n-k+1) = n!/(n-k)!\)</span>.</p>
+<p>The number of subsets of size <span class="math notranslate nohighlight">\(k\)</span> that can be formed from <span class="math notranslate nohighlight">\(n\)</span> objects is
+$<span class="math notranslate nohighlight">\(
+        {}_nC_k = {{n}\choose{k}} = 
+        {}_nP_k/k! = n(n-1)\cdots(n-k+1)/k! = \frac{n!}{k!(n-k)!}.
+\)</span><span class="math notranslate nohighlight">\(
+Because the power set of a set with \)</span>n<span class="math notranslate nohighlight">\( elements can be partitioned as
+\)</span><span class="math notranslate nohighlight">\(
+        \cup_{k=0}^n \left \{ \mbox{all subsets of size } k
+        \right \},
+\)</span><span class="math notranslate nohighlight">\(
+it follows that
+\)</span><span class="math notranslate nohighlight">\(
+        \sum_{j=0}^n {}_nC_k = 2^n.
+\)</span>$</p>
+</div>
+<div class="section" id="mappings-and-functions">
+<h2>Mappings and Functions<a class="headerlink" href="#mappings-and-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions are subsets of Cartesian products.
+We write <span class="math notranslate nohighlight">\(f: \mathcal{X} \rightarrow \mathcal{Y}\)</span>, pronounced “<span class="math notranslate nohighlight">\(f\)</span> maps <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> into <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>”
+or “<span class="math notranslate nohighlight">\(f\)</span> is a function with domain <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> and co-domain <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>” if
+<span class="math notranslate nohighlight">\(f \subset \mathcal{X} \times \mathcal{Y}\)</span> such that for each <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>, <span class="math notranslate nohighlight">\(\exists 1 y \in \mathcal{Y}\)</span>
+such that <span class="math notranslate nohighlight">\((x, y) \in f\)</span>.
+(The notation <span class="math notranslate nohighlight">\(\exists 1 y\)</span> means that there exists exactly one value of <span class="math notranslate nohighlight">\(y\)</span>.)
+The set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is called the <em>domain</em> of <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> is called the co-domain of <span class="math notranslate nohighlight">\(f\)</span>.
+If the <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>-component of an element of <span class="math notranslate nohighlight">\(f\)</span> is <span class="math notranslate nohighlight">\(x\)</span>, we denote the <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>-component of that
+element of <span class="math notranslate nohighlight">\(f\)</span> by <span class="math notranslate nohighlight">\(fx\)</span> or <span class="math notranslate nohighlight">\(f(x)\)</span>, so that <span class="math notranslate nohighlight">\((x, fx) \in f\)</span>; we write <span class="math notranslate nohighlight">\(f: x \mapsto y=f(x)\)</span>.
+The functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are equal if they are the same subset of <span class="math notranslate nohighlight">\(\mathcal{X} \times \mathcal{Y}\)</span>,
+which means that they have the same domain <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, and <span class="math notranslate nohighlight">\(fx = gx\)</span> <span class="math notranslate nohighlight">\(\forall x \in \mathcal{X}\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(A \subset \mathcal{X}\)</span>.
+The <em>image</em> of <span class="math notranslate nohighlight">\(A\)</span> under <span class="math notranslate nohighlight">\(f\)</span> is
+$<span class="math notranslate nohighlight">\(
+        fA = f(A) \equiv \{ y \in \mathcal{Y} : (x, y) \in f \mbox{ for some } x \in A\}.
+\)</span><span class="math notranslate nohighlight">\(
+More colloquially, we would write this as
+\)</span><span class="math notranslate nohighlight">\(
+        fA = \{ y \in \mathcal{Y} : f(x) = y \mbox{ for some } x \in A \}.
+\)</span><span class="math notranslate nohighlight">\(
+If \)</span>f\mathcal{X}<span class="math notranslate nohighlight">\( is a proper subset of \)</span>\mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span>f<span class="math notranslate nohighlight">\( is _into_.
+If \)</span>f\mathcal{X} = \mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span>f<span class="math notranslate nohighlight">\( is _onto_.
+For \)</span>B \subset \mathcal{Y}<span class="math notranslate nohighlight">\(, the _inverse image of \)</span>B<span class="math notranslate nohighlight">\( under \)</span>f<span class="math notranslate nohighlight">\(_ or
+_pre-image of \)</span>B<span class="math notranslate nohighlight">\( under \)</span>f<span class="math notranslate nohighlight">\(_ is
+\)</span><span class="math notranslate nohighlight">\(
+        f^{-1}B \equiv \{ x \in \mathcal{X} : fx \in B \}.
+\)</span><span class="math notranslate nohighlight">\(
+Similarly, \)</span>f^{-1}y \equiv { x \in \mathcal{X} : fx = y }<span class="math notranslate nohighlight">\(
+If \)</span>\forall y \in \mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span># { f^{-1} y } \le 1<span class="math notranslate nohighlight">\(, \)</span>f<span class="math notranslate nohighlight">\( is _one-to-one_ (1:1).
+If \)</span>f<span class="math notranslate nohighlight">\( is one-to-one and onto, i.e., if \)</span>\forall y \in \mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span># { f^{-1}y } = 1<span class="math notranslate nohighlight">\(,
+\)</span>f$ is a <em>bijection</em>.</p>
+</div>
+<div class="section" id="multisets">
+<h2>Multisets<a class="headerlink" href="#multisets" title="Permalink to this headline">¶</a></h2>
+<p>A <em>multiset</em> or <em>bag</em> is like a set, except it can contain more than one “copy” of a given element.</p>
+<p>For instance, the sets <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> and <span class="math notranslate nohighlight">\(\{0, 1, 1\}\)</span> are the same, because they contain the same two elements, namely, 0 and 1. But viewed as <em>multisets</em>, they are different, because the second contains the element 1 twice.
+One can think of a multiset as an ordered pair, the first element of which is itself the set of distinct elements of the multiset, and the second of which is a function that assigns a natural number to each element of the set of elements. For instance, the multiset <span class="math notranslate nohighlight">\(\{0, 1, 1\}\)</span> would be represented <span class="math notranslate nohighlight">\( (\{0, 1\}, \{(0, 1), (1, 2) \})\)</span>.</p>
+<p>Two multisets are equal if they contain the same elements with the same multiplicities, that is, set of distinct
+elements of the first multiset is equal to the set of distinct elements of the second, and the multiplicity function of the first is equal to the multiplicity function of the second (i.e., the multiplicity of each item is the same in both multisets).
+For instance, the multisets <span class="math notranslate nohighlight">\(\{0, 1, 1\}\)</span> and <span class="math notranslate nohighlight">\(\{1, 0, 1\}\)</span> are equal.</p>
+<p>A set amounts to a multiset in which the multiplicity of every element is 1.</p>
+<p>Generally I will not make a notational distinction between sets and multisets (I use curly braces to denote both sets and multisets).</p>
+<p>If <span class="math notranslate nohighlight">\(x_j\)</span>_{j=1}^n is an ordered n-tuple, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> will denote the multiset containing all
+<span class="math notranslate nohighlight">\(n\)</span> of its coordinates.</p>
+</div>
+<div class="section" id="relations-and-orders">
+<h2>Relations and Orders<a class="headerlink" href="#relations-and-orders" title="Permalink to this headline">¶</a></h2>
+<p>A <em>relation</em> <span class="math notranslate nohighlight">\(R\)</span> on the set <span class="math notranslate nohighlight">\(A\)</span> is a collection of ordered pairs of elements of <span class="math notranslate nohighlight">\(A\)</span>, that is,
+<span class="math notranslate nohighlight">\(R  \subset A \times A\)</span>.
+Notationally, if <span class="math notranslate nohighlight">\((a,b) \in R \)</span>, we write <span class="math notranslate nohighlight">\(a R b\)</span>.</p>
+<p>A relation can also be thought of as a function from <span class="math notranslate nohighlight">\(A \times A\)</span> to <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> such
+that the function takes the value 1 if an only if (iff) <span class="math notranslate nohighlight">\((a,b) \in R \)</span>.</p>
+<p>For instance, consider the “divides” relation on the positive integers <span class="math notranslate nohighlight">\(\mathbb N\)</span>.
+We say that <span class="math notranslate nohighlight">\(j \in \mathbb N\)</span> “divides” <span class="math notranslate nohighlight">\(k \in \mathbb N\)</span> if <span class="math notranslate nohighlight">\(k\)</span> is an integer multiple of
+<span class="math notranslate nohighlight">\(j\)</span>.
+As an example, 3 divides 102.
+If we let <span class="math notranslate nohighlight">\(R\)</span> denote the relation “divides,” then <span class="math notranslate nohighlight">\((3, 102) \in R \)</span> and we would write <span class="math notranslate nohighlight">\(3 R 102\)</span></p>
+<p>A <em>partial order</em> <span class="math notranslate nohighlight">\(\le \)</span> on the set <span class="math notranslate nohighlight">\(A\)</span> is a relation on <span class="math notranslate nohighlight">\(A\)</span> such that:</p>
+<ul class="simple">
+<li><p>for every <span class="math notranslate nohighlight">\(a \in A\)</span>, <span class="math notranslate nohighlight">\( a \le a \)</span> (<em>reflexivity</em>)</p></li>
+<li><p>if <span class="math notranslate nohighlight">\( a \le b \)</span> and <span class="math notranslate nohighlight">\( b \le a \)</span>, then <span class="math notranslate nohighlight">\( a = b \)</span> (<em>antisymmetry</em>)</p></li>
+<li><p>if <span class="math notranslate nohighlight">\( a \le b \)</span> and <span class="math notranslate nohighlight">\( b \le c \)</span>, then <span class="math notranslate nohighlight">\( a \le c \)</span> (<em>transitivity</em>)</p></li>
+</ul>
+<p>If in addition, for every <span class="math notranslate nohighlight">\( (a, b) \in A \times A \)</span> either <span class="math notranslate nohighlight">\( a \le b \)</span> or <span class="math notranslate nohighlight">\( b \le a \)</span> (<em>comparability</em>), then  <span class="math notranslate nohighlight">\( \le \)</span> is a <em>total order</em>.</p>
+<p>An <em>equivalence relation</em> <span class="math notranslate nohighlight">\( \sim \)</span> on the set <span class="math notranslate nohighlight">\(A\)</span> is a relation on <span class="math notranslate nohighlight">\(A\)</span> such that:</p>
+<ul class="simple">
+<li><p>for every <span class="math notranslate nohighlight">\(a \in A\)</span>, <span class="math notranslate nohighlight">\( a \sim a \)</span> (<em>reflexivity</em>)</p></li>
+<li><p>if <span class="math notranslate nohighlight">\( a \sim b \)</span> then <span class="math notranslate nohighlight">\( b \sim a \)</span> (<em>symmetry</em>)</p></li>
+<li><p>if <span class="math notranslate nohighlight">\( a \sim b \)</span> and <span class="math notranslate nohighlight">\( b \sim c \)</span>, then <span class="math notranslate nohighlight">\( a \sim c \)</span> (<em>transitivity</em>)</p></li>
+</ul>
+<p>The <em>equivalence class</em> of <span class="math notranslate nohighlight">\(a\)</span> under <span class="math notranslate nohighlight">\(\sim\)</span> is <span class="math notranslate nohighlight">\([a] \equiv \{b \in A : b \sim a \}\)</span>.</p>
+</div>
+<div class="section" id="groups">
+<h2>Groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h2>
+<p>A <em>group</em> is an ordered pair <span class="math notranslate nohighlight">\((\mathcal{G}, \times)\)</span>, where <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> is
+a collection of objects (the elements of the group) and <span class="math notranslate nohighlight">\(\times\)</span> is a mapping
+from <span class="math notranslate nohighlight">\(\mathcal{G} \times \mathcal{G}\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>,
+\begin{eqnarray*}
+\times : &amp; \mathcal{G} \times \mathcal{G} &amp; \rightarrow \mathcal{G} \
+&amp; (g, h) &amp; \mapsto g \times h,
+\end{eqnarray*}
+satisfying the following axioms:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\exists e \in \mathcal{G}\)</span> s.t. <span class="math notranslate nohighlight">\(\forall g \in \mathcal{G}\)</span>, <span class="math notranslate nohighlight">\(e \times g = g\)</span>. The element <span class="math notranslate nohighlight">\(e\)</span> is called the <em>identity</em>.</p></li>
+<li><p>For each <span class="math notranslate nohighlight">\(g \in \mathcal{G}\)</span>, <span class="math notranslate nohighlight">\(\exists g^{-1} \in \mathcal{G}\)</span> s.t. <span class="math notranslate nohighlight">\(g^{-1}\times g = e\)</span>. (Every element has an inverse.)</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f, g, h \in \mathcal{G}\)</span>, then <span class="math notranslate nohighlight">\(f \times (g \times h) = (f \times g)\times h\)</span>. (The group operation is associative.)</p></li>
+</ul>
+<p>If, in addition, for every <span class="math notranslate nohighlight">\(g, h \in \mathcal{G}\)</span>,  <span class="math notranslate nohighlight">\(g \times h = h \times g\)</span> (if the group
+operation commutes), we say that <span class="math notranslate nohighlight">\((\mathcal{G}, \times)\)</span> is an <em>Abelian group</em>
+or <em>commutative group</em>.</p>
+<p>In an abuse of terminology, we will often call <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> a group, with the group operation <span class="math notranslate nohighlight">\(\times\)</span>
+understood from context.</p>
+<hr class="docutils" />
+<p>Examples of groups include the real numbers together with ordinary addition, <span class="math notranslate nohighlight">\(({\mathbf R}, +)\)</span>;
+the real numbers other than zero together with ordinary multiplication,
+<span class="math notranslate nohighlight">\(({\mathbf R} \setminus \{0\}, *)\)</span>; the rational numbers together with ordinary addition,
+<span class="math notranslate nohighlight">\(({\mathbf Q}, +)\)</span>; and the integers 0 to <span class="math notranslate nohighlight">\(p-1\)</span>, <span class="math notranslate nohighlight">\(p\)</span> prime, together with addition modulo <span class="math notranslate nohighlight">\(p\)</span>,
+<span class="math notranslate nohighlight">\(( \{0, 1, \ldots, p-1\}, +)\)</span>;
+and the set of all permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects (called <em>the symmetric group of degree <span class="math notranslate nohighlight">\(n\)</span></em>,
+denoted <span class="math notranslate nohighlight">\(\mathcal{S}_n\)</span>).</p>
+<p>It is common to omit the symbol <span class="math notranslate nohighlight">\(\times\)</span> from the group notation, and write <span class="math notranslate nohighlight">\(g \times h\)</span> as <span class="math notranslate nohighlight">\(gh\)</span>,
+when <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> is an abstract group.</p>
+<hr class="docutils" />
+<p>Suppose <span class="math notranslate nohighlight">\(\mathcal{H} \subset \mathcal{G}\)</span>, where <span class="math notranslate nohighlight">\((\mathcal{G}, \times)\)</span> is a group.<br />
+If <span class="math notranslate nohighlight">\((\mathcal{H}, \times)\)</span> is also a group, it is called a <em>subgroup</em> of <span class="math notranslate nohighlight">\((\mathcal{G}, \times)\)</span>.</p>
+<hr class="docutils" />
+<p>Consider a subset <span class="math notranslate nohighlight">\(A\)</span> of elements of a group <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.
+The <em>subgroup generated by <span class="math notranslate nohighlight">\(A\)</span></em> is the smallest group that contains <span class="math notranslate nohighlight">\(A\)</span> (using the same multiplication
+operator as <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>), that is, every element
+of <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> that can be written as a product of elements of <span class="math notranslate nohighlight">\(A\)</span> and inverses of elements of
+<span class="math notranslate nohighlight">\(A\)</span>.
+If the subgroup generated by <span class="math notranslate nohighlight">\(A\)</span> is equal to <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> <em>is a generating set</em> of <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.</p>
+<p>For example, consider <span class="math notranslate nohighlight">\(\mathcal{S}_n\)</span>, the symmetric group of permutations of <span class="math notranslate nohighlight">\(n\)</span> objects.
+This group can be generated from just two of its elements, a <em>transposition</em> <span class="math notranslate nohighlight">\(\pi = (2, 1, 3, \ldots, n)\)</span>
+and a <em>circular shift</em> <span class="math notranslate nohighlight">\(\eta = (n, 1, 2, 3, \ldots, n-1)\)</span>.</p>
+<hr class="docutils" />
+<!-- [FIX ME! Not correct. ]
+A _cycle_ is the sequence of permutations that results from repeatedly applying the same permutation,
+until it returns to the starting point.
+For the permutation $\pi$, a cycle is $\pi, \pi^2, \ldots, \pi$: since $\mathcal{G}$ has a finite number of
+elements, any sequence of elements must eventually repeat.
+The identity permutation $\pi = e$, is equal to every power of itself. In particular, $e^2 = e$.
+Thus $e$ gives a cycle of length 1.
+For instance, consider the permutation $\pi = (2, 1, 3, \ldots, n)$. 
+The permutation exchanges the first and second elements. Applying it twice exchanges them back,
+producing the identity permutation. This permutation produces a cycle of length 2.
+For another example, consider the permutation $\pi = (n, 1, 2, \ldots, n-1)$.
+If we apply this permutation to $(1, 2, 3, \ldots, n)$, we get $(n, 1, 2, \ldots, n-1)$.
+Applying it repeatedly yields $(n-1, n, 1, \ldots, n-2)$, $(n-2, n-1, n, 1, \ldots, n-3)$, etc.
+After $n$ applications, we get back to $(1, 2, 3, \ldots, n)$. 
+This permutation gives a cycle of length $n$.
+--> 
+</div>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<p>An ordered triple <span class="math notranslate nohighlight">\((\mathcal{F}, \times, +)\)</span> is a <em>field</em> if <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is
+a collection of objects and <span class="math notranslate nohighlight">\(\times\)</span> and <span class="math notranslate nohighlight">\(+\)</span> are operations on <span class="math notranslate nohighlight">\(\mathcal{F} \times \mathcal{F}\)</span>
+such that</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is an Abelian group under the operation <span class="math notranslate nohighlight">\(+\)</span>, with identity element denoted 0.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{F} \setminus \{0\}\)</span> is an Abelian group under the operation <span class="math notranslate nohighlight">\(\times\)</span>, with identity element denoted <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\times\)</span> is distributive over <span class="math notranslate nohighlight">\(+\)</span>. I.e., for any <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(h \in \mathcal{F}\)</span>,
+<span class="math notranslate nohighlight">\(f \times (g+h) = f \times g + f \times h\)</span> and
+<span class="math notranslate nohighlight">\((f+g) \times h = f\times h + g \times h\)</span>.</p></li>
+</ul>
+<p>The additive inverse of <span class="math notranslate nohighlight">\(g\)</span> is denoted <span class="math notranslate nohighlight">\(-g\)</span>; the multiplicative inverse of <span class="math notranslate nohighlight">\(g\)</span> is
+<span class="math notranslate nohighlight">\(g^{-1} = 1/g\)</span>.</p>
+<hr class="docutils" />
+<p>Examples:
+<span class="math notranslate nohighlight">\(({\mathbf R}, \times, +)\)</span>, where <span class="math notranslate nohighlight">\(\times\)</span> is ordinary (real) multiplication and <span class="math notranslate nohighlight">\(+\)</span> is ordinary
+(real) addition.
+The complex numbers <span class="math notranslate nohighlight">\({\mathbf C}\)</span>, with complex multiplication and addition.</p>
+<p>These (and the extended reals) are the only fields we will use.</p>
+</div>
+<div class="section" id="arithmetic-with-infty">
+<h2>Arithmetic with <span class="math notranslate nohighlight">\(\infty\)</span><a class="headerlink" href="#arithmetic-with-infty" title="Permalink to this headline">¶</a></h2>
+<p>We shall use the following conventions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0 \cdot \infty = \infty \cdot 0 = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x + \infty = \infty + x = \infty\)</span>, <span class="math notranslate nohighlight">\(x \in {\mathbf R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x \cdot \infty = \infty \cdot x = \infty\)</span>, <span class="math notranslate nohighlight">\(x &gt; 0\)</span></p></li>
+</ul>
+<p>With these conventions, <span class="math notranslate nohighlight">\(([-\infty, \infty], \times, +)\)</span> is a field.</p>
+</div>
+<div class="section" id="groups-of-transformations-on-a-set">
+<h2>Groups of transformations on a set<a class="headerlink" href="#groups-of-transformations-on-a-set" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\( \mathcal{G} \)</span> be a group (with the group operation implicit) with identity element
+<span class="math notranslate nohighlight">\(e \in \mathcal{G} \)</span> and let <span class="math notranslate nohighlight">\(\mathcal X\)</span> be a set.
+Then a <em>group action</em> of <span class="math notranslate nohighlight">\(\mathcal G\)</span> on <span class="math notranslate nohighlight">\(\mathcal X\)</span> is a function from <span class="math notranslate nohighlight">\( {\mathcal G} \times {\mathcal X}\)</span> into <span class="math notranslate nohighlight">\(\mathcal X\)</span> such that
+(if we denote the image of <span class="math notranslate nohighlight">\((g, x)\)</span> under this transformation as <span class="math notranslate nohighlight">\(g.x\)</span>),</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e.x = x\)</span> for every <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> (the <em>identity</em> element of the group is an identity transformation on the set)</p></li>
+<li><p>for every <span class="math notranslate nohighlight">\(g \in \mathcal{G}\)</span> and <span class="math notranslate nohighlight">\(h \in \mathcal{G}\)</span> and every <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>,
+<span class="math notranslate nohighlight">\(g.(h.x) = (gh).x\)</span> (the group operation is <em>compatible</em> with the composition of transformations on the set).</p></li>
+</ul>
+<p>Then we call <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> a <em>group of transformations of</em> <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.</p>
+<hr class="docutils" />
+<p>The <em>orbit</em> of the point <span class="math notranslate nohighlight">\( x \in \mathcal{X} \)</span> under <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> is the set
+<span class="math notranslate nohighlight">\(\mathcal{G}.x \equiv \{ g.x : g \in \mathcal{G} \}\)</span>.</p>
+<p>If we write <span class="math notranslate nohighlight">\( x \sim y \)</span> when <span class="math notranslate nohighlight">\( y \in \mathcal{G}.x \)</span>, then <span class="math notranslate nohighlight">\(\sim\)</span> is an equivalence
+relation on <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>; that is, orbits define equivalence classes.
+Moreover, the set of distinct orbits partitions a set into equivalence classes.</p>
+<p>For example, let <span class="math notranslate nohighlight">\(\mathcal{X} \)</span> be 2-dimensional Euclidean space,
+and let <span class="math notranslate nohighlight">\(\mathcal{G} \)</span> be rotations around the origin.
+Such rotations comprise a group, if the group operation is defined as composition:
+if <span class="math notranslate nohighlight">\(g\)</span> is rotation by the angle <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(h\)</span> is rotation by the angle <span class="math notranslate nohighlight">\(\omega\)</span>,
+then <span class="math notranslate nohighlight">\(gh\)</span> is defined to be rotation by the angle <span class="math notranslate nohighlight">\(\theta + \omega\)</span>, equivalently, rotation by
+<span class="math notranslate nohighlight">\(\theta\)</span> followed by rotation by <span class="math notranslate nohighlight">\(\omega\)</span>.
+The identity element is rotation by 0.
+The orbit of the point <span class="math notranslate nohighlight">\( x = (x_1, x_2)\)</span> is a circle centered at the origin, with
+radius <span class="math notranslate nohighlight">\(r = \sqrt{x_1^2 + x_2^2}\)</span>.
+The entire Euclidean plane can be partitioned into an uncountable union of circles of different radii.</p>
+<p>As another example, let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be the set of ordered <span class="math notranslate nohighlight">\(n\)</span>-tuples of real numbers,
+elements of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.
+Let <span class="math notranslate nohighlight">\(\pi\)</span> denote a permutation of <span class="math notranslate nohighlight">\(\{1, \ldots, n\}\)</span>, an <span class="math notranslate nohighlight">\(n\)</span>-tuple of integers
+between 1 and <span class="math notranslate nohighlight">\(n\)</span> with no duplicates: <span class="math notranslate nohighlight">\(\pi_j\)</span> is a number between
+1 and <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(\{\pi_1, \pi_2, \ldots, \pi_n \} = \{1, 2, \ldots, n\}\)</span>.
+If <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are two permutations, define <span class="math notranslate nohighlight">\(\pi \phi\)</span> to be the permutation that
+results from composing the two permutations.
+For instance, if <span class="math notranslate nohighlight">\(\pi = (1,3,2,4)\)</span> and <span class="math notranslate nohighlight">\(\phi = (2,4,3,1)\)</span>, then <span class="math notranslate nohighlight">\(\pi \phi = (2,3,4,1)\)</span>.
+Such permutations comprise a group with identity element <span class="math notranslate nohighlight">\(e = (1,2,3,4)\)</span>.
+If we define the action of a permutation on an element <span class="math notranslate nohighlight">\( x \in \mathcal{X}\)</span> to be an
+<span class="math notranslate nohighlight">\(n\)</span>-tuple that results from re-ordering the components of <span class="math notranslate nohighlight">\(x\)</span> according to <span class="math notranslate nohighlight">\(\pi\)</span>,
+then this group
+For instance, if <span class="math notranslate nohighlight">\(x = (x_1, x_2, \ldots, x_n) \)</span> and <span class="math notranslate nohighlight">\( \pi = (\pi_1, \ldots, \pi_n)\)</span>
+then <span class="math notranslate nohighlight">\( \pi x = (x_{\pi_1}, \ldots x_{\pi_n})\)</span>.
+Even more concretely, let <span class="math notranslate nohighlight">\(x = (x_1, x_2, x_2, x_4) \)</span> and let <span class="math notranslate nohighlight">\( \pi = (1, 4, 3, 2)\)</span>.
+Then <span class="math notranslate nohighlight">\( \pi x = (x_1, x_4, x_3, x_2)\)</span>.
+The orbit of a point <span class="math notranslate nohighlight">\(x\)</span> is the collection of all elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>
+with the same components as <span class="math notranslate nohighlight">\(x\)</span>, but in all <span class="math notranslate nohighlight">\(n!\)</span> possible orders.
+(The orbit will contain fewer than <span class="math notranslate nohighlight">\(n!\)</span> distinct elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> if the values
+of the components of <span class="math notranslate nohighlight">\(x\)</span> are not all distinct.)</p>
+</div>
+<div class="section" id="transformations-of-probability-distributions">
+<h2>Transformations of probability distributions<a class="headerlink" href="#transformations-of-probability-distributions" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> be a probability distribution on a (measurable) set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> and let
+<span class="math notranslate nohighlight">\(\mathcal{G}\)</span> be a group of transformations of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> with the property that
+for every <span class="math notranslate nohighlight">\( A \subset \mathcal{X}\)</span> for which <span class="math notranslate nohighlight">\(\mathbb{P}(A)\)</span> is defined and every <span class="math notranslate nohighlight">\( g \in \mathbb{G} \)</span>,
+<span class="math notranslate nohighlight">\(\mathbb{P}(g.A)\)</span> is also defined (i.e., <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> preserves the measurability of sets).</p>
+<p>A probability distribution <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> on a (measurable) set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>
+is <em>invariant under the group of transformations</em> <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> if for every
+<span class="math notranslate nohighlight">\( A \subset \mathcal{X}\)</span> for which <span class="math notranslate nohighlight">\(\mathbb{P}(A)\)</span> is defined and every <span class="math notranslate nohighlight">\( g \in \mathcal{G}\)</span>,
+<span class="math notranslate nohighlight">\(\mathbb{P}(g.A)\)</span> is also defined, and <span class="math notranslate nohighlight">\(\mathbb{P}(A) = \mathbb{P}(g.A)\)</span>.</p>
+<p>For example, the multivariate normal distribution with IID components is invariant with respect to rotations about its mean.</p>
+<p>A collection of random variables is <em>exchangeable</em> if every permutation of the variables has the same
+joint probability distribution, that is, if the joint distribution is invariant under the permutation
+group. Any collection of random variables that are independent and identically distributed (IID) is exchangeable, but IID is a stronger property than exchangeability.</p>
+</div>
+<div class="section" id="real-linear-vector-spaces">
+<h2>Real Linear Vector Spaces<a class="headerlink" href="#real-linear-vector-spaces" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a set (the “vectors”) with two relations, <span class="math notranslate nohighlight">\(+\)</span> (vector addition) and <span class="math notranslate nohighlight">\(\cdot\)</span> (scalar multiplication),
+such that for all <span class="math notranslate nohighlight">\(x, y \in \mathcal{X}\)</span> and all <span class="math notranslate nohighlight">\(\alpha, \beta \in \mathbb{R}\)</span>,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x+y \in \mathcal{X}\)</span> (<span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is closed under <span class="math notranslate nohighlight">\(+\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\exists 0 \in \mathcal{X}\)</span> such that <span class="math notranslate nohighlight">\(\forall x \in \mathcal{X}\)</span>, <span class="math notranslate nohighlight">\(0+x = x\)</span> (<span class="math notranslate nohighlight">\(0\)</span> is the identity element for <span class="math notranslate nohighlight">\(+\)</span>)</p></li>
+<li><p>For each <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>, <span class="math notranslate nohighlight">\(\exists -x \in \mathcal{X}\)</span> such that <span class="math notranslate nohighlight">\(-x + x = 0\)</span> (every element has an additive inverses</p></li>
+<li><p><span class="math notranslate nohighlight">\(x+y = y+x\)</span> (<span class="math notranslate nohighlight">\(+\)</span> is commutative)</p></li>
+<li><p><span class="math notranslate nohighlight">\(x + (y+z) = (x+y) + z\)</span> (<span class="math notranslate nohighlight">\(+\)</span> is associative)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha \cdot x \in \mathcal{X}\)</span> (closure under <span class="math notranslate nohighlight">\(\cdot\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(1 \cdot x = x\)</span> (<span class="math notranslate nohighlight">\(1\)</span> is the identity element for scalar multiplication)</p></li>
+<li><p><span class="math notranslate nohighlight">\((\alpha + \beta)\cdot x = \alpha\cdot x + \beta \cdot x\)</span> (scalar addition distributes over multiplication)</p></li>
+<li><p><span class="math notranslate nohighlight">\((\alpha \beta) \cdot x = \alpha\cdot(\beta \cdot x)\)</span> (scalar multiplication is associative)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha \cdot (x+y) = \alpha \cdot x + \beta \cdot y\)</span> (scalar multiplication distributes over vector addition)</p></li>
+</ul>
+<p>Then <span class="math notranslate nohighlight">\((\mathcal{X}, +, \cdot)\)</span> is a real linear vector space.</p>
+<p>One generally omits the <span class="math notranslate nohighlight">\(\cdot\)</span> notation and just writes <span class="math notranslate nohighlight">\(\alpha x\)</span> rather than <span class="math notranslate nohighlight">\(\alpha \cdot x\)</span>.</p>
+<div class="section" id="linear-independence-and-algebraic-bases">
+<h3>Linear Independence and Algebraic Bases<a class="headerlink" href="#linear-independence-and-algebraic-bases" title="Permalink to this headline">¶</a></h3>
+<p>A set of vectors <span class="math notranslate nohighlight">\(S \subset \mathcal{X}\)</span> of a linear vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is <em>linearly independent</em> if for every finite subset <span class="math notranslate nohighlight">\(\{s_1, \ldots, s_n \} \subset S\)</span>, and every set of scalars <span class="math notranslate nohighlight">\(\{\alpha_1, \ldots, \alpha_n\}\)</span> if <span class="math notranslate nohighlight">\(\sum_{j=1}^n \alpha_js_j = 0\)</span>, then <span class="math notranslate nohighlight">\(\alpha_1 = \cdots = \alpha_n = 0\)</span>.</p>
+<p>An <em>algebraic basis</em> <span class="math notranslate nohighlight">\(B \subset \mathcal{X}\)</span> for a linear vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is a linearly independent collection of vectors such that for any <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>, there exists a finite subset <span class="math notranslate nohighlight">\(\{b_j\}_{j=1}^n\)</span> and a set of scalars <span class="math notranslate nohighlight">\(\{\alpha_j \}_{j=1}^n\)</span>
+such that <span class="math notranslate nohighlight">\( x = \sum_{j=1}^n \alpha_j b_j\)</span>.</p>
+</div>
+</div>
+<div class="section" id="real-inner-product-spaces">
+<h2>Real Inner Product Spaces<a class="headerlink" href="#real-inner-product-spaces" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a real linear vector space and let <span class="math notranslate nohighlight">\(\langle \cdot, \cdot \rangle : \mathcal{X} \times \mathcal{X}
+\to \mathbb{R}\)</span> such that for all <span class="math notranslate nohighlight">\(x, y, z \in \mathcal{X}\)</span> and all <span class="math notranslate nohighlight">\(\alpha, \beta \in \mathbb{R}\)</span>,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\langle x, y \rangle = \langle y, x \rangle\)</span> (symmetry)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle \alpha x, y \rangle = \alpha \langle y, x \rangle\)</span> (scalar homogeneity)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle x+y, z \rangle = \langle x, z \rangle + \langle y, z \rangle \)</span> (additive)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle x, x \rangle  \ge 0 \)</span> (positive semi-definite)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle x, x \rangle  = 0 \)</span> if and only if <span class="math notranslate nohighlight">\(x = 0\)</span> (positive definite)</p></li>
+</ul>
+<p>Then <span class="math notranslate nohighlight">\((\mathcal{X}, \langle, \rangle)\)</span> is a real inner product space.</p>
+</div>
+<div class="section" id="norms">
+<h2>Norms<a class="headerlink" href="#norms" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a real linear vector space and let <span class="math notranslate nohighlight">\(\| \cdot \|: \mathcal{X} \to \mathbb{R}^+\)</span> such
+that for all <span class="math notranslate nohighlight">\(x, y, x \in \mathcal{X}\)</span> and all <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}\)</span>,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\|x \| = 0\)</span> if and only if <span class="math notranslate nohighlight">\(x = 0\)</span> (positive definite)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\| \alpha x \| = |\alpha| \|x\|\)</span> (positive scalar homogeneity)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\| x + y \| \le \| x \| + \| y \|\)</span> (triangle inequality)</p></li>
+</ul>
+<p>Then <span class="math notranslate nohighlight">\(\| \cdot \|\)</span> is a <em>norm</em> on <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, and we call <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> a <em>normed vector space</em>.</p>
+<div class="section" id="cauchy-sequences">
+<h3>Cauchy sequences<a class="headerlink" href="#cauchy-sequences" title="Permalink to this headline">¶</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is a normed vector space with norm <span class="math notranslate nohighlight">\(\| \cdot \|\)</span>, and let <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span>
+be a sequence of elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
+$<span class="math notranslate nohighlight">\(
+   \| x_{j+1} - x_j \| \rightarrow 0
+\)</span><span class="math notranslate nohighlight">\(
+as \)</span>j \rightarrow \infty<span class="math notranslate nohighlight">\(, then \)</span>x_1, x_2, \ldots $ is a <em>Cauchy sequence</em>.</p>
+</div>
+<div class="section" id="completeness">
+<h3>Completeness<a class="headerlink" href="#completeness" title="Permalink to this headline">¶</a></h3>
+<p>A normed vector space is <em>complete</em> if every Cauchy sequence in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> has a limit in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
+That is, if <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span> is a Cauchy sequence, then there exists <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> such that
+$<span class="math notranslate nohighlight">\(
+   \lim_{j \rightarrow \infty} \| x_j - x \| = 0.
+\)</span>$</p>
+</div>
+<div class="section" id="balls">
+<h3>Balls<a class="headerlink" href="#balls" title="Permalink to this headline">¶</a></h3>
+<p>In a normed vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, the <em>closed ball of radius <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> centered at <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span></em> is</p>
+<div class="math notranslate nohighlight">
+\[ B_\epsilon [x_0] \equiv \{ x \in \mathcal{X}: \|x - x_0\| \le \epsilon \}.\]</div>
+<p>The  the <em>open ball of radius <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> centered at <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span></em> is</p>
+<div class="math notranslate nohighlight">
+\[ B_\epsilon(x_0) \equiv \{ x \in \mathcal{X}: \|x - x_0\| &lt; \epsilon \}.\]</div>
+<p>The (open) <em>unit ball</em> in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is <span class="math notranslate nohighlight">\(B_1[0]\)</span> (<span class="math notranslate nohighlight">\(B_1(0)\)</span>).</p>
+</div>
+</div>
+<div class="section" id="hilbert-space">
+<h2>Hilbert Space<a class="headerlink" href="#hilbert-space" title="Permalink to this headline">¶</a></h2>
+<p>A <em>Hilbert space</em> is an inner product space <span class="math notranslate nohighlight">\((\mathcal{X}, \langle , \rangle)\)</span>, endowed with the norm <span class="math notranslate nohighlight">\(\|x \| \equiv \sqrt{\langle x, x \rangle}\)</span>, that is complete with respect to that norm.</p>
+<div class="section" id="the-riesz-representation-theorem">
+<h3>The Riesz Representation Theorem<a class="headerlink" href="#the-riesz-representation-theorem" title="Permalink to this headline">¶</a></h3>
+<p>In a Hilbert space, every bounded linear functional can be represented as the inner product with some element of the space.</p>
+<p>That is, suppose <span class="math notranslate nohighlight">\(L\)</span> is a bounded linear functional on a Hilbert space <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>:  <span class="math notranslate nohighlight">\(L(\alpha x + \beta y) = \alpha L(x) + \beta L(y)\)</span> for all <span class="math notranslate nohighlight">\(x, y \in \mathcal{H}\)</span> and all scalars <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, and there exists a real number <span class="math notranslate nohighlight">\(C \ge 0\)</span> such that for all <span class="math notranslate nohighlight">\(x \in \mathcal{H}\)</span>, <span class="math notranslate nohighlight">\(|L(x)| \le C \|x\|\)</span>.</p>
+<p>Then there exists <span class="math notranslate nohighlight">\(\ell \in \mathcal{H}\)</span> such that for all <span class="math notranslate nohighlight">\(x \in \mathcal{H}\)</span>, <span class="math notranslate nohighlight">\(L(x) = \langle \ell, x \rangle\)</span>.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

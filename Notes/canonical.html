@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confidence Bounds for the Mean of a Finite Population &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/canonical.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/canonical.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-canonical-problems">
+   Some canonical problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#address-constructing-nonparametric-confidence-bounds-in-a-variety-of-contexts">
+     Address constructing nonparametric confidence bounds in a variety of contexts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-not-median">
+   Mean, not median
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-note">
+     General note:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="confidence-bounds-for-the-mean-of-a-finite-population">
+<h1>Confidence Bounds for the Mean of a Finite Population<a class="headerlink" href="#confidence-bounds-for-the-mean-of-a-finite-population" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="some-canonical-problems">
+<h2>Some canonical problems<a class="headerlink" href="#some-canonical-problems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="address-constructing-nonparametric-confidence-bounds-in-a-variety-of-contexts">
+<h3>Address constructing nonparametric confidence bounds in a variety of contexts<a class="headerlink" href="#address-constructing-nonparametric-confidence-bounds-in-a-variety-of-contexts" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>Financial audits, including healthcare, tax, and due diligence audits</p>
+<ul>
+<li><p>Is a set of of asset accounts (e.g., accounts receivable) materially <em>overstated</em>? By how much?</p></li>
+<li><p>Is a set of of liability accounts (e.g., accounts payable) materially <em>understated</em>? By how much?</p></li>
+<li><p>Of a collection of bills that were written off, what fraction of the value was written off in compliance with applicable policy?</p></li>
+<li><p>Is a set of bills for healthcare <em>overstated</em>? By how much?<br />
+Health Care Fraud Prevention and Enforcement Action Team (HEAT)<br />
+Since 2007, &gt;1,400 defendants collectively falsely billed Medicare &gt;$4.8 billion.
+In 2011, HEAT federal health care fraud takedown involving $530 million.</p>
+<p>http://www.hhs.gov/news/press/2014pres/05/20140513b.html
+http://www.hhs.gov/news/press/2013pres/05/20130514a.html</p>
+</li>
+</ul>
+</li>
+<li><p>Election auditing</p>
+<ul class="simple">
+<li><p>Was the margin for the reported winner <em>overstated</em>? By how much?</p></li>
+<li><p>Did the reported winners really win?</p></li>
+<li><p>Were the correct numbers of seats allocated to each party?</p></li>
+</ul>
+</li>
+<li><p>Damages in litigation</p>
+<ul class="simple">
+<li><p>Were employees paid all the overtime they were due? If not, how much is owed?</p></li>
+<li><p>Were employees given all the meal and rest breaks they were due? If not, what is owed?</p></li>
+<li><p>Were mortgage origination fees “padded”? By how much?</p></li>
+<li><p>Was a patent infringed? If so, how much is due in royalties or license fees?</p></li>
+<li><p>In a collection of mortgages, what fraction of the original balances were in loans that did not comply with the applicable underwriting guidelines?</p></li>
+</ul>
+</li>
+<li><p>Causal inference in experiments, marketing, etc.</p>
+<ul class="simple">
+<li><p>Does a tool for targeted advertising work? How much does it increase sales?</p></li>
+<li><p>Does a purported remedy work? How large is its effect?</p></li>
+</ul>
+</li>
+</ol>
+<p>All these can be reduced to inferences about the mean of a nonnegative or bounded finite population.<br />
+That is, there are:</p>
+<ol class="simple">
+<li><p>known numbers <span class="math notranslate nohighlight">\(N &gt; 0\)</span>,  <span class="math notranslate nohighlight">\( \{\ell_j\}_{j=1}^N\)</span>, and <span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^N\)</span>, with <span class="math notranslate nohighlight">\(\ell_j \le u_j,\; \forall j\)</span></p></li>
+<li><p>an unknown population of numbers <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span> that satisfy <span class="math notranslate nohighlight">\(\ell_j \le x_j \le u_j,\; \forall j\)</span></p></li>
+</ol>
+<p>We want to draw inferences about
+$<span class="math notranslate nohighlight">\(\mu \equiv \frac{1}{N} \sum_{j=1}^N x_j.\)</span>$</p>
+<p>We want more than a point estimate:</p>
+<ul class="simple">
+<li><p>rigorous hypothesis tests</p></li>
+<li><p>exact or conservative confidence intervals</p></li>
+<li><p>generally, 1-sided confidence interval: lower confidence bound or upper confidence bound, depending on context.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mean-not-median">
+<h2>Mean, not median<a class="headerlink" href="#mean-not-median" title="Permalink to this headline">¶</a></h2>
+<p>Nonparametric confidence bounds for population percentiles require only a random sample.
+(They can be constructed by invert binomial or hypergeometric tests; see, e.g., Lehmann.)</p>
+<p>Nonparametric confidence bounds for the <em>mean</em> require prior information, because a single item
+can have an arbitrarily large influence on the population mean.
+Unless the distribution is symmetric, the mean need not equal the median.
+In many applications, the mean (or population total) is relevant but the median is not.</p>
+<p>For instance, in both financial and election auditing one might like to determine from a random sample
+whether a reported total differs materially from the total that a full manual audit would
+show.</p>
+<p>In auditing, the population of errors typically consists mostly of zeros or
+small values, but occasional large values are possible, which makes the normal approximation
+inadequate.
+The mean error in the population determines the total error; the median
+error is not directly relevant.</p>
+<div class="section" id="general-note">
+<h3>General note:<a class="headerlink" href="#general-note" title="Permalink to this headline">¶</a></h3>
+<p>Most of the methods we consider will assume that we are sampling <em>with</em> replacement.  There are three main reasons:</p>
+<ol class="simple">
+<li><p>In the applications contemplated, the sample size is a small fraction of the population size, so there is not much difference between sampling with and without replacment.</p></li>
+<li><p>The math is simpler for sampling with replacement.</p></li>
+<li><p>In great generality, uncertainties for sampling with replacement are larger than for sampling without replacement (see Hoeffding); hence, these results give a conservative impression of what is possible.</p></li>
+</ol>
+<p>Many of the approaches do have extensions to sampling without replacement, but the bookkeeping is more complicated.</p>
+<p>Many of the methods we will consider draw samples with replacement, but not with equal probabilities. In particular, selecting items with probability proportional to a bound on “size” turns out to be very helpful.</p>
+<p><a class="reference internal" href="normApprox.html"><span class="doc std std-doc">Next topic: Why not use the normal approximation?</span></a></p>
+<p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index of topics</span></a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
