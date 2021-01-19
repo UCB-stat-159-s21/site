@@ -1,6 +1,7 @@
 # Statistics 159/259, Homework 1. 
-## Due 1/24/2021 11:59PM PT
-## Profs. Perez and Stark, Department of Statistics, UC Berkeley
+
+* Due 1/24/2021 11:59PM PT
+* Profs. Perez and Stark, Department of Statistics, UC Berkeley
 
 
 For this and all assignments in this course, we will be using a platform known as [Github Classroom](https://classroom.github.com/classrooms/42591242-stat-159-259-spring-2021-university-of-california-berkeley). You will have to manage your submissions as Git repositories that will be hosted here.
@@ -10,7 +11,7 @@ For this assignment, you will create a file called `hw01-solution.md` where you 
 You will need to add the file `hw01-solution.md` to your repository and push it back up to Github Classroom so we can see it.
 
 
-### [X points] Expectations
+## [X points] Expectations
 
 Consider a set of ordered pairs, $\{ (x_j, y_j)\}_{j=1}^n$.
 Let $\bar{x} \equiv \frac{1}{n} \sum_{j=1}^n x_j$,
@@ -18,13 +19,13 @@ $\bar{x} \equiv \frac{1}{n} \sum_{j=1}^n x_j$, and
 $\bar{xy} \equiv \frac{1}{n} \sum_{j=1}^n x_j y_j$.
 - Is $\bar{xy} = \bar{x}\bar{y}$? If not, give a counter example.
 
-### [X points] $P$-values
+## [X points] $P$-values
 
 - In your own words, explain what a $P$-value is (not how to calculate it: what it means).
 - Suppose that the $P$-value is 0.04. What does that mean about the null hypothesis?
 
 
-### [X points] Hypothesis testing
+## [X points] Hypothesis testing
 
 + What is the null hypothesis for a $Z$-test?
 
@@ -44,7 +45,7 @@ independent across hypotheses.
     - Find a sharp upper bound on the chance of rejecting at least one null hypothesis.
 
 
-### [X points] DataHub and Git Practice
+## [X points] DataHub and Git Practice
 
 Log into the [class DataHub](https://stat159.datahub.berkeley.edu) with your campus credentials. Open a terminal and clone [this github repository that contains a "whirlwind tour" of Python for science](https://github.com/jakevdp/WhirlwindTourOfPython). Note that the same content can be viewed as a regular website [here](https://jakevdp.github.io/WhirlwindTourOfPython/index.html).
 
@@ -55,7 +56,7 @@ As proof of work, include an image such as the one below in your repo, that show
 ![](Fig/hw01-git-repo.png)
 
 
-### Git Practice: collaborating with yourself
+## [X points ] Git Practice: collaborating with yourself
 
 - Install Git on your personal laptop (search for and follow the Git installation instructions appropriate to your operating system, be it Windows, MacOS or Linux).
 - Clone your homework repository on your personal laptop.
