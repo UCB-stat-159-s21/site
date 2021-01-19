@@ -38,7 +38,7 @@ Answer the following using closed-form expressions
 hypotheses are independent across hypotheses.
         - What is the expected number of null hypotheses that will be rejected erroneously?
         - What is the chance of erroneously rejecting at least one of the null hypotheses?
-        - What is the chance of erroneously rejecting at least $k$ of the null hypotheses, $k=1, \ldots, N?
+        - What is the chance of erroneously rejecting at least $k$ of the null hypotheses, $k=1, \ldots, N$?
     - Suppose $T$ of the null hypotheses are true and that the data used to test the hypotheses are independent
 across hypotheses.
         - What is the chance of erroneously rejecting at least $k$ of the true null hypotheses, $k=1, \ldots, N-T$?
