@@ -319,8 +319,8 @@ for <span class="math notranslate nohighlight">\(\mu\)</span> by dividing by <sp
 <p>One can think of penny sampling as taking place in two steps: first, select an item <span class="math notranslate nohighlight">\(J\)</span> with PPS sampling, then select a penny uniformly at random from that item. If the penny’s index is less than <span class="math notranslate nohighlight">\(X_J\)</span>, the penny is good. In other words, pennies are selected conditionally uniformly, given the item they are selected from, and compared to the true value of the item.</p>
 <p>In the limit as pennies shrink in value, this amounts to comparing <span class="math notranslate nohighlight">\(X_J\)</span> to a random variable <span class="math notranslate nohighlight">\(Z_J\)</span> that is (continuously) conditionally uniformly distributed on <span class="math notranslate nohighlight">\([0, U_J]\)</span>, where <span class="math notranslate nohighlight">\(U_J\)</span> is the upper bound on the item selected. Let <span class="math notranslate nohighlight">\(W\)</span> be the event that <span class="math notranslate nohighlight">\(Z_J \le X_J\)</span>. Then
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d76455ab-1398-48a4-acf7-b0941f260ff4">
-<span class="eqno">()<a class="headerlink" href="#equation-d76455ab-1398-48a4-acf7-b0941f260ff4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c73c5ea9-8869-411c-8a74-d0653dd43bf4">
+<span class="eqno">()<a class="headerlink" href="#equation-c73c5ea9-8869-411c-8a74-d0653dd43bf4" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \mathbb P \{ W = 1 \} &amp; = \mathbb P \{ Z_J \le X_J \} \\
     &amp;= \sum_{j=1}^N \mathbb P\{Z_J \le X_J | J = j\} \mathbb P \{J=j\} \\
     &amp;= \sum_{j=1}^N u_j/u \mathbb P\{Z_j \le x_j | J = j\} \\
@@ -333,8 +333,8 @@ In $n$ iid draws, the distribution of the sum of the corresponding values of $W$
 It is clear that unconditionally, $\{W_i\}$ are iid Benoulli($x/u$), so $\sum_{i=1}^n W_i \sim \mbox{Binomial}(n, \mu)$, where $\mu \equiv x/u$.\\### Sequences of iid variables \\This kind of &quot;continuous penny sampling&quot; lets us make confidence bounds for iid samples from an arbitrary bounded distribution, such as the mixture of a uniform and a point-mass at 0. The lower and upper bounds on each draw are 0 and 1. For each $X_i$ in the sample, we generate a uniformly distributed $Z_i$, with all $\{X_i\}$ and $\{Z_i\}$ independent. Let $W_i = 1_{Z_i \le X_i}$. 
 Then $\{W_i \}_{i=1}^n$ are iid Bernoulli random variables with $\mathbb P \{W_i = 1\} = \mathbb E X_i = \mu$:
 \end{aligned}\end{align} \]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-9d636176-164b-49c6-9add-af4add65644e">
-<span class="eqno">()<a class="headerlink" href="#equation-9d636176-164b-49c6-9add-af4add65644e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-90ace92c-735e-4f59-8d10-4a9805ba929b">
+<span class="eqno">()<a class="headerlink" href="#equation-90ace92c-735e-4f59-8d10-4a9805ba929b" title="Permalink to this equation">¶</a></span>\[\begin{align}
        \mathbb P \{ W_i = 1 \} &amp; = \mathbb P \{ Z_i \le X_i \} \\
        &amp;= \int_0^1 \mathbb P \{ Z_i \le X_i | Z_i = z\} dz \\
        &amp;= \int_0^1 \mathbb P \{ X_i &gt; z \} dz \\
