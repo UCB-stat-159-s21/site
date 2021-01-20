@@ -417,8 +417,8 @@ some purposes—depending on the PRNG and the purpose.</p>
 <p>Older languages, operating systems, and non-statistical software (including Excel) tend to use low-quality
 PRNGs that are not suitable for statistical inference.</p>
 <p>A <em>linear congruential generator</em> makes sequences of the form</p>
-<div class="math notranslate nohighlight">
-\[ X_{n+1} = ( a X_n + c ) \mbox{ mod } m,\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  X_{n+1} = ( a X_n + c ) \mbox{ mod } m,\end{equation*}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m &gt; 0\)</span>, <span class="math notranslate nohighlight">\(0 \le c &lt; m\)</span>, <span class="math notranslate nohighlight">\(0 &lt; a &lt; m\)</span>, and “seed” <span class="math notranslate nohighlight">\(X_0\)</span>.
 This generator has the benefit of simplicity, but the quality is not adequate for statistics.
 Moreover, for some choices of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(m\)</span>, this can have especially poor behavior.
@@ -822,31 +822,33 @@ students for the first group, then 11 of the remaining 35 for the second,
 then 12 of the remaining 24 for the third.
 The fourth group must containe the remaining 12.</p>
 <p>The number of ways of doing that is</p>
-<div class="math notranslate nohighlight">
-\[  
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}   
    {43 \choose 8}{35 \choose 11}{24 \choose 12} =
    \frac{43}{8! 35!} \frac{35!}{11! 24!} \frac{24!}{12! 12!} = \frac{43!}{8! 11! 12! 12!}.
-\]</div>
+\end{equation*}\]</div>
 <p>Does the number depend on the order in which we made the choices?
 Suppose we made the choices in a different order: first 12 students for one group, then
 8 for the second, then 12 for the third (the fourth gets the remaining 11 students).
-The number of ways of doing that is
-$<span class="math notranslate nohighlight">\(  
+The number of ways of doing that is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}   
    {43 \choose 12}{31 \choose 8}{23 \choose 12} =
    \frac{43}{12! 31!} \frac{31!}{8! 23!} \frac{23!}{12! 11!} = \frac{43!}{8! 11! 12! 12!}.
-\)</span>$
-The number does not depend on the order in which we make the choices.</p>
+\end{equation*}\]</div>
+<p>The number does not depend on the order in which we make the choices.</p>
 <p>By the same reasoning, the number of ways of dividing a set of <span class="math notranslate nohighlight">\(n\)</span> objects into
-<span class="math notranslate nohighlight">\(m\)</span> subsets of sizes <span class="math notranslate nohighlight">\(k_1, \ldots k_m\)</span> is given by the <em>multinomial coefficient</em>
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(m\)</span> subsets of sizes <span class="math notranslate nohighlight">\(k_1, \ldots k_m\)</span> is given by the <em>multinomial coefficient</em></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    {n \choose k_1, k_2, \ldots, k_m} =
    {n \choose k_1}{n-k_1 \choose k_2} {n-k_1-k_2 \choose k_3} \cdots {n - \sum_{i=1}^{m-1} k_i \choose k_{m-1}}
-\)</span>$</p>
-<div class="math notranslate nohighlight">
-\[ = \frac{n! (n-k_1)! (n-k_1 - k_2)! \cdots 
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = \frac{n! (n-k_1)! (n-k_1 - k_2)! \cdots 
    (n - k_1 - \cdots - k_{m-1}!}{k_1! (n-k_1)! k_2! (n-k_1-k_2)! \cdots k_m!}
    = \frac{n!}{\prod_{i=1}^m k_i!}.
-\]</div>
+\end{equation*}\]</div>
 <p>We will check how surprising it would be for the means to be so much lower when the TA is identified as female, if in fact there is “no real difference” in how they were rated, and the apparent difference is just due to the luck of the draw: which students happened to end up in which section.</p>
 <p>In the actual randomization, all <span class="math notranslate nohighlight">\(43 \choose 8, 11, 12, 12\)</span> allocations
 were equally likely.

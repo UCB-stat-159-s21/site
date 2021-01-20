@@ -305,33 +305,34 @@
 <p>For another derivation of the IID version, see Stark &amp; Teague (2014) https://www.usenix.org/system/files/jets/issues/0301/overview/jets_0301-stark.pdf</p>
 <p>We have an iid sequence of random variables <span class="math notranslate nohighlight">\(X_1, X_2, \ldots\)</span> such that <span class="math notranslate nohighlight">\(\mathbb P \{X_j \ge 0 \} = 1\)</span>. Let <span class="math notranslate nohighlight">\(F\)</span> be their common distribution function. We seek a lower confidence bound for their common expectation <span class="math notranslate nohighlight">\(\mu \equiv \mathbb E X_1 = \int_0^\infty x dF\)</span>.</p>
 <p>Under the hypothesis that <span class="math notranslate nohighlight">\(\mu = t\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    t^{-1} \mu =  t^{-1} \int_0^\infty  xdF(x) = \int_0^\infty xt^{-1} dF(x) = 1.
-\]</div>
+\end{equation*}\]</div>
 <p>Fix <span class="math notranslate nohighlight">\(\gamma \in [0, 1]\)</span>.
 Because <span class="math notranslate nohighlight">\(\int_0^\infty dF = 1\)</span>, it follows that if <span class="math notranslate nohighlight">\(\mu  = t\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[  
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}   
     \mathbb E \left ( (\gamma/t) X_j + (1-\gamma) \right ) = (\gamma/t) \mathbb E X_j + (1-\gamma) =  
      (\gamma/t)t + (1-\gamma) = 1.
-\]</div>
-<p>Now,
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Now,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \mathbb E \left ((\gamma/t) X_j + (1-\gamma) \right ) \equiv 
      \int_0^\infty \left (x \gamma/t + (1-\gamma) \right ) dF(x).
-\)</span><span class="math notranslate nohighlight">\(
-Since for \)</span>x \ge 0<span class="math notranslate nohighlight">\(, \)</span>(x \gamma/t + (1-\gamma)) \ge 0$, it follows that if we define</p>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<p>Since for <span class="math notranslate nohighlight">\(x \ge 0\)</span>, <span class="math notranslate nohighlight">\((x \gamma/t + (1-\gamma)) \ge 0\)</span>, it follows that if we define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    dG \equiv (x \gamma/t + (1-\gamma))dF
-\]</div>
+\end{equation*}\]</div>
 <p>then <span class="math notranslate nohighlight">\(G\)</span> is the cdf of a nonnegative random variable.</p>
 <p>Let <span class="math notranslate nohighlight">\(Y\)</span> be a random variable with cdf <span class="math notranslate nohighlight">\(G\)</span>.
 By Jensen’s inequality, <span class="math notranslate nohighlight">\(\mathbb E X_j^2 \ge (\mathbb E X_j)^2 = t \cdot \mathbb E X_j\)</span> (by hypothesis).
 Since <span class="math notranslate nohighlight">\(\mathbb E X_j = t \ge 0\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55f9a14e-2be4-45ba-b577-5f6b506fbb0d">
-<span class="eqno">()<a class="headerlink" href="#equation-55f9a14e-2be4-45ba-b577-5f6b506fbb0d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2053ef28-89d3-4c20-8b67-a7772997abfb">
+<span class="eqno">()<a class="headerlink" href="#equation-2053ef28-89d3-4c20-8b67-a7772997abfb" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \mathbb E Y  &amp;= \int_0^\infty x dG(x) \\
                  &amp;= \int_0^\infty x (x \gamma/t + (1-\gamma)) dF(x) \\
                  &amp;= \gamma/t \int_0^\infty x^2 dF(x) + (1-\gamma) \int_0^\infty x dF(x) \\
@@ -345,21 +346,22 @@ we have strong statistical evidence that <span class="math notranslate nohighlig
 <div class="section" id="using-the-sprt-to-test-h-1-versus-h-0">
 <h2>Using the SPRT to test <span class="math notranslate nohighlight">\(H_1\)</span> versus <span class="math notranslate nohighlight">\(H_0\)</span><a class="headerlink" href="#using-the-sprt-to-test-h-1-versus-h-0" title="Permalink to this headline">¶</a></h2>
 <p>Now a bit of magic occurs.  For a given observation <span class="math notranslate nohighlight">\(X_j = x_j\)</span>, what is the likelihood ratio of <span class="math notranslate nohighlight">\(H_1\)</span> to <span class="math notranslate nohighlight">\(H_0\)</span>?</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mbox{LR} = \frac{dG(x_j)}{dF(x_j)} = \frac{(x_j\gamma/t+(1−\gamma))dF(x_j)}{dF(x_j)} = (x_j\gamma/t+(1−\gamma)).
-\]</div>
+\end{equation*}\]</div>
 <p>This doesn’t depend on <span class="math notranslate nohighlight">\(F\)</span> or <span class="math notranslate nohighlight">\(G\)</span>!</p>
-<p>The <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> for observations <span class="math notranslate nohighlight">\(X_1, \ldots, X_m\)</span> is
-$<span class="math notranslate nohighlight">\(
+<p>The <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> for observations <span class="math notranslate nohighlight">\(X_1, \ldots, X_m\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
       \mbox{LR} = \prod_{i=1}^m \left [ (\gamma/t) X_i + 1 - \gamma \right ].
-\)</span><span class="math notranslate nohighlight">\(
-This expression shows why \)</span>\gamma<span class="math notranslate nohighlight">\( was introduced in the first place:
-for \)</span>\gamma = 1<span class="math notranslate nohighlight">\(, if even a single observation turned out to be zero, \)</span>\mbox{LR}<span class="math notranslate nohighlight">\( would forever be
+\end{equation*}\]</div>
+<p>This expression shows why <span class="math notranslate nohighlight">\(\gamma\)</span> was introduced in the first place:
+for <span class="math notranslate nohighlight">\(\gamma = 1\)</span>, if even a single observation turned out to be zero, <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> would forever be
 zero no matter how large subsequent observations turned out to be.
-Taking \)</span>\gamma &lt; 1<span class="math notranslate nohighlight">\( hedges against that possibility.
-Any value of \)</span>\gamma \in [0, 1]<span class="math notranslate nohighlight">\( gives a conservative test, but smaller values provide more &quot;protection&quot;
-against small values of \)</span>X_j<span class="math notranslate nohighlight">\( (but incur a loss of power when all \)</span>X_j$ are large).</p>
+Taking <span class="math notranslate nohighlight">\(\gamma &lt; 1\)</span> hedges against that possibility.
+Any value of <span class="math notranslate nohighlight">\(\gamma \in [0, 1]\)</span> gives a conservative test, but smaller values provide more “protection”
+against small values of <span class="math notranslate nohighlight">\(X_j\)</span> (but incur a loss of power when all <span class="math notranslate nohighlight">\(X_j\)</span> are large).</p>
 <p>Recall that the <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value of <span class="math notranslate nohighlight">\(H_0: \mu = t\)</span> based on the observations <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^m\)</span>.
 We will use this to find a lower confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <div class="section" id="lookahead-and-the-sprt">
@@ -367,10 +369,11 @@ We will use this to find a lower confidence bound for <span class="math notransl
 <p>There’s more: recall that the SPRT says the chance that <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> <em>ever</em> gets larger than <span class="math notranslate nohighlight">\(1/\alpha\)</span> is at most <span class="math notranslate nohighlight">\(\alpha\)</span> if <span class="math notranslate nohighlight">\(H_0\)</span> is true.
 That means that we can use the observations sequentially, maximizing over the partial products.
 If any of the partial products exceeds <span class="math notranslate nohighlight">\(1/\alpha\)</span>, we can reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-<p>That is, our level-<span class="math notranslate nohighlight">\(\alpha\)</span> test based on a sample of size <span class="math notranslate nohighlight">\(n\)</span> is
-$<span class="math notranslate nohighlight">\(
+<p>That is, our level-<span class="math notranslate nohighlight">\(\alpha\)</span> test based on a sample of size <span class="math notranslate nohighlight">\(n\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mbox{ Reject } H_0 \mbox{ if } \max_{m=1}^n \prod_{i=1}^m \left [ \gamma X_i/t + 1 - \gamma \right ] \ge 1/\alpha.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>It is <em>only</em> legitimate to do this maximization if the data are in random order.  For instance, it’s impermissible to sort them from largest to smallest. And if you maximize over partial products, the result will, in general, depend on the order of the data.</p>
 </div>
 </div>
@@ -654,23 +657,24 @@ We draw <span class="math notranslate nohighlight">\(\{X_1, \ldots, X_n \}\)</sp
 On the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}X_1 = t\)</span>, so <span class="math notranslate nohighlight">\(\mathbb{E}(X_1/t) = 1\)</span>.
 Conditional on <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span>, the total of the remaining <span class="math notranslate nohighlight">\(N-n\)</span> items is
 <span class="math notranslate nohighlight">\(N\mu - \sum_{j=1}^n X_j\)</span>, so the mean of the remaining items is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \frac{Nt-\sum_{j=1}^n X_j}{N-n} = \frac{t - \frac{1}{N} \sum_{j=1}^n X_j}{1-n/N}.
-\]</div>
+\end{equation*}\]</div>
 <p>Thus, the expected value of <span class="math notranslate nohighlight">\(X_{n+1}\)</span> given <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> is
 <span class="math notranslate nohighlight">\(\frac{t - \frac{1}{N} \sum_{j=1}^n X_j}{1-n/N}\)</span>.</p>
 <p>Define</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 Y_1(t) \equiv
 \begin{cases}
 X_1/t,&amp; Nt &gt; 0, \\
 1,&amp;   Nt = 0, \\
 \end{cases}
-\end{split}\]</div>
-<p>and for <span class="math notranslate nohighlight">\(1 \le n \le N-1\)</span>,
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and for <span class="math notranslate nohighlight">\(1 \le n \le N-1\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 Y_{n+1}(t) 
 \equiv
 \begin{cases}
@@ -680,29 +684,29 @@ X_{n+1}
 {t - \frac{1}{N} \sum_{j=1}^n X_j},&amp; \sum_{j=1}^n X_j &lt; Nt, \\
 1,&amp; \sum_{j=1}^n X_j \ge Nt. \\
 \end{cases}
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathbb{E}(Y_{n+1}(t) | Y_1, \ldots Y_n) = 1\)</span>.
 Let <span class="math notranslate nohighlight">\(Z_{n}(t) \equiv \prod_{j=1}^n Y_j(t)\)</span>.
 Note that <span class="math notranslate nohighlight">\(Y_k(t)\)</span> can be recovered from <span class="math notranslate nohighlight">\(\{Z_j(t), j \le k\}\)</span>,
 since <span class="math notranslate nohighlight">\(Y_k(t) = Z_k(t)/Z_{k-1}(t)\)</span>.
 Now <span class="math notranslate nohighlight">\(\mathbb{E}|Z_k| \le \max_j x_j &lt; \infty\)</span> and</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \mathbb{E}\left ( Z_{n+1}(t) | Z_1(t), \ldots Z_n(t) \right ) = 
    \mathbb{E} \left (Y_{n+1}(t)Z_n(t) | Z_1(t), \ldots Z_n(t) \right ) = Z_n(t).
-\]</div>
+\end{equation*}\]</div>
 <p>Thus</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \left ( Z_1(t), Z_2(t), \;\ldots , Z_N(t) \right )
-\]</div>
+\end{equation*}\]</div>
 <p>is a non-negative closed martingale.</p>
 <p>By Kolmogorov’s inequality, an application of Markov’s inequality to martingales
 (Feller V2, p.242), for any <span class="math notranslate nohighlight">\(p &gt; 0\)</span> and any <span class="math notranslate nohighlight">\(J \in \{1, \ldots, N \}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      \Pr \left ( \max_{1 \le j \le J} Z_j(t) &gt; 1/p \right ) \le p \; \mathbb{E}|Z_J|.
-\]</div>
+\end{equation*}\]</div>
 <p>Since <span class="math notranslate nohighlight">\((Z_j)\)</span> is a non-negative martingale, <span class="math notranslate nohighlight">\(\mathbb{E}|Z_J| = \mathbb{E}Z_J = \mathbb{E}Z_1 = 1\)</span>.</p>
 <p>Thus a <span class="math notranslate nohighlight">\(p\)</span>-value for the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span> based on data <span class="math notranslate nohighlight">\(X_1, \ldots X_J\)</span> is
 <span class="math notranslate nohighlight">\(\left (\max_{1 \le j \le J} Z_j(t) \right )^{-1} \wedge 1\)</span>.
@@ -713,16 +717,16 @@ confidence bound to get a lower confidence bound for <span class="math notransla
 There are tradeoffs involved in picking <span class="math notranslate nohighlight">\(\gamma\)</span>: if many <span class="math notranslate nohighlight">\(X_j\)</span> turn out to be
 small, especially for small <span class="math notranslate nohighlight">\(j\)</span>, it helps to have <span class="math notranslate nohighlight">\(\gamma\)</span> large, and vice versa.</p>
 <p>Unpacking the math yields the <span class="math notranslate nohighlight">\(p\)</span> value</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 p_{\mathrm{KK}} \equiv 1 \wedge \left ( \max_{1 \le j \le J} \prod_{k=1}^j (X_{k}+\gamma) \frac{1-(k-1)/N}{t - \frac{1}{N} \sum_{\ell=1}^{k-1} (X_\ell+\gamma)} \right )^{-1}
-\]</div>
+\end{equation*}\]</div>
 <p>for the hypothesis that <span class="math notranslate nohighlight">\(\mu \le t - \gamma\)</span>.</p>
 <p>The corresponding <span class="math notranslate nohighlight">\(1-\alpha\)</span> lower confidence bound is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \sup \left \{t \ge 0: \max_{1 \le j \le J}  \prod_{k=1}^j (X_{k}+\gamma) \frac{1-(k-1)/N}{t - \frac{1}{N} \sum_{\ell=1}^{k-1} (X_\ell+\gamma)} \le 1/\alpha \right \} - \gamma.
-\]</div>
+\end{equation*}\]</div>
 <div class="section" id="application-marbles-in-a-jar">
 <h3>Application: marbles in a jar<a class="headerlink" href="#application-marbles-in-a-jar" title="Permalink to this headline">¶</a></h3>
 <p>A certain jar contains <span class="math notranslate nohighlight">\(N\)</span> (even) marbles, <span class="math notranslate nohighlight">\(G\)</span> green and <span class="math notranslate nohighlight">\(N-G\)</span> non-green.
@@ -743,69 +747,70 @@ depend on the true value of <span class="math notranslate nohighlight">\(G\)</sp
 <p>Let’s define a finite-sample version of the Kaplan-Wald approach, to which we can apply Kolmogorov’s Inequality.</p>
 <p>Let <span class="math notranslate nohighlight">\(S_j \equiv \sum_{k=1}^j X_k\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_j \equiv S_j/N\)</span>, and <span class="math notranslate nohighlight">\(\tilde{j} \equiv 1 - (j-1)/N\)</span>.
 Define</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    Y_n \equiv \int_0^1 \prod_{j=1}^n \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma.
-\]</div>
+\end{equation*}\]</div>
 <p>This is a polynomial in <span class="math notranslate nohighlight">\(\gamma\)</span> of degree at most <span class="math notranslate nohighlight">\(n\)</span>, with constant term <span class="math notranslate nohighlight">\(1\)</span>.
 Each <span class="math notranslate nohighlight">\(X_j\)</span> appears linearly.
 Under the null hypothesis that the population total is <span class="math notranslate nohighlight">\(Nt\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E} X_1 = t\)</span>,
 and</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \mathbb{E} \left ( X_j \mid X_1, \ldots, X_{j-1} \right ) = 
   \frac{Nt - S_{j-1}}{N-j+1} = \frac{t - \tilde{S}_{j-1}}{\tilde{j}}.
-\]</div>
+\end{equation*}\]</div>
 <p>Now</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    Y_1 = \int_0^1 \left ( \gamma [ X_1/t - 1] + 1 \right ) d\gamma = 
    \left [ (\gamma^2/2) [X_1/t - 1] + \gamma \right ]_{\gamma=0}^1 = [X_1/t - 1]/2 + 1 = \frac{X_1}{2t} + 1/2.
-\]</div>
-<p>Thus, under the null,
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Thus, under the null,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \mathbb{E}Y_1 = \frac{\mathbb{E}X_1}{2t} + 1/2 = 1.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Also,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \mathbb{E}(Y_n | X_1, \ldots, X_{n-1}) =
    \mathbb{E} \left . \left [ \int_0^1 \prod_{j=1}^n \left (\gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma \right | X_1, \ldots, X_{n-1} \right ]
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   = \int_0^1  \left (\gamma \left [ \mathbb{E}(X_n | X_1, \ldots, X_{n-1}) \frac{\tilde{n}}{t - \tilde{S}_{n-1}} -1 \right ] + 1 \right ) \prod_{j=1}^{n-1} \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma 
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   = \int_0^1  \left (\gamma \left [ \frac{t - \tilde{S}_{n-1}}{\tilde{n}} \frac{\tilde{n}}{t - \tilde{S}_{n-1}} -1 \right ] + 1 \right ) \prod_{j=1}^{n-1} \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma 
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   = \int_0^1  \prod_{j=1}^{n-1} \left ( \gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) d\gamma = Y_{n-1}.
-\]</div>
+\end{equation*}\]</div>
 <p>Thus, under the null hypothesis, <span class="math notranslate nohighlight">\((Y_j )_{j=1}^N\)</span> is a nonnegative closed martingale with expected value 1, and Kolmogorov’s inequality implies that for any <span class="math notranslate nohighlight">\(J \in \{1, \ldots, N\}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \left ( \max_{1 \le j \le J} Y_j(t) &gt; 1/p \right ) \le p.
-\]</div>
+\end{equation*}\]</div>
 <p>Set</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     c_j \equiv X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1,
-\]</div>
+\end{equation*}\]</div>
 <p>and re-write the polynomial</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
  \prod_{j=1}^n \left (\gamma \left [ X_j \frac{\tilde{j}}{t - \tilde{S}_{j-1}} -1 \right ] + 1 \right ) = \prod_{j: c_j \ne 0} c_j(\gamma + c_j^{-1}).
-\]</div>
+\end{equation*}\]</div>
 <p>This expresses the polynomial in terms of its roots, facilitating computations in Python.
 Using this notation,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    Y_j = \int_0^1 \prod_{j: c_j \ne 0} c_j(\gamma + c_j^{-1}) d\gamma =
    \left ( \prod_{j: c_j \ne 0} c_j \right ) \int_0^1 \prod_{j: c_j \ne 0} (\gamma + c_j^{-1}) d\gamma.
-\]</div>
+\end{equation*}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">KK_p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">random_order</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
@@ -966,22 +971,22 @@ Using this notation,</p>
 </div>
 <div class="section" id="examples-for-testing-the-recursive-algorithm">
 <h2>Examples for testing the recursive algorithm<a class="headerlink" href="#examples-for-testing-the-recursive-algorithm" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \int_0^1 (x-1) dx = -1/2.
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \int_0^1 (x-1)^2 dx = 1/3.
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \int_0^1 (x-1)^3 dx = -1/4.
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \int_0^1 (x-1)^3(x+1) dx = -3/10.
-\]</div>
+\end{equation*}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
