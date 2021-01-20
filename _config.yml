@@ -31,3 +31,14 @@ parse:
 #     - amsmath
 #     - dollarmath
 #     - html_image
+#     - html_admonition
+
+
+# sphinx:
+#   config:
+#     bibtex_bibfiles: 
+#       - references.bib
+#     myst_enable_extensions: 
+#     - amsmath
+#     - dollarmath
+#     - html_image
