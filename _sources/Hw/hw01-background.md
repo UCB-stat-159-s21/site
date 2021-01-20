@@ -1,6 +1,6 @@
 # Statistics 159/259, Homework 1. 
 
-* Due 1/24/2021 11:59PM PT
+* Due 1/28/2021 11:59PM PT (homework will usually be due Sundays: this is an exception)
 * Profs. Perez and Stark, Department of Statistics, UC Berkeley
 * This assignment is worth a maximum of 20 points.
 
