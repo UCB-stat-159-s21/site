@@ -330,11 +330,12 @@
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(\bar{X}) = \mu \ge 0\)</span></p></li>
 <li><p>by Markov, <span class="math notranslate nohighlight">\(\mathbb P (\bar{X} \ge a) \le \mu/a\)</span></p></li>
 </ul>
-<p>Hence, for <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>,
-$<span class="math notranslate nohighlight">\( 
+<p>Hence, for <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \mathbb P (\alpha \bar{X} \ge \mu) \le \alpha;
-\)</span><span class="math notranslate nohighlight">\(
-i.e., \)</span>[\alpha \bar{X}, \infty)<span class="math notranslate nohighlight">\( is a lower 1-sided \)</span>1-\alpha<span class="math notranslate nohighlight">\( confidence bound for \)</span>\mu$.</p>
+\end{equation*}\]</div>
+<p>i.e., <span class="math notranslate nohighlight">\([\alpha \bar{X}, \infty)\)</span> is a lower 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p>A lower confidence bound is possible because the support of <span class="math notranslate nohighlight">\(\mathbb P\)</span> is bounded below; no upper confidence bound for the mean is possible without additional assumptions.</p>
 <p>Note that this bound does not involve <span class="math notranslate nohighlight">\(n\)</span> at all!<br />
 It only uses the fact that <span class="math notranslate nohighlight">\(\mathbb P (\bar{X} \ge 0) = 1\)</span>.
@@ -347,31 +348,36 @@ Clearly it has a great deal of slack, getting worse as <span class="math notrans
 <p>We draw a uniform sample of size <span class="math notranslate nohighlight">\(n\)</span> with replacement from the population <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X_i\)</span> be the <span class="math notranslate nohighlight">\(i\)</span>th item drawn, <span class="math notranslate nohighlight">\(1 \le i \le n\)</span>.
 For uniform sampling with replacement, <span class="math notranslate nohighlight">\(\{X_i \}\)</span> are iid.</p>
-<p>Define <span class="math notranslate nohighlight">\(1_A = \{1, \mbox{ if \)</span>A<span class="math notranslate nohighlight">\(}; 0, \mbox{ otherwise}\}\)</span>.
-The theoretical cdf of <span class="math notranslate nohighlight">\(X_i\)</span> is
-$<span class="math notranslate nohighlight">\(
+<p>Define <span class="math notranslate nohighlight">\(1_A\)</span> = {1, if <span class="math notranslate nohighlight">\(A\)</span>; 0, otherwise}.
+The theoretical cdf of <span class="math notranslate nohighlight">\(X_i\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 	F(x) \equiv \mathbb P \{ X_i \le x \} .
-\)</span>$</p>
-<p>Define the empirical cumulative distribution function
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Define the empirical cumulative distribution function</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \hat{F}_n (x) \equiv \frac{1}{n} \sum_{i=1}^n 1_{x \ge X_i}
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>We shall use the ecdf to construct a confidence set for <span class="math notranslate nohighlight">\(F\)</span>; from that confidence set we can
 construct a confidence bound for <span class="math notranslate nohighlight">\(\mathbb E X_1\)</span>.</p>
-<p>Consider the one-sided Kolmogorov-Smirnov statistics
-$<span class="math notranslate nohighlight">\(
+<p>Consider the one-sided Kolmogorov-Smirnov statistics</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 	D_n^+ \equiv \sup_x (\hat{F}_n(x) - F(x) )
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     D_n^- \equiv \sup_x (F(x) - \hat{F}_n(x)),
-\)</span><span class="math notranslate nohighlight">\(
-and the two-sided version
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and the two-sided version</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     D_n \equiv \sup_x |F(x) - \hat{F}_n(x)|.
-\)</span><span class="math notranslate nohighlight">\(
-Kolmogorov (1933) and Smirnov (1944) seem to have been the first to study these
-statistics, which have the same distribution&amp;mdash;a distribution that does not depend on \)</span>F<span class="math notranslate nohighlight">\( if \)</span>F$ is continuous.</p>
+\end{equation*}\]</div>
+<p>Kolmogorov (1933) and Smirnov (1944) seem to have been the first to study these
+statistics, which have the same distribution—a distribution that does not depend on <span class="math notranslate nohighlight">\(F\)</span> if <span class="math notranslate nohighlight">\(F\)</span> is continuous.</p>
 <p>Here’s a simulation: we take a random sample from a Uniform distribution and plot the ecdf and the true cdf. The ecdf is the stair-step function. In places it is above the true cdf, and in places it is below. <span class="math notranslate nohighlight">\(D^-\)</span> measures how far <span class="math notranslate nohighlight">\(F\)</span> ever gets above <span class="math notranslate nohighlight">\(\hat{F}_n\)</span>. Note that as <span class="math notranslate nohighlight">\(n\)</span> increases, the maximum distance between <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\hat{F}_n\)</span> tends to be smaller.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -438,11 +444,12 @@ statistics, which have the same distribution&amp;mdash;a distribution that does 
 </div>
 <div class="section" id="the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality-and-confidence-set-for-f">
 <h1>The Massart-Dvoretzky-Kiefer-Wolfowitz (MDKW) Inequality and confidence set for <span class="math notranslate nohighlight">\(F\)</span><a class="headerlink" href="#the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality-and-confidence-set-for-f" title="Permalink to this headline">¶</a></h1>
-<p>Dvoretsky, Kiefer and Wolfowitz (1956, DKW) showed that
-$<span class="math notranslate nohighlight">\( 
+<p>Dvoretsky, Kiefer and Wolfowitz (1956, DKW) showed that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 	\mathbb P \{D_n^- &gt; t\} \le C \exp(- 2 n t^2)
-\)</span><span class="math notranslate nohighlight">\(
-for some constant \)</span>C$.</p>
+\end{equation*}\]</div>
+<p>for some constant <span class="math notranslate nohighlight">\(C\)</span>.</p>
 <p>Massart (1990) showed that <span class="math notranslate nohighlight">\(C = 1\)</span> is the sharp constant in the DKW inequality, provided
 <span class="math notranslate nohighlight">\(\exp(-2 n t^2) \le \frac{1}{2}\)</span>.
 The distribution of <span class="math notranslate nohighlight">\(D_n^-\)</span> is stochastically larger when
@@ -452,15 +459,17 @@ sampling from finite populations.</p>
 without replacement, so the inequality is conservative for sampling from a finite population
 without replacement as well.</p>
 <p>Let’s call the inequality with <span class="math notranslate nohighlight">\(C=1\)</span> the Massart-Dvoretsky-Kiefer-Wolfowitz (MDKW) inequality.
-It follows from the MDKW inequality that
-$<span class="math notranslate nohighlight">\( 
+It follows from the MDKW inequality that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \mathbb P \left \{\sup_x (F(x) - \hat{F}_n(x)) &gt; \sqrt{-\frac{\ln \alpha}{2n}} \right \} \le \alpha.
-\)</span><span class="math notranslate nohighlight">\(
-That is, 
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>That is,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \mathcal C(X) \equiv \left \{ \mbox{cdfs } G: \sup_x (G(x) - \hat{F}_n(x)) \le  \sqrt{-\frac{\ln \alpha}{2n}} \right \}
-\)</span><span class="math notranslate nohighlight">\(
-is a nonparametric confidence set for the true population cdf \)</span>F$.</p>
+\end{equation*}\]</div>
+<p>is a nonparametric confidence set for the true population cdf <span class="math notranslate nohighlight">\(F\)</span>.</p>
 </div>
 <div class="section" id="using-mdkw-to-get-a-lower-confidence-bound-for-the-mean-of-a-nonnegative-population">
 <h1>Using MDKW to get a lower confidence bound for the mean of a nonnegative population<a class="headerlink" href="#using-mdkw-to-get-a-lower-confidence-bound-for-the-mean-of-a-nonnegative-population" title="Permalink to this headline">¶</a></h1>
@@ -470,10 +479,10 @@ The population mean is</p>
 \[ \frac{1}{N} \sum_{j=1}^N x_j = \int_0^\infty x dF(x).\]</div>
 <p>But with probability at least <span class="math notranslate nohighlight">\(1-\alpha\)</span>, <span class="math notranslate nohighlight">\(F \in \mathcal C(X)\)</span>.
 Hence</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \inf_{G \in \mathcal C(X)} \int_{0}^\infty x dG(x)
-\]</div>
+\end{equation*}\]</div>
 <p>is a lower <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\mu = \int_0^\infty x dF(x)\)</span>.</p>
 <p>A little more explanation might help: whenever <span class="math notranslate nohighlight">\(F \in \mathcal C(X)\)</span> (and perhaps more often),</p>
 <div class="math notranslate nohighlight">
@@ -492,10 +501,10 @@ extremely flexible, and gives conservative results.</p>
 but never exceeds <span class="math notranslate nohighlight">\(\hat{F}_n\)</span> by more than <span class="math notranslate nohighlight">\(\sqrt{-\frac{\ln \alpha}{2n}}\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(G^-\)</span> denote this cdf.</p>
 <p>Then,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    G^-(x) = \left ( \hat{F}_n(x) +  \sqrt{-\frac{\ln \alpha}{2n}} \right ) \wedge 1,
-\]</div>
+\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a \wedge b \equiv \min\{a, b\}\)</span>.</p>
 <p>The corresponding lower confidence bound on <span class="math notranslate nohighlight">\(\mu\)</span> is <span class="math notranslate nohighlight">\(\int_0^\infty x dG^-(x)\)</span>.</p>
 <p>The integral is really a sum because <span class="math notranslate nohighlight">\(G^-\)</span> is a step function.
