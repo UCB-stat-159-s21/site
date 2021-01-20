@@ -506,17 +506,26 @@
 <p>Consider <span class="math notranslate nohighlight">\(n\)</span> uniform draws <em>without</em> replacement from a <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> population of known size <span class="math notranslate nohighlight">\(N\)</span> that contains an unknown number <span class="math notranslate nohighlight">\(G\)</span> of 1s—i.e., a <em>simple random sample</em> of size <span class="math notranslate nohighlight">\(n\)</span>.
 Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of 1s in the sample.
 Then <span class="math notranslate nohighlight">\(X\)</span> has a Hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>In particular,
-$<span class="math notranslate nohighlight">\(  \mathbb P_{N, G, n} (X = k) = \frac{{G \choose k}{N-G \choose n-k}}{{N \choose n}}\)</span><span class="math notranslate nohighlight">\(
-for \)</span>\max(0, n − (N−G)) \le k \le  \min(n, G)$.</p>
+<p>In particular,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb P_{N, G, n} (X = k) = \frac{{G \choose k}{N-G \choose n-k}}{{N \choose n}}
+\end{equation*}\]</div>
+<p>for <span class="math notranslate nohighlight">\(\max(0, n − (N−G)) \le k \le  \min(n, G)\)</span>.</p>
 <p>We can get sharper confidence bounds in this case by inverting hypergeometric tests instead of Binomial tests.</p>
 <p>The strategy is the same: construct a family of acceptance regions for each possible value of the parameter, then let the confidence set be the parameter values for which, given the observed data, the test would not reject.</p>
 <p>To find a one-sided lower confidence bound for <span class="math notranslate nohighlight">\(G\)</span> in a Hypergeometric<span class="math notranslate nohighlight">\((N, G, n)\)</span> distribution, with <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span> known, we would invert one-sided upper tests, that is, tests that reject the hypothesis <span class="math notranslate nohighlight">\(G = g\)</span> when <span class="math notranslate nohighlight">\(X\)</span> is large.  (The corresponding confidence bound for the population mean is the confidence bound for
 <span class="math notranslate nohighlight">\(G\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.)</p>
-<p>The form of the acceptance region for the test is:
-$<span class="math notranslate nohighlight">\( A_G \equiv \ [0, a_G],\)</span><span class="math notranslate nohighlight">\(
-where 
-\)</span><span class="math notranslate nohighlight">\( a_G \equiv \min \left \{ k: \sum_{i=k+1}^n \frac{{G \choose i}{N-G \choose n-i}}{{N \choose n}} \le \alpha \right \}.\)</span>$</p>
+<p>The form of the acceptance region for the test is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+A_G \equiv \ [0, a_G],
+\end{equation*}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+a_G \equiv \min \left \{ k: \sum_{i=k+1}^n \frac{{G \choose i}{N-G \choose n-i}}{{N \choose n}} \le \alpha \right \}.
+\end{equation*}\]</div>
 </div>
 <div class="section" id="two-valued-populations">
 <h1>Two-valued populations<a class="headerlink" href="#two-valued-populations" title="Permalink to this headline">¶</a></h1>
@@ -530,8 +539,10 @@ where
 <p>For example, suppose the population was known to contain only the values 1 and 10, but in unknown proportions.</p>
 <p>We draw an iid uniform sample of 50 items; the sample sum is 320 (corresponding to drawing “1” twenty times and “10” thirty times).</p>
 <p>Then a 95% upper confidence bound for the fraction of 10s in the population is <span class="code">binoUpperCL(50, 30, cl=0.95)</span> = 0.7169, so a 95% upper confidence bound for the population mean is</p>
-<div class="math notranslate nohighlight">
-\[(1-0.7169)\times 1 + 0.7169\times 10) = 7.45182.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+(1-0.7169)\times 1 + 0.7169\times 10) = 7.45182.
+\end{equation*}\]</div>
 </div>
 <div class="section" id="thresholding-for-bounded-populations">
 <h1>Thresholding for bounded populations<a class="headerlink" href="#thresholding-for-bounded-populations" title="Permalink to this headline">¶</a></h1>
@@ -566,8 +577,10 @@ where
    Pick a threshold $t < 1$.
    Imagine a new population $\{ y_j \}_{j=1}^N$, where 
 </p>
-<div class="math notranslate nohighlight">
-\[y_j \equiv \left \{ \begin{array}{ll} t, &amp; x_j \le t \cr 1, &amp; x_j &gt; t. \end{array} \right . \]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_j \equiv \left \{ \begin{array}{ll} t, &amp; x_j \le t \cr 1, &amp; x_j &gt; t. \end{array} \right . 
+\end{equation*}\]</div>
 <p class="gap01">
   Clearly $\mu_y \equiv \frac{1}{N} \sum_{j=1}^N y_j \ge \mu_x$, so an upper confidence bound for $\mu_y$
   is also an upper confidence bound for $\mu_x$.

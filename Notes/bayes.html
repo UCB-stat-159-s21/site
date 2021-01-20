@@ -558,10 +558,11 @@ which avoids some potential pathologies.
 If this language isn’t familiar, just assume for now that no matter what <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>
 might be, <span class="math notranslate nohighlight">\(Y\)</span> has an ordinary probability density (or assume that <span class="math notranslate nohighlight">\(Y\)</span> has a
 discrete distribution).</p>
-<p>With respect to <span class="math notranslate nohighlight">\(\mu\)</span>, the density of <span class="math notranslate nohighlight">\(\Pr_\eta\)</span> at <span class="math notranslate nohighlight">\(y\)</span> is
-$<span class="math notranslate nohighlight">\(
+<p>With respect to <span class="math notranslate nohighlight">\(\mu\)</span>, the density of <span class="math notranslate nohighlight">\(\Pr_\eta\)</span> at <span class="math notranslate nohighlight">\(y\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 p_\eta(y) \equiv \left . \frac{d\Pr_\eta}{d\mu} \right |_y.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>For any fixed <span class="math notranslate nohighlight">\(y\)</span>, the <em>likelihood of <span class="math notranslate nohighlight">\(\eta\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span></em> is
 <span class="math notranslate nohighlight">\(p_\eta(y)\)</span>, viewed as a function of <span class="math notranslate nohighlight">\(\eta\)</span> with <span class="math notranslate nohighlight">\(y\)</span> held constant.</p>
 <p>It is often impossible to estimate <span class="math notranslate nohighlight">\(\theta\)</span>
@@ -594,20 +595,20 @@ the ballots audited so far?</p>
 <p>A typical form assumes that the prior probability that a ballot is of type <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(1 \le k \le K \ge 2\)</span> has a <em>Dirichlet distribution</em>:</p>
 <p>Fix <span class="math notranslate nohighlight">\( a = (a_j)_{j=1}^k\)</span> with <span class="math notranslate nohighlight">\(a_j &gt; 0\)</span>.
 Let <span class="math notranslate nohighlight">\(S_K\)</span> denote the <em>unit simplex</em> in <span class="math notranslate nohighlight">\(K\)</span>-dimensional space, that is,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    S_K \equiv \{ (x_k)_{k=1}^K \in \Re^K : x_k \in (0, 1) \mbox{ and } \sum_k x_k = 1.
-\]</div>
+\end{equation*}\]</div>
 <p>Then for <span class="math notranslate nohighlight">\(x \in S_k\)</span>, the joint density is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    f_a(x) \equiv \frac{1}{B(a)} \prod_{k=1}^K x_k^{a_k-1},
-\]</div>
+\end{equation*}\]</div>
 <p>where</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    B(a) \equiv \frac{\prod_k \Gamma(a_k)}{\Gamma \left ( \sum_k a_k \right )}.
-\]</div>
+\end{equation*}\]</div>
 <p>The Dirichlet distribution is <em>conjugate</em> to the multinomial distribution, in the sense that if <span class="math notranslate nohighlight">\(X \sim \mbox{Multinomial}(\eta)\)</span> and <span class="math notranslate nohighlight">\(\eta \sim \mbox{Dirichlet}(a)\)</span> then the posterior distribution of <span class="math notranslate nohighlight">\(\eta\)</span> given <span class="math notranslate nohighlight">\(X=x = (x_1, \ldots, x_K)\)</span> is <span class="math notranslate nohighlight">\(\mbox{Dirichlet}(a+x)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -741,15 +742,17 @@ the likelihood function must be jointly measurable with respect to <span class="
 (Some people use <em>improper priors</em>, for instance, the uniform distribution on
 the real numbers <span class="math notranslate nohighlight">\(\Re\)</span>, which assignes infinite probability to <span class="math notranslate nohighlight">\(\Theta = \Re\)</span>.)</p>
 <p>Together, <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(p_\eta\)</span> imply a joint distribution of <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.
-The <em>marginal distribution</em> or <em>predictive distribution</em> of <span class="math notranslate nohighlight">\(Y\)</span> is
-$<span class="math notranslate nohighlight">\(
+The <em>marginal distribution</em> or <em>predictive distribution</em> of <span class="math notranslate nohighlight">\(Y\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 	   m(y) = \int_\Theta p_\eta(y) \, \pi(d\eta).
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>If we observe that <span class="math notranslate nohighlight">\(Y=y\)</span>, we use that information in
-Bayes’ rule to find the <em>posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span> given <span class="math notranslate nohighlight">\(Y=y\)</span></em>:
-$<span class="math notranslate nohighlight">\( 
+Bayes’ rule to find the <em>posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span> given <span class="math notranslate nohighlight">\(Y=y\)</span></em>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \pi (d\eta | Y = y)  = \frac{p_\eta(y) \; \pi(d\eta) }{m(y)} .
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>The marginal density <span class="math notranslate nohighlight">\(m(y)\)</span> can be zero, but the probability that happens is zero.</p>
 <p>In principle, the posterior distribution is a complete solution to the inference problem:
 All the information from the prior and the data is combined in the posterior
@@ -758,11 +761,11 @@ The posterior distribution <span class="math notranslate nohighlight">\(\pi_\lam
 of <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> is the distribution induced by the posterior distribution
 of <span class="math notranslate nohighlight">\(\theta\)</span>:
 For any (measurable) set <span class="math notranslate nohighlight">\(A\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \Pr(\lambda[\theta] \in A | Y = y) = \int_{\ell \in A} \pi_\lambda(d \ell | Y = y)
 \equiv \int_{\eta: \lambda[\eta] \in A} \pi(d \eta | Y = y).
-\]</div>
+\end{equation*}\]</div>
 <p>If we get additional data, we apply Bayes’ rule again: the current posterior
 becomes the new prior.</p>
 <div class="section" id="arguments-for-the-bayesian-approach">
@@ -955,21 +958,21 @@ No information other than the posterior is needed to completely describe our sta
 <p>The following example from LeCam (1977) shows that this is problematic.</p>
 <p>Suppose we are interested in the probability <span class="math notranslate nohighlight">\(\theta\)</span> that a particular coin lands heads. We start with a prior probability distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.
 Suppose we start with a Dirichlet prior, which, in this case, simplifies to a prior density</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    f(\theta) \propto \theta^{a_1} (1-\theta)^{a_2}.
-\]</div>
+\end{equation*}\]</div>
 <p>Since the Dirichlet distribution is conjugate to the multinomial, and the binomial distribution is a special case of the multinomial, after tossing the coin <span class="math notranslate nohighlight">\(n\)</span> times independently and updating the prior to find the posterior, the posterior will be of the form</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    f(\theta) \propto \theta^{a_1+k} (1-\theta)^{a_2+n-k},
-\]</div>
+\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is the number of heads among the <span class="math notranslate nohighlight">\(n\)</span> tosses.</p>
 <p>A Bayesian now reports the posterior distribution. For instance, the posterior might turn out to be</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   f(\theta) \propto \theta^{100} (1-\theta)^{100}.
-\]</div>
+\end{equation*}\]</div>
 <p>The problem is this: that posterior might be the result of a “flat” prior after 200 tosses, or just as easily be simply the prior after zero tosses.</p>
 <p>To quote LeCam:</p>
 <blockquote>
@@ -1029,10 +1032,10 @@ and credible regions (the related Bayesian construct).</p>
 a (measurable) map from possible data values <span class="math notranslate nohighlight">\(y\)</span> into possible values of <span class="math notranslate nohighlight">\(\lambda[\eta]\)</span>,
 <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>.</p>
 <p>The mean squared error (MSE) of <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> when <span class="math notranslate nohighlight">\(\theta = \eta\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \mbox{MSE}(\widehat{\lambda}(Y), \eta) \equiv \mathbb{E}_\eta \| \widehat{\lambda}(Y) - \lambda[\eta] \|^2.
-\]</div>
+\end{equation*}\]</div>
 <ul class="simple">
 <li><p>MSE depends on <span class="math notranslate nohighlight">\(\eta\)</span>.</p></li>
 <li><p>The expectation is with respect to <span class="math notranslate nohighlight">\(\Pr_\eta\)</span>, the distribution of the data <span class="math notranslate nohighlight">\(Y\)</span> on the assumption that <span class="math notranslate nohighlight">\(\theta = \eta\)</span>.</p></li>
@@ -1041,10 +1044,10 @@ a (measurable) map from possible data values <span class="math notranslate nohig
 <li><p>Instead, we might choose <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> to make the largest MSE as <span class="math notranslate nohighlight">\(\eta\)</span> ranges over <span class="math notranslate nohighlight">\(\Theta\)</span> as small as possible: <em>minimax MSE estimator</em>.</p></li>
 </ul>
 <p>Related Bayesian measure: posterior mean squared error (PMSE),</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \mbox{PMSE}(\widehat{\lambda}(y), \pi) \equiv \mathbb{E}_\pi \| \widehat{\lambda}(y) - \lambda[\eta] \|^2.
-\]</div>
+\end{equation*}\]</div>
 <ul class="simple">
 <li><p>PMSE depends on <span class="math notranslate nohighlight">\(\pi\)</span> and the observed value of <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 <li><p>The expectation is with respect to the posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span>.</p></li>
@@ -1053,10 +1056,10 @@ a (measurable) map from possible data values <span class="math notranslate nohig
 <span class="math notranslate nohighlight">\(\pi_\lambda(d \ell | Y=y)\)</span>, the marginal posterior distribution of <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span>
 given <span class="math notranslate nohighlight">\(Y\)</span>:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \widehat{\lambda}_\pi(y) \equiv \int \ell \pi_\lambda(d \ell | Y = y).
-\]</div>
+\end{equation*}\]</div>
 <p>MSE and PMSE both involve expectations of the squared norm of the
 difference between the parameter estimate and the true value of the parameter,
 but are conceptually quite different:</p>
@@ -1070,10 +1073,10 @@ but are conceptually quite different:</p>
 <p>Suppose <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 A random set <span class="math notranslate nohighlight">\(\mathcal{I}(Y)\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span> is
 a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> if</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \Pr_\eta \{ \mathcal{I}(Y) \ni \lambda[\eta] \} \ge 1 - \alpha, \;\; \forall \eta \in \Theta.
-\]</div>
+\end{equation*}\]</div>
 <ul class="simple">
 <li><p>The probability on the left is with respect to the distribution of the data <span class="math notranslate nohighlight">\(Y\)</span>, holding <span class="math notranslate nohighlight">\(\eta\)</span> fixed.</p></li>
 <li><p>In the frequentist view, once the data are collected and we know that <span class="math notranslate nohighlight">\(Y = y\)</span>,
@@ -1087,11 +1090,11 @@ with <span class="math notranslate nohighlight">\(Y\)</span> generated from <spa
 <p>A related Bayesian construct is a <em>posterior credible region</em>.</p>
 <p>A set <span class="math notranslate nohighlight">\(\mathcal{I}(y)\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span> is
 a <span class="math notranslate nohighlight">\(1-\alpha\)</span> posterior credible region for <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> if</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \Pr_{\pi( d\theta | Y=y)} (\lambda[\theta] \in \mathcal{I}(y))
 \equiv \int_{\mathcal{I}(y)} \pi_\lambda(d \ell | Y = y) \ge 1-\alpha.
-\]</div>
+\end{equation*}\]</div>
 <ul class="simple">
 <li><p>The probability on the left is with respect to the marginal posterior distribution of
 <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span>, holding the data fixed:
