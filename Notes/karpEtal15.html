@@ -135,6 +135,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="01/index.html">
    Introduction to Git and Github
   </a>
@@ -513,11 +518,11 @@ The same is true for the confidence interval.</p>
 <div class="section" id="standard-regression-model">
 <h2>Standard regression model<a class="headerlink" href="#standard-regression-model" title="Permalink to this headline">¶</a></h2>
 <p>The “usual” regression model says <span class="math notranslate nohighlight">\(Y = X\beta + \epsilon\)</span>, where</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} X = \left [ \begin{array}{ccccc} X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \\ 
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  X = \left [ \begin{array}{ccccc} X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \\ 
                 X_{21} &amp; X_{22} &amp; \cdots &amp; X_{2p} \\
                 \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ 
-                X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \end{array} \right ]\end{split}\]</div>
+                X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \end{array} \right ]\end{equation*}\]</div>
 <p>is the <em>design matrix</em>, <span class="math notranslate nohighlight">\(\beta = [\beta_1 \beta_2 \cdots \beta_p]^T\)</span> are the <em>coefficients</em>, <span class="math notranslate nohighlight">\(\epsilon = [\epsilon_1 , \ldots, \epsilon_n]^T\)</span> is the <em>noise</em> or <em>random error</em>, and it is assumed that
 <span class="math notranslate nohighlight">\(\{ \epsilon_j \}_{j=1}^n\)</span> are IID with mean zero and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.
 We assume that <span class="math notranslate nohighlight">\(X\)</span> is full rank <span class="math notranslate nohighlight">\(p\)</span> and either that <span class="math notranslate nohighlight">\(X\)</span> is not random or that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(\epsilon\)</span> are independent, in which case we will condition on <span class="math notranslate nohighlight">\(X\)</span>.
@@ -526,33 +531,33 @@ We also assume <span class="math notranslate nohighlight">\(n &gt; p\)</span>.</
 <div class="section" id="theorem-the-ols-estimate-is-unbiased-and-mathrm-cov-hat-beta-x-tx-1-x-t-mathrm-cov-epsilon-x-x-x-tx-1">
 <h3>Theorem: the OLS estimate is unbiased and <span class="math notranslate nohighlight">\(\mathrm{cov}(\hat{\beta}) = (X^TX)^{-1} X^T \mathrm{cov}(\epsilon | X) X (X^TX)^{-1}\)</span>.<a class="headerlink" href="#theorem-the-ols-estimate-is-unbiased-and-mathrm-cov-hat-beta-x-tx-1-x-t-mathrm-cov-epsilon-x-x-x-tx-1" title="Permalink to this headline">¶</a></h3>
 <p><strong>Proof.</strong></p>
-<div class="math notranslate nohighlight">
-\[ (X^TX)^{-1}X^T Y = (X^TX)^{-1}X^T (X\beta + \epsilon) = (X^TX)^{-1}X^TX\beta + (X^TX)^{-1}X^T\epsilon \]</div>
-<div class="math notranslate nohighlight">
-\[ = \beta + (X^TX)^{-1}X^T\epsilon.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  (X^TX)^{-1}X^T Y = (X^TX)^{-1}X^T (X\beta + \epsilon) = (X^TX)^{-1}X^TX\beta + (X^TX)^{-1}X^T\epsilon \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = \beta + (X^TX)^{-1}X^T\epsilon.\end{equation*}\]</div>
 <p>Now,</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{E} \left (\beta + (X^TX)^{-1}X^T\epsilon | X \right ) = \beta + (X^TX)^{-1}X^T \mathbb{E} (\epsilon | X)\]</div>
-<div class="math notranslate nohighlight">
-\[ = \beta + (X^TX)^{-1}X^T \mathbf{0} = \beta,\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \mathbb{E} \left (\beta + (X^TX)^{-1}X^T\epsilon | X \right ) = \beta + (X^TX)^{-1}X^T \mathbb{E} (\epsilon | X)\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = \beta + (X^TX)^{-1}X^T \mathbf{0} = \beta,\end{equation*}\]</div>
 <p>so <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> is unbiased.</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{cov} \left (\hat{\beta} | X \right ) \equiv \mathbb{E} ((\hat{\beta} - \beta)(\hat{\beta} - \beta)^T | X) \]</div>
-<div class="math notranslate nohighlight">
-\[ = \mathbb{E} \left ( (X^TX)^{-1}X^T \epsilon ((X^TX)^{-1}X^T \epsilon)^T | X \right ) \]</div>
-<div class="math notranslate nohighlight">
-\[ = \mathbb{E} \left ( (X^TX)^{-1}X^T \epsilon \epsilon^T X (X^TX)^{-1} | X \right ) \]</div>
-<div class="math notranslate nohighlight">
-\[ = (X^TX)^{-1}X^T \mathbb{E}(\epsilon \epsilon^T | X) X (X^TX)^{-1}\]</div>
-<div class="math notranslate nohighlight">
-\[ = (X^TX)^{-1}X^T \mathrm{cov}(\epsilon | X) X (X^TX)^{-1}.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mathrm{cov} \left (\hat{\beta} | X \right ) \equiv \mathbb{E} ((\hat{\beta} - \beta)(\hat{\beta} - \beta)^T | X) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = \mathbb{E} \left ( (X^TX)^{-1}X^T \epsilon ((X^TX)^{-1}X^T \epsilon)^T | X \right ) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = \mathbb{E} \left ( (X^TX)^{-1}X^T \epsilon \epsilon^T X (X^TX)^{-1} | X \right ) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = (X^TX)^{-1}X^T \mathbb{E}(\epsilon \epsilon^T | X) X (X^TX)^{-1}\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = (X^TX)^{-1}X^T \mathrm{cov}(\epsilon | X) X (X^TX)^{-1}.\end{equation*}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\mathrm{cov}(\epsilon | X) = \sigma^2 I_{n}\)</span>, this simplifies to</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{cov} (\hat{\beta} | X) = \sigma^2 (X^TX)^{-1}X^T I_n X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1}.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mathrm{cov} (\hat{\beta} | X) = \sigma^2 (X^TX)^{-1}X^T I_n X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1}.\end{equation*}\]</div>
 <p>Define <span class="math notranslate nohighlight">\(e = Y - X \hat{\beta}\)</span>, the <em>residuals</em>.</p>
 <p>A conditionally unbiased estimate for <span class="math notranslate nohighlight">\(\sigma^2\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[ \hat{\sigma}^2 = \frac{1}{n-p} \sum_{j=1}^n e_j^2 = \frac{1}{n-p} \sum_{j=1}^n (Y_j - X_j \hat{\beta})^2.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \hat{\sigma}^2 = \frac{1}{n-p} \sum_{j=1}^n e_j^2 = \frac{1}{n-p} \sum_{j=1}^n (Y_j - X_j \hat{\beta})^2.\end{equation*}\]</div>
 </div>
 <div class="section" id="the-t-test">
 <h3>The t-test<a class="headerlink" href="#the-t-test" title="Permalink to this headline">¶</a></h3>
@@ -560,8 +565,8 @@ We also assume <span class="math notranslate nohighlight">\(n &gt; p\)</span>.</
 <span class="math notranslate nohighlight">\(\{ \epsilon_j \}\)</span> have a distribution that is jointly normal (given <span class="math notranslate nohighlight">\(X\)</span>):  given <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\{ \epsilon_j \}\)</span> are IID <span class="math notranslate nohighlight">\(N(0, \sigma^2)\)</span>.</p>
 <p>Then <span class="math notranslate nohighlight">\(\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})\)</span>.</p>
 <p>The <span class="math notranslate nohighlight">\(t\)</span> statistic for the <span class="math notranslate nohighlight">\(\hat{\beta}_k\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[ t = \hat{\beta}_k/\hat{\mathrm{SE}}_k, \]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  t = \hat{\beta}_k/\hat{\mathrm{SE}}_k, \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{\mathrm{SE}}_k \equiv \hat{\sigma} \sqrt{(X^TX)^{-1}_{kk}}\)</span>.</p>
 <p>Under all the assumptions, <span class="math notranslate nohighlight">\(t\)</span> has Student’s <span class="math notranslate nohighlight">\(t\)</span> distribution with <span class="math notranslate nohighlight">\(n-p\)</span> degrees of freedom if <span class="math notranslate nohighlight">\(\beta_k = 0\)</span>.</p>
 </div>
@@ -571,16 +576,16 @@ We also assume <span class="math notranslate nohighlight">\(n &gt; p\)</span>.</
 <p>Because the assumptions that lead to the t-test are unreasonable in this application, we will look at other ways of assessing the evidence that the two variables are associated.</p>
 <p>Let’s specialize to the case <span class="math notranslate nohighlight">\(p = 2\)</span>, with <span class="math notranslate nohighlight">\(X_{k1} = 1\)</span> (an intercept term in the regression).</p>
 <p>Suppose that the components of <span class="math notranslate nohighlight">\(\epsilon\)</span> are IID (but not necessarily zero mean, normal, or anything else). Under the hypothesis that <span class="math notranslate nohighlight">\(\beta_1 = 0\)</span>, the data are then</p>
-<div class="math notranslate nohighlight">
-\[ Y_j = \beta_0 + 0\times X_j + \epsilon_j = \beta_0 + \epsilon_j, \;\; j=1, \ldots, n.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  Y_j = \beta_0 + 0\times X_j + \epsilon_j = \beta_0 + \epsilon_j, \;\; j=1, \ldots, n.\end{equation*}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\{ \epsilon_j \}\)</span> are IID, so are <span class="math notranslate nohighlight">\(\{ Y_j = \beta_0 + \epsilon_j \}\)</span>.</p>
 <p><strong>Definition.</strong> A set of random variables <span class="math notranslate nohighlight">\(\{Z_j \}_{j=1}^n\)</span> is <em>exchangeable</em> if the joint distribution of <span class="math notranslate nohighlight">\((Z_{\pi_1}, Z_{\pi_2}, \ldots, Z_{\pi_n})\)</span> is the same for all permutations <span class="math notranslate nohighlight">\(\pi\)</span> of <span class="math notranslate nohighlight">\(\{1, 2, \ldots, n\}\)</span>.</p>
 <p>If a set of variables is IID, it is exchangeable. (The converse is not necessarily true.)</p>
 <p>Thus if <span class="math notranslate nohighlight">\(\beta_1 = 0\)</span>, <span class="math notranslate nohighlight">\(\{Y_j \}_{j=1}^n\)</span> are exchangeable.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(\{Z_j \}_{j=1}^n\)</span> are exchangeable, and let <span class="math notranslate nohighlight">\(z \in \Re^n\)</span>.
 Then for every permutation <span class="math notranslate nohighlight">\(\pi\)</span> of <span class="math notranslate nohighlight">\(\{1, \ldots, n \}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\Pr \{ Z_j = z_j, j=1, \ldots, n \} = \Pr \{ Z_j = z_{\pi_j}, j = 1, \ldots, n \}.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \Pr \{ Z_j = z_j, j=1, \ldots, n \} = \Pr \{ Z_j = z_{\pi_j}, j = 1, \ldots, n \}.\end{equation*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(z = (z_1, \ldots, z_n)\)</span>.
 The set of all <span class="math notranslate nohighlight">\((z_{\pi_j})_{j=1}^n\)</span> for all permutations <span class="math notranslate nohighlight">\(\pi\)</span> of <span class="math notranslate nohighlight">\(\{1, \ldots, n \}\)</span> is <em>the orbit of <span class="math notranslate nohighlight">\(z\)</span> under the permutation group</em>.</p>
 <div class="section" id="what-s-the-justification-for-this-model-here">
