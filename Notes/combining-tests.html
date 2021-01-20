@@ -374,18 +374,18 @@
 <li><p>If we observe <span class="math notranslate nohighlight">\(X = x\)</span>, <span class="math notranslate nohighlight">\(P\)</span>-value is <span class="math notranslate nohighlight">\(\sup \{ \alpha: x \in A_\alpha \}\)</span>.</p></li>
 </ul>
 <p>If <span class="math notranslate nohighlight">\(P = P(X)\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value,</p>
-<div class="math notranslate nohighlight">
-\[ 
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
  \Pr \{ P(X) \le p || \mbox{null hypothesis is true} \} \le p.
-\]</div>
+\end{equation*}\]</div>
 <p>In fact, we could take this to be the <em>definition</em> of a <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
 <div class="section" id="randomized-tests">
 <h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>.  Then we still require</p>
-<div class="math notranslate nohighlight">
-\[ 
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
  \Pr_{X, U} \{ P(X, U) \le p || \mbox{null hypothesis is true} \} \le p,
-\]</div>
+\end{equation*}\]</div>
 <p>where the probability is with respect to the joint distribution of the data and the auxilliary randomness <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </div>
 </div>
@@ -397,15 +397,15 @@
 <p>(discriminates in arts and humanities) <span class="math notranslate nohighlight">\(\cup\)</span> (discriminates in sciences) <span class="math notranslate nohighlight">\(\cup\)</span> (discriminates in engineering) <span class="math notranslate nohighlight">\(\cup\)</span> (discriminates in professional schools).</p>
 <p>Framing a test this way leads to an <em>intersection-union test</em>.
 The null hypothesis is the intersection</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    H_0 \equiv \cap_{j=1}^J H_{0j}
-\]</div>
+\end{equation*}\]</div>
 <p>and the alternative is the union</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    H_1 \equiv \cup_{j=1}^J H_{0j}^c.
-\]</div>
+\end{equation*}\]</div>
 <p>There can be good reasons for representating a null hypothesis as such an intersection.
 In the example just mentioned, the applicant pool might be quite different across disciplines, making it hard to judge at the aggregate level whether there is discrimination, while testing within each discipline is more straightforward (that is, <em>Simpson’s Paradox</em> can be an issue).</p>
 <p>Hypotheses about multivariate distributions can sometimes be expressed as the intersection of hypotheses about each dimension separately. For instance, the hypothesis that an <span class="math notranslate nohighlight">\(J\)</span>-dimensional distribution has zero mean could be represented as</p>
@@ -437,39 +437,40 @@ if hypothesis <span class="math notranslate nohighlight">\(H_{0j}\)</span> is tr
 We assume that smaller values of <span class="math notranslate nohighlight">\(\lambda_j\)</span> are stronger evidence against <span class="math notranslate nohighlight">\(H_{0j}\)</span>.
 For instance, <span class="math notranslate nohighlight">\(\lambda_j\)</span> might be the <span class="math notranslate nohighlight">\(P\)</span>-value of <span class="math notranslate nohighlight">\(H_{0j}\)</span> for some test.</p>
 <p>Consider a function</p>
-<div class="math notranslate nohighlight">
-\[ \phi: [0, 1]^J \rightarrow \Re; \lambda = (\lambda_1, \ldots, \lambda_J) \mapsto \phi(\lambda)
-\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \phi: [0, 1]^J \rightarrow \Re; \lambda = (\lambda_1, \ldots, \lambda_J) \mapsto \phi(\lambda)
+\end{equation*}\]</div>
 <p>with the properties:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\phi\)</span> is non-increasing in every argument, i.e., <span class="math notranslate nohighlight">\(\phi( \ldots, \lambda_j, \ldots) \ge \phi(( \ldots, \lambda_j', \ldots)\)</span> if <span class="math notranslate nohighlight">\(\lambda_j \le \lambda_j'\)</span>, <span class="math notranslate nohighlight">\(j = 1, \ldots, J\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\phi\)</span> attains its maximum if any of its arguments equals 0.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\phi\)</span> attains its minimum if all of its arguments equal 1.</p></li>
-<li><p>for all <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, there exist finite functions <span class="math notranslate nohighlight">\(\phi_-(\alpha)\)</span>, <span class="math notranslate nohighlight">\(\phi_+(\alpha)\)</span> such that if every partial null hypothesis <span class="math notranslate nohighlight">\(\{H_{0j}\}\)</span> is true,
-$<span class="math notranslate nohighlight">\(\Pr \{\phi_-(\alpha) \le \phi(\lambda) \le \phi_+(\alpha) \} \ge 1-\alpha\)</span><span class="math notranslate nohighlight">\(
-and \)</span>[\phi_-(\alpha), \phi_+(\alpha)] \subset [\phi_-(\alpha’), \phi_+(\alpha’)]<span class="math notranslate nohighlight">\( if \)</span>\alpha \ge \alpha’$.</p></li>
+<li><p>for all <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, there exist finite functions <span class="math notranslate nohighlight">\(\phi_-(\alpha)\)</span>, <span class="math notranslate nohighlight">\(\phi_+(\alpha)\)</span> such that if every partial null hypothesis <span class="math notranslate nohighlight">\(\{H_{0j}\}\)</span> is true,</p></li>
 </ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \Pr \{\phi_-(\alpha) \le \phi(\lambda) \le \phi_+(\alpha) \} \ge 1-\alpha\end{equation*}\]</div>
+<p>and <span class="math notranslate nohighlight">\([\phi_-(\alpha), \phi_+(\alpha)] \subset [\phi_-(\alpha'), \phi_+(\alpha')]\)</span> if <span class="math notranslate nohighlight">\(\alpha \ge \alpha'\)</span>.</p>
 <p>Then we can use <span class="math notranslate nohighlight">\(\phi(\lambda)\)</span> as the basis of a test of <span class="math notranslate nohighlight">\(H_0 = \cap_{j=1}^J H_{0j}\)</span>.</p>
 <div class="section" id="fisher-s-combining-function">
 <h3>Fisher’s combining function<a class="headerlink" href="#fisher-s-combining-function" title="Permalink to this headline">¶</a></h3>
-<div class="math notranslate nohighlight">
-\[ \phi_F(\lambda) \equiv -2 \sum_{j=1}^J \ln(\lambda_j).\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \phi_F(\lambda) \equiv -2 \sum_{j=1}^J \ln(\lambda_j).\end{equation*}\]</div>
 </div>
 <div class="section" id="liptak-s-combining-function">
 <h3>Liptak’s combining function<a class="headerlink" href="#liptak-s-combining-function" title="Permalink to this headline">¶</a></h3>
-<div class="math notranslate nohighlight">
-\[ \phi_L(\lambda) \equiv \sum_{j=1}^J \Phi^{-1}(1-\lambda_j),\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \phi_L(\lambda) \equiv \sum_{j=1}^J \Phi^{-1}(1-\lambda_j),\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Phi^{-1}\)</span> is the inverse standard normal CDF.</p>
 </div>
 <div class="section" id="tippet-s-combining-function">
 <h3>Tippet’s combining function<a class="headerlink" href="#tippet-s-combining-function" title="Permalink to this headline">¶</a></h3>
-<div class="math notranslate nohighlight">
-\[ \phi_T(\lambda) \equiv \max_{j=1}^J (1-\lambda_j).\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \phi_T(\lambda) \equiv \max_{j=1}^J (1-\lambda_j).\end{equation*}\]</div>
 </div>
 <div class="section" id="direct-combination-of-test-statistics">
 <h3>Direct combination of test statistics<a class="headerlink" href="#direct-combination-of-test-statistics" title="Permalink to this headline">¶</a></h3>
-<div class="math notranslate nohighlight">
-\[ \phi_D \equiv \sum_{j=1}^J f_j(\lambda_j), \]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \phi_D \equiv \sum_{j=1}^J f_j(\lambda_j), \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\{ f_j \}\)</span> are suitable decreasing functions. For instance, if <span class="math notranslate nohighlight">\(\lambda_j\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value for <span class="math notranslate nohighlight">\(H_{0j}\)</span> corresponding to some test statistic <span class="math notranslate nohighlight">\(T_j\)</span> for which larger values are stronger evidence against <span class="math notranslate nohighlight">\(H_{0j}\)</span>, we could use <span class="math notranslate nohighlight">\(\phi_D = \sum_j T_j\)</span>.</p>
 </div>
 </div>
@@ -478,31 +479,31 @@ and \)</span>[\phi_-(\alpha), \phi_+(\alpha)] \subset [\phi_-(\alpha’), \phi_+
 <p>Suppose <span class="math notranslate nohighlight">\(H_0\)</span> is true, that <span class="math notranslate nohighlight">\(\lambda_j\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value of <span class="math notranslate nohighlight">\(H_{0j}\)</span> for some pre-specified test, that the distribution of <span class="math notranslate nohighlight">\(\lambda_j\)</span> is continuous under <span class="math notranslate nohighlight">\(H_{0j}\)</span>, and that <span class="math notranslate nohighlight">\(\{ \lambda_j \}\)</span> are independent if <span class="math notranslate nohighlight">\(H_0\)</span> is true.</p>
 <p>Then, if <span class="math notranslate nohighlight">\(H_0\)</span> is true, <span class="math notranslate nohighlight">\(\{ \lambda_j \}\)</span> are IID <span class="math notranslate nohighlight">\(U[0,1]\)</span>.</p>
 <p>Under <span class="math notranslate nohighlight">\(H_{0j}\)</span>, the distribution of <span class="math notranslate nohighlight">\(-\ln \lambda_j\)</span> is exponential(1):</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \{ -\ln \lambda_j \le x \} = \Pr \{ \ln \lambda_j \ge -x \} = \Pr \{ \lambda_j \ge e^{-x} \} = 1 - e^{-x}.
-\]</div>
+\end{equation*}\]</div>
 <p>The distribution of 2 times an exponential is <span class="math notranslate nohighlight">\(\chi_2^2\)</span>:
 the pdf of a chi-square with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2-1} e^{-x/2}.
-\]</div>
+\end{equation*}\]</div>
 <p>For <span class="math notranslate nohighlight">\(k=2\)</span>, this simplifies to <span class="math notranslate nohighlight">\(e^{-x/2}/2\)</span>, the exponential density scaled by a factor of 2.</p>
 <p>Thus, under <span class="math notranslate nohighlight">\(H_0\)</span>, <span class="math notranslate nohighlight">\(\phi_F(\lambda)\)</span> is the sum of <span class="math notranslate nohighlight">\(J\)</span> independent <span class="math notranslate nohighlight">\(\chi_2^2\)</span> random variables. The distribution of a sum of independent chi-square random variables is a chi-square random variable with degrees of freedom equal to the sum of the degrees of freedom of the variables that were added.</p>
 <p>Hence, under <span class="math notranslate nohighlight">\(H_0\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \phi_F(\lambda) \sim \chi_{2J}^2,
-\]</div>
+\end{equation*}\]</div>
 <p>the chi-square distribution with <span class="math notranslate nohighlight">\(2n\)</span> degrees of freedom.</p>
 <p>Let <span class="math notranslate nohighlight">\(\chi_{k}^2(\alpha)\)</span> denote the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of the chi-square distribution
 with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom.
 If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \phi_F(\lambda) \ge \chi_{2J}^2(\alpha),
-\]</div>
+\end{equation*}\]</div>
 <p>that yields a significance level <span class="math notranslate nohighlight">\(\alpha\)</span> test of <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,23 +555,23 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 <div class="section" id="when-p-values-have-atoms">
 <h2>When <span class="math notranslate nohighlight">\(P\)</span>-values have atoms<a class="headerlink" href="#when-p-values-have-atoms" title="Permalink to this headline">¶</a></h2>
 <p>A real random variable <span class="math notranslate nohighlight">\(X\)</span> is first-order stochastically larger than a real random variable <span class="math notranslate nohighlight">\(Y\)</span> if for all <span class="math notranslate nohighlight">\(x \in \Re\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \{ X \ge x \} \ge \Pr \{ Y \ge x \},
-\]</div>
+\end{equation*}\]</div>
 <p>with strict inequality for some <span class="math notranslate nohighlight">\(x \in \Re\)</span>.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(\{\lambda_j \}\)</span> for <span class="math notranslate nohighlight">\(\{ H_{0j}\}\)</span> satisfy</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \{ \lambda_j \le p  || H_{0j} \} \le p.
-\]</div>
+\end{equation*}\]</div>
 <p>This takes into account the possibility that <span class="math notranslate nohighlight">\(\lambda_j\)</span> does not have a continuous
 distribution under <span class="math notranslate nohighlight">\(H_{0j}\)</span>, ensuring that <span class="math notranslate nohighlight">\(\lambda_j\)</span> is still a <em>conservative</em> <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
 <p>Since <span class="math notranslate nohighlight">\(\ln\)</span> is monotone, it follows that for all <span class="math notranslate nohighlight">\(x \in \Re\)</span></p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \{ -2 \ln \lambda_j \ge x \} \le \Pr \{ -2 \ln U \ge x \}.
-\]</div>
+\end{equation*}\]</div>
 <p>That is, if <span class="math notranslate nohighlight">\(\lambda_j\)</span> does not have a continuous distribution,
 the a <span class="math notranslate nohighlight">\(\chi_2^2\)</span> variable is stochastically larger than the distribution of <span class="math notranslate nohighlight">\(-2\ln \lambda_j\)</span>.</p>
 <p>It turns out that <span class="math notranslate nohighlight">\(X\)</span> is stochastically larger than <span class="math notranslate nohighlight">\(Y\)</span> if and only if
@@ -595,10 +596,10 @@ for which we can define <span class="math notranslate nohighlight">\(\{\tilde{Y_
 <li><p><span class="math notranslate nohighlight">\(\sum_j \tilde X_j  \ge \sum_j \tilde{Y_j}\)</span>.</p></li>
 </ul>
 <p>That is,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \Pr \left \{-2 \sum_j \ln \lambda_j \ge \chi_{2J}^2(\alpha) \right \} \le \alpha.
-\]</div>
+\end{equation*}\]</div>
 <p>Thus, we still get a conservative hypothesis test if one or more of the <span class="math notranslate nohighlight">\(p\)</span>-values for the
 partial tests have atoms under their respective null hypotheses <span class="math notranslate nohighlight">\(\{H_{0j}\}\)</span>.</p>
 <div class="section" id="estimating-p-values-by-simulation">
@@ -611,17 +612,17 @@ Let <span class="math notranslate nohighlight">\(x_0\)</span> denote the origina
 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and <span class="math notranslate nohighlight">\(x_k = \pi_k(x_0)\)</span>, <span class="math notranslate nohighlight">\(k=1, \ldots, K\)</span> denote <span class="math notranslate nohighlight">\(K\)</span> random elements of the
 orbit of <span class="math notranslate nohighlight">\(x_0\)</span> under <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.</p>
 <p>An unbiased estimate of the <span class="math notranslate nohighlight">\(P\)</span>-value (assuming that the random elements are generated uniformly at random–see <a class="reference internal" href="permute-sample.html"><span class="doc std std-doc">Algorithms for Pseudo-Random Sampling</span></a> for a caveats), is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \hat{P} = \frac{\#\{ k&gt;0: T(\pi_k(x_0)) \ge T(x_0)\}}{K}.
-\]</div>
+\end{equation*}\]</div>
 <p>Once <span class="math notranslate nohighlight">\(x_0\)</span> is known, the events <span class="math notranslate nohighlight">\(\{T(\pi_j(x_0)) \ge T(x_0)\}\)</span> are IID with probability
 <span class="math notranslate nohighlight">\(P\)</span> of occurring, and <span class="math notranslate nohighlight">\(\hat{P}\)</span> is an unbiased estimate of <span class="math notranslate nohighlight">\(P\)</span>.</p>
 <p>Another estimate of <span class="math notranslate nohighlight">\(P\)</span>, arguably preferable (as discussed below), is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \hat{P}' = \frac{\#\{ k \ge 0: T(\pi_k(x_0)) \ge T(x_0)\}}{K+1},
-\]</div>
+\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\pi_0\)</span> is the identity permutation.</p>
 <p>The reasoning behind this choice is that, if the null hypothesis is true, the original data are one of the equally likely elements of the orbit of the data–exactly as likely as the elements generated from it.
 Thus there are really <span class="math notranslate nohighlight">\(K+1\)</span> values that are equally likely if the null is true,
@@ -630,16 +631,16 @@ The estimate <span class="math notranslate nohighlight">\(\hat{P}'\)</span> is n
 Some practitioners like this because it never estimates the <span class="math notranslate nohighlight">\(P\)</span>-value to be zero.
 There are other reasons for preferring it, discussed below.</p>
 <p>The estimate <span class="math notranslate nohighlight">\(\hat{P}'\)</span> of <span class="math notranslate nohighlight">\(P\)</span> is generally biased, however, since <span class="math notranslate nohighlight">\(\hat{P}\)</span> is unbiased and</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \hat{P}' = \frac{K\hat{P} + 1}{K+1} = \frac{K}{K+1} \hat{P} + \frac{1}{K+1},
-\]</div>
+\end{equation*}\]</div>
 <p>so</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \mathbb{E} \hat{P}' = \frac{K}{K+1} P + \frac{1}{K+1} =
    P  + (1-P) \frac{1}{K+1} &gt; P.
-\]</div>
+\end{equation*}\]</div>
 </div>
 </div>
 <div class="section" id="accounting-for-simulation-error-in-stratum-wise-p-values">
@@ -658,16 +659,16 @@ for <span class="math notranslate nohighlight">\(\{ \lambda_j \}\)</span> imply 
 If the <span class="math notranslate nohighlight">\(P\)</span>-value estimates are independent, the joint coverage probability of a set of <span class="math notranslate nohighlight">\(n\)</span> independent confidence bounds with confidence level <span class="math notranslate nohighlight">\(\alpha\)</span> is <span class="math notranslate nohighlight">\(1-(1-\alpha)^n\)</span>, as we shall show.</p>
 <p>Let <span class="math notranslate nohighlight">\(A_j\)</span> denote the event that the upper confidence bound for <span class="math notranslate nohighlight">\(\lambda_j\)</span> is greater than or equal to <span class="math notranslate nohighlight">\(\lambda_j\)</span>, and suppose <span class="math notranslate nohighlight">\(\Pr \{A_j\} = 1-\alpha_j\)</span>.</p>
 <p>Regardless of the dependence among the events <span class="math notranslate nohighlight">\(\{A_j \}\)</span>, the chance that all of the confidence bounds cover their corresponding parameters can be bounded using Bonferroni’s inequality:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \Pr \{ \cap_j A_j \} = 1 - \Pr \{ \cup_j A_j^c \} \ge 1 - \sum_j \Pr \{A_j^c \} 
    = 1 - \sum_j (1- \Pr \{A_j \}) = 1 - \sum_j \alpha_j.
-\]</div>
+\end{equation*}\]</div>
 <p>If <span class="math notranslate nohighlight">\(\{A_j\}\)</span> are independent,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \Pr \{ \cap_j A_j \} = \prod_j \Pr \{ A_j \} = \prod_j (1-\alpha_j).
-\]</div>
+\end{equation*}\]</div>
 <p>Both of those expressions tend to get small quickly as <span class="math notranslate nohighlight">\(n\)</span> gets large;
 bounding <span class="math notranslate nohighlight">\(\phi(\lambda)\)</span> by bounding the components of <span class="math notranslate nohighlight">\(\lambda\)</span> is inefficient.</p>
 <p>Let’s look for a different approach.</p>
@@ -679,10 +680,10 @@ bounding <span class="math notranslate nohighlight">\(\phi(\lambda)\)</span> by 
 It yields a surprisingly simple and elegant conservative test.</p>
 <p>The key is to change the test itself: instead of treating <span class="math notranslate nohighlight">\(\hat{\lambda}_j\)</span> or <span class="math notranslate nohighlight">\(\hat{\lambda}_j'\)</span> as an estimate of
 <span class="math notranslate nohighlight">\(\lambda_j\)</span>–the <span class="math notranslate nohighlight">\(P\)</span>-value for <span class="math notranslate nohighlight">\(H_{0j}\)</span> for the original test–we define a <em>new</em> test based on</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \hat{\lambda}_j' \equiv \frac{\#\{k \ge 0: T(\pi_k(x_0) \ge T(x_0)\}}{K_j+1},
-\]</div>
+\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\pi_0\)</span> is the identity permutation and <span class="math notranslate nohighlight">\(\{ \pi_k \}_{k=1}^{K_j}\)</span> are elements of <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>
 selected at random uniformly.</p>
 <p>While <span class="math notranslate nohighlight">\(\hat{\lambda}_j'\)</span> is a biased estimate of <span class="math notranslate nohighlight">\(\lambda_j\)</span>, we shall see that <strong>it is itself a valid conditional <span class="math notranslate nohighlight">\(P\)</span>-value</strong>; that is,  <span class="math notranslate nohighlight">\(\Pr \{ \hat{\lambda}_j' \le p \} \le p\)</span>, given that the data are in the orbit of <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
@@ -715,10 +716,11 @@ If it is strictly greater than the <span class="math notranslate nohighlight">\(
 If the <span class="math notranslate nohighlight">\((K_j+1)p'\)</span>th element of the list is equal to the <span class="math notranslate nohighlight">\((K_j+1)p'+1\)</span> element, then there are
 <em>fewer</em> than <span class="math notranslate nohighlight">\((K_j+1)p'\)</span> such permutations.
 Either way, the chance that a randomly selected element of the multiset <span class="math notranslate nohighlight">\(\{T(\pi_k(x_0))\}_{k=0}^{K_j}\)</span>
-is strictly greater than all but at most <span class="math notranslate nohighlight">\((K_j+1)p'\)</span> of the elements is
-$<span class="math notranslate nohighlight">\(
+is strictly greater than all but at most <span class="math notranslate nohighlight">\((K_j+1)p'\)</span> of the elements is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \Pr \{ \hat{\lambda}_j' \le p \} = \Pr \{ \hat{\lambda}_j' \le p' \} \le \frac{(K_j+1)p'}{K_j+1} = p' \le p.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Thus <span class="math notranslate nohighlight">\(\Pr \{\hat{\lambda}_j' \le p \} \le p\)</span>.
 That is, <strong><span class="math notranslate nohighlight">\(\hat{\lambda}_j\)</span> is <em>itself</em> a conservative <span class="math notranslate nohighlight">\(P\)</span>-value</strong> for a randomized test, separate from the fact that it is a (biased) estimate of <span class="math notranslate nohighlight">\(\lambda_j\)</span>, the <span class="math notranslate nohighlight">\(P\)</span>-value for a related non-randomized test.</p>
 <p>The test is defined implicitly: reject <span class="math notranslate nohighlight">\(H_{0j}\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> if
@@ -756,10 +758,10 @@ the dimensions are randomized “in lockstep.”</p>
 We permute the data <span class="math notranslate nohighlight">\(K\)</span> times in all, each yielding a <span class="math notranslate nohighlight">\(J\)</span>-vector <span class="math notranslate nohighlight">\(t(k)\)</span> of observed values of the test statistics. This gives <span class="math notranslate nohighlight">\(K+1\)</span> permutations in all, including the original data (the zeroth permutation), for which the vector is <span class="math notranslate nohighlight">\(t(0)\)</span>. Let <span class="math notranslate nohighlight">\(t_j(k)\)</span> denote the test statistic for dimension <span class="math notranslate nohighlight">\(j\)</span> for the <span class="math notranslate nohighlight">\(k\)</span>th permutation.</p>
 <p>We now transform the <span class="math notranslate nohighlight">\(J\)</span> by <span class="math notranslate nohighlight">\((K+1)\)</span> matrix <span class="math notranslate nohighlight">\([t_j(k)]_{j=1}^J{}_{k=0}^K\)</span> to a corresponding matrix of <span class="math notranslate nohighlight">\(P\)</span>-values for the univariate permutation tests.</p>
 <p>For <span class="math notranslate nohighlight">\(j=1, \ldots , J\)</span> and <span class="math notranslate nohighlight">\(k = 0, \ldots , K\)</span>, define</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    P_j(k) \equiv \frac{\#\{ \ell \in \{0, \ldots, K \} : t_j(\ell) \ge t_j(k) \}}{K+1}.  
-\]</div>
+\end{equation*}\]</div>
 <p>This is the simulated upper tail probability of the <span class="math notranslate nohighlight">\(k\)</span>th observed value of the <span class="math notranslate nohighlight">\(j\)</span>th test statistic
 under the null hypothesis.</p>
 <p>Think of the values of <span class="math notranslate nohighlight">\(P_j(k)\)</span> as a matrix.
@@ -767,11 +769,12 @@ Each column corresponds to a random permutation of the original data (the 0th co
 <p>Now apply Fisher’s combining function <span class="math notranslate nohighlight">\(\phi_F\)</span> (or Tippett’s, or Stouffer’s, or anything else) to each column of
 <span class="math notranslate nohighlight">\(J\)</span> numbers. That gives <span class="math notranslate nohighlight">\(K+1\)</span> numbers,
 <span class="math notranslate nohighlight">\(f(k), k=0, \ldots , K\)</span>, one for each permutation of the data.
-The overall “Non-Parametric Combination of tests” (NPC) <span class="math notranslate nohighlight">\(P\)</span>-value is
-$<span class="math notranslate nohighlight">\(
+The overall “Non-Parametric Combination of tests” (NPC) <span class="math notranslate nohighlight">\(P\)</span>-value is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
  P_{\mbox{NPC}} \equiv \frac{\#\{ k \in \{0, \ldots, K\} : f(k) \ge f(0) \}}{K+1}. 
-\)</span>$
-This is the simulated lower tail probability of the observed value of the combining function under the randomization.</p>
+\end{equation*}\]</div>
+<p>This is the simulated lower tail probability of the observed value of the combining function under the randomization.</p>
 <p>Ultimately, this whole thing is just a univariate permutation test that uses a complicated test statistic
 <span class="math notranslate nohighlight">\(\phi_F\)</span>, which assigns one number to each permutation of the multivariate data.</p>
 <p>Also see <a class="reference external" href="http://statlab.github.io/permute/">the permute Python package</a>.</p>
