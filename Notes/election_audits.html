@@ -546,10 +546,10 @@ actual margin in votes of reported winner <span class="math notranslate nohighli
 </ul>
 <p>Reported winner(s) really won if <span class="math notranslate nohighlight">\(A_{w\ell} &gt; 0\)</span> for all <span class="math notranslate nohighlight">\(w \in \mathcal{W}\)</span>, <span class="math notranslate nohighlight">\(\ell \in \mathcal{L}\)</span>.</p>
 <p>For unstratified polling-based audits, natural to work with proportions: <span class="math notranslate nohighlight">\(w\)</span> really beat <span class="math notranslate nohighlight">\(\ell\)</span> if <span class="math notranslate nohighlight">\(\pi_{w\ell} &gt; 1/2\)</span>, where</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \pi_{w\ell} \equiv \frac{\# \mbox{ballots with votes for only $w$}}{\# \mbox{ballots with votes for only $w$ or for only $\ell$}}.
-\]</div>
+\end{equation*}\]</div>
 <p>Can test using <a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/sprt.ipynb">Wald’s Sequential Probability Ratio Test</a> (also see <a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/pSPRTnoReplacement.ipynb">SPRT without replacement</a>).</p>
 </div>
 </div>

@@ -227,8 +227,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   The EM Algorithm
+  <a class="reference internal nav-link" href="#the-em-algorithm-test">
+   The EM Algorithm TEST
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -256,27 +256,22 @@
 <p>It is in a general class of optimization algorithms that alternate between two types of operations, constructing or estimating something, and maximizing or minimizing something.</p>
 <p>We observe data <span class="math notranslate nohighlight">\((X, Y) \sim {\mathbb P}_\theta\)</span>, where <span class="math notranslate nohighlight">\(\{{\mathbb P}_\theta : \theta \in \Theta\}\)</span> is a known parametric family of probability distributions, but the particular value of <span class="math notranslate nohighlight">\(\theta\)</span> is unknown.</p>
 <p>We want to estimate <span class="math notranslate nohighlight">\(\theta\)</span> using maximum likelihood, that is, to find</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \hat{\theta} \in \arg \max_{\eta \in \Theta} {\mathbb P}_\eta (X,Y).
-\]</div>
+\end{equation*}\]</div>
 <p>It’s common to work with the log likelihood; since the logarithm is a monotonic function, the value of <span class="math notranslate nohighlight">\(\eta\)</span> that maximizes the log likelihood is the same as the value that maximizes the likelihood:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \hat{\theta} \in \arg \max_{\eta \in \Theta} \ln {\mathbb P}_\eta (X,Y) = \arg \max_{\eta \in \Theta} L(\eta).
-\]</div>
-<div class="section" id="id1">
-<h2>The EM Algorithm<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+\end{equation*}\]</div>
+<div class="section" id="the-em-algorithm-test">
+<h2>The EM Algorithm TEST<a class="headerlink" href="#the-em-algorithm-test" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-info">
-<p>Initialize starting guess <span class="math notranslate nohighlight">\(\hat{\theta}_0\)</span>. Repeat until convergence (which is not guaranteed) or boredom:
-<br /></p>
-<ul>
-<li>
-E-step: Find $Q(\eta, \hat{\theta}_i) \equiv {\mathbb E}_{\hat{\theta}_i} \ln {\mathbb P}_{\eta} ((X, Y) | X=x)$
-</li>
-<li>
-M-step: Set $\hat{\theta}_{i+1} \in \arg\max_{\eta \in \Theta} Q(\eta, \hat{\theta}_i)$ 
-</li>
+<p>Initialize starting guess <span class="math notranslate nohighlight">\(\hat{\theta}_0\)</span>. Repeat until convergence (which is not guaranteed) or boredom:</p>
+<ul class="simple">
+<li><p>E-step: Find <span class="math notranslate nohighlight">\(Q(\eta, \hat{\theta}_i) \equiv {\mathbb E}_{\hat{\theta}_i} \ln {\mathbb P}_{\eta} ((X, Y) | X=x)\)</span></p></li>
+<li><p>M-step: Set <span class="math notranslate nohighlight">\(\hat{\theta}_{i+1} \in \arg\max_{\eta \in \Theta} Q(\eta, \hat{\theta}_i)\)</span></p></li>
 </ul>
 </div>
 <p>It’s a theorem that <span class="math notranslate nohighlight">\(\ln {\mathbb P}_{\hat{\theta}_{i+1}}(x) \ge \ln {\mathbb P}_{\hat{\theta}_i}(x)\)</span>.</p>
