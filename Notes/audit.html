@@ -445,10 +445,11 @@ ballots</p></li>
 actual margin of reported winner <span class="math notranslate nohighlight">\(w \in \mathcal{W}_c\)</span> over reported loser
 <span class="math notranslate nohighlight">\(\ell \in \mathcal{L}_c\)</span> in contest <span class="math notranslate nohighlight">\(c\)</span></p></li>
 </ul>
-<p>The reported winners of all <span class="math notranslate nohighlight">\(C\)</span> contests are the actual winners of those contests if
-$<span class="math notranslate nohighlight">\( 
+<p>The reported winners of all <span class="math notranslate nohighlight">\(C\)</span> contests are the actual winners of those contests if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \min_c \min_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} A_{w\ell} &gt; 0.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Otherwise, at least one reported electoral outcome is wrong.
 (We aren’t particularly worried about
 whether the votes are counted perfectly—they almost never all—just whether
@@ -460,71 +461,81 @@ is still conservative (the simultaneous risk is below its nominal value).</p>
 <p>One such reduction relies on the maximum across-contest relative overstatement
 (MACRO), which we will now develop.</p>
 <p>The reported winners of contest <span class="math notranslate nohighlight">\(c\)</span> are correct if for every pair <span class="math notranslate nohighlight">\(w \in \mathcal{W}_c\)</span>,
-<span class="math notranslate nohighlight">\(\ell \in \mathcal{L}_c\)</span>,
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(\ell \in \mathcal{L}_c\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \sum_{p=1}^N (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell} &lt; 1.
-\)</span><span class="math notranslate nohighlight">\(
-This condition says that the error in \)</span>V_{w\ell}<span class="math notranslate nohighlight">\( is less than \)</span>V_{w\ell}<span class="math notranslate nohighlight">\(.
-The reported winners of all the contests are correct if for every contest \)</span>c<span class="math notranslate nohighlight">\(,
-the previous relation holds, i.e., if
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>This condition says that the error in <span class="math notranslate nohighlight">\(V_{w\ell}\)</span> is less than <span class="math notranslate nohighlight">\(V_{w\ell}\)</span>.
+The reported winners of all the contests are correct if for every contest <span class="math notranslate nohighlight">\(c\)</span>,
+the previous relation holds, i.e., if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c}
    \sum_{p=1}^N (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell} &lt; 1.
-\)</span><span class="math notranslate nohighlight">\(
-Now the maximum (over \)</span>c<span class="math notranslate nohighlight">\( and, for each contest \)</span>c<span class="math notranslate nohighlight">\(, over all winner, loser pairs in
+\end{equation*}\]</div>
+<p>Now the maximum (over <span class="math notranslate nohighlight">\(c\)</span> and, for each contest <span class="math notranslate nohighlight">\(c\)</span>, over all winner, loser pairs in
 that contest) of sums
-is not larger than the sum of maxima; that is,
-\)</span><span class="math notranslate nohighlight">\(
+is not larger than the sum of maxima; that is,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c}
    \sum_{p=1}^N (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell}
    \le
   \sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
   (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell}.
-\)</span><span class="math notranslate nohighlight">\(
-Hence, if 
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Hence, if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
   (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell} &lt; 1,
-\)</span><span class="math notranslate nohighlight">\(
-all the reported outcomes must be correct.
-Define 
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>all the reported outcomes must be correct.
+Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   e_p \equiv \max_c \max_{w \in \mathcal{W}_c \ell \in \mathcal{L}_c} (v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell})/V_{w\ell}.
-\)</span><span class="math notranslate nohighlight">\(
-Then the reported outcomes of all the contests must be correct if 
-\)</span><span class="math notranslate nohighlight">\( 
+\end{equation*}\]</div>
+<p>Then the reported outcomes of all the contests must be correct if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   E \equiv \sum_{p=1}^N e_p &lt; 1.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>To see that a different way, suppose that the outcome of one or more contests is wrong.
 Then there is some contest <span class="math notranslate nohighlight">\(c\)</span> and some reported (winner, loser) pair
 <span class="math notranslate nohighlight">\(w \in \mathcal{W}_c, \ell \in \mathcal{L}_c\)</span> for which</p>
-<div class="math notranslate nohighlight">
-\[ 
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    0 \ge A_{w\ell} = V_{w\ell} - (V_{w\ell} - A_{w\ell}) =
    V_{w\ell} - \sum_{p=1}^N (v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}),
-\]</div>
-<p>i.e.,
-$<span class="math notranslate nohighlight">\( 
+\end{equation*}\]</div>
+<p>i.e.,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \sum_{p=1}^N (v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}) \ge V_{w\ell}.
-\)</span><span class="math notranslate nohighlight">\(
-Diving both sides by \)</span>V_{w\ell}<span class="math notranslate nohighlight">\( gives
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Diving both sides by <span class="math notranslate nohighlight">\(V_{w\ell}\)</span> gives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \sum_{p=1}^N \frac{v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}} \ge 1.
-\)</span><span class="math notranslate nohighlight">\(
-But
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>But</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \frac{v_{pw} - a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}}
 \le 
 \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \le 
 \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}}
 = e_p,
-\)</span><span class="math notranslate nohighlight">\(
-so if the outcome is wrong, \)</span>E = \sum_p e_p \ge 1<span class="math notranslate nohighlight">\(.
-Thus a risk-limiting audit can rely on testing whether \)</span>E \ge 1<span class="math notranslate nohighlight">\(.
-If the hypothesis \)</span>E \ge 1<span class="math notranslate nohighlight">\( can be rejected at significance level \)</span>\alpha$,
+\end{equation*}\]</div>
+<p>so if the outcome is wrong, <span class="math notranslate nohighlight">\(E = \sum_p e_p \ge 1\)</span>.
+Thus a risk-limiting audit can rely on testing whether <span class="math notranslate nohighlight">\(E \ge 1\)</span>.
+If the hypothesis <span class="math notranslate nohighlight">\(E \ge 1\)</span> can be rejected at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>,
 we can conclude that all the reported outcomes are correct.</p>
 <p>Testing whether <span class="math notranslate nohighlight">\(E \ge 1\)</span> would require a very large sample if we knew nothing at
 all about <span class="math notranslate nohighlight">\(e_p\)</span> without auditing ballot <span class="math notranslate nohighlight">\(p\)</span>: a single large value of <span class="math notranslate nohighlight">\(e_p\)</span> could make
@@ -532,16 +543,18 @@ all about <span class="math notranslate nohighlight">\(e_p\)</span> without audi
 Fortunately, there is an <em>a priori</em> upper bound for <span class="math notranslate nohighlight">\(e_p\)</span>.
 Whatever the reported votes <span class="math notranslate nohighlight">\(v_{pi}\)</span> are on ballot <span class="math notranslate nohighlight">\(p\)</span>, we can find the
 potential values of the actual votes <span class="math notranslate nohighlight">\(a_{pi}\)</span> that would make the
-error <span class="math notranslate nohighlight">\(e_p\)</span> largest, because <span class="math notranslate nohighlight">\(a_{pi}\)</span> can only be zero or one:
-$<span class="math notranslate nohighlight">\(
+error <span class="math notranslate nohighlight">\(e_p\)</span> largest, because <span class="math notranslate nohighlight">\(a_{pi}\)</span> can only be zero or one:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}} \le 
     \frac{v_{pw}- 0 - v_{p\ell} + 1}{V_{w\ell}}.
-\)</span><span class="math notranslate nohighlight">\(
-Hence,
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Hence,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     e_p \le \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} 
     \frac{v_{pw} - v_{p\ell} + 1}{V_{w\ell}} \equiv \tilde{u}_p.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Knowing that <span class="math notranslate nohighlight">\(e_p \le \tilde{u}_p\)</span> might let us conclude reliably that <span class="math notranslate nohighlight">\(E &lt; 1\)</span>
 by examining only a small fraction of the ballots–depending on the
 values <span class="math notranslate nohighlight">\(\{ \tilde{u}_p\}_{p=1}^N\)</span> and on the values of <span class="math notranslate nohighlight">\(\{e_p\}\)</span> for the audited ballots.</p>
@@ -552,13 +565,14 @@ of drawing ballot <span class="math notranslate nohighlight">\(p\)</span> in eac
 (Since <span class="math notranslate nohighlight">\(\tilde{u}_p \ge 0\)</span>, these are all positive numbers, and they sum to 1,
 so they define a probability distribution on the <span class="math notranslate nohighlight">\(N\)</span> ballots.)</p>
 <p>Let <span class="math notranslate nohighlight">\(T_j\)</span> be the value of <span class="math notranslate nohighlight">\(t_p\)</span> for the ballot <span class="math notranslate nohighlight">\(p\)</span> selected in the <span class="math notranslate nohighlight">\(j\)</span>th draw.
-Then <span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^n\)</span> are IID, <span class="math notranslate nohighlight">\(\mathbb{P} \{T_j \le 1\} = 1\)</span>, and
-$<span class="math notranslate nohighlight">\(
+Then <span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^n\)</span> are IID, <span class="math notranslate nohighlight">\(\mathbb{P} \{T_j \le 1\} = 1\)</span>, and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \mathbb{E} T_1 = \sum_{p=1}^N \tilde{u}_p/\tilde{U} t_p =
   \frac{1}{\tilde{U}}\sum_{p=1}^N \tilde{u}_p \frac{e_p}{\tilde{u}_p} = 
   \frac{1}{\tilde{U}} \sum_{p=1}^N e_p = E/\tilde{U}.
-\)</span><span class="math notranslate nohighlight">\(
-Thus \)</span>E = \tilde{U} \mathbb{E} T_1$.</p>
+\end{equation*}\]</div>
+<p>Thus <span class="math notranslate nohighlight">\(E = \tilde{U} \mathbb{E} T_1\)</span>.</p>
 <p>So, if we have strong evidence that
 <span class="math notranslate nohighlight">\(\mathbb{E} T_1 &lt; 1/\tilde{U}\)</span>, we have
 strong evidence that <span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
@@ -566,37 +580,41 @@ strong evidence that <span class="math notranslate nohighlight">\(E &lt; 1\)</sp
 a simple upper bound that does not depend on any <span class="math notranslate nohighlight">\(v_{pi}\)</span>.
 At worst, the CVR for ballot <span class="math notranslate nohighlight">\(p\)</span> shows a vote for the “least-winning” apparent winner of the contest with the smallest margin, but a hand interpretation shows a vote for the runner-up in
 that contest.
-Since <span class="math notranslate nohighlight">\(V_{w\ell} \ge V\)</span> and <span class="math notranslate nohighlight">\(0 \le v_{pi} \le 1\)</span>,
-$<span class="math notranslate nohighlight">\( 
+Since <span class="math notranslate nohighlight">\(V_{w\ell} \ge V\)</span> and <span class="math notranslate nohighlight">\(0 \le v_{pi} \le 1\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \tilde{u}_p = \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} 
     \frac{v_{pw} - v_{p\ell} + 1}{V_{w\ell}}
     \le \max_c \max_{w \in \mathcal{W}_c, \ell \in \mathcal{L}_c} 
     \frac{1 - 0 + 1}{V_{w\ell}}
     \le \frac{2}{V}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Thus, if we define <span class="math notranslate nohighlight">\(u_p \equiv 2/V\)</span> and
 sample ballots at random with probability proportional to <span class="math notranslate nohighlight">\(u_p\)</span>, in fact
 we will sample ballots with <em>equal</em> probability.
-Define
-$<span class="math notranslate nohighlight">\( 
+Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    U \equiv \sum_{p=1}^N \frac{2}{V} = \frac{2N}{V} = 2/\mu
-\)</span><span class="math notranslate nohighlight">\(
-and re-define \)</span>t_p \equiv e_p/u_p<span class="math notranslate nohighlight">\( (rather than \)</span>e_p/\tilde{u}<em>p<span class="math notranslate nohighlight">\();
-let \)</span>T_j<span class="math notranslate nohighlight">\( be the value of \)</span>t_p<span class="math notranslate nohighlight">\( for the ballot selected at random in the
-\)</span>j<span class="math notranslate nohighlight">\(th draw, as before.
-Then still \)</span>{T_j}</em>{j=1}^n<span class="math notranslate nohighlight">\( are IID, \)</span>\mathbb{P} {T_j \le 1} = 1<span class="math notranslate nohighlight">\(,
-and
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and re-define <span class="math notranslate nohighlight">\(t_p \equiv e_p/u_p\)</span> (rather than <span class="math notranslate nohighlight">\(e_p/\tilde{u}_p\)</span>);
+let <span class="math notranslate nohighlight">\(T_j\)</span> be the value of <span class="math notranslate nohighlight">\(t_p\)</span> for the ballot selected at random in the
+<span class="math notranslate nohighlight">\(j\)</span>th draw, as before.
+Then still <span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^n\)</span> are IID, <span class="math notranslate nohighlight">\(\mathbb{P} \{T_j \le 1\} = 1\)</span>,
+and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \mathbb{E} T_1 = \sum_{p=1}^N \frac{u_p}{U} t_p =
   \frac{1}{U}\sum_{p=1}^N u_p \frac{e_p}{u_p} = 
   \frac{1}{U} \sum_{p=1}^N e_p = E/U = \frac{\mu}{2} E,
-\)</span><span class="math notranslate nohighlight">\(
-i.e., 
-\)</span><span class="math notranslate nohighlight">\( 
+\end{equation*}\]</div>
+<p>i.e.,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     E = \frac{2}{\mu}\mathbb{E} T_1.
-\)</span><span class="math notranslate nohighlight">\(
-So, if we have evidence that \)</span>\mathbb{E} T_1 &lt; \mu/2 = 1/U<span class="math notranslate nohighlight">\(, we have evidence that 
-\)</span>E &lt; 1$.</p>
+\end{equation*}\]</div>
+<p>So, if we have evidence that <span class="math notranslate nohighlight">\(\mathbb{E} T_1 &lt; \mu/2 = 1/U\)</span>, we have evidence that
+<span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
 </div>
 </div>
 <div class="section" id="p-values">
@@ -616,36 +634,39 @@ denoted <span class="math notranslate nohighlight">\(\Sigma\)</span>.)</p>
 <p>One particularly general and flexible definition of a <span class="math notranslate nohighlight">\(P\)</span>-value is that it is any random variable <span class="math notranslate nohighlight">\(P\)</span> for which <span class="math notranslate nohighlight">\(\Pr_G \{ P \le t \} \le t\)</span> for all <span class="math notranslate nohighlight">\(t \in [0, 1]\)</span>.
 That is, it is <em>stochastically smaller</em> than a uniform random variable if the null hypothesis is true.</p>
 <p>Another definition of <span class="math notranslate nohighlight">\(P\)</span>-values is in terms of <em>rejection regions</em> for a family of tests.
-For every value <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>, we have a measurable set <span class="math notranslate nohighlight">\(R_\alpha \in \Sigma\)</span> such that
-$<span class="math notranslate nohighlight">\(
+For every value <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>, we have a measurable set <span class="math notranslate nohighlight">\(R_\alpha \in \Sigma\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \sup_{G \in \mathcal{G}} \Pr_G \{ Y \in R_\alpha \} \le \alpha.
-\)</span><span class="math notranslate nohighlight">\(
-If the hypothesis \)</span>G \in \mathcal{G}<span class="math notranslate nohighlight">\( is true, the chance that the datum \)</span>Y<span class="math notranslate nohighlight">\( 
-will be in the set \)</span>R_\alpha<span class="math notranslate nohighlight">\( is no greater than \)</span>\alpha<span class="math notranslate nohighlight">\(. 
-The set \)</span>R_\alpha<span class="math notranslate nohighlight">\( is the _rejection region_ of a significance-level 
-\)</span>\alpha<span class="math notranslate nohighlight">\( test of the null hypothesis.
-The hypothesis is rejected at significance level \)</span>\alpha<span class="math notranslate nohighlight">\( if \)</span>Y \in R_\alpha<span class="math notranslate nohighlight">\(.
-If we conclude that the hypothesis is false whenever \)</span>Y \in R_\alpha<span class="math notranslate nohighlight">\(, 
-the chance of erroneously concluding that the hypothesis is false if 
-it is in fact true is at most \)</span>\alpha$.</p>
+\end{equation*}\]</div>
+<p>If the hypothesis <span class="math notranslate nohighlight">\(G \in \mathcal{G}\)</span> is true, the chance that the datum <span class="math notranslate nohighlight">\(Y\)</span>
+will be in the set <span class="math notranslate nohighlight">\(R_\alpha\)</span> is no greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.
+The set <span class="math notranslate nohighlight">\(R_\alpha\)</span> is the <em>rejection region</em> of a significance-level
+<span class="math notranslate nohighlight">\(\alpha\)</span> test of the null hypothesis.
+The hypothesis is rejected at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> if <span class="math notranslate nohighlight">\(Y \in R_\alpha\)</span>.
+If we conclude that the hypothesis is false whenever <span class="math notranslate nohighlight">\(Y \in R_\alpha\)</span>,
+the chance of erroneously concluding that the hypothesis is false if
+it is in fact true is at most <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <p>To define <span class="math notranslate nohighlight">\(P\)</span>-values, we shall also insist that rejection regions for different significance
 levels nest:
-If <span class="math notranslate nohighlight">\(0 &lt; \beta &lt; \gamma &lt; 1\)</span>, then
-$<span class="math notranslate nohighlight">\(
+If <span class="math notranslate nohighlight">\(0 &lt; \beta &lt; \gamma &lt; 1\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     R_\beta \subset R_\gamma.
-\)</span><span class="math notranslate nohighlight">\(
-This ensures that if the family of tests rejects the hypothesis at significance level \)</span>\alpha<span class="math notranslate nohighlight">\(, it
-also rejects the hypothesis at every significance level greater than \)</span>\alpha<span class="math notranslate nohighlight">\(.
-We also define \)</span>R_1 \equiv \mathcal{Y}$.</p>
+\end{equation*}\]</div>
+<p>This ensures that if the family of tests rejects the hypothesis at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>, it
+also rejects the hypothesis at every significance level greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.
+We also define <span class="math notranslate nohighlight">\(R_1 \equiv \mathcal{Y}\)</span>.</p>
 <p>Given this structure, the <span class="math notranslate nohighlight">\(P\)</span>-value of the null hypothesis given the
-observation <span class="math notranslate nohighlight">\(Y = y\)</span> is
-$<span class="math notranslate nohighlight">\(
+observation <span class="math notranslate nohighlight">\(Y = y\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     P \equiv \inf \{ \alpha \in (0, 1] : y \in R_\alpha \}.
-\)</span><span class="math notranslate nohighlight">\(
-That is, the \)</span>P<span class="math notranslate nohighlight">\(-value is the smallest significance level at 
+\end{equation*}\]</div>
+<p>That is, the <span class="math notranslate nohighlight">\(P\)</span>-value is the smallest significance level at
 which the family of tests rejects the hypothesis.
-Because of the nesting, the family rejects the hypothesis for all significance 
-levels greater than the \)</span>P$-value.</p>
+Because of the nesting, the family rejects the hypothesis for all significance
+levels greater than the <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
 <p>The <span class="math notranslate nohighlight">\(P\)</span>-value depends not only on the hypothesis <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and the observation that <span class="math notranslate nohighlight">\(Y = y\)</span>,
 but also on the family of hypothesis tests (the sets <span class="math notranslate nohighlight">\(R_\alpha\)</span>, <span class="math notranslate nohighlight">\(\alpha \in (0, 1]\)</span>).
 Different tests in general give different <span class="math notranslate nohighlight">\(P\)</span>-values for the same hypothesis
@@ -660,45 +681,52 @@ given the same data.</p>
 summary <span class="math notranslate nohighlight">\(\phi(Y)\)</span> of the vector <span class="math notranslate nohighlight">\(Y\)</span>, where <span class="math notranslate nohighlight">\(\phi\)</span> is a <span class="math notranslate nohighlight">\(\Sigma\)</span>-measurable function from <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> to <span class="math notranslate nohighlight">\(\Re\)</span>.
 The rejection region is then expressed in terms of <span class="math notranslate nohighlight">\(\phi(Y)\)</span>:
 The null hypothesis is rejected if <span class="math notranslate nohighlight">\(\phi(Y) \le f_\alpha\)</span>,
-where <span class="math notranslate nohighlight">\(f_\alpha\)</span> is chosen to satisfy
-$<span class="math notranslate nohighlight">\(
+where <span class="math notranslate nohighlight">\(f_\alpha\)</span> is chosen to satisfy</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \sup_{G \in \mathcal{G}} \mathbb{P}_G \{ \phi(Y) \le f_\alpha \} \le \alpha.
-\)</span><span class="math notranslate nohighlight">\(
-The nesting condition requires that for \)</span>0 &lt; \beta &lt; \gamma &lt; 1<span class="math notranslate nohighlight">\(,
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>The nesting condition requires that for <span class="math notranslate nohighlight">\(0 &lt; \beta &lt; \gamma &lt; 1\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
     \{ y \in \mathcal{Y} : \phi(y) \le f_\beta \} \subset \{ y \in \mathcal{Y} : \phi(y) \le f_\gamma \};
-\)</span><span class="math notranslate nohighlight">\(
-i.e., \)</span>f_\alpha<span class="math notranslate nohighlight">\( should increase monotonically with \)</span>\alpha<span class="math notranslate nohighlight">\(.
-The \)</span>P<span class="math notranslate nohighlight">\(-value of the hypothesis for the observation \)</span>Y = y<span class="math notranslate nohighlight">\( is then
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>i.e., <span class="math notranslate nohighlight">\(f_\alpha\)</span> should increase monotonically with <span class="math notranslate nohighlight">\(\alpha\)</span>.
+The <span class="math notranslate nohighlight">\(P\)</span>-value of the hypothesis for the observation <span class="math notranslate nohighlight">\(Y = y\)</span> is then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    P = \inf \{ \alpha : \phi(y) \le f_\alpha \}.
-\)</span>$</p>
+\end{equation*}\]</div>
 </div>
 <div class="section" id="the-kaplan-markov-inequality">
 <h2>The Kaplan-Markov Inequality<a class="headerlink" href="#the-kaplan-markov-inequality" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are iid with <span class="math notranslate nohighlight">\(\mathbb{P}\{X_j \ge 0\} = 1\)</span>.
-Form the nonnegative Martingale:
-$<span class="math notranslate nohighlight">\(
+Form the nonnegative Martingale:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \left ( X_1/\mathbb{E} X_1, (X_1/\mathbb{E} X_1)\cdot(X_2/\mathbb{E} X_1), ..., \prod_{j=1}^n X_n/\mathbb{E} X_1 \right ).
-\)</span><span class="math notranslate nohighlight">\(
-The expected value of each term is 1.
-Kaplan (1987) notes a result in Breiman (1992, p.88) that applies Markov's inequality to an
-optionally stopped nonnegative martingale \)</span>Z_1, Z_2, \ldots<span class="math notranslate nohighlight">\(: 
-For any \)</span>z &gt; 0<span class="math notranslate nohighlight">\(, \)</span>\mathbb{P} { \max_{j=1}^n Z_j &gt; z } \le \mathbb{E} Z_n/z<span class="math notranslate nohighlight">\(.
-In the case at hand, that gives:
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>The expected value of each term is 1.
+Kaplan (1987) notes a result in Breiman (1992, p.88) that applies Markov’s inequality to an
+optionally stopped nonnegative martingale <span class="math notranslate nohighlight">\(Z_1, Z_2, \ldots\)</span>:
+For any <span class="math notranslate nohighlight">\(z &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\mathbb{P} \{ \max_{j=1}^n Z_j &gt; z \} \le \mathbb{E} Z_n/z\)</span>.
+In the case at hand, that gives:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \mathbb{P} \left \{ \max_{j=1}^n \prod_{i=1}^j X_j/\mathbb{E} X_1 &gt; 1/\alpha \right \} \le \alpha. 
-\)</span>$
-This is the Kaplan-Markov inequality (see also Stark, 2009).</p>
-<p>We can reject the hypothesis that <span class="math notranslate nohighlight">\(\mathbb{E} X_j \le \mu\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> if
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>This is the Kaplan-Markov inequality (see also Stark, 2009).</p>
+<p>We can reject the hypothesis that <span class="math notranslate nohighlight">\(\mathbb{E} X_j \le \mu\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \max_{j=1}^n \prod_{i=1}^j X_i/\mu &gt; 1/\alpha. 
-\)</span><span class="math notranslate nohighlight">\(
-If we observe \)</span>(X_j = x_j)_{j=1}^n<span class="math notranslate nohighlight">\(, the \)</span>P<span class="math notranslate nohighlight">\(-value of the hypothesis that
-\)</span>\mathbb{E} X_1 \le \mu<span class="math notranslate nohighlight">\( is
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>If we observe <span class="math notranslate nohighlight">\((X_j = x_j)_{j=1}^n\)</span>, the <span class="math notranslate nohighlight">\(P\)</span>-value of the hypothesis that
+<span class="math notranslate nohighlight">\(\mathbb{E} X_1 \le \mu\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    \left ( \max_{j=1}^n \prod_{i=1}^j x_j/\mu \right )^{-1}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>This derivation gave a <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis that <span class="math notranslate nohighlight">\(\mathbb{E} X_1 \le \mu\)</span>
 starting with the assumptions that <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are IID and
 <span class="math notranslate nohighlight">\(\mathbb{P}\{X_1 \ge 0\} = 1\)</span>.
@@ -706,10 +734,11 @@ But in election auditing, we want a <span class="math notranslate nohighlight">\
 and we know that <span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^n\)</span> are IID and <span class="math notranslate nohighlight">\(\mathbb{P}\{T_1 \le 1\} = 1\)</span>.
 The transformation <span class="math notranslate nohighlight">\(X_j = 1 - T_j\)</span> transforms one problem into the other.</p>
 <p>The <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis
-<span class="math notranslate nohighlight">\(E \ge 1\)</span> if we observe <span class="math notranslate nohighlight">\((T_j = t_j)_{j=1}^n\)</span> is
-$<span class="math notranslate nohighlight">\( 
+<span class="math notranslate nohighlight">\(E \ge 1\)</span> if we observe <span class="math notranslate nohighlight">\((T_j = t_j)_{j=1}^n\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    P_{KM} \equiv \min_{j=1}^n \prod_{i=1}^j \frac{1 - 1/U}{1 - t_i}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>The <span class="math notranslate nohighlight">\(P\)</span>-value <span class="math notranslate nohighlight">\(P_{KM}\)</span> can depend on the order in which the
 data are collected, which is discomfiting unless the data are in fact
 collected sequentially.</p>
@@ -763,11 +792,11 @@ expanding the audit, and the inflator <span class="math notranslate nohighlight"
 Let <span class="math notranslate nohighlight">\(e_j\)</span> be the value of the error <span class="math notranslate nohighlight">\(e_p\)</span>
 for the <span class="math notranslate nohighlight">\(j\)</span>th randomly selected ballot.
 The Kaplan-Markov MACRO <span class="math notranslate nohighlight">\(P\)</span>-value is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    P_{KM} \le \prod_{j=1}^n \frac{1 - 1/U}{1 - \frac{e_j}{u_j}}
    = ( 1 - 1/U )^n \prod_{j=1}^n \left ( 1 - e_j\frac{V}{2\gamma} \right )^{-1}.
-\]</div>
+\end{equation*}\]</div>
 <p>An audit with simultaneous risk limit <span class="math notranslate nohighlight">\(\alpha\)</span> can be conducted by continuing to hand count
 the votes on ballots selected at random
 until <span class="math notranslate nohighlight">\(P_{KM} \le \alpha\)</span> or until the votes on all the ballots have been counted by hand
@@ -782,21 +811,24 @@ the audit to inspect more ballots.</p>
 <p>The first step is to give up some of the advantages of normalizing errors by the
 margins they affect, so that errors that affect wide margins will count the same
 as errors that affect narrow margins.</p>
-<p>Recall that a sufficient condition for all the reported outcomes to be correct is
-$<span class="math notranslate nohighlight">\(
+<p>Recall that a sufficient condition for all the reported outcomes to be correct is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
   \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V_{w\ell}} &lt; 1.
-\)</span><span class="math notranslate nohighlight">\(
-Since 
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Since</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    V \equiv \min_c \min_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} V_{w\ell},
-\)</span><span class="math notranslate nohighlight">\(
-an even more restrictive sufficient condition is
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>an even more restrictive sufficient condition is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \sum_{p=1}^N  \max_c \max_{w \in \mathcal{W}_c,  \ell \in \mathcal{L}_c} 
   \frac{v_{pw}-a_{pw} - v_{p\ell} + a_{p\ell}}{V} &lt; 1.
-\)</span>$
-This condition insists that the sum over ballots of the largest error
+\end{equation*}\]</div>
+<p>This condition insists that the sum over ballots of the largest error
 in <em>any</em> margin in <em>any</em> contest on the ballot be less than the <em>smallest</em> margin
 between any winner and any loser in any contest.
 Clearly, this gives up a lot, since a 1-vote error in a wide margin matters less
@@ -845,30 +877,32 @@ For such a ballot, <span class="math notranslate nohighlight">\(e_p = 2/V\)</spa
 <li><p><span class="math notranslate nohighlight">\(u_2\)</span>: #ballots that understate <em>every</em> margin by two votes (in general, if a contest with has more than one reported loser, there cannot be any such ballots).
 For such a ballot, <span class="math notranslate nohighlight">\(e_p = -2/V\)</span> and <span class="math notranslate nohighlight">\(t_p = -1/\gamma\)</span>.</p></li>
 </ul>
-<p>Then, once we have drawn <span class="math notranslate nohighlight">\(n\)</span> ballots at random
-$<span class="math notranslate nohighlight">\( 
+<p>Then, once we have drawn <span class="math notranslate nohighlight">\(n\)</span> ballots at random</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    P_{KM}  \le  P(n, o_1, u_1, o_2, u_2; U, \gamma) \equiv 
        \left (1 - 1/U \right )^n \times 
        \prod_{j=1}^n ( 1 - t_j )^{-1}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 = ( 1 - 1/U )^n
   \left ( 1 - \frac{1}{2\gamma}\right )^{-o_1} 
   \left ( 1 - \frac{1}{\gamma}\right )^{-o_2} 
   \left ( 1 + \frac{1}{2\gamma}\right )^{-u_1} 
   \left ( 1 + \frac{1}{\gamma}\right )^{-u_2}.   
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>If the audit stops only when <span class="math notranslate nohighlight">\(P(n, o_1, u_1, o_2, u_2; U, \gamma) \le \alpha\)</span> (or when all ballots have been tallied manually and the result is known), the risk of certifying
 an incorrect outcome is limited to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <p>In practice, it’s easier to work with logarithms, so that the only operations required are addition and subtraction.  The termination condition becomes:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   n \log \left ( 1 - \frac{\mu}{2\gamma} \right ) 
   - o_1 \log \left ( 1 - \frac{1}{2\gamma}\right ) 
   - o_2 \log \left ( 1 - \frac{1}{\gamma}\right )
   - u_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
   - u_2 \log \left ( 1 + \frac{1}{\gamma}\right ) &lt; \log \alpha.
-\]</div>
+\end{equation*}\]</div>
 </div>
 </div>
 <div class="section" id="estimating-the-required-sample-size">
@@ -878,23 +912,23 @@ at rates <span class="math notranslate nohighlight">\((\omega_1, \omega_2, \upsi
 How large should we expect <span class="math notranslate nohighlight">\(n\)</span> will need to be before the audit can stop?</p>
 <p>We expect <span class="math notranslate nohighlight">\(n \omega_1\)</span> 1-vote overstatements in a sample of size <span class="math notranslate nohighlight">\(n\)</span>, etc.
 The expected termination condition is thus:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    n \left [ \log \left ( 1 - \frac{\mu}{2\gamma} \right ) 
   - \omega_1 \log \left ( 1 - \frac{1}{2\gamma}\right ) 
   - \omega_2 \log \left ( 1 - \frac{1}{\gamma}\right )
   - \upsilon_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
   - \upsilon_2 \log \left ( 1 + \frac{1}{\gamma}\right ) \right ] &lt; \log \alpha.
-\]</div>
+\end{equation*}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(n\)</span> gives</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   n \ge \frac{\log \alpha}{\log \left ( 1 - \frac{\mu}{2\gamma} \right ) 
   - \omega_1 \log \left ( 1 - \frac{1}{2\gamma}\right ) 
   - \omega_2 \log \left ( 1 - \frac{1}{\gamma}\right )
   - \upsilon_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
   - \upsilon_2 \log \left ( 1 + \frac{1}{\gamma}\right )},
-\]</div>
+\end{equation*}\]</div>
 <p>provided the denominator of the right hand side is strictly negative—which is
 a necessary condition for the audit to terminate without a full hand count
 (in expectation).</p>
@@ -904,18 +938,21 @@ error could account for the margin, the audit should go to a full hand count.
 The restriction on the denominator is slightly stronger (more restrictive),
 because of the asymmetry between understatements and understatements in the Kaplan-Markov
 <span class="math notranslate nohighlight">\(P\)</span>-value:
-for <span class="math notranslate nohighlight">\(0 &lt; x &lt; 1\)</span>,
-$<span class="math notranslate nohighlight">\(
+for <span class="math notranslate nohighlight">\(0 &lt; x &lt; 1\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \log ( 1 - x ) &lt; - \log (1 + x),
-\)</span><span class="math notranslate nohighlight">\(
-which one can see from the two Taylor series:
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>which one can see from the two Taylor series:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \log (1+x) = x - x^2/2 + x^3/3 - \cdots
-\)</span><span class="math notranslate nohighlight">\(
-versus
-\)</span><span class="math notranslate nohighlight">\( 
+\end{equation*}\]</div>
+<p>versus</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \log (1-x) = -x - x^2/2 - x^3/2 - \cdots.
-\)</span>$</p>
+\end{equation*}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
@@ -1095,10 +1132,10 @@ above, defining <span class="math notranslate nohighlight">\(u_p \equiv \gamma/|
 Define <span class="math notranslate nohighlight">\(m \equiv v_{\mathrm{yes}}-\tau(v_{\mathrm{yes}}+v_{\mathrm{no}})\)</span>.</p>
 <p>There are three possible magnitudes for an error (<span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(1-\tau\)</span>, and <span class="math notranslate nohighlight">\(\tau\)</span>), each with with two possible signs.</p>
 <p>The total upper bound on the error as a fraction of the margin is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   U \equiv \sum_{p=1}^N u_p = N\gamma/|m|.
-\]</div>
+\end{equation*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(v_{py}\)</span> denote the number of reported votes for “yes” on ballot <span class="math notranslate nohighlight">\(p\)</span> and let <span class="math notranslate nohighlight">\(v_{pn}\)</span> be the
 number of reported votes for “no” on ballot <span class="math notranslate nohighlight">\(p\)</span>, so <span class="math notranslate nohighlight">\(0 \le v_{py} + v_{pn} \le 1\)</span>.</p>
 <p>Define <span class="math notranslate nohighlight">\(e_p\)</span> to be the signed overstatement error in the margin in votes resulting from how the voting system interpreted ballot <span class="math notranslate nohighlight">\(p\)</span>, normalized by the margin.</p>
@@ -1113,22 +1150,23 @@ If <span class="math notranslate nohighlight">\(v_{py} = 1\)</span> and <span cl
 </ul>
 <p>Let <span class="math notranslate nohighlight">\(E = \sum_p e_p\)</span>. The reported outcome is correct if <span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
 <p>As before, define <span class="math notranslate nohighlight">\(t_p \equiv e_p/u_p = e_p/\gamma\)</span>, draw ballots independently with replacement with probability <span class="math notranslate nohighlight">\(u_p/U\)</span>, and let <span class="math notranslate nohighlight">\(T_j\)</span> be the value of <span class="math notranslate nohighlight">\(t_p\)</span> for the ballot selected on the <span class="math notranslate nohighlight">\(j\)</span>th draw.
-Then
-$<span class="math notranslate nohighlight">\(
+Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   \mathbb{E} T_1 = \sum_{p=1}^N \frac{u_p}{U} t_p = \frac{1}{U} \sum_{p=1}^N u_p e_p/u_p =  \frac{E}{U},
-\)</span><span class="math notranslate nohighlight">\(
-so \)</span>E = U \mathbb{E} T_1<span class="math notranslate nohighlight">\(, and evidence that \)</span>\mathbb{E}T_1 &lt; 1/U<span class="math notranslate nohighlight">\( is evidence that \)</span>E &lt; 1$.</p>
+\end{equation*}\]</div>
+<p>so <span class="math notranslate nohighlight">\(E = U \mathbb{E} T_1\)</span>, and evidence that <span class="math notranslate nohighlight">\(\mathbb{E}T_1 &lt; 1/U\)</span> is evidence that <span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
 <p>A risk-limiting audit with risk limit <span class="math notranslate nohighlight">\(\alpha\)</span> can stop if an when</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
    P  = ( 1 - 1/U )^n \prod_{j=1}^n \left ( 1 - e_j/u_j \right )^{-1}  =
    ( 1 - 1/U )^n \prod_{j=1}^n \left ( 1 - e_j|m|/\gamma \right )^{-1}&lt; \alpha.
-\]</div>
+\end{equation*}\]</div>
 <p>Taking logs yields the condition</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
   n \log ( 1 - 1/U ) - \sum_{j=1}^n \log ( 1 - e_j|m|/\gamma ) &lt; \log \alpha.
-\]</div>
+\end{equation*}\]</div>
 <div class="section" id="choosing-gamma">
 <h3>Choosing <span class="math notranslate nohighlight">\(\gamma\)</span><a class="headerlink" href="#choosing-gamma" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we want the “cost” (in terms of the increase to the sample size) of mistaking a “no” vote for a “yes” vote <span class="math notranslate nohighlight">\(k\)</span> times larger than the “cost” of mistaking an invalid vote for a “yes” vote.</p>
