@@ -290,25 +290,35 @@
 </ul>
 <p>(We will ignore issues of measurability here: tacitly assume that for all <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>, <span class="math notranslate nohighlight">\(A_\eta\)</span> is <span class="math notranslate nohighlight">\(\mathbb P_\theta\)</span>-measurable
 and that <span class="math notranslate nohighlight">\(\mathcal I(X)\)</span> is set-valued <span class="math notranslate nohighlight">\(\mathbb P_\theta\)</span>-measurable function.)</p>
-<div class="definition">
-$A_\theta \subset \mathcal X$ is the acceptance region for a level-$\alpha$ test of the hypothesis $\mu = \theta$ iff
-$$\mathbb P_\theta (X \notin A_\theta) \le \alpha.$$
+<div class="admonition">
+<p class="title">Definition</p>
+<p><span class="math notranslate nohighlight">\(A_\theta \subset \mathcal X\)</span> is the acceptance region for a level-<span class="math notranslate nohighlight">\(\alpha\)</span> test of the hypothesis <span class="math notranslate nohighlight">\(\mu = \theta\)</span> iff</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \mathbb P_\theta (X \notin A_\theta) \le \alpha.\end{equation*}\]</div>
 </div>
-<div class="definition">
-$\mathcal I(X)$ is a $1-\alpha$ confidence set for $\mu$ iff 
-$$ \forall \theta \in \Theta, \;\;\; \mathbb P_\theta ( \mathcal I(X) \ni \theta) \ge 1-\alpha.$$
+<div class="admonition">
+<p class="title">Definition</p>
+<p><span class="math notranslate nohighlight">\(\mathcal I(X)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for <span class="math notranslate nohighlight">\(\mu\)</span> iff</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \forall \theta \in \Theta, \;\;\; \mathbb P_\theta ( \mathcal I(X) \ni \theta) \ge 1-\alpha.\end{equation*}\]</div>
 </div>
-<div class="proposition">
-Suppose 
-$$\{A_\theta: \theta \in \Theta \}$$
-is a family of level-$\alpha$ acceptance regions. Then 
-$$ \mathcal I(X) \equiv \{ \theta \in \Theta: X \in A_\theta \}$$
-is a $1-\alpha$ confidence set for $\mu$.
-</div><div class="proof">
- For any $\theta \in \Theta$,
-   $$ \mathbb P_\theta \left (\{ \eta \in \Theta: X \in A_\eta \} \ni \theta \right )  = 
-        \mathbb P_\theta ( X \in A_\theta ) $$
-   $$ \ge 1-\alpha.$$
+<div class="admonition">
+<p class="title">Proposition</p>
+<p>Suppose</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \{A_\theta: \theta \in \Theta \}\end{equation*}\]</div>
+<p>is a family of level-<span class="math notranslate nohighlight">\(\alpha\)</span> acceptance regions. Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mathcal I(X) \equiv \{ \theta \in \Theta: X \in A_\theta \}\end{equation*}\]</div>
+<p>is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+</div><div class="admonition">
+<p class="title">Proof</p>
+<p>For any <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mathbb P_\theta \left (\{ \eta \in \Theta: X \in A_\eta \} \ni \theta \right )  = 
+        \mathbb P_\theta ( X \in A_\theta ) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \ge 1-\alpha.\end{equation*}\]</div>
 </div></div>
 <div class="section" id="we-will-use-this-approachinverting-teststo-construct-confidence-sets">
 <h2>We will use this approach—inverting tests—to construct confidence sets.<a class="headerlink" href="#we-will-use-this-approachinverting-teststo-construct-confidence-sets" title="Permalink to this headline">¶</a></h2>
@@ -325,14 +335,17 @@ is a $1-\alpha$ confidence set for $\mu$.
 <h2>Example: one-sided binomial tests<a class="headerlink" href="#example-one-sided-binomial-tests" title="Permalink to this headline">¶</a></h2>
 <p>Consider <span class="math notranslate nohighlight">\(n\)</span> independent, uniform draws (i.e., a random sample with replacement) from a <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> population containing a fraction <span class="math notranslate nohighlight">\(p\)</span> of 1s.
 Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of 1s in the random sample. Then <span class="math notranslate nohighlight">\(X\)</span> has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>In particular,
-$<span class="math notranslate nohighlight">\( \mathbb P_{n,p} (X = k) = {n \choose k} p^k (1-p)^{n-k}\)</span><span class="math notranslate nohighlight">\(
-for \)</span>0 \le k \le n$.</p>
+<p>In particular,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mathbb P_{n,p} (X = k) = {n \choose k} p^k (1-p)^{n-k}\end{equation*}\]</div>
+<p>for <span class="math notranslate nohighlight">\(0 \le k \le n\)</span>.</p>
 <p>To find a one-sided lower confidence bound for <span class="math notranslate nohighlight">\(p\)</span> in a Binomial<span class="math notranslate nohighlight">\((n,p)\)</span> distribution, with <span class="math notranslate nohighlight">\(n\)</span> known, we would invert one-sided upper tests, that is, tests that reject the hypothesis <span class="math notranslate nohighlight">\(p = \pi\)</span> when <span class="math notranslate nohighlight">\(X\)</span> is large.</p>
-<p>The form of the acceptance region for the test is:
-$<span class="math notranslate nohighlight">\( A_\pi \equiv \ [0, a_\pi],\)</span><span class="math notranslate nohighlight">\(
-where 
-\)</span><span class="math notranslate nohighlight">\( a_\pi \equiv \min \left \{ k: \sum_{i=k+1}^n {{n}\choose{i}} \pi^i (1-\pi)^{n-i} \le \alpha \right \}.\)</span>$</p>
+<p>The form of the acceptance region for the test is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  A_\pi \equiv \ [0, a_\pi],\end{equation*}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  a_\pi \equiv \min \left \{ k: \sum_{i=k+1}^n {{n}\choose{i}} \pi^i (1-\pi)^{n-i} \le \alpha \right \}.\end{equation*}\]</div>
 <p>Let’s see this graphically:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -394,10 +407,12 @@ where
 </div>
 <div class="section" id="inverting-the-test-to-find-a-confidence-bound">
 <h2>Inverting the test to find a confidence bound<a class="headerlink" href="#inverting-the-test-to-find-a-confidence-bound" title="Permalink to this headline">¶</a></h2>
-<p>To turn this family of tests into a lower confidence bound, we need to find
-$<span class="math notranslate nohighlight">\( \min \{ \pi: A_\pi \ni X \},\)</span><span class="math notranslate nohighlight">\(
-that is,
-\)</span><span class="math notranslate nohighlight">\( \min \left \{ \pi: \sum_{i=X}^n {{n}\choose{i}} \pi^i (1-\pi)^{n-i} &gt; \alpha \right \}.\)</span>$</p>
+<p>To turn this family of tests into a lower confidence bound, we need to find</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \min \{ \pi: A_\pi \ni X \},\end{equation*}\]</div>
+<p>that is,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \min \left \{ \pi: \sum_{i=X}^n {{n}\choose{i}} \pi^i (1-\pi)^{n-i} &gt; \alpha \right \}.\end{equation*}\]</div>
 <p>The following code implements this, using a bisection search.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
