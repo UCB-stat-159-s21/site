@@ -280,11 +280,12 @@
 <p>Intuitively, it makes sense to focus attention on the items with larger reported values, because “that’s where the money is.” Errors in the values of those items potentially have a larger effect on the error in the total reported value for the population.</p>
 <div class="section" id="the-math">
 <h3>The math<a class="headerlink" href="#the-math" title="Permalink to this headline">¶</a></h3>
-<p>There are <span class="math notranslate nohighlight">\(N\)</span> items, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span>. There are <span class="math notranslate nohighlight">\(N\)</span> known numbers <span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^N\)</span> such that
-$<span class="math notranslate nohighlight">\(
+<p>There are <span class="math notranslate nohighlight">\(N\)</span> items, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span>. There are <span class="math notranslate nohighlight">\(N\)</span> known numbers <span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^N\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    0 \le x_j \le u_j, \; j = 1, \ldots, N.
-\)</span><span class="math notranslate nohighlight">\(
-Define \)</span>u \equiv \sum_{j=1}^N u_j<span class="math notranslate nohighlight">\(, \)</span>x \equiv \sum_{j=1}^N x_j<span class="math notranslate nohighlight">\(, and \)</span>\mu \equiv x/N = \frac{1}{N} \sum_{j=1}^N x_j.$</p>
+\end{equation*}\]</div>
+<p>Define <span class="math notranslate nohighlight">\(u \equiv \sum_{j=1}^N u_j\)</span>, <span class="math notranslate nohighlight">\(x \equiv \sum_{j=1}^N x_j\)</span>, and <span class="math notranslate nohighlight">\(\mu \equiv x/N = \frac{1}{N} \sum_{j=1}^N x_j.\)</span></p>
 <p>We will consider only sampling with replacement (although this can be extended to sampling without replacement).</p>
 <p>In the <span class="math notranslate nohighlight">\(i\)</span>th draw, we select item <span class="math notranslate nohighlight">\(j\)</span> with probability <span class="math notranslate nohighlight">\(\pi_j \equiv u_j/u\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X_i\)</span> be the true value of the item selected in draw <span class="math notranslate nohighlight">\(i\)</span>, and let <span class="math notranslate nohighlight">\(U_i\)</span> be the reported value of the item selected in draw <span class="math notranslate nohighlight">\(i\)</span>.</p>
@@ -296,11 +297,12 @@ Define \)</span>u \equiv \sum_{j=1}^N u_j<span class="math notranslate nohighlig
 <p>Define <span class="math notranslate nohighlight">\(t_j \equiv x_j/u_j\)</span>. This value, the “taint,” is the fraction of the reported value that the true value represents.</p>
 <p>Define <span class="math notranslate nohighlight">\(t \equiv x/u\)</span>. (This is <em>not</em> parallel to the definitions of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(u\)</span>.)</p>
 <p>Define <span class="math notranslate nohighlight">\(T_i \equiv X_i/U_i\)</span>, the taint of the item selected in the <span class="math notranslate nohighlight">\(i\)</span>th draw. Then <span class="math notranslate nohighlight">\(\{T_i \}\)</span> are iid.</p>
-<p>Calculate:
-$<span class="math notranslate nohighlight">\(
+<p>Calculate:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mathbb E T_i = \sum_{j=1}^N t_j \pi_j = \sum_{j=1}^N (x_j/u_j) (u_j/u) = \frac{1}{u}\sum_{j=1}^N x_j = x/u = t.
-\)</span><span class="math notranslate nohighlight">\(
-Thus the expected value of the taint for any draw, times \)</span>u<span class="math notranslate nohighlight">\(, is the population total \)</span>x$.</p>
+\end{equation*}\]</div>
+<p>Thus the expected value of the taint for any draw, times <span class="math notranslate nohighlight">\(u\)</span>, is the population total <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Since <span class="math notranslate nohighlight">\(u\)</span> is known, we can translate an upper confidence bound for <span class="math notranslate nohighlight">\(\mathbb E T_i\)</span> into an upper confidence bound for <span class="math notranslate nohighlight">\(x\)</span> or for <span class="math notranslate nohighlight">\(\mu\)</span> by multiplication.</p>
 <p>This is the relationship we will exploit to connect auditing problems to the problem of finding a nonparametric confidence bound for the mean of a non-negative or bounded population.</p>
 <p>The main point is that since <span class="math notranslate nohighlight">\(\mathbb P \{T_i \in [0, 1]\} = 1\)</span>, we can use any of the methods we’ve developed for finding confidence bounds for the mean of nonnegative or bounded populations (Binomial with thresholding, Checychev’s inequality, Hoeffding’s inequality, Markov’s inequality, the MDKW inequality, and the Kaplan-Markov method) to make confidence bonds for <span class="math notranslate nohighlight">\(\mathbb E T_i\)</span>.  In turn, any confidence bound for <span class="math notranslate nohighlight">\(t\)</span> can be translated easily into a rigorous confidence bound for the population mean <span class="math notranslate nohighlight">\(\mu\)</span> and population total <span class="math notranslate nohighlight">\(x\)</span>.</p>
