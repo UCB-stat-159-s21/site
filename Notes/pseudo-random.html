@@ -478,13 +478,16 @@
 <ul>
 <li><p>suppose <span class="math notranslate nohighlight">\(\{X_i\}\)</span> is sequence of <span class="math notranslate nohighlight">\(P\)</span> <span class="math notranslate nohighlight">\(w\)</span>-bit integers</p></li>
 <li><p>define <span class="math notranslate nohighlight">\(t_v(X_i)\)</span> to be the first <span class="math notranslate nohighlight">\(v\)</span> bits of <span class="math notranslate nohighlight">\(X_i\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\{X_i\}\)</span> is <span class="math notranslate nohighlight">\(k\)</span>-distributed to <span class="math notranslate nohighlight">\(v\)</span>-bit accuracy if each of the <span class="math notranslate nohighlight">\(2^{kv}-1\)</span> possible nonzero <span class="math notranslate nohighlight">\(kv\)</span>-bit vectors occurs equally often among the <span class="math notranslate nohighlight">\(P\)</span> <span class="math notranslate nohighlight">\(kv\)</span>-bit vectors
-$<span class="math notranslate nohighlight">\( (t_v(X_i),\,t_v(X_{i+1}), \ldots ,t_v(X_{i+k-1}))\quad (0\le i&lt;P),\)</span>$
-and the zero vector occurs once less often.</p></li>
-<li><p>amounts to a form of uniformity in <span class="math notranslate nohighlight">\(k\)</span>-dimensional space, over an entire cycle</p></li>
-<li><p>does not measure dependence or other “serial” properties</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{X_i\}\)</span> is <span class="math notranslate nohighlight">\(k\)</span>-distributed to <span class="math notranslate nohighlight">\(v\)</span>-bit accuracy if each of the <span class="math notranslate nohighlight">\(2^{kv}-1\)</span> possible nonzero <span class="math notranslate nohighlight">\(kv\)</span>-bit vectors occurs equally often among the <span class="math notranslate nohighlight">\(P\)</span> <span class="math notranslate nohighlight">\(kv\)</span>-bit vectors</p></li>
 </ul>
 </li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  (t_v(X_i),\,t_v(X_{i+1}), \ldots ,t_v(X_{i+k-1}))\quad (0\le i&lt;P),\end{equation*}\]</div>
+<p>and the zero vector occurs once less often.
+- amounts to a form of uniformity in <span class="math notranslate nohighlight">\(k\)</span>-dimensional space, over an entire cycle
+- does not measure dependence or other “serial” properties</p>
+<ul class="simple">
 <li><p>sensitivity to initial state; burn-in</p>
 <ul>
 <li><p>many PRNGs don’t do well if the seed has too many zeros</p></li>
@@ -515,8 +518,8 @@ and the zero vector occurs once less often.</p></li>
 </div>
 <div class="section" id="linear-congruential-generators-lcgs">
 <h2>Linear Congruential Generators (LCGs)<a class="headerlink" href="#linear-congruential-generators-lcgs" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
-\[ X_{n+1} = (aX_n +c)\mod m.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  X_{n+1} = (aX_n +c)\mod m.\end{equation*}\]</div>
 <p>LCG period is at most <span class="math notranslate nohighlight">\(m\)</span>.</p>
 <div class="section" id="hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff">
 <h3>Hull-Dobell Theorem: the period of an LCG is <span class="math notranslate nohighlight">\(m\)</span> for all seeds <span class="math notranslate nohighlight">\(X_0\)</span> iff<a class="headerlink" href="#hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff" title="Permalink to this headline">¶</a></h3>
@@ -536,8 +539,8 @@ and the zero vector occurs once less often.</p></li>
 <h2>RANDU<a class="headerlink" href="#randu" title="Permalink to this headline">¶</a></h2>
 <p>RANDU is a particularly bad <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">linear congruential generator</a> promulgated in the 1960s and widely copied.</p>
 <p>RANDU is given by the recursion</p>
-<div class="math notranslate nohighlight">
-\[ X_{j+1} = 65539 X_j\mod 2^{31}.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  X_{j+1} = 65539 X_j\mod 2^{31}.\end{equation*}\]</div>
 <p>Period is (<span class="math notranslate nohighlight">\(2^{29}\)</span>); all outputs are odd integers.</p>
 <p>Triples of values from RANDU fall on 15 planes in 3-dimensional space, as shown below.</p>
 <div class="cell docutils container">
@@ -804,21 +807,21 @@ uint32_t pcg32_random_r(pcg32_random_t* rng)
 <h1>1 step of SHA-256<a class="headerlink" href="#step-of-sha-256" title="Permalink to this headline">¶</a></h1>
 <p>By User:kockmeyer - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1823488</p>
 <p><img alt="SHA-2" src="../_images/SHA-2.svg" /></p>
-<div class="math notranslate nohighlight">
-\[ \mbox{Ch} (E,F,G) \equiv (E\land F)\oplus (\neg E\land G) \]</div>
-<div class="math notranslate nohighlight">
-\[ \mbox{Ma} (A,B,C) \equiv (A\land B)\oplus (A\land C)\oplus (B\land C) \]</div>
-<div class="math notranslate nohighlight">
-\[ \Sigma _0 (A) \equiv (A\!\ggg \!2)\oplus (A\!\ggg \!13)\oplus (A\!\ggg \!22) \]</div>
-<div class="math notranslate nohighlight">
-\[ \Sigma _1 (E) \equiv (E\!\ggg \!6)\oplus (E\!\ggg \!11)\oplus (E\!\ggg \!25) \]</div>
-<div class="math notranslate nohighlight">
-\[\boxplus  \mbox{ is addition mod } 2^{32}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mbox{Ch} (E,F,G) \equiv (E\land F)\oplus (\neg E\land G) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mbox{Ma} (A,B,C) \equiv (A\land B)\oplus (A\land C)\oplus (B\land C) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \Sigma _0 (A) \equiv (A\!\ggg \!2)\oplus (A\!\ggg \!13)\oplus (A\!\ggg \!22) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \Sigma _1 (E) \equiv (E\!\ggg \!6)\oplus (E\!\ggg \!11)\oplus (E\!\ggg \!25) \end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \boxplus  \mbox{ is addition mod } 2^{32}\end{equation*}\]</div>
 <div class="section" id="simple-hash-based-prng">
 <h2>Simple, hash-based PRNG<a class="headerlink" href="#simple-hash-based-prng" title="Permalink to this headline">¶</a></h2>
 <p>Generate a random string <span class="math notranslate nohighlight">\(S\)</span> of reasonable length, e.g., 20 digits.</p>
-<div class="math notranslate nohighlight">
-\[ X_i = {\mbox{Hash}}(S+i),\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  X_i = {\mbox{Hash}}(S+i),\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(+\)</span> denotes string concatenation, and the resulting string is interpreted as a (long) hexadecimal number.</p>
 <p><strong>“Counter mode.”  Hash-based generators of this type have unbounded state spaces.</strong></p>
 <p>Implementation in Python by Ron Rivest: http://people.csail.mit.edu/rivest/sampler.py</p>
