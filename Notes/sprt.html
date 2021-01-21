@@ -322,22 +322,16 @@ Wald (1945) showed that if <span class="math notranslate nohighlight">\(H_0\)</s
 that the likelihood ratio
 is ever greater than <span class="math notranslate nohighlight">\(1/\alpha\)</span>, no matter how many observations are made.
 More generally, we have:</p>
-<p class="gap01">&nbsp;</p>
-<div class="theorem"> Wald's SPRT
-<p>For any $\alpha \in (0, 1)$ and $\beta \in [0, 1)$, the following sequential 
-    algorithm tests the hypothesis $H_0$ at level no larger than 
-   $\alpha$ and with power at least $1-\beta$
-   against the alternative $H_1$.
-</p>
-<p>
-   Set $m=0$.
-</p> 
-   <ol>
-     <li> Increment $m$
-     <li> If $\frac{f_{1m}}{f_{0m}} \ge \frac{1-\beta}{\alpha}$, stop and reject $H_0$.</li>
-     <li> If $\frac{f_{1m}}{f_{0m}} \le \frac{\beta}{1-\alpha}$, stop and do not reject $H_0$.</li>
-     <li> If $\frac{\beta}{1-\alpha} < \frac{f_{1m}}{f_{0m}} < \frac{1-\beta}{\alpha}$, go to step 1.  </li>
-   </ol>
+<div class="admonition"> Wald's SPRT
+    <p class="title">Theorem</p>
+<p>For any <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span> and <span class="math notranslate nohighlight">\(\beta \in [0, 1)\)</span>, the following sequential algorithm tests the hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> at level no larger than <span class="math notranslate nohighlight">\(\alpha\)</span> and with power at least <span class="math notranslate nohighlight">\(1-\beta\)</span> against the alternative <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
+<p>Set <span class="math notranslate nohighlight">\(m=0\)</span>.</p>
+<ol class="simple">
+<li><p>Increment <span class="math notranslate nohighlight">\(m\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\frac{f_{1m}}{f_{0m}} \ge \frac{1-\beta}{\alpha}\)</span>, stop and reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\frac{f_{1m}}{f_{0m}} \le \frac{\beta}{1-\alpha}\)</span>, stop and do not reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\frac{\beta}{1-\alpha} &lt; \frac{f_{1m}}{f_{0m}} &lt; \frac{1-\beta}{\alpha}\)</span>, go to step 1.</p></li>
+</ol>
 </div></div>
 <div class="section" id="sprt-miracle">
 <h2>SPRT miracle<a class="headerlink" href="#sprt-miracle" title="Permalink to this headline">¶</a></h2>
@@ -359,28 +353,32 @@ and let <span class="math notranslate nohighlight">\(p_1 &gt; p_0\)</span>.</p>
 <li><p>If <span class="math notranslate nohighlight">\(X_j = 0\)</span>, <span class="math notranslate nohighlight">\(\mbox{LR} \leftarrow \mbox{LR} \times (1-p_1)/(1- p_0)\)</span>.</p></li>
 </ul>
 <p>What’s <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> at stage <span class="math notranslate nohighlight">\(m\)</span>?
-Let <span class="math notranslate nohighlight">\(T_m \equiv \sum_{j=1}^m X_j\)</span>.
-$<span class="math notranslate nohighlight">\(
+Let <span class="math notranslate nohighlight">\(T_m \equiv \sum_{j=1}^m X_j\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      \frac{p_{1m}}{p_{0m}} \equiv 
          \frac{p_1^{T_m}(1-p_1)^{m-T_m}}{p_0^{T_m}(1-p_0)^{m-T_m}}.
-\)</span><span class="math notranslate nohighlight">\(
-This is the ratio of binomial probability when \)</span>p = p_1<span class="math notranslate nohighlight">\( to binomial probability when
-\)</span>p = p_0<span class="math notranslate nohighlight">\( (the binomial coefficients in the numerator and denominator cancel).
-It simplifies further to
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>This is the ratio of binomial probability when <span class="math notranslate nohighlight">\(p = p_1\)</span> to binomial probability when
+<span class="math notranslate nohighlight">\(p = p_0\)</span> (the binomial coefficients in the numerator and denominator cancel).
+It simplifies further to</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \frac{p_{1m}}{p_{0m}} = (p_0/p_1)^{T_m} ((1-p_0)/(1-p_1))^{m-T_m}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <div class="callout">
 <p class="subtitle">Wald's SPRT for $p$ in iid Bernoulli trials</p>
-<p>Conclude <span class="math notranslate nohighlight">\(p &gt; p_0\)</span> if
-$<span class="math notranslate nohighlight">\(
+<p>Conclude <span class="math notranslate nohighlight">\(p &gt; p_0\)</span> if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      \frac{p_{1m}}{p_{0m}} \ge \frac{1-\beta}{\alpha}.
-\)</span><span class="math notranslate nohighlight">\(
-Conclude \)</span>p \le p_0<span class="math notranslate nohighlight">\( if
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Conclude <span class="math notranslate nohighlight">\(p \le p_0\)</span> if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      \frac{p_{1m}}{p_{0m}} \le \frac{\beta}{1-\alpha}.
-\)</span>$
-Otherwise, draw again.</p>
+\end{equation*}\]</div>
+<p>Otherwise, draw again.</p>
 </div>
 <p>The SPRT approximately minimizes the
 expected sample size
@@ -497,46 +495,46 @@ Under <span class="math notranslate nohighlight">\(H_0\)</span>, this chance is 
 <span class="math notranslate nohighlight">\(p_{11} = \gamma\)</span>.</p>
 <p>Given the values of <span class="math notranslate nohighlight">\(\{a_{\mathbb B_k}\}_{k=1}^i\)</span>, the conditional
 probability that the <span class="math notranslate nohighlight">\(i\)</span>th draw gives an item with value 1 is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \{a_{\mathbb B_i} = 1 | {\mathcal B_{i-1}} \} = \frac{ \sum_{b \notin {\mathcal B_{i-1}}} N_b a_b}{\sum_{b \notin {\mathcal B_{i-1}}} N_b}.
-\]</div>
+\end{equation*}\]</div>
 <p>Under <span class="math notranslate nohighlight">\(H_0\)</span>, this chance is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    p_{0i} =  \frac{N/2 - \sum_{b \in {\mathcal B_{i-1}}} N_b a_b}{N - \sum_{b \in {\mathcal B_{i-1}}} N_b}.
-\]</div>
+\end{equation*}\]</div>
 <p>Under <span class="math notranslate nohighlight">\(H_1\)</span>, this chance is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    p_{1i} = \frac{N \gamma - \sum_{b \in {\mathcal B_{i-1}}} N_b a_b}{N - \sum_{b \in {\mathcal B_{i-1}}} N_b}.
-\]</div>
+\end{equation*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(X_k\)</span> be the indicator of the event that the <span class="math notranslate nohighlight">\(k\)</span>th draw gives an item with
 value <span class="math notranslate nohighlight">\(1\)</span>, i.e., the indicator of the event <span class="math notranslate nohighlight">\(a_{\mathbb B_k} = 1\)</span>.
 The likelihood ratio for a given sequence <span class="math notranslate nohighlight">\(\{X_k\}_{k=1}^i\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mbox{LR} = \frac{\prod_{k=1}^i p_{1k}^{X_k}(1-p_{1k})^{1-X_k}}
          {\prod_{k=1}^i p_{0k}^{X_k}(1-p_{0k})^{1-X_k}}.
-\]</div>
+\end{equation*}\]</div>
 <p>This can be simplified: <span class="math notranslate nohighlight">\(p_{0k}\)</span> and <span class="math notranslate nohighlight">\(p_{1k}\)</span> have the same denominator,
 <span class="math notranslate nohighlight">\(N - \sum_{b \in {\mathcal B_{i-1}}} N_b\)</span>,
 and their numerators share a term.
 Define <span class="math notranslate nohighlight">\(N(k) \equiv \sum_{j = 1}^{k-1}N_b\)</span> and
 <span class="math notranslate nohighlight">\(A(k) \equiv \sum_{j = 1}^{k-1}N_b a_b\)</span>.
 Then</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mbox{LR} = \prod_{k=1}^i 
     \left ( \frac{N\gamma - A(k)}{N/2 - A(k)} \right )^{X_k}
     \left ( \frac{N-N\gamma - (N(k) - A(k))}{N-N/2 - (N(k)-A(k))} \right )^{1-X_k}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    = \prod_{k=1}^i
 \left ( \frac{N\gamma - A(k)}{N/2 - A(k)} \right )^{X_k}
 \left ( \frac{N(1-\gamma) - N(k) + A(k)}{N/2 - N(k) + A(k)} \right )^{1-X_k},
-\]</div>
+\end{equation*}\]</div>
 <p>where the products are defined to be infinite if the denominator vanishes anywhere.</p>
 <p>If <span class="math notranslate nohighlight">\(H_0\)</span> is true, the chance that <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> is ever greater than <span class="math notranslate nohighlight">\(1/\alpha\)</span>
 is at most <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
@@ -559,43 +557,43 @@ The null hypothesis <span class="math notranslate nohighlight">\(N_\ell \ge N_w\
 Let <span class="math notranslate nohighlight">\(X_k\)</span> be the label of the item selected on the <span class="math notranslate nohighlight">\(k\)</span>th draw; let <span class="math notranslate nohighlight">\(W_n \equiv \sum_{k=1}^n 1_{X_k = w}\)</span>;
 and define <span class="math notranslate nohighlight">\(L_n\)</span> and <span class="math notranslate nohighlight">\(U_n\)</span> analogously.</p>
 <p>The probability of a given data sequence <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> under the alternative hypothesis is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \frac{V_w(V_w - 1) \cdots (V_w - W_n+1) \times 
     V_\ell(V_\ell - 1) \cdots (V_\ell - L_n+1) \times
     V_u(V_u - 1) \cdots (V_u - U_n+1)}{N(N-1) \cdots (N-n+1)}.
-\]</div>
+\end{equation*}\]</div>
 <p>If <span class="math notranslate nohighlight">\(L_n \ge W_n\)</span>, the data obviously do not provide evidence against the null, so we suppose that
 <span class="math notranslate nohighlight">\(L_n &lt; W_n\)</span>, in which case, the element of the null that will maximize the probability of the observed data
 has a tie: <span class="math notranslate nohighlight">\(N_w = N_\ell\)</span>.
 Under the null hypothesis, the probability of <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \frac{N_w(N_w - 1) \cdots (N_w - W_n+1) \times 
     N_w(N_w - 1) \cdots (N_w - L_n+1) \times
     N_u(N_u - 1) \cdots (N_u - U_n+1)}{N(N-1) \cdots (N-n+1)},
-\]</div>
+\end{equation*}\]</div>
 <p>for some value <span class="math notranslate nohighlight">\(N_w\)</span> and the corresponding <span class="math notranslate nohighlight">\(N_u = N - 2N_w\)</span>.</p>
 <p>How large can that probability be under the null?
 Certainly no larger than the likelihood of the maximum likelihood estimate of <span class="math notranslate nohighlight">\(N_w\)</span> when <span class="math notranslate nohighlight">\(N_w\)</span> is constrained to
 equal <span class="math notranslate nohighlight">\(N_\ell\)</span>.
 We thus have a one-dimensional optimization problem.
 The probability under the null is maximized by any integer value <span class="math notranslate nohighlight">\(x \in \{ \max(W_n, L_n), \ldots, (N-U_n)/2 \}\)</span> that maximizes</p>
-<div class="math notranslate nohighlight">
-\[x(x - 1) \cdots (x - W_n+1) \times x(x - 1) \cdots (x - L_n+1) \times (N-2x)(N-2x - 1) \cdots (N-2x - U_n+1).\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} x(x - 1) \cdots (x - W_n+1) \times x(x - 1) \cdots (x - L_n+1) \times (N-2x)(N-2x - 1) \cdots (N-2x - U_n+1).\end{equation*}\]</div>
 <p>The logarithm is monotonic, so any maximizer, <span class="math notranslate nohighlight">\(x^*\)</span>, also maximizes</p>
-<div class="math notranslate nohighlight">
-\[ f(x) = \sum_{i=0}^{W_n-1} \ln (x-i) + \sum_{i=0}^{L_n-1} \ln (x-i) + \sum_{i=0}^{U_n-1} \ln (N-2x-i).\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  f(x) = \sum_{i=0}^{W_n-1} \ln (x-i) + \sum_{i=0}^{L_n-1} \ln (x-i) + \sum_{i=0}^{U_n-1} \ln (N-2x-i).\end{equation*}\]</div>
 <p>If we treat <span class="math notranslate nohighlight">\(x\)</span> as a continuous variable, we can differentiate <span class="math notranslate nohighlight">\(f\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span>.
 The second derivative is negative, so the function is convex, and a local maximum is
 a global maximum.
 The optimal value will be the integer value of <span class="math notranslate nohighlight">\(x\)</span> closest to the real value of <span class="math notranslate nohighlight">\(x\)</span> that is
 a stationary point.</p>
 <p>A conservative <span class="math notranslate nohighlight">\(p\)</span> value for the null hypothesis after <span class="math notranslate nohighlight">\(n\)</span> items have been drawn is thus</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \frac{\prod_{i=0}^{W_n-1} (x^*-i) \; \prod_{i=0}^{L_n-1}  (x^*-i) \; \prod_{i=0}^{U_n-1} (N-2x^*-i)}{\prod_{i=0}^{W_n-1}(V_w-i) \; \prod_{i=0}^{L_n-1} (V_\ell-i) \; \prod_{i=0}^{U_n-1} (V_u-i)}.
-\]</div>
+\end{equation*}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## TO DO: implement stationary point calculation</span>

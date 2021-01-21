@@ -247,15 +247,15 @@ If we test each <span class="math notranslate nohighlight">\(H_k\)</span> at lev
 <p>We do not have to test every <span class="math notranslate nohighlight">\(H_k\)</span> against the same alternative.</p>
 <p>Let us consider testing <span class="math notranslate nohighlight">\(H_k\)</span> against <span class="math notranslate nohighlight">\(H_{kd}: N_w - N_\ell = c+d_k, N_u = k\)</span>.
 The hypotheses are equivalent to</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   H_k: N_u = k, N_w \le (N-k+c)/2, N_\ell \ge (N-k-c)/2
-\]</div>
+\end{equation*}\]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   H_{kd}: N_u = k, N_w = (N-k+c+d_k)/2, N_\ell = (N-k-c-d_k)/2.
-\]</div>
+\end{equation*}\]</div>
 <p>Suppose we draw a sample sequentially without replacement, and that in <span class="math notranslate nohighlight">\(n\)</span>
 draws we see <span class="math notranslate nohighlight">\(W_n\)</span> items labeled “w” and <span class="math notranslate nohighlight">\(L_n\)</span> items labeled “l,”
 and let <span class="math notranslate nohighlight">\(U_n \equiv n - W_n - L_n\)</span>.</p>
@@ -267,10 +267,10 @@ Let <span class="math notranslate nohighlight">\(N_{wk} \equiv \lfloor (N-k+c)/2
 <span class="math notranslate nohighlight">\(N_{wkd} \equiv \lfloor (N-k+c+d_k)/2 \rfloor\)</span>, and
 <span class="math notranslate nohighlight">\(N_{\ell kd} \equiv \lceil (N-k-c-d_k)/2 \rceil\)</span>.</p>
 <p>The likelihood ratio for <span class="math notranslate nohighlight">\(H_{kd}\)</span> to <span class="math notranslate nohighlight">\(H_k\)</span> to is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
   \mathcal{L}_{k,n} \equiv  \frac{\prod_{i=0}^{W_n} (N_{wkd} - i) \prod_{i=0}^{L_n} (N_{\ell kd} - i) \prod_{i=0}^{U_n} (k - i)}{\prod_{i=0}^{W_n} (N_{wk} - i) \prod_{i=0}^{L_n} (N_{\ell k} - i) \prod_{i=0}^{U_n} (k - i)} = \frac{\prod_{i=0}^{W_n} (N_{wkd} - i) \prod_{i=0}^{L_n} (N_{\ell kd} - i)}{\prod_{i=0}^{W_n} (N_{wk} - i) \prod_{i=0}^{L_n} (N_{\ell k} - i)}.
-\]</div>
+\end{equation*}\]</div>
 <p><strong>This might need additional restrictions in case a value of <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(d\)</span>, or <span class="math notranslate nohighlight">\(k\)</span>
 is impossible given <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(W_n\)</span>, <span class="math notranslate nohighlight">\(L_n\)</span>.</strong></p>
 <p>If <span class="math notranslate nohighlight">\(\max_{0 \le k \le N-c} \mathcal{L}_{k,n} \ge 1/\alpha\)</span>, we can reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>

@@ -796,18 +796,18 @@ See also Bennett et al., 1969.</p>
 <ul class="simple">
 <li><p>2-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[ 
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
               \frac{\mbox{mean(treatment) - mean(control)}}
                    {\mbox{pooled estimate of SD of difference of means}}
-\]</div>
+\end{equation*}\]</div>
 <ul class="simple">
 <li><p>1-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 	      \frac{\mbox{mean(differences)}}{\mbox{SD(differences)}/\sqrt{11}}
-\]</div>
+\end{equation*}\]</div>
 <p>Better, since littermates are presumably more homogeneous.</p>
 <ul class="simple">
 <li><p>Permutation test using <span class="math notranslate nohighlight">\(t\)</span>-statistic of differences:
@@ -897,21 +897,21 @@ beliefs: the “measurements” made by introspection are not independent of the
 <div class="section" id="lecam-s-coin-tossing-example">
 <h3>LeCam’s coin-tossing example<a class="headerlink" href="#lecam-s-coin-tossing-example" title="Permalink to this headline">¶</a></h3>
 <p>Toss a fair coin <span class="math notranslate nohighlight">\(k\)</span> times independently; <span class="math notranslate nohighlight">\(X\)</span> is the number of heads; <span class="math notranslate nohighlight">\(\theta\)</span> is the chance of heads.</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \mathbb{P}(X=k || \theta) = {n \choose k} \theta^k (1-\theta)^{n-k}.
-\]</div>
+\end{equation*}\]</div>
 <p>Suppose prior is of the form</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \pi(\theta) = \frac{\theta^\alpha (1-\theta)^\beta}{\int t^\alpha (1-t)^\beta dt}.
-\]</div>
+\end{equation*}\]</div>
 <p>After tossing the coin, the posterior distribution will be of the same form.</p>
 <p>Suppose it turns out to be</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    p(\theta) = C \theta^{100}(1-\theta)^{100}.
-\]</div>
+\end{equation*}\]</div>
 <p>According to Bayesian inference, that is everything there is to know about <span class="math notranslate nohighlight">\(\theta\)</span> based on prior beliefs and
 the experiment.</p>
 <p>But doesn’t it matter whether this is simply a prior, the posterior after 5 tosses, or the posterior after 200 tosses?</p>

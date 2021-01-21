@@ -262,11 +262,25 @@
   <a class="reference internal nav-link" href="#combinatorics">
    Combinatorics
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#strategies-for-counting">
    Strategies for counting
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-exercise">
+     Computational exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numerical-stability-and-order-of-operations">
@@ -277,6 +291,18 @@
   <a class="reference internal nav-link" href="#connecting-probability-to-set-theory">
    Connecting Probability to Set Theory
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercises.
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bayes-rule">
@@ -294,7 +320,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id2">
      Exercises.
     </a>
    </li>
@@ -372,49 +398,57 @@ If <span class="math notranslate nohighlight">\(B\)</span> is not a subset of <s
 is the set of all objects under consideration (<span class="math notranslate nohighlight">\({\mathcal X}\)</span>) that are not elements of <span class="math notranslate nohighlight">\(A\)</span>.
 That is, <span class="math notranslate nohighlight">\(A^c \equiv \{ a \in {\mathcal X} : a \not \in A\}\)</span>.</p>
 <p>The <em>intersection</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cap B\)</span> or <span class="math notranslate nohighlight">\(AB\)</span>, is the set of all objects that
-are elements of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:
-$<span class="math notranslate nohighlight">\(
+are elements of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 A \cap B \equiv \{a: a \in A \mbox{ and } a \in B \}.
-\)</span><span class="math notranslate nohighlight">\(
-If \)</span>A \cap B = \emptyset<span class="math notranslate nohighlight">\(, we say \)</span>A<span class="math notranslate nohighlight">\( and \)</span>B$ are <em>disjoint</em> or <em>mutually
+\end{equation*}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, we say <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>disjoint</em> or <em>mutually
 exclusive</em>.</p>
 <p>The <em>union</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cup B\)</span>, is the set of all objects that
-are elements of <span class="math notranslate nohighlight">\(A\)</span> or of <span class="math notranslate nohighlight">\(B\)</span> (or both):
-$<span class="math notranslate nohighlight">\(
+are elements of <span class="math notranslate nohighlight">\(A\)</span> or of <span class="math notranslate nohighlight">\(B\)</span> (or both):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 A \cup B \equiv \{a: a \in A \mbox{ or } a \in B \mbox{ or both} \}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>The <em>difference</em> or <em>set difference</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A \setminus B\)</span>, pronounced “<span class="math notranslate nohighlight">\(A\)</span> minus <span class="math notranslate nohighlight">\(B\)</span>,” is
-the set of all elements of <span class="math notranslate nohighlight">\(A\)</span> that are not elements of <span class="math notranslate nohighlight">\(B\)</span>:
-$<span class="math notranslate nohighlight">\(
+the set of all elements of <span class="math notranslate nohighlight">\(A\)</span> that are not elements of <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 A \setminus B \equiv \{a \in A : a \not \in B \} = A \cap B^c.
-\)</span>$</p>
-<p><em>Intervals</em> are special subsets of <span class="math notranslate nohighlight">\({\mathbf R}\)</span>:
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p><em>Intervals</em> are special subsets of <span class="math notranslate nohighlight">\({\mathbf R}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 [a, b] \equiv \{x \in \Re : a \le x \le b\}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 (a, b] \equiv \{x \in \Re : a &lt; x \le b\}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 [a, b) \equiv \{x \in \Re : a \le x &lt; b\}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 (a, b) \equiv \{x \in \Re : a &lt; x &lt; b\}.
-\)</span><span class="math notranslate nohighlight">\(
-Sometimes we have a collection of sets, _indexed_ by elements of another
-set: \)</span>{A_\beta : \beta \in B }<span class="math notranslate nohighlight">\(.
-Then \)</span>B<span class="math notranslate nohighlight">\( is called an _index set_.
-If \)</span>B<span class="math notranslate nohighlight">\( is a subset of the integers \)</span>{\mathbf Z}<span class="math notranslate nohighlight">\(, usually we write \)</span>A_i<span class="math notranslate nohighlight">\( or \)</span>A_j<span class="math notranslate nohighlight">\(, etc.,
-rather than \)</span>A_\beta<span class="math notranslate nohighlight">\(.
-If \)</span>B = {\mathbf N}<span class="math notranslate nohighlight">\(, we usually write \)</span>{A_j}<em>{j=1}^\infty<span class="math notranslate nohighlight">\( rather than
-\)</span>{A</em>\beta : \beta \in {\mathbf N}  }<span class="math notranslate nohighlight">\(.
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Sometimes we have a collection of sets, <em>indexed</em> by elements of another
+set: <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span>.
+Then <span class="math notranslate nohighlight">\(B\)</span> is called an <em>index set</em>.
+If <span class="math notranslate nohighlight">\(B\)</span> is a subset of the integers <span class="math notranslate nohighlight">\({\mathbf Z}\)</span>, usually we write <span class="math notranslate nohighlight">\(A_i\)</span> or <span class="math notranslate nohighlight">\(A_j\)</span>, etc.,
+rather than <span class="math notranslate nohighlight">\(A_\beta\)</span>.
+If <span class="math notranslate nohighlight">\(B = {\mathbf N}\)</span>, we usually write <span class="math notranslate nohighlight">\(\{A_j\}_{j=1}^\infty\)</span> rather than
+<span class="math notranslate nohighlight">\(\{A_\beta : \beta \in {\mathbf N}  \}\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \bigcap_{\beta \in B} A_\beta \equiv \{a: a \in A_\beta \;\;\forall \beta \in B \}.
-\)</span><span class="math notranslate nohighlight">\(
-(\)</span>\forall<span class="math notranslate nohighlight">\( means &quot;for all.&quot;)
-If \)</span>B = {1, 2, \ldots, n}<span class="math notranslate nohighlight">\(, we usually write \)</span>\bigcap_{j=1}^n A_j<span class="math notranslate nohighlight">\( rather than
-\)</span>\bigcap_{j \in {1, 2, \ldots, n}} A_j<span class="math notranslate nohighlight">\(.
-The notation \)</span>\bigcup_{\beta \in B} A_\beta<span class="math notranslate nohighlight">\( and \)</span>\bigcup_{j=1}^n A_j$ are defined analogously.</p>
+\end{equation*}\]</div>
+<p>(<span class="math notranslate nohighlight">\(\forall\)</span> means “for all.”)
+If <span class="math notranslate nohighlight">\(B = \{1, 2, \ldots, n\}\)</span>, we usually write <span class="math notranslate nohighlight">\(\bigcap_{j=1}^n A_j\)</span> rather than
+<span class="math notranslate nohighlight">\(\bigcap_{j \in \{1, 2, \ldots, n\}} A_j\)</span>.
+The notation <span class="math notranslate nohighlight">\(\bigcup_{\beta \in B} A_\beta\)</span> and <span class="math notranslate nohighlight">\(\bigcup_{j=1}^n A_j\)</span> are defined analogously.</p>
 <p>A collection of sets <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> is <em>pairwise disjoint</em>
 if <span class="math notranslate nohighlight">\(A_\beta \cap A_{\beta'} = \emptyset\)</span> whenever <span class="math notranslate nohighlight">\(\beta \ne \beta'\)</span>.
 The collection <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B\}\)</span> <em>exhausts</em> or <em>covers</em>
@@ -440,29 +474,32 @@ correspondence with the elements of <span class="math notranslate nohighlight">\
 If the elements of <span class="math notranslate nohighlight">\(A\)</span> can be put in one-to-one correspondence with the elements of <span class="math notranslate nohighlight">\(\mathbf{R}\)</span>, then
 <span class="math notranslate nohighlight">\(\#A = c\)</span>, <em>the cardinality of the continuum</em>.</p>
 <p>The <em>power set</em> of a set <span class="math notranslate nohighlight">\(A\)</span>, denoted <span class="math notranslate nohighlight">\(2^A\)</span>, is the set of all subsets of the set <span class="math notranslate nohighlight">\(A\)</span>.
-For example, the power set of <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is
-$<span class="math notranslate nohighlight">\(
+For example, the power set of <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \{ \emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\} \}.
-\)</span><span class="math notranslate nohighlight">\(
-If \)</span>A<span class="math notranslate nohighlight">\( is a finite set, the cardinality of the power set of \)</span>A<span class="math notranslate nohighlight">\( is \)</span>2^{# A}<span class="math notranslate nohighlight">\(.
-This can be seen as follows: suppose \)</span># A = n<span class="math notranslate nohighlight">\( is finite.
-Consider the elements of \)</span>A<span class="math notranslate nohighlight">\( to be written in some canonical order.
-We can specify an element of the power set by an \)</span>n<span class="math notranslate nohighlight">\(-digit binary number.
-The first digit is 1 if the first element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise.
-The second digit is 1 if the second element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise,
+\end{equation*}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, the cardinality of the power set of <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(2^{\# A}\)</span>.
+This can be seen as follows: suppose <span class="math notranslate nohighlight">\(\# A = n\)</span> is finite.
+Consider the elements of <span class="math notranslate nohighlight">\(A\)</span> to be written in some canonical order.
+We can specify an element of the power set by an <span class="math notranslate nohighlight">\(n\)</span>-digit binary number.
+The first digit is 1 if the first element of <span class="math notranslate nohighlight">\(A\)</span> is in the subset, and 0 otherwise.
+The second digit is 1 if the second element of <span class="math notranslate nohighlight">\(A\)</span> is in the subset, and 0 otherwise,
 etc.
-There are \)</span>2^n<span class="math notranslate nohighlight">\( \)</span>n<span class="math notranslate nohighlight">\(-digit binary numbers, so there are \)</span>2^n<span class="math notranslate nohighlight">\( subsets.
-The cardinality of the power set of \)</span>{\mathbf N}<span class="math notranslate nohighlight">\( is not \)</span>\aleph_0$.</p>
+There are <span class="math notranslate nohighlight">\(2^n\)</span> <span class="math notranslate nohighlight">\(n\)</span>-digit binary numbers, so there are <span class="math notranslate nohighlight">\(2^n\)</span> subsets.
+The cardinality of the power set of <span class="math notranslate nohighlight">\({\mathbf N}\)</span> is not <span class="math notranslate nohighlight">\(\aleph_0\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, <span class="math notranslate nohighlight">\(B\)</span> is a countable set
-and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>, then
-$<span class="math notranslate nohighlight">\(
+and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \# A = \sum_{\beta \in B} \# A_\beta.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>Suppose <span class="math notranslate nohighlight">\(A = A_1 \cup A_2\)</span>, but that possibly <span class="math notranslate nohighlight">\(A_1 A_2 \ne \emptyset\)</span>,
 so <span class="math notranslate nohighlight">\(\{A_1, A_2\}\)</span> might not be a partition of <span class="math notranslate nohighlight">\(A\)</span>, because
 <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span> are not necessarily disjoint.
-Then still
-$<span class="math notranslate nohighlight">\(\#A = \#A_1 + \#A_2 - \#A_1A_2.\)</span>$</p>
+Then still</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \#A = \#A_1 + \#A_2 - \#A_1A_2.\end{equation*}\]</div>
 <p>This is seen most easily using a Venn diagram, and can be proved
 by constructing a partition of <span class="math notranslate nohighlight">\(A\)</span>,
 <span class="math notranslate nohighlight">\(A = A_1A_2^c \cup A_1^cA_2 \cup A_1A_2\)</span>, and noting that
@@ -470,14 +507,14 @@ by constructing a partition of <span class="math notranslate nohighlight">\(A\)<
 <p>If
 <span class="math notranslate nohighlight">\(A = A_1 \cup A_2 \cup A_3\)</span> but <span class="math notranslate nohighlight">\(\{A_1, A_2, A_3\}\)</span> are not necessarily disjoint,
 then still</p>
-<div class="math notranslate nohighlight">
-\[\#A = \#A_1 + \#A_2 + \#A_3 - \#A_1A_2 - \#A_1A_3 - \#A_2A_3 + \#A_1A_2A_3.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \#A = \#A_1 + \#A_2 + \#A_3 - \#A_1A_2 - \#A_1A_3 - \#A_2A_3 + \#A_1A_2A_3.\end{equation*}\]</div>
 <p>More generally, if <span class="math notranslate nohighlight">\(A = \cup_{i=1}^n A_i\)</span>, then the <em>Inclusion-Exclusion Principle</em> holds:</p>
-<div class="math notranslate nohighlight">
-\[ \#A = \sum_{i=1}^n \#A_i - \sum_{1 \le i_1 &lt; i_2 \le n} \#(A_{i_1}A_{i_2}) +
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \#A = \sum_{i=1}^n \#A_i - \sum_{1 \le i_1 &lt; i_2 \le n} \#(A_{i_1}A_{i_2}) +
 \sum_{1 \le i_1 &lt; i_2 &lt; i_3 \le n} \#(A_{i_1}A_{i_2}A_{i_3}) - \cdots 
 +(-1)^{k-1} \sum_{1 \le i_1 &lt; i_2 &lt; \cdots &lt; i_k \le n} \# (A_{i_1}A_{i_2} \cdots A_{i_k}) + \cdots
-\]</div>
+\end{equation*}\]</div>
 <div class="section" id="some-useful-set-relations">
 <h3>Some useful set relations<a class="headerlink" href="#some-useful-set-relations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -626,12 +663,13 @@ There are <span class="math notranslate nohighlight">\(n\)</span> choices for th
 for the item that will be in the <span class="math notranslate nohighlight">\(k\)</span>th place.
 By the fundamental rule of counting, it follows that
 <span class="math notranslate nohighlight">\({}_nP_k = n(n-1)\cdots(n-k+1) = n!/(n-k)!\)</span>.</p>
-<p>The number of subsets of size <span class="math notranslate nohighlight">\(k\)</span> that can be formed from <span class="math notranslate nohighlight">\(n\)</span> objects is
-$<span class="math notranslate nohighlight">\(
+<p>The number of subsets of size <span class="math notranslate nohighlight">\(k\)</span> that can be formed from <span class="math notranslate nohighlight">\(n\)</span> objects is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 {}_nC_k = {{n}\choose{k}} =
 {}_nP_k/k! = n(n-1)\cdots(n-k+1)/k! = \frac{n!}{k!(n-k)!},
-\)</span><span class="math notranslate nohighlight">\(
-since each subset of size \)</span>k<span class="math notranslate nohighlight">\( can be ordered into \)</span>k!$ permutations.</p>
+\end{equation*}\]</div>
+<p>since each subset of size <span class="math notranslate nohighlight">\(k\)</span> can be ordered into <span class="math notranslate nohighlight">\(k!\)</span> permutations.</p>
 <p>Here are some useful identities:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\( {{n}\choose{k}} = {{n}\choose{n-k}} \)</span>.</p></li>
@@ -641,19 +679,22 @@ since each subset of size \)</span>k<span class="math notranslate nohighlight">\
 <li><p><span class="math notranslate nohighlight">\( {{n} \choose {k}} = {{n-1}\choose{k-1}} + {{n-1} \choose {k}}\)</span>.</p></li>
 </ol>
 <p>Because the power set of a set with <span class="math notranslate nohighlight">\(n\)</span> elements can be partitioned as</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \cup_{k=0}^n \left \{ \mbox{all distinct subsets of size $k$}
 \right \},
-\]</div>
-<p>and since the power set has <span class="math notranslate nohighlight">\(2^n\)</span> elements, it follows that
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and since the power set has <span class="math notranslate nohighlight">\(2^n\)</span> elements, it follows that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \sum_{j=0}^n {{n} \choose {j}} = 2^n.
-\)</span>$</p>
-<hr />
-### Exercise
-Prove the five identities about binomial coefficients given above.
-<hr /><div class="cell docutils container">
+\end{equation*}\]</div>
+<hr class="docutils" />
+<div class="section" id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
+<p>Prove the five identities about binomial coefficients given above.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combinatorics in Python</span>
 
@@ -706,6 +747,7 @@ permutations of  2 elements of A: [(&#39;a&#39;, &#39;b&#39;), (&#39;a&#39;, &#3
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="strategies-for-counting">
 <h2>Strategies for counting<a class="headerlink" href="#strategies-for-counting" title="Permalink to this headline">¶</a></h2>
 <p>There are several approaches to counting the elements of a set that can be helpful in practice, aside from simply enumerating the elements.</p>
@@ -716,8 +758,9 @@ permutations of  2 elements of A: [(&#39;a&#39;, &#39;b&#39;), (&#39;a&#39;, &#3
 <li><p>Overinclude, then adjust: count a set that is larger than the set in question, then subtract the extras.</p></li>
 <li><p>Use the Inclusion-Exclusion Principle.</p></li>
 </ol>
-<hr />
-### Computational exercise
+<hr class="docutils" />
+<div class="section" id="computational-exercise">
+<h3>Computational exercise<a class="headerlink" href="#computational-exercise" title="Permalink to this headline">¶</a></h3>
 <p>Write a Python function that constructs all permutations of a finite list.</p>
 <p>The function should take as input a list s, and produce as output all permutations of the elements of the list. Items should be considered unique based on their position in the list.</p>
 <p>For instance,</p>
@@ -735,7 +778,9 @@ c b a
 </pre></div>
 </div>
 <p>Write your function from scratch; i.e., do not use any libraries that are not part of the core of Python (e.g., do not use the <span class="code">itertools</span> library).</p>
-<hr /></div>
+</div>
+</div>
+<hr class="docutils" />
 <div class="section" id="numerical-stability-and-order-of-operations">
 <h2>Numerical stability and order of operations<a class="headerlink" href="#numerical-stability-and-order-of-operations" title="Permalink to this headline">¶</a></h2>
 <p>As a matter of mathematics, <span class="math notranslate nohighlight">\({{n}\choose{k}} = \frac{n!}{k!(n-k)!}\)</span>, but this is a bad way to compute <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span>.
@@ -848,19 +893,20 @@ events occurs is the sum of the chances that they occur individually.)</p></li>
 <p>These axioms have many useful consequences, among them that <span class="math notranslate nohighlight">\({\mathbb P}(\emptyset) = 0\)</span>, <span class="math notranslate nohighlight">\({\mathbb P}(A^c) = 1 - {\mathbb P}(A)\)</span>,
 and <span class="math notranslate nohighlight">\({\mathbb P}(A \cup B) = {\mathbb P}(A) + {\mathbb P}(B) - {\mathbb P}(AB)\)</span>.
 More generally, the Inclusion-Exclusion Principle gives us</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \mathbb{P} \cup_{i=1}^n A_i  = \sum_{i=1}^n \mathbb{P} A_i 
 - \sum_{1 \le i_1 &lt; i_2 \le n} \mathbb{P}(A_{i_1}A_{i_2}) +
 \sum_{1 \le i_1 &lt; i_2 &lt; i_3 \le n} \mathbb{P}(A_{i_1}A_{i_2}A_{i_3}) - \cdots 
 +(-1)^{k-1} \sum_{1 \le i_1 &lt; i_2 &lt; \cdots &lt; i_k \le n} \mathbb{P} (A_{i_1}A_{i_2} \cdots A_{i_k}) + \cdots
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 = \sum_{i=1}^n \left((-1)^{i-1}\sum_{\mathcal{I} \subset\{1,\ldots,n\}: \#\mathcal I =i} \mathbb{P}(\cap_{j \in \mathcal{I}} A_j \right).
-\]</div>
-<hr />
-### Definitions
+\end{equation*}\]</div>
+<hr class="docutils" />
+<div class="section" id="definitions">
+<h3>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be subsets of outcome space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(AB = \emptyset\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>mutually exclusive</em>.</p></li>
@@ -872,13 +918,15 @@ is an element of <span class="math notranslate nohighlight">\(B\)</span>).</p></
 <li><p>If <span class="math notranslate nohighlight">\({\mathbb P}(B) &gt; 0\)</span>, then the <em>conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span></em> is
 <span class="math notranslate nohighlight">\({\mathbb P}(A | B) \equiv {\mathbb P}(AB)/{\mathbb P}(B)\)</span>.</p></li>
 </ul>
-<hr />
+<hr class="docutils" />
 <p>Independence is an extremely specific relationship.
 At one extreme, <span class="math notranslate nohighlight">\(AB = \emptyset\)</span>; then <span class="math notranslate nohighlight">\({\mathbb P}(AB) = 0 \le {\mathbb P}(A){\mathbb P}(B)\)</span>.
 At another extreme, either <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(B\)</span> or vice versa; then <span class="math notranslate nohighlight">\({\mathbb P}(AB) = \min({\mathbb P}(A),{\mathbb P}(B)) \ge {\mathbb P}(A){\mathbb P}(B)\)</span>.
 Independence lies at a precise point in between.</p>
-<hr />
-### Exercises.
+</div>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h3>Exercises.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent and <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt;0\)</span>, then
 <span class="math notranslate nohighlight">\(\mathbb{P}(A|B) = \mathbb{P}(A)\)</span>.</p></li>
@@ -891,24 +939,26 @@ Independence lies at a precise point in between.</p>
 </li>
 </ol>
 </div>
+</div>
+<hr class="docutils" />
 <div class="section" id="bayes-rule">
 <h2>Bayes’ Rule<a class="headerlink" href="#bayes-rule" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(\mathbb{P}(A)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{P}(B) \ne 0\)</span>.
 Then</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \mathbb{P}(A|B) = \frac{\mathbb{P}(B|A)\mathbb{P}(A)}{\mathbb{P}(B)}.
-\]</div>
+\end{equation*}\]</div>
 <p>Bayes’ rule lets you “invert” conditional probabilities to find <span class="math notranslate nohighlight">\(\mathbb{P}(A|B)\)</span> in terms of <span class="math notranslate nohighlight">\(\mathbb{P}(B|A)\)</span>.</p>
 </div>
 <div class="section" id="the-law-of-total-probability">
 <h2>The Law of Total Probability<a class="headerlink" href="#the-law-of-total-probability" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> be an event and suppose <span class="math notranslate nohighlight">\(\{ A_i \}\)</span> (a finite or countable collection of sets) is a partition of outcome space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> such that <span class="math notranslate nohighlight">\(\mathbb{P}(A_i) &gt; 0\)</span> <span class="math notranslate nohighlight">\(\forall i\)</span>.
 Then</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \mathbb{P}(A) = \sum_i \mathbb{P}(A|A_i) \mathbb{P}(A_i).
-\]</div>
+\end{equation*}\]</div>
 <p>The Law of Total Probability is basically just an application of the definition of conditional probability and Kolmogorov’s third axiom, but it’s extremely useful.</p>
 <div class="section" id="examples">
 <h3>Examples.<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
@@ -918,8 +968,8 @@ Suppose that 1% of the population actually has the condition.
 We select someone at random from the population and test him or her.
 The test result is positive.
 What’s the chance that the person actually has the condition?</p>
-<div class="math notranslate nohighlight">
-\[ \mathbb{P}(\mbox{has condition}|\mbox{tests positive})
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \mathbb{P}(\mbox{has condition}|\mbox{tests positive})
 = \frac{\mathbb{P}(\mbox{tests positive }|\mbox{ has condition}) \mathbb{P}(\mbox{has condition })}{\mathbb{P}(\mbox{tests positive})}
 =
 \frac{\mathbb{P}(\mbox{tests positive }|\mbox{ has condition}) 
@@ -928,11 +978,11 @@ What’s the chance that the person actually has the condition?</p>
 =
 \frac{0.95}{0.95 \times 0.01 + 0.05 \times 0.99}
 = 16.1\%.
-\]</div>
+\end{equation*}\]</div>
 <p>(The denominator involves applying the Law of Total Probability.)</p>
 </div>
-<div class="section" id="id1">
-<h3>Exercises.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Exercises.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>[To do]</p>
 </div>
 </div>

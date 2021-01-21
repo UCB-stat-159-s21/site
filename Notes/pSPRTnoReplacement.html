@@ -279,39 +279,39 @@ Under <span class="math notranslate nohighlight">\(H_0\)</span>, this chance is 
 <span class="math notranslate nohighlight">\(p_{11} = p_1\)</span>.</p>
 <p>Given the values of <span class="math notranslate nohighlight">\(\{a_{\mathbb B_k}\}_{k=1}^i\)</span>, the conditional
 probability that the <span class="math notranslate nohighlight">\(i\)</span>th draw gives an item with value 1 is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \Pr \{a_{\mathbb B_i} = 1 | {\mathcal B_{i-1}} \} = \frac{ \sum_{b \notin {\mathcal B_{i-1}}} a_b}{N-i+1}.
-\]</div>
+\end{equation*}\]</div>
 <p>Under <span class="math notranslate nohighlight">\(H_0\)</span>, this chance is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    p_{0i} =  \frac{Np_0 - \sum_{b \in {\mathcal B_{i-1}}} a_b}{N - i + 1}.
-\]</div>
+\end{equation*}\]</div>
 <p>Under <span class="math notranslate nohighlight">\(H_1\)</span>, this chance is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    p_{1i} = \frac{Np_1 - \sum_{b \in {\mathcal B_{i-1}}} a_b}{N - i + 1}.
-\]</div>
+\end{equation*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(X_i\)</span> be the indicator of the event that the <span class="math notranslate nohighlight">\(i\)</span>th draw gives an item with
 value <span class="math notranslate nohighlight">\(1\)</span>, i.e., the indicator of the event <span class="math notranslate nohighlight">\(a_{\mathbb B_i} = 1\)</span>.
 The likelihood ratio for a given sequence <span class="math notranslate nohighlight">\(\{X_k\}_{k=1}^i\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mbox{LR} = \frac{\prod_{k=1}^i p_{1k}^{X_k}(1-p_{1k})^{1-X_k}}
          {\prod_{k=1}^i p_{0k}^{X_k}(1-p_{0k})^{1-X_k}}.
-\]</div>
+\end{equation*}\]</div>
 <p>This can be simplified:
 <span class="math notranslate nohighlight">\(p_{0k}\)</span> and <span class="math notranslate nohighlight">\(p_{1k}\)</span> have the same denominator,
 <span class="math notranslate nohighlight">\(N - k + 1\)</span>, and their numerators share a term.
 Define <span class="math notranslate nohighlight">\(A(k) \equiv \sum_{b \in {\mathcal B_{k-1}}}\)</span>.
 Then</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \mbox{LR} = \prod_{k=1}^i 
     \left ( \frac{Np_1 - A(k)}{Np_0 - A(k)} \right )^{X_k}
     \left ( \frac{N(1-p_1) - (k-1-A(k))}{N(1-p_0) - (k-1 - A(k))} \right )^{1-X_k}.
-\]</div>
+\end{equation*}\]</div>
 <p>where the products are defined to be infinite if any denominator vanishes (or is negative).</p>
 <p>If <span class="math notranslate nohighlight">\(H_0\)</span> is true, the chance that <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> is ever greater than <span class="math notranslate nohighlight">\(1/\alpha\)</span>
 is at most <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>

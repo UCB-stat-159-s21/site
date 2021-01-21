@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Double Dollars &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Statistics 159/259, Homework 1.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/double_dollars.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/double_dollars.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#needed-libraries">
+   Needed libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interactive-testing-development">
+   Interactive testing/development
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-implementation">
+   Function implementation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-use-it-now-to-modify-our-notebooks">
+   Let’s use it now to modify our notebooks…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stop-check-the-build-above-first-and-run-the-next-cell-to-commit-if-all-looks-ok">
+   Stop! Check the build above first, and run the next cell to commit if all looks OK.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="double-dollars">
+<h1>Double Dollars<a class="headerlink" href="#double-dollars" title="Permalink to this headline">¶</a></h1>
+<p>Replace double dollar math blocks with more modern LaTeX constructs in notebooks.</p>
+<div class="section" id="needed-libraries">
+<h2>Needed libraries<a class="headerlink" href="#needed-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="interactive-testing-development">
+<h2>Interactive testing/development<a class="headerlink" href="#interactive-testing-development" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2"> &quot;cells&quot;: [</span>
+<span class="s2">  {</span>
+<span class="s2">   &quot;cell_type&quot;: &quot;markdown&quot;,</span>
+<span class="s2">   &quot;id&quot;: &quot;accessory-ribbon&quot;,</span>
+<span class="s2">   &quot;metadata&quot;: </span><span class="si">{}</span><span class="s2">,</span>
+<span class="s2">   &quot;source&quot;: [</span>
+<span class="s2">    &quot;# Display math with double dollars\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;Hence, for $\\alpha \\in (0, 1)$,\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;$$\n&quot;,</span>
+<span class="s2">    &quot;  \\mathbb P (\\alpha \\bar</span><span class="si">{X}</span><span class="s2"> \\ge \\mu) \\le \\alpha;\n&quot;,</span>
+<span class="s2">    &quot;$$\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;i.e., $[\\alpha \\bar</span><span class="si">{X}</span><span class="s2">, \\infty)$ is a lower 1-sided $1-\\alpha$ confidence bound for $\\mu$.\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;# More Display math with double dollars\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;Hence\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;$$ \n&quot;,</span>
+<span class="s2">    &quot;  more math \n&quot;,</span>
+<span class="s2">    &quot;$$\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;i.e., great! \n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;That is, \n&quot;,</span>
+<span class="s2">    &quot;$$\n&quot;,</span>
+<span class="s2">    &quot;    \\mathcal C(X) \\equiv \\left \\{ \\mbox{cdfs } G: \\sup_x (G(x) - \\hat</span><span class="si">{F}</span><span class="s2">_n(x)) \\le  \\sqrt{-\\frac{</span>
+<span class="s2">\\ln \\alpha}</span><span class="si">{2n}</span><span class="s2">} \\right \\}\n&quot;,</span>
+<span class="s2">    &quot;$$\n&quot;,</span>
+<span class="s2">    &quot;is a nonparametric confidence set for the true population cdf $F$.\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;Testing double dollar math in one line\n&quot;,</span>
+<span class="s2">    &quot;$$x+y=z.$$\n&quot;,</span>
+<span class="s2">    &quot;\n&quot;,</span>
+<span class="s2">    &quot;The above should become\n&quot;,</span>
+<span class="s2">    &quot;\\begin{equation*}\n&quot;,</span>
+<span class="s2">    &quot;x+y=z.\n&quot;,</span>
+<span class="s2">    &quot;\\end{equation*}&quot;    </span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;\$\$\s*(.*?)&quot;\$\$&#39;</span>
+<span class="n">fpat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;\s*\$\$(.*?)\$\$&#39;</span>
+<span class="n">rx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">fpat</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(220, 300), match=&#39;&quot;$$\\n&quot;,\n    &quot;  \\\\mathbb P (\\\\alpha \\\\bar{&gt;
+&quot;$$\n&quot;,
+    &quot;  \\mathbb P (\\alpha \\bar{X} \\ge \\mu) \\le \\alpha;\n&quot;,
+    &quot;$$
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&quot;$$\\n&quot;,\n    &quot;  \\\\mathbb P (\\\\alpha \\\\bar{X} \\\\ge \\\\mu) \\\\le \\\\alpha;\\n&quot;,\n    &quot;$$&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;</span><span class="se">\\\\</span><span class="s1">begin{equation*}\1&quot;</span><span class="se">\\\\</span><span class="s1">end{equation*}&#39;</span>
+<span class="n">spat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;</span><span class="se">\\\\</span><span class="s1">begin{equation*} \1</span><span class="se">\\\\</span><span class="s1">end{equation*}&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">spat</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &quot;cells&quot;: [
+  {
+   &quot;cell_type&quot;: &quot;markdown&quot;,
+   &quot;id&quot;: &quot;accessory-ribbon&quot;,
+   &quot;metadata&quot;: {},
+   &quot;source&quot;: [
+    &quot;# Display math with double dollars\n&quot;,
+    &quot;\n&quot;,
+    &quot;Hence, for $\\alpha \\in (0, 1)$,\n&quot;,
+    &quot;\n&quot;,
+    &quot;\\begin{equation*} \n&quot;,
+    &quot;  \\mathbb P (\\alpha \\bar{X} \\ge \\mu) \\le \\alpha;\n&quot;,
+    &quot;\\end{equation*}\n&quot;,
+    &quot;\n&quot;,
+    &quot;i.e., $[\\alpha \\bar{X}, \\infty)$ is a lower 1-sided $1-\\alpha$ confidence bound for $\\mu$.\n&quot;,
+    &quot;\n&quot;,
+    &quot;\n&quot;,
+    &quot;# More Display math with double dollars\n&quot;,
+    &quot;\n&quot;,
+    &quot;Hence\n&quot;,
+    &quot;\n&quot;,
+    &quot;\\begin{equation*}  \n&quot;,
+    &quot;  more math \n&quot;,
+    &quot;\\end{equation*}\n&quot;,
+    &quot;\n&quot;,
+    &quot;i.e., great! \n&quot;,
+    &quot;\n&quot;,
+    &quot;\n&quot;,
+    &quot;That is, \n&quot;,
+    &quot;\\begin{equation*} \n&quot;,
+    &quot;    \\mathcal C(X) \\equiv \\left \\{ \\mbox{cdfs } G: \\sup_x (G(x) - \\hat{F}_n(x)) \\le  \\sqrt{-\\frac{
+\\ln \\alpha}{2n}} \\right \\}\n&quot;,
+    &quot;\\end{equation*}\n&quot;,
+    &quot;is a nonparametric confidence set for the true population cdf $F$.\n&quot;,
+    &quot;\n&quot;,
+    &quot;Testing double dollar math in one line\n&quot;,
+    &quot;\\begin{equation*} x+y=z.\\end{equation*}\n&quot;,
+    &quot;\n&quot;,
+    &quot;The above should become\n&quot;,
+    &quot;\\begin{equation*}\n&quot;,
+    &quot;x+y=z.\n&quot;,
+    &quot;\\end{equation*}&quot;    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-implementation">
+<h2>Function implementation<a class="headerlink" href="#function-implementation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">replace_dd</span><span class="p">(</span><span class="n">bdata</span><span class="p">):</span>
+    <span class="c1"># find/substitute patterns for $$ and the \begin{eq*} replacement</span>
+    <span class="n">fpat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;\s*\$\$(.*?)\$\$&#39;</span>
+    <span class="n">spat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;</span><span class="se">\\\\</span><span class="s1">begin{equation*} \1</span><span class="se">\\\\</span><span class="s1">end{equation*}&#39;</span>
+    <span class="c1"># Create the regex and use it to edit the raw data</span>
+    <span class="n">rx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">fpat</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">spat</span><span class="p">,</span> <span class="n">bdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_dd</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="n">nbfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">nbfile</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Requested path </span><span class="si">{</span><span class="n">nbfile</span><span class="si">}</span><span class="s2"> does not exist/not a file&quot;</span><span class="p">)</span>
+        
+    <span class="n">nbkp</span> <span class="o">=</span> <span class="n">nbfile</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="n">Path</span><span class="p">(</span><span class="n">nbfile</span><span class="o">.</span><span class="n">stem</span><span class="o">+</span><span class="s1">&#39;-original-ddm&#39;</span><span class="o">+</span><span class="n">nbfile</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">nbfile</span><span class="p">,</span> <span class="n">nbkp</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Backup created at </span><span class="si">{</span><span class="n">nbkp</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    
+    <span class="n">nbdata</span> <span class="o">=</span> <span class="n">nbfile</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="n">newdata</span> <span class="o">=</span> <span class="n">replace_dd</span><span class="p">(</span><span class="n">nbdata</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nbfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nb</span><span class="p">:</span>
+        <span class="n">nb</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Check modified file </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2"> for incorrect changes.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-use-it-now-to-modify-our-notebooks">
+<h2>Let’s use it now to modify our notebooks…<a class="headerlink" href="#let-s-use-it-now-to-modify-our-notebooks" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;SPRTNuisance.ipynb&#39;</span>
+<span class="n">remove_dd</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Backup created at SPRTNuisance-original-ddm.ipynb.
+Check modified file SPRTNuisance.ipynb for incorrect changes.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git diff <span class="o">{</span>fname<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">diff --git a/Notes/SPRTNuisance.ipynb b/Notes/SPRTNuisance.ipynb</span>
+<span class=" -Color -Color-Bold">index 17ad26e..676a718 100644</span>
+<span class=" -Color -Color-Bold">--- a/Notes/SPRTNuisance.ipynb</span>
+<span class=" -Color -Color-Bold">+++ b/Notes/SPRTNuisance.ipynb</span>
+<span class=" -Color -Color-Cyan">@@ -26,15 +26,15 @@</span>
+     &quot;Let us consider testing $H_k$ against $H_{kd}: N_w - N_\\ell = c+d_k, N_u = k$. \n&quot;,
+     &quot;The hypotheses are equivalent to\n&quot;,
+     &quot;\n&quot;,
+<span class=" -Color -Color-Red">-    &quot;$$\n&quot;,</span>
+<span class=" -Color -Color-Green">+    &quot;\\begin{equation*} \n&quot;,</span>
+     &quot;  H_k: N_u = k, N_w \\le (N-k+c)/2, N_\\ell \\ge (N-k-c)/2\n&quot;,
+<span class=" -Color -Color-Red">-    &quot;$$\n&quot;,</span>
+<span class=" -Color -Color-Green">+    &quot;\\end{equation*}\n&quot;,</span>
+     &quot;\n&quot;,
+     &quot;and\n&quot;,
+     &quot;\n&quot;,
+<span class=" -Color -Color-Red">-    &quot;$$\n&quot;,</span>
+<span class=" -Color -Color-Green">+    &quot;\\begin{equation*} \n&quot;,</span>
+     &quot;  H_{kd}: N_u = k, N_w = (N-k+c+d_k)/2, N_\\ell = (N-k-c-d_k)/2.\n&quot;,
+<span class=" -Color -Color-Red">-    &quot;$$\n&quot;,</span>
+<span class=" -Color -Color-Green">+    &quot;\\end{equation*}\n&quot;,</span>
+     &quot;\n&quot;,
+     &quot;Suppose we draw a sample sequentially without replacement, and that in $n$\n&quot;,
+     &quot;draws we see $W_n$ items labeled \&quot;w\&quot; and $L_n$ items labeled \&quot;l,\&quot; \n&quot;,
+<span class=" -Color -Color-Cyan">@@ -51,9 +51,9 @@</span>
+     &quot;\n&quot;,
+     &quot;The likelihood ratio for $H_{kd}$ to $H_k$ to is\n&quot;,
+     &quot;\n&quot;,
+<span class=" -Color -Color-Red">-    &quot;$$\n&quot;,</span>
+<span class=" -Color -Color-Green">+    &quot;\\begin{equation*} \n&quot;,</span>
+     &quot;  \\mathcal{L}_{k,n} \\equiv  \\frac{\\prod_{i=0}^{W_n} (N_{wkd} - i) \\prod_{i=0}^{L_n} (N_{\\ell kd} - i) \\prod_{i=0}^{U_n} (k - i)}{\\prod_{i=0}^{W_n} (N_{wk} - i) \\prod_{i=0}^{L_n} (N_{\\ell k} - i) \\prod_{i=0}^{U_n} (k - i)} = \\frac{\\prod_{i=0}^{W_n} (N_{wkd} - i) \\prod_{i=0}^{L_n} (N_{\\ell kd} - i)}{\\prod_{i=0}^{W_n} (N_{wk} - i) \\prod_{i=0}^{L_n} (N_{\\ell k} - i)}.\n&quot;,
+<span class=" -Color -Color-Red">-    &quot;$$\n&quot;,</span>
+<span class=" -Color -Color-Green">+    &quot;\\end{equation*}\n&quot;,</span>
+     &quot;\n&quot;,
+     &quot;**This might need additional restrictions in case a value of $c$, $d$, or $k$\n&quot;,
+     &quot;is impossible given $n$, $W_n$, $L_n$.**\n&quot;,
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book build ..
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Running Jupyter-Book v0.9.1</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Source Folder: </span>/Users/fperez/teach/stat159/2021sp/site/Notes/..
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Config Path: </span>/Users/fperez/teach/stat159/2021sp/site/Notes/../_config.yml
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Output Path: </span>/Users/fperez/teach/stat159/2021sp/site/Notes/../_build/html
+<span class=" -Color -Color-Bold">Running Sphinx v3.4.3</span>
+<span class=" -Color -Color-Bold">loading pickled environment... </span>done
+<span class=" -Color -Color-Bold">myst v0.12.10:</span> MdParserConfig(renderer=&#39;sphinx&#39;, commonmark_only=False, dmath_enable=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, amsmath_enable=True, deflist_enable=True, update_mathjax=True, admonition_enable=True, figure_enable=True, disable_syntax=[], html_img_enable=True, url_schemes=[&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;], heading_anchors=None)
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 2 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>1 added, 2 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">Notes/double_dollars</span>                                  
+WARNING: Found a content page that is not in _toc.yml: Notes/SPRTNuisance.ipynb.
+WARNING: Found a content page that is not in _toc.yml: Notes/SPRTNuisance-original-ddm.ipynb.
+WARNING: Found a content page that is not in _toc.yml: Notes/double_dollars.ipynb.
+<span class=" -Color -Color-Bold">looking for now-outdated files... </span>none found
+<span class=" -Color -Color-Bold">pickling environment... </span>done
+<span class=" -Color -Color-Bold">checking consistency... </span>/Users/fperez/teach/stat159/2021sp/site/.pytest_cache/README.md: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/01/collaboration-exercise.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/01/git-extras.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/01/git-first-tasks.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/01/git-intro-concepts.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/01/intro-jupyter-hub.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/01/intro-shell.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/README.md: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/SPRTNuisance.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/SPRTNuisance-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/Untitled.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/audit.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/bayes.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/biblio.md: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/binom.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/canonical.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/combining-tests.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/copa.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/double_dollars.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/duality.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/dus.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/election_audits.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/em.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/goodness_of_fit.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/hoeffding.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/inference.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/kaplanWald.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/karpEtal15.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/least_squares.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/linalg.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/markov.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/math-foundations.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/math-inequalities.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/math-inequalities-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/models.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/normApprox.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/overview.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/overview-scratch.md: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/pSPRTnoReplacement.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/pSPRTnoReplacement-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/pennySampling.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/permute-distance.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/permute-distance-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/permute-intro.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/permute-intro-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/permute-sample.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/permute-sample-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/probTheory.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/probTheory-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/probVectors.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/probVectors-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/pseudo-random.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/pseudo-random-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/rabbits.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/rabbits-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/setsCombinatorics.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/setsCombinatorics-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/shootout.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/shootout-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/sprt.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/sprt-original-ddm.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/Notes/themes-scratch.md: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/README.md: WARNING: document isn&#39;t included in any toctree
+/Users/fperez/teach/stat159/2021sp/site/math-tests.ipynb: WARNING: document isn&#39;t included in any toctree
+done
+<span class=" -Color -Color-Bold">preparing documents... </span>done
+<span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">overview</span>                                               
+<span class=" -Color -Color-Bold">generating indices... </span>genindex done
+<span class=" -Color -Color-Bold">writing additional pages... </span>search done
+<span class=" -Color -Color-Bold">copying static files... </span>done
+<span class=" -Color -Color-Bold">copying extra files... </span>done
+<span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>done
+<span class=" -Color -Color-Bold">dumping object inventory... </span>done
+<span class=" -Color -Color-Bold">build succeeded, 67 warnings.</span>
+
+The HTML pages are in ../_build/html.
+
+===============================================================================
+
+Finished generating HTML for book.
+Your book&#39;s HTML pages are here:
+    ../_build/html/
+You can look at your book by opening this file in a browser:
+    ../_build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/fperez/teach/stat159/2021sp/site/_build/html/index.html            
+
+===============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>open ../_build/html/Notes/<span class="o">{</span>fname.replace<span class="o">(</span><span class="s1">&#39;ipynb&#39;</span>, <span class="s1">&#39;html&#39;</span><span class="o">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stop-check-the-build-above-first-and-run-the-next-cell-to-commit-if-all-looks-ok">
+<h2>Stop! Check the build above first, and run the next cell to commit if all looks OK.<a class="headerlink" href="#stop-check-the-build-above-first-and-run-the-next-cell-to-commit-if-all-looks-ok" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git commit -m<span class="s2">&quot;{Path(fname).stem} notebook: replace \$\$ math with equation environments, that render OK in Sphinx.&quot;</span> <span class="o">{</span>fname<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main 2de3e05] SPRTNuisance notebook: replace $$ math with equation environments, that render OK in Sphinx.
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
