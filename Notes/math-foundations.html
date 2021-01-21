@@ -135,13 +135,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   An Idiosyncratic Sample of Applied Statistics
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
@@ -383,22 +383,25 @@ If <span class="math notranslate nohighlight">\(B\)</span> is not a subset of <s
 is the set of all objects under consideration (<span class="math notranslate nohighlight">\(\mathcal{X}\)</span>) that are not elements of <span class="math notranslate nohighlight">\(A\)</span>.
 That is, <span class="math notranslate nohighlight">\(A^c \equiv \{ a \in \mathcal{X} : a \not \in A\}\)</span>.</p>
 <p>The <em>intersection</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cap B\)</span> or <span class="math notranslate nohighlight">\(AB\)</span>, is the set of all objects that
-are elements of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:
-$<span class="math notranslate nohighlight">\(
+are elements of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         A \cap B \equiv \{a: a \in A \mbox{ and } a \in B \}.
-\)</span><span class="math notranslate nohighlight">\(
-If \)</span>A \cap B = \emptyset<span class="math notranslate nohighlight">\(, we say \)</span>A<span class="math notranslate nohighlight">\( and \)</span>B$ are <em>disjoint</em> or <em>mutually
+\end{equation*}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, we say <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>disjoint</em> or <em>mutually
 exclusive</em>.</p>
 <p>The <em>union</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, written <span class="math notranslate nohighlight">\(A \cup B\)</span>, is the set of all objects that
-are elements of <span class="math notranslate nohighlight">\(A\)</span> or of <span class="math notranslate nohighlight">\(B\)</span> (or both):
-$<span class="math notranslate nohighlight">\(
+are elements of <span class="math notranslate nohighlight">\(A\)</span> or of <span class="math notranslate nohighlight">\(B\)</span> (or both):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         A \cup B \equiv \{a: a \in A \mbox{ or } a \in B \mbox{ or both} \}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>The <em>difference</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A \setminus B\)</span>, pronounced “<span class="math notranslate nohighlight">\(A\)</span> minus <span class="math notranslate nohighlight">\(B\)</span>,” is
-the set of all elements of <span class="math notranslate nohighlight">\(A\)</span> that are not elements of <span class="math notranslate nohighlight">\(B\)</span>:
-$<span class="math notranslate nohighlight">\(
+the set of all elements of <span class="math notranslate nohighlight">\(A\)</span> that are not elements of <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         A \setminus B \equiv \{a \in A : a \not \in B \} = A \cap B^c.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p><em>Intervals</em> are special subsets of <span class="math notranslate nohighlight">\({\mathbb R}\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
@@ -413,14 +416,15 @@ Then <span class="math notranslate nohighlight">\(B\)</span> is called an <em>in
 If <span class="math notranslate nohighlight">\(B\)</span> is a subset of the integers <span class="math notranslate nohighlight">\({\mathbb Z}\)</span>, usually we write <span class="math notranslate nohighlight">\(A_i\)</span> or <span class="math notranslate nohighlight">\(A_j\)</span>, etc.,
 rather than <span class="math notranslate nohighlight">\(A_\beta\)</span>.
 If <span class="math notranslate nohighlight">\(B = {\mathbb N}\)</span>, we usually write <span class="math notranslate nohighlight">\(\{A_j\}_{j=1}^\infty\)</span> rather than
-<span class="math notranslate nohighlight">\(\{A_\beta : \beta \in {\mathbb N} \}\)</span>.
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(\{A_\beta : \beta \in {\mathbb N} \}\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         \bigcap_{\beta \in B} A_\beta \equiv \{a: a \in A_\beta \;\;\forall \beta \in B \}.
-\)</span><span class="math notranslate nohighlight">\(
-(\)</span>\forall<span class="math notranslate nohighlight">\( means &quot;for all.&quot;)
-If \)</span>B = {1, 2, \ldots, n}<span class="math notranslate nohighlight">\(, we usually write \)</span>\bigcap_{j=1}^n A_j<span class="math notranslate nohighlight">\( rather than
-\)</span>\bigcap_{j \in {1, 2, \ldots, n}} A_j<span class="math notranslate nohighlight">\(.
-The notation \)</span>\bigcup_{\beta \in B} A_\beta<span class="math notranslate nohighlight">\( and \)</span>\bigcup_{j=1}^n A_j$ are defined analogously.</p>
+\end{equation*}\]</div>
+<p>(<span class="math notranslate nohighlight">\(\forall\)</span> means “for all.”)
+If <span class="math notranslate nohighlight">\(B = \{1, 2, \ldots, n\}\)</span>, we usually write <span class="math notranslate nohighlight">\(\bigcap_{j=1}^n A_j\)</span> rather than
+<span class="math notranslate nohighlight">\(\bigcap_{j \in \{1, 2, \ldots, n\}} A_j\)</span>.
+The notation <span class="math notranslate nohighlight">\(\bigcup_{\beta \in B} A_\beta\)</span> and <span class="math notranslate nohighlight">\(\bigcup_{j=1}^n A_j\)</span> are defined analogously.</p>
 <p>A collection of sets <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> is <em>pairwise disjoint</em>
 if <span class="math notranslate nohighlight">\(A_\beta \cap A_{\beta'} = \emptyset\)</span> whenever <span class="math notranslate nohighlight">\(\beta \ne \beta'\)</span>.
 The collection <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B\}\)</span> <em>exhausts</em> or <em>covers</em>
@@ -441,24 +445,26 @@ If <span class="math notranslate nohighlight">\(A\)</span> is finite, <span clas
 If <span class="math notranslate nohighlight">\(A\)</span> is not finite but <span class="math notranslate nohighlight">\(A\)</span> is countable (if its elements can be put in one-to-one
 correspondence with the elements of <span class="math notranslate nohighlight">\({\mathbb N}\)</span>), then <span class="math notranslate nohighlight">\(\# A = \aleph_0\)</span> (aleph-null).</p>
 <p>The <em>power set</em> of a set <span class="math notranslate nohighlight">\(A\)</span> is the set of all subsets of the set <span class="math notranslate nohighlight">\(A\)</span>.
-For example, the power set of <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is
-$<span class="math notranslate nohighlight">\(
+For example, the power set of <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         \{ \emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\} \}.
-\)</span><span class="math notranslate nohighlight">\(
-If \)</span>A<span class="math notranslate nohighlight">\( is a finite set, the cardinality of the power set of \)</span>A<span class="math notranslate nohighlight">\( is \)</span>2^{# A}<span class="math notranslate nohighlight">\(.
-This can be seen as follows: suppose \)</span># A = n<span class="math notranslate nohighlight">\( is finite.
-Consider the elements of \)</span>A<span class="math notranslate nohighlight">\( to be written in some canonical order.
-We can specify an element of the power set by an \)</span>n<span class="math notranslate nohighlight">\(-digit binary number.
-The first digit is 1 if the first element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise.
-The second digit is 1 if the second element of \)</span>A<span class="math notranslate nohighlight">\( is in the subset, and 0 otherwise,
+\end{equation*}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, the cardinality of the power set of <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(2^{\# A}\)</span>.
+This can be seen as follows: suppose <span class="math notranslate nohighlight">\(\# A = n\)</span> is finite.
+Consider the elements of <span class="math notranslate nohighlight">\(A\)</span> to be written in some canonical order.
+We can specify an element of the power set by an <span class="math notranslate nohighlight">\(n\)</span>-digit binary number.
+The first digit is 1 if the first element of <span class="math notranslate nohighlight">\(A\)</span> is in the subset, and 0 otherwise.
+The second digit is 1 if the second element of <span class="math notranslate nohighlight">\(A\)</span> is in the subset, and 0 otherwise,
 etc.
-There are \)</span>2^n<span class="math notranslate nohighlight">\( \)</span>n<span class="math notranslate nohighlight">\(-digit binary numbers, so there are \)</span>2^n<span class="math notranslate nohighlight">\( subsets.
-The cardinality of the power set of \)</span>{\mathbb N}<span class="math notranslate nohighlight">\( is not \)</span>\aleph_0$.</p>
+There are <span class="math notranslate nohighlight">\(2^n\)</span> <span class="math notranslate nohighlight">\(n\)</span>-digit binary numbers, so there are <span class="math notranslate nohighlight">\(2^n\)</span> subsets.
+The cardinality of the power set of <span class="math notranslate nohighlight">\({\mathbb N}\)</span> is not <span class="math notranslate nohighlight">\(\aleph_0\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, <span class="math notranslate nohighlight">\(B\)</span> is a countable set
-and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>, then
-$<span class="math notranslate nohighlight">\(
+and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         \# A = \sum_{\beta \in B} \# A_\beta.
-\)</span>$</p>
+\end{equation*}\]</div>
 </div>
 <div class="section" id="cartesian-products">
 <h2>Cartesian Products<a class="headerlink" href="#cartesian-products" title="Permalink to this headline">¶</a></h2>
@@ -506,20 +512,23 @@ There are <span class="math notranslate nohighlight">\(n\)</span> choices for th
 for the item that will be in the <span class="math notranslate nohighlight">\(k\)</span>th place.
 By the fundamental rule of counting, it follows that
 <span class="math notranslate nohighlight">\({}_nP_k = n(n-1)\cdots(n-k+1) = n!/(n-k)!\)</span>.</p>
-<p>The number of subsets of size <span class="math notranslate nohighlight">\(k\)</span> that can be formed from <span class="math notranslate nohighlight">\(n\)</span> objects is
-$<span class="math notranslate nohighlight">\(
+<p>The number of subsets of size <span class="math notranslate nohighlight">\(k\)</span> that can be formed from <span class="math notranslate nohighlight">\(n\)</span> objects is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         {}_nC_k = {{n}\choose{k}} = 
         {}_nP_k/k! = n(n-1)\cdots(n-k+1)/k! = \frac{n!}{k!(n-k)!}.
-\)</span><span class="math notranslate nohighlight">\(
-Because the power set of a set with \)</span>n<span class="math notranslate nohighlight">\( elements can be partitioned as
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Because the power set of a set with <span class="math notranslate nohighlight">\(n\)</span> elements can be partitioned as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         \cup_{k=0}^n \left \{ \mbox{all subsets of size } k
         \right \},
-\)</span><span class="math notranslate nohighlight">\(
-it follows that
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>it follows that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         \sum_{j=0}^n {}_nC_k = 2^n.
-\)</span>$</p>
+\end{equation*}\]</div>
 </div>
 <div class="section" id="mappings-and-functions">
 <h2>Mappings and Functions<a class="headerlink" href="#mappings-and-functions" title="Permalink to this headline">¶</a></h2>
@@ -535,25 +544,28 @@ element of <span class="math notranslate nohighlight">\(f\)</span> by <span clas
 The functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are equal if they are the same subset of <span class="math notranslate nohighlight">\(\mathcal{X} \times \mathcal{Y}\)</span>,
 which means that they have the same domain <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, and <span class="math notranslate nohighlight">\(fx = gx\)</span> <span class="math notranslate nohighlight">\(\forall x \in \mathcal{X}\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(A \subset \mathcal{X}\)</span>.
-The <em>image</em> of <span class="math notranslate nohighlight">\(A\)</span> under <span class="math notranslate nohighlight">\(f\)</span> is
-$<span class="math notranslate nohighlight">\(
+The <em>image</em> of <span class="math notranslate nohighlight">\(A\)</span> under <span class="math notranslate nohighlight">\(f\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         fA = f(A) \equiv \{ y \in \mathcal{Y} : (x, y) \in f \mbox{ for some } x \in A\}.
-\)</span><span class="math notranslate nohighlight">\(
-More colloquially, we would write this as
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>More colloquially, we would write this as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         fA = \{ y \in \mathcal{Y} : f(x) = y \mbox{ for some } x \in A \}.
-\)</span><span class="math notranslate nohighlight">\(
-If \)</span>f\mathcal{X}<span class="math notranslate nohighlight">\( is a proper subset of \)</span>\mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span>f<span class="math notranslate nohighlight">\( is _into_.
-If \)</span>f\mathcal{X} = \mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span>f<span class="math notranslate nohighlight">\( is _onto_.
-For \)</span>B \subset \mathcal{Y}<span class="math notranslate nohighlight">\(, the _inverse image of \)</span>B<span class="math notranslate nohighlight">\( under \)</span>f<span class="math notranslate nohighlight">\(_ or
-_pre-image of \)</span>B<span class="math notranslate nohighlight">\( under \)</span>f<span class="math notranslate nohighlight">\(_ is
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>If <span class="math notranslate nohighlight">\(f\mathcal{X}\)</span> is a proper subset of <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>, <span class="math notranslate nohighlight">\(f\)</span> is <em>into</em>.
+If <span class="math notranslate nohighlight">\(f\mathcal{X} = \mathcal{Y}\)</span>, <span class="math notranslate nohighlight">\(f\)</span> is <em>onto</em>.
+For <span class="math notranslate nohighlight">\(B \subset \mathcal{Y}\)</span>, the <em>inverse image of <span class="math notranslate nohighlight">\(B\)</span> under <span class="math notranslate nohighlight">\(f\)</span></em> or
+<em>pre-image of <span class="math notranslate nohighlight">\(B\)</span> under <span class="math notranslate nohighlight">\(f\)</span></em> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
         f^{-1}B \equiv \{ x \in \mathcal{X} : fx \in B \}.
-\)</span><span class="math notranslate nohighlight">\(
-Similarly, \)</span>f^{-1}y \equiv { x \in \mathcal{X} : fx = y }<span class="math notranslate nohighlight">\(
-If \)</span>\forall y \in \mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span># { f^{-1} y } \le 1<span class="math notranslate nohighlight">\(, \)</span>f<span class="math notranslate nohighlight">\( is _one-to-one_ (1:1).
-If \)</span>f<span class="math notranslate nohighlight">\( is one-to-one and onto, i.e., if \)</span>\forall y \in \mathcal{Y}<span class="math notranslate nohighlight">\(, \)</span># { f^{-1}y } = 1<span class="math notranslate nohighlight">\(,
-\)</span>f$ is a <em>bijection</em>.</p>
+\end{equation*}\]</div>
+<p>Similarly, <span class="math notranslate nohighlight">\(f^{-1}y \equiv \{ x \in \mathcal{X} : fx = y \}\)</span>
+If <span class="math notranslate nohighlight">\(\forall y \in \mathcal{Y}\)</span>, <span class="math notranslate nohighlight">\(\# \{ f^{-1} y \} \le 1\)</span>, <span class="math notranslate nohighlight">\(f\)</span> is <em>one-to-one</em> (1:1).
+If <span class="math notranslate nohighlight">\(f\)</span> is one-to-one and onto, i.e., if <span class="math notranslate nohighlight">\(\forall y \in \mathcal{Y}\)</span>, <span class="math notranslate nohighlight">\(\# \{ f^{-1}y \} = 1\)</span>,
+<span class="math notranslate nohighlight">\(f\)</span> is a <em>bijection</em>.</p>
 </div>
 <div class="section" id="multisets">
 <h2>Multisets<a class="headerlink" href="#multisets" title="Permalink to this headline">¶</a></h2>
@@ -802,28 +814,30 @@ that for all <span class="math notranslate nohighlight">\(x, y, x \in \mathcal{X
 <div class="section" id="cauchy-sequences">
 <h3>Cauchy sequences<a class="headerlink" href="#cauchy-sequences" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is a normed vector space with norm <span class="math notranslate nohighlight">\(\| \cdot \|\)</span>, and let <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span>
-be a sequence of elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
-$<span class="math notranslate nohighlight">\(
+be a sequence of elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \| x_{j+1} - x_j \| \rightarrow 0
-\)</span><span class="math notranslate nohighlight">\(
-as \)</span>j \rightarrow \infty<span class="math notranslate nohighlight">\(, then \)</span>x_1, x_2, \ldots $ is a <em>Cauchy sequence</em>.</p>
+\end{equation*}\]</div>
+<p>as <span class="math notranslate nohighlight">\(j \rightarrow \infty\)</span>, then <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span> is a <em>Cauchy sequence</em>.</p>
 </div>
 <div class="section" id="completeness">
 <h3>Completeness<a class="headerlink" href="#completeness" title="Permalink to this headline">¶</a></h3>
 <p>A normed vector space is <em>complete</em> if every Cauchy sequence in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> has a limit in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
-That is, if <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span> is a Cauchy sequence, then there exists <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> such that
-$<span class="math notranslate nohighlight">\(
+That is, if <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span> is a Cauchy sequence, then there exists <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \lim_{j \rightarrow \infty} \| x_j - x \| = 0.
-\)</span>$</p>
+\end{equation*}\]</div>
 </div>
 <div class="section" id="balls">
 <h3>Balls<a class="headerlink" href="#balls" title="Permalink to this headline">¶</a></h3>
 <p>In a normed vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, the <em>closed ball of radius <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> centered at <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span></em> is</p>
-<div class="math notranslate nohighlight">
-\[ B_\epsilon [x_0] \equiv \{ x \in \mathcal{X}: \|x - x_0\| \le \epsilon \}.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  B_\epsilon [x_0] \equiv \{ x \in \mathcal{X}: \|x - x_0\| \le \epsilon \}.\end{equation*}\]</div>
 <p>The  the <em>open ball of radius <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> centered at <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span></em> is</p>
-<div class="math notranslate nohighlight">
-\[ B_\epsilon(x_0) \equiv \{ x \in \mathcal{X}: \|x - x_0\| &lt; \epsilon \}.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  B_\epsilon(x_0) \equiv \{ x \in \mathcal{X}: \|x - x_0\| &lt; \epsilon \}.\end{equation*}\]</div>
 <p>The (open) <em>unit ball</em> in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is <span class="math notranslate nohighlight">\(B_1[0]\)</span> (<span class="math notranslate nohighlight">\(B_1(0)\)</span>).</p>
 </div>
 </div>

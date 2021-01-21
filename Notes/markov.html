@@ -135,13 +135,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   An Idiosyncratic Sample of Applied Statistics
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
@@ -315,8 +315,8 @@
 <li><p>an unknown population of numbers <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span> that satisfy <span class="math notranslate nohighlight">\(\ell_j \le x_j \le u_j, \; \forall j\)</span></p></li>
 </ol>
 <p>We want to draw inferences about</p>
-<div class="math notranslate nohighlight">
-\[\mu \equiv \frac{1}{N} \sum_{j=1}^N x_j.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \mu \equiv \frac{1}{N} \sum_{j=1}^N x_j.\end{equation*}\]</div>
 <p>In this section, <span class="math notranslate nohighlight">\(\ell_j = 0\)</span> and <span class="math notranslate nohighlight">\(u_j = \infty\)</span>, <span class="math notranslate nohighlight">\(\forall j\)</span> (the population is known to be nonnegative).</p>
 <p>We seek a <em>lower</em> confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 </div>
@@ -327,8 +327,8 @@
 <div class="section" id="confidence-bounds-from-markov-s-inequality">
 <h2>Confidence bounds from Markov’s inequality<a class="headerlink" href="#confidence-bounds-from-markov-s-inequality" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we draw a random sample (with or without replacement) of size <span class="math notranslate nohighlight">\(n\)</span>.  Let <span class="math notranslate nohighlight">\(X_j\)</span> be the value of the <span class="math notranslate nohighlight">\(j\)</span>th draw, and let</p>
-<div class="math notranslate nohighlight">
-\[\bar{X} \equiv \frac{1}{n} \sum_{j=1}^n X_j.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \bar{X} \equiv \frac{1}{n} \sum_{j=1}^n X_j.\end{equation*}\]</div>
 <p>Then:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb P(\bar{X} \ge 0) = 1\)</span></p></li>
@@ -480,8 +480,8 @@ It follows from the MDKW inequality that</p>
 <h1>Using MDKW to get a lower confidence bound for the mean of a nonnegative population<a class="headerlink" href="#using-mdkw-to-get-a-lower-confidence-bound-for-the-mean-of-a-nonnegative-population" title="Permalink to this headline">¶</a></h1>
 <p>We now assume all <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span> are nonnegative, so <span class="math notranslate nohighlight">\(F(0^-) = 0\)</span>.
 The population mean is</p>
-<div class="math notranslate nohighlight">
-\[ \frac{1}{N} \sum_{j=1}^N x_j = \int_0^\infty x dF(x).\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  \frac{1}{N} \sum_{j=1}^N x_j = \int_0^\infty x dF(x).\end{equation*}\]</div>
 <p>But with probability at least <span class="math notranslate nohighlight">\(1-\alpha\)</span>, <span class="math notranslate nohighlight">\(F \in \mathcal C(X)\)</span>.
 Hence</p>
 <div class="amsmath math notranslate nohighlight">
@@ -490,8 +490,8 @@ Hence</p>
 \end{equation*}\]</div>
 <p>is a lower <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\mu = \int_0^\infty x dF(x)\)</span>.</p>
 <p>A little more explanation might help: whenever <span class="math notranslate nohighlight">\(F \in \mathcal C(X)\)</span> (and perhaps more often),</p>
-<div class="math notranslate nohighlight">
-\[\inf_{G \in \mathcal C(X)} \int_{0}^\infty x dG(x) \le \int_0^\infty x dF(x).\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \inf_{G \in \mathcal C(X)} \int_{0}^\infty x dG(x) \le \int_0^\infty x dF(x).\end{equation*}\]</div>
 <p>But <span class="math notranslate nohighlight">\(\mathbb P (C(X) \ni F) \ge 1-\alpha\)</span>.</p>
 <p>Moreover, we can find confidence bounds for <em>an arbitrary collection of
 functionals, even an uncountable collection</em> and they will have simultaneous coverage
@@ -618,13 +618,6 @@ at (a subset of) the data.</p>
 <li><p><a class="reference internal" href="hoeffding.html"><span class="doc std std-doc">Previous: Confidence bounds from the Chebychev and Hoeffding Inequalities</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> talkTools.py
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
