@@ -353,10 +353,11 @@
 <p><span class="math notranslate nohighlight">\(\mathcal G\)</span> is a finite group of transformations from <span class="math notranslate nohighlight">\(\mathcal X\)</span> to <span class="math notranslate nohighlight">\(\mathcal X\)</span>.
 <span class="math notranslate nohighlight">\(\# \mathcal G = G\)</span>.</p>
 <p>Want to test null hypothesis <span class="math notranslate nohighlight">\(H_0: P \in \Omega_0\)</span>.</p>
-<p>Suppose <span class="math notranslate nohighlight">\(H_0\)</span> implies that <span class="math notranslate nohighlight">\(P\)</span> is invariant under <span class="math notranslate nohighlight">\(\mathcal G\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>Suppose <span class="math notranslate nohighlight">\(H_0\)</span> implies that <span class="math notranslate nohighlight">\(P\)</span> is invariant under <span class="math notranslate nohighlight">\(\mathcal G\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \forall g \in \mathcal{G}, \;\; X \sim gX.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>The <em>orbit of <span class="math notranslate nohighlight">\(x\)</span> (under <span class="math notranslate nohighlight">\(\mathcal G\)</span>)</em> is <span class="math notranslate nohighlight">\(\{ gx : g \in \mathcal G \}\)</span>.
 (Does the orbit of <span class="math notranslate nohighlight">\(x\)</span> always contain <span class="math notranslate nohighlight">\(G\)</span> points?)</p>
 <div class="section" id="test-statistic-t">
@@ -364,32 +365,38 @@ $<span class="math notranslate nohighlight">\(
 <p>Let <span class="math notranslate nohighlight">\(T: \mathcal{X} \rightarrow \mathbb{R}\)</span> be a test statistic.</p>
 <p>We want to test <span class="math notranslate nohighlight">\(H_0\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <p>For each fixed <span class="math notranslate nohighlight">\(x\)</span>, let <span class="math notranslate nohighlight">\(T^{(k)}(x)\)</span> be the <span class="math notranslate nohighlight">\(k\)</span>th smallest
-element of the multiset
-$<span class="math notranslate nohighlight">\(
+element of the multiset</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     [ T(gx): g \in \mathcal G ].
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>These are the <span class="math notranslate nohighlight">\(G\)</span> (not necessarily distinct) values <span class="math notranslate nohighlight">\(T\)</span> takes on the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div>
 <div class="section" id="finding-the-rejection-region">
 <h2>Finding the rejection region<a class="headerlink" href="#finding-the-rejection-region" title="Permalink to this headline">¶</a></h2>
-<p>Let
-$<span class="math notranslate nohighlight">\(
+<p>Let</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      r \equiv G - \lfloor \alpha G \rfloor.
-\)</span>$</p>
-<p>Define
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      G^+(x) \equiv \# \{ g \in \mathcal{G}: T(gx) &gt; T^{(r)}(x) \}
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
      G^r(x) \equiv \# \{ g \in \mathcal{G}: T(gx) = T^{(r)}(x) \}
-\)</span>$</p>
-<p>Let
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Let</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
       a(x) \equiv \frac{\alpha G - G^+(x)}{G^r(x)}.
-\)</span>$</p>
-<p>Define
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \phi(x) \equiv 
         \left \{ 
             \begin{array}{ll}
@@ -398,27 +405,30 @@ $<span class="math notranslate nohighlight">\(
                  0,      &amp;  T(x) &lt; T^{(r)}(x)
             \end{array}
          \right .
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>To test the hypothesis, generate <span class="math notranslate nohighlight">\(U \sim U[0, 1]\)</span> independent of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(\phi(x) \ge U\)</span>.  (Randomized test.)</p>
 </div>
 <div class="section" id="test-has-level-alpha-unconditionally">
 <h2>Test has level <span class="math notranslate nohighlight">\(\alpha\)</span> unconditionally<a class="headerlink" href="#test-has-level-alpha-unconditionally" title="Permalink to this headline">¶</a></h2>
 <p>For each <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \sum_{g \in \mathcal{G}} \phi(gx) = G^+(x) + a(x) G^r(x) = \alpha G.
-\]</div>
-<p>So if <span class="math notranslate nohighlight">\(X \sim gX \sim P\)</span> for all <span class="math notranslate nohighlight">\(g \in \mathcal G\)</span>,
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>So if <span class="math notranslate nohighlight">\(X \sim gX \sim P\)</span> for all <span class="math notranslate nohighlight">\(g \in \mathcal G\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \alpha  =  \mathbb{E}_P \frac{1}{G}\sum_{g \in \mathcal {G}} \phi(gX) 
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
  =  \frac{1}{G}\sum_{g \in \mathcal{G}} \mathbb{E}_P \phi(X) 
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
  =  \mathbb{E}_P \phi(X).
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>The unconditional chance of a Type I error is exactly <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </div>
 <div class="section" id="tests-for-the-mean-of-a-symmetric-distribution">
@@ -432,10 +442,10 @@ $<span class="math notranslate nohighlight">\(
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span> be the group of reflections of coordinates about <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>.
 Each <span class="math notranslate nohighlight">\(g \in \mathcal{G}_\mu\)</span> is of the form</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 g(x) = (\mu + (-1)^{\gamma_j}(x_j - \mu))_{j=1}^n
-\]</div>
+\end{equation*}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(\gamma = (\gamma_j)_{j=1}^n \in \{0, 1\}^n\)</span>.</p>
 <p>Is <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span> really a group?</p>
 <p>What’s the identity element?<br />
@@ -445,25 +455,25 @@ What <span class="math notranslate nohighlight">\(\gamma\)</span> corresponds to
 <p>What is the orbit of a point <span class="math notranslate nohighlight">\(x\)</span> under <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span>?<br />
 Are there always <span class="math notranslate nohighlight">\(2^n\)</span> distinct elements of the orbit?</p>
 <p>Test statistic:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    T(X) = | \bar{X} - \mu_0 | = \left | \frac{1}{n} \sum_{j=1}^n X_j - \mu_0 \right |.
-\]</div>
+\end{equation*}\]</div>
 <p>If <span class="math notranslate nohighlight">\(\mathbb{E} X_j = \mu_0\)</span>, this is expected to be small—but how
 large a value would be surprising?</p>
 <p>If the expected value of <span class="math notranslate nohighlight">\(X_j\)</span> is <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(P\)</span> is symmetric (i.e., if <span class="math notranslate nohighlight">\(H_0\)</span>
 is true),
 the <span class="math notranslate nohighlight">\(2^n\)</span> potential data</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \{ gX : g \in \mathcal{G}_\mu \}
-\]</div>
+\end{equation*}\]</div>
 <p>in the orbit of <span class="math notranslate nohighlight">\(X\)</span> under <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> are equally likely.</p>
 <p>Hence, the values in the multiset</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    [ T(gx) : g \in \mathcal{G}_\mu ]
-\]</div>
+\end{equation*}\]</div>
 <p>are equally likely, conditional on the event that <span class="math notranslate nohighlight">\(X\)</span> is in the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div>
 <div class="section" id="how-to-test-h-0-mu-mu-0">
@@ -488,29 +498,30 @@ Take <span class="math notranslate nohighlight">\(\gamma_j = 1\)</span> if the <
 <p>Could use a measure of dispersion around the hypothesized mean (the
 true mean minimizes expected RMS difference, assuming variance is finite).</p>
 <p>What about counting the number of values that are above <span class="math notranslate nohighlight">\(\mu_0\)</span>?</p>
-<p>Define
-$<span class="math notranslate nohighlight">\(
+<p>Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 T(x) \equiv \sum_{j=1}^n 1_{x \ge \mu_0}.
-\)</span>$</p>
+\end{equation*}\]</div>
 </div>
 <div class="section" id="sign-test-for-the-median">
 <h2>Sign test for the median<a class="headerlink" href="#sign-test-for-the-median" title="Permalink to this headline">¶</a></h2>
 <p>We are assuming <span class="math notranslate nohighlight">\(P\)</span> is symmetric, so the expected value and median are equal.</p>
 <p>To avoid unhelpful complexity, suppose <span class="math notranslate nohighlight">\(P\)</span> is continuous.</p>
 <p>Then</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \mathbb{P} \{ X_j \ge \mu \} = 1/2, 
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    \{ 1_{X_j \ge \mu} \}_{j=1}^n \mbox{ are iid Bernoulli}(1/2),
-\]</div>
+\end{equation*}\]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     T(X) \sim \mbox{Binomial}(n, 1/2).
-\]</div>
+\end{equation*}\]</div>
 <p>This leads to the sign test:  Reject the hypothesis that the median is <span class="math notranslate nohighlight">\(\mu_0\)</span>
 if <span class="math notranslate nohighlight">\(T(X)\)</span> is too large or too small.
 Thresholds set to get level <span class="math notranslate nohighlight">\(\alpha\)</span> test, using the fact that <span class="math notranslate nohighlight">\(T(X)\sim \mbox{Binomial}(n, 1/2)\)</span>.</p>
@@ -540,14 +551,16 @@ that <span class="math notranslate nohighlight">\(\tau(P) = P\)</span> for all <
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be a collection of subsets of a set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
 For a finite set <span class="math notranslate nohighlight">\(D \subset \mathcal{X}\)</span>, let <span class="math notranslate nohighlight">\(\Delta^\mathcal{V}(D)\)</span> be the number of distinct sets
 <span class="math notranslate nohighlight">\(\{ V \cap D: V \in \mathcal{V} \}\)</span>.
-For positive integers <span class="math notranslate nohighlight">\(n\)</span>, let
-$<span class="math notranslate nohighlight">\(
+For positive integers <span class="math notranslate nohighlight">\(n\)</span>, let</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     m^\mathcal{V}(n) = \max_{D \subset \mathcal{X}: \#D = n } \Delta^\mathcal{V}(D).
-\)</span>$</p>
-<p>Let
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Let</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     c(\mathcal{V}) \equiv \inf \{ n : m^\mathcal{V}(n) &lt; 2^n \}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>If <span class="math notranslate nohighlight">\(c(\mathcal{V}) &lt; \infty\)</span>, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a Vapnik-Cervonenkis (V-C) class.
 That is, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a V-C class
 if the maximum number of distinct intersections of sets in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>
@@ -587,13 +600,15 @@ Clearly, <span class="math notranslate nohighlight">\(m^{\mathcal{V}}(2) = 4\)</
 Then <span class="math notranslate nohighlight">\(\mathcal{V} \cup \mathcal{W}\)</span> is also a V-C class, as is <span class="math notranslate nohighlight">\(\mathcal{V} \cap \mathcal{W}\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be a VC
 class of subsets of <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.
-Define the pseudo-metric
-$<span class="math notranslate nohighlight">\(
+Define the pseudo-metric</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \delta: \Omega \times \Omega \rightarrow \mathbb{R}^+
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 (P, Q)  \rightarrow  \sup_{V \in \mathcal{V}} | P(V) - Q(V) | .
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>This is a generalization of the Kolmogorov-Smirnov distance for distributions on the
 line.
 In that case, the sets in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> are the half-lines <span class="math notranslate nohighlight">\(\{(-\infty, y] : y \in \mathbb{R}\}\)</span>
@@ -602,13 +617,14 @@ V-C class).</p>
 <p>Assume that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> have been selected such that
 <span class="math notranslate nohighlight">\(\delta(P, \tau P) = 0\)</span> iff
 <span class="math notranslate nohighlight">\(P \in \Omega_0\)</span>.
-Romano proposes using the test statistic
-$<span class="math notranslate nohighlight">\(
+Romano proposes using the test statistic</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     T_n = n^{1/2} \delta(\hat{P}_n, \tau \hat{P}_n ),
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\hat{P}<em>n<span class="math notranslate nohighlight">\( is the empirical measure of \)</span>{X_j }</em>{j=1}^n<span class="math notranslate nohighlight">\(.
-One rejects the hypothesis when  \)</span>\tau\hat{P}_n<span class="math notranslate nohighlight">\( is far from \)</span>\hat{P}_n<span class="math notranslate nohighlight">\(; i.e.,
-when \)</span>T_n$ is sufficiently large.</p>
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> is the empirical measure of <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span>.
+One rejects the hypothesis when  <span class="math notranslate nohighlight">\(\tau\hat{P}_n\)</span> is far from <span class="math notranslate nohighlight">\(\hat{P}_n\)</span>; i.e.,
+when <span class="math notranslate nohighlight">\(T_n\)</span> is sufficiently large.</p>
 <p>But how large?
 One way to obtain a critical value for the test is with the bootstrap:
 resample from <span class="math notranslate nohighlight">\(\tau(\hat{P}_n)\)</span>, tabulate the distribution of the distance
@@ -674,43 +690,50 @@ Under the null hypothesis, <span class="math notranslate nohighlight">\(P\)</spa
 marginal distributions of <span class="math notranslate nohighlight">\(P\)</span> and multiplies them together to give a probability on
 <span class="math notranslate nohighlight">\(\mathbb{R}^k\)</span> with independent components.
 Let <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> be the empirical measure; let the V-C class <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be the set of
-lower left quadrants <span class="math notranslate nohighlight">\(\{ Q(x) : x \in \mathbb{R}^k \}\)</span> where
-$<span class="math notranslate nohighlight">\(
+lower left quadrants <span class="math notranslate nohighlight">\(\{ Q(x) : x \in \mathbb{R}^k \}\)</span> where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     Q(x) \equiv \{ y \in \mathbb{R}^k : y_i \le x_i, \;\; i = 1, \ldots, k\}.
-\)</span><span class="math notranslate nohighlight">\(
-Then
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \hat{P}_n(Q(x)) = \frac{1}{n} \# \{ X_j : X_{ij} \le x_i, \;\; i = 1, \ldots, k \},
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \tau \hat{P}_n (Q(x)) = \prod_{i=1}^k \frac{1}{n} \# \{ X_j : X_{ij} \le x_i \}.
-\)</span><span class="math notranslate nohighlight">\(
-The maximum difference in the probability of a lower left quadrant \)</span>Q(x)<span class="math notranslate nohighlight">\( occurs when
-\)</span>x<span class="math notranslate nohighlight">\( is one of the points of support of \)</span>\tau \hat{P}_n<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>The maximum difference in the probability of a lower left quadrant <span class="math notranslate nohighlight">\(Q(x)\)</span> occurs when
+<span class="math notranslate nohighlight">\(x\)</span> is one of the points of support of <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 \sup_{V \in \mathcal{V}} | \hat{P}_n (V) - \tau \hat{P}_n(V) |
 = \sup_{x \in \mathbb{R}^k} | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 = \max_{x \in \mathbb{R}^k : x_i \in \{X_{ij}\}_{j=1}^n, \;\; i = 1, \ldots, k }
 | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |.
-\)</span>$</p>
-<p>To test the null hypothesis of independence, we would compute
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>To test the null hypothesis of independence, we would compute</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     T(X) = \max_{x \in \mathbb{R}^k : x_i \in \{X_{ij}\}_{j=1}^n, \;\; i = 1, \ldots, k }
     | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |
-\)</span><span class="math notranslate nohighlight">\(
-from the data \)</span>X<span class="math notranslate nohighlight">\(, then repeatedly draw iid samples \)</span>X^<em><span class="math notranslate nohighlight">\( of size \)</span>n<span class="math notranslate nohighlight">\( from \)</span>\tau \hat{P}_n<span class="math notranslate nohighlight">\(,
-computing
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>from the data <span class="math notranslate nohighlight">\(X\)</span>, then repeatedly draw iid samples <span class="math notranslate nohighlight">\(X^*\)</span> of size <span class="math notranslate nohighlight">\(n\)</span> from <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>,
+computing</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     T(X^*) = \max_{x \in \mathbb{R}^k : x_i \in \{X_{ij}^*\}_{j=1}^n, \;\; i = 1, \ldots, k }
     | \hat{P}_n^* (Q(x)) - \tau \hat{P}_n^*(Q(x)) |
-\)</span><span class="math notranslate nohighlight">\(
-for each.
+\end{equation*}\]</div>
+<p>for each.
 We would reject the null hypothesis
-that the components of \)</span>P<span class="math notranslate nohighlight">\( are independent (at approximate significance level \)</span>\alpha<span class="math notranslate nohighlight">\() if
-\)</span>T(X)<span class="math notranslate nohighlight">\( exceeds the \)</span>1-\alpha<span class="math notranslate nohighlight">\( quantile of the simulated distribution of \)</span>T(X^</em>)$.</p>
+that the components of <span class="math notranslate nohighlight">\(P\)</span> are independent (at approximate significance level <span class="math notranslate nohighlight">\(\alpha\)</span>) if
+<span class="math notranslate nohighlight">\(T(X)\)</span> exceeds the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of the simulated distribution of <span class="math notranslate nohighlight">\(T(X^*)\)</span>.</p>
 </div>
 <div class="section" id="rotational-invariance-in-mathbb-r-2">
 <h2>Rotational invariance in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#rotational-invariance-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
@@ -724,14 +747,16 @@ Under the null hypothesis, <span class="math notranslate nohighlight">\(P\)</spa
 a distribution with the same marginal distribution of <span class="math notranslate nohighlight">\(|X|\)</span> but that is uniform on
 <span class="math notranslate nohighlight">\(\theta\)</span> for each possible value of <span class="math notranslate nohighlight">\(|X|\)</span>.</p>
 <p>As before, let <span class="math notranslate nohighlight">\(\hat{P}_n\)</span> be the empirical measure; let the V-C class <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be the set of
-lower left quadrants <span class="math notranslate nohighlight">\(\{ Q(x) : x \in \mathbb{R}^2 \}\)</span> where
-$<span class="math notranslate nohighlight">\(
+lower left quadrants <span class="math notranslate nohighlight">\(\{ Q(x) : x \in \mathbb{R}^2 \}\)</span> where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     Q(x) \equiv \{ y \in \mathbb{R}^k : y_i \le x_i, \;\; i = 1, 2\}.
-\)</span>$</p>
-<p>Then
-$<span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     \hat{P}_n(Q(x)) = \frac{1}{n} \# \{ X_j : X_{ij} \le x_i, \;\; i = 1, 2 \}.
-\)</span>$</p>
+\end{equation*}\]</div>
 <p>To proceed, we need to find the probability of lower left quadrants <span class="math notranslate nohighlight">\(Q(x)\)</span> for the
 distribution <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>.
 Consider the contribution from each <span class="math notranslate nohighlight">\(X_j\)</span> separately.
@@ -750,20 +775,22 @@ Let the points at which the quadrant boundary intersects
 the circle be <span class="math notranslate nohighlight">\((x_1', x_2)\)</span> and <span class="math notranslate nohighlight">\((x_1, x_2')\)</span>.  Then <span class="math notranslate nohighlight">\(x_1'\)</span> is the negative
 root of <span class="math notranslate nohighlight">\(x_1^{'2} = R_j^2 - x_2^2\)</span> and <span class="math notranslate nohighlight">\(x_2'\)</span> is the negative root
 of <span class="math notranslate nohighlight">\(x_2^{'2} = R_j^2 - x_1^2\)</span>.
-The fraction of the circle included in <span class="math notranslate nohighlight">\(Q(x)\)</span> is
-$$
-\frac{1}{\pi} \sin^{-1} \frac{1}{\sqrt{2}} \left ( 1 + \frac{x_1}{R_j} \sqrt{1 - \frac{x_2^2}{R_j^2}}</p></li>
+The fraction of the circle included in <span class="math notranslate nohighlight">\(Q(x)\)</span> is</p></li>
 </ol>
-<ul class="simple">
-<li><p>\frac{x_2}{R_j} \sqrt{1 - \frac{x_1^2}{R_j^2}} \right )^{1/2}.
-$$</p></li>
-</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+\frac{1}{\pi} \sin^{-1} \frac{1}{\sqrt{2}} \left ( 1 + \frac{x_1}{R_j} \sqrt{1 - \frac{x_2^2}{R_j^2}}
++ \frac{x_2}{R_j} \sqrt{1 - \frac{x_1^2}{R_j^2}} \right )^{1/2}.
+\end{equation*}\]</div>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(-R_j &lt; x_1 \le 0\)</span>, <span class="math notranslate nohighlight">\(x_2 \ge 0\)</span>.<br />
-The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is
-$<span class="math notranslate nohighlight">\(
+The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
 q(x_1) \equiv \frac{1}{\pi} \sin^{-1} \frac{1}{\sqrt{2}} \left ( 1 - \frac{x_1^2}{R_j^2} \right )^{1/2}.
-\)</span>$</p></li>
+\end{equation*}\]</div>
+<ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(0 \le x_1 &lt; R_j\)</span>, <span class="math notranslate nohighlight">\(x_2 \ge R_j\)</span>.<br />
 The fraction of the circle within <span class="math notranslate nohighlight">\(Q(x)\)</span> is <span class="math notranslate nohighlight">\(1 - q(x_1)\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(x_1^2 + x_2^2 &gt; R_j^2\)</span>, <span class="math notranslate nohighlight">\(x_1 \ge 0\)</span>, <span class="math notranslate nohighlight">\(-R_j &lt; x_2 &lt; 0\)</span>.<br />
@@ -790,18 +817,20 @@ Denote this set by <span class="math notranslate nohighlight">\(\mathcal{X} (\{X
 <p>To draw an iid sample of size <span class="math notranslate nohighlight">\(n\)</span> from <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>, we draw <span class="math notranslate nohighlight">\(n\)</span> values
 iid uniform on <span class="math notranslate nohighlight">\(\{r_j\}_{j=1}^n\)</span> and draw <span class="math notranslate nohighlight">\(n\)</span> iid <span class="math notranslate nohighlight">\(U[0, 2\pi]\)</span> random variables,
 and treat these as the polar coordinates <span class="math notranslate nohighlight">\((r, \theta)\)</span> of <span class="math notranslate nohighlight">\(n\)</span> points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
-<p>To test the null hypothesis of rotational invariance, we would compute
-$<span class="math notranslate nohighlight">\(
+<p>To test the null hypothesis of rotational invariance, we would compute</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     T(X) = \max_{x \in \mathbb{R}^k : x \in \mathcal{X} (\{X_j\}, \epsilon)}
     | \hat{P}_n (Q(x)) - \tau \hat{P}_n(Q(x)) |
-\)</span><span class="math notranslate nohighlight">\(
-from the data \)</span>X<span class="math notranslate nohighlight">\(, then repeatedly draw iid samples \)</span>{X_j^*}<span class="math notranslate nohighlight">\( of size \)</span>n<span class="math notranslate nohighlight">\( from \)</span>\tau \hat{P}_n<span class="math notranslate nohighlight">\(,
-computing
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>from the data <span class="math notranslate nohighlight">\(X\)</span>, then repeatedly draw iid samples <span class="math notranslate nohighlight">\(\{X_j^*\}\)</span> of size <span class="math notranslate nohighlight">\(n\)</span> from <span class="math notranslate nohighlight">\(\tau \hat{P}_n\)</span>,
+computing</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
     T(X^*) = \max_{x \in \mathbb{R}^k : x \in \mathcal{X} (\{X_j^*\}, \epsilon) }
     | \hat{P}_n^* (Q(x)) - \tau \hat{P}_n^*(Q(x)) |
-\)</span>$
-for each.</p>
+\end{equation*}\]</div>
+<p>for each.</p>
 <p>We would reject the null hypothesis
 that <span class="math notranslate nohighlight">\(P\)</span> is rotationally invariant (at approximate significance level <span class="math notranslate nohighlight">\(\alpha\)</span>) if
 <span class="math notranslate nohighlight">\(T(X)\)</span> exceeds the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of the simulated distribution of <span class="math notranslate nohighlight">\(T(X^*)\)</span>.</p>

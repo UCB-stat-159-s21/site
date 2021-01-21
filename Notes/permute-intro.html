@@ -435,16 +435,22 @@ See also Bennett et al., 1969.</p>
 <div class="section" id="test-contenders">
 <h3>Test contenders<a class="headerlink" href="#test-contenders" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>2-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test:
-$<span class="math notranslate nohighlight">\( 
-            \frac{\mbox{mean(treatment) - mean(control)}}
-                 {\mbox{pooled estimate of SD of difference of means}}
-\)</span>$</p></li>
-<li><p>1-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:
-$<span class="math notranslate nohighlight">\(
-        \frac{\mbox{mean(differences)}}{\mbox{SD(differences)}/\sqrt{11}}
-\)</span>$<br />
-Better, since littermates are presumably more homogeneous.</p></li>
+<li><p>2-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
+              \frac{\mbox{mean(treatment) - mean(control)}}
+                   {\mbox{pooled estimate of SD of difference of means}}
+\end{equation*}\]</div>
+<ul class="simple">
+<li><p>1-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test on the differences:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+	      \frac{\mbox{mean(differences)}}{\mbox{SD(differences)}/\sqrt{11}}
+\end{equation*}\]</div>
+<p>Better, since littermates are presumably more homogeneous.</p>
+<ul class="simple">
 <li><p>Permutation test using <span class="math notranslate nohighlight">\(t\)</span>-statistic of differences:
 same statistic, different way to calculate <span class="math notranslate nohighlight">\(P\)</span>-value.
 Even better?</p></li>
@@ -562,21 +568,23 @@ Sample SD of differences:  27.33mg<br />
 <h3>Permutation <span class="math notranslate nohighlight">\(t\)</span>-test calculations<a class="headerlink" href="#permutation-t-test-calculations" title="Permalink to this headline">¶</a></h3>
 <p>Could enumerate all <span class="math notranslate nohighlight">\(2^{11} = 2,048\)</span> equally likely possibilities.
 Calculate <span class="math notranslate nohighlight">\(t\)</span>-statistic for each.</p>
-<p><span class="math notranslate nohighlight">\(P\)</span>-value is
-$<span class="math notranslate nohighlight">\(
-	P = \frac{\mbox{number of possibilities with \)</span>t \ge 3.244<span class="math notranslate nohighlight">\(}}{\mbox{2,048}}
-\)</span><span class="math notranslate nohighlight">\(
-(Using the mean as the test statistic instead of \)</span>t<span class="math notranslate nohighlight">\(-statistic
-would yield \)</span>P = 2/2048 =  0.00098$.)</p>
+<p><span class="math notranslate nohighlight">\(P\)</span>-value is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+	P = \frac{\mbox{number of possibilities with $t \ge 3.244$}}{\mbox{2,048}}
+\end{equation*}\]</div>
+<p>(Using the mean as the test statistic instead of <span class="math notranslate nohighlight">\(t\)</span>-statistic
+would yield <span class="math notranslate nohighlight">\(P = 2/2048 =  0.00098\)</span>.)</p>
 <p>If there were many more pairs, it would be impractical to enumerate, but
 we can simulate:</p>
 <p>Assign a random sign to each difference. \
 Compute <span class="math notranslate nohighlight">\(t\)</span>-statistic \
-Repeat <span class="math notranslate nohighlight">\(N\)</span> times
-$<span class="math notranslate nohighlight">\(
-	P \approx \frac{\mbox{number of simulations with \)</span>t \ge 3.244<span class="math notranslate nohighlight">\(}}{N}
-\)</span><span class="math notranslate nohighlight">\(
-Can invert Binomial tests to make an exact confidence interval for \)</span>P$ from the simulation results.</p>
+Repeat <span class="math notranslate nohighlight">\(N\)</span> times</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+	P \approx \frac{\mbox{number of simulations with $t \ge 3.244$}}{N}
+\end{equation*}\]</div>
+<p>Can invert Binomial tests to make an exact confidence interval for <span class="math notranslate nohighlight">\(P\)</span> from the simulation results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">20151013</span><span class="p">)</span>  <span class="c1"># set seed for reproducibility</span>
@@ -740,17 +748,21 @@ use Student <span class="math notranslate nohighlight">\(t\)</span>-test.</p>
 <h3>Test contenders<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><span class="math notranslate nohighlight">\(n\)</span> litters, <span class="math notranslate nohighlight">\(s\)</span> treatments (sibs per litter).</p>
 <ul class="simple">
-<li><p>ANOVA–the <span class="math notranslate nohighlight">\(F\)</span>-test:
-$<span class="math notranslate nohighlight">\( 
-F = \frac{\mbox{BSS}/(s-1)}{\mbox{WSS}/(n-s)}
-\)</span>$</p></li>
-<li><p>Permutation <span class="math notranslate nohighlight">\(F\)</span>-test: use permutation distribution instead of <span class="math notranslate nohighlight">\(F\)</span> distribution to get <span class="math notranslate nohighlight">\(P\)</span>-value.</p></li>
-<li><p>Friedman test: Rank within litters. Mean rank for treatment <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(\bar{R}_i\)</span>.
-$<span class="math notranslate nohighlight">\( 
-Q = \frac{12n}{s(s+1)} \sum_{i=1}^s \left ( \bar{R}_i - \frac{s+1}{2} \right )^2.
-\)</span><span class="math notranslate nohighlight">\(
-\)</span>P$-value from permutation distribution.</p></li>
+<li><p>ANOVA–the <span class="math notranslate nohighlight">\(F\)</span>-test:</p></li>
 </ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
+F = \frac{\mbox{BSS}/(s-1)}{\mbox{WSS}/(n-s)}
+\end{equation*}\]</div>
+<ul class="simple">
+<li><p>Permutation <span class="math notranslate nohighlight">\(F\)</span>-test: use permutation distribution instead of <span class="math notranslate nohighlight">\(F\)</span> distribution to get <span class="math notranslate nohighlight">\(P\)</span>-value.</p></li>
+<li><p>Friedman test: Rank within litters. Mean rank for treatment <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(\bar{R}_i\)</span>.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
+Q = \frac{12n}{s(s+1)} \sum_{i=1}^s \left ( \bar{R}_i - \frac{s+1}{2} \right )^2.
+\end{equation*}\]</div>
+<p><span class="math notranslate nohighlight">\(P\)</span>-value from permutation distribution.</p>
 </div>
 <div class="section" id="id2">
 <h3>Strong null hypothesis<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
@@ -939,31 +951,33 @@ students for the first group, then 11 of the remaining 36 for the second,
 then 12 of the remaining 25 for the third.
 The fourth group must contain the remaining 13.</p>
 <p>The number of ways of doing that is</p>
-<div class="math notranslate nohighlight">
-\[  
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}   
    {47 \choose 11}{36 \choose 11}{25 \choose 12} =
    \frac{47!}{11! 36!} \frac{36!}{11! 25!} \frac{25!}{12! 13!} = \frac{47!}{11! 11! 12! 13!}.
-\]</div>
+\end{equation*}\]</div>
 <p>Does the number depend on the order in which we made the choices?
 Suppose we made the choices in a different order: first 12 students for one group, then
 11 for the second, then 13 for the third (the fourth gets the remaining 11 students).
-The number of ways of doing that is
-$<span class="math notranslate nohighlight">\(  
+The number of ways of doing that is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}   
    {47 \choose 12}{35 \choose 11}{24 \choose 13} =
    \frac{47!}{12! 35!} \frac{35!}{11! 24!} \frac{24!}{13! 11!} = \frac{47!}{12! 11! 13! 11!} = .
-\)</span>$
-The number does not depend on the order in which we make the choices.</p>
+\end{equation*}\]</div>
+<p>The number does not depend on the order in which we make the choices.</p>
 <p>By the same reasoning, the number of ways of dividing a set of <span class="math notranslate nohighlight">\(n\)</span> objects into
-<span class="math notranslate nohighlight">\(m\)</span> subsets of sizes <span class="math notranslate nohighlight">\(k_1, \ldots k_m\)</span> is given by the <em>multinomial coefficient</em>
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(m\)</span> subsets of sizes <span class="math notranslate nohighlight">\(k_1, \ldots k_m\)</span> is given by the <em>multinomial coefficient</em></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
    {n \choose k_1, k_2, \ldots, k_m} =
    {n \choose k_1}{n-k_1 \choose k_2} {n-k_1-k_2 \choose k_3} \cdots {n - \sum_{i=1}^{m-1} k_i \choose k_{m-1}}
-\)</span>$</p>
-<div class="math notranslate nohighlight">
-\[ = \frac{n! (n-k_1)! (n-k_1 - k_2)! \cdots 
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  = \frac{n! (n-k_1)! (n-k_1 - k_2)! \cdots 
    (n - k_1 - \cdots - k_{m-1}!}{k_1! (n-k_1)! k_2! (n-k_1-k_2)! \cdots k_m!}
    = \frac{n!}{\prod_{i=1}^m k_i!}.
-\]</div>
+\end{equation*}\]</div>
 <p>We will check how surprising it would be for the means to be so much lower when the TA is identified as female, if in fact there is “no real difference” in how they were rated, and the apparent difference is just due to the luck of the draw: which students happened to end up in which section.</p>
 <p>In the actual randomization, all <span class="math notranslate nohighlight">\(47 \choose 11, 11, 12, 13\)</span> allocations
 were equally likely.
