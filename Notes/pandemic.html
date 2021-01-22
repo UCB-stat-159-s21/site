@@ -247,6 +247,13 @@
   <a class="reference internal nav-link" href="#sir-models">
    SIR models
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-the-sir-model-to-data">
+     Fitting the SIR model to data
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -270,6 +277,7 @@ https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full-text</p></li>
 Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles and Value of Projections,
 <em>JAMA</em>, 323(19):1893-1894. doi:10.1001/jama.2020.6585</p></li>
 <li><p>Froese, H., 2020. Infectious Disease Modelling: Fit Your Model to Coronavirus Data, Towards Data Science, https://towardsdatascience.com/infectious-disease-modelling-fit-your-model-to-coronavirus-data-2568e672dbc7; https://github.com/henrifroese/infectious_disease_modelling</p></li>
+<li><p>Smith, D., and L. Moore, 2004. The SIR model for spread of disease, <em>Convergence</em>, https://www.maa.org/press/periodicals/loci/joma/the-sir-model-for-spread-of-disease-introduction</p></li>
 </ol>
 </div>
 </div>
@@ -288,25 +296,556 @@ population mixing, etc.</p>
 <p>Assumptions:</p>
 <ul class="simple">
 <li><p>Everyone is either susceptible, infected, recovered, or dead. (There are more complex models with more “compartments.”)</p></li>
-<li><p>There are no births, no immigration, no emigration, and no deaths from other causes.</p></li>
+<li><p>There are no births, immigration, emigration, or deaths from other causes.</p></li>
 <li><p>If a susceptible person is infected, that person eventually dies or recovers.</p></li>
 <li><p>While a person is infected, the person is infectious.</p></li>
+<li><p>There is no “incubation period” between being infected and being infectious.</p></li>
 <li><p>If a susceptible person recovers, that person becomes immune (not susceptible) and is no longer infectious.</p></li>
 <li><p>If an infected person gets “close enough” to a susceptible person, the susceptible person becomes infected.</p></li>
-<li><p>Every unit of time, <em>every</em> infected person gets close enough to <span class="math notranslate nohighlight">\(\beta\)</span> people to infect them if they are susceptible. Ignore the possibility that two or more infected people get close to the same susceptible person.</p></li>
+<li><p>Every unit of time, every infected person gets close enough to <span class="math notranslate nohighlight">\(\beta\)</span> people to infect any of them who are susceptible. Ignore the possibility that two or more infected people get close to the same susceptible person.</p></li>
 <li><p>Every unit of time, a fraction <span class="math notranslate nohighlight">\(\gamma\)</span> of infected people recover or die.</p></li>
 </ul>
 <p>Then <span class="math notranslate nohighlight">\(S + I + R = N\)</span> is constant, the initial population size.</p>
-<p>The basic reproductive number <span class="math notranslate nohighlight">\(R_0 = \beta/\gamma\)</span> is the number of people each infected person infects before recovering or dying. Note that this interpretation depends on the assumption that, initially, essentially the entire population is susceptible (the proportion who are infected or recovered is small compared to <span class="math notranslate nohighlight">\(N\)</span>).</p>
-<p>Define <span class="math notranslate nohighlight">\(s(t) \equiv S(t)/N\)</span>, <span class="math notranslate nohighlight">\(i(t) \equiv I(t)/N\)</span>, and <span class="math notranslate nohighlight">\(r(t) \equiv R(t)/N\)</span>.</p>
-<p>The parameters of the model has several parameters are <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>The basic reproductive number <span class="math notranslate nohighlight">\(R_0 = \beta/\gamma\)</span> is the number of people each infected person infects before recovering or dying. Note that this interpretation depends on the assumption that, initially, essentially the entire population is susceptible (the proportion who are infected or recovered is small compared to <span class="math notranslate nohighlight">\(N\)</span>).
+(Also note that <span class="math notranslate nohighlight">\(R_0\)</span> has no connection to <span class="math notranslate nohighlight">\(R\)</span>: the notation is unfortunate.)</p>
+<p>Define <span class="math notranslate nohighlight">\(s(t) \equiv S(t)/N\)</span>, <span class="math notranslate nohighlight">\(i(t) \equiv I(t)/N\)</span>, and <span class="math notranslate nohighlight">\(r(t) \equiv R(t)/N\)</span>.
+Then <span class="math notranslate nohighlight">\(s+i+r = 1\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>The parameters of the model are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>, the number of exposed people per unit of time per infected persion</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>, the fraction of infected people who recover (or die) per unit time</p></li>
+</ul>
 <p>The state of the population is described by three differential equations:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(dS/dt = -b I S/N\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(dI/dt = b I S/N - fI\)</span> (equivalently, <span class="math notranslate nohighlight">\(di/dt = bis - fi\)</span>)</p></li>
-<li><p><span class="math notranslate nohighlight">\(dR/dt = fI\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dS/dt = -\beta I S/N\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dI/dt = \beta I S/N - \gamma I\)</span> (equivalently, <span class="math notranslate nohighlight">\(di/dt = \beta is - \gamma i\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(dR/dt = \gamma I\)</span></p></li>
 </ul>
-<p>https://towardsdatascience.com/infectious-disease-modelling-fit-your-model-to-coronavirus-data-2568e672dbc7</p>
+<p>We will also consider what happens if immunity wears off over time, which we parametrize as a fraction <span class="math notranslate nohighlight">\(\delta\)</span> of <span class="math notranslate nohighlight">\(R\)</span> returning to <span class="math notranslate nohighlight">\(S\)</span> in each time period. That yields:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(dS/dt = -\beta I S/N + \delta R\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dI/dt = \beta I S/N - \gamma I\)</span> (equivalently, <span class="math notranslate nohighlight">\(di/dt = \beta is - \gamma i\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(dR/dt = \gamma I - \delta R\)</span></p></li>
+</ul>
+<p>(There are other ways we could do this, for instance, having a variable “lag” between recovery and becoming susceptible again.)</p>
+<p>Other generalizations include separate “compartments” for dead versus recovered, for needing an ICU bed, etc., as well as time-varying values of <span class="math notranslate nohighlight">\(\beta\)</span> to account for lockdowns, heterogeneity in the population, and more.</p>
+<p>Let’s run this model (in discrete time) for a population of <span class="math notranslate nohighlight">\(N=1,000,000\)</span> people of whom 0.05% are initially infected.
+We will take the time interval to be 1 day, the period of infectiousness to be <span class="math notranslate nohighlight">\(1/\gamma = 14\)</span> days,
+and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>, so <span class="math notranslate nohighlight">\(\beta = 2 \gamma = 1/7\)</span>. We will start with <span class="math notranslate nohighlight">\(\delta=0\)</span> (no re-infections).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># boilerplate</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">365</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Run SIR model as finite-difference equations. Assumes that initially a fraction i_0 of</span>
+<span class="sd">    the population of N people is infected and everyone else is susceptible (none has died or</span>
+<span class="sd">    recovered).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    N   :   int</span>
+<span class="sd">        population size</span>
+<span class="sd">    i_0 :   double in (0, 1)</span>
+<span class="sd">        initial fraction of population infected</span>
+<span class="sd">    beta :  double in [0, infty)</span>
+<span class="sd">        number of encounters each infected person has per time step</span>
+<span class="sd">    gamma : double in (0, 1)</span>
+<span class="sd">        fraction of infecteds who recover or die per time step</span>
+<span class="sd">    delta : double in (0, 1)</span>
+<span class="sd">        fraction of recovereds who become susceptible per time step</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    S, I, R </span>
+<span class="sd">    S     : list</span>
+<span class="sd">        time history of susceptibles</span>
+<span class="sd">    I     : list</span>
+<span class="sd">        time history of infecteds</span>
+<span class="sd">    R     : list</span>
+<span class="sd">        time history of recovered/dead    </span>
+<span class="sd">    I_tot : list</span>
+<span class="sd">        cumulative number of infections over time</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">i_0</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;initial rate of infection is zero&#39;</span>
+    <span class="k">assert</span> <span class="n">i_0</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;infection rate greater than 1&#39;</span>
+    <span class="k">assert</span> <span class="n">beta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;beta must be nonnegative&#39;</span>
+    <span class="k">assert</span> <span class="n">gamma</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;gamma must be positive&#39;</span>
+    <span class="k">assert</span> <span class="n">gamma</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;gamma must be less than 1&#39;</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+    <span class="n">I_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+    <span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">i_0</span><span class="p">)</span>
+    <span class="n">I_tot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">new_i</span> <span class="o">=</span> <span class="n">beta</span><span class="o">*</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">new_i</span> <span class="o">+</span> <span class="n">delta</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">new_i</span> <span class="o">-</span> <span class="n">gamma</span><span class="o">*</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">gamma</span><span class="o">*</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">I_tot</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">I_tot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">new_i</span>
+    <span class="k">return</span> <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">I_tot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_sir</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="mi">14</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">365</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plot the time history of an SIR model.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    N     : int</span>
+<span class="sd">        population size</span>
+<span class="sd">    i_0   : double in (0, 1)</span>
+<span class="sd">        infection rate at time 0</span>
+<span class="sd">    beta  :  double in [0, infty)</span>
+<span class="sd">        number of encounters each infected person has per time step</span>
+<span class="sd">    gamma : double in (0, 1)</span>
+<span class="sd">        fraction of infecteds who recover or die per time step</span>
+<span class="sd">    delta : double in (0, 1)</span>
+<span class="sd">        fraction of recovereds who become susceptible per time step</span>
+<span class="sd">    steps : int</span>
+<span class="sd">        number of time steps to run the model</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    S, I, R, I_tot if verbose</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">I_tot</span> <span class="o">=</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Infected&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Susceptible&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Recovered&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">I_tot</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tot infect.&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_0</span> <span class="o">=</span> <span class="mf">0.0005</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">365</span>
+
+<span class="n">plot_sir</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pandemic_7_0.png" src="../_images/pandemic_7_0.png" />
+</div>
+</div>
+<p>The number of infections looks like bell curve and the cumulative number of infections looks like a CDF (but only reaches about 80%, rather than 100%.</p>
+<p>The cumulative number is “sigmoidal” (vaguely “S”-shaped) in this example. You might imagine fitting a scaled CDF to the curve. Essentially, that is the IHME model.</p>
+<p>What if immunity wears off over time? Let’s try a positive value of <span class="math notranslate nohighlight">\(\delta\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_sir</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pandemic_10_0.png" src="../_images/pandemic_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">plot_sir</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">N</span><span class="p">),</span>
+                   <span class="n">i_0</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">i_0</span><span class="p">),</span>
+                   <span class="n">beta</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="mi">14</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+                   <span class="n">gamma</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+                   <span class="n">delta</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+                   <span class="n">steps</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">steps</span><span class="p">),</span>
+                   <span class="n">verbose</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6841a8ac3e1f453abe7804a7997b6e35", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_sir(N, i_0, beta=0.14285714285714285, gamma=0.07142857142857142, delta=0, steps=365, verbose=False)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fitting-the-sir-model-to-data">
+<h2>Fitting the SIR model to data<a class="headerlink" href="#fitting-the-sir-model-to-data" title="Permalink to this headline">¶</a></h2>
+<p>Now we will use least squares to fit the SIR model to a time history of infection data collected by researchers at Johns Hopkins University.See https://github.com/CSSEGISandData</p>
+<p>This exercise is for illustration. There are many reasons to be wary of this modeling:</p>
+<ul class="simple">
+<li><p>There are serious issues with the data quality: these are cases that were <em>reported</em> according to the rules and circumstances of where they were detected. For mortality (rather than incidence), excess mortality might give a more accurate measure.</p></li>
+<li><p>The model is a cartoon, not “physics” of epidemics, and it omits many factors that plausibly matter. It is not clear what estimates of the parameters mean when the model is wrong.</p></li>
+<li><p>Absent a trustworthy generative model for the data, it is not clear how to assess or interpret the uncertainty of the estimates.</p></li>
+<li><p>If the estimated model is to be used for prediction, there is no obvious way to assign meaningful uncertainties to the predictions.</p></li>
+<li><p>The optimization problem to fit the parameters has no statistical content or motivation. It is not clear that it yields an estimate that is “good” in a useful sense.</p></li>
+<li><p>The objective function is not convex in the model parameters, and the optimization algorithm is not guaranteed to solve the optimization problem.</p></li>
+</ul>
+<p>The data record total cases as a function of time, deaths, and recoveries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Model cumulative infections</span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    <span class="k">return</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test f</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">i_0</span> <span class="o">=</span> <span class="mf">0.0005</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">14</span> <span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 500.        ,  571.39285714,  647.87464122,  729.80689646,
+        817.5766761 ,  911.59831599, 1012.31532767, 1120.20241833,
+       1235.76764552, 1359.55471484, 1492.14542917, 1634.1622985 ,
+       1786.27131969, 1949.18493587, 2123.66518564, 2310.5270524 ,
+       2510.64202461, 2724.94187786, 2954.42268994, 3200.14910031,
+       3463.25882519, 3744.96743963, 4046.57343789, 4369.46358264,
+       4715.11855381])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test curve_fit</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pvoc</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="n">popt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.14285714, 0.07142857])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try some real data from the JHU site</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># data for countries</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span><span class="p">,</span>
+                 <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Province/State</th>
+      <th>Country/Region</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>1/22/20</th>
+      <th>1/23/20</th>
+      <th>1/24/20</th>
+      <th>1/25/20</th>
+      <th>1/26/20</th>
+      <th>1/27/20</th>
+      <th>...</th>
+      <th>1/12/21</th>
+      <th>1/13/21</th>
+      <th>1/14/21</th>
+      <th>1/15/21</th>
+      <th>1/16/21</th>
+      <th>1/17/21</th>
+      <th>1/18/21</th>
+      <th>1/19/21</th>
+      <th>1/20/21</th>
+      <th>1/21/21</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>Afghanistan</td>
+      <td>33.93911</td>
+      <td>67.709953</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>53584</td>
+      <td>53584</td>
+      <td>53775</td>
+      <td>53831</td>
+      <td>53938</td>
+      <td>53984</td>
+      <td>54062</td>
+      <td>54141</td>
+      <td>54278</td>
+      <td>54403</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>Albania</td>
+      <td>41.15330</td>
+      <td>20.168300</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>64627</td>
+      <td>65334</td>
+      <td>65994</td>
+      <td>66635</td>
+      <td>67216</td>
+      <td>67690</td>
+      <td>67982</td>
+      <td>68568</td>
+      <td>69238</td>
+      <td>69916</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>Algeria</td>
+      <td>28.03390</td>
+      <td>1.659600</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>102641</td>
+      <td>102860</td>
+      <td>103127</td>
+      <td>103381</td>
+      <td>103611</td>
+      <td>103833</td>
+      <td>104092</td>
+      <td>104341</td>
+      <td>104606</td>
+      <td>104852</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>Andorra</td>
+      <td>42.50630</td>
+      <td>1.521800</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>8682</td>
+      <td>8818</td>
+      <td>8868</td>
+      <td>8946</td>
+      <td>9038</td>
+      <td>9083</td>
+      <td>9083</td>
+      <td>9194</td>
+      <td>9308</td>
+      <td>9379</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>Angola</td>
+      <td>-11.20270</td>
+      <td>17.873900</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>18343</td>
+      <td>18425</td>
+      <td>18613</td>
+      <td>18679</td>
+      <td>18765</td>
+      <td>18875</td>
+      <td>18926</td>
+      <td>19011</td>
+      <td>19093</td>
+      <td>19177</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 370 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for Denmark</span>
+<span class="n">DK</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Country/Region&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Province/State&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">DK</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Province/State&#39;</span><span class="p">,</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span><span class="s1">&#39;Long&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>330 [     1      1      3      4      4      6     10     10     23     23
+     35     90    262    442    615    801    827    864    914    977
+   1057   1151   1255   1326   1395   1450   1591   1724   1877   2046
+   2201   2395   2577   2860   3107   3386   3757   4077   4369   4681
+   5071   5402   5635   5819   5996   6174   6318   6511   6681   6879
+   7073   7242   7384   7515   7695   7912   8073   8210   8445   8575
+   8698   8851   9008   9158   9311   9407   9523   9670   9821   9938
+  10083  10218  10319  10429  10513  10591  10667  10713  10791  10858
+  10927  10968  11044  11117  11182  11230  11289  11360  11387  11428
+  11480  11512  11593  11633  11669  11699  11734  11771  11811  11875
+  11924  11948  11962  12001  12016  12035  12099  12139  12193  12217
+  12250  12294  12344  12391  12391  12391  12527  12561  12615  12636
+  12675  12675  12675  12751  12768  12794  12815  12832  12832  12832
+  12878  12888  12900  12916  12946  12946  12946  13037  13061  13092
+  13124  13173  13173  13173  13262  13302  13350  13390  13438  13438
+  13438  13547  13577  13634  13725  13789  13789  13789  13996  14073
+  14185  14306  14442  14442  14442  14815  14959  15070  15214  15379
+  15483  15617  15740  15855  15940  16056  16127  16239  16317  16397
+  16480  16537  16627  16700  16779  16891  16985  17084  17195  17374
+  17547  17736  17883  18113  18356  18607  18924  19216  19557  19890
+  20237  20571  20571  21393  21847  22436  22905  23323  23799  24357
+  24916  25594  26213  26637  27072  27464  27998  28396  28932  29302
+  29680  30057  30379  30710  31156  31638  32082  32422  32811  33101
+  33593  34023  34441  34941  35392  35844  36373  37003  37763  38622
+  39411  40356  41412  42157  43174  44034  45225  46351  47299  48241
+  49594  50530  51753  53180  54230  55121  55892  56958  57952  58963
+  60000  61078  62136  63331  64551  65808  67105  68362  69635  70485
+  71654  73021  74204  75395  76718  78354  79352  80481  81949  83535
+  85140  86743  88858  90603  92649  94799  97357 100489 103564 107116
+ 109758 113095 116087 119779 123813 128321 131606 134434 137632 140175
+ 143472 146341 149333 151167 153347 155826 158447 161230 163479 165930
+ 167541 168711 170787 172779 174995 176837 178497 180240 181486 182725
+ 183801 185159 185159 187320 188199 189088 189895 190619 191505 192265]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;&quot;Confirmed&quot; COVID-19 Cases in Denmark&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since first detected case&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Days since first detected case&#39;)
+</pre></div>
+</div>
+<img alt="../_images/pandemic_20_1.png" src="../_images/pandemic_20_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">5792202</span> <span class="c1"># estimated population of DK in 2020</span>
+<span class="n">i_0</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="c1"># initial prevalence</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit the model by nonlinear least squares</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pvoc</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">popt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.02978587, 1.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">I_tot</span> <span class="o">=</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">times</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">I_tot</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since first detected case&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;&quot;Confirmed&quot; COVID-19 Infections in Denmark&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pandemic_23_0.png" src="../_images/pandemic_23_0.png" />
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
