@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modeling the COVID-19 Pandemic &#8212; Collaborative and Reproducible Data Science</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -253,6 +253,16 @@
      Fitting the SIR model to data
     </a>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-sigmoidal-models">
+     Fitting Sigmoidal Models
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-new-u-k-variant">
+     The new U.K. variant
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -462,8 +472,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <img alt="../_images/pandemic_7_0.png" src="../_images/pandemic_7_0.png" />
 </div>
 </div>
-<p>The number of infections looks like bell curve and the cumulative number of infections looks like a CDF (but only reaches about 80%, rather than 100%.</p>
-<p>The cumulative number is “sigmoidal” (vaguely “S”-shaped) in this example. You might imagine fitting a scaled CDF to the curve. Essentially, that is the IHME model.</p>
+<p>For these parameters, the number of infections is shaped like a bell curve and the cumulative number of infections is shaped like a CDF: it is “sigmoidal” (vaguely “S”-shaped). You might imagine fitting a scaled CDF to the curve. Essentially, the IHME model fits a scaled Gaussian CDF to the total number of infections.
+(More on this below.)</p>
 <p>What if immunity wears off over time? Let’s try a positive value of <span class="math notranslate nohighlight">\(\delta\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -489,7 +499,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "872cd0d9f9f84fe6a2b595ba21f8e519", "version_major": 2, "version_minor": 0}
+{"model_id": "b99b232899384ee79e8224fe239be09b", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_sir(N, i_0, beta=0.14285714285714285, gamma=0.07142857142857142, delta=0, steps=365, verbose=False)&gt;
 </pre></div>
 </div>
@@ -812,7 +822,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">5792202</span> <span class="c1"># estimated population of DK in 2020</span>
 <span class="n">i_0</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="c1"># initial prevalence</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +847,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <span class="n">times</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SIR Model&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since first detected case&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;&quot;Confirmed&quot; COVID-19 Infections in Denmark&#39;</span><span class="p">)</span>
@@ -852,7 +862,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <p>What happens if we run the model into the future?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_sir</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">plot_sir</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -867,7 +877,8 @@ Once some of the population has recovered, some of the people an infectious pers
 To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is effectively reduced by <span class="math notranslate nohighlight">\(S/N\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># greater than 1. According to the model, the infection will spread if R_0 &gt; 1.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># R_0 at the time the first infection is detected</span>
+<span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># greater than 1. According to the model, the infection will spread if R_0 &gt; 1.</span>
 </pre></div>
 </div>
 </div>
@@ -879,7 +890,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># After 1000 timesteps, R_0 is different </span>
 <span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># less than 1: According to the model, the infection will abate.</span>
 </pre></div>
 </div>
@@ -890,6 +901,103 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="fitting-sigmoidal-models">
+<h2>Fitting Sigmoidal Models<a class="headerlink" href="#fitting-sigmoidal-models" title="Permalink to this headline">¶</a></h2>
+<p>We’ve seen that for some parameter choices, the cumulative number of infections is sigmoidal.
+Some pandemic models simply fit a sigmoidal model to the number of infections.</p>
+<p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian) and the sigmoid function <span class="math notranslate nohighlight">\(1/(\exp(-x) + 1)\)</span>, the inverse of the logistic function.</p>
+<p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e77b826e-b37c-4704-80c4-5435e89dcaf8">
+<span class="eqno">()<a class="headerlink" href="#equation-e77b826e-b37c-4704-80c4-5435e89dcaf8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\sigma(x; a, b, c) \equiv c \frac{1}{e^{-b(x-a)}+1}.
+\end{equation}\]</div>
+<p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
+<p>Let’s fit this to the Danish data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Model cumulative infections using a sigmoid</span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test g visually</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe520b86750&gt;]
+</pre></div>
+</div>
+<img alt="../_images/pandemic_31_1.png" src="../_images/pandemic_31_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popts</span><span class="p">,</span> <span class="n">pvocs</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">N</span><span class="p">]),</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">popts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.00000000e+02, 1.77731537e-02, 4.68541305e+06])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot</span>
+<span class="n">Cs</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">popts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">popts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">popts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">times</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">Cs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sigmoid Model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since first detected case&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;&quot;Confirmed&quot; COVID-19 Infections in Denmark&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pandemic_33_0.png" src="../_images/pandemic_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what does this model predict for the future?</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">Cs</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">popts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">popts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">popts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">Cs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sigmoid Model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SIR Model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since first detected case&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Predicted &quot;Confirmed&quot; COVID-19 Infections in Denmark&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pandemic_34_0.png" src="../_images/pandemic_34_0.png" />
+</div>
+</div>
+<p>As you can see, the predictions depend strongly on the model…</p>
+</div>
+<div class="section" id="the-new-u-k-variant">
+<h2>The new U.K. variant<a class="headerlink" href="#the-new-u-k-variant" title="Permalink to this headline">¶</a></h2>
+<p>As of this writing (22 January 2021), a new strain of COVID-19 has been detected that is 50% to 70% more transmissible than the original virus. There is mounting evidence that the strain is also more lethal.
+https://www.wsj.com/articles/new-u-k-covid-19-variant-could-be-more-deadly-british-officials-say-11611338370 (last visited 22 January 2021).</p>
 </div>
 </div>
 
@@ -940,7 +1048,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
