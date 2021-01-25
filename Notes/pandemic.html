@@ -299,7 +299,7 @@ Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles a
 <div class="section" id="sir-models">
 <h1>SIR models<a class="headerlink" href="#sir-models" title="Permalink to this headline">¶</a></h1>
 <p>Mathematical models of epidemics date back to the early 1900s.</p>
-<p>One of the simplest models of epidemics is the SIR model, which partitions the population into three disjoint groups: Susceptible, Infected, and Recovered.
+<p>One of the simplest models of epidemics is the SIR model, which partitions the population into three disjoint groups: Susceptible, Infected, and Recovered (or Removed).
 It treats the population as fixed: no births, immigration, emigration, or deaths from other causes.
 It ignores the possibility of carriers, population heterogeneity, or geographic heterogeneity.
 It treats everyone as equivalent and assumes the population “mixes” perfectly.</p>
@@ -308,11 +308,11 @@ It treats everyone as equivalent and assumes the population “mixes” perfectl
 <li><p><span class="math notranslate nohighlight">\(N\)</span>: initial population size</p></li>
 <li><p><span class="math notranslate nohighlight">\(S(t)\)</span>: number of susceptible individuals in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(I(t)\)</span>: number of infected individuals in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(R(t)\)</span>: number dead or recovered in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R(t)\)</span>: number dead or recovered (in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
 </ul>
 <p>Assumptions:</p>
 <ul class="simple">
-<li><p>Everyone is either susceptible, infected, recovered, or dead. (There are more complex models with more “compartments.”)</p></li>
+<li><p>Everyone is either susceptible, infected, or removed (recovered or dead). (There are more complex models with more “compartments.”)</p></li>
 <li><p>There are no births, immigration, emigration, or deaths from other causes.</p></li>
 <li><p>If a susceptible person is infected, that person eventually dies or recovers.</p></li>
 <li><p>While a person is infected, the person is infectious.</p></li>
@@ -330,11 +330,13 @@ It treats everyone as equivalent and assumes the population “mixes” perfectl
 Initially, when essentially the entire population is susceptible (the proportion who are infected or recovered is small compared to <span class="math notranslate nohighlight">\(N\)</span>), this is the number of people each infected person infects before recovering or dying.
 (Note that <span class="math notranslate nohighlight">\(R_0\)</span> has no connection to <span class="math notranslate nohighlight">\(R\)</span>: the notation is unfortunate.)</p>
 <p>Define <span class="math notranslate nohighlight">\(s(t) \equiv S(t)/N\)</span>, <span class="math notranslate nohighlight">\(i(t) \equiv I(t)/N\)</span>, and <span class="math notranslate nohighlight">\(r(t) \equiv R(t)/N\)</span>.
-Then <span class="math notranslate nohighlight">\(s+i+r = 1\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>.</p>
+Then <span class="math notranslate nohighlight">\(s+i+r = 1\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>.
+There is an epidemic if <span class="math notranslate nohighlight">\(s(0)\beta/\gamma &gt; 1\)</span>: the rate at which susceptible people are
+getting infected is greater than the rate at which infected people are recoving.</p>
 <p>The parameters of the model are:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\beta\)</span>, the number of exposed people per unit of time per infected persion</p></li>
-<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>, the fraction of infected people who recover (or die) per unit time</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>, the fraction of infected people who are removed (recover or die) per unit time</p></li>
 </ul>
 <p>The state of the population evolves according to three coupled differential equations:</p>
 <ul class="simple">
@@ -523,7 +525,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7c8545174a75422695d18fe7f86c46f2", "version_major": 2, "version_minor": 0}
+{"model_id": "d55c1aa739a74064a9206f1a41da9080", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_sir(N, i_0, beta=0.14285714285714285, gamma=0.07142857142857142, delta=0, steps=365, verbose=False)&gt;
 </pre></div>
 </div>
@@ -544,13 +546,13 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <p>The data record total “confirmed” cases as a function of time, deaths, and recoveries: <span class="math notranslate nohighlight">\(C(t)\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>  <span class="c1"># nonlinear least squares</span>
 
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Model cumulative infections</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
-    <span class="k">return</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># C</span>
 </pre></div>
 </div>
 </div>
@@ -639,8 +641,6 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <th>1/26/20</th>
       <th>1/27/20</th>
       <th>...</th>
-      <th>1/13/21</th>
-      <th>1/14/21</th>
       <th>1/15/21</th>
       <th>1/16/21</th>
       <th>1/17/21</th>
@@ -649,6 +649,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <th>1/20/21</th>
       <th>1/21/21</th>
       <th>1/22/21</th>
+      <th>1/23/21</th>
+      <th>1/24/21</th>
     </tr>
   </thead>
   <tbody>
@@ -665,8 +667,6 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>53584</td>
-      <td>53775</td>
       <td>53831</td>
       <td>53938</td>
       <td>53984</td>
@@ -675,6 +675,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>54278</td>
       <td>54403</td>
       <td>54483</td>
+      <td>54559</td>
+      <td>54595</td>
     </tr>
     <tr>
       <th>1</th>
@@ -689,8 +691,6 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>65334</td>
-      <td>65994</td>
       <td>66635</td>
       <td>67216</td>
       <td>67690</td>
@@ -699,6 +699,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>69238</td>
       <td>69916</td>
       <td>70655</td>
+      <td>71441</td>
+      <td>72274</td>
     </tr>
     <tr>
       <th>2</th>
@@ -713,8 +715,6 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>102860</td>
-      <td>103127</td>
       <td>103381</td>
       <td>103611</td>
       <td>103833</td>
@@ -723,6 +723,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>104606</td>
       <td>104852</td>
       <td>105124</td>
+      <td>105369</td>
+      <td>105596</td>
     </tr>
     <tr>
       <th>3</th>
@@ -737,8 +739,6 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>8818</td>
-      <td>8868</td>
       <td>8946</td>
       <td>9038</td>
       <td>9083</td>
@@ -747,6 +747,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>9308</td>
       <td>9379</td>
       <td>9416</td>
+      <td>9499</td>
+      <td>9549</td>
     </tr>
     <tr>
       <th>4</th>
@@ -761,8 +763,6 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>18425</td>
-      <td>18613</td>
       <td>18679</td>
       <td>18765</td>
       <td>18875</td>
@@ -771,26 +771,28 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>19093</td>
       <td>19177</td>
       <td>19269</td>
+      <td>19367</td>
+      <td>19399</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 371 columns</p>
+<p>5 rows × 373 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for Denmark</span>
-<span class="n">DK</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Country/Region&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Province/State&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
-<span class="n">DK</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Province/State&#39;</span><span class="p">,</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span><span class="s1">&#39;Long&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">DK</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Country/Region&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Province/State&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>  <span class="c1"># Denmark</span>
+<span class="n">DK</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Province/State&#39;</span><span class="p">,</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span><span class="s1">&#39;Long&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>        <span class="c1"># remove fields we don&#39;t need</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>   <span class="c1"># turn series into a vector</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span> <span class="c1"># remove the data before the first detected case</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>    <span class="c1"># for model-fitting and plotting</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>331 [     1      1      3      4      4      6     10     10     23     23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>333 [     1      1      3      4      4      6     10     10     23     23
      35     90    262    442    615    801    827    864    914    977
    1057   1151   1255   1326   1395   1450   1591   1724   1877   2046
    2201   2395   2577   2860   3107   3386   3757   4077   4369   4681
@@ -823,7 +825,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
  143472 146341 149333 151167 153347 155826 158447 161230 163479 165930
  167541 168711 170787 172779 174995 176837 178497 180240 181486 182725
  183801 185159 185159 187320 188199 189088 189895 190619 191505 192265
- 193038]
+ 193038 193917 194671]
 </pre></div>
 </div>
 </div>
@@ -861,7 +863,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.02977236, 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.02974355, 1.        ])
 </pre></div>
 </div>
 </div>
@@ -908,7 +910,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0297723642130485
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.029743554077388
 </pre></div>
 </div>
 </div>
@@ -921,7 +923,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9705143626590327
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9705426039429979
 </pre></div>
 </div>
 </div>
@@ -931,8 +933,8 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 <h2>Logistic growth<a class="headerlink" href="#logistic-growth" title="Permalink to this headline">¶</a></h2>
 <p>Recall that the SIR model has  <span class="math notranslate nohighlight">\(dI/dt = \beta I S/N - \gamma I\)</span>.
 Since $S+I</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2f4bd63-74b6-47e8-822b-f054613474fb">
-<span class="eqno">()<a class="headerlink" href="#equation-b2f4bd63-74b6-47e8-822b-f054613474fb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ade70123-660a-4190-827f-ce6fd9f91093">
+<span class="eqno">()<a class="headerlink" href="#equation-ade70123-660a-4190-827f-ce6fd9f91093" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    dI/dt = \beta I S/N - \gamma I
 \end{equation}\]</div>
 </div>
@@ -942,8 +944,8 @@ Since $S+I</p>
 Some pandemic models simply fit a sigmoidal model to the number of infections.</p>
 <p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian) and the sigmoid function <span class="math notranslate nohighlight">\(1/(\exp(-x) + 1)\)</span>, the inverse of the logistic function.</p>
 <p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bf70dba-6d03-40e9-85d5-45b91cdde190">
-<span class="eqno">()<a class="headerlink" href="#equation-9bf70dba-6d03-40e9-85d5-45b91cdde190" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8af2e244-06be-484c-8f0d-c9cc5161bacc">
+<span class="eqno">()<a class="headerlink" href="#equation-8af2e244-06be-484c-8f0d-c9cc5161bacc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(x; a, b, c) \equiv c \frac{1}{e^{-b(x-a)}+1}.
 \end{equation}\]</div>
 <p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
@@ -954,22 +956,21 @@ Some pandemic models simply fit a sigmoidal model to the number of infections.</
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Model cumulative infections using a sigmoid</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
-    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test g visually</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test g visually.</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ffca94cb2d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ffe786a7510&gt;]
 </pre></div>
 </div>
 <img alt="../_images/pandemic_31_1.png" src="../_images/pandemic_31_1.png" />
@@ -977,13 +978,14 @@ Some pandemic models simply fit a sigmoidal model to the number of infections.</
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popts</span><span class="p">,</span> <span class="n">pvocs</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">N</span><span class="p">]),</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit the DK data</span>
+<span class="n">popts</span><span class="p">,</span> <span class="n">pvocs</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">N</span><span class="p">]),</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">popts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.77780369e+02, 1.78181635e-02, 3.21661751e+06])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.10986521e+02, 1.86919619e-02, 1.16635263e+06])
 </pre></div>
 </div>
 </div>
@@ -1053,8 +1055,18 @@ That feature is built into the sigmoidal curve, which is an <em>assumption</em>,
 <p>There are also more complicated models of pandemics, including models with more “compartments,” models based on other sigmoidal functions (such as the Gaussian CDF), and models that allow various kinds of heterogeneity within the population and simulate interactions between individuals.
 Some have proved more accurate than others.
 Just how poorly some models perform is obscured by the practice of revising the model and projections frequently–even daily.</p>
-<p>Sometimes, a moddle with little substantive foundation can nonetheless predict the behavior of a system, at least if the system is not changing quickly. The SIR model and
-Accurate predictions of the effect of interventions (masks, lockdowns, vaccination, and so on) require a close tie between the world and the model: the model needs a substantive basis. For causal inferences, the model needs to be a <em>generative model</em> or <em>response schedule</em>.</p>
+<p>Sometimes, a moddle with little substantive foundation can nonetheless predict the behavior of a system, at least if the system is not changing quickly.
+Accurate predictions of the effect of interventions (masks, lockdowns, vaccination, and so on) require a close tie between the world and the model: the model needs a substantive basis.
+For causal inferences, the model needs to be a <em>generative model</em> or <em>response schedule</em>.</p>
+<p>George Box famously wrote, “all models are wrong, but some are useful.”
+The questions are:</p>
+<ul class="simple">
+<li><p>useful for what?</p></li>
+<li><p>how can you tell whether a model is useful for a particular goal?</p></li>
+</ul>
+<p>In the same paper, Box wrote, “It is inappropriate to be concerned with mice when there are tigers abroad.”
+Most of the fretting people do about statistical models is at the level of mice, while the problems with most
+statistical models are tigers: the models have little or no basis in the actual scientific question.</p>
 </div>
 <div class="section" id="the-new-u-k-variant">
 <h2>The new U.K. variant<a class="headerlink" href="#the-new-u-k-variant" title="Permalink to this headline">¶</a></h2>
