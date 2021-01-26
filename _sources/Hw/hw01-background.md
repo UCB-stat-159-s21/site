@@ -1,6 +1,6 @@
 # Statistics 159/259, Homework 1. 
 
-* Due 1/28/2021 11:59PM PT (homework will usually be due Sundays: this is an exception)
+* Due 1/24/2021 11:59PM PT
 * Profs. Perez and Stark, Department of Statistics, UC Berkeley
 * This assignment is worth a maximum of 20 points.
 
@@ -17,7 +17,7 @@ You will need to add the file `hw01-solution.md` to your repository and push it 
 
 Consider a set of ordered pairs, $\{ (x_j, y_j)\}_{j=1}^n$.
 Let $\bar{x} \equiv \frac{1}{n} \sum_{j=1}^n x_j$,
-$\bar{x} \equiv \frac{1}{n} \sum_{j=1}^n x_j$, and
+$\bar{y} \equiv \frac{1}{n} \sum_{j=1}^n y_j$, and
 $\bar{xy} \equiv \frac{1}{n} \sum_{j=1}^n x_j y_j$.
 - Is $\bar{xy} = \bar{x}\bar{y}$? If so, sketch a proof; if not, give a counter example.
 
@@ -38,7 +38,7 @@ Answer the following using closed-form expressions
 hypotheses are independent across hypotheses.
         - What is the expected number of null hypotheses that will be rejected erroneously?
         - What is the chance of erroneously rejecting at least one of the null hypotheses?
-        - What is the chance of erroneously rejecting at least $k$ of the null hypotheses, $k=1, \ldots, N$?
+        - What is the chance of erroneously rejecting at least $k$ of the null hypotheses, $k=1, \ldots, N?
     - Suppose $T$ of the null hypotheses are true and that the data used to test the hypotheses are independent
 across hypotheses.
         - What is the chance of erroneously rejecting at least $k$ of the true null hypotheses, $k=1, \ldots, N-T$?
