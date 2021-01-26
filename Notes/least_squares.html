@@ -283,6 +283,9 @@ Extrema with respect to <span class="math notranslate nohighlight">\(\gamma\)</s
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \gamma_0 = (X^TX)^{-1}X^TY.\end{equation*}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(X^TX\)</span> (the 2nd derivative) is positive definite, this is a minimum, not a maximum. Therefore, the value of <span class="math notranslate nohighlight">\(\beta\)</span> that minimizes <span class="math notranslate nohighlight">\(\|Y - X\beta\|^2\)</span> is <span class="math notranslate nohighlight">\(\hat{\beta} = (X^TX)^{-1}X^TY\)</span>.</p>
+<p><strong>This is mathematically true, but it is not a numerically stable way to solve the problem.</strong>
+In general, one should avoid inverting matrices numerically to solve linear problems.
+Other approaches, such as Gaussian elimination and matrix factorization (decomposition) methods, are much more stable.</p>
 </div>
 <div class="section" id="characterizing-the-optimum">
 <h2>Characterizing the optimum<a class="headerlink" href="#characterizing-the-optimum" title="Permalink to this headline">¶</a></h2>
@@ -292,9 +295,11 @@ Extrema with respect to <span class="math notranslate nohighlight">\(\gamma\)</s
 <p>A very useful result is that the residual vector, <span class="math notranslate nohighlight">\(e = Y - X\hat{\beta}\)</span>, is orthogonal to the subspace spanned by the columns of <span class="math notranslate nohighlight">\(X\)</span>; that is, <span class="math notranslate nohighlight">\(X^Te = 0\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathrm{colspan}(X)\)</span> denote the span of the columns of <span class="math notranslate nohighlight">\(X\)</span>, that is,</p>
 <div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}  \mathrm{colspan}(X) \equiv \{ X \gamma : \gamma \in \Re^p \}.\end{equation*}\]</div>
+\[\begin{equation*}  
+\mathrm{colspan}(X) \equiv \{ X \gamma : \gamma \in \Re^p \}.
+\end{equation*}\]</div>
 <p>Suppose not. Any vector <span class="math notranslate nohighlight">\(e \in \Re^n\)</span> can be decomposed into a component that is contained in the subspace spanned by the columns of <span class="math notranslate nohighlight">\(X\)</span> and a component that is orthogonal to that subspace.
-Write <span class="math notranslate nohighlight">\(e = e_\parallel + e_\perp\)</span>, where <span class="math notranslate nohighlight">\(e_\parallel \in \mathrm{\colspan}(X)\)</span> and <span class="math notranslate nohighlight">\(e_\perp \perp \mathrm{\colspan}(X)\)</span></p>
+Write <span class="math notranslate nohighlight">\(e = e_\parallel + e_\perp\)</span>, where <span class="math notranslate nohighlight">\(e_\parallel \in \mathrm{colspan}(X)\)</span> and <span class="math notranslate nohighlight">\(e_\perp \perp \mathrm{colspan}(X)\)</span></p>
 </div>
 </div>
 <div class="section" id="operator-norm-of-a-matrix">

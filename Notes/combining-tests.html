@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Combinations of tests and stratified tests &#8212; Collaborative and Reproducible Data Science</title>
+    <title>Hypothesis Testing, Combinations of Tests, and Stratified Tests &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -232,6 +232,31 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypotheses">
+   Hypotheses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#significance-level">
+   Significance level
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power">
+   Power
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-i-and-type-ii-errors">
+   Type I and Type II errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-iii-errors">
+   Type III errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#p-values">
    <span class="math notranslate nohighlight">
     \(P\)
@@ -362,28 +387,128 @@
         
               <div>
                 
-  <div class="section" id="combinations-of-tests-and-stratified-tests">
-<h1>Combinations of tests and stratified tests<a class="headerlink" href="#combinations-of-tests-and-stratified-tests" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="hypothesis-testing-combinations-of-tests-and-stratified-tests">
+<h1>Hypothesis Testing, Combinations of Tests, and Stratified Tests<a class="headerlink" href="#hypothesis-testing-combinations-of-tests-and-stratified-tests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hypotheses">
+<h2>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this headline">¶</a></h2>
+<p>A <em>statistical hypothesis</em> is an assertion about the probability distribution <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> of the data <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>A <em>simple</em> hypothesis is an assertion that completely specifies the probability distribution of the data, e.g., <span class="math notranslate nohighlight">\(\mathbb{P} = \mathbb{P}_0\)</span> for some distribution <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span>. Here are some simple hypotheses:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X \sim N(0,1)\)</span> The data have a standard normal distribution.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X \sim U[0,1]\)</span> The data have a standard uniform distribution.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X \sim N(\mu, \Sigma)\)</span> for a given <span class="math notranslate nohighlight">\(\mu \in \Re^n\)</span> and positive semi-definite <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(\Sigma\)</span>. The data are jointly normally distributed with mean <span class="math notranslate nohighlight">\(\mu\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\Sigma\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{X_j\}\; \mbox{IID} \; U[0, 17]\)</span>. The components of the data are independent and identically distributed with a uniform distribution on <span class="math notranslate nohighlight">\([0, 17]\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span> for given values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>. The data have a binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p>A <em>composite</em> hypothesis is an assertion that does not completely specify the distribution; it only says the
+distribution is in some specified collection of distributions.
+E.g., <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}_0\)</span> for some set
+<span class="math notranslate nohighlight">\(\mathcal{P}_0\)</span> of distributions.
+Here are some composite null hypotheses:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X \sim N(\mu,1)\)</span>, <span class="math notranslate nohighlight">\(\mu \in [0, 7]\)</span> The data have a normal distribution with variance 1 and mean between 0 and 7.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span>, <span class="math notranslate nohighlight">\(p &gt; 1/2\)</span> (<span class="math notranslate nohighlight">\(n\)</span> given). The data have a binomial distribution with known parameter <span class="math notranslate nohighlight">\(n\)</span> and unknown parameter <span class="math notranslate nohighlight">\(p &gt; 1/2\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}X=0\)</span> The expected value of the data is zero.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}X \le 1/2\)</span> The expected value of the data is at most 1/2.</p></li>
+<li><p>The distribution of <span class="math notranslate nohighlight">\(X\)</span> has at most 3 modes.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are <em>exchangeable</em></p></li>
+<li><p>The distribution of <span class="math notranslate nohighlight">\(X\)</span> is spherically symmetric</p></li>
+</ul>
+<p>To test a statistical hypothesis, one specifies a set <span class="math notranslate nohighlight">\(A\)</span> of possible data values (before examining the actual data). If the data fall inside that set, i.e., if <span class="math notranslate nohighlight">\(X \in A\)</span>, the null hypothesis is <em>not rejected</em>; otherwise, the null hypothesis is <em>rejected</em>.
+Each (measurable) set <span class="math notranslate nohighlight">\(A\)</span> implicitly defines a hypothesis test.
+The set <span class="math notranslate nohighlight">\(A\)</span> is called the <em>acceptance region</em> for the test.</p>
+<p>Sometimes, the set <span class="math notranslate nohighlight">\(A\)</span> is defined explicitly.
+More often it is defined implicitly in terms of a <em>test statistic</em>, a function of the data that does not depend on any unknown parameters.</p>
+<p>For instance an acceptance region for testing the hypothesis that <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are IID <span class="math notranslate nohighlight">\(N(0,1)\)</span> might be</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A \equiv \{x = \{x_1, \ldots, x_n\}: \frac{1}{n} \sum_{j=1}^n x_j \le c/\sqrt{n}.
+\end{eqnarray*}\]</div>
+<p>In this example, the test statistic is the sample mean, and the region <span class="math notranslate nohighlight">\(A\)</span> is the set of all data for which the
+sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt{n}\)</span>.</p>
+</div>
+<div class="section" id="significance-level">
+<h2>Significance level<a class="headerlink" href="#significance-level" title="Permalink to this headline">¶</a></h2>
+<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the simple null hypothesis <span class="math notranslate nohighlight">\(H_0: X \sim \mathbb{P}_0\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \alpha = \Pr \{X \notin A || X \sim \mathbb{P}_0 \}.
+\end{equation*}\]</div>
+<p>(The double vertical bars signify that the probability is calculated on the assumption that <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span>.)
+That is, it is the probability that the test rejects the null hypothesis when the null hypothesis is true.</p>
+<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the composite null hypothesis <span class="math notranslate nohighlight">\(H_0: X \sim \mathbb{P} \in \mathcal{P}_0\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \alpha = \sup_{\mathbb{P} \in \mathcal{P}_0} \Pr \{X \notin A || X \sim \mathbb{P} \}.
+\end{equation*}\]</div>
+<p>That is, it is the largest probability that that the test rejects the null hypothesis when the null hypothesis is true.</p>
+</div>
+<div class="section" id="power">
+<h2>Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
+<p>The <em>power</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the simple hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P}_1\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   1-\beta = \Pr \{X \notin A || X \sim \mathbb{P}_1 \}.
+\end{equation*}\]</div>
+<p>That is, the power is the chance that the test rejects the null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> when the alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> is true.</p>
+<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the composite alternative hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P} \in \mathcal{P}_1\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   1-\beta = \sup_{\mathbb{P} \in \mathcal{P}_1} \Pr \{X \notin A || X \sim \mathbb{P} \}.
+\end{equation*}\]</div>
+<p>That is, it is the largest probability that that the test rejects the null hypothesis when the alternative hypothesis is true.</p>
+<p>Power and significance level are the (maximum) probability of the same event–namely, rejecting the null hypothesis–but computed under different assumptions.
+The power is computed under the assumption that the alternative hypothesis is true; the significance level is computed under the assumption that the null hypothesis is true.</p>
+</div>
+<div class="section" id="type-i-and-type-ii-errors">
+<h2>Type I and Type II errors<a class="headerlink" href="#type-i-and-type-ii-errors" title="Permalink to this headline">¶</a></h2>
+<p>A type I error occurs when a test rejects the null hypothesis but the null hypothesis is true.
+The chance of a type I error is the significance level of the test.</p>
+<p>A type II error occurs when a test does not reject the null hypothesis the null hypothesis is false.
+The chance of a type II error when a particular alternative is true is 100% minus the power of the test
+against that alternative, i.e., <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+</div>
+<div class="section" id="type-iii-errors">
+<h2>Type III errors<a class="headerlink" href="#type-iii-errors" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of informal definitions of type III errors.</p>
+<p>One is that a Type III error occurs when a test rejects the null hypothesis “for the wrong reason.” For instance, suppose that we test the null hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, 1)\)</span>
+at significance level <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> by defining <span class="math notranslate nohighlight">\(A \equiv \{x: |x| \le 1.96\}\)</span>.
+Suppose that in reality <span class="math notranslate nohighlight">\(X \sim N(-1, 1)\)</span> and we observe <span class="math notranslate nohighlight">\(X = 2\)</span>.
+Then we would <em>correctly</em> reject <span class="math notranslate nohighlight">\(H_0\)</span>, but because <span class="math notranslate nohighlight">\(X\)</span> was “too big,” while it was much more likely to be “too small.” (If, after rejecting <span class="math notranslate nohighlight">\(H_0\)</span>, we concluded that <span class="math notranslate nohighlight">\(\mathbb{E}X &gt; 0\)</span>, that directional conclusion would be wrong.)</p>
+<p>Similarly, suppose we want to test whether the mean of some finite population is zero from a simple random sample <span class="math notranslate nohighlight">\(X = (X_1, \ldots, X_n).
+We set \)</span>A = {x : \bar{x}</p>
+<p>Another informal definition is that it occurs when one gets the right answer to the wrong question.
+One example is testing the hypothesis <span class="math notranslate nohighlight">\(\mathbb{E}X=0\)</span> by testing the hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, \sigma^2)\)</span> when
+there is no reason to think that <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution. If indeed <span class="math notranslate nohighlight">\(\mathbb{E}X \ne 0\)</span> and the test rejects
+the null, the conclusion is correct but the test was not appropriate.
+As a consequence, the actual significance level of the test (the chance of rejecting the null when <span class="math notranslate nohighlight">\(\mathbb{E}X = 0\)</span>) will differ from the nominal significance level of the test (the chance of rejecting the null when <span class="math notranslate nohighlight">\(X\sim N(0, \sigma^2)\)</span>).</p>
+</div>
 <div class="section" id="p-values">
 <h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
+<p>Here are two approaches to defining <span class="math notranslate nohighlight">\(P\)</span>-values, in terms of families of hypothesis tests and in terms of a test statistic.</p>
+<p>Family of tests:</p>
 <ul class="simple">
-<li><p>Observe data <span class="math notranslate nohighlight">\(X \sim \mathbb{P}\)</span>.</p></li>
-<li><p>Null hypothesis <span class="math notranslate nohighlight">\(\mathbb{P} = \mathbb{P}_0\)</span> (or more generally, <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}_0\)</span>).</p></li>
-<li><p>Nested (monotone) hypothesis tests:</p>
+<li><p>Suppose you have a set of nested (monotone) hypothesis tests:</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(\{A_\alpha : \alpha \in (0, 1] \}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{P}_0 \{ X \notin A_\alpha \} \le \alpha\)</span> (or more generally, <span class="math notranslate nohighlight">\(\mathbb{P} \{ X \notin A_\alpha \} \le \alpha, \; \forall \mathbb{P} \in \mathcal{P}_0\)</span>)</p></li>
 <li><p><span class="math notranslate nohighlight">\(A_\alpha \subset A_\beta\)</span> if <span class="math notranslate nohighlight">\(\beta &lt; \alpha\)</span> (Can always re-define <span class="math notranslate nohighlight">\(A_\alpha \leftarrow \cup_{\beta \ge \alpha } A_\beta\)</span>)</p></li>
 </ul>
 </li>
-<li><p>If we observe <span class="math notranslate nohighlight">\(X = x\)</span>, <span class="math notranslate nohighlight">\(P\)</span>-value is <span class="math notranslate nohighlight">\(\sup \{ \alpha: x \in A_\alpha \}\)</span>.</p></li>
+<li><p>If we observe <span class="math notranslate nohighlight">\(X = x\)</span>, the <span class="math notranslate nohighlight">\(P\)</span>-value is <span class="math notranslate nohighlight">\(\sup \{ \alpha: x \in A_\alpha \}\)</span>.</p></li>
 </ul>
-<p>If <span class="math notranslate nohighlight">\(P = P(X)\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value,</p>
+<p>Test statistic definition of a <span class="math notranslate nohighlight">\(P\)</span>-value:</p>
+<p>If <span class="math notranslate nohighlight">\(P = P(X)\)</span> is a random variable whose probability distribution is <em>dominated</em> by the uniform distribution on <span class="math notranslate nohighlight">\([0, 1]\)</span> when
+the null hypothesis is true, then <span class="math notranslate nohighlight">\(P\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
+<p>That is, <span class="math notranslate nohighlight">\(P\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value if</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
- \Pr \{ P(X) \le p || \mbox{null hypothesis is true} \} \le p.
+ \Pr \{ P(X) \le x || \mbox{null hypothesis is true} \} \le x \;\; \forall x \in [0, 1].
 \end{equation*}\]</div>
-<p>In fact, we could take this to be the <em>definition</em> of a <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
+<p>You may hear someone say that a <span class="math notranslate nohighlight">\(P\)</span>-value is the chance that a test statistic is “as extreme or more extreme than
+observed.”
+That is not really a precise mathematical definition, and not every <span class="math notranslate nohighlight">\(P\)</span>-value can be expressed naturally
+in that form.</p>
 <div class="section" id="randomized-tests">
 <h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>.  Then we still require</p>
@@ -550,7 +675,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "8eb6a058573046df8b1547ee8d908678", "version_major": 2, "version_minor": 0}
+{"model_id": "aaa104216c7d4e71aa5fcf8fda2d0ede", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
