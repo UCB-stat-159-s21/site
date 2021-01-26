@@ -272,6 +272,26 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-z-test">
+   The
+   <span class="math notranslate nohighlight">
+    \(Z\)
+   </span>
+   -test
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-the-z-test">
+     Example of the
+     <span class="math notranslate nohighlight">
+      \(Z\)
+     </span>
+     -test
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intersection-union-hypotheses">
    Intersection-Union Hypotheses
   </a>
@@ -519,6 +539,26 @@ in that form.</p>
 <p>where the probability is with respect to the joint distribution of the data and the auxilliary randomness <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </div>
 </div>
+<div class="section" id="the-z-test">
+<h2>The <span class="math notranslate nohighlight">\(Z\)</span>-test<a class="headerlink" href="#the-z-test" title="Permalink to this headline">¶</a></h2>
+<p>A <span class="math notranslate nohighlight">\(Z\)</span>-test tests the hypothesis that some function of the data has a standard Normal distribution, that is, that for some given <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(f(X) \sim N(),1)\)</span>.</p>
+<p>What kinds of things have a standard normal distribution?</p>
+<ul class="simple">
+<li><p>A random draw from a population that has a standard normal distribution.</p></li>
+<li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws from a population that has a standard normal distribution, after multiplying the sample mean by <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>.</p></li>
+<li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws from a population that has a <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span> distribution, after subtracting <span class="math notranslate nohighlight">\(\mu\)</span> and multiplying by <span class="math notranslate nohighlight">\(\sqrt{b}/\sigma\)</span>.</p></li>
+</ul>
+<p>The <span class="math notranslate nohighlight">\(Z\)</span>-test is often used as an <em>approximate</em> test rather than an <em>exact</em> test. An <em>approximate</em> test is one that has approximately its nominal significance level.  What kinds of things have distributions that are approximately standard normal?</p>
+<ul class="simple">
+<li><p>Things that have a Binomial<span class="math notranslate nohighlight">\((n, p)\)</span> distribution, after subtracting <span class="math notranslate nohighlight">\(np\)</span> and dividing by <span class="math notranslate nohighlight">\(\sqrt{np(1-p)}\)</span>, provided <span class="math notranslate nohighlight">\(np\)</span> and <span class="math notranslate nohighlight">\(n(1-p)\)</span> are not small. For instance, consider tossing a fair coin 100 times, independently. The number <span class="math notranslate nohighlight">\(X\)</span> of heads has a Binomial<span class="math notranslate nohighlight">\((100, 1/2)\)</span> distribution. The distribution of <span class="math notranslate nohighlight">\((X-50)/5\)</span> is approximately a standard normal. (<span class="math notranslate nohighlight">\(np(1-p) = 100\times 1/2 \times 1/2\)</span>, so <span class="math notranslate nohighlight">\(\sqrt{np(1-p)} = 5\)</span>.)</p></li>
+<li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws with replacement from a finite population of numbers, after subtracting the population mean <span class="math notranslate nohighlight">\(\mu\)</span> and dividing by <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span>, where <span class="math notranslate nohighlight">\(\sigma\)</span> is the population standard deviation, provided <span class="math notranslate nohighlight">\(n\)</span> is sufficiently large and the population distribution is sufficiently “bell shaped.” If nothing is known about the population, it is in general impossible to know how accurate the normal approximation to the sample mean is.
+(The Binomial distribution is a special case where the population values are known to be 0 and 1.)</p></li>
+</ul>
+<div class="section" id="example-of-the-z-test">
+<h3>Example of the <span class="math notranslate nohighlight">\(Z\)</span>-test<a class="headerlink" href="#example-of-the-z-test" title="Permalink to this headline">¶</a></h3>
+<p>[TBD]</p>
+</div>
+</div>
 <div class="section" id="intersection-union-hypotheses">
 <h2>Intersection-Union Hypotheses<a class="headerlink" href="#intersection-union-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>In many situations, a null hypothesis of interest is the intersection of simpler hypotheses. For instance, the hypothesis that a university does not discriminate in its graduate admissions might be represented as</p>
@@ -675,7 +715,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "aaa104216c7d4e71aa5fcf8fda2d0ede", "version_major": 2, "version_minor": 0}
+{"model_id": "4bc78f23e3e14398882cd8107bf89c8d", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
