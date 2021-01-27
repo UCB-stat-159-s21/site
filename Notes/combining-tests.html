@@ -235,6 +235,13 @@
   <a class="reference internal nav-link" href="#hypotheses">
    Hypotheses
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aside-on-notation">
+     Aside on notation
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#significance-level">
@@ -255,6 +262,13 @@
   <a class="reference internal nav-link" href="#type-iii-errors">
    Type III errors
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#randomized-tests">
+     Randomized tests
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#p-values">
@@ -263,13 +277,6 @@
    </span>
    -values
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#randomized-tests">
-     Randomized tests
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-z-test">
@@ -281,12 +288,12 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-of-the-z-test">
-     Example of the
+    <a class="reference internal nav-link" href="#example-of-an-approximate-z-test-with-a-built-in-type-iii-error">
+     Example of an approximate
      <span class="math notranslate nohighlight">
       \(Z\)
      </span>
-     -test
+     -test with a built-in Type III error
     </a>
    </li>
   </ul>
@@ -421,7 +428,7 @@
 <li><p><span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span> for given values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>. The data have a binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
 </ul>
 <p>A <em>composite</em> hypothesis is an assertion that does not completely specify the distribution; it only says the
-distribution is in some specified collection of distributions.
+distribution is in some specified set of distributions.
 E.g., <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}_0\)</span> for some set
 <span class="math notranslate nohighlight">\(\mathcal{P}_0\)</span> of distributions.
 Here are some composite null hypotheses:</p>
@@ -430,55 +437,73 @@ Here are some composite null hypotheses:</p>
 <li><p><span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span>, <span class="math notranslate nohighlight">\(p &gt; 1/2\)</span> (<span class="math notranslate nohighlight">\(n\)</span> given). The data have a binomial distribution with known parameter <span class="math notranslate nohighlight">\(n\)</span> and unknown parameter <span class="math notranslate nohighlight">\(p &gt; 1/2\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}X=0\)</span> The expected value of the data is zero.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}X \le 1/2\)</span> The expected value of the data is at most 1/2.</p></li>
-<li><p>The distribution of <span class="math notranslate nohighlight">\(X\)</span> has at most 3 modes.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are <em>exchangeable</em></p></li>
+<li><p>The distribution <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> of <span class="math notranslate nohighlight">\(X\)</span> has at most 3 modes.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are <em>exchangeable</em> (A collection of random variables is <em>exchangeable</em> if their joint distribution is invariant under permuting their labels. If a collection of random variables is IID, it is also exchangeable.)</p></li>
 <li><p>The distribution of <span class="math notranslate nohighlight">\(X\)</span> is spherically symmetric</p></li>
 </ul>
 <p>To test a statistical hypothesis, one specifies a set <span class="math notranslate nohighlight">\(A\)</span> of possible data values (before examining the actual data). If the data fall inside that set, i.e., if <span class="math notranslate nohighlight">\(X \in A\)</span>, the null hypothesis is <em>not rejected</em>; otherwise, the null hypothesis is <em>rejected</em>.
 Each (measurable) set <span class="math notranslate nohighlight">\(A\)</span> implicitly defines a hypothesis test.
 The set <span class="math notranslate nohighlight">\(A\)</span> is called the <em>acceptance region</em> for the test.</p>
-<p>Sometimes, the set <span class="math notranslate nohighlight">\(A\)</span> is defined explicitly.
-More often it is defined implicitly in terms of a <em>test statistic</em>, a function of the data that does not depend on any unknown parameters.</p>
+<p>Sometimes the set <span class="math notranslate nohighlight">\(A\)</span> is defined explicitly, but
+more often it is defined implicitly in terms of a <em>test statistic</em>, a function of the data that does not depend on any unknown parameters.</p>
 <p>For instance an acceptance region for testing the hypothesis that <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are IID <span class="math notranslate nohighlight">\(N(0,1)\)</span> might be</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A \equiv \{x = \{x_1, \ldots, x_n\}: \frac{1}{n} \sum_{j=1}^n x_j \le c/\sqrt{n}.
+A \equiv \left \{x = \{x_1, \ldots, x_n\}: \frac{1}{n} \sum_{j=1}^n x_j \le \frac{c}{\sqrt{n}} \right \}.
 \end{eqnarray*}\]</div>
 <p>In this example, the test statistic is the sample mean, and the region <span class="math notranslate nohighlight">\(A\)</span> is the set of all data for which the
 sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt{n}\)</span>.</p>
+<div class="section" id="aside-on-notation">
+<h3>Aside on notation<a class="headerlink" href="#aside-on-notation" title="Permalink to this headline">¶</a></h3>
+<p>The following all mean the same thing, namely, the probability that the random variable <span class="math notranslate nohighlight">\(X\)</span> takes a value in the set <span class="math notranslate nohighlight">\(A\)</span> if the distribution of <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\Pr \{X \in A || X \sim \mathbb{P}_0 \}\\
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\Pr_{X \sim \mathbb{P}_0} \{X \in A\}\\
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_0 \{X \in A\}.
+\end{equation*}\]</div>
+</div>
 </div>
 <div class="section" id="significance-level">
 <h2>Significance level<a class="headerlink" href="#significance-level" title="Permalink to this headline">¶</a></h2>
-<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the simple null hypothesis <span class="math notranslate nohighlight">\(H_0: X \sim \mathbb{P}_0\)</span> is</p>
+<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   \alpha = \Pr \{X \notin A || X \sim \mathbb{P}_0 \}.
+   \alpha \equiv \mathbb{P}_0 \{X \notin A \}.
 \end{equation*}\]</div>
-<p>(The double vertical bars signify that the probability is calculated on the assumption that <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span>.)
-That is, it is the probability that the test rejects the null hypothesis when the null hypothesis is true.</p>
+<p>That is, it is the probability that the test rejects the null hypothesis when the null hypothesis is true.</p>
 <p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the composite null hypothesis <span class="math notranslate nohighlight">\(H_0: X \sim \mathbb{P} \in \mathcal{P}_0\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   \alpha = \sup_{\mathbb{P} \in \mathcal{P}_0} \Pr \{X \notin A || X \sim \mathbb{P} \}.
+   \alpha \equiv \sup_{\mathbb{P_0} \in \mathcal{P}_0} \mathbb{P}_0 \{X \notin A \}.
 \end{equation*}\]</div>
 <p>That is, it is the largest probability that that the test rejects the null hypothesis when the null hypothesis is true.</p>
+<p>When <span class="math notranslate nohighlight">\(\mathcal{P}_0\)</span> contains only one distribution, the two definitions coincide.</p>
 </div>
 <div class="section" id="power">
 <h2>Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
 <p>The <em>power</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the simple hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P}_1\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   1-\beta = \Pr \{X \notin A || X \sim \mathbb{P}_1 \}.
+   1-\beta \equiv \mathbb{P}_1 \{X \notin A \}
 \end{equation*}\]</div>
 <p>That is, the power is the chance that the test rejects the null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> when the alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> is true.</p>
-<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the composite alternative hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P} \in \mathcal{P}_1\)</span> is</p>
+<p>The <em>power</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the composite alternative hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P} \in \mathcal{P}_1\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   1-\beta = \sup_{\mathbb{P} \in \mathcal{P}_1} \Pr \{X \notin A || X \sim \mathbb{P} \}.
+   1-\beta \equiv \inf_{\mathbb{P_1} \in \mathcal{P}_1} \mathbb{P}_1 \{X \notin A \}.
 \end{equation*}\]</div>
-<p>That is, it is the largest probability that that the test rejects the null hypothesis when the alternative hypothesis is true.</p>
-<p>Power and significance level are the (maximum) probability of the same event–namely, rejecting the null hypothesis–but computed under different assumptions.
+<p>That is, it is the smallest probability that that the test rejects the null hypothesis when the alternative hypothesis is true.</p>
+<p>When the alternative <span class="math notranslate nohighlight">\(\mathcal{P}_1\)</span> contains only one distribution, the two definitions coincide.</p>
+<p>Power and significance level are the (extremal) probability of the same event–namely, rejecting the null hypothesis–but computed under different assumptions.
 The power is computed under the assumption that the alternative hypothesis is true; the significance level is computed under the assumption that the null hypothesis is true.</p>
+<p>Foundational work by Jerzy Neyman (the founder of Berkeley’s Department of Statistics) and Egon Pearson showed how to find the most powerful test of a simple null hypothesis against a simple alternative hypothesis among all tests with a given significance level. They showed that the most powerful test had an acceptance region characterized by the likelihood ratio; see below.</p>
 </div>
 <div class="section" id="type-i-and-type-ii-errors">
 <h2>Type I and Type II errors<a class="headerlink" href="#type-i-and-type-ii-errors" title="Permalink to this headline">¶</a></h2>
@@ -491,17 +516,38 @@ against that alternative, i.e., <span class="math notranslate nohighlight">\(\be
 <div class="section" id="type-iii-errors">
 <h2>Type III errors<a class="headerlink" href="#type-iii-errors" title="Permalink to this headline">¶</a></h2>
 <p>There are a number of informal definitions of type III errors.</p>
-<p>One is that a Type III error occurs when a test rejects the null hypothesis “for the wrong reason.” For instance, suppose that we test the null hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, 1)\)</span>
+<p>One is that a Type III error occurs when a test correctly rejects the null hypothesis “for the wrong reason.” For instance, suppose that we test the null hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, 1)\)</span>
 at significance level <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> by defining <span class="math notranslate nohighlight">\(A \equiv \{x: |x| \le 1.96\}\)</span>.
 Suppose that in reality <span class="math notranslate nohighlight">\(X \sim N(-1, 1)\)</span> and we observe <span class="math notranslate nohighlight">\(X = 2\)</span>.
-Then we would <em>correctly</em> reject <span class="math notranslate nohighlight">\(H_0\)</span>, but because <span class="math notranslate nohighlight">\(X\)</span> was “too big,” while it was much more likely to be “too small.” (If, after rejecting <span class="math notranslate nohighlight">\(H_0\)</span>, we concluded that <span class="math notranslate nohighlight">\(\mathbb{E}X &gt; 0\)</span>, that directional conclusion would be wrong.)</p>
-<p>Similarly, suppose we want to test whether the mean of some finite population is zero from a simple random sample <span class="math notranslate nohighlight">\(X = (X_1, \ldots, X_n).
-We set \)</span>A = {x : \bar{x}</p>
-<p>Another informal definition is that it occurs when one gets the right answer to the wrong question.
+Then we would <em>correctly</em> reject <span class="math notranslate nohighlight">\(H_0\)</span>, but because <span class="math notranslate nohighlight">\(X\)</span> was “too big,” while it was much more likely to be “too small” since in reality the distribution of <span class="math notranslate nohighlight">\(X\)</span> has mean <span class="math notranslate nohighlight">\(-1\)</span> instead of <span class="math notranslate nohighlight">\(0\)</span>. (If, after rejecting <span class="math notranslate nohighlight">\(H_0\)</span>, we concluded that <span class="math notranslate nohighlight">\(\mathbb{E}X &gt; 0\)</span>, that directional conclusion would be wrong.)</p>
+<p>Similarly, suppose we want to test whether the mean of some finite population is zero from a simple random sample <span class="math notranslate nohighlight">\(X = (X_1, \ldots, X_n)\)</span>.
+We set <span class="math notranslate nohighlight">\(A = \{x \in \Re^n : |\bar{x}| \le z_\alpha/\sqrt{n} \}\)</span>, where <span class="math notranslate nohighlight">\(z_\alpha\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha\)</span> percentage
+point of the standard normal distribution.
+This is a significance level <span class="math notranslate nohighlight">\(\alpha\)</span> test of the null hypothesis that <span class="math notranslate nohighlight">\(X \sim N(0, 1)\)</span> from an IID sample, not
+of the null hypothesis that the population mean is zero from a random sample without replacement.
+Nonetheless, this incorrect test might correctly reject the null hypothesis.</p>
+<p>Another informal definition is that a Type III error occurs when one gets the right answer to the wrong question.
 One example is testing the hypothesis <span class="math notranslate nohighlight">\(\mathbb{E}X=0\)</span> by testing the hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, \sigma^2)\)</span> when
-there is no reason to think that <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution. If indeed <span class="math notranslate nohighlight">\(\mathbb{E}X \ne 0\)</span> and the test rejects
-the null, the conclusion is correct but the test was not appropriate.
-As a consequence, the actual significance level of the test (the chance of rejecting the null when <span class="math notranslate nohighlight">\(\mathbb{E}X = 0\)</span>) will differ from the nominal significance level of the test (the chance of rejecting the null when <span class="math notranslate nohighlight">\(X\sim N(0, \sigma^2)\)</span>).</p>
+there is no reason to think that <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution. Even if the test is performed correctly,
+it is testing the wrong null.
+<em>Many</em> hypothesis tests in applications have Type III errors baked in.</p>
+<div class="section" id="randomized-tests">
+<h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable <span class="math notranslate nohighlight">\(U\)</span> that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>. Then the acceptance region <span class="math notranslate nohighlight">\(A\)</span> is a subset of the Cartesian product of the data space and <span class="math notranslate nohighlight">\([0, 1]\)</span>. The null hypothesis is not rejected if <span class="math notranslate nohighlight">\((X, U) \in A\)</span>; otherwise it is rejected.</p>
+<p>Randomized tests arise in a number of situations, including tests involving discrete distributions.
+They are also useful mathematical constructs for proving theorems about tests.
+For instance, <em>the Neyman-Pearson lemma</em> shows that the most powerful test of a simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> against a simple alternative hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_1\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> is
+a randomized test of the form:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+A = \{ (x, u): \mathcal{L}_0(x)/\mathcal{L}_1(x) &gt; c \} \cup \{ (x, u): (\mathcal{L}_0(x)/\mathcal{L}_1(x) = c) \mbox{ and }
+  (u \le d) \}
+\end{equation*}\]</div>
+<p>for suitable choices of <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(d\)</span>,
+where <span class="math notranslate nohighlight">\(\mathcal{L}_j(x)\)</span> is the likelihood of hypothesis <span class="math notranslate nohighlight">\(j\)</span> for data <span class="math notranslate nohighlight">\(x\)</span>.
+(This assumes <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span> and <span class="math notranslate nohighlight">\(\mathbb{P}_1\)</span> are <em>absolutely continuous</em> with respect to each other.)
+For a definition of the likelihood function, see <a class="reference internal" href="bayes.html"><span class="doc std std-doc">Bayesian and Frequentist Estimation and Inference</span></a>.</p>
+</div>
 </div>
 <div class="section" id="p-values">
 <h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
@@ -523,40 +569,69 @@ the null hypothesis is true, then <span class="math notranslate nohighlight">\(P
 <p>That is, <span class="math notranslate nohighlight">\(P\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value if</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
- \Pr \{ P(X) \le x || \mbox{null hypothesis is true} \} \le x \;\; \forall x \in [0, 1].
+ \mathbb{P}_0 \{ P(X) \le x \} \le x \;\; \forall x \in [0, 1].
 \end{equation*}\]</div>
 <p>You may hear someone say that a <span class="math notranslate nohighlight">\(P\)</span>-value is the chance that a test statistic is “as extreme or more extreme than
 observed.”
-That is not really a precise mathematical definition, and not every <span class="math notranslate nohighlight">\(P\)</span>-value can be expressed naturally
-in that form.</p>
-<div class="section" id="randomized-tests">
-<h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>.  Then we still require</p>
+That is not really a precise mathematical definition; moreover, not every <span class="math notranslate nohighlight">\(P\)</span>-value can be expressed naturally
+in that form and not everything of that form is a <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
+<p>For randomized tests, <span class="math notranslate nohighlight">\(P(X, U)\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value if</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
- \Pr_{X, U} \{ P(X, U) \le p || \mbox{null hypothesis is true} \} \le p,
+ \mathbb{P}_0 \{ P(X,U) \le x \} \le x \;\; \forall x \in [0, 1].
 \end{equation*}\]</div>
-<p>where the probability is with respect to the joint distribution of the data and the auxilliary randomness <span class="math notranslate nohighlight">\(U\)</span>.</p>
-</div>
 </div>
 <div class="section" id="the-z-test">
 <h2>The <span class="math notranslate nohighlight">\(Z\)</span>-test<a class="headerlink" href="#the-z-test" title="Permalink to this headline">¶</a></h2>
-<p>A <span class="math notranslate nohighlight">\(Z\)</span>-test tests the hypothesis that some function of the data has a standard Normal distribution, that is, that for some given <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(f(X) \sim N(),1)\)</span>.</p>
+<p>A <span class="math notranslate nohighlight">\(Z\)</span>-test tests the hypothesis that some function of the data has a standard Normal distribution, that is,
+the hypothesis that for some given test statistic <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(f(X) \sim N(0,1)\)</span>.</p>
 <p>What kinds of things have a standard normal distribution?</p>
 <ul class="simple">
 <li><p>A random draw from a population that has a standard normal distribution.</p></li>
 <li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws from a population that has a standard normal distribution, after multiplying the sample mean by <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>.</p></li>
-<li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws from a population that has a <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span> distribution, after subtracting <span class="math notranslate nohighlight">\(\mu\)</span> and multiplying by <span class="math notranslate nohighlight">\(\sqrt{b}/\sigma\)</span>.</p></li>
+<li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws from a population that has a <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span> distribution, after subtracting <span class="math notranslate nohighlight">\(\mu\)</span> and multiplying by <span class="math notranslate nohighlight">\(\sqrt{n}/\sigma\)</span>.</p></li>
 </ul>
-<p>The <span class="math notranslate nohighlight">\(Z\)</span>-test is often used as an <em>approximate</em> test rather than an <em>exact</em> test. An <em>approximate</em> test is one that has approximately its nominal significance level.  What kinds of things have distributions that are approximately standard normal?</p>
+<p>The <span class="math notranslate nohighlight">\(Z\)</span>-test is often used as an <em>approximate</em> test rather than an <em>exact</em> test.
+An <em>approximate</em> test is one that has approximately its nominal significance level.<br />
+What kinds of things have distributions that are approximately standard normal?</p>
 <ul class="simple">
 <li><p>Things that have a Binomial<span class="math notranslate nohighlight">\((n, p)\)</span> distribution, after subtracting <span class="math notranslate nohighlight">\(np\)</span> and dividing by <span class="math notranslate nohighlight">\(\sqrt{np(1-p)}\)</span>, provided <span class="math notranslate nohighlight">\(np\)</span> and <span class="math notranslate nohighlight">\(n(1-p)\)</span> are not small. For instance, consider tossing a fair coin 100 times, independently. The number <span class="math notranslate nohighlight">\(X\)</span> of heads has a Binomial<span class="math notranslate nohighlight">\((100, 1/2)\)</span> distribution. The distribution of <span class="math notranslate nohighlight">\((X-50)/5\)</span> is approximately a standard normal. (<span class="math notranslate nohighlight">\(np(1-p) = 100\times 1/2 \times 1/2\)</span>, so <span class="math notranslate nohighlight">\(\sqrt{np(1-p)} = 5\)</span>.)</p></li>
 <li><p>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> IID draws with replacement from a finite population of numbers, after subtracting the population mean <span class="math notranslate nohighlight">\(\mu\)</span> and dividing by <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span>, where <span class="math notranslate nohighlight">\(\sigma\)</span> is the population standard deviation, provided <span class="math notranslate nohighlight">\(n\)</span> is sufficiently large and the population distribution is sufficiently “bell shaped.” If nothing is known about the population, it is in general impossible to know how accurate the normal approximation to the sample mean is.
 (The Binomial distribution is a special case where the population values are known to be 0 and 1.)</p></li>
 </ul>
-<div class="section" id="example-of-the-z-test">
-<h3>Example of the <span class="math notranslate nohighlight">\(Z\)</span>-test<a class="headerlink" href="#example-of-the-z-test" title="Permalink to this headline">¶</a></h3>
-<p>[TBD]</p>
+<p>When the test statistic is only approximately normally distributed under the null hypothesis, the accuracy
+of the approximation matters–but is rarely addressed.</p>
+<div class="section" id="example-of-an-approximate-z-test-with-a-built-in-type-iii-error">
+<h3>Example of an approximate <span class="math notranslate nohighlight">\(Z\)</span>-test with a built-in Type III error<a class="headerlink" href="#example-of-an-approximate-z-test-with-a-built-in-type-iii-error" title="Permalink to this headline">¶</a></h3>
+<p>There are two binary populations, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span>. (A population is <em>binary</em> if the only possible values in the population are 0 and 1.)
+We are interested in whether the populations are “surprisingly different.”
+The null hypothesis is that the two populations were formed by selecting <span class="math notranslate nohighlight">\(n\)</span> items at random from the overall group of <span class="math notranslate nohighlight">\(n+m\)</span> items to form the first population, with the remaining <span class="math notranslate nohighlight">\(m\)</span> items comprising the second population.</p>
+<p>Let <span class="math notranslate nohighlight">\(\bar{x} \equiv \frac{1}{n} \sum_j x_j\)</span> and <span class="math notranslate nohighlight">\(\bar{y} \equiv \frac{1}{m} y_j\)</span>.
+If <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> were independent random samples with replacement from the same binary “super-population” that had a fraction <span class="math notranslate nohighlight">\(p\)</span> of
+1s and a fraction <span class="math notranslate nohighlight">\((1-p)\)</span> of zeros,
+<span class="math notranslate nohighlight">\(n\bar{x}\)</span> would be a random variable with a binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, and <span class="math notranslate nohighlight">\(m\bar{y}\)</span> would
+be a random variable with
+a binomial distribution with parameters <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, and would be independent of <span class="math notranslate nohighlight">\(n\bar{x}\)</span>.</p>
+<p>The expected value of <span class="math notranslate nohighlight">\(\bar{x}\)</span> would be <span class="math notranslate nohighlight">\(p\)</span> and its variance would be <span class="math notranslate nohighlight">\(p(1-p)/n\)</span>;
+the expected value of <span class="math notranslate nohighlight">\(\bar{y}\)</span> would be <span class="math notranslate nohighlight">\(p\)</span> and its variance would be <span class="math notranslate nohighlight">\(p(1-p)/m\)</span>.
+The expected value of <span class="math notranslate nohighlight">\(\bar{x} - \bar{y}\)</span> would be 0, and its variance would be <span class="math notranslate nohighlight">\(p(1-p)(1/n+1/m)\)</span>.
+Moreover, if <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> were random samples with replacement from the same binary super-population,
+<span class="math notranslate nohighlight">\(\hat{p} = (n\bar{x} + m\bar{y})/(n+m)\)</span> would be an unbiased estimate of <span class="math notranslate nohighlight">\(p\)</span>,
+and for sufficiently large <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>, the distribution of</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(x,y) \equiv \frac{\bar{x} - \bar{y}}{\sqrt{p(1-p)(1/n+1/m)}}
+\end{equation*}\]</div>
+<p>would be approximately <span class="math notranslate nohighlight">\(N(0,1)\)</span>.
+(The accuracy of the approximation would depend on <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(m\)</span>, and <span class="math notranslate nohighlight">\(p\)</span>.)</p>
+<p>If we define the acceptance region <span class="math notranslate nohighlight">\(A \equiv \{ x, y: |f(x, y)| \le z_{\alpha/2}\)</span>, where <span class="math notranslate nohighlight">\(z_\alpha\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha\)</span>
+percentage point of the standard normal distribution, we get a (two-sided) <span class="math notranslate nohighlight">\(Z\)</span> test at nominal significance
+level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>But this is an approximate test of a different hypothesis: an approximate answer to the wrong question,
+a Type III error.
+The hypothesis test has little to do with the original hypothesis.
+The true significance level of the test for the original null hypothesis that the two groups are a random partition
+of the <span class="math notranslate nohighlight">\(n+m\)</span> items could be quite different from <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </div>
 </div>
 <div class="section" id="intersection-union-hypotheses">
@@ -715,7 +790,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "4bc78f23e3e14398882cd8107bf89c8d", "version_major": 2, "version_minor": 0}
+{"model_id": "3c4ce96c59d44644b310a6acd496224c", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
@@ -946,7 +1021,7 @@ The overall “Non-Parametric Combination of tests” (NPC) <span class="math no
 \end{equation*}\]</div>
 <p>This is the simulated lower tail probability of the observed value of the combining function under the randomization.</p>
 <p>Ultimately, this whole thing is just a univariate permutation test that uses a complicated test statistic
-<span class="math notranslate nohighlight">\(\phi_F\)</span>, which assigns one number to each permutation of the multivariate data.</p>
+<span class="math notranslate nohighlight">\(\phi_F\)</span> that assigns one number to each permutation of the multivariate data.</p>
 <p>Also see <a class="reference external" href="http://statlab.github.io/permute/">the permute Python package</a>.</p>
 </div>
 <div class="section" id="stratified-permutation-tests">
