@@ -296,6 +296,11 @@
      -test with a built-in Type III error
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-example">
+     Numerical example
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -530,7 +535,8 @@ Nonetheless, this incorrect test might correctly reject the null hypothesis.</p>
 One example is testing the hypothesis <span class="math notranslate nohighlight">\(\mathbb{E}X=0\)</span> by testing the hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, \sigma^2)\)</span> when
 there is no reason to think that <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution. Even if the test is performed correctly,
 it is testing the wrong null.
-<em>Many</em> hypothesis tests in applications have Type III errors baked in.</p>
+<em>Many</em> hypothesis tests in applications have Type III errors baked in.
+Indeed, most analyses of clinical trial data I’ve seen test a null hypothesis that involves selecting subjects at random from a superpopulation–which did not occur–rather than test a hypothesis based on the randomization of subjects into treatment or control–which actually did occur.</p>
 <div class="section" id="randomized-tests">
 <h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable <span class="math notranslate nohighlight">\(U\)</span> that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>. Then the acceptance region <span class="math notranslate nohighlight">\(A\)</span> is a subset of the Cartesian product of the data space and <span class="math notranslate nohighlight">\([0, 1]\)</span>. The null hypothesis is not rejected if <span class="math notranslate nohighlight">\((X, U) \in A\)</span>; otherwise it is rejected.</p>
@@ -632,6 +638,35 @@ a Type III error.
 The hypothesis test has little to do with the original hypothesis.
 The true significance level of the test for the original null hypothesis that the two groups are a random partition
 of the <span class="math notranslate nohighlight">\(n+m\)</span> items could be quite different from <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</div>
+<div class="section" id="numerical-example">
+<h3>Numerical example<a class="headerlink" href="#numerical-example" title="Permalink to this headline">¶</a></h3>
+<p>There are two binary populations, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span> and <span class="math notranslate nohighlight">\(\{ y_j\}_{j=1}^M\)</span>.
+Let <span class="math notranslate nohighlight">\(p_x\)</span> denote the mean of the first population and <span class="math notranslate nohighlight">\(p_y\)</span> the mean of the second.
+We wish to know whether <span class="math notranslate nohighlight">\(p_x = p_y\)</span>.</p>
+<p>A random sample with replacement of size <span class="math notranslate nohighlight">\(n = 100\)</span> will be drawn from the first list and a random sample with replacement of size <span class="math notranslate nohighlight">\(m = 300\)</span> will be drawn from the second list, independent of the other sample.
+Let <span class="math notranslate nohighlight">\(X\)</span> denote the sum of the numbers in the sample from the first population and let <span class="math notranslate nohighlight">\(Y\)</span> denote the sum of the numbers in the sample from the second population.
+Then <span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p_x)\)</span>, <span class="math notranslate nohighlight">\(Y \sim \mbox{Binom}(m, p_y)\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent.</p>
+<p>If <span class="math notranslate nohighlight">\(p_x = p_y = p\)</span>, <span class="math notranslate nohighlight">\(X+Y \sim \mbox{Binom}(n+m, p)\)</span> and <span class="math notranslate nohighlight">\(\hat{p} \equiv (X+Y)/(n+m)\)</span> is an unbiased estimate of <span class="math notranslate nohighlight">\(p\)</span> with standard deviation <span class="math notranslate nohighlight">\(\sqrt{p(1-p)/(m+n)} \le 1/(2 \sqrt{m+n}) = 0.025\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\bar{X} \equiv X/n\)</span> and <span class="math notranslate nohighlight">\(\bar{Y} \equiv Y/m\)</span>.
+If <span class="math notranslate nohighlight">\(p_x = p_y = p\)</span> and <span class="math notranslate nohighlight">\(p\)</span> is not close to 0 or 1, then the distribution of <span class="math notranslate nohighlight">\(\bar{X}\)</span> is approximately Gaussian
+with mean <span class="math notranslate nohighlight">\(p\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sqrt{p(1-p)/n}\)</span> and the distribution of <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is approximately Gaussian
+with mean <span class="math notranslate nohighlight">\(p\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sqrt{p(1-p)/m}\)</span>, and <span class="math notranslate nohighlight">\(\bar{X}\)</span> and <span class="math notranslate nohighlight">\(\bar{Y}\)</span> are independent.</p>
+<p>It follows that the distribution of <span class="math notranslate nohighlight">\(\bar{X}-\bar{Y}\)</span> is approximately Gaussian with mean <span class="math notranslate nohighlight">\(p-p = 0\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma \equiv \sqrt{p(1-p)/n + p(1-p)/m} = \sqrt{p(1-p)}\sqrt{1/n + 1/m} \le 0.0577\)</span>.
+Thus the distribution of</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\frac{\bar{X} - \bar{Y}}{\sqrt{p(1-p)}\sqrt{1/n + 1/m}}
+\end{equation*}\]</div>
+<p>is approximately the standard normal.
+If we use the “plug-in” estimator of <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(\hat{p}\)</span>, the distribution is also approximately normal (but the approximation is worse).
+Thus the distribution of</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Z \equiv \frac{\bar{X} - \bar{Y}}{\sqrt{\hat{p}(1-\hat{p})}\sqrt{1/n + 1/m}}
+\end{equation*}\]</div>
+<p>is approximately <span class="math notranslate nohighlight">\(N(0,1)\)</span> if the hypothesis <span class="math notranslate nohighlight">\(p_x = p_y\)</span> is true.</p>
+<p>To perform a <span class="math notranslate nohighlight">\(Z\)</span> test, we assume the distribution of <span class="math notranslate nohighlight">\(Z\)</span> is exactly the standard normal [TO BE CONTINUED]</p>
 </div>
 </div>
 <div class="section" id="intersection-union-hypotheses">
@@ -790,7 +825,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3c4ce96c59d44644b310a6acd496224c", "version_major": 2, "version_minor": 0}
+{"model_id": "969bc7797ad0412db114ef610b627e47", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
