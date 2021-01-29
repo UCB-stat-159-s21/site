@@ -302,8 +302,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-better-test">
-     A better test
+    <a class="reference internal nav-link" href="#an-exact-test-based-on-invariance-permutation-methods">
+     An exact test based on invariance: permutation methods
     </a>
    </li>
   </ul>
@@ -772,7 +772,53 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># the worst offender</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># one of the worst offenders</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># simulate X</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># simulate Y</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">absZ</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([114162.,  90026.,  87613., 123660.,  76756., 104012.,  90610.,
+        118301.,  94301., 100559.]),
+ array([0.        , 0.09999993, 0.19999986, 0.2999998 , 0.39999973,
+        0.49999966, 0.59999959, 0.69999953, 0.79999946, 0.89999939,
+        0.99999932]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/tests_17_1.png" src="../_images/tests_17_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">cumul</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">yi</span><span class="p">)</span> <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span><span class="o">/</span><span class="n">reps</span>  <span class="c1"># simulated CDF</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">cumul</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simulated distribution of nominal $P$ value for $P$=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tests_18_0.png" src="../_images/tests_18_0.png" />
+</div>
+</div>
+<p>The (simulated) distribution is not dominated by the uniform.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># one of the worst offenders</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
@@ -788,25 +834,54 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:25: RuntimeWarning: invalid value encountered in double_scalars
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 92756.,  23189., 148061.,  68447.,  76811., 193039.,  85492.,
+        116092.,  78602.,  99649.]),
+ array([0.        , 0.09999962, 0.19999924, 0.29999887, 0.39999849,
+        0.49999811, 0.59999773, 0.69999736, 0.79999698, 0.8999966 ,
+        0.99999622]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/tests_20_2.png" src="../_images/tests_20_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 <span class="n">cumul</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">yi</span><span class="p">)</span> <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span><span class="o">/</span><span class="n">reps</span>  <span class="c1"># simulated CDF</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">cumul</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simulated distribution of nominal $P$ value for $P$=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/tests_21_0.png" src="../_images/tests_21_0.png" />
 </div>
-<p>The (simulated) distribution is not dominated by the uniform.</p>
 </div>
-<div class="section" id="a-better-test">
-<h3>A better test<a class="headerlink" href="#a-better-test" title="Permalink to this headline">¶</a></h3>
-<p>We now explore a different approach that yields an exact, rather than approximate test.</p>
+<p>Again, the (simulated) distribution is not dominated by the uniform. The <em>nominal</em> <span class="math notranslate nohighlight">\(P\)</span>-value based on treating the <span class="math notranslate nohighlight">\(Z\)</span>-statistic as if it had a standard normal distribution is not an <em>actual</em> <span class="math notranslate nohighlight">\(P\)</span>-value for this problem.</p>
+</div>
+<div class="section" id="an-exact-test-based-on-invariance-permutation-methods">
+<h3>An exact test based on invariance: permutation methods<a class="headerlink" href="#an-exact-test-based-on-invariance-permutation-methods" title="Permalink to this headline">¶</a></h3>
+<p>We now explore a different approach that yields an exact test rather than approximate test.</p>
+<p>Let <span class="math notranslate nohighlight">\(I_1, \ldots, I_n\)</span> be the values of the draws from the first population and <span class="math notranslate nohighlight">\(I_{n+1}, \ldots, I_{n+m}\)</span> are values of the draws from the second population.
+Because the draws are all independent, <span class="math notranslate nohighlight">\(\{I_j\}\)</span> are independent random variables with a Bernoulli distribution.
+If <span class="math notranslate nohighlight">\(p_x = p_y\)</span>, they are identically distributed also.</p>
+<p>Define the random vector <span class="math notranslate nohighlight">\(I \equiv (I_j)_{j=1}^{n+m}\)</span>.
+Let <span class="math notranslate nohighlight">\(\pi\)</span> be a permutation of the numbers <span class="math notranslate nohighlight">\(1, 2, \ldots, n+m\)</span>;
+that is, <span class="math notranslate nohighlight">\(\pi = (\pi_1, \ldots, \pi_{n+m})\)</span> is a vector of length <span class="math notranslate nohighlight">\(n+m\)</span> in which every number between <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(n+m\)</span> appears exactly once.
+Now consider the vector <span class="math notranslate nohighlight">\(I_\pi \equiv (I_{\pi_j})_{j=1}^{n+m}\)</span>.
+This vector has the same components as <span class="math notranslate nohighlight">\(I\)</span>, but in a different order (unless <span class="math notranslate nohighlight">\(\pi\)</span> is the identity permutation).
+Because the draws are IID, the joint probability distribution of this permutation of the draws is
+the same as the joint probability distribution of the original draws: the components of <span class="math notranslate nohighlight">\(I\)</span> are <em>exchangeable</em>
+if the null hypothesis is true.</p>
+<p>Let <span class="math notranslate nohighlight">\(S \equiv \sum_{j=1}^{n+m} I_j\)</span>.
+Suppose <span class="math notranslate nohighlight">\(S = s\)</span>.
+Whatever pattern of 1s and 0s in <span class="math notranslate nohighlight">\(I\)</span> gave rise to the sum <span class="math notranslate nohighlight">\(S=s\)</span>, because <span class="math notranslate nohighlight">\(\{I_j\}\)</span> are exchangeable,
+all other patterns of 0s and 1s that sum to <span class="math notranslate nohighlight">\(s\)</span> were just as likely to have been observed instead.
+That is, <span class="math notranslate nohighlight">\(\mathbb{P}_0 \{I = \vec{i} \} = \mathbb{P}_0 \{I = \vec{i}_\pi \}\)</span> for all <span class="math notranslate nohighlight">\((n+m)!\)</span> permutations <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p>[TO DO]</p>
 </div>
 </div>
@@ -961,6 +1036,13 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">plot_fisher_null</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "7fb4f456248843ad9d514eaae8f190b4", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
 </div>
