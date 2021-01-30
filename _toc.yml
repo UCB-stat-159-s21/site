@@ -18,6 +18,7 @@
   numbered: true
   chapters:
   - file: Hw/hw01-background.md
+  - file: Hw/hw02-election-fraud.md
 
 - part: Lecture Notes
   chapters:
