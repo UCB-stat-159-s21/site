@@ -312,6 +312,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#illustration">
+     Illustration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#unconditional-tests-from-conditional-tests">
      Unconditional tests from conditional tests
     </a>
@@ -320,6 +325,25 @@
     <a class="reference internal nav-link" href="#numerical-comparison">
      Numerical comparison
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithmic-considerations">
+     Algorithmic considerations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finding-mathcal-i-and-k">
+       Finding
+       <span class="math notranslate nohighlight">
+        \(\mathcal{I}\)
+       </span>
+       and
+       <span class="math notranslate nohighlight">
+        \(k\)
+       </span>
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -718,12 +742,33 @@ To test at (approximate) level <span class="math notranslate nohighlight">\(\alp
 <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">3</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">7</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="o">.</span><span class="mi">99</span><span class="p">]</span>  <span class="c1"># assortment of values for p</span>
 
 <span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>  
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span> 
 
 <span class="k">def</span> <span class="nf">absZ</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    calculate the absolute value of the Z statistic from the two samples</span>
+<span class="sd">    calculate the absolute value of the Z statistic from the two samples.</span>
+<span class="sd">    </span>
+<span class="sd">    When the population percentages are close to 0 or 1, x/n and y/m can be 0 or 1,</span>
+<span class="sd">    in which case the estimated variance will be zero. In that situation, return -inf or inf, </span>
+<span class="sd">    as appropriate.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        sample size from first population</span>
+<span class="sd">    m : int</span>
+<span class="sd">        sample size from second population</span>
+<span class="sd">    x : float</span>
+<span class="sd">        sample sum of the draws from the first population</span>
+<span class="sd">    y : float</span>
+<span class="sd">        sample sum of the draws from the second population</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    z : float</span>
+<span class="sd">        absolute value of the Z statistic</span>
+<span class="sd">        </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">pHat</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">abs</span><span class="p">((</span><span class="n">x</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pHat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pHat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)))</span> <span class="k">if</span> <span class="n">pHat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pHat</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
@@ -733,7 +778,7 @@ To test at (approximate) level <span class="math notranslate nohighlight">\(\alp
     <span class="n">reject</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
-        <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y. X and Y could be simulated together but the code would be less clear</span>
         <span class="n">reject</span> <span class="o">=</span> <span class="n">reject</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">absZ</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">z_c</span> <span class="k">else</span> <span class="n">reject</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
 
@@ -743,32 +788,35 @@ To test at (approximate) level <span class="math notranslate nohighlight">\(\alp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:25: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:46: RuntimeWarning: invalid value encountered in double_scalars
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.033768
-p=0.05 estimated alpha=0.044546
-p=0.1 estimated alpha=0.048237
-p=0.3 estimated alpha=0.050098
-p=0.4 estimated alpha=0.050176
-p=0.5 estimated alpha=0.052992
-p=0.6 estimated alpha=0.050275
-p=0.7 estimated alpha=0.050081
-p=0.9 estimated alpha=0.048387
-p=0.95 estimated alpha=0.044378
-p=0.99 estimated alpha=0.03388
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.033563
+p=0.05 estimated alpha=0.039816
+p=0.1 estimated alpha=0.049005
+p=0.3 estimated alpha=0.050683
+p=0.4 estimated alpha=0.052481
+p=0.5 estimated alpha=0.057022
+p=0.6 estimated alpha=0.052372
+p=0.7 estimated alpha=0.050798
+p=0.9 estimated alpha=0.049088
+p=0.95 estimated alpha=0.039562
+p=0.99 estimated alpha=0.03344
 max SD of p-hat: 0.0005
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you can see, the simulation estimate of the actual significance level differs from the target value, 5%, by more than simulation variability accounts for: the test is only approximate, and the accuracy of the approximation depends on the true value of <span class="math notranslate nohighlight">\(p\)</span>. The actual significance level is below 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 0 or 1, and above 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 1/2.</p>
+<p>As you can see, the simulation estimate of the actual significance level differs from the nominal significance level, 5%, by more than simulation variability accounts for: the test is only approximate, and the accuracy of the approximation depends on the true value of <span class="math notranslate nohighlight">\(p\)</span>. The actual significance level is below 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 0 or 1, and above 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 1/2.</p>
 <p>Now let’s look at the distribution of approximate <span class="math notranslate nohighlight">\(P\)</span>-values for (a one-sided version of) this test.
-If <span class="math notranslate nohighlight">\(Z\)</span> really had a standard normal distribution, then for <span class="math notranslate nohighlight">\(z \ge 0\)</span>,
-<span class="math notranslate nohighlight">\(\Pr \{|Z| \le z \} = 1 - 2\Phi(-z) =  2\Phi(z) - 1\)</span>, where <span class="math notranslate nohighlight">\(\Phi\)</span> is the standard normal CDF.
+If <span class="math notranslate nohighlight">\(Z\)</span> really had a standard normal distribution, then for <span class="math notranslate nohighlight">\(z \ge 0\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\Pr \{|Z| \le z \} = 1 - 2\Phi(-z) =  2\Phi(z) - 1,
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi\)</span> is the standard normal CDF.
 Let <span class="math notranslate nohighlight">\(x \equiv 2\Phi(z) - 1\)</span>.
-Then <span class="math notranslate nohighlight">\(z = \)</span>.
-It follows that</p>
+Then</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
@@ -786,8 +834,8 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># one of the worst offenders</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
@@ -801,11 +849,11 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([114162.,  90026.,  87613., 123660.,  76756., 104012.,  90610.,
-        118301.,  94301., 100559.]),
- array([0.        , 0.09999993, 0.19999986, 0.2999998 , 0.39999973,
-        0.49999966, 0.59999959, 0.69999953, 0.79999946, 0.89999939,
-        0.99999932]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([136995.,  89683.,  86794.,  82063.,  78132., 139366.,  60161.,
+        136581.,  95286.,  94939.]),
+ array([0.        , 0.09999988, 0.19999976, 0.29999964, 0.39999952,
+        0.49999939, 0.59999927, 0.69999915, 0.79999903, 0.89999891,
+        0.99999879]),
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
@@ -832,8 +880,8 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># one of the worst offenders</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
@@ -847,14 +895,14 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:25: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:46: RuntimeWarning: invalid value encountered in double_scalars
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 92756.,  23189., 148061.,  68447.,  76811., 193039.,  85492.,
-        116092.,  78602.,  99649.]),
- array([0.        , 0.09999962, 0.19999924, 0.29999887, 0.39999849,
-        0.49999811, 0.59999773, 0.69999736, 0.79999698, 0.8999966 ,
-        0.99999622]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([5.78410e+04, 1.00000e+00, 2.34340e+04, 1.13167e+05, 4.68700e+03,
+        2.37444e+05, 1.13710e+05, 6.48320e+04, 1.24849e+05, 3.86530e+04]),
+ array([0.        , 0.0999593 , 0.19991861, 0.29987791, 0.39983722,
+        0.49979652, 0.59975583, 0.69971513, 0.79967444, 0.89963374,
+        0.99959305]),
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
@@ -902,8 +950,9 @@ were equally likely to have been observed instead.
 In turn, that implies that all <span class="math notranslate nohighlight">\(\binomN{n}\)</span> multisubsets of size <span class="math notranslate nohighlight">\(n\)</span> of the <span class="math notranslate nohighlight">\(n+m\)</span> components of <span class="math notranslate nohighlight">\(z\)</span>
 were equally likely to be the sample from the first population (with the other <span class="math notranslate nohighlight">\(m\)</span> values
 comprising the sample from the second population).</p>
-<p>Let <span class="math notranslate nohighlight">\(\{z\}\)</span> denote the <em>multiset</em> of elements of <span class="math notranslate nohighlight">\(x\)</span> (see, e.g., <a class="reference internal" href="math-foundations.html"><span class="doc std std-doc">Mathematical Foundations</span></a>
-for the distinction between a set and a multiset).
+<p>Let <span class="math notranslate nohighlight">\(\{z\}\)</span> denote the <em>multiset</em> of elements of <span class="math notranslate nohighlight">\(x\)</span>.
+(See, e.g., <a class="reference internal" href="math-foundations.html"><span class="doc std std-doc">Mathematical Foundations</span></a>
+for the distinction between a set and a multiset.)
 Consider the event that <span class="math notranslate nohighlight">\(\{I\} = \{z\}\)</span>, that is, that the multiset of observed data is equal to the multiset of
 elements of <span class="math notranslate nohighlight">\(z\)</span>.
 Then</p>
@@ -935,11 +984,12 @@ Because the hypergeometric is discrete, for some values of <span class="math not
 test <span class="math notranslate nohighlight">\(A=A_{\alpha;g}(\cdot, \cdot)\)</span> to attain exactly level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <p>What shall we use as the acceptance region?
 To have power against the alternative that <span class="math notranslate nohighlight">\(p_x &gt; p_y\)</span> and the alternative <span class="math notranslate nohighlight">\(p_x &lt; p_y\)</span>, we should
-reject if <span class="math notranslate nohighlight">\(X\)</span> is “too small” or if <span class="math notranslate nohighlight">\(X\)</span> is “too large.”
-There are any number of ways we could trade off small and large.
+reject if <span class="math notranslate nohighlight">\(X\)</span> is “too small” or if <span class="math notranslate nohighlight">\(X\)</span> is “too big.”
+There are any number of ways we could trade off small and big.
 For instance, we could make the acceptance region <span class="math notranslate nohighlight">\(A = A_{\alpha;g}(x,u)\)</span> nearly symmetric around
-<span class="math notranslate nohighlight">\(\mathbb{E}(X|G) = nG/N\)</span>.</p>
-<p>We will do something else: pick the acceptance region to be as small as possible: to include
+<span class="math notranslate nohighlight">\(\mathbb{E}(X|G) = nG/N\)</span>.
+Or we could make the chance of rejecting when <span class="math notranslate nohighlight">\(X\)</span> is too small equal to the chance of rejecting when <span class="math notranslate nohighlight">\(X\)</span> is too big.</p>
+<p>We will do something else: pick the acceptance region to include
 as few values in <span class="math notranslate nohighlight">\(\{0, \ldots, n\}\)</span> as possible.
 That means omitting from <span class="math notranslate nohighlight">\(A\)</span> the possible values of <span class="math notranslate nohighlight">\(X\)</span> that have the lowest (conditional) probabilities.
 Because the hypergeometric distribution is unimodal, this yelds a test that rejects when <span class="math notranslate nohighlight">\(X\)</span> is “in the tails” of the hypergeometric distribution, as desired.
@@ -953,7 +1003,7 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> denote the
 \[\begin{equation*}
 k \equiv \arg \max_{j \notin \mathcal{I}} \mathbb{P}_0 \{ X = j | G=g \}
 \end{equation*}\]</div>
-<p>be the outcome with largest conditional probability not included in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>.
+<p>be the outcome or outcomes with largest conditional probability not included in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>.
 Let</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -979,6 +1029,56 @@ See <a class="reference internal" href="permute-intro.html"><span class="doc std
 <p>This test, in a slightly different form, is called <em>Fisher’s Exact Test</em>.
 It is useful for a wide range of problems, including clinical trials and A/B testing.</p>
 </div>
+<div class="section" id="illustration">
+<h3>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h3>
+<p>To visualize what’s going on, suppose <span class="math notranslate nohighlight">\(n=m=10\)</span> and <span class="math notranslate nohighlight">\(G=5\)</span>. Under the null, the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(G=5\)</span> is hypergeometric with parameters <span class="math notranslate nohighlight">\(N=n+m=20\)</span>, <span class="math notranslate nohighlight">\(G=5\)</span>, and <span class="math notranslate nohighlight">\(n=10\)</span>.
+The pmf of that distribution is plotted below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">hypergeom</span> <span class="c1"># the hypergeometric distribution</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">N</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="n">m</span>
+<span class="n">G</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pmf</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;outcomes&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;hypergeometric pmf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pmf: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">pmf</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tests_25_0.png" src="../_images/tests_25_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pmf: [(0, 0.016253869969040196), (1, 0.13544891640866824), (2, 0.34829721362229055), (3, 0.34829721362229055), (4, 0.13544891640866824), (5, 0.016253869969040196), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0), (10, 0.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.05</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">pmf</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pmf</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0645714285714292
+</pre></div>
+</div>
+</div>
+</div>
+<p>To construct the acceptance region for a level <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> test, first notice that <span class="math notranslate nohighlight">\(\mathbb{P}_0\{X &gt; 5 | G=5\} = 0\)</span>, so the outcomes 6, 7, …, 10 should be outside <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{P}_0\{X = 0 | G=5\} = \mathbb{P}_0\{X = 5 | G=5\} = 0.01625\)</span>, so if we exclude those outcomes from <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>, the chance of rejecting the null is <span class="math notranslate nohighlight">\(2 \times 0.01625387 = 0.032508\)</span>.
+For the test to have level <span class="math notranslate nohighlight">\(\alpha\)</span>, we need to reject more often: an additional <span class="math notranslate nohighlight">\(0.017492\)</span> of the time.
+If we always rejected when <span class="math notranslate nohighlight">\(X=1\)</span> or <span class="math notranslate nohighlight">\(X=4\)</span>, we would reject too often, because each of those possibilities has probability <span class="math notranslate nohighlight">\(0.13545\)</span>.
+If, when <span class="math notranslate nohighlight">\(X \in \{1, 4\}\)</span> we reject with probability <span class="math notranslate nohighlight">\(\gamma = .01749/(2\times 0.13545) = 0.06457\)</span>, the overall chance of erroneously rejecting the null will be 5%, as desired.</p>
+</div>
 <div class="section" id="unconditional-tests-from-conditional-tests">
 <h3>Unconditional tests from conditional tests<a class="headerlink" href="#unconditional-tests-from-conditional-tests" title="Permalink to this headline">¶</a></h3>
 <p>If you always test conditionally at level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>, that yields a test that has unconditional level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
@@ -997,25 +1097,25 @@ The unconditional significance level of the test is</p>
 <h3>Numerical comparison<a class="headerlink" href="#numerical-comparison" title="Permalink to this headline">¶</a></h3>
 <p>We saw that the <span class="math notranslate nohighlight">\(Z\)</span>-test does not necessarily have its nominal level in this problem.
 We now implement the permutation test (Fisher’s exact test) for comparison.</p>
+</div>
+<div class="section" id="algorithmic-considerations">
+<h3>Algorithmic considerations<a class="headerlink" href="#algorithmic-considerations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="finding-mathcal-i-and-k">
+<h4>Finding <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> and <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#finding-mathcal-i-and-k" title="Permalink to this headline">¶</a></h4>
+<p>In principle, we could sort the <span class="math notranslate nohighlight">\(n+1\)</span> values of the pmf to find the outcomes with the largest probabilities to include in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>, and the largest outcome not included in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> to be <span class="math notranslate nohighlight">\(k\)</span>.
+But the best sorting algorithms still take <span class="math notranslate nohighlight">\(n\log n\)</span> operations, and we don’t need a complete sort–we only need to divide the probabilities into two groups, the biggest and the rest.</p>
+<p>However, because the hypergeomtric distribution is unimodal, the smallest probability will either be <span class="math notranslate nohighlight">\(\mathbb{P}_0 \{X = 0\}\)</span> or <span class="math notranslate nohighlight">\(\mathbb{P}_0 \{X = n\}\)</span> (or they will be equal). After removing that outcome from consideration, the second-smallest probability will be either that of the largest remaining outcome or the smallest remaining outcome, etc. This means we can identify the outcomes to include in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> with a number of operations that is linear in <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulating the significance level of the permutation test</span>
-
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">hypergeom</span> <span class="c1"># the hypergeometric distribution</span>
-
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># significance level 5%</span>
-
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">A function to find the acceptance region for a level-alpha test. </span>
-<span class="sd">The acceptance region is characterized by an &quot;always accept&quot; list,</span>
-<span class="sd">a &quot;sometimes accept&quot; value, and a probability of accepting for that value.</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulate the significance level of the permutation test</span>
 <span class="k">def</span> <span class="nf">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Find the acceptance region for a randomized, exact level alpha test of </span>
 <span class="sd">    the null hypothesis X~Hypergeometric(N, G, n). The acceptance region is</span>
 <span class="sd">    the smallest possible. (And not, for instance, symmetric.)</span>
+
+<span class="sd">    If a non-randomized, conservative test is desired, simply ignore k and gamma and </span>
+<span class="sd">    use I as the acceptance region.</span>
 <span class="sd">       </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1029,34 +1129,44 @@ We now implement the permutation test (Fisher’s exact test) for comparison.</p
 <span class="sd">    --------</span>
 <span class="sd">    I:  list</span>
 <span class="sd">        values for which the test never rejects</span>
-<span class="sd">    k:  integer </span>
-<span class="sd">        value for which the test sometimes rejects</span>
+<span class="sd">    k:  list </span>
+<span class="sd">        values for which the test sometimes rejects</span>
 <span class="sd">    gamma : float</span>
-<span class="sd">        probability the test does not reject when the value is k</span>
+<span class="sd">        probability the test does not reject when the value is in k</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">I</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">top</span> <span class="o">=</span> <span class="n">n</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">p_k</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># all possible values of X</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                    <span class="c1"># start with all possible outcomes, then remove some</span>
+    <span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>   <span class="c1"># hypergeometric pmf</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># smallest outcome still in I</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">n</span>                        <span class="c1"># largest outcome still in I</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># outcome for which the test is randomized</span>
+    <span class="n">p_k</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># probability of the randomized outcome</span>
+    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># probability of outcomes excluded from I</span>
     <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
         <span class="n">pb</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
         <span class="n">pt</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">top</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;=</span> <span class="n">pt</span><span class="p">:</span>
-            <span class="n">k</span> <span class="o">=</span> <span class="n">bottom</span>
+        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;</span> <span class="n">pt</span><span class="p">:</span>                <span class="c1"># the lower possibility has smaller probability</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
             <span class="n">p_k</span> <span class="o">=</span> <span class="n">pb</span>
             <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">pb</span>            
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">k</span> <span class="o">=</span> <span class="n">top</span>
+        <span class="k">elif</span> <span class="n">pb</span> <span class="o">&gt;</span> <span class="n">pt</span><span class="p">:</span>              <span class="c1"># the upper possibility has smaller probability</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">top</span><span class="p">]</span>
             <span class="n">p_k</span> <span class="o">=</span> <span class="n">pt</span>
             <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">pt</span>        
-        <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> 
-    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_k</span>
+        <span class="k">else</span><span class="p">:</span>                      
+            <span class="k">if</span> <span class="n">bottom</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">:</span>       <span class="c1"># the two possibilities have equal probability</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">]</span>
+                <span class="n">p_k</span> <span class="o">=</span> <span class="n">pb</span><span class="o">+</span><span class="n">pt</span>
+                <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>                  <span class="c1"># there is only one possibility left</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+                <span class="n">p_k</span> <span class="o">=</span> <span class="n">pb</span>
+                <span class="n">bottom</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">p_k</span>
+        <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_k</span>     <span class="c1"># probability of accepting H_0 when X in k, to get exact level alpha</span>
     <span class="k">return</span> <span class="n">I</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">gamma</span>
         
     
@@ -1068,8 +1178,8 @@ We now implement the permutation test (Fisher’s exact test) for comparison.</p
 <span class="sd">    ----------</span>
 <span class="sd">    A:  triple</span>
 <span class="sd">        first element is a list or set, the values of x for which the test never rejects</span>
-<span class="sd">        second element is a number</span>
-<span class="sd">        third element is a float in [0, 1], the probability of rejecting when x equals the second element</span>
+<span class="sd">        second element is a list or set, the values of x for which the test sometimes rejects</span>
+<span class="sd">        third element is a float in [0, 1], the probability of rejecting when x is in the second element</span>
 <span class="sd">    x:  number-like</span>
 <span class="sd">        observed data</span>
 <span class="sd">    U:  float in [0, 1]</span>
@@ -1079,19 +1189,28 @@ We now implement the permutation test (Fisher’s exact test) for comparison.</p
 <span class="sd">    reject: Boolean</span>
 <span class="sd">        True if the test rejects</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1"># add input error checking</span>
-    <span class="k">return</span> <span class="ow">not</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">U</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;probability out of range:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">U</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">U</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;uniform variable out of range:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+    <span class="k">return</span> <span class="ow">not</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">U</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">3</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">7</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="o">.</span><span class="mi">99</span><span class="p">]</span>  <span class="c1"># assortment of values for p</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exercise: write unit tests of the two functions.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># significance level 5%</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">3</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">7</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="o">.</span><span class="mi">99</span><span class="p">]</span>  <span class="c1"># assortment of values for p</span>
 
-<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="n">m</span>
 
 <span class="k">for</span> <span class="n">pj</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
@@ -1109,14 +1228,37 @@ We now implement the permutation test (Fisher’s exact test) for comparison.</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.05078
-p=0.05 estimated alpha=0.04841
-p=0.1 estimated alpha=0.05022
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.05001
+p=0.05 estimated alpha=0.049823
+p=0.1 estimated alpha=0.050227
+p=0.3 estimated alpha=0.049927
+p=0.4 estimated alpha=0.050298
+p=0.5 estimated alpha=0.049955
+p=0.6 estimated alpha=0.049959
+p=0.7 estimated alpha=0.049856
+p=0.9 estimated alpha=0.049854
+p=0.95 estimated alpha=0.050085
+p=0.99 estimated alpha=0.049817
+max SD of p-hat: 0.0005
 </pre></div>
 </div>
 </div>
 </div>
 <p>This test has true significance level equal to its nominal significance level: it is an <em>exact</em> test rather than an <em>approximate</em> test.</p>
+<p>Randomized tests have some drawbacks in practice.
+For instance, it would be hard to explain to a client or judge that for a given set of data, the test you
+propose to use sometimes
+rejects the null hypothesis and sometimes does not, depending on a random factor (<span class="math notranslate nohighlight">\(U\)</span>) that has nothing to do with the data or the experiment.</p>
+<p>In such situations, it might make sense to use a <em>conservative</em> test rather than an exact randomized test.
+A conservative test is one for which the chance of a Type I error is not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exercise: How would you find a $P$-value for this test?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="intersection-union-hypotheses">
@@ -1270,6 +1412,13 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">plot_fisher_null</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "293c062a545240209c126a90837c86c4", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
 </div>
