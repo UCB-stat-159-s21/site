@@ -307,8 +307,18 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#an-exact-test-based-on-invariance-permutation-methods">
-     An exact test based on invariance: permutation methods
+    <a class="reference internal nav-link" href="#an-exact-conditional-test-based-on-invariance-permutation-methods">
+     An exact conditional test based on invariance: permutation methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unconditional-tests-from-conditional-tests">
+     Unconditional tests from conditional tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-comparison">
+     Numerical comparison
     </a>
    </li>
   </ul>
@@ -455,6 +465,7 @@ Here are some composite null hypotheses:</p>
 <li><p>The distribution <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> of <span class="math notranslate nohighlight">\(X\)</span> has at most 3 modes.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are <em>exchangeable</em> (A collection of random variables is <em>exchangeable</em> if their joint distribution is invariant under permuting their labels. If a collection of random variables is IID, it is also exchangeable.)</p></li>
 <li><p>The distribution of <span class="math notranslate nohighlight">\(X\)</span> is spherically symmetric</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(q\)</span>th quantile of the probability distribution of the data is <span class="math notranslate nohighlight">\(x\)</span></p></li>
 </ul>
 <p>To test a statistical hypothesis, one specifies a set <span class="math notranslate nohighlight">\(A\)</span> of possible data values (before examining the actual data). If the data fall inside that set, i.e., if <span class="math notranslate nohighlight">\(X \in A\)</span>, the null hypothesis is <em>not rejected</em>; otherwise, the null hypothesis is <em>rejected</em>.
 Each (measurable) set <span class="math notranslate nohighlight">\(A\)</span> implicitly defines a hypothesis test.
@@ -751,7 +762,7 @@ max SD of p-hat: 0.0005
 </div>
 </div>
 </div>
-<p>As you can see, the simulation estimate of the actual significance level differs from the target value, 5%, by more than simulation variability would account for: the test is only approximate, and the accuracy of the approximation depends on the true value of <span class="math notranslate nohighlight">\(p\)</span>. The actual significance level is below 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 0 or 1, and above 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 1/2.</p>
+<p>As you can see, the simulation estimate of the actual significance level differs from the target value, 5%, by more than simulation variability accounts for: the test is only approximate, and the accuracy of the approximation depends on the true value of <span class="math notranslate nohighlight">\(p\)</span>. The actual significance level is below 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 0 or 1, and above 5% when the true <span class="math notranslate nohighlight">\(p\)</span> is near 1/2.</p>
 <p>Now let’s look at the distribution of approximate <span class="math notranslate nohighlight">\(P\)</span>-values for (a one-sided version of) this test.
 If <span class="math notranslate nohighlight">\(Z\)</span> really had a standard normal distribution, then for <span class="math notranslate nohighlight">\(z \ge 0\)</span>,
 <span class="math notranslate nohighlight">\(\Pr \{|Z| \le z \} = 1 - 2\Phi(-z) =  2\Phi(z) - 1\)</span>, where <span class="math notranslate nohighlight">\(\Phi\)</span> is the standard normal CDF.
@@ -868,26 +879,244 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 <p>Again, the (simulated) distribution is not dominated by the uniform. The <em>nominal</em> <span class="math notranslate nohighlight">\(P\)</span>-value based on treating the <span class="math notranslate nohighlight">\(Z\)</span>-statistic as if it had a standard normal distribution is not an <em>actual</em> <span class="math notranslate nohighlight">\(P\)</span>-value for this problem.</p>
 </div>
-<div class="section" id="an-exact-test-based-on-invariance-permutation-methods">
-<h3>An exact test based on invariance: permutation methods<a class="headerlink" href="#an-exact-test-based-on-invariance-permutation-methods" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="an-exact-conditional-test-based-on-invariance-permutation-methods">
+<h3>An exact conditional test based on invariance: permutation methods<a class="headerlink" href="#an-exact-conditional-test-based-on-invariance-permutation-methods" title="Permalink to this headline">¶</a></h3>
 <p>We now explore a different approach that yields an exact test rather than approximate test.</p>
-<p>Let <span class="math notranslate nohighlight">\(I_1, \ldots, I_n\)</span> be the values of the draws from the first population and <span class="math notranslate nohighlight">\(I_{n+1}, \ldots, I_{n+m}\)</span> are values of the draws from the second population.
+<p>Let <span class="math notranslate nohighlight">\(N \equiv n+m\)</span>.
+Let <span class="math notranslate nohighlight">\(I_1, \ldots, I_n\)</span> be the values of the draws from the first population and <span class="math notranslate nohighlight">\(I_{n+1}, \ldots, I_N\)</span> be
+the values of the draws from the second population.
 Because the draws are all independent, <span class="math notranslate nohighlight">\(\{I_j\}\)</span> are independent random variables with a Bernoulli distribution.
 If <span class="math notranslate nohighlight">\(p_x = p_y\)</span>, they are identically distributed also.</p>
-<p>Define the random vector <span class="math notranslate nohighlight">\(I \equiv (I_j)_{j=1}^{n+m}\)</span>.
-Let <span class="math notranslate nohighlight">\(\pi\)</span> be a permutation of the numbers <span class="math notranslate nohighlight">\(1, 2, \ldots, n+m\)</span>;
-that is, <span class="math notranslate nohighlight">\(\pi = (\pi_1, \ldots, \pi_{n+m})\)</span> is a vector of length <span class="math notranslate nohighlight">\(n+m\)</span> in which every number between <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(n+m\)</span> appears exactly once.
-Now consider the vector <span class="math notranslate nohighlight">\(I_\pi \equiv (I_{\pi_j})_{j=1}^{n+m}\)</span>.
+<p>Define the random vector <span class="math notranslate nohighlight">\(I \equiv (I_j)_{j=1}^N\)</span>.
+Let <span class="math notranslate nohighlight">\(\pi\)</span> be a permutation of <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span>.
+(That is, <span class="math notranslate nohighlight">\(\pi = (\pi_1, \ldots, \pi_N)\)</span> is a vector of length <span class="math notranslate nohighlight">\(N\)</span> in which every number between <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(N\)</span> appears exactly once.)
+Define the vector <span class="math notranslate nohighlight">\(I_\pi \equiv (I_{\pi_j})_{j=1}^N\)</span>.
 This vector has the same components as <span class="math notranslate nohighlight">\(I\)</span>, but in a different order (unless <span class="math notranslate nohighlight">\(\pi\)</span> is the identity permutation).
 Because the draws are IID, the joint probability distribution of this permutation of the draws is
 the same as the joint probability distribution of the original draws: the components of <span class="math notranslate nohighlight">\(I\)</span> are <em>exchangeable</em>
-if the null hypothesis is true.</p>
-<p>Let <span class="math notranslate nohighlight">\(S \equiv \sum_{j=1}^{n+m} I_j\)</span>.
-Suppose <span class="math notranslate nohighlight">\(S = s\)</span>.
-Whatever pattern of 1s and 0s in <span class="math notranslate nohighlight">\(I\)</span> gave rise to the sum <span class="math notranslate nohighlight">\(S=s\)</span>, because <span class="math notranslate nohighlight">\(\{I_j\}\)</span> are exchangeable,
-all other patterns of 0s and 1s that sum to <span class="math notranslate nohighlight">\(s\)</span> were just as likely to have been observed instead.
-That is, <span class="math notranslate nohighlight">\(\mathbb{P}_0 \{I = \vec{i} \} = \mathbb{P}_0 \{I = \vec{i}_\pi \}\)</span> for all <span class="math notranslate nohighlight">\((n+m)!\)</span> permutations <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
-<p>[TO DO]</p>
+random variables if the null hypothesis is true.</p>
+<p>Equivalently, let <span class="math notranslate nohighlight">\(z\)</span> be a vector of length <span class="math notranslate nohighlight">\(N\)</span>.
+Then <span class="math notranslate nohighlight">\(\mathbb{P}_0 \{I = z \} = \mathbb{P}_0 \{I = z_\pi \}\)</span> for all <span class="math notranslate nohighlight">\(N!\)</span> permutations <span class="math notranslate nohighlight">\(\pi\)</span>.
+Whatever vector of values <span class="math notranslate nohighlight">\(z\)</span> was actually observed, if the null hypothesis is true, all permutations of those values
+were equally likely to have been observed instead.
+In turn, that implies that all <span class="math notranslate nohighlight">\(\binomN{n}\)</span> multisubsets of size <span class="math notranslate nohighlight">\(n\)</span> of the <span class="math notranslate nohighlight">\(n+m\)</span> components of <span class="math notranslate nohighlight">\(z\)</span>
+were equally likely to be the sample from the first population (with the other <span class="math notranslate nohighlight">\(m\)</span> values
+comprising the sample from the second population).</p>
+<p>Let <span class="math notranslate nohighlight">\(\{z\}\)</span> denote the <em>multiset</em> of elements of <span class="math notranslate nohighlight">\(x\)</span> (see, e.g., <a class="reference internal" href="math-foundations.html"><span class="doc std std-doc">Mathematical Foundations</span></a>
+for the distinction between a set and a multiset).
+Consider the event that <span class="math notranslate nohighlight">\(\{I\} = \{z\}\)</span>, that is, that the multiset of observed data is equal to the multiset of
+elements of <span class="math notranslate nohighlight">\(z\)</span>.
+Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+  \mathbb{P}_0(I = z_\pi | \{I\} = \{z\}) = \mathbb{P}_0(I = z | \{I\} = \{z\})
+\end{equation*}\]</div>
+<p>for all permutations <span class="math notranslate nohighlight">\(\pi\)</span> of <span class="math notranslate nohighlight">\(\{1, \ldots, n+m\}\)</span>.</p>
+<p>It follows that the sample from the first population is equally likely to be any multisubset of <span class="math notranslate nohighlight">\(n\)</span> of the
+<span class="math notranslate nohighlight">\(n+m\)</span> elements of the pooled sample, given the elements of the pooled sample.
+That is, the conditional probability distribution of the sample from the first population is like that of a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from the <span class="math notranslate nohighlight">\(N\)</span> elements of the pooled sample, given the elements of the pooled sample.</p>
+<p>The pooled sample in this example consists of <span class="math notranslate nohighlight">\(G = \sum_{j=1}^N I_j\)</span> 1s and <span class="math notranslate nohighlight">\(N-G\)</span> 0s.
+Given <span class="math notranslate nohighlight">\(G\)</span>, the conditional distribution of the number of 1s in the sample from the first population is hypergeometric with parameters <span class="math notranslate nohighlight">\(N=N\)</span> (population size), <span class="math notranslate nohighlight">\(G=G\)</span> (number of “good” items in the population), and <span class="math notranslate nohighlight">\(n=n\)</span> (sample size from the population).
+Recall that <span class="math notranslate nohighlight">\(X\)</span> is the sum of the draws from the first population and <span class="math notranslate nohighlight">\(Y\)</span> is the sum of the draws from the second
+population.
+We have</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_0 \{ X = k | G=g \} = \left \{ \begin{array}{ll}
+   \frac{\binom{g}{k}\binom{N-g}{n-k}}{\binom{N}{n}}, &amp; \max(0, g-m) \le k \le \min(n,g) \\
+   0, &amp; \mbox{otherwise.}
+   \end{array}
+   \right .
+\end{equation*}\]</div>
+<p>Moreover, given <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are dependent, since <span class="math notranslate nohighlight">\(X+Y = G\)</span>.</p>
+<p>We can base a (conditional) test of the hypothesis <span class="math notranslate nohighlight">\(p_0 = p_1\)</span> on the conditional
+hypergeometric distribution of <span class="math notranslate nohighlight">\(X\)</span>.
+Because the hypergeometric is discrete, for some values of <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span> we will need a randomized
+test <span class="math notranslate nohighlight">\(A=A_{\alpha;g}(\cdot, \cdot)\)</span> to attain exactly level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>What shall we use as the acceptance region?
+To have power against the alternative that <span class="math notranslate nohighlight">\(p_x &gt; p_y\)</span> and the alternative <span class="math notranslate nohighlight">\(p_x &lt; p_y\)</span>, we should
+reject if <span class="math notranslate nohighlight">\(X\)</span> is “too small” or if <span class="math notranslate nohighlight">\(X\)</span> is “too large.”
+There are any number of ways we could trade off small and large.
+For instance, we could make the acceptance region <span class="math notranslate nohighlight">\(A = A_{\alpha;g}(x,u)\)</span> nearly symmetric around
+<span class="math notranslate nohighlight">\(\mathbb{E}(X|G) = nG/N\)</span>.</p>
+<p>We will do something else: pick the acceptance region to be as small as possible: to include
+as few values in <span class="math notranslate nohighlight">\(\{0, \ldots, n\}\)</span> as possible.
+That means omitting from <span class="math notranslate nohighlight">\(A\)</span> the possible values of <span class="math notranslate nohighlight">\(X\)</span> that have the lowest (conditional) probabilities.
+Because the hypergeometric distribution is unimodal, this yelds a test that rejects when <span class="math notranslate nohighlight">\(X\)</span> is “in the tails” of the hypergeometric distribution, as desired.
+Let <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> denote the smallest subset of <span class="math notranslate nohighlight">\(\{0, \ldots, n\}\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_0 \{X \in \mathcal{I} | G=g \} &lt; 1-\alpha
+\end{equation*}\]</div>
+<p>Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+k \equiv \arg \max_{j \notin \mathcal{I}} \mathbb{P}_0 \{ X = j | G=g \}
+\end{equation*}\]</div>
+<p>be the outcome with largest conditional probability not included in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>.
+Let</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\gamma \equiv \frac{(1-\alpha) - \mathbb{P}_0 \{X \in \mathcal{I} | G=g \}}{\mathbb{P}_0 \{X=k |G=g\}}
+\end{equation*}\]</div>
+<p>be the fraction of the probability of <span class="math notranslate nohighlight">\(k\)</span> that needs to be added to the probability of <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> to make
+the sum equal <span class="math notranslate nohighlight">\(1-\alpha\)</span>.
+Define the acceptance region</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+A_{\alpha; g} = \{ (x,u) \in \mathcal{I} \times [0,1] \} \cup \{ (k, u): u \le \gamma \}.
+\end{equation*}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(U\)</span> be a <span class="math notranslate nohighlight">\(U[0,1]\)</span> random variable independent of <span class="math notranslate nohighlight">\(X\)</span>.
+Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_0 \{ (X, U) \in A_{\alpha; g} | G=g \} = 1-\alpha.
+\end{equation*}\]</div>
+<p>That is, <span class="math notranslate nohighlight">\(A\)</span> is an acceptance region for a test of the null hypothesis with conditional significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>Conditioning on <span class="math notranslate nohighlight">\(G\)</span> eliminates the nuisance parameter <span class="math notranslate nohighlight">\(p\)</span>, the fraction of ones in the two populations
+from which the sample was drawn: whatever <span class="math notranslate nohighlight">\(p\)</span> might be, and whatever the fraction of ones in the sample, every random sample of <span class="math notranslate nohighlight">\(n\)</span> of the <span class="math notranslate nohighlight">\(n+m\)</span> observations is equally likely to have been the sample from the first population, if the null hypothesis is true.
+See <a class="reference internal" href="permute-intro.html"><span class="doc std std-doc">Introduction to Permutation Tests</span></a>.</p>
+<p>This test, in a slightly different form, is called <em>Fisher’s Exact Test</em>.
+It is useful for a wide range of problems, including clinical trials and A/B testing.</p>
+</div>
+<div class="section" id="unconditional-tests-from-conditional-tests">
+<h3>Unconditional tests from conditional tests<a class="headerlink" href="#unconditional-tests-from-conditional-tests" title="Permalink to this headline">¶</a></h3>
+<p>If you always test conditionally at level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>, that yields a test that has unconditional level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>Suppose we condition on the value of a discrete random variable, such as <span class="math notranslate nohighlight">\(G\)</span> in the previous example, then test at level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>, conditional on the value of <span class="math notranslate nohighlight">\(G\)</span>.
+The unconditional significance level of the test is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_0 \{\mbox{reject null}\} =
+\sum_g \mathbb{P}_0 \{ \mbox{reject null} | G=g \} \mathbb{P}_0 \{G=g\}
+\le \sum_g \alpha \mathbb{P}_0 \{G=g\} = \alpha \sum_g \mathbb{P}_0 \{G=g\} = \alpha,
+\end{equation*}\]</div>
+<p>where the sums are over all values <span class="math notranslate nohighlight">\(g\)</span> that <span class="math notranslate nohighlight">\(G\)</span> can take.</p>
+<p>A similar proof establishes the result when <span class="math notranslate nohighlight">\(G\)</span> does not have a discrete distribution.</p>
+</div>
+<div class="section" id="numerical-comparison">
+<h3>Numerical comparison<a class="headerlink" href="#numerical-comparison" title="Permalink to this headline">¶</a></h3>
+<p>We saw that the <span class="math notranslate nohighlight">\(Z\)</span>-test does not necessarily have its nominal level in this problem.
+We now implement the permutation test (Fisher’s exact test) for comparison.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulating the significance level of the permutation test</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">hypergeom</span> <span class="c1"># the hypergeometric distribution</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># significance level 5%</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">A function to find the acceptance region for a level-alpha test. </span>
+<span class="sd">The acceptance region is characterized by an &quot;always accept&quot; list,</span>
+<span class="sd">a &quot;sometimes accept&quot; value, and a probability of accepting for that value.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">def</span> <span class="nf">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Find the acceptance region for a randomized, exact level alpha test of </span>
+<span class="sd">    the null hypothesis X~Hypergeometric(N, G, n). The acceptance region is</span>
+<span class="sd">    the smallest possible. (And not, for instance, symmetric.)</span>
+<span class="sd">       </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N:  integer</span>
+<span class="sd">        population size</span>
+<span class="sd">    G:  integer</span>
+<span class="sd">        number of &quot;good&quot; items in the population</span>
+<span class="sd">    n:  sample size</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    I:  list</span>
+<span class="sd">        values for which the test never rejects</span>
+<span class="sd">    k:  integer </span>
+<span class="sd">        value for which the test sometimes rejects</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        probability the test does not reject when the value is k</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">p_k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
+        <span class="n">pb</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+        <span class="n">pt</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">top</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;=</span> <span class="n">pt</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">bottom</span>
+            <span class="n">p_k</span> <span class="o">=</span> <span class="n">pb</span>
+            <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">pb</span>            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">top</span>
+            <span class="n">p_k</span> <span class="o">=</span> <span class="n">pt</span>
+            <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">pt</span>        
+        <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> 
+    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_k</span>
+    <span class="k">return</span> <span class="n">I</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">gamma</span>
+        
+    
+<span class="k">def</span> <span class="nf">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">U</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Apply a randomized test A to data x using auxiliary uniform randomness U</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A:  triple</span>
+<span class="sd">        first element is a list or set, the values of x for which the test never rejects</span>
+<span class="sd">        second element is a number</span>
+<span class="sd">        third element is a float in [0, 1], the probability of rejecting when x equals the second element</span>
+<span class="sd">    x:  number-like</span>
+<span class="sd">        observed data</span>
+<span class="sd">    U:  float in [0, 1]</span>
+<span class="sd">        observed value of an independent U[0,1] random variable</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    reject: Boolean</span>
+<span class="sd">        True if the test rejects</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># add input error checking</span>
+    <span class="k">return</span> <span class="ow">not</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">U</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">3</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">7</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="o">.</span><span class="mi">99</span><span class="p">]</span>  <span class="c1"># assortment of values for p</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="n">m</span>
+
+<span class="k">for</span> <span class="n">pj</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+    <span class="n">reject</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">reject</span> <span class="o">=</span> <span class="n">reject</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span> <span class="k">else</span> <span class="n">reject</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
+
+<span class="c1"># how precise should we expect the result to be?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max SD of p-hat: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">reps</span><span class="p">)))))</span>  <span class="c1"># max SD of a binomial is 1/2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.05078
+p=0.05 estimated alpha=0.04841
+p=0.1 estimated alpha=0.05022
+</pre></div>
+</div>
+</div>
+</div>
+<p>This test has true significance level equal to its nominal significance level: it is an <em>exact</em> test rather than an <em>approximate</em> test.</p>
 </div>
 </div>
 <div class="section" id="intersection-union-hypotheses">
@@ -1041,13 +1270,6 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">plot_fisher_null</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7fb4f456248843ad9d514eaae8f190b4", "version_major": 2, "version_minor": 0}
-</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
 </div>
