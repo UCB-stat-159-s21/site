@@ -242,6 +242,11 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercises">
      Exercises
     </a>
@@ -499,9 +504,9 @@ The row rank and the column rank if any matrix are equal; we denote them <span c
 <p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> can be multiplied, <span class="math notranslate nohighlight">\({\mbox{rank}}(AB) \le \min({\mbox{rank}}(A), {\mbox{rank}}(B))\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same dimensions, <span class="math notranslate nohighlight">\({\mbox{rank}}(A+B) \le {\mbox{rank}}(A) + {\mbox{rank}}(B)\)</span>.</p>
 <p>A square matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is invertible if and only if <span class="math notranslate nohighlight">\({\mbox{rank}}(A) = n\)</span>.</p>
-<hr />
-#### Definitions
-Let $A \in {\mathcal M}(n,n)$.
+<div class="section" id="definitions">
+<h3>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span>.</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(A^{-1} = A'\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> is <em>orthogonal</em>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(A_{ij} = 0\)</span> for all <span class="math notranslate nohighlight">\(i \ne j\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>diagonal</em>.</p></li>
@@ -509,7 +514,8 @@ Let $A \in {\mathcal M}(n,n)$.
 <li><p>If <span class="math notranslate nohighlight">\(x'Ax &gt; 0\)</span> for all <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> except <span class="math notranslate nohighlight">\(x = {\mathbf 0}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>positive definite</em></p></li>
 <li><p><span class="math notranslate nohighlight">\(A\)</span> has <em>full rank</em> if <span class="math notranslate nohighlight">\({\mbox{rank}}(A) = n\)</span>. Otherwise, <span class="math notranslate nohighlight">\(A\)</span> is <em>rank deficient</em>.</p></li>
 </ul>
-<hr /><div class="section" id="exercises">
+</div>
+<div class="section" id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Show that if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> and <span class="math notranslate nohighlight">\(B \in {\mathcal M}(n,p)\)</span> then <span class="math notranslate nohighlight">\((AB)' = B'A'\)</span>.</p></li>
