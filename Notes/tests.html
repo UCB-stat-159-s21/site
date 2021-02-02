@@ -747,9 +747,13 @@ To test at (approximate) level <span class="math notranslate nohighlight">\(\alp
 
 <span class="k">def</span> <span class="nf">absZ</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    calculate the absolute value of the Z statistic from the two samples.</span>
+<span class="sd">    absolute value of the Z statistic for the difference in sample sums from two binary populations</span>
 <span class="sd">    </span>
-<span class="sd">    When the population percentages are close to 0 or 1, x/n and y/m can be 0 or 1,</span>
+<span class="sd">    Used in a Z test of the hypothesis that x and y are the sample sums of IID draws from binary</span>
+<span class="sd">    populations with the same (unspecified) population fraction of 1s against the alternative</span>
+<span class="sd">    hypothesis that the two population fractions differ.</span>
+<span class="sd">    </span>
+<span class="sd">    When the population percentages are close to 0 or 1, the sample percentages can be 0 or 1,</span>
 <span class="sd">    in which case the estimated variance will be zero. In that situation, return -inf or inf, </span>
 <span class="sd">    as appropriate.</span>
 <span class="sd">    </span>
