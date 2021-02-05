@@ -24,3 +24,7 @@
   chapters:
   - file: Notes/01/index
   - file: Notes/index
+  
+- part: Lecture Index
+  chapters:
+  - file: Index/index
