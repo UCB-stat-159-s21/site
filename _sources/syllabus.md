@@ -95,8 +95,10 @@ will be provided, but not all topics required to do the homework will be covered
 
 
 ### Graduate Student Instructor
-+ TBA
-+ Office hours TBA
++ Daniel McAndrew 
++ Labs: Wednesday 2-4PM & 5-7PM ([Zoom link](https://berkeley.zoom.us/my/danielmcandrew))
++ Office hours: Thursday 2-3 PM ([Zoom link](https://berkeley.zoom.us/my/danielmcandrew))
+
 
 ### Communication
 
