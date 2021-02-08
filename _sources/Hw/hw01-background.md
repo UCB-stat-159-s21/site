@@ -1,5 +1,6 @@
-# Statistics 159/259, Homework 1. 
+# Homework 1. Stats review and intro to Git
 
+* Statistics 159/259, Spring 2021.
 * Due 1/24/2021 11:59PM PT
 * Profs. Perez and Stark, Department of Statistics, UC Berkeley
 * This assignment is worth a maximum of 20 points.

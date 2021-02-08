@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 3: Coding style, docstrings, algorithmic choices, and unit tests &#8212; Collaborative and Reproducible Data Science</title>
+    <title>3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,6 +56,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Git and Github" href="../Notes/01/index.html" />
+    <link rel="prev" title="2. Homework 2. Election Fraud" href="hw02-election-fraud.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -121,15 +123,20 @@
   Homework Assignments
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="hw01-background.html">
-   1. Statistics 159/259, Homework 1.
+   1. Homework 1. Stats review and intro to Git
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="hw02-election-fraud.html">
-   2. Statistics 159/259, Homework 2. Election Fraud
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
   </a>
  </li>
 </ul>
@@ -233,12 +240,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-implement-a-function-three-ways-and-test-it">
-   [20 Points] Implement a function three ways and test it.
+   3.1. [20 Points] Implement a function three ways and test it.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-unit-test-for-the-acceptance-function-for-a-randomized-hypergeometric-test">
-   [10 Points] Unit test for the acceptance function for a randomized hypergeometric test
+   3.2. [10 Points] Unit test for the acceptance function for a randomized hypergeometric test
   </a>
  </li>
 </ul>
@@ -253,7 +260,7 @@
               <div>
                 
   <div class="section" id="homework-3-coding-style-docstrings-algorithmic-choices-and-unit-tests">
-<h1>Homework 3: Coding style, docstrings, algorithmic choices, and unit tests<a class="headerlink" href="#homework-3-coding-style-docstrings-algorithmic-choices-and-unit-tests" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Homework 3: Coding style, docstrings, algorithmic choices, and unit tests<a class="headerlink" href="#homework-3-coding-style-docstrings-algorithmic-choices-and-unit-tests" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
 <li><p><strong>Due 2/14/2021, 11:59PM PT</strong></p></li>
@@ -261,7 +268,7 @@
 <li><p>This assignment is worth a maximum of <strong>30 points</strong>.</p></li>
 </ul>
 <div class="section" id="points-implement-a-function-three-ways-and-test-it">
-<h2>[20 Points] Implement a function three ways and test it.<a class="headerlink" href="#points-implement-a-function-three-ways-and-test-it" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>[20 Points] Implement a function three ways and test it.<a class="headerlink" href="#points-implement-a-function-three-ways-and-test-it" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>This question asks you to write three different Python functions to calculate the chi-square statistic for the “two-sample problem” for categorical data, and write a unit test for those functions.</p>
 <ul>
@@ -319,7 +326,7 @@ that is, <span class="math notranslate nohighlight">\(O_k\)</span> is the number
 <p>The notebook is also where you will run your timings, include the results and discuss them.</p>
 </div>
 <div class="section" id="points-unit-test-for-the-acceptance-function-for-a-randomized-hypergeometric-test">
-<h2>[10 Points] Unit test for the acceptance function for a randomized hypergeometric test<a class="headerlink" href="#points-unit-test-for-the-acceptance-function-for-a-randomized-hypergeometric-test" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>[10 Points] Unit test for the acceptance function for a randomized hypergeometric test<a class="headerlink" href="#points-unit-test-for-the-acceptance-function-for-a-randomized-hypergeometric-test" title="Permalink to this headline">¶</a></h2>
 <p>Write a unit test for the function <code class="docutils literal notranslate"><span class="pre">fisher_accept</span></code> in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> notebook (in GitHub: https://github.com/UCB-stat-159-s21/site/blob/main/Notes/tests.ipynb). Your test should check for proper behavior as all input parameters are varied.</p>
 <ul class="simple">
 <li><p>Make a pure python file called <code class="docutils literal notranslate"><span class="pre">fisher.py</span></code> that contains, copied from the <code class="docutils literal notranslate"><span class="pre">tests.ipynb</span></code> Notebook, the implementation of <code class="docutils literal notranslate"><span class="pre">fisher_accept()</span></code> plus any necessary imports. In that file, add your test functions below the implementation of <code class="docutils literal notranslate"><span class="pre">fisher_accept</span></code>. Your code should follow PEP-8 and PEP-257.</p></li>
@@ -357,6 +364,8 @@ that is, <span class="math notranslate nohighlight">\(O_k\)</span> is the number
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="hw02-election-fraud.html" title="previous page"><span class="section-number">2. </span>Homework 2. Election Fraud</a>
+    <a class='right-next' id="next-link" href="../Notes/01/index.html" title="next page">Introduction to Git and Github</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
