@@ -7,7 +7,6 @@
 - Profs. Perez and Stark, Department of Statistics, UC Berkeley.
 
 - This assignment is worth a maximum of **30 points**.
-- There are two deliverables:  [FIX ME!]
 
 ## [20 Points] Implement a function three ways and test it.
 - This question asks you to write three different Python functions to calculate the chi-square statistic for the "two-sample problem" for categorical data, and write a unit test for those functions. 
@@ -20,17 +19,18 @@ The input is two lists, $x = (x_1, \ldots, x_n)$ and $y = (y_1, \ldots, y_m)$.
 Concatenate the lists to get a new list $z = (z_1, \ldots, z_N)$ of length $N = n+m$.
 Let $\{u_k\}_{k=1}^K$ ($K \le N$) denote the unique values in $z$ and let $\pi_k$ denote the relative
 frequency of the value $u_k$ among the elements of $z$; that is,
-
-$$ \pi_k \equiv \frac{\#\{ z_j, j=1, \ldots, N : z_j = u_k \}}{N}.$$
+\begin{equation*}
+\pi_k \equiv \frac{\#\{ z_j, j=1, \ldots, N : z_j = u_k \}}{N}.
+\end{equation*}
 
 Let $E_k \equiv n \pi_k$ and let $O_k \equiv \#\{ x_j, j=1, \ldots, n : x_j = u_k \}$;
 that is, $O_k$ is the number of elements of $x$ that are equal to $u_k$.
 (The symbol $E$ is mnemonic for "expected" and $O$ stands for "observed.")
 
 The chi-square statistic for these data for the two-sample problem is
-$$
+\begin{equation*}
    \chi^2 = \sum_{k=1}^K \frac{(O_k - E_k)^2}{E_k}.
-$$
+\end{equation*}
 
 + [12 points] Write three different Python functions that (each) take as input $x$ and $y$ and return $\chi^2$. The functions should use different strategies and/or different data structures to calculate $\chi^2$. They should all have the same input signature and type of return value. Call them `chisq_1`, `chisq_2` and `chisq_3`.
 + [3 points] Compare the speed of your three functions on a variety of inputs of different lengths. Comment on the tradeoff between speed and readability among your three implementations. Hint: use IPython's `%timeit` line magic to get accurate timings of single function calls; type `%timeit?` to find out more information about `%timeit`.
