@@ -273,14 +273,15 @@
 </li>
 </ul>
 <p>The input is two lists, <span class="math notranslate nohighlight">\(x = (x_1, \ldots, x_n)\)</span> and <span class="math notranslate nohighlight">\(y = (y_1, \ldots, y_m)\)</span>.
-Concatenate the lists to get a new list <span class="math notranslate nohighlight">\(z = (z_1, \ldots, z_N)\)</span> of length <span class="math notranslate nohighlight">\(N = n+m\)</span>.
+Consider the multiset <span class="math notranslate nohighlight">\(z = \{z_1, \ldots, z_N\}\)</span> containing the <span class="math notranslate nohighlight">\(N = n+m\)</span> (not necessarily distinct) elements of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.
 Let <span class="math notranslate nohighlight">\(\{u_k\}_{k=1}^K\)</span> (<span class="math notranslate nohighlight">\(K \le N\)</span>) denote the unique values in <span class="math notranslate nohighlight">\(z\)</span> and let <span class="math notranslate nohighlight">\(\pi_k\)</span> denote the relative
 frequency of the value <span class="math notranslate nohighlight">\(u_k\)</span> among the elements of <span class="math notranslate nohighlight">\(z\)</span>; that is,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\pi_k \equiv \frac{\#\{ z_j, j=1, \ldots, N : z_j = u_k \}}{N}.
+\pi_k \equiv \frac{\#\{ j \in \{1, \ldots, N\}: z_j = u_k \}}{N}.
 \end{equation*}\]</div>
-<p>Let <span class="math notranslate nohighlight">\(E_k \equiv n \pi_k\)</span> and let <span class="math notranslate nohighlight">\(O_k \equiv \#\{ x_j, j=1, \ldots, n : x_j = u_k \}\)</span>;
+<p><em>Hint:</em> if you’re not familiar with multisets, use the search function in the class site and you will find background material on the concept.</p>
+<p>Let <span class="math notranslate nohighlight">\(E_k \equiv n \pi_k\)</span> and let <span class="math notranslate nohighlight">\(O_k \equiv \#\{ j \in \{1, \ldots, n\} : x_j = u_k \}\)</span>;
 that is, <span class="math notranslate nohighlight">\(O_k\)</span> is the number of elements of <span class="math notranslate nohighlight">\(x\)</span> that are equal to <span class="math notranslate nohighlight">\(u_k\)</span>.
 (The symbol <span class="math notranslate nohighlight">\(E\)</span> is mnemonic for “expected” and <span class="math notranslate nohighlight">\(O\)</span> stands for “observed.”)</p>
 <p>The chi-square statistic for these data for the two-sample problem is</p>
@@ -289,7 +290,23 @@ that is, <span class="math notranslate nohighlight">\(O_k\)</span> is the number
    \chi^2 = \sum_{k=1}^K \frac{(O_k - E_k)^2}{E_k}.
 \end{equation*}\]</div>
 <ul class="simple">
-<li><p>[12 points] Write three different Python functions that (each) take as input <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> and return <span class="math notranslate nohighlight">\(\chi^2\)</span>. The functions should use different strategies and/or different data structures to calculate <span class="math notranslate nohighlight">\(\chi^2\)</span>. They should all have the same input signature and type of return value. Call them <code class="docutils literal notranslate"><span class="pre">chisq_1</span></code>, <code class="docutils literal notranslate"><span class="pre">chisq_2</span></code> and <code class="docutils literal notranslate"><span class="pre">chisq_3</span></code>.</p></li>
+<li><p>[12 points] Write three different Python functions that (each) take as input <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> and return <span class="math notranslate nohighlight">\(\chi^2\)</span>. The functions should use different strategies and/or different data structures to calculate <span class="math notranslate nohighlight">\(\chi^2\)</span>. They should all have the same input signature and type of return value. Call them <code class="docutils literal notranslate"><span class="pre">chisq_1</span></code>, <code class="docutils literal notranslate"><span class="pre">chisq_2</span></code> and <code class="docutils literal notranslate"><span class="pre">chisq_3</span></code>. This is a brief outline of what the function skeleton should look like for each of these:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">chisq_1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    one-line description.</span>
+<span class="sd">    </span>
+<span class="sd">    Further details...</span>
+<span class="sd">    </span>
+<span class="sd">    Rest of your docstring</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Your code goes here...</span>
+    
+    <span class="k">return</span> <span class="n">your_answer</span>
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>[3 points] Compare the speed of your three functions on a variety of inputs of different lengths. Comment on the tradeoff between speed and readability among your three implementations. Hint: use IPython’s <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> line magic to get accurate timings of single function calls; type <code class="docutils literal notranslate"><span class="pre">%timeit?</span></code> to find out more information about <code class="docutils literal notranslate"><span class="pre">%timeit</span></code>.</p></li>
 <li><p>[4 points] Write a unit test for the functions to ensure that they work correctly for arbitrary input lists <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 </ul>
