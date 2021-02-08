@@ -16,14 +16,16 @@
     + The tests should "exercise" every executable line of your code  
 
 The input is two lists, $x = (x_1, \ldots, x_n)$ and $y = (y_1, \ldots, y_m)$.
-Concatenate the lists to get a new list $z = (z_1, \ldots, z_N)$ of length $N = n+m$.
+Consider the multiset $z = \{z_1, \ldots, z_N\}$ containing the $N = n+m$ (not necessarily distinct) elements of $x$ and $y$.
 Let $\{u_k\}_{k=1}^K$ ($K \le N$) denote the unique values in $z$ and let $\pi_k$ denote the relative
 frequency of the value $u_k$ among the elements of $z$; that is,
 \begin{equation*}
-\pi_k \equiv \frac{\#\{ z_j, j=1, \ldots, N : z_j = u_k \}}{N}.
+\pi_k \equiv \frac{\#\{ j \in \{1, \ldots, N\}: z_j = u_k \}}{N}.
 \end{equation*}
 
-Let $E_k \equiv n \pi_k$ and let $O_k \equiv \#\{ x_j, j=1, \ldots, n : x_j = u_k \}$;
+_Hint:_ if you're not familiar with multisets, use the search function in the class site and you will find background material on the concept.
+
+Let $E_k \equiv n \pi_k$ and let $O_k \equiv \#\{ j \in \{1, \ldots, n\} : x_j = u_k \}$;
 that is, $O_k$ is the number of elements of $x$ that are equal to $u_k$.
 (The symbol $E$ is mnemonic for "expected" and $O$ stands for "observed.")
 
@@ -32,7 +34,22 @@ The chi-square statistic for these data for the two-sample problem is
    \chi^2 = \sum_{k=1}^K \frac{(O_k - E_k)^2}{E_k}.
 \end{equation*}
 
-+ [12 points] Write three different Python functions that (each) take as input $x$ and $y$ and return $\chi^2$. The functions should use different strategies and/or different data structures to calculate $\chi^2$. They should all have the same input signature and type of return value. Call them `chisq_1`, `chisq_2` and `chisq_3`.
++ [12 points] Write three different Python functions that (each) take as input $x$ and $y$ and return $\chi^2$. The functions should use different strategies and/or different data structures to calculate $\chi^2$. They should all have the same input signature and type of return value. Call them `chisq_1`, `chisq_2` and `chisq_3`. This is a brief outline of what the function skeleton should look like for each of these:
+
+```python
+
+def chisq_1(x, y):
+    """
+    one-line description.
+    
+    Further details...
+    
+    Rest of your docstring
+    """
+    # Your code goes here...
+    
+    return your_answer
+```
 + [3 points] Compare the speed of your three functions on a variety of inputs of different lengths. Comment on the tradeoff between speed and readability among your three implementations. Hint: use IPython's `%timeit` line magic to get accurate timings of single function calls; type `%timeit?` to find out more information about `%timeit`.
 
 + [4 points] Write a unit test for the functions to ensure that they work correctly for arbitrary input lists $x$ and $y$.
