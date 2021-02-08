@@ -1,4 +1,6 @@
-# Statistics 159/259, Homework 2. Election Fraud
+# Homework 2. Election Fraud
+
+- Statistics 159/259, Spring 2021.
 
 - **Due 2/7/2021, 11:59PM PT**
 
