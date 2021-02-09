@@ -19,8 +19,13 @@
   chapters:
   - file: Hw/hw01-background.md
   - file: Hw/hw02-election-fraud.md
+  - file: Hw/hw03-testing.md
 
 - part: Lecture Notes
   chapters:
   - file: Notes/01/index
   - file: Notes/index
+  
+- part: Lecture Index
+  chapters:
+  - file: Index/index
