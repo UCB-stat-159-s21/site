@@ -367,6 +367,11 @@
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Algorithmic considerations
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -818,26 +823,30 @@ To test at (approximate) level <span class="math notranslate nohighlight">\(\alp
 <span class="sd">        </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">pHat</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">((</span><span class="n">x</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pHat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pHat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)))</span> <span class="k">if</span> <span class="n">pHat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pHat</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">x</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pHat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pHat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)))</span>
+           <span class="k">if</span> <span class="n">pHat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pHat</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+           <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">m</span><span class="p">))</span>
 
 <span class="c1"># how precise should we expect the result to be?</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max SD of p-hat: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">reps</span><span class="p">)))))</span>  <span class="c1"># max SD of a binomial is 1/2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max SD of alpha-hat: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">reps</span><span class="p">)))))</span>  <span class="c1"># max SD of a binomial is 1/2</span>
 
 <span class="k">for</span> <span class="n">pj</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
     <span class="n">reject</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y. X and Y could be simulated together but the code would be less clear</span>
-        <span class="n">reject</span> <span class="o">=</span> <span class="n">reject</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">absZ</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">z_c</span> <span class="k">else</span> <span class="n">reject</span>
+        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> 
+                  <span class="k">if</span> <span class="n">absZ</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">z_c</span>
+                  <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max SD of p-hat: 0.0005
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max SD of alpha-hat: 0.0005
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:46: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:52: RuntimeWarning: invalid value encountered in double_scalars
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.033563
@@ -943,7 +952,7 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:46: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:52: RuntimeWarning: invalid value encountered in double_scalars
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([5.78410e+04, 1.00000e+00, 2.34340e+04, 1.13167e+05, 4.68700e+03,
@@ -1113,7 +1122,7 @@ The pmf of that distribution is plotted below.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># probability of rejecting when X \in {1, 5} to get overall level 0.05</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="p">(</span><span class="n">alpha</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">pmf</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pmf</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">(</span><span class="n">alpha</span><span class="o">-</span><span class="p">(</span><span class="n">pmf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">pmf</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="n">pmf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">pmf</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1127,7 +1136,7 @@ The pmf of that distribution is plotted below.</p>
 <p><span class="math notranslate nohighlight">\(\mathbb{P}_0\{X = 0 | G=5\} = \mathbb{P}_0\{X = 5 | G=5\} = 0.01625\)</span>, so if we exclude those outcomes from <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>, the chance of rejecting the null is <span class="math notranslate nohighlight">\(2 \times 0.01625387 = 0.032508\)</span>.
 For the test to have level <span class="math notranslate nohighlight">\(\alpha\)</span>, we need to reject more often: an additional <span class="math notranslate nohighlight">\(0.017492\)</span> of the time.
 If we always rejected when <span class="math notranslate nohighlight">\(X=1\)</span> or <span class="math notranslate nohighlight">\(X=4\)</span>, we would reject too often, because each of those possibilities has probability <span class="math notranslate nohighlight">\(0.13545\)</span>.
-If, when <span class="math notranslate nohighlight">\(X \in \{1, 4\}\)</span> we reject with probability <span class="math notranslate nohighlight">\(\gamma = .01749/(2\times 0.13545) = 0.06457\)</span>, the overall chance of erroneously rejecting the null will be 5%, as desired.</p>
+If when <span class="math notranslate nohighlight">\(X \in \{1, 4\}\)</span> we reject with probability <span class="math notranslate nohighlight">\(\gamma = .01749/(2\times 0.13545) = 0.06457\)</span>, the overall chance of erroneously rejecting the null will be 5%, as desired.</p>
 </div>
 <div class="section" id="unconditional-tests-from-conditional-tests">
 <h3>Unconditional tests from conditional tests<a class="headerlink" href="#unconditional-tests-from-conditional-tests" title="Permalink to this headline">¶</a></h3>
@@ -1161,21 +1170,26 @@ After removing that outcome from consideration, the second-smallest probability 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulate the significance level of the permutation test</span>
 <span class="k">def</span> <span class="nf">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Acceptance region for randomized hypergeometric test</span>
+<span class="sd">    </span>
 <span class="sd">    Find the acceptance region for a randomized, exact level alpha test of </span>
 <span class="sd">    the null hypothesis X~Hypergeometric(N, G, n). The acceptance region is</span>
 <span class="sd">    the smallest possible. (And not, for instance, symmetric.)</span>
 
-<span class="sd">    If a non-randomized, conservative test is desired, simply ignore J and gamma and </span>
-<span class="sd">    use I as the acceptance region.</span>
-<span class="sd">       </span>
+<span class="sd">    If a non-randomized, conservative test is desired, use the union of I and J </span>
+<span class="sd">    as the acceptance region.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    N:  integer</span>
 <span class="sd">        population size</span>
 <span class="sd">    G:  integer</span>
 <span class="sd">        number of &quot;good&quot; items in the population</span>
-<span class="sd">    n:  sample size</span>
-<span class="sd">    </span>
+<span class="sd">    n:  integer</span>
+<span class="sd">        sample size</span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        desired significance level    </span>
+<span class="sd">  </span>
 <span class="sd">    Returns</span>
 <span class="sd">    --------</span>
 <span class="sd">    I:  list</span>
@@ -1193,7 +1207,7 @@ After removing that outcome from consideration, the second-smallest probability 
     <span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># outcome for which the test is randomized</span>
     <span class="n">p_J</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># probability of the randomized outcome</span>
     <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># probability of outcomes excluded from I</span>
-    <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>          <span class="c1"># still need to remove outcomes from the acceptance region</span>
         <span class="n">pb</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
         <span class="n">pt</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">top</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;</span> <span class="n">pt</span><span class="p">:</span>                <span class="c1"># the lower possibility has smaller probability</span>
@@ -1217,7 +1231,7 @@ After removing that outcome from consideration, the second-smallest probability 
         <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">p_J</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
             <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_J</span>     <span class="c1"># probability of accepting H_0 when X in J, to get exact level alpha</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_J</span>     <span class="c1"># probability of accepting H_0 when X in J to get exact level alpha</span>
     <span class="k">return</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">gamma</span>
         
     
@@ -1286,7 +1300,9 @@ After removing that outcome from consideration, the second-smallest probability 
         <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-        <span class="n">reject</span> <span class="o">=</span> <span class="n">reject</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span> <span class="k">else</span> <span class="n">reject</span>
+        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span>
+                   <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span>
+                   <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1303,19 +1319,33 @@ p=0.7 estimated alpha=0.049856
 p=0.9 estimated alpha=0.049854
 p=0.95 estimated alpha=0.050085
 p=0.99 estimated alpha=0.049817
-CPU times: user 45min 26s, sys: 7.18 s, total: 45min 34s
-Wall time: 45min 39s
+CPU times: user 53min 43s, sys: 41.8 s, total: 54min 24s
+Wall time: 55min 15s
 </pre></div>
 </div>
 </div>
 </div>
-<p>This is <strong>slow</strong>, in part because it is finding the conditional acceptance region over and over again, <code class="docutils literal notranslate"><span class="pre">reps</span></code> times for each <code class="docutils literal notranslate"><span class="pre">pj</span> <span class="pre">in</span> <span class="pre">p</span></code>.</p>
+<p>This test has true significance level equal to its nominal significance level: it is an <em>exact</em> test rather than an <em>approximate</em> test.</p>
+<p>Randomized tests have some drawbacks in practice.
+For instance, it would be hard to explain to a consulting client or a judge that for a given set of data, the test you
+propose to use sometimes
+rejects the null hypothesis and sometimes does not, depending on a random factor (<span class="math notranslate nohighlight">\(U\)</span>) that has nothing to do
+with the data or the experiment.</p>
+<p>In such situations, it might make sense to use a <em>conservative</em> test rather than an exact randomized test.
+A conservative test is one for which the chance of a Type I error is not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.
+In the previous example, if the test rejects only when the test</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Algorithmic considerations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The previous simulation is <strong>slow</strong>, in part because it finds the conditional acceptance region
+<code class="docutils literal notranslate"><span class="pre">reps</span></code> times for each <code class="docutils literal notranslate"><span class="pre">pj</span> <span class="pre">in</span> <span class="pre">p</span></code>.</p>
 <p>But there are relatively few possible acceptance regions, one for each possible value of <span class="math notranslate nohighlight">\(G\)</span>, i.e., <span class="math notranslate nohighlight">\(n+m+1\)</span>.</p>
 <p>What happens if we pre-compute the acceptance regions for all possible values of <span class="math notranslate nohighlight">\(G\)</span>, and look them up as needed?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="c1"># smarter approach: pre-compute the tests. There are only n+m+1 possible tests, much fewer than reps</span>
+<span class="c1"># Smarter approach: pre-compute the tests. There are only n+m+1 possible tests, far fewer than reps</span>
 <span class="c1"># Include the &quot;cost&quot; of precomputing the tests in the comparison.</span>
 
 <span class="n">AA</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1327,7 +1357,9 @@ Wall time: 45min 39s
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
-        <span class="n">reject</span> <span class="o">=</span> <span class="n">reject</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">AA</span><span class="p">[</span><span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span> <span class="k">else</span> <span class="n">reject</span>
+        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> 
+                   <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">AA</span><span class="p">[</span><span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span> 
+                   <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1344,24 +1376,127 @@ p=0.7 estimated alpha=0.049458
 p=0.9 estimated alpha=0.049673
 p=0.95 estimated alpha=0.050049
 p=0.99 estimated alpha=0.050015
-CPU times: user 1min 15s, sys: 73.3 ms, total: 1min 15s
-Wall time: 1min 15s
+CPU times: user 1min 25s, sys: 1.28 s, total: 1min 26s
+Wall time: 1min 28s
 </pre></div>
 </div>
 </div>
 </div>
-<p>This test has true significance level equal to its nominal significance level: it is an <em>exact</em> test rather than an <em>approximate</em> test.</p>
-<p>Randomized tests have some drawbacks in practice.
-For instance, it would be hard to explain to a client or judge that for a given set of data, the test you
-propose to use sometimes
-rejects the null hypothesis and sometimes does not, depending on a random factor (<span class="math notranslate nohighlight">\(U\)</span>) that has nothing to do with the data or the experiment.</p>
-<p>In such situations, it might make sense to use a <em>conservative</em> test rather than an exact randomized test.
-A conservative test is one for which the chance of a Type I error is not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">functools</span></code> library to automatically cache the acceptance regions as they are computed.</p>
+<p>Here’s the acceptance region function with the <code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> decorator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># decorate the function to cache the results of calls to the function</span>
+<span class="k">def</span> <span class="nf">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Acceptance region for randomized hypergeometric test</span>
+<span class="sd">    </span>
+<span class="sd">    Find the acceptance region for a randomized, exact level alpha test of </span>
+<span class="sd">    the null hypothesis X~Hypergeometric(N, G, n). The acceptance region is</span>
+<span class="sd">    the smallest possible. (And not, for instance, symmetric.)</span>
+
+<span class="sd">    If a non-randomized, conservative test is desired, use the union of I and J as </span>
+<span class="sd">    the acceptance region.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N:  integer</span>
+<span class="sd">        population size</span>
+<span class="sd">    G:  integer</span>
+<span class="sd">        number of &quot;good&quot; items in the population</span>
+<span class="sd">    n:  integer</span>
+<span class="sd">        sample size</span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        desired significance level    </span>
+<span class="sd">  </span>
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    I:  list</span>
+<span class="sd">        values for which the test never rejects</span>
+<span class="sd">    J:  list </span>
+<span class="sd">        values for which the test sometimes rejects</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        probability the test does not reject when the value is in J</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># all possible values of X</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                    <span class="c1"># start with all possible outcomes, then remove some</span>
+    <span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>   <span class="c1"># hypergeometric pmf</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># smallest outcome still in I</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">n</span>                        <span class="c1"># largest outcome still in I</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># outcome for which the test is randomized</span>
+    <span class="n">p_J</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># probability of the randomized outcome</span>
+    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># probability of outcomes excluded from I</span>
+    <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>          <span class="c1"># still need to remove outcomes from the acceptance region</span>
+        <span class="n">pb</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+        <span class="n">pt</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">top</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;</span> <span class="n">pt</span><span class="p">:</span>                <span class="c1"># the lower possibility has smaller probability</span>
+            <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+            <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span>
+            <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">pb</span> <span class="o">&gt;</span> <span class="n">pt</span><span class="p">:</span>              <span class="c1"># the upper possibility has smaller probability</span>
+            <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">top</span><span class="p">]</span>
+            <span class="n">p_J</span> <span class="o">=</span> <span class="n">pt</span>
+            <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>                      
+            <span class="k">if</span> <span class="n">bottom</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">:</span>       <span class="c1"># the two possibilities have equal probability</span>
+                <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">]</span>
+                <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span><span class="o">+</span><span class="n">pt</span>
+                <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>                  <span class="c1"># there is only one possibility left</span>
+                <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+                <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span>
+                <span class="n">bottom</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">p_J</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
+            <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_J</span>     <span class="c1"># probability of accepting H_0 when X in J to get exact level alpha</span>
+    <span class="k">return</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">gamma</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># re-run the original &quot;brute-force&quot; code but with function caching</span>
+<span class="k">for</span> <span class="n">pj</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+    <span class="n">reject</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span>
+                   <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span>
+                   <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.04998
+p=0.05 estimated alpha=0.049967
+p=0.1 estimated alpha=0.05032
+p=0.3 estimated alpha=0.049918
+p=0.4 estimated alpha=0.050016
+p=0.5 estimated alpha=0.050399
+p=0.6 estimated alpha=0.049888
+p=0.7 estimated alpha=0.04996
+p=0.9 estimated alpha=0.049737
+p=0.95 estimated alpha=0.050028
+p=0.99 estimated alpha=0.049762
+CPU times: user 1min 30s, sys: 1.32 s, total: 1min 31s
+Wall time: 1min 33s
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exercise: How would you find a $P$-value for this test?</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1523,7 +1658,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3d6c6a9806bf4e1eb1326a3b854b986a", "version_major": 2, "version_minor": 0}
+{"model_id": "7edd02633f8c48168c38d551b49818fa", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
