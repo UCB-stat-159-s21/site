@@ -263,6 +263,11 @@
      Reading
     </a>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#models-of-epidemics">
+     Models of epidemics
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -321,20 +326,24 @@ Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles a
 <li><p>Smith, D., and L. Moore, 2004. The SIR model for spread of disease, <em>Convergence</em>, https://www.maa.org/press/periodicals/loci/joma/the-sir-model-for-spread-of-disease-introduction</p></li>
 </ol>
 </div>
+<div class="section" id="models-of-epidemics">
+<h2>Models of epidemics<a class="headerlink" href="#models-of-epidemics" title="Permalink to this headline">¶</a></h2>
+<p>This notebook explores two basic approaches to modeling the spread of a communicable disease through a population. There are more complicated approaches than are considered here, but these are common, and the predictions of COVID-19 infections and ICU beds are often based on variations of these models.</p>
+</div>
 </div>
 <div class="section" id="sir-models">
 <h1>SIR models<a class="headerlink" href="#sir-models" title="Permalink to this headline">¶</a></h1>
 <p>Mathematical models of epidemics date back to the early 1900s.</p>
-<p>One of the simplest models of epidemics is the SIR model, which partitions the population into three disjoint groups: Susceptible, Infected, and Recovered (or Removed).
-It treats the population as fixed: no births, immigration, emigration, or deaths from other causes.
+<p>One of the simplest models of epidemics is the SIR model, which partitions the population into three disjoint groups: Susceptible, Infected, and Recovered (or Removed).</p>
+<p>The SIR model treats the population as fixed: no births, immigration, emigration, or deaths from other causes.
 It ignores the possibility of carriers, population heterogeneity, or geographic heterogeneity.
 It treats everyone as equivalent and assumes the population “mixes” perfectly.</p>
-<p>Here are the state variables of the model:</p>
+<p>Here are the state variables of the SIR model:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N\)</span>: initial population size</p></li>
 <li><p><span class="math notranslate nohighlight">\(S(t)\)</span>: number of susceptible individuals in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(I(t)\)</span>: number of infected individuals in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(R(t)\)</span>: number dead or recovered (in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R(t)\)</span>: number “removed” from risk (dead or recovered) in the population at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
 </ul>
 <p>Assumptions:</p>
 <ul class="simple">
@@ -392,7 +401,7 @@ That yields:</p>
 <li><p><span class="math notranslate nohighlight">\(dR/dt = \gamma I - \delta R\)</span></p></li>
 </ul>
 <p>In this model, <span class="math notranslate nohighlight">\(I\)</span> does not necessarily go to zero eventually.</p>
-<p>Other generalizations include separate “compartments” for dead (versus recovered), needing an ICU bed, etc., as well as time-varying values of <span class="math notranslate nohighlight">\(\beta\)</span> to account for lockdowns or other policy interventions, heterogeneity in the population, and more.</p>
+<p>Other generalizations include separate “compartments” for dead versus recovered), needing an ICU bed, etc., as well as time-varying values of <span class="math notranslate nohighlight">\(\beta\)</span> to account for lockdowns or other policy interventions, heterogeneity in the population, and more.</p>
 <p>Let’s run this model (in discrete time) for a population of <span class="math notranslate nohighlight">\(N=1,000,000\)</span> people of whom 0.05% are initially infected.
 We will take the time interval to be 1 day, the period of infectiousness to be <span class="math notranslate nohighlight">\(1/\gamma = 14\)</span> days,
 and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>, so <span class="math notranslate nohighlight">\(\beta = 2 \gamma = 1/7\)</span>. We will start with <span class="math notranslate nohighlight">\(\delta=0\)</span> (no re-infections).</p>
@@ -416,7 +425,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">365</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Run SIR model as coupled finite-difference equations. </span>
+<span class="sd">    Run SIR model as coupled finite-difference equations.</span>
+<span class="sd">    </span>
 <span class="sd">    Assumes that initially a fraction i_0 of the population of N people is infected and </span>
 <span class="sd">    everyone else is susceptible (none has died or recovered).</span>
 <span class="sd">    </span>
@@ -432,6 +442,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <span class="sd">        fraction of infecteds who recover or die per time step</span>
 <span class="sd">    delta : double in (0, 1)</span>
 <span class="sd">        fraction of recovereds who become susceptible per time step</span>
+<span class="sd">    steps : int</span>
+<span class="sd">        number of steps in time to run the model</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    --------</span>
@@ -490,10 +502,19 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <span class="sd">        fraction of recovereds who become susceptible per time step</span>
 <span class="sd">    steps : int</span>
 <span class="sd">        number of time steps to run the model</span>
+<span class="sd">    verbose : Boolean</span>
+<span class="sd">        if True, return the model predictions</span>
 <span class="sd">    </span>
-<span class="sd">    Returns</span>
+<span class="sd">    Returns (if verbose == True)</span>
 <span class="sd">    --------</span>
-<span class="sd">    S, I, R, C if verbose</span>
+<span class="sd">    S : list</span>
+<span class="sd">        susceptibles as a function of time</span>
+<span class="sd">    I : list</span>
+<span class="sd">        infecteds as a function of time</span>
+<span class="sd">    R : list</span>
+<span class="sd">        recovereds as a function of time</span>
+<span class="sd">    C : list</span>
+<span class="sd">        cumulative incidence as a function of time</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
     <span class="n">times</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">))</span>
@@ -521,7 +542,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_7_0.png" src="../_images/pandemic_7_0.png" />
+<img alt="../_images/pandemic_8_0.png" src="../_images/pandemic_8_0.png" />
 </div>
 </div>
 <p>For these parameters, the number of infections is shaped like a bell curve and the cumulative number of infections is shaped like a CDF: it is “sigmoidal” (vaguely “S”-shaped). You might imagine fitting a scaled CDF to the curve. Essentially, the IHME model fits a scaled Gaussian CDF to the total number of infections.
@@ -534,7 +555,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_10_0.png" src="../_images/pandemic_10_0.png" />
+<img alt="../_images/pandemic_11_0.png" src="../_images/pandemic_11_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -551,7 +572,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "9c8a792364e04a2d8250c6a79ba07e9f", "version_major": 2, "version_minor": 0}
+{"model_id": "059572f11601419ab12957d10f4a6f9b", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_sir(N, i_0, beta=0.14285714285714285, gamma=0.07142857142857142, delta=0, steps=365, verbose=False)&gt;
 </pre></div>
 </div>
@@ -577,6 +598,9 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Model cumulative infections</span>
+<span class="sd">    </span>
+<span class="sd">    This is just a wrapper for a call to sir_model, to generate a set of</span>
+<span class="sd">    predictions of the cumulative incidence for curve fitting</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
     <span class="k">return</span> <span class="n">sir_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">i_0</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># C</span>
 </pre></div>
@@ -624,9 +648,9 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try some real data from the JHU site</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># data for countries</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span><span class="p">,</span>
-                 <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="c1"># data for countries. THIS IS A &quot;LIVE&quot; DATASET THAT IS UPDATED FREQUENTLY</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -869,7 +893,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Days since first detected case&#39;)
 </pre></div>
 </div>
-<img alt="../_images/pandemic_19_1.png" src="../_images/pandemic_19_1.png" />
+<img alt="../_images/pandemic_20_1.png" src="../_images/pandemic_20_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -910,7 +934,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_22_0.png" src="../_images/pandemic_22_0.png" />
+<img alt="../_images/pandemic_23_0.png" src="../_images/pandemic_23_0.png" />
 </div>
 </div>
 <p>What happens if we run the model into the future?</p>
@@ -921,7 +945,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_24_0.png" src="../_images/pandemic_24_0.png" />
+<img alt="../_images/pandemic_25_0.png" src="../_images/pandemic_25_0.png" />
 </div>
 </div>
 <p>The total number of infections stabilizes, and the pandemic abates. The effective reproductive number <span class="math notranslate nohighlight">\(R_0\)</span> is less than 1.</p>
@@ -970,8 +994,8 @@ cumulative incidence.</p>
 <h2>Sigmoidal Models<a class="headerlink" href="#sigmoidal-models" title="Permalink to this headline">¶</a></h2>
 <p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian) and the sigmoid function <span class="math notranslate nohighlight">\(1/(\exp(-x) + 1)\)</span>, the inverse of the logistic function.</p>
 <p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ddf3a00-8733-4f31-b108-bc74a59f905a">
-<span class="eqno">()<a class="headerlink" href="#equation-9ddf3a00-8733-4f31-b108-bc74a59f905a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16b98dd3-9b61-4103-849d-24ce13839cee">
+<span class="eqno">()<a class="headerlink" href="#equation-16b98dd3-9b61-4103-849d-24ce13839cee" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(x; a, b, c) \equiv c \frac{1}{e^{-b(x-a)}+1}.
 \end{equation}\]</div>
 <p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
@@ -996,10 +1020,10 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc7e09debd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f86592ea9d0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/pandemic_31_1.png" src="../_images/pandemic_31_1.png" />
+<img alt="../_images/pandemic_32_1.png" src="../_images/pandemic_32_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1033,7 +1057,7 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_33_0.png" src="../_images/pandemic_33_0.png" />
+<img alt="../_images/pandemic_34_0.png" src="../_images/pandemic_34_0.png" />
 </div>
 </div>
 <p>Both models agree reasonably well with past data. But they have rather different predictions about the future.</p>
@@ -1053,7 +1077,7 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_35_0.png" src="../_images/pandemic_35_0.png" />
+<img alt="../_images/pandemic_36_0.png" src="../_images/pandemic_36_0.png" />
 </div>
 </div>
 <p>Let’s look at how the predictions vary over time, as the dataset grows.</p>
@@ -1106,13 +1130,13 @@ cumulative incidence.</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "8b75cbcb5b6f4763a358a624e8cbd0a5", "version_major": 2, "version_minor": 0}
+{"model_id": "b5f875c38894494dae1ee70d0d6f1be0", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_predictions(y, n, points=1000)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>The predictions depend on details of the model, and can differ substantially depending on the data.</p>
+<p>The predictions depend on the model and details of the data. Including a week more or a week less can drastically change the predictions. For some datasets, the two models have nearly identical predictions; for others, they can differ by a factor of 20 or more.</p>
 <p>This is not a reliable basis for predicting the course of the pandemic, predicting ICU demand, predicting the effect of an intervention, allocating resources, or setting public policy.
 It is a mechanical application of models and algorithms to data: mindless curve-fitting.</p>
 <p>Unsurprisingly, models of this type do not predict infections well in practice.
@@ -1152,7 +1176,7 @@ statistical models are tigers: the models have little or no basis in the actual 
 </div>
 <div class="section" id="new-variants">
 <h2>New variants<a class="headerlink" href="#new-variants" title="Permalink to this headline">¶</a></h2>
-<p>As of this writing (27 January 2021), new strains of COVID-19 have been detected in the UK, South Africa, and California. The UK strain is estimated to be 50% to 70% more transmissible than the original virus. There is mounting evidence that the strain is also more lethal.
+<p>As of this writing (9 February 2021), new strains of COVID-19 have been detected in the UK, South Africa, and the US, where cases of the new strain have a doubling time of about 10 days. The UK strain is estimated to be 50% to 70% more transmissible than the original virus. There is mounting evidence that the strain is also more lethal.
 https://www.wsj.com/articles/new-u-k-covid-19-variant-could-be-more-deadly-british-officials-say-11611338370 (last visited 22 January 2021).</p>
 </div>
 </div>
