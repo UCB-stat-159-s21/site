@@ -1,4 +1,6 @@
 # Index of Lectures and Materials
+- **Persistent links** : [Class Meeting](https://meet.google.com/obw-mykk-sny), [Recordings Folder](https://drive.google.com/drive/folders/1yrty9SUplj_8hA5OPO2kGxvelwhSK2u0?usp=sharing)
+
 - **Lecture 1** (2021-01-19) : [video](https://drive.google.com/file/d/17d_muyiSVo3jBkZyTDSvddtSbMOH9UIC/view?usp=sharing)  
 notebooks and materials : [Jupyter Overview](https://ucb-stat-159-s21.github.io/site/Notes/01/intro-jupyter-hub.html), [Intro to Git](https://ucb-stat-159-s21.github.io/site/Notes/01/index.html), [Interactive Git Tutorial](https://ucb-stat-159-s21.github.io/site/Notes/01/git-intro-concepts.html) 
 - **Lecture 2** (2021-01-21) : [video](https://drive.google.com/file/d/1wCgzM2uk1Z8H05UQE7TSoq89rHZc-De2/view?usp=sharing), [video part II](https://drive.google.com/file/d/1AnSNpQyvkkLlbii-rHeawL6XulFM8MqZ/view?usp=sharing)  
@@ -12,3 +14,5 @@ notebooks and materials : [HW1-background](https://ucb-stat-159-s21.github.io/si
 notebooks and materials : [Hypothesis Testing (Z-test numerical example)](https://ucb-stat-159-s21.github.io/site/Notes/tests.html#numerical-example), [NumPy Style Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html)
 - **Lecture 6** (2021-02-04) : [video](https://drive.google.com/file/d/1fcNXIw76XshQROcdePgYn7lLxN6iQ4JV/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1wMruc4BD59TmYnmdrASBxiEt-cMyaUWt7AaUqZ9FoYM/edit?usp=sharing)  
 notebooks and materials : [Hypothesis Testing (Numerical Example Continued and Perumation Methods)](https://ucb-stat-159-s21.github.io/site/Notes/tests.html#an-exact-conditional-test-based-on-invariance-permutation-methods), [Hypergeometric Distribution](http://prob140.org/textbook/content/Chapter_06/04_The_Hypergeometric_Revisited.html)
+- **Lecture 7** (2021-02-09) : [video](https://drive.google.com/file/d/19w01FBqOcP9PQv0ne4BWfPWiuHDXeQ9H/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1r7KaAXxO4Oe322oCsC2vqldhzv2nM6Tv3UA7Edspv1k/edit?usp=sharing)   
+notebooks and materials : [pandemics](https://ucb-stat-159-s21.github.io/site/Notes/pandemic.html), [Tests (Algorithmic Considerations)](https://ucb-stat-159-s21.github.io/site/Notes/tests.html#algorithmic-considerations)
