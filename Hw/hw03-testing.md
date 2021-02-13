@@ -31,8 +31,22 @@ that is, $O_k$ is the number of elements of $x$ that are equal to $u_k$.
 
 The chi-square statistic for these data for the two-sample problem is
 \begin{equation*}
-   \chi^2 = \sum_{k=1}^K \frac{(O_k - E_k)^2}{E_k}.
+   \chi^2 \equiv \sum_{k=1}^K \frac{(O_k - E_k)^2}{E_k}.
 \end{equation*}
+
+For example, suppose the lists are $x = (0, 0, 1)$ and $y=(0, 1, 1)$, so $n=m=3$.
+The pooled multiset is $z = \{0, 0, 0, 1, 1, 1\}$.
+The unique values in the multiset are $u = \{0, 1\}$.
+Their relative frequencies are $\pi_0 = \pi_1 = 3/6 = 1/2$.
+The "expected" numbers of the unique values among the $n$ elements of $x$ are 
+$E_0 = n\pi_0 = 3\times 1/2 = 3/2$ and $E_1 = n\pi_1 = 3\times 1/2 = 3/2$.
+The observed numbers are $O_0 = 2$ and $O_1 = 1$.
+The chi-square statistic for these data is 
+
+$$
+\chi^2 = (O_0-E_0)^2/E_0 + (O_1-E_1)^2/E_1 = (2-3/2)^2/(3/2) + (1-3/2)^2/(3/2) = 2 \times (1/2)^2 / (3/2) = 1/3.
+$$
+
 
 + [12 points] Write three different Python functions that (each) take as input $x$ and $y$ and return $\chi^2$. The functions should use different strategies and/or different data structures to calculate $\chi^2$. They should all have the same input signature and type of return value. Call them `chisq_1`, `chisq_2` and `chisq_3`. This is a brief outline of what the function skeleton should look like for each of these:
 
