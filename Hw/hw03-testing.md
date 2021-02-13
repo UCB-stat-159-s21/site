@@ -36,7 +36,7 @@ The chi-square statistic for these data for the two-sample problem is
 
 For example, suppose the lists are $x = (0, 0, 1)$ and $y=(0, 1, 1)$, so $n=m=3$.
 The pooled multiset is $z = \{0, 0, 0, 1, 1, 1\}$.
-The unique values in the multiset are $u = \{0, 1\}$.
+The $K=2$ unique values in the multiset are $u = \{0, 1\}$.
 Their relative frequencies are $\pi_0 = \pi_1 = 3/6 = 1/2$.
 The "expected" numbers of the unique values among the $n$ elements of $x$ are 
 $E_0 = n\pi_0 = 3\times 1/2 = 3/2$ and $E_1 = n\pi_1 = 3\times 1/2 = 3/2$.
