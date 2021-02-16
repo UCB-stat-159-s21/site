@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estimating Vaccine Efficacy &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Homework 1. Stats review and intro to Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw02-election-fraud.html">
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw03-testing.html">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Index
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Index/index.html">
+   Index of Lectures and Materials
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/vaccine-efficacy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/vaccine-efficacy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-experiment">
+   The experiment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complications">
+     Complications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bayesian-estimation-of-a-binomial-probability">
+   Bayesian estimation of a binomial probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-beta-binomial-distribution">
+     The beta-binomial distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connection-to-other-distributions">
+     Connection to other distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-permutation-approach">
+   A permutation approach
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#critiquing-the-permutation-approach">
+     Critiquing the permutation approach
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="estimating-vaccine-efficacy">
+<h1>Estimating Vaccine Efficacy<a class="headerlink" href="#estimating-vaccine-efficacy" title="Permalink to this headline">¶</a></h1>
+<p>You have probably read things like “the Moderna vaccine is 90% effective.” What does that mean?
+How is effectiveness estimated? Can the uncertainty of the estimate be quantified meaningfully? How?</p>
+<div class="section" id="the-experiment">
+<h2>The experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>We will idealize the experiment as follows: there is a population of <span class="math notranslate nohighlight">\(N\)</span> subjects of whom <span class="math notranslate nohighlight">\(n\)</span> are selected at random to be vaccinated with the active vaccine; the remaining <span class="math notranslate nohighlight">\(m=N-n\)</span> subjects receive a placebo.
+In reality, the randomization involves stratifying on age and other covariates and may also be stratified by recruitment center.</p>
+<p>We will ignore how the <span class="math notranslate nohighlight">\(N\)</span> subjects were recruited: they are not necessarily representative of any larger group.</p>
+<p>In</p>
+<p>Vaccine efficacy is defined as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mbox{VE} \equiv 1 - \frac{\mbox{risk among unvaccinated} - \mbox{risk among vaccinated}}{\mbox{risk among unvaccinated}}.
+\end{equation*}\]</div>
+<p>This is the naive estimate of the fraction of infections vaccinations prevent.</p>
+<div class="section" id="complications">
+<h3>Complications<a class="headerlink" href="#complications" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>recruitment happens over some period of time</p></li>
+<li><p>infections are observed only if they occur during some period; not all infections during that period are necessarily observed</p></li>
+<li><p>vaccination may affect behavior</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bayesian-estimation-of-a-binomial-probability">
+<h2>Bayesian estimation of a binomial probability<a class="headerlink" href="#bayesian-estimation-of-a-binomial-probability" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-beta-binomial-distribution">
+<h3>The beta-binomial distribution<a class="headerlink" href="#the-beta-binomial-distribution" title="Permalink to this headline">¶</a></h3>
+<p>The random variable <span class="math notranslate nohighlight">\(X\)</span> has a beta-binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span> if <span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, P)\)</span> with <span class="math notranslate nohighlight">\(P \sim \mbox{Beta}(\alpha, \beta)\)</span>.</p>
+<p>That is, the probability density of <span class="math notranslate nohighlight">\(P\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f_P(p) = p^{\alpha-1}(1-p){\beta-1}/B(\alpha, \beta),
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(B(\cdot, \cdot)\)</span> is the Beta function.
+The probability mass function of <span class="math notranslate nohighlight">\(X\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+p_X(k) = \binom{n}{k} \frac{B(k+\alpha, n-k+\beta)}{B(\alpha, \beta)}.
+\end{equation*}\]</div>
+<p>The Beta distribution is <em>conjugate</em> to the binomial.</p>
+</div>
+<div class="section" id="connection-to-other-distributions">
+<h3>Connection to other distributions<a class="headerlink" href="#connection-to-other-distributions" title="Permalink to this headline">¶</a></h3>
+<p>There is a population of <span class="math notranslate nohighlight">\(N\)</span> objects of which <span class="math notranslate nohighlight">\(G\)</span> are labeled “1” and the rest are labeled “0.”</p>
+<p>If we sample with replacement <span class="math notranslate nohighlight">\(n\)</span> times from this population, the distribution of the sample sum is binomial with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p=G/N\)</span>.
+If we sample without replacement <span class="math notranslate nohighlight">\(n\le N\)</span> times from this population, the distribution of the sample sum is hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>.
+If we sample from this population and each time we draw, we not only replace the item drawn but also put another item with the same value into the population, the sample sum is beta-binomial with parameters <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\alpha = G\)</span>, and <span class="math notranslate nohighlight">\(\beta = N-G\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotBeta</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plot the beta density function</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        the alpha parameter of the beta distribution</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        the alpha parameter of the beta distribution</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    no return value</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">),</span>
+                <span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">),</span> <span class="n">points</span><span class="p">)</span>
+    <span class="n">lbl</span> <span class="o">=</span> <span class="s1">&#39;beta pdf with parameters </span><span class="se">\a</span><span class="s1">lpha=</span><span class="si">{}</span><span class="s1"> and </span><span class="se">\b</span><span class="s1">eta=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">),</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lbl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">plotBeta</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>\
+                   <span class="n">beta</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>\
+                   <span class="n">points</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d21f0d2556eb4dada1099887f43842a2", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plotBeta(alpha, beta, points=100)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.700102</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">plotBeta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/vaccine-efficacy_8_0.png" src="../_images/vaccine-efficacy_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D_0</span> <span class="o">=</span> <span class="mi">2474507</span>
+<span class="n">D_6</span> <span class="o">=</span> <span class="mi">1877963</span>
+<span class="n">N_0</span> <span class="o">=</span> <span class="mi">4997716</span>
+<span class="n">N_6</span> <span class="o">=</span> <span class="mi">4092373</span>
+<span class="n">p_6</span> <span class="o">=</span> <span class="o">.</span><span class="mi">459</span>
+<span class="n">p_0</span> <span class="o">=</span> <span class="o">.</span><span class="mi">495</span>
+<span class="n">p_pool</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_6</span><span class="o">*</span><span class="n">N_6</span> <span class="o">+</span> <span class="n">p_0</span><span class="o">*</span><span class="n">N_0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N_6</span> <span class="o">+</span> <span class="n">N_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">D_0</span> <span class="o">-</span> <span class="n">D_6</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N_6</span><span class="o">*</span><span class="n">p_6</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_6</span><span class="p">)</span><span class="o">+</span><span class="n">N_0</span><span class="o">*</span><span class="n">p_0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_0</span><span class="p">))</span>
+<span class="n">Z_1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>396.33161841757175
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">D_0</span> <span class="o">-</span> <span class="n">D_6</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N_6</span><span class="o">*</span><span class="n">p_pool</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pool</span><span class="p">)</span><span class="o">+</span><span class="n">N_0</span><span class="o">*</span><span class="n">p_pool</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pool</span><span class="p">))</span>
+<span class="n">Z_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>396.0768029064531
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span><span class="p">,</span> <span class="n">binomial</span><span class="p">,</span> <span class="n">exponential</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">(</span><span class="mi">1502021</span><span class="p">)</span> <span class="c1"># set the seed for reproducibility</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">p</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.00000000e+00, -2.00000000e-01, -4.00000000e-01,  4.00000000e-01,
+        1.20000000e+00,  1.00000000e+00,  1.80000000e+00,  1.60000000e+00,
+        4.00000000e-01,  2.00000000e-01,  2.00000000e+00,  1.80000000e+00,
+        1.60000000e+00,  2.40000000e+00,  1.20000000e+00,  1.00000000e+00,
+        1.80000000e+00,  6.00000000e-01,  4.00000000e-01,  2.00000000e-01,
+       -1.00000000e+00, -2.00000000e-01,  6.00000000e-01,  4.00000000e-01,
+        2.00000000e-01,  1.00000000e+00,  8.00000000e-01,  6.00000000e-01,
+        1.40000000e+00,  2.20000000e+00,  1.00000000e+00,  8.00000000e-01,
+        6.00000000e-01, -6.00000000e-01, -8.00000000e-01, -1.00000000e+00,
+       -1.20000000e+00, -1.40000000e+00, -6.00000000e-01,  1.20000000e+00,
+        1.00000000e+00,  1.80000000e+00,  6.00000000e-01,  1.40000000e+00,
+        2.20000000e+00,  3.00000000e+00,  2.80000000e+00,  1.60000000e+00,
+        2.40000000e+00,  1.20000000e+00,  1.77635684e-15,  8.00000000e-01,
+       -4.00000000e-01, -6.00000000e-01, -8.00000000e-01, -2.00000000e+00,
+       -1.20000000e+00, -1.40000000e+00,  1.40000000e+00,  2.00000000e-01,
+        1.99840144e-15, -1.20000000e+00, -4.00000000e-01, -6.00000000e-01,
+        2.00000000e-01,  2.22044605e-15,  8.00000000e-01,  6.00000000e-01,
+        4.00000000e-01,  2.00000000e-01,  2.00000000e+00,  1.80000000e+00,
+        2.60000000e+00,  2.40000000e+00,  3.20000000e+00,  3.00000000e+00,
+        1.80000000e+00,  1.60000000e+00,  1.40000000e+00,  2.20000000e+00,
+        2.00000000e+00,  2.80000000e+00,  3.60000000e+00,  4.40000000e+00,
+        5.20000000e+00,  4.00000000e+00,  2.80000000e+00,  3.60000000e+00,
+        3.40000000e+00,  3.20000000e+00,  3.00000000e+00,  2.80000000e+00,
+        3.60000000e+00,  4.40000000e+00,  4.20000000e+00,  5.00000000e+00,
+        5.80000000e+00,  6.60000000e+00,  5.40000000e+00,  6.20000000e+00,
+        5.00000000e+00])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.0000e+00, -2.0000e-01,  3.8000e+00,  9.8000e+00,  1.6800e+01,
+        2.4800e+01,  3.4800e+01,  4.6800e+01,  5.9800e+01,  7.2800e+01,
+        8.6800e+01,  1.0180e+02,  1.1780e+02,  1.3580e+02,  1.5580e+02,
+        1.7680e+02,  1.9780e+02,  2.1880e+02,  2.3980e+02,  2.6080e+02,
+        2.8380e+02,  3.0780e+02,  3.3180e+02,  3.5680e+02,  3.8480e+02,
+        4.1380e+02,  4.4380e+02,  4.7580e+02,  5.0880e+02,  5.4280e+02,
+        5.7680e+02,  6.1180e+02,  6.4880e+02,  6.8780e+02,  7.2880e+02,
+        7.6980e+02,  8.1180e+02,  8.5480e+02,  8.9980e+02,  9.4480e+02,
+        9.9080e+02,  1.0388e+03,  1.0878e+03,  1.1388e+03,  1.1908e+03,
+        1.2458e+03,  1.3018e+03,  1.3588e+03,  1.4168e+03,  1.4758e+03,
+        1.5348e+03,  1.5948e+03,  1.6558e+03,  1.7168e+03,  1.7808e+03,
+        1.8448e+03,  1.9098e+03,  1.9768e+03,  2.0448e+03,  2.1128e+03,
+        2.1828e+03,  2.2538e+03,  2.3258e+03,  2.3988e+03,  2.4718e+03,
+        2.5448e+03,  2.6188e+03,  2.6928e+03,  2.7678e+03,  2.8448e+03,
+        2.9218e+03,  2.9998e+03,  3.0798e+03,  3.1608e+03,  3.2438e+03,
+        3.3278e+03,  3.4128e+03,  3.4998e+03,  3.5878e+03,  3.6758e+03,
+        3.7668e+03,  3.8588e+03,  3.9528e+03,  4.0478e+03,  4.1438e+03,
+        4.2418e+03,  4.3408e+03,  4.4408e+03,  4.5418e+03,  4.6428e+03,
+        4.7448e+03,  4.8468e+03,  4.9508e+03,  5.0558e+03,  5.1618e+03,
+        5.2688e+03,  5.3768e+03,  5.4848e+03,  5.5938e+03,  5.7028e+03,
+        5.8138e+03])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.05148214114725
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-permutation-approach">
+<h2>A permutation approach<a class="headerlink" href="#a-permutation-approach" title="Permalink to this headline">¶</a></h2>
+<p>Shift model for effect; assume exchangeability under the null.</p>
+<p>How many 1s need to be added to the treatment group for the test not to reject?</p>
+<div class="section" id="critiquing-the-permutation-approach">
+<h3>Critiquing the permutation approach<a class="headerlink" href="#critiquing-the-permutation-approach" title="Permalink to this headline">¶</a></h3>
+<p>Assumes “non-interference.” Any given subject’s response depends only on that subject’s assignment, not on the assignment of any other subject.
+Might or might not be a good model, depending on how the subjects were recruited.</p>
+<p>Does not account for clustering of cases, contact among subjects, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">factorial</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">**</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">prob</span> <span class="o">+=</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">prob</span>
+    
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">prob</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.31302316081931464
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

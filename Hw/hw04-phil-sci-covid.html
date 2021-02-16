@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 4: Reproducibility, Philosophy of Science, and COVID-19 Models &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw01-background.html">
+   1. Homework 1. Stats review and intro to Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw02-election-fraud.html">
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw03-testing.html">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Index
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Index/index.html">
+   Index of Lectures and Materials
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Hw/hw04-phil-sci-covid.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-terminology-and-philosophy-of-science">
+   [20 points] Terminology and Philosophy of Science
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-covid-modeling">
+   [20 points] COVID modeling
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="homework-4-reproducibility-philosophy-of-science-and-covid-19-models">
+<h1>Homework 4: Reproducibility, Philosophy of Science, and COVID-19 Models<a class="headerlink" href="#homework-4-reproducibility-philosophy-of-science-and-covid-19-models" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
+<li><p><strong>Due 2/29/2021, 11:59PM PT</strong></p></li>
+<li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
+<li><p>This assignment is worth a maximum of <strong>40 points</strong>.</p></li>
+<li><p>Assignment type: <strong>individual</strong>.</p></li>
+</ul>
+<p>The deliverables for this assignment are a markdown file, a .pdf rendering of the markdown file,
+and a Jupyter notebook with text cells to annotate your work.</p>
+<p><strong>Reading</strong></p>
+<ul class="simple">
+<li><p>Barba, L., 2018. Terminologies for Reproducible Research, https://arxiv.org/abs/1802.03311</p></li>
+<li><p>Buckheit, J.B., and D.L. Donoho, 1995. Wavelab and Reproducible Research, https://statweb.stanford.edu/~wavelab/Wavelab_850/wavelab.pdf</p></li>
+<li><p>Hakim, D. and E. Lipton, 2018.
+Pesticide Studies Won E.P.A.’s Trust, Until Trump’s Team Scorned ‘Secret Science’, <em>New York Times</em>,
+24 August. https://www.nytimes.com/2018/08/24/business/epa-pesticides-studies-epidemiology.html</p></li>
+<li><p>Jewell, N.P.,  J.A. Lewnard,  and B.L. Jewell, 2020.
+Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles and Value of Projections,
+<em>JAMA</em>, 323(19):1893-1894. doi:10.1001/jama.2020.6585</p></li>
+<li><p>Murray, C.J.L., and IHME COVID-19 health service utilization forecasting team, 2020. Forecasting COVID-19 impact on hospital bed-days, ICU-days, ventilator-days and deaths by US state in the next 4 months,
+https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full-text</p></li>
+<li><p>Stark, P.B., 2018. Before reproducibility must come preproducibility, <em>Nature</em>, https://www.nature.com/articles/d41586-018-05256-0</p></li>
+<li><p>Stark, P.B., 2017. <a class="reference external" href="https://www.practicereproducibleresearch.org/core-chapters/0-preface.html">Preface</a> to <em>The Practice of Reproducible Research</em>, J. Kitzes, D. Turek, and F. Deniz, eds., University of California Press, Berkeley</p></li>
+<li><p>Teytelman, L., 2018. No more excuses for non-reproducible methods, Nature, 560, 411. https://www.nature.com/articles/d41586-018-06008-w, doi: 10.1038/d41586-018-06008-w</p></li>
+</ul>
+<div class="section" id="points-terminology-and-philosophy-of-science">
+<h2>[20 points] Terminology and Philosophy of Science<a class="headerlink" href="#points-terminology-and-philosophy-of-science" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[5 points] Explain in your own words different senses of the terms “reproducible,” “replicable”,
+and “repeatable.”</p></li>
+<li><p>[5 points] In your own words, explain why these concepts are important for science and for society.</p>
+<ul>
+<li><p>What do reproducibility and replicability have to do with evidence?</p></li>
+<li><p>Do you think there’s a reasonable case for introducing a new term, such as “preproducible”
+(not necessarily that word, but some new term)? Why or why not?</p></li>
+<li><p>In your opinion, what role should scientific reproducibility and replicability play in public policy, for instance, in setting policy for mask-wearing or lockdowns?</p></li>
+</ul>
+</li>
+<li><p>[5 points] How could we solve the problem that different disciplines
+use “reproducible,” “replicable,” and “repeatable” to mean different things?</p></li>
+<li><p>[5 points] Comment on the new EPA rules prohibiting reliance on studies that are not sufficiently open.</p>
+<ul>
+<li><p>Give some pros and cons.</p></li>
+<li><p>What do you think the impact on public safety will be? Justify your answer.</p></li>
+</ul>
+</li>
+</ul>
+<p>There’s no length requirement for this assignment, but we expect it to take
+about 3-4 pages to do a good but concise job.</p>
+<p><strong>Deliverable:</strong> Develop the answers to this part in a file called <code class="docutils literal notranslate"><span class="pre">terminology.md</span></code> and convert it to <code class="docutils literal notranslate"><span class="pre">terminology.pdf</span></code> (which you should include in your repository too) with <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> at the terminal, as in previous assignments.</p>
+</div>
+<div class="section" id="points-covid-modeling">
+<h2>[20 points] COVID modeling<a class="headerlink" href="#points-covid-modeling" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[4 points] Explain the assumptions of the IHME COVID model described in Murray et al. (2020).</p>
+<ul>
+<li><p>What are the parameters of the model? Explain the influence of each parameter on the cumulative number of deaths.</p></li>
+<li><p>Can the model represent “waves” of infections? If so, how?</p></li>
+</ul>
+</li>
+<li><p>[4 points] List the five things you think make it hardest to predict COVID cases.</p>
+<ul>
+<li><p>Explain why you think they are the most serious difficulties.</p></li>
+<li><p>Which, if any, are addressed in the IHME paper?</p></li>
+<li><p>What do Jewell et al. (2020) have to say about those problems?</p></li>
+</ul>
+</li>
+<li><p>[12 points] Write a python function to fit the IHME model (the one in the first equation in the Murray et al. paper)
+to a time series of COVID-19 deaths (not cases) using nonlinear
+least squares. You may use the
+SciPy <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit</span></code> function in your function.
+The function should return estimates of <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(p\)</span>.
+You should include unit tests for your functions; your functions should be well documented; and you should run <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code> and <code class="docutils literal notranslate"><span class="pre">pep257</span></code> on your
+code.</p>
+<ul>
+<li><p>Use your function to fit the IHME model to the time series of deaths in Alameda County, California, as reported by Johns Hopkins University
+here: https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_US.csv
+The data are described here: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data</p>
+<ul>
+<li><p>Start with the first day on which the cumulative number of deaths was 4 or greater.</p></li>
+<li><p>Fit the model to the first 30 days of data (starting with that day), the first 90 days of data, the first 180 days of data, and
+the first 270 days of data, and all data through 2/15/2021.</p></li>
+<li><p>Make a plot that superposes the data (through 2/15/2021) and the 5 fitted models, from the first day of data through 4/30/2021.</p></li>
+</ul>
+</li>
+<li><p>Comment on the reliability of the predictions</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Deliverable:</strong> write a notebook called <code class="docutils literal notranslate"><span class="pre">covid-modeling.ipynb</span></code> with your written answers as well as the required code, figures and discussion.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Hw"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

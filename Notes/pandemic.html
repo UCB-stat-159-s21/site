@@ -580,7 +580,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="section" id="fitting-the-sir-model-to-data">
 <h2>Fitting the SIR model to data<a class="headerlink" href="#fitting-the-sir-model-to-data" title="Permalink to this headline">¶</a></h2>
-<p>Now we will use least squares to fit the SIR model to a time history of infection data collected by researchers at Johns Hopkins University.See https://github.com/CSSEGISandData</p>
+<p>Now we will use least squares to fit the SIR model to a time history of infection data collected by researchers at Johns Hopkins University. See https://github.com/CSSEGISandData</p>
 <p>This exercise is for illustration. There are many reasons to be wary of this modeling:</p>
 <ul class="simple">
 <li><p>There are serious issues with the data quality: these are cases that were <em>reported</em> according to the rules and circumstances of where they were detected. For mortality (rather than incidence), excess mortality might give a more accurate measure.</p></li>
@@ -831,6 +831,84 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Bolivia&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Province/State</th>
+      <th>Country/Region</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>1/22/20</th>
+      <th>1/23/20</th>
+      <th>1/24/20</th>
+      <th>1/25/20</th>
+      <th>1/26/20</th>
+      <th>1/27/20</th>
+      <th>...</th>
+      <th>1/30/21</th>
+      <th>1/31/21</th>
+      <th>2/1/21</th>
+      <th>2/2/21</th>
+      <th>2/3/21</th>
+      <th>2/4/21</th>
+      <th>2/5/21</th>
+      <th>2/6/21</th>
+      <th>2/7/21</th>
+      <th>2/8/21</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27</th>
+      <td>NaN</td>
+      <td>Bolivia</td>
+      <td>-16.2902</td>
+      <td>-63.5887</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>215397</td>
+      <td>216835</td>
+      <td>218299</td>
+      <td>220426</td>
+      <td>222447</td>
+      <td>224234</td>
+      <td>225910</td>
+      <td>227128</td>
+      <td>227967</td>
+      <td>229187</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 388 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for Denmark</span>
 <span class="n">DK</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Country/Region&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Province/State&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>  <span class="c1"># Denmark</span>
 <span class="n">DK</span> <span class="o">=</span> <span class="n">DK</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Province/State&#39;</span><span class="p">,</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span><span class="s1">&#39;Long&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>        <span class="c1"># remove fields we don&#39;t need</span>
@@ -893,7 +971,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Days since first detected case&#39;)
 </pre></div>
 </div>
-<img alt="../_images/pandemic_20_1.png" src="../_images/pandemic_20_1.png" />
+<img alt="../_images/pandemic_21_1.png" src="../_images/pandemic_21_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -934,7 +1012,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_23_0.png" src="../_images/pandemic_23_0.png" />
+<img alt="../_images/pandemic_24_0.png" src="../_images/pandemic_24_0.png" />
 </div>
 </div>
 <p>What happens if we run the model into the future?</p>
@@ -945,7 +1023,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_25_0.png" src="../_images/pandemic_25_0.png" />
+<img alt="../_images/pandemic_26_0.png" src="../_images/pandemic_26_0.png" />
 </div>
 </div>
 <p>The total number of infections stabilizes, and the pandemic abates. The effective reproductive number <span class="math notranslate nohighlight">\(R_0\)</span> is less than 1.</p>
@@ -992,11 +1070,11 @@ Nonetheless, this is the approach the IHME takes: they fit a scaled and shifted 
 cumulative incidence.</p>
 <div class="section" id="sigmoidal-models">
 <h2>Sigmoidal Models<a class="headerlink" href="#sigmoidal-models" title="Permalink to this headline">¶</a></h2>
-<p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian) and the sigmoid function <span class="math notranslate nohighlight">\(1/(\exp(-x) + 1)\)</span>, the inverse of the logistic function.</p>
+<p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian cdf <span class="math notranslate nohighlight">\(\Phi(x)\)</span>) and the sigmoid function <span class="math notranslate nohighlight">\(1/(e^{-x} + 1)\)</span>, the inverse of the logistic function.</p>
 <p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5ced575-65b5-4d4f-8c8b-29249a3869d7">
-<span class="eqno">()<a class="headerlink" href="#equation-f5ced575-65b5-4d4f-8c8b-29249a3869d7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
-\sigma(x; a, b, c) \equiv c \frac{1}{e^{-b(x-a)}+1}.
+<div class="amsmath math notranslate nohighlight" id="equation-4887ea64-7b80-4352-8fec-3913d9e56ddf">
+<span class="eqno">()<a class="headerlink" href="#equation-4887ea64-7b80-4352-8fec-3913d9e56ddf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\sigma(x; a, b, c) \equiv \frac{c}{e^{-b(x-a)}+1}.
 \end{equation}\]</div>
 <p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
 <p>Let’s fit this to the Danish data.</p>
@@ -1004,7 +1082,7 @@ cumulative incidence.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Model cumulative infections using a sigmoid</span>
+<span class="sd">    Wrapper for the sigmoid to pass to the curve-fitting function</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
     <span class="k">return</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -1023,7 +1101,7 @@ cumulative incidence.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f86592ea9d0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/pandemic_32_1.png" src="../_images/pandemic_32_1.png" />
+<img alt="../_images/pandemic_33_1.png" src="../_images/pandemic_33_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1057,40 +1135,23 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_34_0.png" src="../_images/pandemic_34_0.png" />
+<img alt="../_images/pandemic_35_0.png" src="../_images/pandemic_35_0.png" />
 </div>
 </div>
 <p>Both models agree reasonably well with past data. But they have rather different predictions about the future.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what does this model predict for the future?</span>
-<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
-<span class="n">Cs</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">popts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">popts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">popts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">Cs</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sigmoid Model&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SIR Model&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since first detected case&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Predicted &quot;Confirmed&quot; COVID-19 Infections in Denmark&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/pandemic_36_0.png" src="../_images/pandemic_36_0.png" />
-</div>
-</div>
 <p>Let’s look at how the predictions vary over time, as the dataset grows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    plot predictions of the SIR and sigmoid models based on the first n data</span>
+<span class="sd">    plot SIR and sigmoid models fitted to the first n data</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    y : list of floats</span>
-<span class="sd">        number of infections at each time in x</span>
+<span class="sd">        number of infections at each time point</span>
+<span class="sd">    n : int</span>
+<span class="sd">        fit the models to the first n elements of y</span>
 <span class="sd">    points : int</span>
 <span class="sd">        number of time points for which to plot the prediction</span>
 <span class="sd">        </span>
@@ -1123,22 +1184,26 @@ cumulative incidence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">plot_predictions</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
-                   <span class="n">n</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
-                   <span class="n">points</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+                           <span class="n">n</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+                           <span class="n">points</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b5f875c38894494dae1ee70d0d6f1be0", "version_major": 2, "version_minor": 0}
+{"model_id": "c588bd474de94715916a76e8d15db07c", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_predictions(y, n, points=1000)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>The predictions depend on the model and details of the data. Including a week more or a week less can drastically change the predictions. For some datasets, the two models have nearly identical predictions; for others, they can differ by a factor of 20 or more.</p>
-<p>This is not a reliable basis for predicting the course of the pandemic, predicting ICU demand, predicting the effect of an intervention, allocating resources, or setting public policy.
-It is a mechanical application of models and algorithms to data: mindless curve-fitting.</p>
+<p>The predictions depend on the model and details of the data.
+A few additional days of data can drastically change the predictions.
+For some end dates, the two models have nearly identical predictions; for others,
+they differ by a factor of 20 or more.</p>
+<p>Unlike the SIR model, the sigmoid model does not “know” how many people are in the population, so even if recovery conveys immunity, the cumulative number of infections in the sigmoid model can exceed the size of the population.</p>
+<p>This mindless “curve fitting” approach is not a reliable basis for predicting the course of the pandemic, predicting ICU demand, predicting the effect of an intervention, allocating resources, or setting public policy.
+It is a mechanical application of models and algorithms to data, not science.</p>
 <p>Unsurprisingly, models of this type do not predict infections well in practice.
 The <a class="reference external" href="https://covid19.healthdata.org/global?view=total-deaths&amp;tab=trend">most-cited predictions</a> have been those promulgated by the <a class="reference external" href="http://www.healthdata.org/">Institute for Health Metrics and Evaluation</a> (IHME) at the University of Washington.
 They say,</p>
@@ -1150,12 +1215,12 @@ They say,</p>
 </div></blockquote>
 <p>IHME’s model is described <a class="reference external" href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41591-020-1132-9/MediaObjects/41591_2020_1132_MOESM1_ESM.pdf">here</a>.
 Early in the pandemic, IHME predicted that there would be about 60,000 COVID-19 deaths in ths U.S.
-As of January 23, 2021, there have been about 414,000.
+As of 10 February 2021, there have been <a class="reference external" href="https://coronavirus.jhu.edu/us-map">more than 468,000</a>.
 Between March and August, 2020, next-day deaths were within the IHME 95% prediction interval only about
 30% of the time, despite revisions of the model https://arxiv.org/abs/2004.04734.
 (We shall not delve into how IHME produces its prediction intervals.)
 See also https://www.vox.com/future-perfect/2020/5/2/21241261/coronavirus-modeling-us-deaths-ihme-pandemic.</p>
-<p>One feature of the sigmoidal models is that they predict rapid declines after the peak, a feature that
+<p>One feature of the sigmoidal models is that they predict rapid declines after the peak (the decline is just as rapid as the rise), a feature that
 some politicians like.
 That feature is built into the sigmoidal curve: it is an <em>assumption</em>, not something that comes from the data.</p>
 <p>There are also more complicated models of pandemics, including models with more “compartments,” models based on other sigmoidal functions (such as the Gaussian CDF), and models that allow various kinds of heterogeneity within the population and simulate interactions between individuals.
@@ -1165,18 +1230,19 @@ Just how poorly some models perform is obscured by the practice of revising the 
 Accurate predictions of the effect of interventions (masks, lockdowns, vaccination, and so on) require a close tie between the world and the model: the model needs a substantive basis.
 For causal inferences, the model needs to be a <em>generative model</em> or <em>response schedule</em>.</p>
 <p>George Box famously wrote, “all models are wrong, but some are useful.”
-The questions are:</p>
+While that quotation is often invoked as a general license to throw models at data, it should instead
+prompt questions:</p>
 <ul class="simple">
 <li><p>useful for what?</p></li>
 <li><p>how can you tell whether a model is useful for a particular goal?</p></li>
 </ul>
 <p>In the same paper, Box wrote, “It is inappropriate to be concerned with mice when there are tigers abroad.”
 Most of the fretting people do about statistical models is at the level of mice (e.g., asymptotics under unrealistic assumptions), while the problems with most
-statistical models are tigers: the models have little or no basis in the actual scientific question.</p>
+statistical models are tigers: the models have little or no connection to the actual scientific question.</p>
 </div>
 <div class="section" id="new-variants">
 <h2>New variants<a class="headerlink" href="#new-variants" title="Permalink to this headline">¶</a></h2>
-<p>As of this writing (9 February 2021), new strains of COVID-19 have been detected in the UK, South Africa, and the US, where cases of the new strain have a doubling time of about 10 days. The UK strain is estimated to be 50% to 70% more transmissible than the original virus. There is mounting evidence that the strain is also more lethal.
+<p>As of this writing (10 February 2021), new strains of COVID-19 have been detected in the UK, South Africa, and the US, where cases of the new strain have a doubling time of about 10 days. The UK strain is estimated to be 50% to 70% more transmissible than the original virus. There is mounting evidence that the strain is also more lethal.
 https://www.wsj.com/articles/new-u-k-covid-19-variant-could-be-more-deadly-british-officials-say-11611338370 (last visited 22 January 2021).</p>
 </div>
 </div>
