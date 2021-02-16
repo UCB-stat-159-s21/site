@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 
@@ -358,8 +358,8 @@ Because <span class="math notranslate nohighlight">\(\int_0^\infty dF = 1\)</spa
 <p>Let <span class="math notranslate nohighlight">\(Y\)</span> be a random variable with cdf <span class="math notranslate nohighlight">\(G\)</span>.
 By Jensen’s inequality, <span class="math notranslate nohighlight">\(\mathbb E X_j^2 \ge (\mathbb E X_j)^2 = t \cdot \mathbb E X_j\)</span> (by hypothesis).
 Since <span class="math notranslate nohighlight">\(\mathbb E X_j = t \ge 0\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50270956-0c3b-4590-9843-4873469037f0">
-<span class="eqno">()<a class="headerlink" href="#equation-50270956-0c3b-4590-9843-4873469037f0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c7a81760-795d-4eaa-8807-99282f321256">
+<span class="eqno">()<a class="headerlink" href="#equation-c7a81760-795d-4eaa-8807-99282f321256" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \mathbb E Y  &amp;= \int_0^\infty x dG(x) \\
                  &amp;= \int_0^\infty x (x \gamma/t + (1-\gamma)) dF(x) \\
                  &amp;= \gamma/t \int_0^\infty x^2 dF(x) + (1-\gamma) \int_0^\infty x dF(x) \\
