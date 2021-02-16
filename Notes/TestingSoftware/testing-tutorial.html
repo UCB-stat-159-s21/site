@@ -283,6 +283,7 @@
 <li><p><a class="reference external" href="http://carpentries-incubator.github.io/python-testing/09-tdd/index.html">Test Driven Development</a></p></li>
 <li><p><a class="reference external" href="http://carpentries-incubator.github.io/python-testing/10-fixtures/index.html">Fixtures</a></p></li>
 </ul>
+<p><strong>Note:</strong> the contents of this notebook are taken from the above tutorials, and are thus licensed according to the same terms, under the Creative Commons Attribution license (<a class="reference external" href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>).</p>
 <div class="section" id="a-simple-testable-mean">
 <h2>A simple, testable <code class="docutils literal notranslate"><span class="pre">mean</span></code><a class="headerlink" href="#a-simple-testable-mean" title="Permalink to this headline">¶</a></h2>
 <p>Let’s checkpoint here with a directory that should have:</p>
@@ -299,11 +300,6 @@
         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;The algebraic mean of an non-numerical list is undefined.</span><span class="se">\</span>
 <span class="s2">               Please provide a list of numbers.&quot;</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">detail</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>  <span class="n">msg</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting mean.py
 </pre></div>
 </div>
 </div>
@@ -349,11 +345,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting test_mean.py
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -364,23 +355,6 @@
 <span class="n">test_double</span><span class="p">()</span>
 <span class="n">test_long</span><span class="p">()</span>
 <span class="n">test_complex</span><span class="p">()</span>  <span class="c1">## This might fail. You&#39;ll get an error message showing which tests failed</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">394</span><span class="n">b41f2876d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">test_double</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">test_long</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">test_complex</span><span class="p">()</span>  <span class="c1">## This might fail. You&#39;ll get an error message showing which tests failed</span>
-
-<span class="nn">~/teach/stat159/2021sp/site/Notes/TestingSoftware/test_mean.py</span> in <span class="ni">test_complex</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="n">obs</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">exp</span> <span class="o">=</span> <span class="bp">NotImplemented</span>
-<span class="ne">---&gt; </span><span class="mi">35</span>     <span class="k">assert</span> <span class="n">obs</span> <span class="o">==</span> <span class="n">exp</span>
-
-<span class="ne">AssertionError</span>: 
 </pre></div>
 </div>
 </div>
