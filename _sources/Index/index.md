@@ -1,6 +1,11 @@
 # Index of Lectures and Materials
-- **Persistent links** : [Class Meeting](https://meet.google.com/obw-mykk-sny), [Recordings Folder](https://drive.google.com/drive/folders/1yrty9SUplj_8hA5OPO2kGxvelwhSK2u0?usp=sharing)
 
+## Persistent Links
+
+- **Persistent Links** : [Class Meeting](https://meet.google.com/obw-mykk-sny), [Recordings Folder](https://drive.google.com/drive/folders/1yrty9SUplj_8hA5OPO2kGxvelwhSK2u0?usp=sharing)
+
+
+## Lectures
 - **Lecture 1** (2021-01-19) : [video](https://drive.google.com/file/d/17d_muyiSVo3jBkZyTDSvddtSbMOH9UIC/view?usp=sharing)  
 notebooks and materials : [Jupyter Overview](https://ucb-stat-159-s21.github.io/site/Notes/01/intro-jupyter-hub.html), [Intro to Git](https://ucb-stat-159-s21.github.io/site/Notes/01/index.html), [Interactive Git Tutorial](https://ucb-stat-159-s21.github.io/site/Notes/01/git-intro-concepts.html) 
 - **Lecture 2** (2021-01-21) : [video](https://drive.google.com/file/d/1wCgzM2uk1Z8H05UQE7TSoq89rHZc-De2/view?usp=sharing), [video part II](https://drive.google.com/file/d/1AnSNpQyvkkLlbii-rHeawL6XulFM8MqZ/view?usp=sharing)  
@@ -18,5 +23,14 @@ notebooks and materials : [Hypothesis Testing (Numerical Example Continued and P
 notebooks and materials : [Pandemics](https://ucb-stat-159-s21.github.io/site/Notes/pandemic.html), [Tests (Algorithmic Considerations)](https://ucb-stat-159-s21.github.io/site/Notes/tests.html#algorithmic-considerations)
 - **Lecture 8** (2021-02-11) : [video](https://drive.google.com/file/d/1m8eIQuwe9vEU9M4KVlQNfawNeERqOw27/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1WtIndppxzUFdGG63uhM0wm9-OUZdhhykkQxqqG2eB9g/edit?usp=sharing)    
 notebooks and materials : [Git Branches](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell), [Python Testing](http://carpentries-incubator.github.io/python-testing/), [Floating Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#674)
-- **Lecture 9** (2021-02-16) : [video](TBD), [jamboard](https://jamboard.google.com/d/1l1LEBy8t1jAz2COwQl9B-5QIcgiQMwnKiL1nPuH_CfQ/viewer)    
+- **Lecture 9** (2021-02-16) : [video](https://drive.google.com/file/d/1ImcOtXxcZW8qjx0turOyn9duhKs1z1xz/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1l1LEBy8t1jAz2COwQl9B-5QIcgiQMwnKiL1nPuH_CfQ/viewer)    
 notebooks and materials : [Floating Point Arithmetic](https://../Notes/TestingSoftware/numerical-issues.html),  [Python Testing](https://../Notes/TestingSoftware/testing-tutorial.html)
+
+## Labs
+- **Lab 1** (2021-02-03) : no recording   
+notebooks and materials : [HW01](https://ucb-stat-159-s21.github.io/site/Hw/hw01-background.html),
+[Probability Review](https://ucb-stat-159-s21.github.io/site/Notes/setsCombinatorics.html), [Probability, Random Vectors, and Inequalities](https://ucb-stat-159-s21.github.io/site/Notes/probVectors.html), [Intro to Git](https://github.com/berkeley-scf/tutorial-git-basics/blob/master/git-intro.md), [Learn Git Game](https://learngitbranching.js.org/)
+- **Lab 2** (2021-02-10) : [video](https://drive.google.com/file/d/1gIu3OhxD2IqqH77aJZNbj6RT7iMrcd_l/view?usp=sharing)   
+notebooks and materials : [HW02](https://ucb-stat-159-s21.github.io/site/Hw/hw02-election-fraud.html), [Python Testing](http://carpentries-incubator.github.io/python-testing/), [Midnight Commander](https://midnight-commander.org/wiki/doc/common/actions)
+- **Lab 3** (2021-02-17) : [video](TBD)    
+notebooks and materials : 
