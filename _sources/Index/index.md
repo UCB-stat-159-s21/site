@@ -32,5 +32,5 @@ notebooks and materials : [HW01](https://ucb-stat-159-s21.github.io/site/Hw/hw01
 [Probability Review](https://ucb-stat-159-s21.github.io/site/Notes/setsCombinatorics.html), [Probability, Random Vectors, and Inequalities](https://ucb-stat-159-s21.github.io/site/Notes/probVectors.html), [Intro to Git](https://github.com/berkeley-scf/tutorial-git-basics/blob/master/git-intro.md), [Learn Git Game](https://learngitbranching.js.org/)
 - **Lab 2** (2021-02-10) : [video](https://drive.google.com/file/d/1gIu3OhxD2IqqH77aJZNbj6RT7iMrcd_l/view?usp=sharing)   
 notebooks and materials : [HW02](https://ucb-stat-159-s21.github.io/site/Hw/hw02-election-fraud.html), [Python Testing](http://carpentries-incubator.github.io/python-testing/), [Midnight Commander](https://midnight-commander.org/wiki/doc/common/actions)
-- **Lab 3** (2021-02-17) : [video](TBD)    
-notebooks and materials : 
+- **Lab 3** (2021-02-17) : [video 2PM](https://drive.google.com/file/d/1u-9Ii0h8FGToeobrb7jYBNxJvwDr7iDr/view?usp=sharing), [video 5PM](https://drive.google.com/file/d/1S10LugTVQ76zC7-LnT_favZFY9etRJy_/view?usp=sharing)    
+notebooks and materials : [HW03](https://ucb-stat-159-s21.github.io/site/Hw/hw03-testing.html), [pdb](https://docs.python.org/3/library/pdb.html#debugger-commands), [Magic Commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html), [Preproducibility](https://www.nature.com/articles/d41586-018-05256-0)
