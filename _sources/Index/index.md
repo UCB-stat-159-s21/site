@@ -25,6 +25,8 @@ notebooks and materials : [Pandemics](https://ucb-stat-159-s21.github.io/site/No
 notebooks and materials : [Git Branches](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell), [Python Testing](http://carpentries-incubator.github.io/python-testing/), [Floating Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#674)
 - **Lecture 9** (2021-02-16) : [video](https://drive.google.com/file/d/1ImcOtXxcZW8qjx0turOyn9duhKs1z1xz/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1l1LEBy8t1jAz2COwQl9B-5QIcgiQMwnKiL1nPuH_CfQ/viewer)    
 notebooks and materials : [Floating Point Arithmetic](https://../Notes/TestingSoftware/numerical-issues.html),  [Python Testing](https://../Notes/TestingSoftware/testing-tutorial.html)
+- **Lecture 10** (2021-02-18) : [video](https://drive.google.com/file/d/1mYPQOcSssMbaBNL-B9RVPLYVJLBVZvqR/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1IkD5Kyxm8Gy2CvcRXd4zExm0pifCF7XTTVeD-fo0wgg/edit?usp=sharing)   
+notebooks and materials : [Pandemic Model Notebook](https://ucb-stat-159-s21.github.io/site/Notes/pandemic.html), [IHME Criticism](https://arxiv.org/abs/2004.04734), [COVID Time Series Data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series)
 
 ## Labs
 - **Lab 1** (2021-02-03) : no recording   
