@@ -333,7 +333,7 @@ Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles a
 </div>
 <div class="section" id="models-of-epidemics">
 <h2>Models of epidemics<a class="headerlink" href="#models-of-epidemics" title="Permalink to this headline">¶</a></h2>
-<p>This notebook explores two basic approaches to modeling the spread of a communicable disease through a population. There are more complicated approaches than are considered here, but these are common, and the predictions of COVID-19 infections and ICU beds are often based on variations of these models.</p>
+<p>This notebook explores two basic approaches to modeling the spread of a communicable disease through a population. There are more complicated approaches than are considered here, but these are common, and the predictions of COVID-19 infections, ICU beds, and deaths are often based on variations of these models.</p>
 </div>
 </div>
 <div class="section" id="sir-models">
@@ -437,11 +437,11 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    -----------</span>
-<span class="sd">    N   :   int</span>
+<span class="sd">    N     : int</span>
 <span class="sd">        population size</span>
-<span class="sd">    i_0 :   double in (0, 1)</span>
+<span class="sd">    i_0   : double in (0, 1)</span>
 <span class="sd">        initial fraction of population infected</span>
-<span class="sd">    beta :  double in [0, infty)</span>
+<span class="sd">    beta  : double in [0, infty)</span>
 <span class="sd">        number of encounters each infected person has per time step</span>
 <span class="sd">    gamma : double in (0, 1)</span>
 <span class="sd">        fraction of infecteds who recover or die per time step</span>
@@ -459,7 +459,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <span class="sd">        time history of infecteds</span>
 <span class="sd">    R     : list</span>
 <span class="sd">        time history of recovered/dead    </span>
-<span class="sd">    C.    : list</span>
+<span class="sd">    C     : list</span>
 <span class="sd">        cumulative number of infections over time</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">assert</span> <span class="n">i_0</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;initial rate of infection is zero&#39;</span>
@@ -577,7 +577,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "059572f11601419ab12957d10f4a6f9b", "version_major": 2, "version_minor": 0}
+{"model_id": "b533047964264c1fa0fa805be86283a3", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_sir(N, i_0, beta=0.14285714285714285, gamma=0.07142857142857142, delta=0, steps=365, verbose=False)&gt;
 </pre></div>
 </div>
@@ -696,16 +696,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <th>1/26/20</th>
       <th>1/27/20</th>
       <th>...</th>
-      <th>1/30/21</th>
-      <th>1/31/21</th>
-      <th>2/1/21</th>
-      <th>2/2/21</th>
-      <th>2/3/21</th>
-      <th>2/4/21</th>
-      <th>2/5/21</th>
-      <th>2/6/21</th>
-      <th>2/7/21</th>
       <th>2/8/21</th>
+      <th>2/9/21</th>
+      <th>2/10/21</th>
+      <th>2/11/21</th>
+      <th>2/12/21</th>
+      <th>2/13/21</th>
+      <th>2/14/21</th>
+      <th>2/15/21</th>
+      <th>2/16/21</th>
+      <th>2/17/21</th>
     </tr>
   </thead>
   <tbody>
@@ -722,16 +722,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>55008</td>
-      <td>55023</td>
-      <td>55059</td>
-      <td>55121</td>
-      <td>55174</td>
-      <td>55231</td>
-      <td>55265</td>
-      <td>55330</td>
-      <td>55335</td>
       <td>55359</td>
+      <td>55384</td>
+      <td>55402</td>
+      <td>55420</td>
+      <td>55445</td>
+      <td>55473</td>
+      <td>55492</td>
+      <td>55514</td>
+      <td>55518</td>
+      <td>55540</td>
     </tr>
     <tr>
       <th>1</th>
@@ -746,16 +746,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>77251</td>
-      <td>78127</td>
-      <td>78992</td>
-      <td>79934</td>
-      <td>80941</td>
-      <td>81993</td>
-      <td>83082</td>
-      <td>84212</td>
-      <td>85336</td>
       <td>86289</td>
+      <td>87528</td>
+      <td>88671</td>
+      <td>89776</td>
+      <td>90835</td>
+      <td>91987</td>
+      <td>93075</td>
+      <td>93850</td>
+      <td>94651</td>
+      <td>95726</td>
     </tr>
     <tr>
       <th>2</th>
@@ -770,16 +770,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>107122</td>
-      <td>107339</td>
-      <td>107578</td>
-      <td>107841</td>
-      <td>108116</td>
-      <td>108381</td>
-      <td>108629</td>
-      <td>108629</td>
-      <td>109088</td>
       <td>109313</td>
+      <td>109559</td>
+      <td>109782</td>
+      <td>110049</td>
+      <td>110303</td>
+      <td>110513</td>
+      <td>110711</td>
+      <td>110894</td>
+      <td>111069</td>
+      <td>111247</td>
     </tr>
     <tr>
       <th>3</th>
@@ -794,16 +794,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>9885</td>
-      <td>9937</td>
-      <td>9972</td>
-      <td>10017</td>
-      <td>10070</td>
-      <td>10137</td>
-      <td>10172</td>
-      <td>10206</td>
-      <td>10251</td>
       <td>10275</td>
+      <td>10312</td>
+      <td>10352</td>
+      <td>10391</td>
+      <td>10427</td>
+      <td>10463</td>
+      <td>10503</td>
+      <td>10538</td>
+      <td>10555</td>
+      <td>10583</td>
     </tr>
     <tr>
       <th>4</th>
@@ -818,98 +818,20 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>19782</td>
-      <td>19796</td>
-      <td>19829</td>
-      <td>19900</td>
-      <td>19937</td>
-      <td>19996</td>
-      <td>20030</td>
-      <td>20062</td>
-      <td>20086</td>
       <td>20112</td>
+      <td>20163</td>
+      <td>20210</td>
+      <td>20261</td>
+      <td>20294</td>
+      <td>20329</td>
+      <td>20366</td>
+      <td>20381</td>
+      <td>20389</td>
+      <td>20400</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 388 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Bolivia&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Province/State</th>
-      <th>Country/Region</th>
-      <th>Lat</th>
-      <th>Long</th>
-      <th>1/22/20</th>
-      <th>1/23/20</th>
-      <th>1/24/20</th>
-      <th>1/25/20</th>
-      <th>1/26/20</th>
-      <th>1/27/20</th>
-      <th>...</th>
-      <th>1/30/21</th>
-      <th>1/31/21</th>
-      <th>2/1/21</th>
-      <th>2/2/21</th>
-      <th>2/3/21</th>
-      <th>2/4/21</th>
-      <th>2/5/21</th>
-      <th>2/6/21</th>
-      <th>2/7/21</th>
-      <th>2/8/21</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>27</th>
-      <td>NaN</td>
-      <td>Bolivia</td>
-      <td>-16.2902</td>
-      <td>-63.5887</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>215397</td>
-      <td>216835</td>
-      <td>218299</td>
-      <td>220426</td>
-      <td>222447</td>
-      <td>224234</td>
-      <td>225910</td>
-      <td>227128</td>
-      <td>227967</td>
-      <td>229187</td>
-    </tr>
-  </tbody>
-</table>
-<p>1 rows × 388 columns</p>
+<p>5 rows × 397 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -925,7 +847,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>348 [     1      1      3      4      4      6     10     10     23     23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>357 [     1      1      3      4      4      6     10     10     23     23
      35     90    262    442    615    801    827    864    914    977
    1057   1151   1255   1326   1395   1450   1591   1724   1877   2046
    2201   2395   2577   2860   3107   3386   3757   4077   4369   4681
@@ -959,7 +881,8 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
  167541 168711 170787 172779 174995 176837 178497 180240 181486 182725
  183801 185159 185159 187320 188199 189088 189895 190619 191505 192265
  193038 193917 194671 195296 195948 196540 197208 197664 198095 198472
- 198960 199357 199782 200335 200773 201186 201621 202051]
+ 198960 199357 199782 200335 200773 201186 201621 202051 202417 202887
+ 203365 203793 204067 204362 204799 205183 205597]
 </pre></div>
 </div>
 </div>
@@ -976,7 +899,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Days since first detected case&#39;)
 </pre></div>
 </div>
-<img alt="../_images/pandemic_21_1.png" src="../_images/pandemic_21_1.png" />
+<img alt="../_images/pandemic_20_1.png" src="../_images/pandemic_20_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -997,7 +920,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.02945792, 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.02925185, 1.        ])
 </pre></div>
 </div>
 </div>
@@ -1017,7 +940,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_24_0.png" src="../_images/pandemic_24_0.png" />
+<img alt="../_images/pandemic_23_0.png" src="../_images/pandemic_23_0.png" />
 </div>
 </div>
 <p>What happens if we run the model into the future?</p>
@@ -1028,7 +951,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_26_0.png" src="../_images/pandemic_26_0.png" />
+<img alt="../_images/pandemic_25_0.png" src="../_images/pandemic_25_0.png" />
 </div>
 </div>
 <p>The total number of infections stabilizes, and the pandemic abates. The effective reproductive number <span class="math notranslate nohighlight">\(R_0\)</span> is less than 1.</p>
@@ -1044,7 +967,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0294579200337055
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0292518479858943
 </pre></div>
 </div>
 </div>
@@ -1057,7 +980,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9708226266749372
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9710246825487783
 </pre></div>
 </div>
 </div>
@@ -1077,8 +1000,8 @@ cumulative incidence.</p>
 <h2>Sigmoidal Models<a class="headerlink" href="#sigmoidal-models" title="Permalink to this headline">¶</a></h2>
 <p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian cdf <span class="math notranslate nohighlight">\(\Phi(x)\)</span>) and the sigmoid function <span class="math notranslate nohighlight">\(1/(e^{-x} + 1)\)</span>, the inverse of the logistic function.</p>
 <p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75947828-562f-4585-a84c-77b7a8fb4ad0">
-<span class="eqno">()<a class="headerlink" href="#equation-75947828-562f-4585-a84c-77b7a8fb4ad0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e10c12f-7629-4d58-ab75-bb13adcf5d3b">
+<span class="eqno">()<a class="headerlink" href="#equation-4e10c12f-7629-4d58-ab75-bb13adcf5d3b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(x; a, b, c) \equiv \frac{c}{e^{-b(x-a)}+1}.
 \end{equation}\]</div>
 <p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
@@ -1103,10 +1026,10 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f86592ea9d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbd68c78b90&gt;]
 </pre></div>
 </div>
-<img alt="../_images/pandemic_33_1.png" src="../_images/pandemic_33_1.png" />
+<img alt="../_images/pandemic_32_1.png" src="../_images/pandemic_32_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1118,7 +1041,7 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.13414705e+02, 2.46283393e-02, 3.17721793e+05])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.00375870e+02, 2.72648531e-02, 2.70241486e+05])
 </pre></div>
 </div>
 </div>
@@ -1140,7 +1063,7 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pandemic_35_0.png" src="../_images/pandemic_35_0.png" />
+<img alt="../_images/pandemic_34_0.png" src="../_images/pandemic_34_0.png" />
 </div>
 </div>
 <p>Both models agree reasonably well with past data. But they have rather different predictions about the future.</p>
@@ -1196,8 +1119,8 @@ cumulative incidence.</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "c588bd474de94715916a76e8d15db07c", "version_major": 2, "version_minor": 0}
-</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_predictions(y, n, points=1000)&gt;
+{"model_id": "fbe792555aa94fd6863d9b1988d487ef", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_predictions(y, n, points)&gt;
 </pre></div>
 </div>
 </div>
@@ -1220,7 +1143,7 @@ They say,</p>
 </div></blockquote>
 <p>IHME’s model is described <a class="reference external" href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41591-020-1132-9/MediaObjects/41591_2020_1132_MOESM1_ESM.pdf">here</a>.
 Early in the pandemic, IHME predicted that there would be about 60,000 COVID-19 deaths in ths U.S.
-As of 10 February 2021, there have been <a class="reference external" href="https://coronavirus.jhu.edu/us-map">more than 468,000</a>.
+As of 18 February 2021, there have been <a class="reference external" href="https://coronavirus.jhu.edu/us-map">more than 490,000</a>.
 Between March and August, 2020, next-day deaths were within the IHME 95% prediction interval only about
 30% of the time, despite revisions of the model https://arxiv.org/abs/2004.04734.
 (We shall not delve into how IHME produces its prediction intervals.)
