@@ -27,6 +27,8 @@ notebooks and materials : [Git Branches](https://git-scm.com/book/en/v2/Git-Bran
 notebooks and materials : [Floating Point Arithmetic](https://ucb-stat-159-s21.github.io/site/Notes/TestingSoftware/numerical-issues.html),  [Python Testing](https://ucb-stat-159-s21.github.io/site/Notes/TestingSoftware/testing-tutorial.html)
 - **Lecture 10** (2021-02-18) : [video](https://drive.google.com/file/d/1mYPQOcSssMbaBNL-B9RVPLYVJLBVZvqR/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1IkD5Kyxm8Gy2CvcRXd4zExm0pifCF7XTTVeD-fo0wgg/edit?usp=sharing)   
 notebooks and materials : [Pandemic Model Notebook](https://ucb-stat-159-s21.github.io/site/Notes/pandemic.html), [IHME Criticism](https://arxiv.org/abs/2004.04734), [COVID Time Series Data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series)
+- **Lecture 11** (2021-02-23) : [video](https://drive.google.com/file/d/12SzayNWvAXwCyzMrK2MYK9u0TvqVMz94/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1OYSi0PckRSm0MFpRRD4o33X17OtKdM049AX7z75twU8/edit?usp=sharing)   
+notebooks and materials : [Reproducibility](https://www.stat.berkeley.edu/~stark/Seminars/repro.slides.pdf), [Code Reviews](http://fperez.org/py4science/code_reviews.html) 
 
 ## Labs
 - **Lab 1** (2021-02-03) : no recording   
