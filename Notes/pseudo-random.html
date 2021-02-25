@@ -352,6 +352,11 @@
      Simple, hash-based PRNG
     </a>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variation-to-take-advantage-of-incremental-hashing">
+     Variation to take advantage of incremental hashing
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -412,11 +417,6 @@
          Naive method
         </a>
        </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#more-accurate-method">
-         More accurate method
-        </a>
-       </li>
       </ul>
      </li>
     </ul>
@@ -425,6 +425,13 @@
     <a class="reference internal nav-link" href="#r-random-integer-generator-sample">
      R random integer generator / sample()
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#more-accurate-method">
+       More accurate method
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-can-you-tell-whether-a-sequence-is-random">
@@ -848,12 +855,22 @@ uint32_t pcg32_random_r(pcg32_random_t* rng)
 <h2>Simple, hash-based PRNG<a class="headerlink" href="#simple-hash-based-prng" title="Permalink to this headline">¶</a></h2>
 <p>Generate a random string <span class="math notranslate nohighlight">\(S\)</span> of reasonable length, e.g., 20 digits.</p>
 <div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}  X_i = {\mbox{Hash}}(S+i),\end{equation*}\]</div>
+\[\begin{equation*}  
+   X_i = {\mbox{Hash}}(S+i),
+\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(+\)</span> denotes string concatenation, and the resulting string is interpreted as a (long) hexadecimal number.</p>
 <p><strong>“Counter mode.”  Hash-based generators of this type have unbounded state spaces.</strong></p>
 <p>Implementation in Python by Ron Rivest: http://people.csail.mit.edu/rivest/sampler.py</p>
 <p>Implementation in angular-js by Chris Jerdonek: https://github.com/cjerdonek/quick-sampler</p>
 <p>Implementation in JavaScript by Philip Stark: https://www.stat.berkeley.edu/~stark/Java/Html/sha256Rand.htm</p>
+</div>
+<div class="section" id="variation-to-take-advantage-of-incremental-hashing">
+<h2>Variation to take advantage of incremental hashing<a class="headerlink" href="#variation-to-take-advantage-of-incremental-hashing" title="Permalink to this headline">¶</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  X_i = {\mbox{Hash}}(S+0*i),
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(+\)</span> denotes string concatenation and <span class="math notranslate nohighlight">\(0*i\)</span> denotes a string of <span class="math notranslate nohighlight">\(i\)</span> zeros.</p>
+<p>This is the method used in the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> python package.</p>
 </div>
 </div>
 <div class="section" id="some-trainwrecks">
@@ -922,27 +939,12 @@ is, to first order,  <span class="math notranslate nohighlight">\(1+ m 2^{-w}\)<
 <p>For <span class="math notranslate nohighlight">\(m &gt; 2^{w}\)</span>, at least <span class="math notranslate nohighlight">\(m-2^w\)</span> values will have probability 0 instead of probability <span class="math notranslate nohighlight">\(1/m\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(w=32\)</span>, then for <span class="math notranslate nohighlight">\(m&gt;2^{32}=4.24e9\)</span>, some values will have probability 0. Until relatively recently, R did not support 64-bit integers.</p>
 </div>
-<div class="section" id="more-accurate-method">
-<h4>More accurate method<a class="headerlink" href="#more-accurate-method" title="Permalink to this headline">¶</a></h4>
-<p>A better way to generate a (pseudo-)random integer on <span class="math notranslate nohighlight">\(\{1, \ldots m\}\)</span> from a (pseudo-random) <span class="math notranslate nohighlight">\(w\)</span>-bit integer in practice is as follows:</p>
-<ol class="simple">
-<li><p>Set <span class="math notranslate nohighlight">\(\mu = \log_2(m-1)\)</span>.</p></li>
-<li><p>Define a <span class="math notranslate nohighlight">\(w\)</span>-bit <em>mask</em> consisting of <span class="math notranslate nohighlight">\(\mu\)</span> bits set to 1 and <span class="math notranslate nohighlight">\((w-\mu)\)</span> bits set to zero.</p></li>
-<li><p>Generate a random <span class="math notranslate nohighlight">\(w\)</span>-bit integer <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
-<li><p>Define <span class="math notranslate nohighlight">\(y\)</span> to be the bitwise <code class="docutils literal notranslate"><span class="pre">and</span></code> of <span class="math notranslate nohighlight">\(Y\)</span> and the mask.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(y \le m-1\)</span>, output <span class="math notranslate nohighlight">\(x = y+1\)</span>; otherwise, return to step 3.</p></li>
-</ol>
-<p>This is how random integers are generated in numpy by <code class="docutils literal notranslate"><span class="pre">numpy.random.randint()</span></code>.
-However, <code class="docutils literal notranslate"><span class="pre">numpy.random.choice()</span></code> does something else that’s biased: it finds the closest integer to <span class="math notranslate nohighlight">\(mX\)</span>.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">R</span></code>, one would generally use the function <code class="docutils literal notranslate"><span class="pre">sample(1:m,</span> <span class="pre">k,</span> <span class="pre">replace=FALSE)</span></code> to draw pseudo-random
-integers.
-It seems that <code class="docutils literal notranslate"><span class="pre">sample()</span></code> uses the faulty <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">floor(m*X)</span></code> approach.</p>
-</div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="r-random-integer-generator-sample">
 <h2>R random integer generator / sample()<a class="headerlink" href="#r-random-integer-generator-sample" title="Permalink to this headline">¶</a></h2>
+<p>From version 3.5.x and earlier</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dn</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span><span class="p">)</span> <span class="p">{</span>
 	    <span class="n">PROTECT</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">allocVector</span><span class="p">(</span><span class="n">REALSXP</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
 	    <span class="k">if</span> <span class="p">(</span><span class="n">replace</span><span class="p">)</span> <span class="p">{</span>
@@ -990,8 +992,42 @@ It seems that <code class="docutils literal notranslate"><span class="pre">sampl
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Here is a numerical example in R 3.5.1 (h/t <a class="reference external" href="https://stat.ethz.ch/pipermail/r-devel/2018-September/076827.html">Duncan Murdoch</a>):</p>
+<blockquote>
+<div><p>m &lt;- (2/5)*2^32<br />
+x &lt;- sample(m, 1000000, replace = TRUE)<br />
+table(x %% 2)<br />
+0      1<br />
+399850 600150</p>
+</div></blockquote>
+<p>See Ottoboni and Stark, <a class="reference external" href="https://arxiv.org/abs/1809.06520">Random Problems with R</a> and
+Stark and Ottoboni, <a class="reference external" href="https://arxiv.org/abs/1810.10985">Simple Random Sampling: Practice makes imperfect</a>.</p>
+<p>R changed how it generates random integers starting with version 3.6.
+Here’s the corresponding output for R version 4.0:</p>
+<blockquote>
+<div><p>m &lt;- (2/5)*2^32<br />
+x &lt;- sample(m, 1000000, replace = TRUE)<br />
+table(x %% 2)
+0      1
+499958 500042</p>
+</div></blockquote>
+<div class="section" id="more-accurate-method">
+<h3>More accurate method<a class="headerlink" href="#more-accurate-method" title="Permalink to this headline">¶</a></h3>
+<p>A better way to generate a (pseudo-)random integer on <span class="math notranslate nohighlight">\(\{1, \ldots m\}\)</span> from a (pseudo-random) <span class="math notranslate nohighlight">\(w\)</span>-bit integer in practice is as follows:</p>
+<ol class="simple">
+<li><p>Set <span class="math notranslate nohighlight">\(\mu = \log_2(m-1)\)</span>.</p></li>
+<li><p>Define a <span class="math notranslate nohighlight">\(w\)</span>-bit <em>mask</em> consisting of <span class="math notranslate nohighlight">\(\mu\)</span> bits set to 1 and <span class="math notranslate nohighlight">\((w-\mu)\)</span> bits set to zero.</p></li>
+<li><p>Generate a random <span class="math notranslate nohighlight">\(w\)</span>-bit integer <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
+<li><p>Define <span class="math notranslate nohighlight">\(y\)</span> to be the bitwise <code class="docutils literal notranslate"><span class="pre">and</span></code> of <span class="math notranslate nohighlight">\(Y\)</span> and the mask.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(y \le m-1\)</span>, output <span class="math notranslate nohighlight">\(x = y+1\)</span>; otherwise, return to step 3.</p></li>
+</ol>
+<p>This is how random integers are generated in numpy by <code class="docutils literal notranslate"><span class="pre">numpy.random.randint()</span></code>.
+However, <code class="docutils literal notranslate"><span class="pre">numpy.random.choice()</span></code> does something else that’s biased: it finds the closest integer to <span class="math notranslate nohighlight">\(mX\)</span>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">R</span></code>, one would generally use the function <code class="docutils literal notranslate"><span class="pre">sample(1:m,</span> <span class="pre">k,</span> <span class="pre">replace=FALSE)</span></code> to draw pseudo-random
+integers.
+Before version 3.6, <code class="docutils literal notranslate"><span class="pre">sample()</span></code> used a variant of the faulty <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">floor(m*X)</span></code> approach.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="how-can-you-tell-whether-a-sequence-is-random">
 <h2>How can you tell whether a sequence is random?<a class="headerlink" href="#how-can-you-tell-whether-a-sequence-is-random" title="Permalink to this headline">¶</a></h2>
 <p>http://dilbert.com/strip/2001-10-25</p>
