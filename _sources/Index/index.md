@@ -36,7 +36,7 @@ notebooks and materials : [PRNGs continued](https://ucb-stat-159-s21.github.io/s
 - **Lecture 14** (2021-03-04) : [video](https://drive.google.com/file/d/1D_U7Mu0iLlScseN_X_IUSBGxYn6mNGsN/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1O3IbYHQWMsw9ZvY6uaThX5keWTjyUE3JagKQfpe9-KI/edit?usp=sharing)   
 notebooks and materials : [PRNGs (Sampling, Testing Randomness, Bounds, Bad Shuffles, and Best Practices)](https://ucb-stat-159-s21.github.io/site/Notes/pseudo-random.html#random-sampling),    
 [xkcd Password Generator](https://preshing.com/20110811/xkcd-password-generator/), [Hash Look Up Tables](https://md5decrypt.net/en/Sha256/), [KeePassX](https://www.keepassx.org/), [NumPy RNG Policy](https://numpy.org/neps/nep-0019-rng-policy.html), [Selective Inference Reading](https://hdsr.mitpress.mit.edu/pub/l39rpgyc/release/1) 
-- **Lecture 15** (2021-03-09) : [video](TBD), [jamboard](https://jamboard.google.com/d/1bIWMvWu-RSwafX4Gqc3gzUg2p_y6lRBQVnaZbANoLjo/edit?usp=sharing)   
+- **Lecture 15** (2021-03-09) : [video](https://drive.google.com/file/d/18d6Q9EEE2ZotwKaZRaef1HaQlWPBLW6F/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1bIWMvWu-RSwafX4Gqc3gzUg2p_y6lRBQVnaZbANoLjo/edit?usp=sharing)   
 notebooks and materials : [Selective Inference](https://hdsr.mitpress.mit.edu/pub/l39rpgyc/release/1) , [ASA's Statement on p-Values](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108), [Many Analysts, One Data Set](https://journals.sagepub.com/doi/10.1177/2515245917747646), [xkcd Significance](https://xkcd.com/882/), [cryptorandom](https://github.com/statlab/cryptorandom), [Selective Inference Seminar](https://www.selectiveinferenceseminar.com/)
 
 ## Labs
