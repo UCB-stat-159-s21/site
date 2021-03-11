@@ -609,10 +609,30 @@ Calculate <span class="math notranslate nohighlight">\(t\)</span>-statistic for 
 \end{equation*}\]</div>
 <p>(Using the mean as the test statistic instead of <span class="math notranslate nohighlight">\(t\)</span>-statistic
 would yield <span class="math notranslate nohighlight">\(P = 2/2048 =  0.00098\)</span>.)</p>
-<p>If there were many more pairs, it would be impractical to enumerate, but
-we can simulate:</p>
+<p>Let’s enumerate the 2048 possibilities and the corresponding <span class="math notranslate nohighlight">\(t\)</span> statistics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<span class="n">tsf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">tsf</span><span class="p">(</span><span class="n">diffr</span><span class="p">)</span>
+<span class="n">hits</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">signs</span> <span class="ow">in</span> <span class="n">product</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">diffr</span><span class="p">)):</span>
+    <span class="n">hits</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">tsf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">signs</span><span class="p">)</span><span class="o">*</span><span class="n">diffr</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">ts</span>\
+            <span class="k">else</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P-value </span><span class="si">{</span><span class="n">hits</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="nb">len</span><span class="p">(</span><span class="n">diffr</span><span class="p">)</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">hits</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="nb">len</span><span class="p">(</span><span class="n">diffr</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P-value 2/2048 = 0.0009765625
+</pre></div>
+</div>
+</div>
+</div>
+<p>If there were many more pairs, it would be impractical to enumerate all possible sign combinations, but
+we can still approxiimate the <span class="math notranslate nohighlight">\(P\)</span>-value by simulation:</p>
 <ul class="simple">
-<li><p>Assign a random sign to each difference.</p></li>
+<li><p>Assign a random sign to each difference, independently across differences, with chance 1/2 of assigning +</p></li>
 <li><p>Compute <span class="math notranslate nohighlight">\(t\)</span>-statistic</p></li>
 <li><p>Repeat <span class="math notranslate nohighlight">\(N\)</span> times</p></li>
 </ul>
@@ -628,11 +648,11 @@ we can simulate:</p>
 <span class="nb">iter</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># N</span>
 <span class="k">def</span> <span class="nf">simPermuTP</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="nb">iter</span><span class="p">):</span>
 <span class="c1"># P.B. Stark, statistics.berkeley.edu/~stark </span>
-<span class="c1"># simulated P-value for 2-sided 1-sample t-test under the </span>
+<span class="c1"># simulated P-value for 1-sided 1-sample t-test under the </span>
 <span class="c1"># randomization model.</span>
-    <span class="n">tsf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+    <span class="n">tsf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
     <span class="n">ts</span> <span class="o">=</span> <span class="n">tsf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> 
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span> <span class="p">(</span><span class="n">tsf</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">ts</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">iter</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span> <span class="p">(</span><span class="n">tsf</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">ts</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">iter</span><span class="p">)])</span>
     
 <span class="n">estP</span> <span class="o">=</span> <span class="n">simPermuTP</span><span class="p">(</span><span class="n">diffr</span><span class="p">,</span> <span class="nb">iter</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">estP</span><span class="p">,</span> <span class="n">estP</span><span class="o">*</span><span class="nb">iter</span><span class="p">)</span>
@@ -640,11 +660,7 @@ we can simulate:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:10: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
-  # Remove the CWD from sys.path while we load stuff.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00213 213.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00097 97.0
 </pre></div>
 </div>
 </div>
@@ -713,7 +729,7 @@ we can simulate:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0018537858202023723, 0.002435695955181389)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0007866728734903729, 0.0011831915072138114)
 </pre></div>
 </div>
 </div>
