@@ -94,3 +94,13 @@ as described in the `cryptorandom` README file.
 - Identify tests that do not really "exercise" the code
 - Make one PR that aims to push line-based test coverage as close to 100% as possible. This PR should also have individual tests that add *conceptual* test coverage in areas currently not covered.
 - To run the test suite, you can run `make test-all` from the top-level directory, which is the same command that [the testing GitHub action uses](https://github.com/statlab/cryptorandom/actions/workflows/test.yml).
+
+
+## Important temporary note
+
+We need to make a few changes to the hub for this assignment, which are [currently under testing](https://github.com/berkeley-dsep-infra/datahub/pull/2252). Please check that link, if that PR isn't merged yet, then you'll need to run the following commands in a terminal in order to be able to successfully use the project:
+
+```
+pip install -U numpy==1.20.1
+pip install numpydoc
+```
