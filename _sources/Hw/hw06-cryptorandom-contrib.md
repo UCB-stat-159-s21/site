@@ -6,7 +6,7 @@
 
 - Profs. Pérez and Stark, Department of Statistics, UC Berkeley.
 
-- This assignment is worth a maximum of **50 points**.
+- This assignment is worth a maximum of **60 points**.
 
 - Assignment type: **group**.
 

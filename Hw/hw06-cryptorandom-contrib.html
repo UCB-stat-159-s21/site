@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 6: Cryptorandom - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
+    <title>6. Homework 6: Cryptorandom - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Git and Github" href="../Notes/01/index.html" />
+    <link rel="prev" title="5. Homework 5: Selective inference and outlier rejection" href="hw05-selection-outliers.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,7 +121,7 @@
   Homework Assignments
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="hw01-background.html">
    1. Homework 1. Stats review and intro to Git
@@ -143,6 +145,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="hw05-selection-outliers.html">
    5. Homework 5: Selective inference and outlier rejection
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Homework 6: Cryptorandom - contributing to an open source project
   </a>
  </li>
 </ul>
@@ -247,39 +254,39 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grading">
-   Grading
+   6.1. Grading
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#workflow">
-   Workflow
+   6.2. Workflow
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#suggestions">
-   Suggestions
+   6.3. Suggestions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#setup">
-     Setup
+     6.3.1. Setup
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#on-documentation">
-     On documentation
+     6.3.2. On documentation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#on-testing">
-     On testing
+     6.3.3. On testing
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#important-temporary-note">
-   Important temporary note
+   6.4. Important temporary note
   </a>
  </li>
 </ul>
@@ -295,12 +302,12 @@
               <div>
                 
   <div class="section" id="homework-6-cryptorandom-contributing-to-an-open-source-project">
-<h1>Homework 6: Cryptorandom - contributing to an open source project<a class="headerlink" href="#homework-6-cryptorandom-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Homework 6: Cryptorandom - contributing to an open source project<a class="headerlink" href="#homework-6-cryptorandom-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
 <li><p><strong>Due 3/29/2021, 11:59PM PT</strong></p></li>
 <li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
-<li><p>This assignment is worth a maximum of <strong>50 points</strong>.</p></li>
+<li><p>This assignment is worth a maximum of <strong>60 points</strong>.</p></li>
 <li><p>Assignment type: <strong>group</strong>.</p></li>
 </ul>
 <p>The purpose of this assignment is for your team to collaborate on the development of new contributions to a real-world open source repository, in this case the <a class="reference external" href="https://github.com/statlab/cryptorandom"><code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code></a> project we’ve discussed in class.  The high-level goal of the assignment is to make contributions to <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> in two areas: <strong>testing</strong> and <strong>documentation</strong>.</p>
@@ -314,7 +321,7 @@
 </ul>
 <p>While each team will work against a private fork of the official <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> repo, we hope to later incorporate some of your contributions (with full public credit going to you) into the public repo. But your grade will <em>not</em> be based on that - we only want you to be aware of this for you to know that we consider this a “real world” project.</p>
 <div class="section" id="grading">
-<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
 <p>The entire assignment is worth 60 points, broken down as follows:</p>
 <ul class="simple">
 <li><p>25 points: contributions to testing.</p></li>
@@ -335,7 +342,7 @@
 </ul>
 </div>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>You will be assigned to a team of 4–5 students.</p>
 <ul>
@@ -366,16 +373,16 @@
 </ul>
 </div>
 <div class="section" id="suggestions">
-<h2>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
 <p>You will need to fork the team repo to your personal user and then clone your personal fork into the hub. That will be your “working space”, one for each person.</p>
 <p>From your personal fork, you will need to install the working copy of cryptorandom so you can build the docs, run new tests, etc., against the version of the project you are actually writing code for. You can do this by running in your local copy the command</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p>
 <p>as described in the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> README file.</p>
 </div>
 <div class="section" id="on-documentation">
-<h3>On documentation<a class="headerlink" href="#on-documentation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>On documentation<a class="headerlink" href="#on-documentation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>check the docstrings within <code class="docutils literal notranslate"><span class="pre">cryptorandom.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> and edit/augment them as you see fit.</p></li>
 <li><p>check whether the formal documentation accurately portrays the code.</p></li>
@@ -384,7 +391,7 @@
 </ul>
 </div>
 <div class="section" id="on-testing">
-<h3>On testing<a class="headerlink" href="#on-testing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3. </span>On testing<a class="headerlink" href="#on-testing" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Identify code that is not currently tested</p></li>
 <li><p>Identify tests that do not really “exercise” the code
@@ -394,7 +401,7 @@
 </div>
 </div>
 <div class="section" id="important-temporary-note">
-<h2>Important temporary note<a class="headerlink" href="#important-temporary-note" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Important temporary note<a class="headerlink" href="#important-temporary-note" title="Permalink to this headline">¶</a></h2>
 <p>We need to make a few changes to the hub for this assignment, which are <a class="reference external" href="https://github.com/berkeley-dsep-infra/datahub/pull/2252">currently under testing</a>. Please check that link, if that PR isn’t merged yet, then you’ll need to run the following commands in a terminal in order to be able to successfully use the project:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">numpy</span><span class="o">==</span><span class="mf">1.20</span><span class="o">.</span><span class="mi">1</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="n">numpydoc</span>
@@ -428,6 +435,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="hw05-selection-outliers.html" title="previous page"><span class="section-number">5. </span>Homework 5: Selective inference and outlier rejection</a>
+    <a class='right-next' id="next-link" href="../Notes/01/index.html" title="next page">Introduction to Git and Github</a>
 
         </div>
         
