@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 6: Cryptorandom - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw01-background.html">
+   1. Homework 1. Stats review and intro to Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw02-election-fraud.html">
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw03-testing.html">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw04-phil-sci-covid.html">
+   4. Homework 4: Reproducibility, Philosophy of Science, and COVID-19 Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw05-selection-outliers.html">
+   5. Homework 5: Selective inference and outlier rejection
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Index
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Index/index.html">
+   Index of Lectures and Materials
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Hw/hw06-cryptorandom-contrib.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grading">
+   Grading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#suggestions">
+   Suggestions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-documentation">
+     On documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-testing">
+     On testing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="homework-6-cryptorandom-contributing-to-an-open-source-project">
+<h1>Homework 6: Cryptorandom - contributing to an open source project<a class="headerlink" href="#homework-6-cryptorandom-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
+<li><p><strong>Due 3/29/2021, 11:59PM PT</strong></p></li>
+<li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
+<li><p>This assignment is worth a maximum of <strong>50 points</strong>.</p></li>
+<li><p>Assignment type: <strong>group</strong>.</p></li>
+</ul>
+<p>The purpose of this assignment is for your team to collaborate on the development of new contributions to a real-world open source repository, in this case the <a class="reference external" href="https://github.com/statlab/cryptorandom"><code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code></a> project we’ve discussed in class.  The high-level goal of the assignment is to make contributions to <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> in two areas: <strong>testing</strong> and <strong>documentation</strong>.</p>
+<p>Think of this project as a scenario where your team are the maintainers of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code>. You are starting from the code in its current state, and are going to work on the next release of the project. You will have to:</p>
+<ul class="simple">
+<li><p>Identify areas where you will make new contributions/fixes.</p></li>
+<li><p>Parcel out the work among team members.</p></li>
+<li><p>Review each other’s work, that will be submitted to the team repository in the form of Pull Requests (PRs).</p></li>
+<li><p>Provide feedback and discussion for each PR.</p></li>
+<li><p>Ensure that each PR passes all existing tests and adds new ones as necessary. The project repo is already configured to run the test suite with Github Actions, but you will need to ensure that any changes you make are still covered by the automated execution.</p></li>
+</ul>
+<p>While each team will work against a private fork of the official <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> repo, we hope to later incorporate some of your contributions (with full public credit going to you) into the public repo. But your grade will <em>not</em> be based on that - we only want you to be aware of this for you to know that we consider this a “real world” project.</p>
+<div class="section" id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
+<p>The entire assignment is worth 60 points, broken down as follows:</p>
+<ul class="simple">
+<li><p>25 points: contributions to testing.</p></li>
+<li><p>25 points: contributions to documentation.</p></li>
+<li><p>10 points: release notes.</p></li>
+</ul>
+<p>For each of the main areas (testing and documentation) we will look at the following aspects to assign points:</p>
+<ul class="simple">
+<li><p>Completeness and correctness of the issue addressed (new documentation or test). Each PR should be a meaningful contribution to the codebase, that is, it should actually improve the quality of the documentation or the coverage of the test suite, both in terms of line coverage and conceptual coverage.</p></li>
+<li><p>Open source workflow:</p>
+<ul>
+<li><p>Was a clear issue opened before starting work on the problem?</p></li>
+<li><p>Was the PR created with a clean set of commits that each address a separate part of the problem, and that contain descriptive commit messages?</p></li>
+<li><p>Was the contribution correctly reviewed by team members, with appropriate feedback?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You will be assigned to a team of 4–5 students.</p>
+<ul>
+<li><p>Each team will need to decide how to coordinate its work.</p></li>
+<li><p>We will provide a private Slack channel for each team for “small” communication. You can call us for help there with the usual <code class="docutils literal notranslate"><span class="pre">&#64;instructors</span></code> tag.</p></li>
+</ul>
+</li>
+<li><p>You <em>must</em> use Github issues as a “bulletin board” for each PR you will create. It’s a good idea to create an issue describing the work you intend to do, and then create the PR that addresses it and closes it when merged. You can use <a class="reference external" href="https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue">GitHub’s automated linking of PRs, issues and commits</a> to streamline this process.</p></li>
+<li><p>Your deliverable will consist of your team repository with a collection of merged or closed pull requests that implement all the requested functionality.</p></li>
+<li><p>You will include at the top of the repository a file named <code class="docutils literal notranslate"><span class="pre">hw06-summary.md</span></code> that summarizes all your work, along with a PDF render of the same. This file should amount to <em>release notes</em> that include:</p>
+<ul>
+<li><p>a description of problems and gaps you found in the current docstrings</p></li>
+<li><p>a description of problems and gaps you found in the main documentation</p></li>
+<li><p>a description of problems and gaps you found in the unit tests</p></li>
+<li><p>a description of each of your new tests and the functionality it tests</p></li>
+<li><p>the coverage reports for your team’s test PR.</p></li>
+</ul>
+</li>
+<li><p>As an illustration of the kind of level of description and detail we have in mind, you can consult the <a class="reference external" href="https://github.com/numpy/numpy/releases/tag/v1.20.0">Numpy release notes</a>, but use your own judgment. You should think of this document as something that a third party interested in <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> will be able to read to inform themselves about all the great new work that was done in this “new release.”</p></li>
+<li><p>You will use a “pull cycle” development model. That is, no team member pushes directly to the team repository, but instead you each make your own personal fork of the team repo, and create pull requests into the team repo from your personal one.  This is how many real-world open source projects work (in fact, some enforce that no team member can push directly to the main repo even if they try).</p></li>
+<li><p>Each team member will create a separate branch for the development of each new feature/idea in their personal repository, and will make from there a PR to the team repo.</p></li>
+<li><p>Each team member <em>must</em> make at least one PR related to documentation and one PR related to testing.</p>
+<ul>
+<li><p>Each PR should be reviewed by <em>at least</em> another student, with discussion and feedback provided in the PR.</p></li>
+<li><p>Not all PRs need to be merged, but all need to be finalized: either merged, or closed with an appropriate discussion of why the team decided not to merge it.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="suggestions">
+<h2>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<p>You will need to fork the team repo to your personal user and then clone your personal fork into the hub. That will be your “working space”, one for each person.</p>
+<p>From your personal fork, you will need to install the working copy of cryptorandom so you can build the docs, run new tests, etc., against the version of the project you are actually writing code for. You can do this by running in your local copy the command</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p>
+<p>as described in the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> README file.</p>
+</div>
+<div class="section" id="on-documentation">
+<h3>On documentation<a class="headerlink" href="#on-documentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>check the docstrings within <code class="docutils literal notranslate"><span class="pre">cryptorandom.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> and edit/augment them as you see fit.</p></li>
+<li><p>check whether the formal documentation accurately portrays the code.</p></li>
+<li><p>Read <a class="reference external" href="https://documentation.divio.com">this discussion about Four types of documentation</a> for inspiration - you can make contributions in each of these dimensions. Docstrings aren’t the only thing you can work on!</p></li>
+<li><p>To build the documentation you can type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> subdirectory.</p></li>
+</ul>
+</div>
+<div class="section" id="on-testing">
+<h3>On testing<a class="headerlink" href="#on-testing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Identify code that is not currently tested</p></li>
+<li><p>Identify tests that do not really “exercise” the code
+- Make one PR that aims to push line-based test coverage as close to 100% as possible. This PR should also have individual tests that add <em>conceptual</em> test coverage in areas currently not covered.</p></li>
+<li><p>To run the test suite, you can run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-all</span></code> from the top-level directory, which is the same command that <a class="reference external" href="https://github.com/statlab/cryptorandom/actions/workflows/test.yml">the testing GitHub action uses</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Hw"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
