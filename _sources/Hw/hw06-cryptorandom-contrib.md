@@ -39,6 +39,7 @@ For each of the main areas (testing and documentation) we will look at the follo
   - Was a clear issue opened before starting work on the problem? 
   - Was the PR created with a clean set of commits that each address a separate part of the problem, and that contain descriptive commit messages?
   - Was the contribution correctly reviewed by team members, with appropriate feedback?
+  - Did all members of the team participate in each aspect of the workflow? That is, creating issues, providing feedback, writing code, reviewing each other's PRs with meaningful feedback, etc?
 
 ## Workflow
 
