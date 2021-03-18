@@ -42,7 +42,7 @@ notebooks and materials : [Selective Inference](https://hdsr.mitpress.mit.edu/pu
 notebooks and materials : [cryptorandom](https://github.com/statlab/cryptorandom/tree/main/cryptorandom), [Permutation Tests](https://ucb-stat-159-s21.github.io/site/Notes/permute-intro.html), [itertools](https://docs.python.org/3/library/itertools.html), [Teaching Evals Slides](https://www.stat.berkeley.edu/~stark/Seminars/setUCBED21.htm#56)
 - **Lecture 17** (2021-03-11) : [video](https://drive.google.com/file/d/1ON5aXrUpD1xg8XCDtrKVF7LiNV_OMLvX/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1iQdlCoCt_XgHWcWrkoIsdqZN3u_ypXFyvXFUMmMHegI/edit?usp=sharing)    
 notebooks and materials : [Permutation Tests](https://ucb-stat-159-s21.github.io/site/Notes/permute-intro.html), [UC Deal with Elsevier](https://news.berkeley.edu/2021/03/16/ucs-deal-with-elsevier-what-it-took-what-it-means-why-it-matters/), [Jupyter History](https://www.techrepublic.com/article/jupyter-has-revolutionized-data-science-and-it-started-with-a-chance-meeting-between-two-students/)
-- **Lecture 18** (2021-03-18) : [video](TBD), [jamboard](https://jamboard.google.com/d/1IHC1f7LF24T8iFaOGV6qFK1epNTI67QP-fG2s6MMGAI/edit?usp=sharing)   
+- **Lecture 18** (2021-03-18) : [video](https://drive.google.com/file/d/1H1UsqSrFratPKcmAbv-nrDAtpA3kdqtc/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1IHC1f7LF24T8iFaOGV6qFK1epNTI67QP-fG2s6MMGAI/edit?usp=sharing)   
 notebooks and materials : [Git Remote Branches](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches), [Intro to Make](https://www.gnu.org/software/make/manual/make.html#Introduction), [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
 
 
