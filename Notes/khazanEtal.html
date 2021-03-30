@@ -1,0 +1,1353 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permutation Tests &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Homework 1. Stats review and intro to Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw02-election-fraud.html">
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw03-testing.html">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw04-phil-sci-covid.html">
+   4. Homework 4: Reproducibility, Philosophy of Science, and COVID-19 Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw05-selection-outliers.html">
+   5. Homework 5: Selective inference and outlier rejection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw06-cryptorandom-contrib.html">
+   6. Homework 6: Cryptorandom - contributing to an open source project
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01/index.html">
+   Introduction to Git and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture Index
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Index/index.html">
+   Index of Lectures and Materials
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/khazanEtal.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/khazanEtal.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="permutation-tests">
+<h1>Permutation Tests<a class="headerlink" href="#permutation-tests" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># boilerplate</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>  <span class="c1"># distributions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span> <span class="c1"># special functions</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">random</span> <span class="c1"># random variables, distributions, etc.</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="p">(</span><span class="n">binom</span><span class="p">,</span> <span class="n">hypergeom</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">widgets</span>
+
+<span class="n">khazan_fn</span> <span class="o">=</span> <span class="s1">&#39;./Data/khazanEtal20.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">khazan_fn</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Class</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>number.online.courses.taken</th>
+      <th>TA</th>
+      <th>Question</th>
+      <th>Likert.Score</th>
+      <th>Theme</th>
+      <th>ScoreNegPos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>21</td>
+      <td>3</td>
+      <td>Jesse</td>
+      <td>Facilitated.learning</td>
+      <td>4</td>
+      <td>teaching</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>21</td>
+      <td>3</td>
+      <td>Jesse</td>
+      <td>Provided.helpful.feedback</td>
+      <td>5</td>
+      <td>teaching</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>21</td>
+      <td>3</td>
+      <td>Jesse</td>
+      <td>Is.an.expert</td>
+      <td>4</td>
+      <td>knowledge</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>21</td>
+      <td>3</td>
+      <td>Jesse</td>
+      <td>Graded.in.a.timely.manner</td>
+      <td>5</td>
+      <td>professional</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>21</td>
+      <td>3</td>
+      <td>Jesse</td>
+      <td>Graded.Fairly</td>
+      <td>5</td>
+      <td>teaching</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Question&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qs</span><span class="p">:</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Question&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">q</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s1">&#39;Likert.Score&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;number.online.courses.taken&#39;</span><span class="p">,</span><span class="s1">&#39;Question&#39;</span><span class="p">,</span><span class="s1">&#39;Likert.Score&#39;</span><span class="p">,</span>\
+         <span class="s1">&#39;Theme&#39;</span><span class="p">,</span><span class="s1">&#39;ScoreNegPos&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Did.NOT.respond.to.email.promptly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Did.NOT.respond.to.email.promptly&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gender</th>
+      <th>TA</th>
+      <th>Facilitated.learning</th>
+      <th>Provided.helpful.feedback</th>
+      <th>Is.an.expert</th>
+      <th>Graded.in.a.timely.manner</th>
+      <th>Graded.Fairly</th>
+      <th>Did.NOT.respond.to.email.promptly</th>
+      <th>Knowledgable.of.course.content</th>
+      <th>Helpful.feedback.vias.Canvas.discussion</th>
+      <th>Consistently.fulfilled.responsibilities</th>
+      <th>Considerate.in.communication</th>
+      <th>Treated.me.with.respect</th>
+      <th>Enthusiastic</th>
+      <th>Professional</th>
+      <th>TA.again</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>Jesse</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>Jesse</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>Jesse</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>Jesse</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>Jesse</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agg_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TA&#39;</span><span class="p">:</span> <span class="s1">&#39;first&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qs</span><span class="p">:</span>
+    <span class="n">agg_dict</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_dict</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>TA</th>
+      <th>Facilitated.learning</th>
+      <th>Provided.helpful.feedback</th>
+      <th>Is.an.expert</th>
+      <th>Graded.in.a.timely.manner</th>
+      <th>Graded.Fairly</th>
+      <th>Did.NOT.respond.to.email.promptly</th>
+      <th>Knowledgable.of.course.content</th>
+      <th>Helpful.feedback.vias.Canvas.discussion</th>
+      <th>Consistently.fulfilled.responsibilities</th>
+      <th>Considerate.in.communication</th>
+      <th>Treated.me.with.respect</th>
+      <th>Enthusiastic</th>
+      <th>Professional</th>
+      <th>TA.again</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Jesse</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>-5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jesse</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>-2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Jesse</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>-5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Jesse</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>-4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Emily</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>-4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s1">&#39;TA&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Jesse&#39;</span><span class="p">)</span>
+<span class="n">jesse</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">emily</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">emily</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>TA</th>
+      <th>Facilitated.learning</th>
+      <th>Provided.helpful.feedback</th>
+      <th>Is.an.expert</th>
+      <th>Graded.in.a.timely.manner</th>
+      <th>Graded.Fairly</th>
+      <th>Did.NOT.respond.to.email.promptly</th>
+      <th>Knowledgable.of.course.content</th>
+      <th>Helpful.feedback.vias.Canvas.discussion</th>
+      <th>Consistently.fulfilled.responsibilities</th>
+      <th>Considerate.in.communication</th>
+      <th>Treated.me.with.respect</th>
+      <th>Enthusiastic</th>
+      <th>Professional</th>
+      <th>TA.again</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Emily</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>-4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Emily</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>-3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Emily</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>-5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>Emily</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>-3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>Emily</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>-5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there were 11 nonresponders for &quot;Emily&quot; and 10 for &quot;Jesse&quot;</span>
+<span class="n">emily_missing</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;TA&#39;</span><span class="p">:</span><span class="s1">&#39;Emily&#39;</span> <span class="p">}</span>
+<span class="n">jesse_missing</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;TA&#39;</span><span class="p">:</span><span class="s1">&#39;Jesse&#39;</span> <span class="p">}</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qs</span><span class="p">:</span>
+    <span class="n">emily_missing</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">jesse_missing</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">emily</span> <span class="o">=</span> <span class="n">emily</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">emily_missing</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">jesse</span> <span class="o">=</span> <span class="n">jesse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jesse_missing</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emily</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="n">jesse</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               ID  Facilitated.learning  Provided.helpful.feedback  \
+count   66.000000             55.000000                  55.000000   
+mean    48.878788              4.018182                   4.200000   
+std     35.912507              1.146507                   1.128749   
+min      0.000000              1.000000                   1.000000   
+25%     13.750000              3.500000                   4.000000   
+50%     53.000000              4.000000                   5.000000   
+75%     76.250000              5.000000                   5.000000   
+max    111.000000              5.000000                   5.000000   
+
+       Is.an.expert  Graded.in.a.timely.manner  Graded.Fairly  \
+count     55.000000                  55.000000      55.000000   
+mean       4.018182                   4.309091       3.981818   
+std        1.113734                   0.920401       1.146507   
+min        1.000000                   1.000000       1.000000   
+25%        3.500000                   4.000000       3.500000   
+50%        4.000000                   5.000000       4.000000   
+75%        5.000000                   5.000000       5.000000   
+max        5.000000                   5.000000       5.000000   
+
+       Did.NOT.respond.to.email.promptly  Knowledgable.of.course.content  \
+count                          55.000000                       55.000000   
+mean                           -3.909091                        4.400000   
+std                             1.251262                        0.852013   
+min                            -5.000000                        1.000000   
+25%                            -5.000000                        4.000000   
+50%                            -4.000000                        5.000000   
+75%                            -3.000000                        5.000000   
+max                            -1.000000                        5.000000   
+
+       Helpful.feedback.vias.Canvas.discussion  \
+count                                55.000000   
+mean                                  4.000000   
+std                                   1.122167   
+min                                   1.000000   
+25%                                   3.000000   
+50%                                   4.000000   
+75%                                   5.000000   
+max                                   5.000000   
+
+       Consistently.fulfilled.responsibilities  Considerate.in.communication  \
+count                                55.000000                     55.000000   
+mean                                  4.600000                      4.509091   
+std                                   0.735351                      0.857920   
+min                                   2.000000                      1.000000   
+25%                                   4.000000                      4.000000   
+50%                                   5.000000                      5.000000   
+75%                                   5.000000                      5.000000   
+max                                   5.000000                      5.000000   
+
+       Treated.me.with.respect  Enthusiastic  Professional   TA.again  
+count                55.000000     55.000000     55.000000  55.000000  
+mean                  4.563636      4.309091      4.600000   3.800000  
+std                   0.787956      1.034099      0.807373   1.176939  
+min                   2.000000      1.000000      2.000000   1.000000  
+25%                   4.000000      4.000000      5.000000   3.000000  
+50%                   5.000000      5.000000      5.000000   4.000000  
+75%                   5.000000      5.000000      5.000000   5.000000  
+max                   5.000000      5.000000      5.000000   5.000000                  ID  Facilitated.learning  Provided.helpful.feedback  \
+count   70.000000             60.000000                  60.000000   
+mean    49.200000              3.966667                   4.266667   
+std     38.566938              0.882344                   1.006195   
+min      0.000000              1.000000                   1.000000   
+25%     14.250000              3.750000                   4.000000   
+50%     44.500000              4.000000                   5.000000   
+75%     83.750000              5.000000                   5.000000   
+max    115.000000              5.000000                   5.000000   
+
+       Is.an.expert  Graded.in.a.timely.manner  Graded.Fairly  \
+count     60.000000                  60.000000      60.000000   
+mean       4.000000                   4.483333       4.066667   
+std        0.802538                   0.700887       1.087162   
+min        2.000000                   2.000000       1.000000   
+25%        3.000000                   4.000000       4.000000   
+50%        4.000000                   5.000000       4.000000   
+75%        5.000000                   5.000000       5.000000   
+max        5.000000                   5.000000       5.000000   
+
+       Did.NOT.respond.to.email.promptly  Knowledgable.of.course.content  \
+count                          60.000000                       60.000000   
+mean                           -4.066667                        4.366667   
+std                             1.205449                        0.735692   
+min                            -5.000000                        3.000000   
+25%                            -5.000000                        4.000000   
+50%                            -5.000000                        5.000000   
+75%                            -3.000000                        5.000000   
+max                            -1.000000                        5.000000   
+
+       Helpful.feedback.vias.Canvas.discussion  \
+count                                60.000000   
+mean                                  4.133333   
+std                                   0.947193   
+min                                   2.000000   
+25%                                   3.750000   
+50%                                   4.000000   
+75%                                   5.000000   
+max                                   5.000000   
+
+       Consistently.fulfilled.responsibilities  Considerate.in.communication  \
+count                                60.000000                     60.000000   
+mean                                  4.533333                      4.533333   
+std                                   0.724081                      0.700282   
+min                                   2.000000                      2.000000   
+25%                                   4.000000                      4.000000   
+50%                                   5.000000                      5.000000   
+75%                                   5.000000                      5.000000   
+max                                   5.000000                      5.000000   
+
+       Treated.me.with.respect  Enthusiastic  Professional   TA.again  
+count                60.000000     60.000000     60.000000  60.000000  
+mean                  4.666667      4.183333      4.750000   3.950000  
+std                   0.680644      0.892372      0.571202   1.048405  
+min                   2.000000      2.000000      3.000000   1.000000  
+25%                   5.000000      3.000000      5.000000   3.000000  
+50%                   5.000000      4.000000      5.000000   4.000000  
+75%                   5.000000      5.000000      5.000000   5.000000  
+max                   5.000000      5.000000      5.000000   5.000000  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">rankdata</span>
+<span class="kn">from</span> <span class="nn">cryptorandom.sample</span> <span class="kn">import</span> <span class="n">random_sample</span>
+<span class="kn">from</span> <span class="nn">cryptorandom.cryptorandom</span> <span class="kn">import</span> <span class="n">SHA256</span>
+<span class="kn">from</span> <span class="nn">permute.utils</span> <span class="kn">import</span> <span class="n">get_prng</span><span class="p">,</span> <span class="n">permute</span>
+<span class="n">prng</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">abs_mean_diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">mean_diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sim_npc</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">test_fn</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;fisher&quot;</span><span class="p">,</span> <span class="n">prng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">XY</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">])</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">n</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">XY</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">all_i</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+        <span class="n">ts</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_fn</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+        <span class="n">tv</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">n: </span><span class="si">{}</span><span class="s1"> nx: </span><span class="si">{}</span><span class="s1"> ts:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ts</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+        <span class="n">inx</span> <span class="o">=</span> <span class="n">random_sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prng</span><span class="o">=</span><span class="n">prng</span><span class="p">)</span> 
+        <span class="n">iny</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_i</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">inx</span><span class="p">))</span>  
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+            <span class="n">tv</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_fn</span><span class="p">(</span><span class="n">XY</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">inx</span><span class="p">][</span><span class="n">c</span><span class="p">],</span> <span class="n">XY</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">iny</span><span class="p">][</span><span class="n">c</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="ow">and</span> <span class="n">i</span><span class="o">%</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reps</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tv</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">ts</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">])</span> 
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+        <span class="n">ps</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tv</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">ts</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> 
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tv</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ts</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">],</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">npc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ps</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]),</span> <span class="n">dist</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="n">combine</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">ps</span>
+
+<span class="k">def</span> <span class="nf">npc</span><span class="p">(</span><span class="n">pvalues</span><span class="p">,</span> <span class="n">distr</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;fisher&quot;</span><span class="p">,</span> <span class="n">plus1</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combines p-values from individual partial test hypotheses $H_{0i}$ against</span>
+<span class="sd">    $H_{1i}$, $i=1,\dots,n$ to test the global null hypothesis</span>
+<span class="sd">    .. math:: \cap_{i=1}^n H_{0i}</span>
+<span class="sd">    against the alternative</span>
+<span class="sd">    .. math:: \cup_{i=1}^n H_{1i}</span>
+<span class="sd">    using an omnibus test statistic.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pvalues : array_like</span>
+<span class="sd">        Array of p-values to combine</span>
+<span class="sd">    distr : array_like</span>
+<span class="sd">        Array of dimension [B, n] where B is the number of permutations and n is</span>
+<span class="sd">        the number of partial hypothesis tests. The $i$th column of distr contains</span>
+<span class="sd">        the simulated null distribution of the $i$th test statistic under $H_{0i}$.</span>
+<span class="sd">    combine : {&#39;fisher&#39;, &#39;liptak&#39;, &#39;tippett&#39;} or function</span>
+<span class="sd">        The combining function to use. Default is &quot;fisher&quot;.</span>
+<span class="sd">        Valid combining functions must take in p-values as their argument and be</span>
+<span class="sd">        monotonically decreasing in each p-value.</span>
+<span class="sd">    plus1 : bool</span>
+<span class="sd">        flag for whether to add 1 to the numerator and denominator of the</span>
+<span class="sd">        p-value based on the empirical permutation distribution. </span>
+<span class="sd">        Default is True.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        A single p-value for the global test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">distr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;One p-value: nothing to combine!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">distr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mismatch in number of p-values and size of distr&quot;</span><span class="p">)</span>
+
+    <span class="n">combine_library</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;fisher&quot;</span><span class="p">:</span> <span class="n">fisher</span><span class="p">,</span>
+        <span class="s2">&quot;liptak&quot;</span><span class="p">:</span> <span class="n">liptak</span><span class="p">,</span>
+        <span class="s2">&quot;tippett&quot;</span><span class="p">:</span> <span class="n">tippett</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">combine</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">check_combfunc_monotonic</span><span class="p">(</span><span class="n">pvalues</span><span class="p">,</span> <span class="n">combine</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Bad combining function: must be monotonically decreasing in each p-value&quot;</span><span class="p">)</span>
+        <span class="n">combine_func</span> <span class="o">=</span> <span class="n">combine</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">combine_func</span> <span class="o">=</span> <span class="n">combine_library</span><span class="p">[</span><span class="n">combine</span><span class="p">]</span>
+
+    <span class="c1"># Convert test statistic distribution to p-values</span>
+    <span class="n">combined_stat_distr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span>
+    <span class="n">pvalues_from_distr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">pvalues_from_distr</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">rankdata</span><span class="p">(</span><span class="n">distr</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">plus1</span><span class="o">+</span><span class="n">B</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">plus1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">plus1</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;liptak&quot;</span><span class="p">:</span>
+        <span class="n">toobig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pvalues_from_distr</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">pvalues_from_distr</span><span class="p">[</span><span class="n">toobig</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+    <span class="n">combined_stat_distr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span>
+        <span class="n">combine_func</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pvalues_from_distr</span><span class="p">)</span>
+
+    <span class="n">observed_combined_stat</span> <span class="o">=</span> <span class="n">combine_func</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">plus1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">combined_stat_distr</span> <span class="o">&gt;=</span> <span class="n">observed_combined_stat</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">plus1</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fisher</span><span class="p">(</span><span class="n">pvalues</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply Fisher&#39;s combining function</span>
+<span class="sd">    .. math:: -2 \sum_i \log(p_i)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pvalues : array_like</span>
+<span class="sd">        Array of p-values to combine</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Fisher&#39;s combined test statistic</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">pvalues</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">liptak</span><span class="p">(</span><span class="n">pvalues</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply Liptak&#39;s combining function</span>
+<span class="sd">    .. math:: \sum_i \Phi^{-1}(1-p_i)</span>
+<span class="sd">    where $\Phi^{-1}$ is the inverse CDF of the standard normal distribution.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pvalues : array_like</span>
+<span class="sd">        Array of p-values to combine</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Liptak&#39;s combined test statistic</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pvalues</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">tippett</span><span class="p">(</span><span class="n">pvalues</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply Tippett&#39;s combining function</span>
+<span class="sd">    .. math:: \max_i \{1-p_i\}</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pvalues : array_like</span>
+<span class="sd">        Array of p-values to combine</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Tippett&#39;s combined test statistic</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim_npc</span><span class="p">(</span><span class="n">jesse</span><span class="p">,</span> <span class="n">emily</span><span class="p">,</span> <span class="n">qs</span><span class="p">,</span> <span class="n">abs_mean_diff</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;fisher&quot;</span><span class="p">,</span> <span class="n">prng</span><span class="o">=</span><span class="n">prng</span><span class="p">,</span> \
+        <span class="n">reps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 136 nx: 70 ts:{&#39;Facilitated.learning&#39;: 0.051515151515151736, &#39;Provided.helpful.feedback&#39;: 0.06666666666666643, &#39;Is.an.expert&#39;: 0.01818181818181852, &#39;Graded.in.a.timely.manner&#39;: 0.17424242424242387, &#39;Graded.Fairly&#39;: 0.0848484848484845, &#39;Did.NOT.respond.to.email.promptly&#39;: 0.15757575757575726, &#39;Knowledgable.of.course.content&#39;: 0.0333333333333341, &#39;Helpful.feedback.vias.Canvas.discussion&#39;: 0.13333333333333375, &#39;Consistently.fulfilled.responsibilities&#39;: 0.06666666666666643, &#39;Considerate.in.communication&#39;: 0.0242424242424244, &#39;Treated.me.with.respect&#39;: 0.10303030303030347, &#39;Enthusiastic&#39;: 0.12575757575757596, &#39;Professional&#39;: 0.15000000000000036, &#39;TA.again&#39;: 0.15000000000000036}
+
+0 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 1.0]
+1000 [0.8303393213572854, 0.7255489021956087, 0.8892215568862275, 0.27245508982035926, 0.7125748502994012, 0.4540918163672655, 0.8293413173652695, 0.49101796407185627, 0.6307385229540918, 0.8982035928143712, 0.4600798403193613, 0.49001996007984033, 0.27345309381237526, 0.47305389221556887]
+2000 [0.8361638361638362, 0.7372627372627373, 0.8901098901098901, 0.26823176823176825, 0.7207792207792207, 0.4515484515484515, 0.8416583416583416, 0.5154845154845155, 0.6213786213786214, 0.8931068931068931, 0.476023976023976, 0.494005994005994, 0.27672327672327673, 0.4825174825174825]
+3000 [0.8397734843437709, 0.7368421052631579, 0.8884077281812125, 0.2731512325116589, 0.7301798800799467, 0.4563624250499667, 0.8394403730846103, 0.5163224516988674, 0.6332445036642238, 0.896402398401066, 0.4703530979347102, 0.5036642238507661, 0.2741505662891406, 0.4793471019320453]
+4000 [0.8320839580209896, 0.7348825587206397, 0.8858070964517741, 0.276111944027986, 0.7311344327836082, 0.463768115942029, 0.8340829585207397, 0.515992003998001, 0.6326836581709145, 0.8958020989505248, 0.46676661669165415, 0.5002498750624688, 0.26936531734132935, 0.47976011994003]
+5000 [0.8310675729708117, 0.7313074770091963, 0.8816473410635746, 0.2720911635345862, 0.727109156337465, 0.469812075169932, 0.8348660535785686, 0.5179928028788484, 0.632546981207517, 0.8968412634946021, 0.468812475009996, 0.49780087964814074, 0.2694922031187525, 0.476609356257497]
+6000 [0.8328890369876708, 0.73458847050983, 0.8815394868377208, 0.273408863712096, 0.7240919693435521, 0.47184271909363545, 0.8333888703765412, 0.5178273908697101, 0.6344551816061312, 0.8970343218927024, 0.46984338553815397, 0.5009996667777408, 0.26824391869376873, 0.475674775074975]
+7000 [0.8341902313624678, 0.7356469580119965, 0.8797486432447872, 0.268494715795487, 0.7233647529277349, 0.4721508140531277, 0.8314767209368752, 0.5187089403027706, 0.6359611539560126, 0.8968866038274779, 0.4705798343330477, 0.5008568980291346, 0.2707797772065124, 0.4777206512425021]
+8000 [0.8359160209947513, 0.7345663584103974, 0.8804048987753061, 0.2693076730817296, 0.725568607848038, 0.47100724818795303, 0.83104223944014, 0.5168707823044238, 0.6369657585603599, 0.8979005248687828, 0.46838290427393153, 0.5029992501874532, 0.26905773556610846, 0.4783804048987753]
+9000 [0.8373694734503444, 0.7347256165296601, 0.8813596978449233, 0.2684958898022662, 0.7237280604310153, 0.4723394801155299, 0.8317040657631637, 0.5125527660519884, 0.6385247722728282, 0.8965785381026439, 0.4670073317040658, 0.503332592757165, 0.2707176183070429, 0.47833814707842703]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9065186962607479,
+ {&#39;Facilitated.learning&#39;: 0.051515151515151736,
+  &#39;Provided.helpful.feedback&#39;: 0.06666666666666643,
+  &#39;Is.an.expert&#39;: 0.01818181818181852,
+  &#39;Graded.in.a.timely.manner&#39;: 0.17424242424242387,
+  &#39;Graded.Fairly&#39;: 0.0848484848484845,
+  &#39;Did.NOT.respond.to.email.promptly&#39;: 0.15757575757575726,
+  &#39;Knowledgable.of.course.content&#39;: 0.0333333333333341,
+  &#39;Helpful.feedback.vias.Canvas.discussion&#39;: 0.13333333333333375,
+  &#39;Consistently.fulfilled.responsibilities&#39;: 0.06666666666666643,
+  &#39;Considerate.in.communication&#39;: 0.0242424242424244,
+  &#39;Treated.me.with.respect&#39;: 0.10303030303030347,
+  &#39;Enthusiastic&#39;: 0.12575757575757596,
+  &#39;Professional&#39;: 0.15000000000000036,
+  &#39;TA.again&#39;: 0.15000000000000036},
+ {&#39;Facilitated.learning&#39;: 0.835016498350165,
+  &#39;Provided.helpful.feedback&#39;: 0.7364263573642635,
+  &#39;Is.an.expert&#39;: 0.8813118688131187,
+  &#39;Graded.in.a.timely.manner&#39;: 0.2696730326967303,
+  &#39;Graded.Fairly&#39;: 0.7234276572342766,
+  &#39;Did.NOT.respond.to.email.promptly&#39;: 0.47305269473052697,
+  &#39;Knowledgable.of.course.content&#39;: 0.833916608339166,
+  &#39;Helpful.feedback.vias.Canvas.discussion&#39;: 0.5122487751224878,
+  &#39;Consistently.fulfilled.responsibilities&#39;: 0.6366363363663634,
+  &#39;Considerate.in.communication&#39;: 0.8963103689631037,
+  &#39;Treated.me.with.respect&#39;: 0.46935306469353066,
+  &#39;Enthusiastic&#39;: 0.5017498250174982,
+  &#39;Professional&#39;: 0.27017298270172985,
+  &#39;TA.again&#39;: 0.4781521847815218})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim_npc</span><span class="p">(</span><span class="n">jesse</span><span class="p">,</span> <span class="n">emily</span><span class="p">,</span> <span class="n">qs</span><span class="p">,</span> <span class="n">mean_diff</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;tippett&quot;</span><span class="p">,</span> <span class="n">prng</span><span class="o">=</span><span class="n">prng</span><span class="p">,</span> \
+        <span class="n">reps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 136 nx: 66 ts:{&#39;Facilitated.learning&#39;: 0.051515151515151736, &#39;Provided.helpful.feedback&#39;: -0.06666666666666643, &#39;Is.an.expert&#39;: 0.01818181818181852, &#39;Graded.in.a.timely.manner&#39;: -0.17424242424242387, &#39;Graded.Fairly&#39;: -0.0848484848484845, &#39;Did.NOT.respond.to.email.promptly&#39;: 0.15757575757575726, &#39;Knowledgable.of.course.content&#39;: 0.0333333333333341, &#39;Helpful.feedback.vias.Canvas.discussion&#39;: -0.13333333333333375, &#39;Consistently.fulfilled.responsibilities&#39;: 0.06666666666666643, &#39;Considerate.in.communication&#39;: -0.0242424242424244, &#39;Treated.me.with.respect&#39;: -0.10303030303030347, &#39;Enthusiastic&#39;: 0.12575757575757596, &#39;Professional&#39;: -0.15000000000000036, &#39;TA.again&#39;: -0.15000000000000036}
+
+0 [0.5, 1.0, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.0, 0.5, 1.0, 0.5]
+1000 [0.43812375249500995, 0.6526946107784432, 0.45209580838323354, 0.8792415169660679, 0.6736526946107785, 0.23552894211576847, 0.43313373253493015, 0.7644710578842315, 0.312375249500998, 0.5898203592814372, 0.811377245508982, 0.24251497005988024, 0.9001996007984032, 0.7734530938123753]
+2000 [0.4160839160839161, 0.6503496503496503, 0.45204795204795206, 0.8776223776223776, 0.6618381618381618, 0.24225774225774227, 0.42507492507492506, 0.7592407592407593, 0.31218781218781216, 0.583916083916084, 0.7947052947052947, 0.24675324675324675, 0.8881118881118881, 0.7672327672327672]
+3000 [0.4100599600266489, 0.6465689540306462, 0.4473684210526316, 0.8704197201865423, 0.6675549633577615, 0.24550299800133243, 0.4177215189873418, 0.7551632245169887, 0.3117921385742838, 0.570286475682878, 0.7924716855429713, 0.24616922051965356, 0.8824117255163224, 0.7674883411059293]
+4000 [0.41179410294852575, 0.6476761619190404, 0.4535232383808096, 0.875312343828086, 0.6619190404797601, 0.24387806096951525, 0.4222888555722139, 0.7616191904047976, 0.31284357821089454, 0.5719640179910045, 0.7913543228385808, 0.24587706146926536, 0.8820589705147426, 0.7698650674662668]
+5000 [0.41203518592562977, 0.647141143542583, 0.45621751299480207, 0.8744502199120352, 0.6603358656537385, 0.23930427828868453, 0.4226309476209516, 0.7626949220311875, 0.3170731707317073, 0.5727708916433427, 0.789484206317473, 0.24710115953618553, 0.8798480607756898, 0.7704918032786885]
+6000 [0.41036321226257916, 0.6429523492169277, 0.4501832722425858, 0.8755414861712763, 0.6531156281239587, 0.2465844718427191, 0.41836054648450516, 0.7582472509163612, 0.31356214595134957, 0.5659780073308897, 0.7845718093968677, 0.2437520826391203, 0.8787070976341219, 0.7665778073975341]
+7000 [0.4124535846900885, 0.6452442159383034, 0.45215652670665524, 0.8774635818337618, 0.6552413596115395, 0.24478720365609827, 0.4181662382176521, 0.7587832047986289, 0.31348186232505, 0.572407883461868, 0.7863467580691231, 0.2493573264781491, 0.8803199085975436, 0.7710654098828906]
+8000 [0.4157710572356911, 0.6464633841539615, 0.45601099725068733, 0.8806548362909272, 0.6567108222944263, 0.2459385153711572, 0.4202699325168708, 0.7621844538865283, 0.3189202699325169, 0.5738565358660335, 0.7866783304173957, 0.252061984503874, 0.8782804298925269, 0.7736815796050988]
+9000 [0.4177960453232615, 0.6467451677405021, 0.4578982448344812, 0.8803599200177739, 0.6587425016662963, 0.24894467896023106, 0.42223950233281493, 0.762497222839369, 0.32015107753832484, 0.5735392135081093, 0.7862697178404799, 0.25261053099311265, 0.8773605865363253, 0.7739391246389691]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7869426114777045,
+ {&#39;Facilitated.learning&#39;: 0.051515151515151736,
+  &#39;Provided.helpful.feedback&#39;: -0.06666666666666643,
+  &#39;Is.an.expert&#39;: 0.01818181818181852,
+  &#39;Graded.in.a.timely.manner&#39;: -0.17424242424242387,
+  &#39;Graded.Fairly&#39;: -0.0848484848484845,
+  &#39;Did.NOT.respond.to.email.promptly&#39;: 0.15757575757575726,
+  &#39;Knowledgable.of.course.content&#39;: 0.0333333333333341,
+  &#39;Helpful.feedback.vias.Canvas.discussion&#39;: -0.13333333333333375,
+  &#39;Consistently.fulfilled.responsibilities&#39;: 0.06666666666666643,
+  &#39;Considerate.in.communication&#39;: -0.0242424242424244,
+  &#39;Treated.me.with.respect&#39;: -0.10303030303030347,
+  &#39;Enthusiastic&#39;: 0.12575757575757596,
+  &#39;Professional&#39;: -0.15000000000000036,
+  &#39;TA.again&#39;: -0.15000000000000036},
+ {&#39;Facilitated.learning&#39;: 0.41985801419858015,
+  &#39;Provided.helpful.feedback&#39;: 0.6459354064593541,
+  &#39;Is.an.expert&#39;: 0.45835416458354167,
+  &#39;Graded.in.a.timely.manner&#39;: 0.8809119088091191,
+  &#39;Graded.Fairly&#39;: 0.6594340565943405,
+  &#39;Did.NOT.respond.to.email.promptly&#39;: 0.24987501249875013,
+  &#39;Knowledgable.of.course.content&#39;: 0.42455754424557546,
+  &#39;Helpful.feedback.vias.Canvas.discussion&#39;: 0.7619238076192381,
+  &#39;Consistently.fulfilled.responsibilities&#39;: 0.32086791320867913,
+  &#39;Considerate.in.communication&#39;: 0.5740425957404259,
+  &#39;Treated.me.with.respect&#39;: 0.7851214878512148,
+  &#39;Enthusiastic&#39;: 0.2521747825217478,
+  &#39;Professional&#39;: 0.8780121987801219,
+  &#39;TA.again&#39;: 0.7752224777522247})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
+<span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.08</span><span class="o">*</span><span class="mf">1.0e-5</span><span class="p">),</span><span class="n">df</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.203092328742278e-05
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
