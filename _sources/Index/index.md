@@ -44,6 +44,8 @@ notebooks and materials : [cryptorandom](https://github.com/statlab/cryptorandom
 notebooks and materials : [Permutation Tests](https://ucb-stat-159-s21.github.io/site/Notes/permute-intro.html), [UC Deal with Elsevier](https://news.berkeley.edu/2021/03/16/ucs-deal-with-elsevier-what-it-took-what-it-means-why-it-matters/), [Jupyter History](https://www.techrepublic.com/article/jupyter-has-revolutionized-data-science-and-it-started-with-a-chance-meeting-between-two-students/)
 - **Lecture 18** (2021-03-18) : [video](https://drive.google.com/file/d/1H1UsqSrFratPKcmAbv-nrDAtpA3kdqtc/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1IHC1f7LF24T8iFaOGV6qFK1epNTI67QP-fG2s6MMGAI/edit?usp=sharing)   
 notebooks and materials : [Git Remote Branches](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches), [Intro to Make](https://www.gnu.org/software/make/manual/make.html#Introduction), [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
+- **Lecture 19** (2021-03-30) : [video](https://drive.google.com/file/d/1BDNo8BLySHUqVAtWiXtVhPEritPhDYJh/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1GbAvqBUq8qy8kfgBmB7PDGz6tKyoS3GAIFKOeCzbSxc/edit?usp=sharing)   
+notebooks and materials : [cMake](https://cmake.org/), [Invoke](http://www.pyinvoke.org/), [Prefect](https://www.prefect.io/), [Sphinx](https://www.sphinx-doc.org/en/master/), [reStructuredText](https://docutils.sourceforge.io/rst.html), [Jupyter Book](https://jupyterbook.org/intro.html), [MyST Markdown](https://jupyterbook.org/content/myst.html)
 
 
 ## Labs
