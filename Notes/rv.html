@@ -152,6 +152,11 @@
    6. Homework 6: Cryptorandom - contributing to an open source project
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw06-cryptorandom-tips.html">
+   7. Some tips for HW06
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -894,8 +899,8 @@ However, the converse is not necessarily true: <span class="math notranslate noh
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> are jointly distributed random variables, and let
 $$
 X =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8bb2530-8445-4329-8b6f-b9a427775fb7">
-<span class="eqno">()<a class="headerlink" href="#equation-b8bb2530-8445-4329-8b6f-b9a427775fb7" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-647bab8f-48ba-4ffc-b714-a6af4ad26833">
+<span class="eqno">()<a class="headerlink" href="#equation-647bab8f-48ba-4ffc-b714-a6af4ad26833" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 \\
 \vdots \\
 X_n
@@ -906,8 +911,8 @@ Then \)</span>X<span class="math notranslate nohighlight">\( is a random vector,
 <p>The expected value of <span class="math notranslate nohighlight">\(X\)</span> is
 $$
 {\mathbb E} X \equiv</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae3c6faa-e87b-43c4-80ab-cdb197852caa">
-<span class="eqno">()<a class="headerlink" href="#equation-ae3c6faa-e87b-43c4-80ab-cdb197852caa" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-5d17832a-319d-4e44-87a2-79a991fa9bd3">
+<span class="eqno">()<a class="headerlink" href="#equation-5d17832a-319d-4e44-87a2-79a991fa9bd3" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E} X_1 \\
 \vdots \\
 {\mathbb E} X_n
@@ -919,14 +924,14 @@ $$
 \mbox{cov } X \equiv
 {\mathbb E}
 \left (</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8805818-f287-49b1-a1ef-5b53aef2f647">
-<span class="eqno">()<a class="headerlink" href="#equation-e8805818-f287-49b1-a1ef-5b53aef2f647" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-669cef26-a05a-48a6-a643-1aec38000481">
+<span class="eqno">()<a class="headerlink" href="#equation-669cef26-a05a-48a6-a643-1aec38000481" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 \\
 \vdots \\
 X_n - {\mathbb E} X_n
 \end{pmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-7a0c340a-6f4c-44bd-aefb-1ac8746481c7">
-<span class="eqno">()<a class="headerlink" href="#equation-7a0c340a-6f4c-44bd-aefb-1ac8746481c7" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-f3208e74-b201-4edb-b77e-ad7aecf69e7d">
+<span class="eqno">()<a class="headerlink" href="#equation-f3208e74-b201-4edb-b77e-ad7aecf69e7d" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 \end{pmatrix}\]</div>
 </div>
@@ -934,8 +939,8 @@ X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 <div class="section" id="right">
 <h1>\right )<a class="headerlink" href="#right" title="Permalink to this headline">¶</a></h1>
 <p>{\mathbb E}</p>
-<div class="amsmath math notranslate nohighlight" id="equation-204e6937-f74d-492e-87bd-f6cda970a08b">
-<span class="eqno">()<a class="headerlink" href="#equation-204e6937-f74d-492e-87bd-f6cda970a08b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-af488b08-3af6-4c66-91af-dd362ff1a4ba">
+<span class="eqno">()<a class="headerlink" href="#equation-af488b08-3af6-4c66-91af-dd362ff1a4ba" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 (X_1 - {\mathbb E} X_1)^2 &amp; (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; \cdots &amp; (X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n) \\
 (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; (X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; (X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n) \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
@@ -944,8 +949,8 @@ X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 <div class="math notranslate nohighlight">
 \[\]</div>
 <p>=</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff28def5-c2aa-45fa-bd47-945dd607b5af">
-<span class="eqno">()<a class="headerlink" href="#equation-ff28def5-c2aa-45fa-bd47-945dd607b5af" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-3fc1cdb1-0193-42d3-87db-7d241f7d8804">
+<span class="eqno">()<a class="headerlink" href="#equation-3fc1cdb1-0193-42d3-87db-7d241f7d8804" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E}(X_1 - {\mathbb E} X_1)^2 &amp; {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; \cdots &amp; 
 {\mathbb E}(X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n)) \\
 {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; {\mathbb E}(X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; 
