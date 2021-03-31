@@ -450,21 +450,21 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(P \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(P)\)</span> is a function of <span class="math notranslate nohighlight">\(P\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a487a430-e411-41ce-892c-8fe49e4372e3">
-<span class="eqno">()<a class="headerlink" href="#equation-a487a430-e411-41ce-892c-8fe49e4372e3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09c8661b-c34b-4988-9d03-805a5f1396ab">
+<span class="eqno">()<a class="headerlink" href="#equation-09c8661b-c34b-4988-9d03-805a5f1396ab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(P) = \mathbb{E}X \equiv \int_\mathcal{X} x dP(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6fa921b-30a0-44fe-b2f5-70dcf2289817">
-<span class="eqno">()<a class="headerlink" href="#equation-a6fa921b-30a0-44fe-b2f5-70dcf2289817" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d6ad260f-0828-42d7-abb2-95d572e78858">
+<span class="eqno">()<a class="headerlink" href="#equation-d6ad260f-0828-42d7-abb2-95d572e78858" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(P) = \mathbb{E}X^n \equiv \int_\mathcal{X} x^n dP(x), \;\; n=1, 2, \ldots .
 \end{equation}\]</div>
 <p>Other properties of <span class="math notranslate nohighlight">\(P\)</span>, such as percentiles of a univariate
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(P\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a367e5a8-709a-48e2-bb8d-434a744d188b">
-<span class="eqno">()<a class="headerlink" href="#equation-a367e5a8-709a-48e2-bb8d-434a744d188b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-47c933a4-ff6b-48db-92fc-5df58ee3e62e">
+<span class="eqno">()<a class="headerlink" href="#equation-47c933a4-ff6b-48db-92fc-5df58ee3e62e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(P) = P_\alpha \equiv \inf \left \{x: \int_{-\infty}^x dP(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -564,8 +564,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(P) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fed8ce84-50ab-450d-a9b6-8c8d5a2e78fd">
-<span class="eqno">()<a class="headerlink" href="#equation-fed8ce84-50ab-450d-a9b6-8c8d5a2e78fd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a486901b-546a-4b51-a8a3-27c2bacb78cc">
+<span class="eqno">()<a class="headerlink" href="#equation-a486901b-546a-4b51-a8a3-27c2bacb78cc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is a <em>confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(P)\)</span>.
@@ -587,8 +587,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-726247fb-3766-4134-ad7f-1fa472aea13d">
-<span class="eqno">()<a class="headerlink" href="#equation-726247fb-3766-4134-ad7f-1fa472aea13d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fbb64cdd-8fd3-4894-9c4a-7a51cd6592d5">
+<span class="eqno">()<a class="headerlink" href="#equation-fbb64cdd-8fd3-4894-9c4a-7a51cd6592d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \Pr \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -605,20 +605,20 @@ hypothesis tests.</p>
 <p>Suppose we have a family of significance level <span class="math notranslate nohighlight">\(\alpha\)</span> hypothesis tests for all possible values of a parameter <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>.
 That is, for each <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, we have a test <span class="math notranslate nohighlight">\(T_\eta : \mathcal{X} \rightarrow \{0, 1\}\)</span> such that
 if <span class="math notranslate nohighlight">\(\theta(P) = \eta\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf0aa4e9-f857-49af-a2f0-b551b90332ac">
-<span class="eqno">()<a class="headerlink" href="#equation-bf0aa4e9-f857-49af-a2f0-b551b90332ac" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e25706e-0c47-4917-bdc6-439168ed1167">
+<span class="eqno">()<a class="headerlink" href="#equation-9e25706e-0c47-4917-bdc6-439168ed1167" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P \{ T_\eta(X) = 0 \} \le \alpha.
 \end{equation}\]</div>
 <p>Consider the set</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61564702-db2a-4a26-8245-7025e4860f9f">
-<span class="eqno">()<a class="headerlink" href="#equation-61564702-db2a-4a26-8245-7025e4860f9f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-27747584-999e-4ec4-bbea-79982f170fa0">
+<span class="eqno">()<a class="headerlink" href="#equation-27747584-999e-4ec4-bbea-79982f170fa0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathcal{I}(X) \equiv \{ \eta \in \Theta : T_\eta(X) = 1 \};
 \end{equation}\]</div>
 <p>that is, <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> is the set of possible parameters <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span> for which the corresponding test <span class="math notranslate nohighlight">\(T_\eta\)</span> does not reject the hypothesis that <span class="math notranslate nohighlight">\(\theta(P) = \eta\)</span>.</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(P)\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d2ca277-9abd-4b1b-ac1f-7646496d19fa">
-<span class="eqno">()<a class="headerlink" href="#equation-5d2ca277-9abd-4b1b-ac1f-7646496d19fa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-04a480fd-a7ec-45ca-9fa9-6a3d70f5ce26">
+<span class="eqno">()<a class="headerlink" href="#equation-04a480fd-a7ec-45ca-9fa9-6a3d70f5ce26" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P \{ \mathcal{I}(X) \ni \theta(P) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set <span class="math notranslate nohighlight">\(\mathcal{I}(X) \ni \theta(P)\)</span> whenever <span class="math notranslate nohighlight">\(T_{\theta(P)}(X) = 1\)</span>.

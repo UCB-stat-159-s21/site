@@ -275,8 +275,14 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#do-a-dev-install">
-   7.1. Do a dev install
+  <a class="reference internal nav-link" href="#install-cryptorandom-locally-in-development-mode">
+   7.1. Install
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cryptorandom
+    </span>
+   </code>
+   locally in development mode
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -309,9 +315,16 @@
   <div class="section" id="some-tips-for-hw06">
 <h1><span class="section-number">7. </span>Some tips for HW06<a class="headerlink" href="#some-tips-for-hw06" title="Permalink to this headline">¶</a></h1>
 <p>These notes should help you work through some of the issues we discussed in lecture today, regarding how to render the sphinx documentation for cryptorandom in the hub, and how to then view your own build of these docs through the hub.</p>
+<p>Basically we need to solve the following problems:</p>
+<ol class="simple">
+<li><p>We need to ensure that pytest, Sphinx and other tools find and use our in-development version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> instead of the system-wide one, so our new work is reflected in the tests and documentation we create.</p></li>
+<li><p>We need to be able to build the documentation on JupyterHub and view the resulting docs online easily, through the Hub.</p></li>
+</ol>
 <p>Credit and huge thanks to <a class="reference external" href="https://github.com/yuvipanda">Yuvi Panda</a> from the JupyterHub/Berkeley team for his help navigating the proxy issues detailed below.</p>
-<div class="section" id="do-a-dev-install">
-<h2><span class="section-number">7.1. </span>Do a dev install<a class="headerlink" href="#do-a-dev-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-cryptorandom-locally-in-development-mode">
+<h2><span class="section-number">7.1. </span>Install <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> locally in development mode<a class="headerlink" href="#install-cryptorandom-locally-in-development-mode" title="Permalink to this headline">¶</a></h2>
+<p>The first issue we must solve is for Sphinx to find the version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> that you are working on, rather than the installed one. This manifests itself immediately as the <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> you see regarding a missing <code class="docutils literal notranslate"><span class="pre">__version__</span></code> attribute when trying to build the docs, but even if you fix that with a quick hack as I did in lecture, you’ll still have a problem. The issue is that the docs will import the <em>system-wide installed</em> version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code>, and not your local development copy. So any new docstrings or function signatures you edit will not be correctly reflected in the resulting docs.</p>
+<p>The solution is to install your working copy as a <em>development version</em>, also known as an <em>“editable install”</em> (hence the <code class="docutils literal notranslate"><span class="pre">-e</span></code> command line argument). We now explain how to do this, and you can find more details in the <a class="reference external" href="https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs">pip documentation</a>.</p>
 <p>In the top-level of the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> directory, where the file <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> lives, run the command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p>
 <p>You should see something like the following output (with your own user name in the path):</p>
@@ -370,6 +383,7 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 <p>(if you had configured the python HTTP server to use a different port than 8000 you’d change that number, and similarly if the name of the file you wanted to look at was different you’d adjust the path).</p>
 <p>That URL will automatically change to a different one, with your username, and should show you the build of the docs. This is what that looks like for me when it’s all running:</p>
 <p><img alt="" src="../_images/hw06-sphinx-build-hub-proxy-view.png" /></p>
+<p>As a side note, you may want to explore using <a class="reference external" href="https://github.com/executablebooks/sphinx-autobuild">sphinx-autobuild</a>, a tool that automatically builds and reloads your Sphinx docs as you make changes. I haven’t personally tested it yet but it looks interesting, it is developed by the same team from the Executable Books project that builds JupyterBook.</p>
 </div>
 <div class="section" id="development-workfow">
 <h2><span class="section-number">7.4. </span>Development workfow<a class="headerlink" href="#development-workfow" title="Permalink to this headline">¶</a></h2>
