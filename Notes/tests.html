@@ -285,6 +285,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-functions-versus-acceptance-regions">
+     Test functions versus acceptance regions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#aside-on-notation">
      Aside on notation
     </a>
@@ -570,20 +575,59 @@ A \equiv \left \{x = \{x_1, \ldots, x_n\}: \frac{1}{n} \sum_{j=1}^n x_j \le \fra
 <p>In this example, the test statistic is the sample mean, and the region <span class="math notranslate nohighlight">\(A\)</span> is the set of all data for which the
 sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt{n}\)</span>.</p>
 </div>
+<div class="section" id="test-functions-versus-acceptance-regions">
+<h3>Test functions versus acceptance regions<a class="headerlink" href="#test-functions-versus-acceptance-regions" title="Permalink to this headline">¶</a></h3>
+<p>Instead of working with a set <span class="math notranslate nohighlight">\(A\)</span>, we can work with the indicator function of the set <span class="math notranslate nohighlight">\(A\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+1_A &amp;:&amp; \mathcal{X} \rightarrow \{0, 1\} \\
+       &amp;&amp; x  \mapsto \left \{ \begin{array}{ll}
+                    1, &amp; x \in A \\
+                    0, &amp; \mbox{ otherwise. } 
+                    \end{array} \right .
+\end{eqnarray*}\]</div>
+<p>Then we reject the null hypothesis if <span class="math notranslate nohighlight">\(1_A(X) = 0\)</span> and do not reject it if <span class="math notranslate nohighlight">\(1_A(X) = 1\)</span>.</p>
+<p>This can be generalized by using <em>test functions</em> <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> that take
+values in <span class="math notranslate nohighlight">\([0,1]\)</span> rather than just <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>, as described below.
+In that case, when <span class="math notranslate nohighlight">\(X=x\)</span>, the test rejects the null with probability <span class="math notranslate nohighlight">\(\phi(x)\)</span>, i.e.,
+if <span class="math notranslate nohighlight">\(\phi(X) = 0\)</span>, the test certainly does not reject the null;
+if <span class="math notranslate nohighlight">\(\phi(X) = 1\)</span>, the test certainly rejects the null; and if <span class="math notranslate nohighlight">\(\phi(X) = q \in (0, 1)\)</span>,
+it rejects the null with probability <span class="math notranslate nohighlight">\(q\)</span>.
+This is called a <em>randomized test</em>, discussed further below.</p>
+</div>
 <div class="section" id="aside-on-notation">
 <h3>Aside on notation<a class="headerlink" href="#aside-on-notation" title="Permalink to this headline">¶</a></h3>
 <p>The following all mean the same thing, namely, the probability that the random variable <span class="math notranslate nohighlight">\(X\)</span> takes a value in the set <span class="math notranslate nohighlight">\(A\)</span> if the distribution of <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\Pr \{X \in A || X \sim \mathbb{P}_0 \}\\
+\Pr \{X \in A || X \sim \mathbb{P}_0 \},
 \end{equation*}\]</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\Pr_{X \sim \mathbb{P}_0} \{X \in A\}\\
+\Pr_{X \sim \mathbb{P}_0} \{X \in A\},
 \end{equation*}\]</div>
+<p>and</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \mathbb{P}_0 \{X \in A\}.
+\end{equation*}\]</div>
+<p>For expectations, we use similar notation:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E} (X || X \sim \mathbb{P}_0)
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}_{X \sim \mathbb{P}_0} X ,
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}_{\mathbb{P}_0} X,
+\end{equation*}\]</div>
+<p>and sometimes</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}_{0} X.
 \end{equation*}\]</div>
 </div>
 </div>
@@ -594,14 +638,31 @@ sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt
 \[\begin{equation*}
    \alpha \equiv \mathbb{P}_0 \{X \notin A \}.
 \end{equation*}\]</div>
-<p>That is, it is the probability that the test rejects the null hypothesis when the null hypothesis is true.</p>
+<p>That is, it is the probability that the test rejects the null hypothesis when the null hypothesis is true.
+Because the expected value of an indicator function is the probability of the set, this can be written</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \alpha \equiv 1-\mathbb{E}_{\mathbb{P}_0} 1_A(X).
+\end{equation*}\]</div>
+<p>By analogy, for a test based on the test function <span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0,1]\)</span>,
+the significance level of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \alpha \equiv 1-\mathbb{E}_{\mathbb{P}_0} \phi(X).
+\end{equation*}\]</div>
 <p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the composite null hypothesis <span class="math notranslate nohighlight">\(H_0: X \sim \mathbb{P} \in \mathcal{P}_0\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
    \alpha \equiv \sup_{\mathbb{P_0} \in \mathcal{P}_0} \mathbb{P}_0 \{X \notin A \}.
 \end{equation*}\]</div>
-<p>That is, it is the largest probability that that the test rejects the null hypothesis when the null hypothesis is true.</p>
-<p>When <span class="math notranslate nohighlight">\(\mathcal{P}_0\)</span> contains only one distribution, the two definitions coincide.</p>
+<p>That is, it is the largest probability that that the test rejects the null hypothesis when the null hypothesis is true.
+For a test based on a a test function <span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0,1]\)</span>,
+the significance level of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \alpha \equiv 1- \inf_{\mathbb{P_0} \in \mathcal{P}_0} \mathbb{E}_{\mathbb{P}_0} \phi(X).
+\end{equation*}\]</div>
+<p>When <span class="math notranslate nohighlight">\(\mathcal{P}_0\)</span> contains only one distribution, the two definitions of significance level coincide.</p>
 </div>
 <div class="section" id="power">
 <h2>Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
@@ -611,16 +672,26 @@ sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt
    1-\beta \equiv \mathbb{P}_1 \{X \notin A \}
 \end{equation*}\]</div>
 <p>That is, the power is the chance that the test rejects the null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> when the alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> is true.</p>
+<p>For a test based on a test function <span class="math notranslate nohighlight">\(\phi\)</span>, the power is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   1-\beta \equiv 1 - \mathbb{E}_{\mathbb{P}_1} \phi(X).
+\end{equation*}\]</div>
 <p>The <em>power</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the composite alternative hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P} \in \mathcal{P}_1\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
    1-\beta \equiv \inf_{\mathbb{P_1} \in \mathcal{P}_1} \mathbb{P}_1 \{X \notin A \}.
 \end{equation*}\]</div>
 <p>That is, it is the smallest probability that that the test rejects the null hypothesis when the alternative hypothesis is true.</p>
+<p>For a test based on a test function <span class="math notranslate nohighlight">\(\phi\)</span>, the power is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   1-\beta \equiv 1 - \sup_{\mathbb{P_1} \in \mathcal{P}_1}\mathbb{E}_{\mathbb{P}_1} \phi(X).
+\end{equation*}\]</div>
 <p>When the alternative <span class="math notranslate nohighlight">\(\mathcal{P}_1\)</span> contains only one distribution, the two definitions coincide.</p>
 <p>Power and significance level are the (extremal) probability of the same event–namely, rejecting the null hypothesis–but computed under different assumptions.
 The power is computed under the assumption that the alternative hypothesis is true; the significance level is computed under the assumption that the null hypothesis is true.</p>
-<p>Foundational work by Jerzy Neyman (the founder of Berkeley’s Department of Statistics) and Egon Pearson showed how to find the most powerful test of a simple null hypothesis against a simple alternative hypothesis among all tests with a given significance level. They showed that the most powerful test had an acceptance region characterized by the likelihood ratio; see below.</p>
+<p>Seminal work by Jerzy Neyman (the founder of Berkeley’s Department of Statistics) and Egon Pearson showed how to find the most powerful test of a simple null hypothesis against a simple alternative hypothesis among all tests with a given significance level. They showed that the most powerful test had an acceptance region characterized by the likelihood ratio; see below.</p>
 </div>
 <div class="section" id="type-i-and-type-ii-errors">
 <h2>Type I and Type II errors<a class="headerlink" href="#type-i-and-type-ii-errors" title="Permalink to this headline">¶</a></h2>
@@ -654,9 +725,11 @@ Indeed, most analyses of clinical trial data I’ve seen test a statistical null
 That logic is flawed.</p>
 <div class="section" id="randomized-tests">
 <h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable <span class="math notranslate nohighlight">\(U\)</span> that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>. Then the acceptance region <span class="math notranslate nohighlight">\(A\)</span> is a subset of the Cartesian product of the data space and <span class="math notranslate nohighlight">\([0, 1]\)</span>. The null hypothesis is not rejected if <span class="math notranslate nohighlight">\((X, U) \in A\)</span>; otherwise it is rejected.</p>
+<p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable <span class="math notranslate nohighlight">\(U\)</span> that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>.
+Then the acceptance region <span class="math notranslate nohighlight">\(A\)</span> is a subset of the Cartesian product of the data space and <span class="math notranslate nohighlight">\([0, 1]\)</span>.
+The null hypothesis is not rejected if <span class="math notranslate nohighlight">\((X, U) \in A\)</span>; otherwise it is rejected.</p>
 <p>Randomized tests arise in a number of situations, including tests involving discrete distributions.
-They are also useful mathematical constructs for proving theorems about tests.
+Randomized tests are also useful for proving theorems about tests.
 For instance, <em>the Neyman-Pearson lemma</em> shows that the most powerful test of a simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> against a simple alternative hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_1\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> is
 a randomized test of the form:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -668,6 +741,14 @@ A = \{ (x, u): \mathcal{L}_0(x)/\mathcal{L}_1(x) &gt; c \} \cup \{ (x, u): (\mat
 where <span class="math notranslate nohighlight">\(\mathcal{L}_j(x)\)</span> is the likelihood of hypothesis <span class="math notranslate nohighlight">\(j\)</span> for data <span class="math notranslate nohighlight">\(x\)</span>.
 (This assumes <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span> and <span class="math notranslate nohighlight">\(\mathbb{P}_1\)</span> are <em>absolutely continuous</em> with respect to each other.)
 For a definition of the likelihood function, see <a class="reference internal" href="bayes.html"><span class="doc std std-doc">Bayesian and Frequentist Estimation and Inference</span></a>.</p>
+<p>A test based on a test function <span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0, 1]\)</span> is implicitly
+a randomized test if <span class="math notranslate nohighlight">\(\phi\)</span> can have a value strictly between 0 and 1.
+Then, we also use an auxilliary randomness, <span class="math notranslate nohighlight">\(U \sim U[0,1]\)</span> and reject the null
+if <span class="math notranslate nohighlight">\(U \ge \phi(X)\)</span>.
+This is completely equivalent to the description above, but instead of thinking
+in terms of a <em>set</em> <span class="math notranslate nohighlight">\(A \subset \mathcal{X} \times [0, 1]\)</span>, we think of a <em>function</em>
+<span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0, 1]\)</span>.
+In both formulations, we use <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(U\)</span> to decide whether to reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 </div>
 </div>
 <div class="section" id="p-values">
@@ -696,7 +777,7 @@ the null hypothesis is true, then <span class="math notranslate nohighlight">\(P
 observed.”
 That is not really a precise mathematical definition; moreover, not every <span class="math notranslate nohighlight">\(P\)</span>-value can be expressed naturally
 in that form and not everything of that form is a <span class="math notranslate nohighlight">\(P\)</span>-value.</p>
-<p>For randomized tests, <span class="math notranslate nohighlight">\(P(X, U)\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value if</p>
+<p>For randomized tests expressed in terms of acceptance regions, <span class="math notranslate nohighlight">\(P(X, U)\)</span> is a <span class="math notranslate nohighlight">\(P\)</span>-value if</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
  \mathbb{P}_0 \{ P(X,U) \le x \} \le x \;\; \forall x \in [0, 1].
@@ -936,7 +1017,7 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
-<img alt="../_images/tests_19_1.png" src="../_images/tests_19_1.png" />
+<img alt="../_images/tests_20_1.png" src="../_images/tests_20_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -952,7 +1033,7 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tests_20_0.png" src="../_images/tests_20_0.png" />
+<img alt="../_images/tests_21_0.png" src="../_images/tests_21_0.png" />
 </div>
 </div>
 <p>The (simulated) distribution is not dominated by the uniform.</p>
@@ -985,7 +1066,7 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
-<img alt="../_images/tests_22_2.png" src="../_images/tests_22_2.png" />
+<img alt="../_images/tests_23_2.png" src="../_images/tests_23_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1001,7 +1082,7 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tests_23_0.png" src="../_images/tests_23_0.png" />
+<img alt="../_images/tests_24_0.png" src="../_images/tests_24_0.png" />
 </div>
 </div>
 <p>Again, the (simulated) distribution is not dominated by the uniform. The <em>nominal</em> <span class="math notranslate nohighlight">\(P\)</span>-value based on treating the <span class="math notranslate nohighlight">\(Z\)</span>-statistic as if it had a standard normal distribution is not an <em>actual</em> <span class="math notranslate nohighlight">\(P\)</span>-value for this problem.</p>
@@ -1134,7 +1215,7 @@ The pmf of that distribution is plotted below.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tests_27_0.png" src="../_images/tests_27_0.png" />
+<img alt="../_images/tests_28_0.png" src="../_images/tests_28_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pmf: [(0, 0.016253869969040196), (1, 0.13544891640866824), (2, 0.34829721362229055), (3, 0.34829721362229055), (4, 0.13544891640866824), (5, 0.016253869969040196), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0), (10, 0.0)]
 </pre></div>
 </div>
@@ -1341,8 +1422,8 @@ p=0.7 estimated alpha=0.049856
 p=0.9 estimated alpha=0.049854
 p=0.95 estimated alpha=0.050085
 p=0.99 estimated alpha=0.049817
-CPU times: user 53min 43s, sys: 41.8 s, total: 54min 24s
-Wall time: 55min 15s
+CPU times: user 52min 13s, sys: 36 s, total: 52min 49s
+Wall time: 53min 28s
 </pre></div>
 </div>
 </div>
@@ -1398,8 +1479,8 @@ p=0.7 estimated alpha=0.049458
 p=0.9 estimated alpha=0.049673
 p=0.95 estimated alpha=0.050049
 p=0.99 estimated alpha=0.050015
-CPU times: user 1min 25s, sys: 1.28 s, total: 1min 26s
-Wall time: 1min 28s
+CPU times: user 1min 23s, sys: 797 ms, total: 1min 23s
+Wall time: 1min 24s
 </pre></div>
 </div>
 </div>
@@ -1499,19 +1580,19 @@ Wall time: 1min 28s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.04998
-p=0.05 estimated alpha=0.049967
-p=0.1 estimated alpha=0.05032
-p=0.3 estimated alpha=0.049918
-p=0.4 estimated alpha=0.050016
-p=0.5 estimated alpha=0.050399
-p=0.6 estimated alpha=0.049888
-p=0.7 estimated alpha=0.04996
-p=0.9 estimated alpha=0.049737
-p=0.95 estimated alpha=0.050028
-p=0.99 estimated alpha=0.049762
-CPU times: user 1min 30s, sys: 1.32 s, total: 1min 31s
-Wall time: 1min 33s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p=0.01 estimated alpha=0.050092
+p=0.05 estimated alpha=0.050045
+p=0.1 estimated alpha=0.049978
+p=0.3 estimated alpha=0.050282
+p=0.4 estimated alpha=0.050424
+p=0.5 estimated alpha=0.049985
+p=0.6 estimated alpha=0.050117
+p=0.7 estimated alpha=0.049918
+p=0.9 estimated alpha=0.049929
+p=0.95 estimated alpha=0.050044
+p=0.99 estimated alpha=0.0501
+CPU times: user 1min 23s, sys: 626 ms, total: 1min 24s
+Wall time: 1min 25s
 </pre></div>
 </div>
 </div>
@@ -1682,7 +1763,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7edd02633f8c48168c38d551b49818fa", "version_major": 2, "version_minor": 0}
+{"model_id": "5d05912bc4f94cec8cce15cfa20b1f93", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>
@@ -1755,7 +1836,8 @@ orbit of <span class="math notranslate nohighlight">\(x_0\)</span> under <span c
 \end{equation*}\]</div>
 <p>Once <span class="math notranslate nohighlight">\(x_0\)</span> is known, the events <span class="math notranslate nohighlight">\(\{T(\pi_j(x_0)) \ge T(x_0)\}\)</span> are IID with probability
 <span class="math notranslate nohighlight">\(P\)</span> of occurring, and <span class="math notranslate nohighlight">\(\hat{P}\)</span> is an unbiased estimate of <span class="math notranslate nohighlight">\(P\)</span>.</p>
-<p>Another estimate of <span class="math notranslate nohighlight">\(P\)</span>, arguably preferable (as discussed below), is</p>
+<p>Another estimate of <span class="math notranslate nohighlight">\(P\)</span> that can also be interpreted as an exact <span class="math notranslate nohighlight">\(P\)</span>-value for
+a randomized test (as discussed below), is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
   \hat{P}' = \frac{\#\{ k \ge 0: T(\pi_k(x_0)) \ge T(x_0)\}}{K+1},
