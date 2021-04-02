@@ -437,8 +437,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5afefa97-785a-4482-89e8-0fed7b3e90c7">
-<span class="eqno">()<a class="headerlink" href="#equation-5afefa97-785a-4482-89e8-0fed7b3e90c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-29c92134-bd13-41f3-8e42-c4a6c244f532">
+<span class="eqno">()<a class="headerlink" href="#equation-29c92134-bd13-41f3-8e42-c4a6c244f532" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -450,8 +450,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2159525d-3ac8-43b9-a43b-8f169d1daa01">
-<span class="eqno">()<a class="headerlink" href="#equation-2159525d-3ac8-43b9-a43b-8f169d1daa01" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f67bd16c-751d-4122-92bc-94d59bfffaae">
+<span class="eqno">()<a class="headerlink" href="#equation-f67bd16c-751d-4122-92bc-94d59bfffaae" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -484,12 +484,12 @@ of the parameter, no matter how many observations are made.</p>
 value of their parameter in a particular way.
 For instance, suppose that the outcome space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is a real vector space,
 so it makes sense to add elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> and to multiply them by scalars.</p>
-<p>If <span class="math notranslate nohighlight">\(X \sim \mathbb{P}\)</span>, then for any <span class="math notranslate nohighlight">\(\theta \in \mathcal{X}\)</span> and <span class="math notranslate nohighlight">\(a \in \Re \backslash \{0\}\)</span>,
-we could define <span class="math notranslate nohighlight">\(\mathbb{P}_{\theta,a}\)</span> to be the distribution of <span class="math notranslate nohighlight">\(aX+\theta\)</span>.
-Then <span class="math notranslate nohighlight">\(\{P_{\theta, a} \}_{\theta \in \mathcal{X}, a \in \Re \backslash \{0\}}\)</span> is a
+<p>If <span class="math notranslate nohighlight">\(X \sim \mathbb{P}\)</span>, then for any <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> and <span class="math notranslate nohighlight">\(a \in \Re \backslash \{0\}\)</span>,
+we could define <span class="math notranslate nohighlight">\(\mathbb{P}_{x,a}\)</span> to be the distribution of <span class="math notranslate nohighlight">\(aX+x\)</span>.
+Then <span class="math notranslate nohighlight">\(\{P_{x, a} \}_{x \in \mathcal{X}, a \in \Re \backslash \{0\}}\)</span> is a
 <em>location-scale family</em>
-with parameter <span class="math notranslate nohighlight">\((\theta, a)\)</span>
-As <span class="math notranslate nohighlight">\(\theta\)</span> varies, the probability distribution “shifts” its location.
+with parameter <span class="math notranslate nohighlight">\(\theta = (x, a)\)</span>
+As <span class="math notranslate nohighlight">\(x\)</span> varies, the probability distribution “shifts” its location.
 As <span class="math notranslate nohighlight">\(a\)</span> varies, the probability distribution <span class="math notranslate nohighlight">\(P\)</span> is “stretched” or re-scaled.
 The family of univariate normal distributions is a location-scale family over the two-dimensional parameter <span class="math notranslate nohighlight">\(\theta = (\mu, \sigma)\)</span> with <span class="math notranslate nohighlight">\(\mu \in \Re\)</span>, <span class="math notranslate nohighlight">\(\sigma \in \Re \backslash \{0\}\)</span>.</p>
 </div>
@@ -551,8 +551,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a3e39f7-af53-483e-8e6d-b0fd248782f9">
-<span class="eqno">()<a class="headerlink" href="#equation-0a3e39f7-af53-483e-8e6d-b0fd248782f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d21cf232-c8f8-4840-ab7c-63955444768d">
+<span class="eqno">()<a class="headerlink" href="#equation-d21cf232-c8f8-4840-ab7c-63955444768d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is a <em>confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -562,7 +562,7 @@ It maps outcomes to sets in such a way that the chance is at least
 The <em>confidence level</em> of the set is <span class="math notranslate nohighlight">\(1-\alpha\)</span>.</p>
 <p>When <span class="math notranslate nohighlight">\(\mathcal{I}(x) \ni \theta\)</span>, we say that the confidence set <em>covers</em> <span class="math notranslate nohighlight">\(\theta\)</span>.
 The <em>coverage probability</em> of the confidence set <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>
-is <span class="math notranslate nohighlight">\(\Pr_P \{\mathcal{I}(X) \ni \theta \}\)</span>.</p>
+is <span class="math notranslate nohighlight">\(\mathbb{P} \{\mathcal{I}(X) \ni \theta \}\)</span>.</p>
 <p>Before the data <span class="math notranslate nohighlight">\(X\)</span> are observed, the chance that <span class="math notranslate nohighlight">\(\mathcal{I}(X)\)</span> will contain <span class="math notranslate nohighlight">\(\theta\)</span>
 is <span class="math notranslate nohighlight">\(1-\alpha\)</span>.
 After the data <span class="math notranslate nohighlight">\(X=x\)</span> are observed, the set <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> either
@@ -571,21 +571,23 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <em>One-sided confidence intervals</em> are the special case that the confidence set is a semi-infinite interval, i.e., a set of real numbers of the form <span class="math notranslate nohighlight">\((-\infty, c]\)</span> or <span class="math notranslate nohighlight">\([c, \infty)\)</span>.</p>
 <div class="section" id="example-confidence-interval-for-a-normal-mean">
 <h3>Example: confidence interval for a Normal mean<a class="headerlink" href="#example-confidence-interval-for-a-normal-mean" title="Permalink to this headline">¶</a></h3>
-<p>Suppose <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>: <span class="math notranslate nohighlight">\(\theta\)</span> is an index parameter for the family of unit variance normal distributions and also a functional parameter, since <span class="math notranslate nohighlight">\(\mathbb{E} X = \theta\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>: <span class="math notranslate nohighlight">\(\theta\)</span> is an index parameter for the (parametric) family of unit variance normal distributions (<span class="math notranslate nohighlight">\(\mathcal{P} \equiv \{N(\eta, 1)\}_{\eta \in \Re}\)</span>) and also a functional parameter, since <span class="math notranslate nohighlight">\(\mathbb{E} X = \theta\)</span>.</p>
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-daef12d4-c8f2-4289-92d5-c1bef5b94407">
-<span class="eqno">()<a class="headerlink" href="#equation-daef12d4-c8f2-4289-92d5-c1bef5b94407" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f4eef7c3-d5c2-47a7-892b-bf8936af3db3">
+<span class="eqno">()<a class="headerlink" href="#equation-f4eef7c3-d5c2-47a7-892b-bf8936af3db3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
-Thus <span class="math notranslate nohighlight">\([x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span> is a confidence interval for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<p>Why is the coverage probability of <span class="math notranslate nohighlight">\([X - z_{1-\alpha/2}, X + z_{1-\alpha/2}]\)</span> equal to <span class="math notranslate nohighlight">\(1-\alpha\)</span>?</p>
-<p>The distribution of <span class="math notranslate nohighlight">\(X-\theta\)</span> is a standard normal, so</p>
+Thus <span class="math notranslate nohighlight">\([x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span>
+confidence interval for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Why is the coverage probability of <span class="math notranslate nohighlight">\([X - z_{1-\alpha/2}, X + z_{1-\alpha/2}]\)</span>
+equal to <span class="math notranslate nohighlight">\(1-\alpha\)</span>?</p>
+<p>The distribution of <span class="math notranslate nohighlight">\(X-\theta\)</span> is a standard normal (<span class="math notranslate nohighlight">\(N(0,1)\)</span>), so</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\mathbb{P}_\theta |X-\theta| \le z_{1-\alpha/2} = 1-\alpha.
+\mathbb{P}_\theta  \{|X-\theta| \le z_{1-\alpha/2} \} = 1-\alpha.
 \end{equation*}\]</div>
 <p>But whenever <span class="math notranslate nohighlight">\(|X-\theta| \le z_{1-\alpha/2}\)</span>,
 the interval <span class="math notranslate nohighlight">\([X - z_{1-\alpha/2}, X + z_{1-\alpha/2}]\)</span> contains <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
@@ -596,14 +598,14 @@ the interval <span class="math notranslate nohighlight">\([X - z_{1-\alpha/2}, X
 <p>One of the most versatile ways of constructing confidence sets is to <em>invert</em>
 hypothesis tests.</p>
 <p>Suppose we have a (possibly randomized) family of significance level <span class="math notranslate nohighlight">\(\alpha\)</span> hypothesis tests for all possible values of a parameter <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>.
-That is, for each <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, we have a test function
+That is, for each <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, we have a <em>test function</em> (aka <em>critical function</em>)
 <span class="math notranslate nohighlight">\(\phi_\eta : \mathcal{X} \rightarrow [0, 1]\)</span> such that if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span>,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \mathbb{E}_{\mathbb{P}} \phi_\eta(X) \ge 1-\alpha.
 \end{equation*}\]</div>
-<p>(Interpret
-<span class="math notranslate nohighlight">\(\phi_\eta(x)\)</span> as the probability of not rejecting the hypothesis <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span>
+<p>The test function
+<span class="math notranslate nohighlight">\(\phi_\eta(x)\)</span> is the probability of not rejecting the hypothesis <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span>
 when <span class="math notranslate nohighlight">\(X=x\)</span>.
 When <span class="math notranslate nohighlight">\(\phi_\eta(X) = 0\)</span>, we certainly reject the null; when
 <span class="math notranslate nohighlight">\(\phi_\eta(X)=1\)</span>, we certainly do not reject the null; values between 0 and 1 correspond to
@@ -620,8 +622,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38030a36-277b-400b-996d-ac66b4b15d41">
-<span class="eqno">()<a class="headerlink" href="#equation-38030a36-277b-400b-996d-ac66b4b15d41" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f17c19ce-700f-46eb-b3f9-0afcc8768ed0">
+<span class="eqno">()<a class="headerlink" href="#equation-f17c19ce-700f-46eb-b3f9-0afcc8768ed0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -739,15 +741,15 @@ root-finding problem.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1 covered 97.89%
-0.2 covered 96.99%
-0.30000000000000004 covered 95.29%
-0.4 covered 96.72%
-0.5 covered 97.07%
-0.6 covered 97.41%
-0.7000000000000001 covered 95.96%
-0.8 covered 95.42%
-0.9 covered 96.61%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1 covered  97.70%
+0.2 covered  96.78%
+0.3 covered  95.07%
+0.4 covered  96.72%
+0.5 covered  96.84%
+0.6 covered  97.26%
+0.7 covered  95.90%
+0.8 covered  95.13%
+0.9 covered  96.42%
 </pre></div>
 </div>
 </div>
@@ -787,7 +789,7 @@ That is,</p>
 \[\begin{equation*}
 \phi_q(x) = \left \{ \begin{array}{ll}
                       1, &amp; \sum_{k=x}^n \frac{\binom{I}{k}\binom{N-I}{n-k}}{\binom{N}{n}} \ge \alpha \\
-                      0, &amp; \mbox{otherwise}
+                      0, &amp; \mbox{otherwise.}
                       \end{array}
             \right .
 \end{equation*}\]</div>
@@ -802,11 +804,9 @@ f(x) \equiv \min \{I \in \{x, x+1, \ldots, N\} : \frac{\binom{I}{k}\binom{N-I}{n
 <p>Note that the upper tail probability does not increase monotonically as <span class="math notranslate nohighlight">\(I\)</span> increases;
 moreover, because <span class="math notranslate nohighlight">\(I\)</span> must be an integer, the optimization problem is discrete,
 not continuous.
-Thus standard root-finding methods will not let us find where the tail probability
+Thus standard root-finding methods will <em>not</em> let us find where the tail probability
 crosses <span class="math notranslate nohighlight">\(\alpha\)</span>.
 Instead, we will use a search.</p>
-<p>How can we bracket the root?</p>
-<p>Certainly we need <span class="math notranslate nohighlight">\(I \ge x\)</span> and <span class="math notranslate nohighlight">\(I \le N-(n-x)\)</span>.</p>
 <p>Let’s code this up in python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -856,13 +856,25 @@ Instead, we will use a search.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span>
-<span class="n">hypergeom_lower_ci</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NN</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">GG</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NN</span><span class="p">)):</span>
+    <span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">NN</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">GG</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nn</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">reps</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+        <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">hypergeom_lower_ci</span><span class="p">(</span><span class="n">NN</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nn</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">GG</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                 <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;N=</span><span class="si">{</span><span class="n">NN</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">, G=</span><span class="si">{</span><span class="n">GG</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">, n=</span><span class="si">{</span><span class="n">nn</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">: covered </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  98.82%
+N=50, G=30, n=20: covered  98.22%
+N=100, G=25, n=30: covered  97.39%
 </pre></div>
 </div>
 </div>

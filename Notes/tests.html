@@ -587,7 +587,7 @@ sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt
                     \end{array} \right .
 \end{eqnarray*}\]</div>
 <p>Then we reject the null hypothesis if <span class="math notranslate nohighlight">\(1_A(X) = 0\)</span> and do not reject it if <span class="math notranslate nohighlight">\(1_A(X) = 1\)</span>.</p>
-<p>This can be generalized by using <em>test functions</em> <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> that take
+<p>This can be generalized by using a <em>test function</em> or <em>critical function</em> <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> that take
 values in <span class="math notranslate nohighlight">\([0,1]\)</span> rather than just <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>, as described below.
 In that case, when <span class="math notranslate nohighlight">\(X=x\)</span>, the test rejects the null with probability <span class="math notranslate nohighlight">\(\phi(x)\)</span>, i.e.,
 if <span class="math notranslate nohighlight">\(\phi(X) = 0\)</span>, the test certainly does not reject the null;
@@ -633,22 +633,31 @@ This is called a <em>randomized test</em>, discussed further below.</p>
 </div>
 <div class="section" id="significance-level">
 <h2>Significance level<a class="headerlink" href="#significance-level" title="Permalink to this headline">¶</a></h2>
-<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is</p>
+<p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is the probability that the test rejects the null hypothesis when the null hypothesis is true:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
    \alpha \equiv \mathbb{P}_0 \{X \notin A \}.
 \end{equation*}\]</div>
-<p>That is, it is the probability that the test rejects the null hypothesis when the null hypothesis is true.
-Because the expected value of an indicator function is the probability of the set, this can be written</p>
+<p>Because the expected value of an indicator function is the probability of the set, this can be written</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
    \alpha \equiv 1-\mathbb{E}_{\mathbb{P}_0} 1_A(X).
 \end{equation*}\]</div>
-<p>By analogy, for a test based on the test function <span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0,1]\)</span>,
+<p>For a test based on the test function <span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0,1]\)</span>,
 the significance level of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
    \alpha \equiv 1-\mathbb{E}_{\mathbb{P}_0} \phi(X).
+\end{equation*}\]</div>
+<p>Why is this expression the probability of rejecting the null when the null is true?
+The test rejects when <span class="math notranslate nohighlight">\(U \ge \phi(X)\)</span>.
+By the law of total expectation (see <a class="reference internal" href="math-inequalities.html"><span class="doc std std-doc">Inequalities and Identities</span></a>),</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_{0,U} \{ U \ge \phi(X)\} = 
+\mathbb{E}_{\mathbb{P}_0, U} 1_{U \ge \phi(X)} = 
+\mathbb{E}_{\mathbb{P}_0} \mathbb{E}_U (1_{U \ge \phi(X)} | \phi(X)) =
+\mathbb{E}_{\mathbb{P}_0} (1-\phi(X)) = 1 - \mathbb{E}_{\mathbb{P}_0} \phi(X).
 \end{equation*}\]</div>
 <p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the composite null hypothesis <span class="math notranslate nohighlight">\(H_0: X \sim \mathbb{P} \in \mathcal{P}_0\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
