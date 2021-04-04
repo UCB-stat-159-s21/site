@@ -291,8 +291,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parameters-as-indices-of-sets-of-distributions">
-     Parameters as indices of sets of distributions
+    <a class="reference internal nav-link" href="#parameters-as-indices-for-sets-of-distributions">
+     Parameters as indices for sets of distributions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -383,9 +383,16 @@
      The two-sample problem
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-neyman-model-for-causal-inference">
+   The Neyman model for causal inference
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#alternative-hypotheses-constant-shift">
-     Alternative hypotheses: constant shift
+    <a class="reference internal nav-link" href="#alternative-hypotheses">
+     Alternative hypotheses
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -433,8 +440,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b776f0a0-859c-420f-9864-2faa0306459a">
-<span class="eqno">()<a class="headerlink" href="#equation-b776f0a0-859c-420f-9864-2faa0306459a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-22fc1ed4-d77d-4bc8-97e6-b211afa345e5">
+<span class="eqno">()<a class="headerlink" href="#equation-22fc1ed4-d77d-4bc8-97e6-b211afa345e5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -446,8 +453,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-91b04ad4-0fd1-4f97-b8b9-d0bfd69e4060">
-<span class="eqno">()<a class="headerlink" href="#equation-91b04ad4-0fd1-4f97-b8b9-d0bfd69e4060" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a3c978c-b9ef-4368-8fc3-86863f8a2932">
+<span class="eqno">()<a class="headerlink" href="#equation-7a3c978c-b9ef-4368-8fc3-86863f8a2932" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -458,8 +465,8 @@ are functional parameters.</p>
 For instance there are infinitely many normal distributions with the
 same mean (but different variances).</p>
 </section>
-<section id="parameters-as-indices-of-sets-of-distributions">
-<h3>Parameters as indices of sets of distributions<a class="headerlink" href="#parameters-as-indices-of-sets-of-distributions" title="Permalink to this headline">¶</a></h3>
+<section id="parameters-as-indices-for-sets-of-distributions">
+<h3>Parameters as indices for sets of distributions<a class="headerlink" href="#parameters-as-indices-for-sets-of-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Another use of the term “parameter” is as an abstract
 index that points to a particular distribution in
 a family of distributions.
@@ -547,20 +554,25 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a7c7ad4-7f70-41cd-a089-c7e534d6aa06">
-<span class="eqno">()<a class="headerlink" href="#equation-8a7c7ad4-7f70-41cd-a089-c7e534d6aa06" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1c618ad5-9db0-420d-8537-dc0d595d38f9">
+<span class="eqno">()<a class="headerlink" href="#equation-1c618ad5-9db0-420d-8537-dc0d595d38f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
-<p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is a <em>confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
+<p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
 It maps outcomes to sets in such a way that the chance is at least
-<span class="math notranslate nohighlight">\(1-\alpha\)</span> that the resulting set will contain the parameter <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.</p>
+<span class="math notranslate nohighlight">\(1-\alpha\)</span> that the resulting set will contain the true value of the
+parameter <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.</p>
 <p>If we observe <span class="math notranslate nohighlight">\(X=x\)</span>, <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for <span class="math notranslate nohighlight">\(\theta\)</span></em>.
 The <em>confidence level</em> of the set is <span class="math notranslate nohighlight">\(1-\alpha\)</span>.</p>
 <p>When <span class="math notranslate nohighlight">\(\mathcal{I}(x) \ni \theta\)</span>, we say that the confidence set <em>covers</em> <span class="math notranslate nohighlight">\(\theta\)</span>.
 The <em>coverage probability</em> of the confidence set <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>
-is <span class="math notranslate nohighlight">\(\mathbb{P} \{\mathcal{I}(X) \ni \theta \}\)</span>.</p>
+is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\inf_{\eta \in \Theta} \inf_{\mathbb{P} \in \mathcal{P} : \theta(\mathbb{P}) = \eta} \mathbb{P} \{\mathcal{I}(X) \ni \eta \}.
+\end{equation*}\]</div>
 <p>Before the data <span class="math notranslate nohighlight">\(X\)</span> are observed, the chance that <span class="math notranslate nohighlight">\(\mathcal{I}(X)\)</span> will contain <span class="math notranslate nohighlight">\(\theta\)</span>
-is <span class="math notranslate nohighlight">\(1-\alpha\)</span>.
+is the coverage probability, <span class="math notranslate nohighlight">\(1-\alpha\)</span>.
 After the data <span class="math notranslate nohighlight">\(X=x\)</span> are observed, the set <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> either
 does or does not contain <span class="math notranslate nohighlight">\(\theta\)</span>: there is nothing random anymore.</p>
 <p>A <em>confidence interval</em> is a special case of a confidence set, when the set is an interval of real numbers.
@@ -571,8 +583,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9496e9bc-4b73-4b00-a73c-c2e0a7ea8e64">
-<span class="eqno">()<a class="headerlink" href="#equation-9496e9bc-4b73-4b00-a73c-c2e0a7ea8e64" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-33eb7395-1d9b-47d1-8890-17d42fde83ac">
+<span class="eqno">()<a class="headerlink" href="#equation-33eb7395-1d9b-47d1-8890-17d42fde83ac" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -618,8 +630,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bfca57cd-7c4a-4189-9994-00a6b71d2124">
-<span class="eqno">()<a class="headerlink" href="#equation-bfca57cd-7c4a-4189-9994-00a6b71d2124" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e53f8b1-d54d-479b-a1c3-52e6259858c7">
+<span class="eqno">()<a class="headerlink" href="#equation-3e53f8b1-d54d-479b-a1c3-52e6259858c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -630,6 +642,10 @@ But when <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \thet
 \[\begin{equation*}
 \mathbb{P} \{\phi_\theta(X) \ge U\} = \mathbb{E}_{\mathbb{P}} \phi(X) \ge 1-\alpha.
 \end{equation*}\]</div>
+<p>In general, there are many ways to construct a set of tests <span class="math notranslate nohighlight">\(\{\phi_\eta\}_{\eta \in \Theta}\)</span> with significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.
+Inverting different tests will lead to confidence sets with different properties.</p>
+<p>It is often possible to design confidence sets that have desirable characteristics–such as avoiding including zero to the extent possible (so that they determine the sign of their parameter), or being on average as small as possible–by inverting suitably chosen tests.
+See, e.g., <a class="reference external" href="https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1998.10474112#.YGk8ERRKg-Q">Benjamini, Hochberg, and Stark (1996)</a>, <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476692">Benjamini and Stark (1996)</a>, and <a class="reference external" href="https://arxiv.org/abs/1906.00505">Benjamini, Hechtlinger, and Stark (2019)</a>.</p>
 <section id="example-confidence-interval-for-binomial-p-known-n">
 <h3>Example: confidence interval for Binomial <span class="math notranslate nohighlight">\(p\)</span> (known <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-confidence-interval-for-binomial-p-known-n" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we will observe <span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is known but <span class="math notranslate nohighlight">\(p\)</span> is not.
@@ -659,7 +675,7 @@ That is,</p>
 \[\begin{equation*}
 \phi_q(x) = \left \{ \begin{array}{ll}
                       1, &amp; \sum_{k=x}^n \binom{n}{k}q^k(1-q)^{n-k} \ge \alpha \\
-                      0, &amp; \mbox{otherwise}
+                      0, &amp; \mbox{otherwise.}
                       \end{array}
             \right .
 \end{equation*}\]</div>
@@ -731,7 +747,7 @@ root-finding problem.</p>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
         <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">binom_lower_ci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p</span>
                  <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> covered </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
     
 </pre></div>
 </div>
@@ -795,7 +811,7 @@ The lower endpoint of the one-sided confidence interval is the smallest value of
 corresponding test does not reject:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-f(x) \equiv \min \{I \in \{x, x+1, \ldots, N\} : \frac{\binom{I}{k}\binom{N-I}{n-k}}{\binom{N}{n}} \ge \alpha \}.
+f(x) \equiv \min \left \{I \in \{x, x+1, \ldots, N\} : \frac{\binom{I}{k}\binom{N-I}{n-k}}{\binom{N}{n}} \ge \alpha \right \}.
 \end{equation*}\]</div>
 <p>Note that the upper tail probability does not increase monotonically as <span class="math notranslate nohighlight">\(I\)</span> increases;
 moreover, because <span class="math notranslate nohighlight">\(I\)</span> must be an integer, the optimization problem is discrete,
@@ -881,9 +897,65 @@ N=100, G=25, n=30: covered  97.39%
 <h2>Confidence intervals from permutation tests<a class="headerlink" href="#confidence-intervals-from-permutation-tests" title="Permalink to this headline">¶</a></h2>
 <section id="the-two-sample-problem">
 <h3>The two-sample problem<a class="headerlink" href="#the-two-sample-problem" title="Permalink to this headline">¶</a></h3>
+<p>Recall from the chapter on <a class="reference internal" href="tests.html"><span class="doc std std-doc">hypothesis tests</span></a> that the two-sample problem asks whether two groups are unlikely to have resulted from allocating their union randomly into two groups of the observed sizes.
+That is, we have two groups of data <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span>, and hypothesize that they arose by taking the multiset of values <span class="math notranslate nohighlight">\(\{x_1, \ldots, x_n, y_1, \ldots, y_m\}\)</span> and randomly selecting <span class="math notranslate nohighlight">\(n\)</span> of them to comprise the first group, with the remaining <span class="math notranslate nohighlight">\(m\)</span> comprising the second group.</p>
+<p>This problem arises in many contexts, including randomized controlled trials:
+We have a group of <span class="math notranslate nohighlight">\(n+m\)</span> subjects of whom <span class="math notranslate nohighlight">\(n\)</span> are selected at random to be the control/placebo group
+and the other <span class="math notranslate nohighlight">\(m\)</span> receive the active treatment.
+The <em>strong null hypothesis</em> of no treatment effect is as follows: each subject would have had the same response, regardles of whether the subject was assigned to treatment or control.
+It is as if the response were determined before the assignment to treatment or control occurred. The assignment just reveals the response.</p>
 </section>
-<section id="alternative-hypotheses-constant-shift">
-<h3>Alternative hypotheses: constant shift<a class="headerlink" href="#alternative-hypotheses-constant-shift" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-neyman-model-for-causal-inference">
+<h2>The Neyman model for causal inference<a class="headerlink" href="#the-neyman-model-for-causal-inference" title="Permalink to this headline">¶</a></h2>
+<p>There are <span class="math notranslate nohighlight">\(N\)</span> subjects and <span class="math notranslate nohighlight">\(T\)</span> possible treatments.
+Each subject is represented by a ticket.
+Ticket <span class="math notranslate nohighlight">\(j\)</span> lists <span class="math notranslate nohighlight">\(T\)</span> numbers, <span class="math notranslate nohighlight">\((x_{j1}, \ldots, x_{jT})\)</span>.
+The value <span class="math notranslate nohighlight">\(x_{jt}\)</span> is the response subject <span class="math notranslate nohighlight">\(j\)</span> will have if assigned the <span class="math notranslate nohighlight">\(t\)</span>th treatment.
+(One of the <span class="math notranslate nohighlight">\(T\)</span> “treatments” might be control or placebo.)</p>
+<p>This mathematical set up embodies the <em>non-interference</em> assumption, which means that
+subject <span class="math notranslate nohighlight">\(j\)</span>’s response depends only on which treatment subject <span class="math notranslate nohighlight">\(j\)</span> receives, and not
+on the treatment other subjects receive.
+(That is not a good assumption in situations like vaccine trials, where whether one subject
+becomes infected may depend on which other subjects are vaccinated, if subjects
+mnay come in contact with each other.)</p>
+<p>This model is also called the <em>potential outcomes</em> model, because it starts with the
+<em>potential</em> outcomes each subject will have to each treatment. Assigning a subject to a
+treatment just reveals the potential outcome that corresponds to that treatment, for that subject.</p>
+<p>The <em>strong</em> null hypothesis is that subject by subject, the treatments are the same.
+That is,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+x_{j1} = x_{j2} = \cdots = x_{jT}, \;\; j=1, \ldots, N.
+\end{equation*}\]</div>
+<p>Different subjects may have different responses (<span class="math notranslate nohighlight">\(x_{jt}\)</span> might not equal <span class="math notranslate nohighlight">\(x_{kt}\)</span> if <span class="math notranslate nohighlight">\(j \ne k\)</span>), but each subject’s response is the same regardless of the treatment assigned
+to that subject.
+This is the null hypothesis Fisher considered in <em>The Design of Experiments</em> and generally
+considered the “correct” null in practice.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(T=2\)</span>: we are comparing two treatments. Suppose we assign <span class="math notranslate nohighlight">\(n\)</span> subjects at random
+to treatment 1 and the other <span class="math notranslate nohighlight">\(m = N-n\)</span> to treatment 2.
+Let <span class="math notranslate nohighlight">\(\{z_j\}_{j=1}^n\)</span> be the responses of the subjects assigned treatment 1
+and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span> be the responses of the subjects assigned treatment 2.
+(That is, <span class="math notranslate nohighlight">\(z_1 = x_{k1}\)</span> if <span class="math notranslate nohighlight">\(k\)</span> is the first subject assigned treatment <span class="math notranslate nohighlight">\(1\)</span>,
+and <span class="math notranslate nohighlight">\(y_1 = x_{k2}\)</span> if <span class="math notranslate nohighlight">\(k\)</span> is the first subject assigned treatment <span class="math notranslate nohighlight">\(2\)</span>.)
+Then testing the strong null hypothesis is identical to the two-sample problem:
+under the strong null, each subject’s response would have been the same, regardless
+of treatment, so allocating subject to treatments and observing their responses
+is just randomly partitioning a fixed set of <span class="math notranslate nohighlight">\(n\)</span> numbers into a group of size <span class="math notranslate nohighlight">\(n\)</span> and a group of size <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>The <em>weak</em> null hypothesis is that on average across subjects, all treatments have the same effect.
+That is,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\frac{1}{N} \sum_{j=1}^N x_{j1} = \frac{1}{N} \sum_{j=1}^N x_{j2} = \ldots = \frac{1}{N} \sum_{j=1}^N x_{jT}.
+\end{equation*}\]</div>
+<p>Much of Neyman’s work on experiments involves this null hypothesis.
+The statistical theory is more complex for the weak null hypothesis than for the strong null.</p>
+<p>The strong null is indeed a stronger hypothesis than the weak null, because if the strong null is true, the weak null must also be true: if two lists are equal, element by element, then their means are equal.
+But the converse is not true: the weak null can be true even if the strong null is false.
+For example, for <span class="math notranslate nohighlight">\(T=2\)</span> and <span class="math notranslate nohighlight">\(N=2\)</span>, we might have responses</p>
+<section id="alternative-hypotheses">
+<h3>Alternative hypotheses<a class="headerlink" href="#alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
+<p>The alternatives considered generally all</p>
 </section>
 <section id="alternative-hypotheses-constant-multiple">
 <h3>Alternative hypotheses: constant multiple<a class="headerlink" href="#alternative-hypotheses-constant-multiple" title="Permalink to this headline">¶</a></h3>
