@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Introduction to Risk-Limiting Election Audits &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -373,9 +369,9 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-risk-limiting-election-audits">
+  <section id="introduction-to-risk-limiting-election-audits">
 <h1>Introduction to Risk-Limiting Election Audits<a class="headerlink" href="#introduction-to-risk-limiting-election-audits" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="reading">
+<section id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Lindeman, M. and P.B. Stark, 2012.
@@ -387,8 +383,8 @@ Preprint: https://www.stat.berkeley.edu/~stark/Preprints/evidenceVote12.pdf</p><
 <li><p>Rivest, R.L. and E. Shen, 2012. A Bayesian Method for Auditing Elections, EVT/WOTE,
 https://www.usenix.org/system/files/conference/evtwote12/evtwote12-final30.pdf</p></li>
 </ol>
-</div>
-<div class="section" id="relevant-code">
+</section>
+<section id="relevant-code">
 <h2>Relevant code<a class="headerlink" href="#relevant-code" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>https://github.com/ron-rivest/audit-lab</p></li>
@@ -400,8 +396,8 @@ https://www.usenix.org/system/files/conference/evtwote12/evtwote12-final30.pdf</
 </li>
 <li><p>https://github.com/pbstark/DKDHondt14</p></li>
 </ol>
-</div>
-<div class="section" id="relevant-popular-press">
+</section>
+<section id="relevant-popular-press">
 <h2>Relevant popular press<a class="headerlink" href="#relevant-popular-press" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>http://www.huffingtonpost.com/american-statistical-association/leave-election-integrity-_b_3580649.html</p></li>
@@ -465,15 +461,15 @@ If we have strong statistical evidence that no candidate received as many votes 
 <p>The evidence can be direct (evidence about the fraction of votes for a given candidate), or indirect (evidence
 that errors in the count are not large enough to alter the outcome). Ballot-polling audits use the first kind of evidence;
 comparison audits use the second.</p>
-</div>
-<div class="section" id="super-simple-simultaneous-comparison-audits-for-plurality-contests">
+</section>
+<section id="super-simple-simultaneous-comparison-audits-for-plurality-contests">
 <h2>“Super-simple simultaneous” comparison audits for plurality contests:<a class="headerlink" href="#super-simple-simultaneous-comparison-audits-for-plurality-contests" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="the-kaplan-markov-inequality-wald-s-sequential-probability-ratio-test-and-the-kaplan-wald-inequality">
+<section id="the-kaplan-markov-inequality-wald-s-sequential-probability-ratio-test-and-the-kaplan-wald-inequality">
 <h3>The Kaplan-Markov Inequality, Wald’s Sequential Probability Ratio Test, and the Kaplan-Wald Inequality<a class="headerlink" href="#the-kaplan-markov-inequality-wald-s-sequential-probability-ratio-test-and-the-kaplan-wald-inequality" title="Permalink to this headline">¶</a></h3>
 <p>This section follows https://www.usenix.org/legacy/event/evtwote10/tech/full_papers/Stark.pdf closely, but derives something
 slightly more general.</p>
-</div>
-<div class="section" id="notation">
+</section>
+<section id="notation">
 <h3>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(C\)</span> contests under audit</p></li>
@@ -664,9 +660,9 @@ and</p>
 \end{equation*}\]</div>
 <p>So, if we have evidence that <span class="math notranslate nohighlight">\(\mathbb{E} T_1 &lt; \mu/2 = 1/U\)</span>, we have evidence that
 <span class="math notranslate nohighlight">\(E &lt; 1\)</span>.</p>
-</div>
-</div>
-<div class="section" id="p-values">
+</section>
+</section>
+<section id="p-values">
 <h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
 <p>We digress to define <span class="math notranslate nohighlight">\(P\)</span> values a little more carefully than elementary books typically do. See also Stark, P.B., 2016. The value of P-values, <em>The American Statistician,
 70,</em> DOI:10.1080/00031305.2016.1154108,
@@ -746,8 +742,8 @@ The <span class="math notranslate nohighlight">\(P\)</span>-value of the hypothe
 \[\begin{equation*}
    P = \inf \{ \alpha : \phi(y) \le f_\alpha \}.
 \end{equation*}\]</div>
-</div>
-<div class="section" id="the-kaplan-markov-inequality">
+</section>
+<section id="the-kaplan-markov-inequality">
 <h2>The Kaplan-Markov Inequality<a class="headerlink" href="#the-kaplan-markov-inequality" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are iid with <span class="math notranslate nohighlight">\(\mathbb{P}\{X_j \ge 0\} = 1\)</span>.
 Form the nonnegative Martingale:</p>
@@ -791,8 +787,8 @@ The transformation <span class="math notranslate nohighlight">\(X_j = 1 - T_j\)<
 <p>The <span class="math notranslate nohighlight">\(P\)</span>-value <span class="math notranslate nohighlight">\(P_{KM}\)</span> can depend on the order in which the
 data are collected, which is discomfiting unless the data are in fact
 collected sequentially.</p>
-</div>
-<div class="section" id="padding-the-kaplan-markov-inequality">
+</section>
+<section id="padding-the-kaplan-markov-inequality">
 <h2>Padding the Kaplan-Markov Inequality<a class="headerlink" href="#padding-the-kaplan-markov-inequality" title="Permalink to this headline">¶</a></h2>
 <p>The basic Kaplan-Markov inequality isn’t helpful if any observed <span class="math notranslate nohighlight">\(t_p\)</span>
 is equal to 1, that is, if the corresponding ballot was reported to have
@@ -850,7 +846,7 @@ The Kaplan-Markov MACRO <span class="math notranslate nohighlight">\(P\)</span>-
 the votes on ballots selected at random
 until <span class="math notranslate nohighlight">\(P_{KM} \le \alpha\)</span> or until the votes on all the ballots have been counted by hand
 (and the correct outcome is therefore known).</p>
-<div class="section" id="a-simple-approximation">
+<section id="a-simple-approximation">
 <h3>A simple approximation<a class="headerlink" href="#a-simple-approximation" title="Permalink to this headline">¶</a></h3>
 <p>The Kaplan-Markov <span class="math notranslate nohighlight">\(P\)</span>-value depends on which margins in which contests are affected by error,
 and the nature of those errors.<br />
@@ -952,9 +948,9 @@ an incorrect outcome is limited to <span class="math notranslate nohighlight">\(
   - u_1 \log \left ( 1 + \frac{1}{2\gamma}\right )
   - u_2 \log \left ( 1 + \frac{1}{\gamma}\right ) &lt; \log \alpha.
 \end{equation*}\]</div>
-</div>
-</div>
-<div class="section" id="estimating-the-required-sample-size">
+</section>
+</section>
+<section id="estimating-the-required-sample-size">
 <h2>Estimating the required sample size<a class="headerlink" href="#estimating-the-required-sample-size" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we expect to see errors of the various kinds, <span class="math notranslate nohighlight">\((o_1, o_2, u_1, u_2)\)</span>,
 at rates <span class="math notranslate nohighlight">\((\omega_1, \omega_2, \upsilon_1, \upsilon_2)\)</span>, respectively.
@@ -1068,16 +1064,16 @@ for <span class="math notranslate nohighlight">\(0 &lt; x &lt; 1\)</span>,</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="wald-s-sequential-probability-ratio-test">
+</section>
+<section id="wald-s-sequential-probability-ratio-test">
 <h2>Wald’s Sequential Probability Ratio Test<a class="headerlink" href="#wald-s-sequential-probability-ratio-test" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference internal" href="sprt.html"><span class="doc std std-doc">SPRT</span></a>.</p>
-</div>
-<div class="section" id="the-kaplan-wald-inequality">
+</section>
+<section id="the-kaplan-wald-inequality">
 <h2>The Kaplan-Wald Inequality<a class="headerlink" href="#the-kaplan-wald-inequality" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Kaplan-Wald</span></a>.</p>
-</div>
-<div class="section" id="auditing-super-majority-contests">
+</section>
+<section id="auditing-super-majority-contests">
 <h2>Auditing Super-Majority Contests<a class="headerlink" href="#auditing-super-majority-contests" title="Permalink to this headline">¶</a></h2>
 <p>In many states, some contests (e.g., ballot measures) require a <em>super-majority</em> to pass. For example, some contests require that more than 2/3 of the votes be “yes” votes. Super-majority contests were considered in the first paper on risk-limiting audits (Stark, 2008. Conservative Statistical Post-Election Audits, <em>Ann. Appl. Stat.</em>, <em>2</em>, 550–581 DOI: 10.1214/08-AOAS161), but ballot-level comparison audits have not been developed explicitly for such social choice functions.</p>
 <p>Here is a derivation.</p>
@@ -1216,7 +1212,7 @@ Then</p>
 \[\begin{equation*}
   n \log ( 1 - 1/U ) - \sum_{j=1}^n \log ( 1 - e_j|m|/\gamma ) &lt; \log \alpha.
 \end{equation*}\]</div>
-<div class="section" id="choosing-gamma">
+<section id="choosing-gamma">
 <h3>Choosing <span class="math notranslate nohighlight">\(\gamma\)</span><a class="headerlink" href="#choosing-gamma" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we want the “cost” (in terms of the increase to the sample size) of mistaking a “no” vote for a “yes” vote <span class="math notranslate nohighlight">\(k\)</span> times larger than the “cost” of mistaking an invalid vote for a “yes” vote.</p>
 <p>[TO BE COMPLETED]</p>
@@ -1318,9 +1314,9 @@ Then</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Algorithms for Pseudo-Random Permutations and Samples &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -401,10 +397,10 @@
         
               <div>
                 
-  <div class="section" id="algorithms-for-pseudo-random-permutations-and-samples">
+  <section id="algorithms-for-pseudo-random-permutations-and-samples">
 <h1>Algorithms for Pseudo-Random Permutations and Samples<a class="headerlink" href="#algorithms-for-pseudo-random-permutations-and-samples" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
-<div class="section" id="random-sampling">
+<section id="random-sampling">
 <h2>Random Sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>Random sampling is one of the most fundamental tools in Statistics.</p>
 <p>Used for:</p>
@@ -442,33 +438,33 @@
 </li>
 </ul>
 <p>and on and on.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="simple-random-sampling">
+<section id="simple-random-sampling">
 <h2>Simple random sampling<a class="headerlink" href="#simple-random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>Draw <span class="math notranslate nohighlight">\(k \le n\)</span> items from a population of <span class="math notranslate nohighlight">\(n\)</span> items, in such a way that
 each of the <span class="math notranslate nohighlight">\(n \choose k\)</span> subsets of size <span class="math notranslate nohighlight">\(k\)</span> is equally likely.</p>
 <p>Many standard statistical methods assume the sample is drawn in this way, or allocated between treatment and control in this way (e.g., <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> subjects are assigned to treatment, and the remaining <span class="math notranslate nohighlight">\(n-k\)</span> to control).</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="random-permutations">
+<section id="random-permutations">
 <h2>Random permutations<a class="headerlink" href="#random-permutations" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(n!\)</span> possible permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects.</p>
 <p><span class="math notranslate nohighlight">\(n!\)</span> grows quickly with <span class="math notranslate nohighlight">\(n\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  n! \sim \sqrt {2\pi n}\left({\frac {n}{e}}\right)^n (\mbox{Stirling's approximation})\end{equation*}\]</div>
-</div>
-<div class="section" id="pigeon-hole-principle">
+</section>
+<section id="pigeon-hole-principle">
 <h2>Pigeon-hole principle<a class="headerlink" href="#pigeon-hole-principle" title="Permalink to this headline">¶</a></h2>
 <p>If you put <span class="math notranslate nohighlight">\(N&gt;n\)</span> pigeons in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, then at least one
 pigeonhole must contain more than one pigeon.</p>
-</div>
-<div class="section" id="corollary">
+</section>
+<section id="corollary">
 <h2>Corollary<a class="headerlink" href="#corollary" title="Permalink to this headline">¶</a></h2>
 <p>At most <span class="math notranslate nohighlight">\(n\)</span> pigeons can be put in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes if at most
 one pigeon is put in each hole.</p>
-</div>
-<div class="section" id="some-pigeon-coops-flocks">
+</section>
+<section id="some-pigeon-coops-flocks">
 <h2>Some pigeon coops &amp; flocks<a class="headerlink" href="#some-pigeon-coops-flocks" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -534,13 +530,13 @@ one pigeon is put in each hole.</p>
 </table>
 <p>We will come back to these numbers.</p>
 <hr class="docutils" />
-<div class="section" id="id1">
+<section id="id1">
 <h3>Random sampling<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Given a good source of randomness, many ways to draw a simple random sample.</p>
 <p>One basic approach is like shuffling a deck of <span class="math notranslate nohighlight">\(n\)</span> cards, then dealing the top <span class="math notranslate nohighlight">\(k\)</span>: permute the population at random, then take the first <span class="math notranslate nohighlight">\(k\)</span> elements of the permutation to be the sample.</p>
 <p>There are a number of standard ways to generate a random permutation—i.e., to shuffle the deck.</p>
-</div>
-<div class="section" id="algorithm-pikk-permute-indices-and-keep-k">
+</section>
+<section id="algorithm-pikk-permute-indices-and-keep-k">
 <h3>Algorithm <code class="docutils literal notranslate"><span class="pre">PIKK</span></code> (permute indices and keep <span class="math notranslate nohighlight">\(k\)</span>)<a class="headerlink" href="#algorithm-pikk-permute-indices-and-keep-k" title="Permalink to this headline">¶</a></h3>
 <p>For instance, if we had a way to generate independent, identically distributed (iid) <span class="math notranslate nohighlight">\(U[0,1]\)</span> random numbers, we could do it as follows:</p>
 <p><strong>Algorithm <code class="docutils literal notranslate"><span class="pre">PIKK</span></code></strong></p>
@@ -621,8 +617,8 @@ while there are records left:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works">
+</section>
+<section id="proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works">
 <h3>Proof that the streaming Fisher-Yates-Knuth-Durstenfeld algorithm works<a class="headerlink" href="#proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works" title="Permalink to this headline">¶</a></h3>
 <p>Induction:</p>
 <p>For <span class="math notranslate nohighlight">\(i=1\)</span>, obvious.</p>
@@ -631,9 +627,9 @@ while there are records left:
 of the first <span class="math notranslate nohighlight">\(i\)</span>, or putting it in position <span class="math notranslate nohighlight">\(i+1\)</span>. These possibilities are mutually exclusive of
 the permutations attainable from a different permutation of the first <span class="math notranslate nohighlight">\(i\)</span> items.</p>
 <p>Thus, this enumerates all <span class="math notranslate nohighlight">\((i+1)i! = (i+1)!\)</span> permutations of <span class="math notranslate nohighlight">\((i+1)\)</span> items, and they are equally likely. ■</p>
-</div>
-</div>
-<div class="section" id="a-good-way-to-get-a-bad-shuffle">
+</section>
+</section>
+<section id="a-good-way-to-get-a-bad-shuffle">
 <h2>A good way to get a bad shuffle<a class="headerlink" href="#a-good-way-to-get-a-bad-shuffle" title="Permalink to this headline">¶</a></h2>
 <p>Sort using a “random” comparison function, e.g.,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def RandomSort(a,b):
@@ -641,12 +637,12 @@ the permutations attainable from a different permutation of the first <span clas
 </pre></div>
 </div>
 <p>But this fails the basic properties of an ordering, e.g., transitivity, reflexiveness, etc. Doesn’t produce random permutation. Output also depends on sorting algorithm.</p>
-<div class="section" id="the-right-way-the-wrong-way-and-the-microsoft-way">
+<section id="the-right-way-the-wrong-way-and-the-microsoft-way">
 <h3>The right way, the wrong way, and the Microsoft way.<a class="headerlink" href="#the-right-way-the-wrong-way-and-the-microsoft-way" title="Permalink to this headline">¶</a></h3>
 <p>Notoriously used by Microsoft to offer a selection of browsers in the EU. Resulted in IE being 5th of 5 about half the time in IE and about 26% of the time in Chrome, but only 6% of the time in Safari (4th about 40% of the time).</p>
 <p>See, e.g., http://www.computerworld.com/article/2520190/web-apps/microsoft-s-eu-ballot-fails-to-randomize-browser-order.html</p>
-</div>
-<div class="section" id="cormen-et-al-2009-algorithm-random-sample">
+</section>
+<section id="cormen-et-al-2009-algorithm-random-sample">
 <h3>Cormen et al. (2009) Algorithm <code class="docutils literal notranslate"><span class="pre">Random_Sample</span></code><a class="headerlink" href="#cormen-et-al-2009-algorithm-random-sample" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>recursive algorithm</p></li>
@@ -678,16 +674,16 @@ the permutations attainable from a different permutation of the first <span clas
 </div>
 </div>
 <p><strong>Proof.</strong> Recursion.</p>
-</div>
-</div>
-<div class="section" id="reservoir-algorithms">
+</section>
+</section>
+<section id="reservoir-algorithms">
 <h2>Reservoir algorithms<a class="headerlink" href="#reservoir-algorithms" title="Permalink to this headline">¶</a></h2>
 <p>The previous algorithms require <span class="math notranslate nohighlight">\(n\)</span> to be known.
 There are <em>reservoir</em> algorithms that do not.
 Moreover, the algorithms are suitable for streaming (aka <em>online</em>) use: items are examined
 sequentially and either enter into the reservoir, or, if not, are never revisited.</p>
-</div>
-<div class="section" id="algorithm-r-waterman-per-knuth-1997">
+</section>
+<section id="algorithm-r-waterman-per-knuth-1997">
 <h2>Algorithm <code class="docutils literal notranslate"><span class="pre">R</span></code>, Waterman (per Knuth, 1997)<a class="headerlink" href="#algorithm-r-waterman-per-knuth-1997" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Put first <span class="math notranslate nohighlight">\(k\)</span> items into the <em>reservoir</em></p></li>
@@ -716,13 +712,13 @@ sequentially and either enter into the reservoir, or, if not, are never revisite
 </div>
 </div>
 <p>Like <code class="docutils literal notranslate"><span class="pre">Random-Sample</span></code>, the proof that algorithm <code class="docutils literal notranslate"><span class="pre">R</span></code> generates an SRS uses the ability to generate independent random integers, uniformly distributed on <span class="math notranslate nohighlight">\(\{1, \ldots, m \}\)</span>.</p>
-</div>
-<div class="section" id="algorithm-z-vitter-1985">
+</section>
+<section id="algorithm-z-vitter-1985">
 <h2>Algorithm Z, Vitter (1985)<a class="headerlink" href="#algorithm-z-vitter-1985" title="Permalink to this headline">¶</a></h2>
 <p>Much more efficient than <code class="docutils literal notranslate"><span class="pre">R</span></code>, using random skips. Works in time essentially linear in <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p>Note: Vitter proposes using the (inaccurate) <span class="math notranslate nohighlight">\(J = \lfloor mU \rfloor\)</span> to generate a random integer between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(m\)</span> in both algorithm <code class="docutils literal notranslate"><span class="pre">R</span></code> and algorithm <code class="docutils literal notranslate"><span class="pre">Z</span></code>. The issue is pervasive!</p>
-</div>
-<div class="section" id="prngs-in-common-packages">
+</section>
+<section id="prngs-in-common-packages">
 <h2>PRNGs in Common packages<a class="headerlink" href="#prngs-in-common-packages" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -779,8 +775,8 @@ sequentially and either enter into the reservoir, or, if not, are never revisite
 generators, the 3-shift register SHR3 and the congruential generator CONG.</p>
 <p>Prior to April 2011, in Stata 10 exhibited predictable behavior:
 95.1% of the <span class="math notranslate nohighlight">\(2^{31}\)</span> possible seed values resulted in the first and second draws from rnormal() having the same sign.</p>
-</div>
-<div class="section" id="best-practices">
+</section>
+<section id="best-practices">
 <h2>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Use a source of real randomness with a substantial amount of entropy to set the seed, e.g., 20 rolls of 10-sided dice.</p></li>
@@ -792,8 +788,8 @@ generators, the 3-shift register SHR3 and the congruential generator CONG.</p>
 <li><p>Consider the size of the problem: are your PRNG and sampling algorithm adequate?</p></li>
 <li><p>Avoid “tests of representativeness” and procedures that reject some samples. They alter the distribution of the sample.</p></li>
 </ul>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Argyros, G. and A. Kiayias, 2012. PRNG: Pwning Random Number Generators.
@@ -814,8 +810,8 @@ https://media.blackhat.com/bh-us-12/Briefings/Argyros/BH_US_12_Argyros_PRNG_WP.p
 <li><p>Vitter, J.S., 1985. Random Sampling with a Reservoir, <em>ACM Transactions on Mathematical Software, 11</em>, 37–57.</p></li>
 <li><p>Wikipedia articles, including https://en.wikipedia.org/wiki/Mersenne_Twister, https://en.wikipedia.org/wiki/Linear_congruential_generator, https://en.wikipedia.org/wiki/Comparison_of_hardware_random_number_generators, https://en.wikipedia.org/wiki/Pseudorandom_number_generator, https://en.wikipedia.org/wiki/List_of_random_number_generators, https://en.wikipedia.org/wiki/Random_number_generator_attack</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

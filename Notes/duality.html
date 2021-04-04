@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Duality between confidence sets and hypothesis tests &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -327,9 +323,9 @@
         
               <div>
                 
-  <div class="section" id="duality-between-confidence-sets-and-hypothesis-tests">
+  <section id="duality-between-confidence-sets-and-hypothesis-tests">
 <h1>Duality between confidence sets and hypothesis tests<a class="headerlink" href="#duality-between-confidence-sets-and-hypothesis-tests" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="we-will-observe-x-sim-mathbb-p-mu-where-mu-in-theta">
+<section id="we-will-observe-x-sim-mathbb-p-mu-where-mu-in-theta">
 <h2>We will observe <span class="math notranslate nohighlight">\(X \sim \mathbb P_\mu\)</span>, where <span class="math notranslate nohighlight">\(\mu \in \Theta\)</span>.<a class="headerlink" href="#we-will-observe-x-sim-mathbb-p-mu-where-mu-in-theta" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Theta\)</span> is known</p></li>
@@ -368,8 +364,8 @@ and that <span class="math notranslate nohighlight">\(\mathcal I(X)\)</span> is 
         \mathbb P_\theta ( X \in A_\theta ) \end{equation*}\]</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \ge 1-\alpha.\end{equation*}\]</div>
-</div></div>
-<div class="section" id="we-will-use-this-approachinverting-teststo-construct-confidence-sets">
+</div></section>
+<section id="we-will-use-this-approachinverting-teststo-construct-confidence-sets">
 <h2>We will use this approach—inverting tests—to construct confidence sets.<a class="headerlink" href="#we-will-use-this-approachinverting-teststo-construct-confidence-sets" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>We are interested in <em>confidence bounds</em> for real-valued parameters, typically 1-sided bounds</p></li>
@@ -379,8 +375,8 @@ and that <span class="math notranslate nohighlight">\(\mathcal I(X)\)</span> is 
 <li><p>Inverting a family of tests that rejects <span class="math notranslate nohighlight">\(\mu = \theta\)</span> when <span class="math notranslate nohighlight">\(X\)</span> is sufficiently “extreme” typically leads to a confidence interval for <span class="math notranslate nohighlight">\(\mu\)</span></p></li>
 </ul>
 <p>(Exceptions arise from non-monotone likelihood ratios, etc.)</p>
-</div>
-<div class="section" id="example-one-sided-binomial-tests">
+</section>
+<section id="example-one-sided-binomial-tests">
 <h2>Example: one-sided binomial tests<a class="headerlink" href="#example-one-sided-binomial-tests" title="Permalink to this headline">¶</a></h2>
 <p>Consider <span class="math notranslate nohighlight">\(n\)</span> independent, uniform draws (i.e., a random sample with replacement) from a <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> population containing a fraction <span class="math notranslate nohighlight">\(p\)</span> of 1s.
 Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of 1s in the random sample. Then <span class="math notranslate nohighlight">\(X\)</span> has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -453,8 +449,8 @@ Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of
 <img alt="../_images/duality_5_1.png" src="../_images/duality_5_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="inverting-the-test-to-find-a-confidence-bound">
+</section>
+<section id="inverting-the-test-to-find-a-confidence-bound">
 <h2>Inverting the test to find a confidence bound<a class="headerlink" href="#inverting-the-test-to-find-a-confidence-bound" title="Permalink to this headline">¶</a></h2>
 <p>To turn this family of tests into a lower confidence bound, we need to find</p>
 <div class="amsmath math notranslate nohighlight">
@@ -521,8 +517,8 @@ Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of
 <img alt="../_images/duality_11_1.png" src="../_images/duality_11_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="upper-confidence-bounds-for-p">
+</section>
+<section id="upper-confidence-bounds-for-p">
 <h2>Upper confidence bounds for <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#upper-confidence-bounds-for-p" title="Permalink to this headline">¶</a></h2>
 <p>For completeness, here’s the code to find an upper confidence bound for Binomial <span class="math notranslate nohighlight">\(p\)</span>:</p>
 <div class="cell docutils container">
@@ -540,8 +536,8 @@ Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="what-s-next">
+</section>
+<section id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <p>We will consider some methods for constructing confidence bounds that work where the normal approximation failed, focusing at first on (lower) one-sided confidence intervals for the mean of bounded populations</p>
 <ul class="simple">
@@ -549,8 +545,8 @@ Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of
 <li><p><a class="reference internal" href="normApprox.html"><span class="doc std std-doc">Previous: Confidence intervals based on the normal approximation</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

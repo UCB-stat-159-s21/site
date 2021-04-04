@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Random Variables, Expectation, Random Vectors, and Stochastic Processes &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -513,9 +509,9 @@
         
               <div>
                 
-  <div class="section" id="random-variables-expectation-random-vectors-and-stochastic-processes">
+  <section id="random-variables-expectation-random-vectors-and-stochastic-processes">
 <h1>Random Variables, Expectation, Random Vectors, and Stochastic Processes<a class="headerlink" href="#random-variables-expectation-random-vectors-and-stochastic-processes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="random-variables">
+<section id="random-variables">
 <h2>Random Variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h2>
 <p>A <em>real-valued random variable</em> is a mapping from outcome space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> to the real line <span class="math notranslate nohighlight">\(\Re\)</span>.
 A <em>real-valued random variable</em> <span class="math notranslate nohighlight">\(X\)</span> can be characterized by its probability distribution, which specifies (for a suitable collection of subsets of the real line <span class="math notranslate nohighlight">\(\Re\)</span> that comprises a sigma-algebra), the chance that the value of <span class="math notranslate nohighlight">\(X\)</span> will be in each such subset.
@@ -619,7 +615,7 @@ equispaced on the interval <span class="math notranslate nohighlight">\((0, 1)\)
 <li><p>Let <span class="math notranslate nohighlight">\( \in (0, 1]\)</span>; let <span class="math notranslate nohighlight">\(x_i = 1, 2, \ldots\)</span>; and define <span class="math notranslate nohighlight">\(p(x_i) = (1-p)^{x_i-1}p\)</span>, and <span class="math notranslate nohighlight">\(p(x) = 0\)</span> otherwise. Show analytically that <span class="math notranslate nohighlight">\(p(x)\)</span> is the probability mass function of a discrete random variable.
 (A random variable with this probability mass function is said to be <em>geometrically distributed with parameter <span class="math notranslate nohighlight">\(p\)</span></em>.)</p></li>
 </ol>
-<hr /><div class="section" id="cumulative-distribution-functions">
+<hr /><section id="cumulative-distribution-functions">
 <h3>Cumulative Distribution Functions<a class="headerlink" href="#cumulative-distribution-functions" title="Permalink to this headline">¶</a></h3>
 <p>The <em>cumulative distribution function</em> or <em>cdf</em> of a real-valued random variable is the chance that the variable is less than <span class="math notranslate nohighlight">\(x\)</span>, as a function of <span class="math notranslate nohighlight">\(x\)</span>.
 Cumulative distribution functions are often denoted with capital Roman letters (<span class="math notranslate nohighlight">\(F\)</span> is especially common notation):</p>
@@ -635,8 +631,8 @@ Cumulative distribution functions are often denoted with capital Roman letters (
 <p>The cdf of a continuous real-valued random variable is a continuous function.
 The cdf of a discrete real-valued random variable is piecewise constant, with jumps at the possible values of the random variable.
 If the cdf of a real-valued random variable has jumps and also regions where it is not constant, the random variable is neither continuous nor discrete.</p>
-</div>
-<div class="section" id="examples">
+</section>
+<section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <p>[To Do]</p>
 <div class="cell docutils container">
@@ -709,9 +705,9 @@ If the cdf of a real-valued random variable has jumps and also regions where it 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="jointly-distributed-random-variables">
+</section>
+</section>
+<section id="jointly-distributed-random-variables">
 <h2>Jointly Distributed Random Variables<a class="headerlink" href="#jointly-distributed-random-variables" title="Permalink to this headline">¶</a></h2>
 <p>Often we work with more than one random variable at a time.
 Indeed, much of this course concerns <em>random vectors</em>, the components of which are individual
@@ -741,8 +737,8 @@ the die did.</p>
 number of heads and the number of spots that show on the die.
 Then <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are dependent. For instance, if you know the coin landed heads twice, you know that the sum
 of the number of heads and the number of spots must be at least 3.</p>
-</div>
-<div class="section" id="expectation">
+</section>
+<section id="expectation">
 <h2>Expectation<a class="headerlink" href="#expectation" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/expectation.htm">SticiGui: The Long Run and the Expected Value</a> for an elementary introduction to expectation.</p>
 <p>The <em>expectation</em> or <em>expected value</em> of a random variable <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\({\mathbb E}X\)</span>, is a probability-weighted average of its possible values.
@@ -759,7 +755,7 @@ value of a constant random variable is that constant.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are random variables, <span class="math notranslate nohighlight">\({\mathbb E}(X+Y) = {\mathbb E}X + {\mathbb E}Y\)</span>: additivity.</p></li>
 </ul>
 <hr />
-<div class="section" id="calculating-expectation">
+<section id="calculating-expectation">
 <h3>Calculating Expectation<a class="headerlink" href="#calculating-expectation" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a continuous real-valued random variable with density <span class="math notranslate nohighlight">\(f(x)\)</span>, then the expected value of <span class="math notranslate nohighlight">\(X\)</span> is
 $<span class="math notranslate nohighlight">\(
@@ -772,36 +768,36 @@ $<span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(
 where \)</span>{x_i} = { x \in \Re: p(x) &gt; 0}$,
 provided the sum exists.</p>
-</div>
-</div>
-<div class="section" id="id1">
+</section>
+</section>
+<section id="id1">
 <h2>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="uniform">
+<section id="uniform">
 <h3>Uniform<a class="headerlink" href="#uniform" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> has density <span class="math notranslate nohighlight">\(f(x) = \frac{1}{b-a}\)</span> for <span class="math notranslate nohighlight">\(a \le x \le b\)</span> and <span class="math notranslate nohighlight">\(0\)</span> otherwise.
 Then</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E} = \int_{-\infty}^\infty x f(x) dx = \frac{1}{b-a} \int_a^b x dx = \frac{b^2-a^2}{2(b-a)} =
 \frac{a+b}{2}.\]</div>
-</div>
-<div class="section" id="poisson">
+</section>
+<section id="poisson">
 <h3>Poisson<a class="headerlink" href="#poisson" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> has a Poisson distribution with parameter <span class="math notranslate nohighlight">\(\lambda\)</span>.
 Then</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}X = e^{-\lambda} \sum_{j=0}^\infty j \lambda^j/j! = \lambda.\]</div>
-</div>
-</div>
-<div class="section" id="examples-relates-to-bernoulli-trials">
+</section>
+</section>
+<section id="examples-relates-to-bernoulli-trials">
 <h2>Examples relates to Bernoulli Trials<a class="headerlink" href="#examples-relates-to-bernoulli-trials" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="bernoulli">
+<section id="bernoulli">
 <h3>Bernoulli<a class="headerlink" href="#bernoulli" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> can take only two values, 0 and 1, and the probability that <span class="math notranslate nohighlight">\(X= 1\)</span> is <span class="math notranslate nohighlight">\(p\)</span>.
 Then</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E} X = 1 \times p + 0 \times (1-p) = p.\]</div>
-</div>
-<div class="section" id="binomial">
+</section>
+<section id="binomial">
 <h3>Binomial<a class="headerlink" href="#binomial" title="Permalink to this headline">¶</a></h3>
 <p>[To do.] Derive the Binomial distribution as the number of successes in <span class="math notranslate nohighlight">\(n\)</span> iid Bernoulli trials.</p>
 <p>The number of successes <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(n\)</span> trials is equivalent to the sum of indicators for the success in each trial. That is,</p>
@@ -812,13 +808,13 @@ By the additive property of expectation,</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}X = \mathbb{E} \sum_{i=1}^n X_i = \sum_{i=1}^n \mathbb{E}X_i =
 \sum_{i=1}^n p = np.\]</div>
-</div>
-<div class="section" id="geometric">
+</section>
+<section id="geometric">
 <h3>Geometric<a class="headerlink" href="#geometric" title="Permalink to this headline">¶</a></h3>
 <p>The number of trials to the first success in iid Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) trials has a <em>geometric distribution with parameter <span class="math notranslate nohighlight">\(p\)</span></em>.</p>
 <p>[To do.] Derive the geometric and calculate expectation.</p>
-</div>
-<div class="section" id="negative-binomial">
+</section>
+<section id="negative-binomial">
 <h3>Negative Binomial<a class="headerlink" href="#negative-binomial" title="Permalink to this headline">¶</a></h3>
 <p>The number of trials to the <span class="math notranslate nohighlight">\(k\)</span>th success in iid Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) trials
 has a <em>negative binomial distribution with parameters <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(k\)</span></em>.</p>
@@ -829,8 +825,8 @@ Hence</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}X = \mathbb{E} \sum_{i=1}^k X_i = \sum_{i=1}^k \mathbb{E}X_i =
 \sum_{i=1}^k 1/p = k/p.\]</div>
-</div>
-<div class="section" id="hypergeometric">
+</section>
+<section id="hypergeometric">
 <h3>Hypergeometric<a class="headerlink" href="#hypergeometric" title="Permalink to this headline">¶</a></h3>
 <p>[To do.] Derive hypergeometric.</p>
 <p>Population of <span class="math notranslate nohighlight">\(N\)</span> numbers of which <span class="math notranslate nohighlight">\(G\)</span> equal 1 and <span class="math notranslate nohighlight">\(N-G\)</span> equal 0.
@@ -838,24 +834,24 @@ Number of 1s in a sample of size <span class="math notranslate nohighlight">\(n\
 <div class="math notranslate nohighlight">
 \[ \mathbb{P} \{X = x\} = \frac{ {{G} \choose {x}}{{N-g} \choose {n-x}}}{{N}\choose{n}}.\]</div>
 <p>[To do.] Calculate expected value. Use random permutations of “tickets” to show that expected value in each position is <span class="math notranslate nohighlight">\(G/N\)</span>.</p>
-</div>
-</div>
-<div class="section" id="examples-related-to-sampling-from-finite-populations">
+</section>
+</section>
+<section id="examples-related-to-sampling-from-finite-populations">
 <h2>Examples related to sampling from finite populations<a class="headerlink" href="#examples-related-to-sampling-from-finite-populations" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="one-draw-from-a-box-of-numbered-tickets">
+<section id="one-draw-from-a-box-of-numbered-tickets">
 <h3>One draw from a box of numbered tickets<a class="headerlink" href="#one-draw-from-a-box-of-numbered-tickets" title="Permalink to this headline">¶</a></h3>
 <p>[To do.]</p>
-</div>
-<div class="section" id="the-sample-sum-of-n-draws-from-a-box">
+</section>
+<section id="the-sample-sum-of-n-draws-from-a-box">
 <h3>The sample sum of <span class="math notranslate nohighlight">\(n\)</span> draws from a box<a class="headerlink" href="#the-sample-sum-of-n-draws-from-a-box" title="Permalink to this headline">¶</a></h3>
 <p>[To do.]</p>
-</div>
-<div class="section" id="the-sample-mean-of-n-draws-from-a-box">
+</section>
+<section id="the-sample-mean-of-n-draws-from-a-box">
 <h3>The sample mean of <span class="math notranslate nohighlight">\(n\)</span> draws from a box<a class="headerlink" href="#the-sample-mean-of-n-draws-from-a-box" title="Permalink to this headline">¶</a></h3>
 <p>[To do.]</p>
-</div>
-</div>
-<div class="section" id="variance-standard-error-and-covariance">
+</section>
+</section>
+<section id="variance-standard-error-and-covariance">
 <h2>Variance,  Standard Error, and Covariance<a class="headerlink" href="#variance-standard-error-and-covariance" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/standardError.htm">SticiGui: Standard Error</a> for an elementary introduction to variance and standard error.</p>
 <p>The <em>variance</em> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(\mbox{Var }X = {\mathbb E}(X - {\mathbb E}X)^2\)</span>.</p>
@@ -878,29 +874,29 @@ $<span class="math notranslate nohighlight">\(
 <p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, <span class="math notranslate nohighlight">\(\mbox{cov }(X,Y) = 0\)</span>.
 However, the converse is not necessarily true: <span class="math notranslate nohighlight">\(\mbox{cov}(X,Y) = 0\)</span> does not in general imply that
 <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent.</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2>Examples<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="variance-of-a-bernoulli-random-variable">
+<section id="variance-of-a-bernoulli-random-variable">
 <h3>Variance of a Bernoulli random variable<a class="headerlink" href="#variance-of-a-bernoulli-random-variable" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="variance-of-a-binomial-random-variable">
+</section>
+<section id="variance-of-a-binomial-random-variable">
 <h3>Variance of a Binomial random variable<a class="headerlink" href="#variance-of-a-binomial-random-variable" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="variance-of-a-geometric-and-negative-binomial-random-variable">
+</section>
+<section id="variance-of-a-geometric-and-negative-binomial-random-variable">
 <h3>Variance of a Geometric and Negative Binomial random variable<a class="headerlink" href="#variance-of-a-geometric-and-negative-binomial-random-variable" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="variance-of-the-sample-sum-and-sample-mean">
+</section>
+<section id="variance-of-the-sample-sum-and-sample-mean">
 <h3>Variance of the sample sum and sample mean<a class="headerlink" href="#variance-of-the-sample-sum-and-sample-mean" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="random-vectors">
+</section>
+</section>
+<section id="random-vectors">
 <h2>Random Vectors<a class="headerlink" href="#random-vectors" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> are jointly distributed random variables, and let
 $$
 X =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7443af2d-67da-4d03-9f27-ff8d7925ee5b">
-<span class="eqno">()<a class="headerlink" href="#equation-7443af2d-67da-4d03-9f27-ff8d7925ee5b" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-bdd58bcb-6ed0-4e45-b89c-cc09cc6ea469">
+<span class="eqno">()<a class="headerlink" href="#equation-bdd58bcb-6ed0-4e45-b89c-cc09cc6ea469" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 \\
 \vdots \\
 X_n
@@ -911,8 +907,8 @@ Then \)</span>X<span class="math notranslate nohighlight">\( is a random vector,
 <p>The expected value of <span class="math notranslate nohighlight">\(X\)</span> is
 $$
 {\mathbb E} X \equiv</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d8b9716-0c41-4ef1-89c3-023934a680fe">
-<span class="eqno">()<a class="headerlink" href="#equation-1d8b9716-0c41-4ef1-89c3-023934a680fe" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-a2645a88-e888-45c5-8941-ba8b3388c381">
+<span class="eqno">()<a class="headerlink" href="#equation-a2645a88-e888-45c5-8941-ba8b3388c381" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E} X_1 \\
 \vdots \\
 {\mathbb E} X_n
@@ -924,23 +920,23 @@ $$
 \mbox{cov } X \equiv
 {\mathbb E}
 \left (</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cea506f5-0695-4206-8b40-830311f36040">
-<span class="eqno">()<a class="headerlink" href="#equation-cea506f5-0695-4206-8b40-830311f36040" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-f3ad9810-df6d-45f4-b2c8-b16a49506e9c">
+<span class="eqno">()<a class="headerlink" href="#equation-f3ad9810-df6d-45f4-b2c8-b16a49506e9c" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 \\
 \vdots \\
 X_n - {\mathbb E} X_n
 \end{pmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0bfdd536-709f-4251-876b-61170a603911">
-<span class="eqno">()<a class="headerlink" href="#equation-0bfdd536-709f-4251-876b-61170a603911" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-53455d15-bf9f-4b57-aae7-771b9289bf31">
+<span class="eqno">()<a class="headerlink" href="#equation-53455d15-bf9f-4b57-aae7-771b9289bf31" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 \end{pmatrix}\]</div>
-</div>
-</div>
-<div class="section" id="right">
+</section>
+</section>
+<section id="right">
 <h1>\right )<a class="headerlink" href="#right" title="Permalink to this headline">¶</a></h1>
 <p>{\mathbb E}</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e724b26-bdc5-44b7-b734-01a823188315">
-<span class="eqno">()<a class="headerlink" href="#equation-1e724b26-bdc5-44b7-b734-01a823188315" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-5745e851-e353-44b4-9450-be03b679cad8">
+<span class="eqno">()<a class="headerlink" href="#equation-5745e851-e353-44b4-9450-be03b679cad8" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 (X_1 - {\mathbb E} X_1)^2 &amp; (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; \cdots &amp; (X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n) \\
 (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; (X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; (X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n) \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
@@ -949,8 +945,8 @@ X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 <div class="math notranslate nohighlight">
 \[\]</div>
 <p>=</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac6d3ffb-c910-407f-894d-dcaa8c8f60f7">
-<span class="eqno">()<a class="headerlink" href="#equation-ac6d3ffb-c910-407f-894d-dcaa8c8f60f7" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-2a987449-beaa-4078-8826-3530d970fba7">
+<span class="eqno">()<a class="headerlink" href="#equation-2a987449-beaa-4078-8826-3530d970fba7" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E}(X_1 - {\mathbb E} X_1)^2 &amp; {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; \cdots &amp; 
 {\mathbb E}(X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n)) \\
 {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; {\mathbb E}(X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; 
@@ -962,7 +958,7 @@ X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 $$</p>
 <p>Covariance matrices are always <em>positive semidefinite</em>.
 (If <span class="math notranslate nohighlight">\(x'Ax \ge 0\)</span> for all <span class="math notranslate nohighlight">\(x \in \Re^n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>nonnegative definite</em> (or <em>positive semi-definite</em>.  <a class="reference internal" href="linalg.html"><span class="doc std std-doc">Here</span></a> is a review of linear algebra.)</p>
-<div class="section" id="the-multivariate-normal-distribution">
+<section id="the-multivariate-normal-distribution">
 <h2>The Multivariate Normal Distribution<a class="headerlink" href="#the-multivariate-normal-distribution" title="Permalink to this headline">¶</a></h2>
 <p>The notation <span class="math notranslate nohighlight">\(X \sim {\mathcal N}(\mu, \sigma^2)\)</span> means that <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span>
 and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.
@@ -1008,8 +1004,8 @@ $<span class="math notranslate nohighlight">\(
 \exp \left \{ - \frac{1}{2} (x - \mu)'G^{-1}(x-\mu) \right \},
 \)</span><span class="math notranslate nohighlight">\(
 then \)</span>{X_j }<em>{j=1}^n<span class="math notranslate nohighlight">\( are jointly normal, and the covariance matrix of \)</span>{X_j}</em>{j=1}^n<span class="math notranslate nohighlight">\( is \)</span>G$.</p>
-</div>
-<div class="section" id="the-central-limit-theorem">
+</section>
+<section id="the-central-limit-theorem">
 <h2>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
 <p>For an elementary discussion, see <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/clt.htm">SticiGui: The Normal Curve, The Central Limit Theorem, and Markov’s and Chebychev’s Inequalities for Random Variables</a>.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^\infty\)</span> are independent and identically distributed (iid), have finite expected value <span class="math notranslate nohighlight">\({\mathbb E}X_j = \mu\)</span>, and have finite variance <span class="math notranslate nohighlight">\(\mbox{var }X_j = \sigma^2\)</span>.</p>
@@ -1029,8 +1025,8 @@ $<span class="math notranslate nohighlight">\(
 \lim_{n \rightarrow \infty} {\mathbb P} \{ a \le Z_n \le b \} = \frac{1}{\sqrt{2\pi}} \int_a^b e^{-x^2/2} dx.
 \)</span>$
 This is a basic form of the Central Limit Theorem.</p>
-</div>
-<div class="section" id="conditional-distributions">
+</section>
+<section id="conditional-distributions">
 <h2>Conditional Distributions<a class="headerlink" href="#conditional-distributions" title="Permalink to this headline">¶</a></h2>
 <p>The conditional distribution of a random variable or random vector
 <span class="math notranslate nohighlight">\(X\)</span> given the event <span class="math notranslate nohighlight">\(A\)</span> is</p>
@@ -1038,48 +1034,48 @@ This is a basic form of the Central Limit Theorem.</p>
 \[\mathbb{P}_{X|A}(B) = \mathbb{P} \{ X \in B | A \}\]</div>
 <p>as a function of <span class="math notranslate nohighlight">\(B\)</span>, provided <span class="math notranslate nohighlight">\(\mathbb{P} (A) &gt; 0\)</span>.</p>
 <p>[To do]</p>
-</div>
-<div class="section" id="conditional-expectation">
+</section>
+<section id="conditional-expectation">
 <h2>Conditional Expectation<a class="headerlink" href="#conditional-expectation" title="Permalink to this headline">¶</a></h2>
 <p>[To do]</p>
 <p>Conditional expectation is a random variable…
 The expectation of the conditional expectation is the unconditional expectation
 <span class="math notranslate nohighlight">\(\mathbb{E}(\mathbb{E}(X|Y)) = \mathbb{E} X\)</span>.
 This is essentially another expression of the law of total probability.</p>
-<div class="section" id="id3">
+<section id="id3">
 <h3>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>[To do] Use random permutation of a list of numbers to illustrate: <span class="math notranslate nohighlight">\(\mathbb{E}X_j\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}(X_j | X_k = x)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}(X_j | X_k)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E} (\mathbb{E}(X_j | X_k)) = \)</span>\mathbb{E}X_j$.</p>
-</div>
-</div>
-<div class="section" id="point-processes">
+</section>
+</section>
+<section id="point-processes">
 <h2>Point Processes<a class="headerlink" href="#point-processes" title="Permalink to this headline">¶</a></h2>
 <p>Point processes formalize the notion of something occurring at a random place or time (or both).</p>
 <p>For instance, imagine the radioactive decay of a mass of uranium; the particular times at which an atom decays are modeled well as a Poisson process (described below).</p>
-<div class="section" id="poisson-processes">
+<section id="poisson-processes">
 <h3>Poisson Processes<a class="headerlink" href="#poisson-processes" title="Permalink to this headline">¶</a></h3>
 <p>Temporal, spatiotemporal.  Waiting times (inter-arrival times) are exponential.
 Alternative characterizations.</p>
 <p>Temporal point processes: the counting function.
 [To Do]</p>
-<div class="section" id="marked-poisson-processes">
+<section id="marked-poisson-processes">
 <h4>Marked Poisson Processes<a class="headerlink" href="#marked-poisson-processes" title="Permalink to this headline">¶</a></h4>
 <p>[To Do]</p>
-</div>
-</div>
-<div class="section" id="renewal-processes">
+</section>
+</section>
+<section id="renewal-processes">
 <h3>Renewal Processes<a class="headerlink" href="#renewal-processes" title="Permalink to this headline">¶</a></h3>
 <p>[To Do]</p>
-</div>
-<div class="section" id="branching-processes">
+</section>
+<section id="branching-processes">
 <h3>Branching Processes<a class="headerlink" href="#branching-processes" title="Permalink to this headline">¶</a></h3>
 <p>[To Do]</p>
-<div class="section" id="hawkes-processes">
+<section id="hawkes-processes">
 <h4>Hawkes Processes<a class="headerlink" href="#hawkes-processes" title="Permalink to this headline">¶</a></h4>
 <p>[To Do]</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

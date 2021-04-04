@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>GitHub collaboration exercise &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -90,7 +91,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -102,7 +103,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -114,7 +115,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -156,24 +157,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../../Notes/index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -224,7 +220,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Notes/01/collaboration-exercise.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/Notes-Computing/intro-git-jupyterhub/collaboration-exercise.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -249,7 +245,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/01/collaboration-exercise.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes-Computing/intro-git-jupyterhub/collaboration-exercise.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -333,11 +329,11 @@
         
               <div>
                 
-  <div class="section" id="github-collaboration-exercise">
+  <section id="github-collaboration-exercise">
 <h1>GitHub collaboration exercise<a class="headerlink" href="#github-collaboration-exercise" title="Permalink to this headline">¶</a></h1>
 <p>In this exercise we will use GitHub to experiment with collaborative workflows.</p>
 <p>Until now, you have been tracking your own work using Git version control commands. But what if you would like to share these changes within a team, similar to what we will be doing during our hacking sessions? For this, it makes sense for us to have a copy of the repository on a centralized hub, rather than storing it on someone’s laptop. There are several different flavors of such “hubs”, but for our purposes we will use GitHub.</p>
-<div class="section" id="collaboration-scenario">
+<section id="collaboration-scenario">
 <h2>Collaboration scenario<a class="headerlink" href="#collaboration-scenario" title="Permalink to this headline">¶</a></h2>
 <p>Imagine a colleague has created a repository that is now hosted on GitHub. You would like to take this work and make some additions to it. Here is the workflow we will follow:</p>
 <ul class="simple">
@@ -345,8 +341,8 @@
 <li><p>We will make some changes to the files</p></li>
 <li><p>Assuming we have permission to do so, we can then upload these changes back to the GitHub repository (this process is called “pushing”).</p></li>
 </ul>
-</div>
-<div class="section" id="step-1-cloning">
+</section>
+<section id="step-1-cloning">
 <h2>Step 1: Cloning<a class="headerlink" href="#step-1-cloning" title="Permalink to this headline">¶</a></h2>
 <p>For this exercise we’ll be using a <a class="reference external" href="https://github.com/ICESAT-2HackWeek/sample-repository">sample GitHub tutorial repository</a>. Navigate to this repository and have a look around. We’ll imagine this is a colleague’s working repository to which we’d like to add some changes.</p>
 <p>Clone this repository to your local directory. Start by copying the URL for this Git repository to your clipboard:</p>
@@ -361,8 +357,8 @@ git clone https://github.com/ICESAT-2HackWeek/sample-repository.git
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-2-make-some-changes">
+</section>
+<section id="step-2-make-some-changes">
 <h2>Step 2: Make some changes!<a class="headerlink" href="#step-2-make-some-changes" title="Permalink to this headline">¶</a></h2>
 <p>Now, make some changes! In order for us all to avoid merge conflicts, let’s create a new folder in the “participants” folder. Give the folder a unique name, for example your first name and last name.</p>
 <p><strong>NOTE</strong>: replace the text in the code block here with your actual name:</p>
@@ -388,8 +384,8 @@ touch &quot;sample-file.txt&quot;
 </div>
 </div>
 <p>Finally, choose whatever method you’d like to add some arbitrary text to that file.</p>
-</div>
-<div class="section" id="step-3-add-commit">
+</section>
+<section id="step-3-add-commit">
 <h2>Step 3: add/commit<a class="headerlink" href="#step-3-add-commit" title="Permalink to this headline">¶</a></h2>
 <p>After you save changes, we’ll follow our usual steps within any Git workflow: we’ll <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">commit</span></code> the changes we’ve just made:</p>
 <div class="cell docutils container">
@@ -410,8 +406,8 @@ git commit -m &quot;initial commit&quot;
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-4-upload-your-changes-to-github">
+</section>
+<section id="step-4-upload-your-changes-to-github">
 <h2>Step 4: upload your changes to GitHub<a class="headerlink" href="#step-4-upload-your-changes-to-github" title="Permalink to this headline">¶</a></h2>
 <p>To ‘push’ our changes, we have to determine where our changes will be pushed to. When we cloned the repo above, we automatically set the source of the clone as the ‘upstream remote’. You can see the specific details in the file <code class="docutils literal notranslate"><span class="pre">.git/config</span></code>:</p>
 <div class="cell docutils container">
@@ -432,12 +428,12 @@ git push
 </div>
 </div>
 <p>The above command will generally not complete when run in the iPython notebook, because running git push will prompt for your git username and password, which the jupyter notebook can’t pass thru… but you can run it on a console, and enter your info from the prompt.</p>
-</div>
-</div>
-<div class="section" id="advanced-options">
+</section>
+</section>
+<section id="advanced-options">
 <h1>Advanced Options<a class="headerlink" href="#advanced-options" title="Permalink to this headline">¶</a></h1>
 <p>The above is the basic workflow for collaborating with people where you already have commit privileges; however, this is rarely the case outside of repositories that you haven’t created. Below, we’ll go over a few common, but more advanced workflows for using git.</p>
-<div class="section" id="contributing-to-a-repo-via-pull-request">
+<section id="contributing-to-a-repo-via-pull-request">
 <h2>Contributing to a repo via pull request<a class="headerlink" href="#contributing-to-a-repo-via-pull-request" title="Permalink to this headline">¶</a></h2>
 <p>If you don’t have write permission for a repo, you can still suggest changes. This often how community software progresses; you may find a bug which is simple to fix in a popular package, and want to fix it for <em>everyone</em>. The process for doing this is similar to the basic workflow, but starts with forking the repo before you clone. Forking copies the repo for you in github, and makes you the owner, so that you can push changes.</p>
 <p><img alt="image of fork option" src="../../_images/fork.png" /></p>
@@ -464,8 +460,8 @@ git push
 <p>This <strong>PR</strong> workflow is actually pretty common, since it puts a review step in place–it’s how the tutorials you’re using were put together by the instructors. Once the repo owners who have read/write access decide, your code is merged. Until then, you can see your pull request listed on <em>their</em> repo, and other people can comment and view your work.</p>
 <p><img alt="requested PR" src="../../_images/requested_pr.png" /></p>
 <p>This can actually recurse a bit too; if you’re working on something that other people like, they can send you a pull request merge their code into your pull request. Yes, pull requests can have there own pull requests too!</p>
-</div>
-<div class="section" id="making-commits-less-painful-with-ssh">
+</section>
+<section id="making-commits-less-painful-with-ssh">
 <h2>Making commits less painful with ssh<a class="headerlink" href="#making-commits-less-painful-with-ssh" title="Permalink to this headline">¶</a></h2>
 <p>As you may have noticed, pushing can be a bit of a hassle with passwords. Git allows you to use ssh-keys instead, so that you don’t have to input your username or password when you push. <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generating ssh-keys</a> is a bit outside the scope of this tutorial, but github <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">has a good tutorial</a> for what to do. What we can show quickly is how ssh-keys work in practice once you have them install on your system. Note that ssh-keys come as pair, with both a private key and a public key. The private key stays on your computer, but the public key get uploaded to github; this is done per computer, so here for example are my public keys (under the ‘settings’ github profile option):</p>
 <p><img alt="github ssh keys" src="../../_images/ssh_keys.png" /></p>
@@ -483,8 +479,8 @@ git push
 </div>
 <p>The new remote line tells git to use ssh. If you already have your ssh keys setup, you can avoid modifying .git/config by just choosing the ssh option when you clone, and git will know to set the remote appropriately:</p>
 <p><img alt="ssh option" src="../../_images/ssh_option.png" /></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -499,7 +495,7 @@ git push
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Notes/01"
+            path: "./Notes-Computing/intro-git-jupyterhub"
         },
         predefinedOutput: true
     }

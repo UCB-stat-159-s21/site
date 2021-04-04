@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>The EM Algorithm &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -298,7 +294,7 @@
         
               <div>
                 
-  <div class="section" id="the-em-algorithm">
+  <section id="the-em-algorithm">
 <h1>The EM Algorithm<a class="headerlink" href="#the-em-algorithm" title="Permalink to this headline">¶</a></h1>
 <p>The expectation-maximization algorithm is an iterative approach to find a (local) maximum of the likelihood that can be computationally much more tractable than directly maximizing the likelihood.</p>
 <p>It is particularly useful in problems that have missing data or latent (unobserved) variables.</p>
@@ -314,7 +310,7 @@
 \[\begin{equation*} 
    \hat{\theta} \in \arg \max_{\eta \in \Theta} \ln {\mathbb P}_\eta (X,Y) = \arg \max_{\eta \in \Theta} L(\eta).
 \end{equation*}\]</div>
-<div class="section" id="the-em-algorithm-test">
+<section id="the-em-algorithm-test">
 <h2>The EM Algorithm TEST<a class="headerlink" href="#the-em-algorithm-test" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-info">
 <p>Initialize starting guess <span class="math notranslate nohighlight">\(\hat{\theta}_0\)</span>. Repeat until convergence (which is not guaranteed) or boredom:</p>
@@ -325,14 +321,14 @@
 </div>
 <p>It’s a theorem that <span class="math notranslate nohighlight">\(\ln {\mathbb P}_{\hat{\theta}_{i+1}}(x) \ge \ln {\mathbb P}_{\hat{\theta}_i}(x)\)</span>.</p>
 <p>However, the algorithm need not converge to a maximum of the likelihood. It does behave well for exponential families.</p>
-<div class="section" id="why-does-it-work">
+<section id="why-does-it-work">
 <h3>Why does it work?<a class="headerlink" href="#why-does-it-work" title="Permalink to this headline">¶</a></h3>
 <p>Recall <strong>Jensen’s Inequality:</strong> if <span class="math notranslate nohighlight">\(f\)</span> is a convex function, then <span class="math notranslate nohighlight">\(\mathbb{E} f(X) \ge f(\mathbb{E}\mathbb{X})\)</span>.</p>
 <p>Jensen’s inequality implies that <span class="math notranslate nohighlight">\(Q(\eta, \hat{\theta}_i) \le \ln {\mathbb P}_{\hat{\theta}_i}(x, z)\)</span>.</p>
 <p>Note that if, in fact, <span class="math notranslate nohighlight">\(Y\)</span> is deterministic, we are free to define <span class="math notranslate nohighlight">\({\mathbb P}_{\eta} ((X, Z) | X=x)\)</span> however we wish (as long as we give positive probability to every <span class="math notranslate nohighlight">\(y\)</span>): the conditional expectation with respect to that distribution will still lower bound the value at the true <span class="math notranslate nohighlight">\(y\)</span>, by Jensen’s inequality.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

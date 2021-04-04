@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>We will use basic combinatorics to find upper and lower confidence bounds for the mean of a bounded population. &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -322,7 +318,7 @@
               <div>
                 
   <p class="title">Confidence bounds for the mean of a bounded population: Binomial and Hypergeometric</p>
-<div class="section" id="we-will-use-basic-combinatorics-to-find-upper-and-lower-confidence-bounds-for-the-mean-of-a-bounded-population">
+<section id="we-will-use-basic-combinatorics-to-find-upper-and-lower-confidence-bounds-for-the-mean-of-a-bounded-population">
 <h1>We will use basic combinatorics to find upper and lower confidence bounds for the mean of a bounded population.<a class="headerlink" href="#we-will-use-basic-combinatorics-to-find-upper-and-lower-confidence-bounds-for-the-mean-of-a-bounded-population" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Elementary derivation for {0, 1} populations</p></li>
@@ -330,8 +326,8 @@
 <li><p>Thresholding for general bounded populations</p></li>
 <li><p>Trinomial and Multinomial bounds</p></li>
 </ul>
-</div>
-<div class="section" id="comparison-with-the-normal-approximation">
+</section>
+<section id="comparison-with-the-normal-approximation">
 <h1>Comparison with the normal approximation<a class="headerlink" href="#comparison-with-the-normal-approximation" title="Permalink to this headline">¶</a></h1>
 <p>Let’s start by constructing two-sided confidence intervals for the same {0, 1} cases in which the Normal approximation did so badly.</p>
 <p>To find two-sided intervals, we find lower and upper confidence bounds at half the value of <span class="math notranslate nohighlight">\(\alpha\)</span>. This is equivalent to constructing acceptance regions that are “balanced” in the sense that, under the null hypothesis, the chance of rejecting the hypothesis because <span class="math notranslate nohighlight">\(X\)</span> is too big is equal to the chance of rejecting the hypothesis because <span class="math notranslate nohighlight">\(X\)</span> is too small.</p>
@@ -549,8 +545,8 @@
 </div>
 <p>The empirical coverage rates are gnerally much <em>higher</em> than 95% when <span class="math notranslate nohighlight">\(n\)</span> is small, because of the discreteness of the Binomial distribution: to ensure that a test rejects <em>at most</em> 5% of the time might require rejecting far less than 5% of the time. That is, the tests are conservative rather than exact.</p>
 <p>We could construct <em>randomized</em> tests that have exactly level <span class="math notranslate nohighlight">\(\alpha\)</span>, but we won’t go there…</p>
-</div>
-<div class="section" id="hypergeometric-confidence-bounds">
+</section>
+<section id="hypergeometric-confidence-bounds">
 <h1>Hypergeometric confidence bounds<a class="headerlink" href="#hypergeometric-confidence-bounds" title="Permalink to this headline">¶</a></h1>
 <p>Consider <span class="math notranslate nohighlight">\(n\)</span> uniform draws <em>without</em> replacement from a <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> population of known size <span class="math notranslate nohighlight">\(N\)</span> that contains an unknown number <span class="math notranslate nohighlight">\(G\)</span> of 1s—i.e., a <em>simple random sample</em> of size <span class="math notranslate nohighlight">\(n\)</span>.
 Let <span class="math notranslate nohighlight">\(X\)</span> denote the number of 1s in the sample.
@@ -575,8 +571,8 @@ A_G \equiv \ [0, a_G],
 \[\begin{equation*}
 a_G \equiv \min \left \{ k: \sum_{i=k+1}^n \frac{{G \choose i}{N-G \choose n-i}}{{N \choose n}} \le \alpha \right \}.
 \end{equation*}\]</div>
-</div>
-<div class="section" id="two-valued-populations">
+</section>
+<section id="two-valued-populations">
 <h1>Two-valued populations<a class="headerlink" href="#two-valued-populations" title="Permalink to this headline">¶</a></h1>
 <p>Clearly, if the population is known to contain only the values <span class="math notranslate nohighlight">\(\{a, b\}\)</span> instead of the values <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>, it’s trivial to re-scale binomial or hypergeometric confidence bounds.</p>
 <p>If we observe the sum <span class="math notranslate nohighlight">\(Y\)</span> of <span class="math notranslate nohighlight">\(n\)</span> iid uniform draws from the population,</p>
@@ -592,8 +588,8 @@ a_G \equiv \min \left \{ k: \sum_{i=k+1}^n \frac{{G \choose i}{N-G \choose n-i}}
 \[\begin{equation*}
 (1-0.7169)\times 1 + 0.7169\times 10) = 7.45182.
 \end{equation*}\]</div>
-</div>
-<div class="section" id="thresholding-for-bounded-populations">
+</section>
+<section id="thresholding-for-bounded-populations">
 <h1>Thresholding for bounded populations<a class="headerlink" href="#thresholding-for-bounded-populations" title="Permalink to this headline">¶</a></h1>
 <p>The applications that motivate this inquiry generally call for <strong>one-sided confidence bounds</strong> rather than confidence intervals. For instance:</p>
 <ul class="simple">
@@ -912,16 +908,16 @@ However, the expected <em>length</em> of the interval depends on <span class="ma
 </div></div></div>
 </div>
 <p>Notice that in many cases the expected length of the Student-t interval is <em>greater</em> than the length of the binomial interval, even though the coverage probability of the Student-t interval is smaller.</p>
-</div>
-<div class="section" id="trinomial-bounds-multinomial-bounds-and-the-stringer-bound">
+</section>
+<section id="trinomial-bounds-multinomial-bounds-and-the-stringer-bound">
 <h1>Trinomial Bounds, Multinomial Bounds, and the Stringer Bound<a class="headerlink" href="#trinomial-bounds-multinomial-bounds-and-the-stringer-bound" title="Permalink to this headline">¶</a></h1>
 <p>Instead of thresholding at one value (yielding a binomial variable: “success” means “above threshold”), we could discretize the support of <span class="math notranslate nohighlight">\(\bar{X}\)</span> into three or more ranges, and make inferences based on the trinomial or multinomial distribution that induces.</p>
 <p>Specifying the acceptance regions in a way that allows the tests to be inverted in a simple way is not simple (and there are issues with published methods).</p>
 <p>The Stringer Bound is well known in financial auditing. It amounts to combining confidence limits for data-dependent ranges (adaptive thresholds) into an overall confidence limit.
 Empirically, it is conservative, and Bickel has shown that it is asymptotically conservative, but as far as I know, there is no proof that it is conservative for finite samples.</p>
 <p>Moreover, computational evidence suggests that methods we will explore in later lectures perform better than multinomial methods and the Stringer bound in practice, so we will not dwell on them.</p>
-</div>
-<div class="section" id="what-s-next">
+</section>
+<section id="what-s-next">
 <h1>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h1>
 <p>Now we will consider some conservative methods for constructing lower confidence intervals for the mean of nonnegative populations</p>
 <ul class="simple">
@@ -1142,7 +1138,7 @@ li:first-of-type {
 
 </style></div></div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

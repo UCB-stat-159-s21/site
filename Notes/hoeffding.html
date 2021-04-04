@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Confidence bounds via the Chebychev and Hoeffding Inequalities &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -328,9 +324,9 @@
         
               <div>
                 
-  <div class="section" id="confidence-bounds-via-the-chebychev-and-hoeffding-inequalities">
+  <section id="confidence-bounds-via-the-chebychev-and-hoeffding-inequalities">
 <h1>Confidence bounds via the Chebychev and Hoeffding Inequalities<a class="headerlink" href="#confidence-bounds-via-the-chebychev-and-hoeffding-inequalities" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="chebychev-s-inequality">
+<section id="chebychev-s-inequality">
 <h2>Chebychev’s inequality<a class="headerlink" href="#chebychev-s-inequality" title="Permalink to this headline">¶</a></h2>
 <div class="admonition">
 <p class="title">Theorem</p>
@@ -340,7 +336,7 @@
   \mathbb P_\mu (| X - \mu | \ge k \sigma ) \le 1/k^2.
 \end{equation*}\]</div>
 </div>
-<div class="section" id="using-chebychev-s-inequality-for-confidence-intervals">
+<section id="using-chebychev-s-inequality-for-confidence-intervals">
 <h3>Using Chebychev’s inequality for confidence intervals<a class="headerlink" href="#using-chebychev-s-inequality-for-confidence-intervals" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> are independent random variables and <span class="math notranslate nohighlight">\(\{\ell_j\}_{j=1}^n\)</span> and
 <span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^n\)</span> are real numbers such that</p>
@@ -393,9 +389,9 @@ which has variance <span class="math notranslate nohighlight">\(1/4\)</span>. Th
 \[\begin{equation*} 
    a &gt; \frac{\tau}{2 n}.
 \end{equation*}\]</div>
-</div>
-</div>
-<div class="section" id="hoeffding-s-inequality">
+</section>
+</section>
+<section id="hoeffding-s-inequality">
 <h2>Hoeffding’s Inequality<a class="headerlink" href="#hoeffding-s-inequality" title="Permalink to this headline">¶</a></h2>
 <div class="theorem">
 Let $\{X_j\}_{j=1}^n$ be independent random variables and $\{\ell_j\}_{j=1}^n$ and
@@ -429,8 +425,8 @@ and
 \end{equation*}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\sqrt{-2 \ln 1/2} \approx 1.18\)</span>, Hoeffding’s inequality requires <span class="math notranslate nohighlight">\(a\)</span> to be about 18% larger to
 be useful compared to Chebychev’s inequality, but it is exponentially better as <span class="math notranslate nohighlight">\(n\)</span> grows.</p>
-</div>
-<div class="section" id="truncation">
+</section>
+<section id="truncation">
 <h2>Truncation<a class="headerlink" href="#truncation" title="Permalink to this headline">¶</a></h2>
 <p>If we know <em>a priori</em> that <span class="math notranslate nohighlight">\(\mu \in [\ell, u]\)</span>, we can take the intersection of any confidence interval <span class="math notranslate nohighlight">\(\mathcal I\)</span> with <span class="math notranslate nohighlight">\([\ell, u]\)</span> without losing any coverage probability: if <span class="math notranslate nohighlight">\(\mathcal I \ni \mu\)</span>, then <span class="math notranslate nohighlight">\(\mathcal I \cap [\ell, u] \ni \mu\)</span>.
 Hence, we can <em>truncate</em> any confidence interval by taking its intersection with <span class="math notranslate nohighlight">\([\ell, u]\)</span> without
@@ -443,8 +439,8 @@ Then</p>
 <p>and thus <span class="math notranslate nohighlight">\(\mu \equiv \mathbb E \bar{X} \in [\ell, u]\)</span>.  Since we know with certainty that <span class="math notranslate nohighlight">\(\mu \in [\ell, u]\)</span>,
 any portion of a confidence interval <span class="math notranslate nohighlight">\(\mathcal I\)</span> that lies outside <span class="math notranslate nohighlight">\([\ell, u]\)</span> cannot help it cover <span class="math notranslate nohighlight">\(\mu\)</span>, and we might as well use <span class="math notranslate nohighlight">\(\mathcal I \cap [\ell, u]\)</span> if it is shorter than <span class="math notranslate nohighlight">\(\mathcal I\)</span>: we gain precision without losing coverage.</p>
 <p>Basing a confidence interval on Chebychev’s inequality or Hoeffding’s inequality sometimes produces an interval that can be improved by truncation, decreasing the length (and expected length) without sacrificing coverage.</p>
-</div>
-<div class="section" id="comparing-hoeffding-s-inequality-and-chebychev-s-inequality-for-the-sample-mean-from-finite-bounded-populations">
+</section>
+<section id="comparing-hoeffding-s-inequality-and-chebychev-s-inequality-for-the-sample-mean-from-finite-bounded-populations">
 <h2>Comparing Hoeffding’s Inequality and Chebychev’s Inequality for the sample mean from finite bounded populations<a class="headerlink" href="#comparing-hoeffding-s-inequality-and-chebychev-s-inequality-for-the-sample-mean-from-finite-bounded-populations" title="Permalink to this headline">¶</a></h2>
 <p>Both inequalities bound <span class="math notranslate nohighlight">\(\mathbb P_\mu (|\bar{X} - \mu | \ge a)\)</span> in terms of <span class="math notranslate nohighlight">\(\frac{\sum_{j=1}^n (u_j - \ell_j)^2}{n^2 a^2}\)</span>,
 but Hoeffding’s bound is exponentially better.</p>
@@ -508,8 +504,8 @@ but Hoeffding’s bound is exponentially better.</p>
 <img alt="../_images/hoeffding_6_1.png" src="../_images/hoeffding_6_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="using-hoeffding-s-inequality-for-confidence-intervals">
+</section>
+<section id="using-hoeffding-s-inequality-for-confidence-intervals">
 <h2>Using Hoeffding’s inequality for confidence intervals<a class="headerlink" href="#using-hoeffding-s-inequality-for-confidence-intervals" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span> are iid with support <span class="math notranslate nohighlight">\([0, 1]\)</span>.
 Then <span class="math notranslate nohighlight">\(\tau = \sqrt{n}\)</span>.</p>
@@ -887,13 +883,13 @@ confidence interval with $[\ell, u]$ is still a $1-\alpha$ confidence interval.
 </div></div></div>
 </div>
 <p>Remarkably, the truncated Hoeffding intervals are often <em>shorter</em> on average than the Student-t intervals, but have far better coverage.</p>
-</div>
-<div class="section" id="more-in-this-direction">
+</section>
+<section id="more-in-this-direction">
 <h2>More in this direction…<a class="headerlink" href="#more-in-this-direction" title="Permalink to this headline">¶</a></h2>
 <p>We could also apply other inequalities, such as Serfling’s Inequality (a version of Hoeffding’s inequality for sampling without replacement) or Feige’s Inequality.</p>
 <p>For sampling without replacement, the “Empirical Bernstein-Serfling Inequality” of Bardenet and Maillard (2013) seems particularly worth exploring.</p>
-</div>
-<div class="section" id="what-s-next">
+</section>
+<section id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <p>Now we will consider some conservative methods for constructing lower confidence intervals for the mean of nonnegative populations</p>
 <ul class="simple">
@@ -901,8 +897,8 @@ confidence interval with $[\ell, u]$ is still a $1-\alpha$ confidence interval.
 <li><p><a class="reference internal" href="binom.html"><span class="doc std std-doc">Previous: Confidence bounds for the mean of a bounded population: Binomial and Hypergeometric</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

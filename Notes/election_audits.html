@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Auditing Elections &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -350,9 +346,9 @@
         
               <div>
                 
-  <div class="section" id="auditing-elections">
+  <section id="auditing-elections">
 <h1>Auditing Elections<a class="headerlink" href="#auditing-elections" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="risks-to-elections">
+<section id="risks-to-elections">
 <h2>Risks to Elections<a class="headerlink" href="#risks-to-elections" title="Permalink to this headline">¶</a></h2>
 <p>https://www.nytimes.com/interactive/2018/07/16/us/elections/russian-interference-statements-comments.html</p>
 <p>https://www.usatoday.com/story/news/2018/08/03/russian-us-election-interference-donald-trump/878910002/</p>
@@ -364,7 +360,7 @@
 <p>https://www.apnews.com/f6876669cb6b4e4c9850844f8e015b4c</p>
 <p>http://www8.nationalacademies.org/onpinews/newsitem.aspx?RecordID=25120</p>
 <p>http://time.com/5340060/donald-trump-vladimir-putin-summit-russia-meddling/</p>
-<div class="section" id="potential-goals-fud-fear-uncertainty-doubt">
+<section id="potential-goals-fud-fear-uncertainty-doubt">
 <h3>Potential goals: FUD (fear, uncertainty, doubt)<a class="headerlink" href="#potential-goals-fud-fear-uncertainty-doubt" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Alter election results through social manipulation, propaganda, etc. “social hacking”</p>
@@ -377,15 +373,15 @@
 <li><p>Alter election results by removing voters from voter registration lists. “computer hacking”</p></li>
 <li><p>Cast doubt on election results and on the electoral process: clumsy hacks are effective</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="election-technology-including-vote-tabulation-is-vulnerable-what-can-we-do">
+</section>
+</section>
+<section id="election-technology-including-vote-tabulation-is-vulnerable-what-can-we-do">
 <h2>Election technology, including vote tabulation, is vulnerable. What can we do?<a class="headerlink" href="#election-technology-including-vote-tabulation-is-vulnerable-what-can-we-do" title="Permalink to this headline">¶</a></h2>
 <p>If there’s a trustworthy, voter-verified paper trail, that can be used to check the results.</p>
 <p>For instance, could hand count the votes on all the ballots.</p>
 <p>Can we use Statistics to do less work than a full hand count?</p>
-</div>
-<div class="section" id="audit-goals">
+</section>
+<section id="audit-goals">
 <h2>Audit goals<a class="headerlink" href="#audit-goals" title="Permalink to this headline">¶</a></h2>
 <p>The basic goal of auditing is to check the electronic results, using the paper trail, which is assumed to be trustworthy (because it passed a <em>compliance audit</em>).</p>
 <ul class="simple">
@@ -407,7 +403,7 @@
 </ul>
 </li>
 </ul>
-<div class="section" id="the-detection-paradigm">
+<section id="the-detection-paradigm">
 <h3>The Detection Paradigm<a class="headerlink" href="#the-detection-paradigm" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Before 2006, audits generally looked at some fixed percentage of votes or precincts selected “at random” and compared electronic results to manual tabulation</p>
@@ -422,8 +418,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="the-evidence-paradigm">
+</section>
+<section id="the-evidence-paradigm">
 <h3>The evidence paradigm<a class="headerlink" href="#the-evidence-paradigm" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>An audit should give strong evidence that the outcome is right (if it is right), or should correct the outcome if it is wrong.</p></li>
@@ -446,8 +442,8 @@ voter-verifiable paper trail would find different winner(s).</p>
 tally, if that tally would show a different outcome.</p>
 <p>For an overview of risk-limiting audits, see https://www.stat.berkeley.edu/~stark/Preprints/lhc18.pdf</p>
 <p>For a more technical discussion and example methods, see Lindeman and Stark (2012).</p>
-</div>
-<div class="section" id="aside-compliance-audits">
+</section>
+<section id="aside-compliance-audits">
 <h3>Aside: Compliance Audits<a class="headerlink" href="#aside-compliance-audits" title="Permalink to this headline">¶</a></h3>
 <p>An audit that relies on an untrustworthy paper trail, or any audit that purports to ascertain voter
 intent from an electronic record or from an artifact that the voter did not have the opportunity
@@ -501,17 +497,17 @@ paper, not on the voting system: the audit needs external touchstones to check t
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="obstacles">
+</section>
+<section id="obstacles">
 <h3>Obstacles<a class="headerlink" href="#obstacles" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Local election officials</p></li>
 <li><p>State laws / legislators</p></li>
 <li><p>Perceived costs</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="sampling-strategies">
+</section>
+</section>
+<section id="sampling-strategies">
 <h2>Sampling Strategies<a class="headerlink" href="#sampling-strategies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Comparison audits: compare machine tabulation to hand tabulation.</p>
@@ -538,8 +534,8 @@ paper, not on the voting system: the audit needs external touchstones to check t
 <li><p>Sample design: with or without replacement? stratified or unstratified?</p></li>
 <li><p>Comparison audits and polling audits generally require a <em>ballot manifest</em> as a sampling frame (c.f. Bernoulli ballot polling). Ballot manifest describes how the ballots are stored.</p></li>
 </ul>
-</div>
-<div class="section" id="auditing-as-a-statistical-hypothesis-test">
+</section>
+<section id="auditing-as-a-statistical-hypothesis-test">
 <h2>Auditing as a statistical hypothesis test<a class="headerlink" href="#auditing-as-a-statistical-hypothesis-test" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Null hypothesis: reported outcome is incorrect</p>
@@ -550,8 +546,8 @@ paper, not on the voting system: the audit needs external touchstones to check t
 </li>
 <li><p>Type I error: certifying an incorrect outcome (seating the wrong winner)</p></li>
 </ul>
-</div>
-<div class="section" id="social-choice-functions">
+</section>
+<section id="social-choice-functions">
 <h2>Social choice functions<a class="headerlink" href="#social-choice-functions" title="Permalink to this headline">¶</a></h2>
 <p>Most common in the US are variants of <em>plurality</em>:</p>
 <ul class="simple">
@@ -566,8 +562,8 @@ paper, not on the voting system: the audit needs external touchstones to check t
 <li><p>single transferrable vote (STV)</p></li>
 <li><p>approval, Borda, many others</p></li>
 </ul>
-</div>
-<div class="section" id="transforming-incorrect-outcome-into-math">
+</section>
+<section id="transforming-incorrect-outcome-into-math">
 <h2>Transforming “incorrect outcome” into math<a class="headerlink" href="#transforming-incorrect-outcome-into-math" title="Permalink to this headline">¶</a></h2>
 <p>Depends on social choice function. Concentrate on plurality-type functions.</p>
 <ul class="simple">
@@ -600,8 +596,8 @@ actual margin in votes of reported winner <span class="math notranslate nohighli
    \pi_{w\ell} \equiv \frac{\# \mbox{ballots with votes for only $w$}}{\# \mbox{ballots with votes for only $w$ or for only $\ell$}}.
 \end{equation*}\]</div>
 <p>Can test using <a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/sprt.ipynb">Wald’s Sequential Probability Ratio Test</a> (also see <a class="reference external" href="https://github.com/pbstark/S157F17/blob/master/pSPRTnoReplacement.ipynb">SPRT without replacement</a>).</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

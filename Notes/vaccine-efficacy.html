@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Estimating Vaccine Efficacy &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -327,11 +323,11 @@
         
               <div>
                 
-  <div class="section" id="estimating-vaccine-efficacy">
+  <section id="estimating-vaccine-efficacy">
 <h1>Estimating Vaccine Efficacy<a class="headerlink" href="#estimating-vaccine-efficacy" title="Permalink to this headline">¶</a></h1>
 <p>You have probably read things like “the Moderna vaccine is 90% effective.” What does that mean?
 How is effectiveness estimated? Can the uncertainty of the estimate be quantified meaningfully? How?</p>
-<div class="section" id="the-experiment">
+<section id="the-experiment">
 <h2>The experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline">¶</a></h2>
 <p>We will idealize the experiment as follows: there is a population of <span class="math notranslate nohighlight">\(N\)</span> subjects of whom <span class="math notranslate nohighlight">\(n\)</span> are selected at random to be vaccinated with the active vaccine; the remaining <span class="math notranslate nohighlight">\(m=N-n\)</span> subjects receive a placebo.
 In reality, the randomization involves stratifying on age and other covariates and may also be stratified by recruitment center.</p>
@@ -343,18 +339,18 @@ In reality, the randomization involves stratifying on age and other covariates a
 \mbox{VE} \equiv 1 - \frac{\mbox{risk among unvaccinated} - \mbox{risk among vaccinated}}{\mbox{risk among unvaccinated}}.
 \end{equation*}\]</div>
 <p>This is the naive estimate of the fraction of infections vaccinations prevent.</p>
-<div class="section" id="complications">
+<section id="complications">
 <h3>Complications<a class="headerlink" href="#complications" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>recruitment happens over some period of time</p></li>
 <li><p>infections are observed only if they occur during some period; not all infections during that period are necessarily observed</p></li>
 <li><p>vaccination may affect behavior</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="bayesian-estimation-of-a-binomial-probability">
+</section>
+</section>
+<section id="bayesian-estimation-of-a-binomial-probability">
 <h2>Bayesian estimation of a binomial probability<a class="headerlink" href="#bayesian-estimation-of-a-binomial-probability" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="the-beta-binomial-distribution">
+<section id="the-beta-binomial-distribution">
 <h3>The beta-binomial distribution<a class="headerlink" href="#the-beta-binomial-distribution" title="Permalink to this headline">¶</a></h3>
 <p>The random variable <span class="math notranslate nohighlight">\(X\)</span> has a beta-binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span> if <span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, P)\)</span> with <span class="math notranslate nohighlight">\(P \sim \mbox{Beta}(\alpha, \beta)\)</span>.</p>
 <p>That is, the probability density of <span class="math notranslate nohighlight">\(P\)</span> is</p>
@@ -369,8 +365,8 @@ The probability mass function of <span class="math notranslate nohighlight">\(X\
 p_X(k) = \binom{n}{k} \frac{B(k+\alpha, n-k+\beta)}{B(\alpha, \beta)}.
 \end{equation*}\]</div>
 <p>The Beta distribution is <em>conjugate</em> to the binomial.</p>
-</div>
-<div class="section" id="connection-to-other-distributions">
+</section>
+<section id="connection-to-other-distributions">
 <h3>Connection to other distributions<a class="headerlink" href="#connection-to-other-distributions" title="Permalink to this headline">¶</a></h3>
 <p>There is a population of <span class="math notranslate nohighlight">\(N\)</span> objects of which <span class="math notranslate nohighlight">\(G\)</span> are labeled “1” and the rest are labeled “0.”</p>
 <p>If we sample with replacement <span class="math notranslate nohighlight">\(n\)</span> times from this population, the distribution of the sample sum is binomial with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p=G/N\)</span>.
@@ -590,13 +586,13 @@ If we sample from this population and each time we draw, we not only replace the
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="a-permutation-approach">
+</section>
+</section>
+<section id="a-permutation-approach">
 <h2>A permutation approach<a class="headerlink" href="#a-permutation-approach" title="Permalink to this headline">¶</a></h2>
 <p>Shift model for effect; assume exchangeability under the null.</p>
 <p>How many 1s need to be added to the treatment group for the test not to reject?</p>
-<div class="section" id="critiquing-the-permutation-approach">
+<section id="critiquing-the-permutation-approach">
 <h3>Critiquing the permutation approach<a class="headerlink" href="#critiquing-the-permutation-approach" title="Permalink to this headline">¶</a></h3>
 <p>Assumes “non-interference.” Any given subject’s response depends only on that subject’s assignment, not on the assignment of any other subject.
 Might or might not be a good model, depending on how the subjects were recruited.</p>
@@ -661,9 +657,9 @@ Might or might not be a good model, depending on how the subjects were recruited
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

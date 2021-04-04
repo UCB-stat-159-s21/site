@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Goodness of Fit Tests &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -351,7 +347,7 @@
         
               <div>
                 
-  <div class="section" id="goodness-of-fit-tests">
+  <section id="goodness-of-fit-tests">
 <h1>Goodness of Fit Tests<a class="headerlink" href="#goodness-of-fit-tests" title="Permalink to this headline">¶</a></h1>
 <p>This notebook explores a few techniques for checking whether a statistical model is “adequate,” i.e., whether it fits the data so poorly that one can reject the hypothesis that the model generated the data.</p>
 <p>We will look at two kinds of models: models with no fitted parameters and models with free parameters fitted to the data. One should expect that a model that is adjusted to fit the data by picking the values of free parameters will fit better than a model in which the values of those parameters are pre-specified without looking at the data.</p>
@@ -369,9 +365,9 @@ Valid Post-Selection Inference, <em>Annals of Statistics, 41</em>, 802-837</p></
 <li><p>Olshen, R., 1974. The Conditional Level of the <span class="math notranslate nohighlight">\(F\)</span> test, <em>Journal of the American
 Statistical Association, Theory and Methods, 68</em>(343), 692-698.</p></li>
 </ul>
-<div class="section" id="models-with-no-free-parameters">
+<section id="models-with-no-free-parameters">
 <h2>Models with no Free Parameters<a class="headerlink" href="#models-with-no-free-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="kolmogorov-smirnov-test">
+<section id="kolmogorov-smirnov-test">
 <h3>Kolmogorov-Smirnov Test<a class="headerlink" href="#kolmogorov-smirnov-test" title="Permalink to this headline">¶</a></h3>
 <p>One particularly useful test for models for real-valued data is the Kolmogorov-Smirnov test, one of many goodness-of-fit tests based on the cumulative distribution function.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span> are IID with a continuous distribution.
@@ -468,8 +464,8 @@ statistics, which have the same distribution—a distribution that does not depe
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality">
+</section>
+<section id="the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality">
 <h3>The Massart-Dvoretzky-Kiefer-Wolfowitz (MDKW) Inequality<a class="headerlink" href="#the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality" title="Permalink to this headline">¶</a></h3>
 <p>Dvoretsky, Kiefer, and Wolfowitz (1956, DKW) showed that</p>
 <div class="amsmath math notranslate nohighlight">
@@ -496,8 +492,8 @@ It follows from the MDKW inequality that</p>
     \mathbb P \left \{\sup_x |F(x) - \hat{F}_n(x)| &gt; 2\sqrt{-\frac{\ln \alpha}{2n}} \right \} \le \alpha.
 \end{equation*}\]</div>
 <p>This lets us construct goodness-of-fit tests for models for real-valued data (in contrast, for instance, to models for categorical data or models for multidimensional data–although there are related methods for such models).</p>
-</div>
-<div class="section" id="example-testing-whether-data-come-from-a-uniform-distributution-on-a-b">
+</section>
+<section id="example-testing-whether-data-come-from-a-uniform-distributution-on-a-b">
 <h3>Example: Testing whether data come from a uniform distributution on <span class="math notranslate nohighlight">\([a, b]\)</span><a class="headerlink" href="#example-testing-whether-data-come-from-a-uniform-distributution-on-a-b" title="Permalink to this headline">¶</a></h3>
 <p>To find a <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis that <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span> are IID <span class="math notranslate nohighlight">\(U[a,b]\)</span>, calculate</p>
 <div class="amsmath math notranslate nohighlight">
@@ -518,8 +514,8 @@ It follows from the MDKW inequality that</p>
 \end{equation*}\]</div>
 <p>(Of course, if <span class="math notranslate nohighlight">\(\min_j X_j &lt; a\)</span> or <span class="math notranslate nohighlight">\(\max_j X_j &gt; b\)</span>, we know with certainty that
 <span class="math notranslate nohighlight">\(\{X_j\}\)</span> are not IID <span class="math notranslate nohighlight">\(U[a,b]\)</span>.)</p>
-</div>
-<div class="section" id="example-testing-whether-data-come-from-a-poisson-process">
+</section>
+<section id="example-testing-whether-data-come-from-a-poisson-process">
 <h3>Example: Testing whether data come from a Poisson process<a class="headerlink" href="#example-testing-whether-data-come-from-a-poisson-process" title="Permalink to this headline">¶</a></h3>
 <p>This model has a parameter, but that will turn out not to matter, because our inference will be conditional on the observed number of events.</p>
 <p>We observe <span class="math notranslate nohighlight">\(X\)</span> on the interval <span class="math notranslate nohighlight">\([0, T]\)</span>.
@@ -527,16 +523,16 @@ If <span class="math notranslate nohighlight">\(X\)</span> has a Poisson process
 That is, if <span class="math notranslate nohighlight">\(X(T) = n\)</span>, then the times of the <span class="math notranslate nohighlight">\(n\)</span> events are like
 an IID sample of size <span class="math notranslate nohighlight">\(n\)</span> from a <span class="math notranslate nohighlight">\(U[0, T]\)</span> distribution.
 Thus, to test whether <span class="math notranslate nohighlight">\(X\)</span> is indeed Poisson, we can use the previous test, taking <span class="math notranslate nohighlight">\(a=0\)</span> and <span class="math notranslate nohighlight">\(b=T\)</span>.</p>
-</div>
-<div class="section" id="example-testing-whether-data-come-from-a-poisson-distribution-with-known-rate-lambda">
+</section>
+<section id="example-testing-whether-data-come-from-a-poisson-distribution-with-known-rate-lambda">
 <h3>Example: Testing whether data come from a Poisson distribution with known rate <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#example-testing-whether-data-come-from-a-poisson-distribution-with-known-rate-lambda" title="Permalink to this headline">¶</a></h3>
 <p>The CDF of the Poisson distribution with mean <span class="math notranslate nohighlight">\(\lambda\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}   e^{-\lambda} \sum_{j=0}^{\lfloor x \rfloor} \lambda^j/j! \end{equation*}\]</div>
 <p>This can be used with the KS test to test whether data come from a Poisson distribution with mean <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
-</div>
-</div>
-<div class="section" id="multinomial-models-and-the-chi-square-goodness-of-fit-test">
+</section>
+</section>
+<section id="multinomial-models-and-the-chi-square-goodness-of-fit-test">
 <h2>Multinomial Models and the chi-square Goodness-of-Fit Test<a class="headerlink" href="#multinomial-models-and-the-chi-square-goodness-of-fit-test" title="Permalink to this headline">¶</a></h2>
 <p>A very common test for goodness-of-fit is based on the probability that the data fall in different categories.</p>
 <p>The most natural setting is multinomial models, but (typically by binning the data), the test can be used in many situations–although in its usual form, it is an approximate test, while the KS test is conservative.</p>
@@ -560,23 +556,23 @@ The approximation improves as <span class="math notranslate nohighlight">\(E_j\)
 data.
 That makes the test results depend on the (arbitrary) choice of bins.
 The <span class="math notranslate nohighlight">\(P\)</span>-values will generally be misleading if the bins are chosen after looking at the data: they should be specified in advance.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Example: Testing whether data come from a Poisson distribution with known rate <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>A different approach to testing whether data come from a Poisson distribution is to bin the possible outcomes <span class="math notranslate nohighlight">\(\{0, 1, 2, \ldots\}\)</span> into a finite number <span class="math notranslate nohighlight">\(k\)</span> of categories, then rely on the fact that the joint distribution of the number of observations that fall into each of the bins has a multinomial distribution.</p>
 <p>For instance, one might define four bins, with the first bin containing the possible outcomes <span class="math notranslate nohighlight">\(\{0, 1, 2\}\)</span>, the second containing <span class="math notranslate nohighlight">\(\{3, 4, 5, 6\}\)</span>,
 the third containing <span class="math notranslate nohighlight">\(\{7, 8, 9\}\)</span>, and the fourth containing <span class="math notranslate nohighlight">\(\{10, 11, \ldots \}\)</span>. Then <span class="math notranslate nohighlight">\(\pi_1 = e^{-\lambda} \sum_{\ell = 0}^2 \lambda^\ell/\ell!\)</span>, <span class="math notranslate nohighlight">\(\pi_2 = e^{-\lambda} \sum_{\ell = 3}^6 \lambda^\ell/\ell!\)</span>, <span class="math notranslate nohighlight">\(\pi_3 = e^{-\lambda} \sum_{\ell = 7}^9 \lambda^\ell/\ell!\)</span>, and <span class="math notranslate nohighlight">\(\pi_4 = 1 - e^{-\lambda} \sum_{\ell = 0}^9 \lambda^\ell/\ell!\)</span>.</p>
 <p>If you are doing this and intend to use the chi-square approximation to the null distribution of the chi-square statistic, you should define the bins in a way that ensures the expected count in every bin is large. If the sample size and/or some <span class="math notranslate nohighlight">\(\pi_j\)</span> is too small to have <span class="math notranslate nohighlight">\(E_j\)</span> large for all <span class="math notranslate nohighlight">\(j\)</span>, don’t use the chi-square approximation.</p>
-</div>
-</div>
-<div class="section" id="chi-square-gof-when-there-are-estimated-parameters">
+</section>
+</section>
+<section id="chi-square-gof-when-there-are-estimated-parameters">
 <h2>Chi-square GOF when there are estimated parameters<a class="headerlink" href="#chi-square-gof-when-there-are-estimated-parameters" title="Permalink to this headline">¶</a></h2>
 <p>If a model has <span class="math notranslate nohighlight">\(p\)</span> free parameters fitted to the data, the distribution of the chi-square statistic is still asymptotically the chi-square distribution, but with <span class="math notranslate nohighlight">\(k-p-1\)</span> degrees of freedom instead of <span class="math notranslate nohighlight">\(k-1\)</span>.</p>
-<div class="section" id="example-poisson-regression">
+<section id="example-poisson-regression">
 <h3>Example: Poisson Regression<a class="headerlink" href="#example-poisson-regression" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

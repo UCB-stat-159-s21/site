@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>6. Homework 6: Cryptorandom - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Notes/01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../Notes/index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -268,31 +264,52 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#suggestions">
-   6.3. Suggestions
+  <a class="reference internal nav-link" href="#tips-for-this-assignment">
+   6.3. Tips for this assignment
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup">
-     6.3.1. Setup
+    <a class="reference internal nav-link" href="#initial-setup-personal-and-team-repositories">
+     6.3.1. Initial setup: personal and team repositories
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-documentation">
-     6.3.2. On documentation
+    <a class="reference internal nav-link" href="#install-cryptorandom-locally-in-development-mode">
+     6.3.2. Install
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       cryptorandom
+      </span>
+     </code>
+     locally in development mode
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-testing">
-     6.3.3. On testing
+    <a class="reference internal nav-link" href="#set-up-the-sphinx-build-for-jupyterhub-hosted-viewing">
+     6.3.3. Set up the Sphinx build for JupyterHub-hosted viewing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#editing-the-docs-and-testing-your-build">
+     6.3.4. Editing the docs and testing your build
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-workfow">
+     6.3.5. Development workfow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-suggestions-on-documentation">
+     6.3.6. General suggestions on documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-suggestions-on-testing">
+     6.3.7. General suggestions on testing
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#important-temporary-note">
-   6.4. Important temporary note
-  </a>
  </li>
 </ul>
 
@@ -306,11 +323,11 @@
         
               <div>
                 
-  <div class="section" id="homework-6-cryptorandom-contributing-to-an-open-source-project">
+  <section id="homework-6-cryptorandom-contributing-to-an-open-source-project">
 <h1><span class="section-number">6. </span>Homework 6: Cryptorandom - contributing to an open source project<a class="headerlink" href="#homework-6-cryptorandom-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
-<li><p><strong>Due 4/5/2021, 11:59PM PT</strong></p></li>
+<li><p><strong>Due 4/7/2021, 11:59PM PT</strong></p></li>
 <li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
 <li><p>This assignment is worth a maximum of <strong>60 points</strong>.</p></li>
 <li><p>Assignment type: <strong>group</strong>.</p></li>
@@ -325,7 +342,7 @@
 <li><p>Ensure that each PR passes all existing tests and adds new ones as necessary. The project repo is already configured to run the test suite with Github Actions, but you will need to ensure that any changes you make are still covered by the automated execution.</p></li>
 </ul>
 <p>While each team will work against a private fork of the official <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> repo, we hope to later incorporate some of your contributions (with full public credit going to you) into the public repo. But your grade will <em>not</em> be based on that - we only want you to be aware of this for you to know that we consider this a “real world” project.</p>
-<div class="section" id="grading">
+<section id="grading">
 <h2><span class="section-number">6.1. </span>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
 <p>The entire assignment is worth 60 points, broken down as follows:</p>
 <ul class="simple">
@@ -345,8 +362,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="workflow">
+</section>
+<section id="workflow">
 <h2><span class="section-number">6.2. </span>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>You will be assigned to a team of 4–5 students.</p>
@@ -376,44 +393,119 @@
 </ul>
 </li>
 </ul>
+</section>
+<section id="tips-for-this-assignment">
+<h2><span class="section-number">6.3. </span>Tips for this assignment<a class="headerlink" href="#tips-for-this-assignment" title="Permalink to this headline">¶</a></h2>
+<p><em>Note:</em> some of these tips were previously in a separate document, now merged here as part of the homework (partly so the automated numbering scheme matches our homework numbers).</p>
+<p>These notes should help you work through some of the issues we discussed in lecture, regarding how to render the sphinx documentation for <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> in the hub, and how to then view your own build of these docs through the hub.</p>
+<p>Basically we need to solve the following problems:</p>
+<ol class="simple">
+<li><p>We need to ensure that pytest, Sphinx and other tools find and use our in-development version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> instead of the system-wide one, so our new work is reflected in the tests and documentation we create.</p></li>
+<li><p>We need to be able to build the documentation on JupyterHub and view the resulting docs online easily, through the Hub.</p></li>
+</ol>
+<p>Credit and huge thanks to <a class="reference external" href="https://github.com/yuvipanda">Yuvi Panda</a> from the JupyterHub/Berkeley team for his help navigating the proxy issues detailed below.</p>
+<section id="initial-setup-personal-and-team-repositories">
+<h3><span class="section-number">6.3.1. </span>Initial setup: personal and team repositories<a class="headerlink" href="#initial-setup-personal-and-team-repositories" title="Permalink to this headline">¶</a></h3>
+<p>You will need to fork the team repo to your personal user and then clone your personal fork into the hub. That will be your “working space”, one for each member of the team. You will do all your work in your personal copy, pushing your changes up to github in your personal fork, and then from there, making PRs to the team repo.</p>
+<p>As we discussed in class, a good way to track both is to have <em>two</em> remotes, using your personal fork as <code class="docutils literal notranslate"><span class="pre">origin</span></code> and the team repo as <code class="docutils literal notranslate"><span class="pre">upstream</span></code>. This also makes it convenient to have more remotes if for example you want to check locally the work of your teammate whose github username is <code class="docutils literal notranslate"><span class="pre">alice</span></code> by having a remote of that name.  As an illustration, this is what my remotes setup for the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> repo looks like on my system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="p">(</span><span class="n">main</span><span class="p">)</span><span class="n">blanca</span><span class="p">[</span><span class="n">cryptorandom</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">origin</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">fperez</span><span class="o">/</span><span class="n">cryptorandom</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+<span class="n">origin</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">fperez</span><span class="o">/</span><span class="n">cryptorandom</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
+<span class="n">upstream</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">statlab</span><span class="o">/</span><span class="n">cryptorandom</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+<span class="n">upstream</span>	<span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">statlab</span><span class="o">/</span><span class="n">cryptorandom</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="suggestions">
-<h2><span class="section-number">6.3. </span>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="setup">
-<h3><span class="section-number">6.3.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
-<p>You will need to fork the team repo to your personal user and then clone your personal fork into the hub. That will be your “working space”, one for each person.</p>
-<p>From your personal fork, you will need to install the working copy of cryptorandom so you can build the docs, run new tests, etc., against the version of the project you are actually writing code for. You can do this by running in your local copy the command</p>
+</section>
+<section id="install-cryptorandom-locally-in-development-mode">
+<h3><span class="section-number">6.3.2. </span>Install <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> locally in development mode<a class="headerlink" href="#install-cryptorandom-locally-in-development-mode" title="Permalink to this headline">¶</a></h3>
+<p>The first issue we must solve is for Sphinx to find the version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> that you are working on, rather than the installed one. This manifests itself immediately as the <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> you see regarding a missing <code class="docutils literal notranslate"><span class="pre">__version__</span></code> attribute when trying to build the docs, but even if you fix that with a quick hack as I did in lecture, you’ll still have a problem. The issue is that the docs will import the <em>system-wide installed</em> version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code>, and not your local development copy. So any new docstrings or function signatures you edit will not be correctly reflected in the resulting docs.</p>
+<p>The solution is to install your working copy as a <em>development version</em>, also known as an <em>“editable install”</em> (hence the <code class="docutils literal notranslate"><span class="pre">-e</span></code> command line argument, short for <code class="docutils literal notranslate"><span class="pre">--editable</span></code>). We now explain how to do this, and you can find more details in the <a class="reference external" href="https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs">pip documentation</a>.</p>
+<p>In the top-level of the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> directory, where the file <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> lives, run the command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p>
-<p>as described in the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> README file.</p>
+<p>You should see something like the following output (with your own user name in the path):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jovyan</span><span class="nd">@jupyter</span><span class="o">-</span><span class="n">fernando</span><span class="o">-</span><span class="mi">2</span><span class="n">eperez</span><span class="p">:</span><span class="o">~/</span><span class="n">cryptorandom</span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<span class="n">Obtaining</span> <span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">home</span><span class="o">/</span><span class="n">jovyan</span><span class="o">/</span><span class="n">cryptorandom</span>
+<span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">numpy</span><span class="o">&gt;=</span><span class="mf">1.20</span> <span class="ow">in</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">conda</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">cryptorandom</span><span class="o">==</span><span class="mf">0.3</span><span class="n">rc2</span><span class="o">.</span><span class="n">dev0</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.20</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">scipy</span><span class="o">&gt;=</span><span class="mf">1.6</span> <span class="ow">in</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">conda</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">cryptorandom</span><span class="o">==</span><span class="mf">0.3</span><span class="n">rc2</span><span class="o">.</span><span class="n">dev0</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">cryptorandom</span>
+  <span class="n">Attempting</span> <span class="n">uninstall</span><span class="p">:</span> <span class="n">cryptorandom</span>
+    <span class="n">Found</span> <span class="n">existing</span> <span class="n">installation</span><span class="p">:</span> <span class="n">cryptorandom</span> <span class="mf">0.2</span>
+    <span class="n">Uninstalling</span> <span class="n">cryptorandom</span><span class="o">-</span><span class="mf">0.2</span><span class="p">:</span>
+      <span class="n">Successfully</span> <span class="n">uninstalled</span> <span class="n">cryptorandom</span><span class="o">-</span><span class="mf">0.2</span>
+  <span class="n">Running</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">develop</span> <span class="k">for</span> <span class="n">cryptorandom</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">cryptorandom</span>
+</pre></div>
 </div>
-<div class="section" id="on-documentation">
-<h3><span class="section-number">6.3.2. </span>On documentation<a class="headerlink" href="#on-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Check that you got it right by doing the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">doc</span><span class="o">/</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import cryptorandom as cr;print(cr.__version__)&quot;</span>
+</pre></div>
+</div>
+<p>You should see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jovyan</span><span class="nd">@jupyter</span><span class="o">-</span><span class="n">fernando</span><span class="o">-</span><span class="mi">2</span><span class="n">eperez</span><span class="p">:</span><span class="o">~/</span><span class="n">cryptorandom</span><span class="o">&gt;</span> <span class="n">cd</span> <span class="n">doc</span><span class="o">/</span>
+<span class="n">jovyan</span><span class="nd">@jupyter</span><span class="o">-</span><span class="n">fernando</span><span class="o">-</span><span class="mi">2</span><span class="n">eperez</span><span class="p">:</span><span class="o">~/</span><span class="n">cryptorandom</span><span class="o">/</span><span class="n">doc</span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import cryptorandom as cr;print(cr.__version__)&quot;</span>
+<span class="mf">0.3</span><span class="n">rc2</span><span class="o">.</span><span class="n">dev0</span>
+</pre></div>
+</div>
+</section>
+<section id="set-up-the-sphinx-build-for-jupyterhub-hosted-viewing">
+<h3><span class="section-number">6.3.3. </span>Set up the Sphinx build for JupyterHub-hosted viewing<a class="headerlink" href="#set-up-the-sphinx-build-for-jupyterhub-hosted-viewing" title="Permalink to this headline">¶</a></h3>
+<p>Now we turn to the second problem: once we build our docs with Sphinx against our development version, how do we look at the built HTML results? These files are hosted in the Hub, not our home computer, so we can’t easily view them immediately. While JupyterLab can display individual HTML files, this will not show a fully styled version with all the necessary extra assets such as images, CSS, etc.  We need to use a full <em>web server</em> for that, and we need to be able to access that web server from outside the Hub. We now explain how to achieve this.</p>
+<p>First, you need to make a change to <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> so that the build can be seen through a JupyterHub installation. This change can probably go into cryptorandom proper in the end, but for now we suggest you make it directly into the team repo in a single commit, that all team members then pull from, so you all have it in one place. You need to add three lines below - the comment is there in the file already, around line 108, and we leave it here for ease of reference. You neeed to add the code starting with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- Options for HTML output ----------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="s2">&quot;JUPYTERHUB_SERVICE_PREFIX&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">html_baseurl</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;JUPYTERHUB_SERVICE_PREFIX&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">/proxy/absolute/8000&#39;</span>
+</pre></div>
+</div>
+<p>Just to make sure these changes apply everywhere, in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> once after the above, and then continue with the below. In what follows you may want to keep at least <em>two</em> terminals open, one where you keep running the HTML Sphinx build, and one to run the server to check your builds (some might keep a third open in the top-level directory for git work, commits, pushes, etc). Take advantage of JupyterLab’s ability to lay them out in whatever way you find most visually convenient!</p>
+<p>Once you make these changes you should commit and push them to the team repo, and all members need to ensure they pull from that correctly and they all have the same <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
+</section>
+<section id="editing-the-docs-and-testing-your-build">
+<h3><span class="section-number">6.3.4. </span>Editing the docs and testing your build<a class="headerlink" href="#editing-the-docs-and-testing-your-build" title="Permalink to this headline">¶</a></h3>
+<p>Make your edits and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory.  To check your build, then go to your other terminal (if you chose to have more than one) and go to the <code class="docutils literal notranslate"><span class="pre">build/html</span></code> subdirectory. There, run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">http.server</span></code></p>
+<p>as we saw today in class.  This will print a message like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jovyan</span><span class="nd">@jupyter</span><span class="o">-</span><span class="n">fernando</span><span class="o">-</span><span class="mi">2</span><span class="n">eperez</span><span class="p">:</span><span class="o">~/</span><span class="n">cryptorandom</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span>
+<span class="n">Serving</span> <span class="n">HTTP</span> <span class="n">on</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span> <span class="n">port</span> <span class="mi">8000</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8000</span><span class="o">/</span><span class="p">)</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>but you can <em>not</em> access <code class="docutils literal notranslate"><span class="pre">http://0.0.0.0:8000</span></code> as we explained today in class, as on your home computer that would correspond to a local port. Instead you need to reach that port but on the Stat159 DataHub!</p>
+<p>In order to support that, the Hub runs what is called a proxy service, that basically hooks up port 8000 on the Hub service to a publicly available path on the internet, so that you can see that internal port from your home computer.</p>
+<p>The file you are trying to reach is <code class="docutils literal notranslate"><span class="pre">index.html</span></code> at the <code class="docutils literal notranslate"><span class="pre">doc/build/html</span></code> directory, being served on port 8000 on the server. To access that file from home, instead you tell your laptop to go to:</p>
+<p>https://stat159.datahub.berkeley.edu/user-redirect/proxy/8000/index.html</p>
+<p>(if you had configured the python HTTP server to use a different port than 8000 you’d change that number, and similarly if the name of the file you wanted to look at was different you’d adjust the path).</p>
+<p>That URL will automatically change to a different one, with your username, and should show you the build of the docs. This is what that looks like for me when it’s all running:</p>
+<p><img alt="" src="../_images/hw06-sphinx-build-hub-proxy-view.png" /></p>
+<p>As a side note, you may want to explore using <a class="reference external" href="https://github.com/executablebooks/sphinx-autobuild">sphinx-autobuild</a>, a tool that automatically builds and reloads your Sphinx docs as you make changes. I haven’t personally tested it yet but it looks interesting, it is developed by the same team from the Executable Books project that builds JupyterBook.</p>
+</section>
+<section id="development-workfow">
+<h3><span class="section-number">6.3.5. </span>Development workfow<a class="headerlink" href="#development-workfow" title="Permalink to this headline">¶</a></h3>
+<p>You can now keep the Python HTTP server running, and continue a cycle of making edits, running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory, and checking the resulting HTML until it is to your liking.</p>
+<p>Once you’re happy, commit, push, make PRs, and communicate happily with your team on your progress!</p>
+</section>
+<section id="general-suggestions-on-documentation">
+<h3><span class="section-number">6.3.6. </span>General suggestions on documentation<a class="headerlink" href="#general-suggestions-on-documentation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>check the docstrings within <code class="docutils literal notranslate"><span class="pre">cryptorandom.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> and edit/augment them as you see fit.</p></li>
 <li><p>check whether the formal documentation accurately portrays the code.</p></li>
 <li><p>Read <a class="reference external" href="https://documentation.divio.com">this discussion about Four types of documentation</a> for inspiration - you can make contributions in each of these dimensions. Docstrings aren’t the only thing you can work on!</p></li>
 <li><p>To build the documentation you can type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> subdirectory.</p></li>
 </ul>
-</div>
-<div class="section" id="on-testing">
-<h3><span class="section-number">6.3.3. </span>On testing<a class="headerlink" href="#on-testing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="general-suggestions-on-testing">
+<h3><span class="section-number">6.3.7. </span>General suggestions on testing<a class="headerlink" href="#general-suggestions-on-testing" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Identify code that is not currently tested</p></li>
 <li><p>Identify tests that do not really “exercise” the code
 - Make one PR that aims to push line-based test coverage as close to 100% as possible. This PR should also have individual tests that add <em>conceptual</em> test coverage in areas currently not covered.</p></li>
 <li><p>To run the test suite, you can run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-all</span></code> from the top-level directory, which is the same command that <a class="reference external" href="https://github.com/statlab/cryptorandom/actions/workflows/test.yml">the testing GitHub action uses</a>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="important-temporary-note">
-<h2><span class="section-number">6.4. </span>Important temporary note<a class="headerlink" href="#important-temporary-note" title="Permalink to this headline">¶</a></h2>
-<p>We need to make a few changes to the hub for this assignment, which are <a class="reference external" href="https://github.com/berkeley-dsep-infra/datahub/pull/2252">currently under testing</a>. Please check that link, if that PR isn’t merged yet, then you’ll need to run the following commands in a terminal in order to be able to successfully use the project:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">numpy</span><span class="o">==</span><span class="mf">1.20</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">numpydoc</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

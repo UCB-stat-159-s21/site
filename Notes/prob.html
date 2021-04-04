@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Sets, Combinatorics, &amp; Probability &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -369,9 +365,9 @@
         
               <div>
                 
-  <div class="section" id="sets-combinatorics-probability">
+  <section id="sets-combinatorics-probability">
 <h1>Sets, Combinatorics, &amp; Probability<a class="headerlink" href="#sets-combinatorics-probability" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="probability-versus-statistics">
+<section id="probability-versus-statistics">
 <h2>Probability versus Statistics<a class="headerlink" href="#probability-versus-statistics" title="Permalink to this headline">¶</a></h2>
 <p>In probability, we assume we know what the world is like, and predict what we would then see.</p>
 <p>In statistics, we make observations and use them to learn something about the world.
@@ -390,8 +386,8 @@ of the system.</p>
 <p>Probability is a combination of mathematics and philosophy.
 The philosophy connects the mathematics to the world.</p>
 <p>We will start with the mathematics.</p>
-</div>
-<div class="section" id="sets">
+</section>
+<section id="sets">
 <h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
 <p>The mathematics of probability is expressed most naturally using set theory.
 We will review the basic terminology and reviews naive set theory: how to define and
@@ -536,7 +532,7 @@ then still</p>
 \sum_{1 \le i_1 &lt; i_2 &lt; i_3 \le n} \#(A_{i_1}A_{i_2}A_{i_3}) - \cdots 
 +(-1)^{k-1} \sum_{1 \le i_1 &lt; i_2 &lt; \cdots &lt; i_k \le n} \# (A_{i_1}A_{i_2} \cdots A_{i_k}) + \cdots
 \]</div>
-<div class="section" id="some-useful-set-relations">
+<section id="some-useful-set-relations">
 <h3>Some useful set relations<a class="headerlink" href="#some-useful-set-relations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(A\subset B\)</span> and <span class="math notranslate nohighlight">\(B\subset A\)</span> then <span class="math notranslate nohighlight">\(A = B\)</span>. (If two sets are subsets of each other, they are the same set.)</p></li>
@@ -559,9 +555,9 @@ then still</p>
 <li><p><span class="math notranslate nohighlight">\(A\cap (B\cup C) = (A\cap B)\cup (A\cap C)\)</span>. (Distribution of intersection over union.)</p></li>
 <li><p><span class="math notranslate nohighlight">\(A\cup (B\cap C) = (A\cup B)\cap (A\cup C)\)</span>. (Distribution of union over intersection.)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="exercises">
+</section>
+</section>
+<section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Prove that if <span class="math notranslate nohighlight">\(\{A_\beta : \beta \in B \}\)</span> are pairwise disjoint and exhaust <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\{A_\beta \cap A : \beta \in B \}\)</span> is a partition of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
@@ -620,8 +616,8 @@ A intersect B: set([3])
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cartesian-products">
+</section>
+<section id="cartesian-products">
 <h2>Cartesian Products<a class="headerlink" href="#cartesian-products" title="Permalink to this headline">¶</a></h2>
 <p>The notation <span class="math notranslate nohighlight">\((s_1, s_2, \ldots, s_n) \equiv (s_j)_{j=1}^n\)</span> denotes an
 <em>ordered <span class="math notranslate nohighlight">\(n\)</span>-tuple</em> consisting of
@@ -661,8 +657,8 @@ then <span class="math notranslate nohighlight">\(s = t\)</span> iff <span class
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="combinatorics">
+</section>
+<section id="combinatorics">
 <h2>Combinatorics<a class="headerlink" href="#combinatorics" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> be a finite set with <span class="math notranslate nohighlight">\(\# A = n\)</span>.
 A <em>permutation</em> of (the elements of) <span class="math notranslate nohighlight">\(A\)</span> is an element <span class="math notranslate nohighlight">\(s\)</span> of
@@ -763,8 +759,8 @@ permutations of  2 elements of A: [(&#39;a&#39;, &#39;b&#39;), (&#39;a&#39;, &#3
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="strategies-for-counting">
+</section>
+<section id="strategies-for-counting">
 <h2>Strategies for counting<a class="headerlink" href="#strategies-for-counting" title="Permalink to this headline">¶</a></h2>
 <p>There are several approaches to counting the elements of a set that can be helpful in practice, aside from simply enumerating the elements.</p>
 <ol class="simple">
@@ -774,7 +770,7 @@ permutations of  2 elements of A: [(&#39;a&#39;, &#39;b&#39;), (&#39;a&#39;, &#3
 <li><p>Overinclude, then adjust: count a set that is larger than the set in question, then subtract the extras.</p></li>
 <li><p>Use the Inclusion-Exclusion Principle.</p></li>
 </ol>
-<div class="section" id="computational-exercise">
+<section id="computational-exercise">
 <h3>Computational exercise<a class="headerlink" href="#computational-exercise" title="Permalink to this headline">¶</a></h3>
 <p>Write a Python function that constructs all permutations of a finite list.</p>
 <p>The function should take as input a list s, and produce as output all permutations of the elements of the list. Items should be considered unique based on their position in the list.</p>
@@ -793,9 +789,9 @@ c b a
 </pre></div>
 </div>
 <p>Write your function from scratch; i.e., do not use any libraries that are not part of the core of Python (e.g., do not use the <span class="code">itertools</span> library).</p>
-<hr /></div>
-</div>
-<div class="section" id="numerical-stability-and-order-of-operations">
+<hr /></section>
+</section>
+<section id="numerical-stability-and-order-of-operations">
 <h2>Numerical stability and order of operations<a class="headerlink" href="#numerical-stability-and-order-of-operations" title="Permalink to this headline">¶</a></h2>
 <p>As a matter of mathematics, <span class="math notranslate nohighlight">\({{n}\choose{k}} = \frac{n!}{k!(n-k)!}\)</span>, but this is a bad way to compute <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span>.
 When <span class="math notranslate nohighlight">\(n\)</span> is large, the numerator <span class="math notranslate nohighlight">\(n!\)</span> is enormous, and can overflow finite-precision calculations even for values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> for which <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span> is small.
@@ -843,8 +839,8 @@ Moreover, relying on cancellation in finite-precision arithmetic can lead to lar
 <p>For instance, algebraically, <span class="math notranslate nohighlight">\(x^2 - (x-1)^2 = 2x-1\)</span>.
 But if the mantissa of <span class="math notranslate nohighlight">\(x\)</span> is large, squaring
 <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x-1\)</span> can overflow the precision of the calculation, and their difference of the computed squares will be numerically wrong.</p>
-</div>
-<div class="section" id="connecting-probability-to-set-theory">
+</section>
+<section id="connecting-probability-to-set-theory">
 <h2>Connecting Probability to Set Theory<a class="headerlink" href="#connecting-probability-to-set-theory" title="Permalink to this headline">¶</a></h2>
 <p>A <em>random experiment</em> or <em>random trial</em>
 is basically any
@@ -936,7 +932,7 @@ is an element of <span class="math notranslate nohighlight">\(B\)</span>).</p></
 At one extreme, <span class="math notranslate nohighlight">\(AB = \emptyset\)</span>; then <span class="math notranslate nohighlight">\({\mathbb P}(AB) = 0 \le {\mathbb P}(A){\mathbb P}(B)\)</span>.
 At another extreme, either <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(B\)</span> or vice versa; then <span class="math notranslate nohighlight">\({\mathbb P}(AB) = \min({\mathbb P}(A),{\mathbb P}(B)) \ge {\mathbb P}(A){\mathbb P}(B)\)</span>.
 Independence lies at a precise point in between.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Exercises.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Show that if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent and <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt;0\)</span>, then
@@ -949,9 +945,9 @@ Independence lies at a precise point in between.</p>
 </ul>
 </li>
 </ol>
-</div>
-</div>
-<div class="section" id="bayes-rule">
+</section>
+</section>
+<section id="bayes-rule">
 <h2>Bayes’ Rule<a class="headerlink" href="#bayes-rule" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(\mathbb{P}(A)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{P}(B) \ne 0\)</span>.
 Then</p>
@@ -960,8 +956,8 @@ Then</p>
 \mathbb{P}(A|B) = \frac{\mathbb{P}(B|A)\mathbb{P}(A)}{\mathbb{P}(B)}.
 \]</div>
 <p>Bayes’ rule lets you “invert” conditional probabilities to find <span class="math notranslate nohighlight">\(\mathbb{P}(A|B)\)</span> in terms of <span class="math notranslate nohighlight">\(\mathbb{P}(B|A)\)</span>.</p>
-</div>
-<div class="section" id="the-law-of-total-probability">
+</section>
+<section id="the-law-of-total-probability">
 <h2>The Law of Total Probability<a class="headerlink" href="#the-law-of-total-probability" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> be an event and suppose <span class="math notranslate nohighlight">\(\{ A_i \}\)</span> (a finite or countable collection of sets) is a partition of outcome space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> such that <span class="math notranslate nohighlight">\(\mathbb{P}(A_i) &gt; 0\)</span> <span class="math notranslate nohighlight">\(\forall i\)</span>.
 Then</p>
@@ -970,7 +966,7 @@ Then</p>
 \mathbb{P}(A) = \sum_i \mathbb{P}(A|A_i) \mathbb{P}(A_i).
 \]</div>
 <p>The Law of Total Probability is basically just an application of the definition of conditional probability and Kolmogorov’s third axiom, but it’s extremely useful.</p>
-<div class="section" id="examples">
+<section id="examples">
 <h3>Examples.<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <p>Here is a classic application of Bayes’ Rule. Suppose that a screening test for a medical condition
 is 95% accurate, in the sense that if one has the condition, there is a 95% chance that the test will be positive, and if one does not have the condition, there is a 95% chance that the test will be negative.
@@ -990,8 +986,8 @@ What’s the chance that the person actually has the condition?</p>
 = 16.1\%.
 \]</div>
 <p>(The denominator involves applying the Law of Total Probability.)</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>Exercises.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>[To do]</p>
 <p>Previous: <span class="xref myst">Jupyter &amp; Python</span> Next: <a class="reference internal" href="probTheory.html"><span class="doc std std-doc">Theories of Probability</span></a></p>
@@ -2171,9 +2167,9 @@ div.rect6x50_right {
 
 </style></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Jupyter - Interactive Computing and Data Science &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -90,7 +91,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -102,7 +103,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -114,7 +115,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -156,24 +157,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../../Notes/index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -224,7 +220,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Notes/01/intro-jupyter-hub.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/Notes-Computing/intro-git-jupyterhub/intro-jupyter-hub.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -249,7 +245,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/01/intro-jupyter-hub.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes-Computing/intro-git-jupyterhub/intro-jupyter-hub.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -306,13 +302,13 @@
         
               <div>
                 
-  <div class="section" id="jupyter-interactive-computing-and-data-science">
+  <section id="jupyter-interactive-computing-and-data-science">
 <h1>Jupyter - Interactive Computing and Data Science<a class="headerlink" href="#jupyter-interactive-computing-and-data-science" title="Permalink to this headline">¶</a></h1>
 <p>In this short section, we’ll provide a brief overview of the tools we’ll be using from <a class="reference external" href="https://jupyter.org">Project Jupyter</a>.  We will present this live on the tutorial from a more interactive slide deck, but these notes may be useful as a reading reference.</p>
 <p>In brief, Jupyter provides a variety of tools to help you explore your data and computational worfklows <em>interactively</em>, that is in a context where you use a programming language (Python in our case) to execute (typically small amounts of) code and immediately view the results, informing your next steps where new code is executed. This process, inherently iterative and exploratory, is a natural fit for scientific research and commonly available in many environments like Matlab, IDL, Mathematica and more.</p>
 <p>Jupyter brings a set of open standards and tools to this space: it supports over 100 programming languages, provides interfaces that let you use this workflow similarly on your laptop or on a remote system (like the cloud or a supercomputer), and has a rich ecosystem of related and supporting tools.</p>
 <p>Later we’ll dive deeper into the Jupyter tools, for now we’re going to quickly cover enough of our two key ones to make sure you find your bearings in this tutorial, which focuses on Git and GitHub.</p>
-<div class="section" id="jupyterhub">
+<section id="jupyterhub">
 <h2>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h2>
 <p>While you can install the Jupyter tools to run on your laptop, we will instead run them on a cloud computing environment that offers scalable computational resources as well as close proximity to the data we want to use. Instead of all of you having to download lots of data each, we can spin up virtual computers in the cloud pre-configured with all the same tools and packages you’d need locally, in close proximity (in a network sense) to the data.</p>
 <p><a class="reference external" href="https://jupyter.org/hub">JupyterHub</a> is the tool in Jupyter that helps us do this: it is a multi-user server that lets us easily host Jupyter and other interactive data science tools (such as R Studio) under one “web roof”.</p>
@@ -325,12 +321,12 @@
 <a class="reference internal image-reference" href="../../_images/jupyterhub-launch.png"><img alt="../../_images/jupyterhub-launch.png" src="../../_images/jupyterhub-launch.png" style="width: 90%;" /></a>
 <p>which, after a progress bar, should produce something like this:</p>
 <a class="reference internal image-reference" href="../../_images/jupyterlab-00.png"><img alt="../../_images/jupyterlab-00.png" src="../../_images/jupyterlab-00.png" style="width: 90%;" /></a>
-</div>
-<div class="section" id="pause-anyone-with-login-issues">
+</section>
+<section id="pause-anyone-with-login-issues">
 <h2>Pause: anyone with login issues?<a class="headerlink" href="#pause-anyone-with-login-issues" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-<div class="section" id="jupyter-lab-basics">
+</section>
+</section>
+<section id="jupyter-lab-basics">
 <h1>Jupyter Lab Basics<a class="headerlink" href="#jupyter-lab-basics" title="Permalink to this headline">¶</a></h1>
 <p>JupyterLab is a locally- or cloud-based environment for interactive computing, that lets you create Jupyter Notebooks but has many more tools and capabilities.  We will dive into more detail in our next tutorial, but for now let’s see a brief rundown of its structure so you can get oriented.</p>
 <p>This is what JupyterLab looks like upon startup:</p>
@@ -344,7 +340,7 @@
 </div>
 <p>You should see something like the following, with the new folder containing the tutorial appearing a few seconds later in the left sidebar:</p>
 <a class="reference internal image-reference" href="../../_images/jupyterlab-git-clone.png"><img alt="../../_images/jupyterlab-git-clone.png" src="../../_images/jupyterlab-git-clone.png" style="width: 90%;" /></a>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -359,7 +355,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Notes/01"
+            path: "./Notes-Computing/intro-git-jupyterhub"
         },
         predefinedOutput: true
     }

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Bayesian and Frequentist Estimation and Inference &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -92,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Overview
  </span>
@@ -104,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Syllabus
  </span>
@@ -116,7 +117,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -158,24 +159,19 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01/index.html">
-   Introduction to Git and Github
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Lecture Index
  </span>
@@ -460,16 +456,16 @@
         
               <div>
                 
-  <div class="section" id="bayesian-and-frequentist-estimation-and-inference">
+  <section id="bayesian-and-frequentist-estimation-and-inference">
 <h1>Bayesian and Frequentist Estimation and Inference<a class="headerlink" href="#bayesian-and-frequentist-estimation-and-inference" title="Permalink to this headline">¶</a></h1>
 <p>This notebook explores Bayesian methods from a foundational perspective, contrasting the assumptions required for Bayesian inferences with the assumptions required for frequentist inferences, and the differences in interpretation of uncertainties for the two paradigms.</p>
 <p>It also discusses using frequentist measures of uncertainty for Bayesian estimates.</p>
 <p>It is adapted from Stark (2015) and Stark and Tenorio (2010), with additional material on election audits.</p>
-<div class="section" id="what-is-a-bayesian">
+<section id="what-is-a-bayesian">
 <h2>What is a Bayesian?<a class="headerlink" href="#what-is-a-bayesian" title="Permalink to this headline">¶</a></h2>
 <p>Per I.J. Good, a Bayesian is someone for whom it makes sense to talk about the conditional probability that a hypothesis <span class="math notranslate nohighlight">\(H\)</span> is true, given evidence <span class="math notranslate nohighlight">\(E\)</span>.</p>
 <p>For a frequentist, such a question generally does not make sense: <span class="math notranslate nohighlight">\(H\)</span> is either true or not. Its truth is not random, just unknown.</p>
-<div class="section" id="bayesian-estimates">
+<section id="bayesian-estimates">
 <h3>Bayesian estimates<a class="headerlink" href="#bayesian-estimates" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>General approach (viz, don’t even need data to make an estimate)</p></li>
@@ -477,8 +473,8 @@
 <li><p>Can be thought of as a kind of “regularization”</p></li>
 <li><p>Elegant math from perspective of decision theory: convexify strategy space</p></li>
 </ul>
-</div>
-<div class="section" id="uncertainties">
+</section>
+<section id="uncertainties">
 <h3>Uncertainties<a class="headerlink" href="#uncertainties" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Bayesian and frequentist uncertainties have completely different interpretations</p>
@@ -501,8 +497,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="toy-problem-bounded-normal-mean">
+</section>
+<section id="toy-problem-bounded-normal-mean">
 <h3>Toy problem: bounded normal mean<a class="headerlink" href="#toy-problem-bounded-normal-mean" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Observe <span class="math notranslate nohighlight">\(Y \sim N(\theta, 1)\)</span>.</p></li>
@@ -511,8 +507,8 @@
 </ul>
 <img alt="../_images/starkTenorio09-length.png" src="../_images/starkTenorio09-length.png" />
 <img alt="../_images/starkTenorio09-coverage.png" src="../_images/starkTenorio09-coverage.png" />
-</div>
-<div class="section" id="duality-between-bayes-and-minimax-approaches">
+</section>
+<section id="duality-between-bayes-and-minimax-approaches">
 <h3>Duality between Bayes and minimax approaches<a class="headerlink" href="#duality-between-bayes-and-minimax-approaches" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Formal Bayesian uncertainty can be made as small as desired by choosing prior appropriately.</p></li>
@@ -535,7 +531,7 @@
 <li><p>How much does prior matter?</p></li>
 <li><p>Slogan “the data swamp the prior.” Theorem has conditions that aren’t always met.</p></li>
 </ul>
-<div class="section" id="uncertainty">
+<section id="uncertainty">
 <h4>Uncertainty<a class="headerlink" href="#uncertainty" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Not all uncertainty can be represented by a probability</p></li>
@@ -568,9 +564,9 @@ as if one’s brain were unbiased instrument with known accuracy</p></li>
 <li><p>same observations that are factored in as “data” are also used to form beliefs: the “measurements” made by introspection are not independent of the data</p></li>
 <li><p>if you try several priors, you are not using Bayesian statistics</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="bayesian-and-frequentist-uncertainties">
+</section>
+</section>
+<section id="bayesian-and-frequentist-uncertainties">
 <h3>Bayesian and Frequentist Uncertainties<a class="headerlink" href="#bayesian-and-frequentist-uncertainties" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>What varies?</p></li>
@@ -578,9 +574,9 @@ as if one’s brain were unbiased instrument with known accuracy</p></li>
 <li><p>How do we know how the variable thing varies?</p></li>
 <li><p>Are we talking about our world, or a set of possible worlds?</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="statistical-framework">
+</section>
+</section>
+<section id="statistical-framework">
 <h2>Statistical Framework<a class="headerlink" href="#statistical-framework" title="Permalink to this headline">¶</a></h2>
 <p>We want to use the measurement <span class="math notranslate nohighlight">\(Y\)</span> to learn about <span class="math notranslate nohighlight">\(\theta\)</span>, an unknown parameter.</p>
 <p>The datum <span class="math notranslate nohighlight">\(Y\)</span> is an <span class="math notranslate nohighlight">\(n\)</span>-vector of real numbers, i.e., elements
@@ -623,7 +619,7 @@ a norm or semi norm of <span class="math notranslate nohighlight">\(\theta\)</sp
 for instance.
 We shall assume that the possible values of <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> are also elements of
 a Hilbert space.</p>
-<div class="section" id="bayesian-election-audits">
+<section id="bayesian-election-audits">
 <h3>Bayesian election audits<a class="headerlink" href="#bayesian-election-audits" title="Permalink to this headline">¶</a></h3>
 <p>A Bayesian election audit (Rivest and Shen, 2012) uses Bayes rule applied to a prior probability distribiution on voter preferences, together with audit data, to find the posterior probability that the reported outcome is incorrect.
 The audit stops only if that posterior probability is smaller than a specified limit.</p>
@@ -637,8 +633,8 @@ showed results similar to what we’ve seen in
 the ballots audited so far?</p>
 </div></blockquote>
 <p>If the probability that anybody other than the reported winner actually won is small enough, the audit stops: the <em>upset probability</em> is small.</p>
-</div>
-<div class="section" id="dirichlet-priors">
+</section>
+<section id="dirichlet-priors">
 <h3>Dirichlet priors<a class="headerlink" href="#dirichlet-priors" title="Permalink to this headline">¶</a></h3>
 <p>A Bayesian auditor requires a prior probability distribution for voter preferences–for the votes that each ballot shows.</p>
 <p>A typical form assumes that the prior probability that a ballot is of type <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(1 \le k \le K \ge 2\)</span> has a <em>Dirichlet distribution</em>:</p>
@@ -766,8 +762,8 @@ Let <span class="math notranslate nohighlight">\(S_K\)</span> denote the <em>uni
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="concerns-about-bayes-audits">
+</section>
+<section id="concerns-about-bayes-audits">
 <h3>Concerns about Bayes audits<a class="headerlink" href="#concerns-about-bayes-audits" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A Bayes audit does not necessarily provide strong evidence that <em>this</em> election found the right winners.</p></li>
@@ -777,9 +773,9 @@ Let <span class="math notranslate nohighlight">\(S_K\)</span> denote the <em>uni
 <li><p>Different priors lead to different posterior probabilities of the outcome being incorrect.</p></li>
 <li><p>It might be the case that if the prior is chosen to be “least favorable,” the resulting Bayes risk would be equal to the frequentist risk limit in an RLA. This would require some mathematical theory to demonstrate, and would require even more complex software to implement.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="bayesian-estimation-and-inference">
+</section>
+</section>
+<section id="bayesian-estimation-and-inference">
 <h2>Bayesian Estimation and Inference<a class="headerlink" href="#bayesian-estimation-and-inference" title="Permalink to this headline">¶</a></h2>
 <p>The Bayesian approach starts with a <em>prior probability distribution</em> <span class="math notranslate nohighlight">\(\pi\)</span> on <span class="math notranslate nohighlight">\(\Theta\)</span>,
 and the likelihood function <span class="math notranslate nohighlight">\(p_\eta(y)\)</span>.</p>
@@ -817,7 +813,7 @@ For any (measurable) set <span class="math notranslate nohighlight">\(A\)</span>
 \end{equation*}\]</div>
 <p>If we get additional data, we apply Bayes’ rule again: the current posterior
 becomes the new prior.</p>
-<div class="section" id="arguments-for-the-bayesian-approach">
+<section id="arguments-for-the-bayesian-approach">
 <h3>Arguments for the Bayesian approach<a class="headerlink" href="#arguments-for-the-bayesian-approach" title="Permalink to this headline">¶</a></h3>
 <p>One argument for the Bayesian approach is that people <em>are</em> Bayesian: the approach is <em>descriptive</em>.
 There is considerable evidence that this is false.
@@ -864,8 +860,8 @@ the answer meaningful, relevant, or useful.</p>
 <p>When both frequentist and Bayesian methods can be applied,
 probability and uncertainty mean quite different things to frequentists and to
 Bayesians, as elaborated below.</p>
-</div>
-<div class="section" id="priors">
+</section>
+<section id="priors">
 <h3>Priors<a class="headerlink" href="#priors" title="Permalink to this headline">¶</a></h3>
 <p>In the Bayesian approach, all information about <span class="math notranslate nohighlight">\(\theta\)</span> is expressed as
 a probability distribution, and all probabilities quantify degree of belief.
@@ -967,8 +963,8 @@ the prior either assigns probability 1 to the event that <span class="math notra
 or it assigns probability 1 to the event that the norm of <span class="math notranslate nohighlight">\(\theta\)</span> is
 infinite–contradicting
 the constraint!</p>
-</div>
-<div class="section" id="interpretation-of-bayesian-priors-and-estimates">
+</section>
+<section id="interpretation-of-bayesian-priors-and-estimates">
 <h3>Interpretation of Bayesian priors and estimates<a class="headerlink" href="#interpretation-of-bayesian-priors-and-estimates" title="Permalink to this headline">¶</a></h3>
 <p>Prior probability distributions–and hence posterior distributions–are quantifications
 of the analyst’s degree of belief.
@@ -999,8 +995,8 @@ that the applied load will be less than 10% of the breaking strength, the Bayesi
 more persuasive.</p>
 <p>The utility and persuasiveness of Bayesian analyses may hinge on the
 sensitivity of the conclusions to the choice of prior.</p>
-</div>
-<div class="section" id="the-role-of-the-posterior">
+</section>
+<section id="the-role-of-the-posterior">
 <h3>The role of the posterior<a class="headerlink" href="#the-role-of-the-posterior" title="Permalink to this headline">¶</a></h3>
 <p>One fundamental feature (indeed, an axiom) of Bayesian estimation and inference is that the posterior distribution of the model given the data contains <strong>all</strong> the information about the model, including information from the prior and from the data.
 No information other than the posterior is needed to completely describe our state of knowledge about the parameter.</p>
@@ -1029,9 +1025,9 @@ Suppose we start with a Dirichlet prior, which, in this case, simplifies to a pr
 initial measure, the description of the experiment and the result obtained
 there, the simplicity of the Bayes approach is lost.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="the-frequentist-approach">
+</section>
+</section>
+<section id="the-frequentist-approach">
 <h2>The Frequentist approach<a class="headerlink" href="#the-frequentist-approach" title="Permalink to this headline">¶</a></h2>
 <p>The main difference between Bayesian and frequentist approaches to constraints
 is the difference between
@@ -1066,15 +1062,15 @@ or random assignment of subjects to treatments,
 not because the underlying parameter is random.</p>
 <p>There is no need to assume that <span class="math notranslate nohighlight">\(\theta\)</span> is random to use the frequentist approach,
 so there is no need to invent a prior distribution <span class="math notranslate nohighlight">\(\pi\)</span></p>
-</div>
-<div class="section" id="summarizing-uncertainty">
+</section>
+<section id="summarizing-uncertainty">
 <h2>Summarizing uncertainty<a class="headerlink" href="#summarizing-uncertainty" title="Permalink to this headline">¶</a></h2>
 <p>There are many ways to quantify uncertainty.
 We shall consider two, each of which has a Bayesian and a frequentist variant:
 mean squared error (a frequentist measure) and posterior mean squared error
 (the related Bayesian measure); and confidence sets (a frequentist construct)
 and credible regions (the related Bayesian construct).</p>
-<div class="section" id="mean-squared-error">
+<section id="mean-squared-error">
 <h3>Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permalink to this headline">¶</a></h3>
 <p>Recall that we have assumed that <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> takes values in a Hilbert space.</p>
 <p>Suppose we choose to estimate <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> by the estimator <span class="math notranslate nohighlight">\(\widehat{\lambda}(Y)\)</span>,
@@ -1116,8 +1112,8 @@ but are conceptually quite different:</p>
 <li><p>The MSE is an expectation with respect to the distribution of the data <span class="math notranslate nohighlight">\(Y\)</span>, holding the parameter <span class="math notranslate nohighlight">\(\theta = \eta\)</span> fixed</p></li>
 <li><p>PMSE is an expectation with respect to the posterior distribution of <span class="math notranslate nohighlight">\(\theta\)</span>, holding the data <span class="math notranslate nohighlight">\(Y = y\)</span> fixed.</p></li>
 </ul>
-</div>
-<div class="section" id="confidence-sets-and-credible-regions">
+</section>
+<section id="confidence-sets-and-credible-regions">
 <h3>Confidence Sets and Credible Regions<a class="headerlink" href="#confidence-sets-and-credible-regions" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 A random set <span class="math notranslate nohighlight">\(\mathcal{I}(Y)\)</span> of possible values of <span class="math notranslate nohighlight">\(\lambda\)</span> is
@@ -1151,9 +1147,9 @@ It is is the posterior probability that
 <span class="math notranslate nohighlight">\(\mathcal{I}(y)\)</span> contains <span class="math notranslate nohighlight">\(\lambda[\theta]\)</span> given that <span class="math notranslate nohighlight">\(Y = y\)</span>.</p></li>
 <li><p>In the Bayesian view, once the data are collected and we know that <span class="math notranslate nohighlight">\(Y = y\)</span>, there is still probability, because the value of <span class="math notranslate nohighlight">\(\theta\)</span> itself remains random: its value is uncertain, and all uncertainty is represented as probability.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="decision-theory">
+</section>
+</section>
+<section id="decision-theory">
 <h2>Decision theory<a class="headerlink" href="#decision-theory" title="Permalink to this headline">¶</a></h2>
 <p>Decision theory treats estimation as a two-player game: Nature versus analyst.
 The game frequentists play has slightly different rules from the game Bayesians play.</p>
@@ -1167,10 +1163,10 @@ The game frequentists play has slightly different rules from the game Bayesians 
 <li><p>The analyst has to pay the average value of <span class="math notranslate nohighlight">\(\loss(\widehat{\lambda}(Y), \lambda[\theta])\)</span> over all those values of <span class="math notranslate nohighlight">\(Y\)</span>, the <em>risk of <span class="math notranslate nohighlight">\(\widehat{\lambda}\)</span> at <span class="math notranslate nohighlight">\(\theta\)</span></em>, denoted <span class="math notranslate nohighlight">\(\rho_\theta(\widehat{\lambda}, \lambda[\theta])\)</span>.</p></li>
 <li><p>The analyst’s goal is to lose as little as possible in repeated play.</p></li>
 </ul>
-<div class="section" id="in-the-bayesian-version-of-the-game-nature-selects-theta-at-random-according-to-the-prior-distribution-pi-and-the-analyst-knows-pi">
+<section id="in-the-bayesian-version-of-the-game-nature-selects-theta-at-random-according-to-the-prior-distribution-pi-and-the-analyst-knows-pi">
 <h3>In the Bayesian version of the game, Nature selects <span class="math notranslate nohighlight">\(\theta\)</span> at random according to the prior distribution <span class="math notranslate nohighlight">\(\pi\)</span>, and the analyst knows <span class="math notranslate nohighlight">\(\pi\)</span>.<a class="headerlink" href="#in-the-bayesian-version-of-the-game-nature-selects-theta-at-random-according-to-the-prior-distribution-pi-and-the-analyst-knows-pi" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="in-the-frequentist-version-of-the-game-the-analyst-does-not-know-how-nature-will-select-theta-from-theta">
+</section>
+<section id="in-the-frequentist-version-of-the-game-the-analyst-does-not-know-how-nature-will-select-theta-from-theta">
 <h3>In the frequentist version of the game, the analyst does not know how Nature will select <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(\Theta\)</span>.<a class="headerlink" href="#in-the-frequentist-version-of-the-game-the-analyst-does-not-know-how-nature-will-select-theta-from-theta" title="Permalink to this headline">¶</a></h3>
 <p>This is perhaps the most important difference between the
 frequentist and Bayesian viewpoints:
@@ -1182,9 +1178,9 @@ Bayesians claim to know more about how Nature generates the data.</p>
 <li><p>A Bayesian might instead select the estimator that minimizes the <em>average</em> risk on the assumption that Nature selects <span class="math notranslate nohighlight">\(\theta\)</span> at random following the prior probability distribution <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
 <li><p>An estimator that minimizes the average risk when <span class="math notranslate nohighlight">\(\theta\)</span> is selected from <span class="math notranslate nohighlight">\(\pi\)</span> (for some specified class of estimators) is called a <em>Bayes estimator</em>; its average risk for prior <span class="math notranslate nohighlight">\(\pi\)</span> is the <em>Bayes risk</em>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="duality-between-bayes-risk-and-minimax-risk">
+</section>
+</section>
+<section id="duality-between-bayes-risk-and-minimax-risk">
 <h2>Duality between Bayes Risk and Minimax Risk<a class="headerlink" href="#duality-between-bayes-risk-and-minimax-risk" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The Bayes risk depends not only on <span class="math notranslate nohighlight">\(\Theta\)</span>, the distributions
@@ -1194,8 +1190,8 @@ Bayesians claim to know more about how Nature generates the data.</p>
 <li><p>Under some technical conditions, the Bayes risk for the least favorable prior is equal to the minimax risk.</p></li>
 <li><p>If the Bayes risk is smaller than the minimax risk, it is because the prior added information not present in the constraint itself.</p></li>
 </ul>
-</div>
-<div class="section" id="frequentist-properties-of-bayes-estimates">
+</section>
+<section id="frequentist-properties-of-bayes-estimates">
 <h2>Frequentist properties of Bayes Estimates<a class="headerlink" href="#frequentist-properties-of-bayes-estimates" title="Permalink to this headline">¶</a></h2>
 <p>A frequentist need not believe the prior or even think that the parameter
 is random to use a Bayesian estimator.</p>
@@ -1205,8 +1201,8 @@ an estimate, just like maximum likelihood gives a recipe for calculating an esti
 frequentist constructs without relying on the posterior distribution or the interpretation
 of the prior or the posterior.</p>
 <p>Sometimes, Bayesian estimates have good frequentist properties.</p>
-</div>
-<div class="section" id="theory-and-practice">
+</section>
+<section id="theory-and-practice">
 <h2>Theory and practice<a class="headerlink" href="#theory-and-practice" title="Permalink to this headline">¶</a></h2>
 <p>In complex scientific applications, there are very few “orthodox” frequentist <em>or</em>
 Bayesian analyses.</p>
@@ -1256,8 +1252,8 @@ This is especially true if you love your hammer; it is especially pernicious if 
 to every set of data with the right “signature,” with little attention to how the
 data were collected or the underlying science.</p>
 <p>The result in both cases is unlikely to advance scientific knowledge.</p>
-</div>
-<div class="section" id="summary">
+</section>
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>In many applications, there is prior information about unknown parameters. For instance,</p>
@@ -1317,7 +1313,7 @@ of the results matter, and these may depend on the application.</p>
 </ul>
 </li>
 </ul>
-<div class="section" id="references">
+<section id="references">
 <h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Evans, S.N., B. Hansen, and P.B. Stark, 2005. Minimax Expected Measure Confidence Sets for Restricted Location Parameters, Bernoulli, 11, 571–590. Also Tech. Rept. 617, Dept. Statistics Univ. Calif Berkeley (May 2002, revised May 2003). Preprint:
@@ -1354,9 +1350,9 @@ https://www.stat.berkeley.edu/~stark/Preprints/freqBayes09.pdf</p></li>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
