@@ -1301,28 +1301,28 @@ After removing that outcome from consideration, the second-smallest probability 
 <span class="sd">    Returns</span>
 <span class="sd">    --------</span>
 <span class="sd">    I:  list</span>
-<span class="sd">        values for which the test never rejects</span>
+<span class="sd">        observed values for which the test never rejects</span>
 <span class="sd">    J:  list </span>
-<span class="sd">        values for which the test sometimes rejects</span>
+<span class="sd">        observed values for which the test sometimes rejects</span>
 <span class="sd">    gamma : float</span>
-<span class="sd">        probability the test does not reject when the value is in J</span>
+<span class="sd">        probability the test does not reject when the observed value is in J</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># all possible values of X</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">I</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                    <span class="c1"># start with all possible outcomes, then remove some</span>
     <span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>   <span class="c1"># hypergeometric pmf</span>
     <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># smallest outcome still in I</span>
     <span class="n">top</span> <span class="o">=</span> <span class="n">n</span>                        <span class="c1"># largest outcome still in I</span>
-    <span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># outcome for which the test is randomized</span>
-    <span class="n">p_J</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># probability of the randomized outcome</span>
-    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># probability of outcomes excluded from I</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># outcomes for which the test is randomized</span>
+    <span class="n">p_J</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># probability of the outcomes for which test is randomized</span>
+    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># probability of outcomes not in I</span>
     <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>          <span class="c1"># still need to remove outcomes from the acceptance region</span>
         <span class="n">pb</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
         <span class="n">pt</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">top</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;</span> <span class="n">pt</span><span class="p">:</span>                <span class="c1"># the lower possibility has smaller probability</span>
+        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;</span> <span class="n">pt</span><span class="p">:</span>                <span class="c1"># the smaller possibility has smaller probability</span>
             <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
             <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span>
             <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">elif</span> <span class="n">pb</span> <span class="o">&gt;</span> <span class="n">pt</span><span class="p">:</span>              <span class="c1"># the upper possibility has smaller probability</span>
+        <span class="k">elif</span> <span class="n">pb</span> <span class="o">&gt;</span> <span class="n">pt</span><span class="p">:</span>              <span class="c1"># the larger possibility has smaller probability</span>
             <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">top</span><span class="p">]</span>
             <span class="n">p_J</span> <span class="o">=</span> <span class="n">pt</span>
             <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
@@ -1339,7 +1339,8 @@ After removing that outcome from consideration, the second-smallest probability 
         <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">p_J</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
             <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_J</span>     <span class="c1"># probability of accepting H_0 when X in J to get exact level alpha</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_J</span>     <span class="c1"># probability of accepting H_0 when X in J to get </span>
+                                   <span class="c1"># exact level alpha</span>
     <span class="k">return</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">gamma</span>
         
     
@@ -1362,8 +1363,8 @@ After removing that outcome from consideration, the second-smallest probability 
 <span class="sd">    reject: Boolean</span>
 <span class="sd">        True if the test rejects</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;probability out of range:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">U</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">U</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;uniform variable out of range:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;probability out of range:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">U</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;uniform variable out of range:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
     <span class="k">return</span> <span class="ow">not</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">U</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
 </pre></div>
 </div>
@@ -1408,8 +1409,7 @@ After removing that outcome from consideration, the second-smallest probability 
         <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span>
-                   <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span>
+        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span>
                    <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
 </pre></div>
@@ -1427,8 +1427,8 @@ p=0.7 estimated alpha=0.049856
 p=0.9 estimated alpha=0.049854
 p=0.95 estimated alpha=0.050085
 p=0.99 estimated alpha=0.049817
-CPU times: user 52min 13s, sys: 36 s, total: 52min 49s
-Wall time: 53min 28s
+CPU times: user 47min 31s, sys: 15.4 s, total: 47min 46s
+Wall time: 47min 56s
 </pre></div>
 </div>
 </div>
@@ -1484,8 +1484,8 @@ p=0.7 estimated alpha=0.049458
 p=0.9 estimated alpha=0.049673
 p=0.95 estimated alpha=0.050049
 p=0.99 estimated alpha=0.050015
-CPU times: user 1min 23s, sys: 797 ms, total: 1min 23s
-Wall time: 1min 24s
+CPU times: user 1min 17s, sys: 295 ms, total: 1min 18s
+Wall time: 1min 18s
 </pre></div>
 </div>
 </div>
@@ -1577,8 +1577,7 @@ Wall time: 1min 24s
         <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate X</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span> <span class="c1"># simulate Y</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">fisher_accept</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span>
-                   <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span>
+        <span class="n">reject</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">apply_test</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">())</span>
                    <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=</span><span class="si">{}</span><span class="s1"> estimated alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pj</span><span class="p">,</span> <span class="n">reject</span><span class="o">/</span><span class="n">reps</span><span class="p">))</span>
 </pre></div>
@@ -1596,8 +1595,8 @@ p=0.7 estimated alpha=0.049918
 p=0.9 estimated alpha=0.049929
 p=0.95 estimated alpha=0.050044
 p=0.99 estimated alpha=0.0501
-CPU times: user 1min 23s, sys: 626 ms, total: 1min 24s
-Wall time: 1min 25s
+CPU times: user 1min 21s, sys: 329 ms, total: 1min 21s
+Wall time: 1min 22s
 </pre></div>
 </div>
 </div>
@@ -1768,7 +1767,7 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5d05912bc4f94cec8cce15cfa20b1f93", "version_major": 2, "version_minor": 0}
+{"model_id": "5b028f19b3a14734b3741099ff1d07ff", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fisher_null(n=5, reps=10000)&gt;
 </pre></div>
 </div>

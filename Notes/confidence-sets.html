@@ -355,8 +355,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-confidence-interval-for-hypergeometric-g-known-n-n">
-     Example: confidence interval for Hypergeometric
+    <a class="reference internal nav-link" href="#bootstrap-approximate-confidence-intervals">
+     Bootstrap approximate confidence intervals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-confidence-interval-for-hypergeometric-g-known-n-n">
+     Example 2: confidence interval for Hypergeometric
      <span class="math notranslate nohighlight">
       \(G\)
      </span>
@@ -443,7 +448,7 @@
 <h3>Population parameters<a class="headerlink" href="#population-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Any property of a population may be called a <em>parameter</em>.
 Examples include the population mean, percentiles, number of modes, etc.</p>
-<p>If the population has more than one “value” per item, e.g., if the population is a group of people each of whom has a height and a weight, then the population correlation between height and weight is a parameter.</p>
+<p>If the population has more than one “value” per item, a parameter could involve more than one of them. E.g., if the population is a group of people each of whom has a height and a weight, then the population correlation between height and weight is a parameter.</p>
 <p>Similarly, consider a group of individuals and the values of some quantity (the “response”) for each of those individuals without and with some intervention (notionally, a “treatment”).
 The difference between the average response without the intervention and the average response with the intervention is a parameter (the <em>average treatment effect</em>).</p>
 <p>If we are sampling at random from a population, the probability distribution of the sample
@@ -457,8 +462,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-172f9450-de1e-4049-b8ad-5873bb2b3daa">
-<span class="eqno">()<a class="headerlink" href="#equation-172f9450-de1e-4049-b8ad-5873bb2b3daa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-59aa5f68-cdfa-43fb-acb6-2389eee6bab9">
+<span class="eqno">()<a class="headerlink" href="#equation-59aa5f68-cdfa-43fb-acb6-2389eee6bab9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -470,8 +475,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8946a731-3354-421f-b42d-3adf4fd7dc92">
-<span class="eqno">()<a class="headerlink" href="#equation-8946a731-3354-421f-b42d-3adf4fd7dc92" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1596f343-c2c8-4df1-b2bc-9c9b4c2c1a7e">
+<span class="eqno">()<a class="headerlink" href="#equation-1596f343-c2c8-4df1-b2bc-9c9b4c2c1a7e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -571,8 +576,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-118aab89-e90e-42a4-87a6-385e49dc0201">
-<span class="eqno">()<a class="headerlink" href="#equation-118aab89-e90e-42a4-87a6-385e49dc0201" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-777c522d-b318-46ef-81cd-2f5daa0cbe4b">
+<span class="eqno">()<a class="headerlink" href="#equation-777c522d-b318-46ef-81cd-2f5daa0cbe4b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -600,8 +605,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d16e4eb0-b24f-4cd6-8991-7e56092d70da">
-<span class="eqno">()<a class="headerlink" href="#equation-d16e4eb0-b24f-4cd6-8991-7e56092d70da" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5c6fd711-7089-4292-8885-7fca60e5a9ff">
+<span class="eqno">()<a class="headerlink" href="#equation-5c6fd711-7089-4292-8885-7fca60e5a9ff" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -647,8 +652,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8a718d6-5df3-448c-9bb2-b82d7fdf7aae">
-<span class="eqno">()<a class="headerlink" href="#equation-a8a718d6-5df3-448c-9bb2-b82d7fdf7aae" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-92114fa2-6f6d-40c1-aa49-44cfbd9dcfa3">
+<span class="eqno">()<a class="headerlink" href="#equation-92114fa2-6f6d-40c1-aa49-44cfbd9dcfa3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -761,49 +766,52 @@ root-finding problem.</p>
 <span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]:</span>
         <span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">xs</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">reps</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
             <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">binom_lower_ci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p</span>
                  <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>   
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.1 covered:  98.82%
-p: 0.2 covered:  96.60%
-p: 0.3 covered:  95.22%
-p: 0.4 covered:  98.65%
-p: 0.5 covered:  98.84%
-p: 0.6 covered:  95.28%
-p: 0.7 covered:  97.26%
-p: 0.8 covered:  100.00%
-p: 0.9 covered:  100.00%
+p: 0.01 covered:  99.54%
+p: 0.05 covered:  98.86%
+p: 0.10 covered:  98.97%
+p: 0.20 covered:  96.83%
+p: 0.40 covered:  98.56%
+p: 0.50 covered:  99.10%
+p: 0.70 covered:  97.17%
+p: 0.90 covered:  100.00%
+p: 0.95 covered:  100.00%
+p: 0.99 covered:  100.00%
 
 n: 50
-p: 0.1 covered:  97.56%
-p: 0.2 covered:  96.74%
-p: 0.3 covered:  95.26%
-p: 0.4 covered:  96.55%
-p: 0.5 covered:  96.54%
-p: 0.6 covered:  97.44%
-p: 0.7 covered:  96.03%
-p: 0.8 covered:  95.48%
-p: 0.9 covered:  96.27%
+p: 0.01 covered:  98.70%
+p: 0.05 covered:  96.25%
+p: 0.10 covered:  97.76%
+p: 0.20 covered:  96.79%
+p: 0.40 covered:  96.82%
+p: 0.50 covered:  96.89%
+p: 0.70 covered:  96.14%
+p: 0.90 covered:  96.82%
+p: 0.95 covered:  100.00%
+p: 0.99 covered:  100.00%
 
 n: 100
-p: 0.1 covered:  96.00%
-p: 0.2 covered:  96.70%
-p: 0.3 covered:  96.53%
-p: 0.4 covered:  95.56%
-p: 0.5 covered:  95.99%
-p: 0.6 covered:  96.00%
-p: 0.7 covered:  95.06%
-p: 0.8 covered:  95.43%
-p: 0.9 covered:  97.57%
+p: 0.01 covered:  98.23%
+p: 0.05 covered:  97.51%
+p: 0.10 covered:  96.21%
+p: 0.20 covered:  96.49%
+p: 0.40 covered:  95.78%
+p: 0.50 covered:  95.66%
+p: 0.70 covered:  95.03%
+p: 0.90 covered:  97.68%
+p: 0.95 covered:  96.56%
+p: 0.99 covered:  100.00%
 </pre></div>
 </div>
 </div>
@@ -812,9 +820,312 @@ p: 0.9 covered:  97.57%
 There are countless ways of constructing acceptance regions for the underlying tests, as mentioned in the <a class="reference internal" href="tests.html"><span class="doc std std-doc">testing</span></a> chapter.
 For instance, we could trim the same probability <span class="math notranslate nohighlight">\(\alpha/2\)</span> from both tails, or use the acceptance region that contains the fewest outcomes.
 The latter choice in general will lead to shorter confidence intervals.</p>
+<p>Let’s implement that approach now. The development is analogous to the randomized hypergeometric test in <span class="xref myst">the chapter on testing</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># decorate the function to cache the results </span>
+                          <span class="c1"># of calls to the function</span>
+<span class="k">def</span> <span class="nf">binom_accept</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Acceptance region for a randomized binomial test</span>
+<span class="sd">    </span>
+<span class="sd">    If randomized==True, find the acceptance region for a randomized, exact </span>
+<span class="sd">    level-alpha test of the null hypothesis X~Binomial(n,p). </span>
+<span class="sd">    The acceptance region is the smallest possible. (And not, for instance, symmetric.)</span>
+
+<span class="sd">    If randomized==False, find the smallest conservative acceptance region.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : integer</span>
+<span class="sd">        number of independent trials</span>
+<span class="sd">    p : float</span>
+<span class="sd">        probability of success in each trial</span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        desired significance level    </span>
+<span class="sd">  </span>
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    If randomized:</span>
+<span class="sd">    I : list</span>
+<span class="sd">        values for which the test never rejects</span>
+<span class="sd">    J : list </span>
+<span class="sd">        values for which the test sometimes rejects</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        probability the test does not reject when the value is in J</span>
+<span class="sd">    </span>
+<span class="sd">    If not randomized:</span>
+<span class="sd">    I : list</span>
+<span class="sd">        values for which the test does not reject</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">alpha</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;bad significance level&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                    <span class="c1"># start with all possible outcomes (then remove some)</span>
+    <span class="n">pmf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>         <span class="c1"># &quot;frozen&quot; binomial pmf</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># smallest outcome still in I</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">n</span>                        <span class="c1"># largest outcome still in I</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># outcomes for which the test is randomized</span>
+    <span class="n">p_J</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># probability of outcomes for which test is randomized</span>
+    <span class="n">p_tail</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># probability of outcomes excluded from I</span>
+    <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>          <span class="c1"># need to remove outcomes from the acceptance region</span>
+        <span class="n">pb</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+        <span class="n">pt</span> <span class="o">=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">top</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pb</span> <span class="o">&lt;</span> <span class="n">pt</span><span class="p">:</span>                <span class="c1"># the smaller possibility has smaller probability</span>
+            <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+            <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span>
+            <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">pb</span> <span class="o">&gt;</span> <span class="n">pt</span><span class="p">:</span>              <span class="c1"># the larger possibility has smaller probability</span>
+            <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">top</span><span class="p">]</span>
+            <span class="n">p_J</span> <span class="o">=</span> <span class="n">pt</span>
+            <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>                      
+            <span class="k">if</span> <span class="n">bottom</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">:</span>       <span class="c1"># the two possibilities have equal probability</span>
+                <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">]</span>
+                <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span><span class="o">+</span><span class="n">pt</span>
+                <span class="n">bottom</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">top</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>                  <span class="c1"># there is only one possibility left</span>
+                <span class="n">J</span> <span class="o">=</span> <span class="p">[</span><span class="n">bottom</span><span class="p">]</span>
+                <span class="n">p_J</span> <span class="o">=</span> <span class="n">pb</span>
+                <span class="n">bottom</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="n">p_tail</span> <span class="o">+=</span> <span class="n">p_J</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>                <span class="c1"># remove outcomes from acceptance region</span>
+            <span class="n">I</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">return_val</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">randomized</span><span class="p">:</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_tail</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">p_J</span>     <span class="c1"># probability of accepting H_0 when X in J </span>
+                                       <span class="c1"># to get exact level alpha</span>
+        <span class="n">return_val</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">gamma</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">p_tail</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">J</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>            <span class="c1"># move the outcome into the acceptance region</span>
+            <span class="n">p_tail</span> <span class="o">-=</span> <span class="n">pmf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">I</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">return_val</span> <span class="o">=</span> <span class="n">I</span>
+    <span class="k">return</span> <span class="n">return_val</span> 
+
+
+<span class="k">def</span> <span class="nf">binom_ci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">10</span><span class="o">**-</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    two-sided confidence bound for a binomial p</span>
+<span class="sd">    </span>
+<span class="sd">    Assumes x is a draw from a binomial distribution with parameters</span>
+<span class="sd">    n (known) and p (unknown). Finds a confidence interval for p </span>
+<span class="sd">    at confidence level cl by inverting conservative tests</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        number of trials, nonnegative integer</span>
+<span class="sd">    x : int</span>
+<span class="sd">        observed number of successes, nonnegative integer not larger than n</span>
+<span class="sd">    cl : float</span>
+<span class="sd">        confidence level, between 1/2 and 1</span>
+<span class="sd">    eps : float in (0, 1)</span>
+<span class="sd">        resolution of the grid search</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    lb : float</span>
+<span class="sd">        lower confidence bound</span>
+<span class="sd">    ub : float</span>
+<span class="sd">        upper confidence bound</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;impossible arguments&#39;</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">cl</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;silly confidence level&#39;</span>
+    <span class="n">lb</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ub</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">cl</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">binom_accept</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">lb</span> <span class="o">+=</span> <span class="n">eps</span>
+        <span class="n">lb</span> <span class="o">-=</span> <span class="n">eps</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">binom_accept</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ub</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">ub</span> <span class="o">-=</span> <span class="n">eps</span>
+        <span class="n">lb</span> <span class="o">+=</span> <span class="n">eps</span>
+    <span class="k">return</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">4</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]:</span>
+        <span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">mean_width</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">reps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">binom_ci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
+            <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>             
+                      <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">mean_width</span> <span class="o">+=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% mean width: </span><span class="si">{</span><span class="n">mean_width</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
+p: 0.01 covered: 99.56% mean width: 0.31
+p: 0.05 covered: 98.84% mean width: 0.36
+p: 0.10 covered: 98.87% mean width: 0.41
+p: 0.20 covered: 96.44% mean width: 0.48
+p: 0.40 covered: 98.14% mean width: 0.54
+p: 0.50 covered: 97.54% mean width: 0.54
+p: 0.70 covered: 96.35% mean width: 0.52
+p: 0.90 covered: 98.78% mean width: 0.41
+p: 0.95 covered: 98.78% mean width: 0.36
+p: 0.99 covered: 99.49% mean width: 0.31
+
+n: 50
+p: 0.01 covered: 98.50% mean width: 0.09
+p: 0.05 covered: 96.13% mean width: 0.13
+p: 0.10 covered: 97.05% mean width: 0.17
+p: 0.20 covered: 95.23% mean width: 0.22
+p: 0.40 covered: 95.76% mean width: 0.27
+p: 0.50 covered: 93.74% mean width: 0.27
+p: 0.70 covered: 95.44% mean width: 0.25
+p: 0.90 covered: 96.83% mean width: 0.17
+p: 0.95 covered: 96.26% mean width: 0.13
+p: 0.99 covered: 98.72% mean width: 0.09
+
+n: 100
+p: 0.01 covered: 98.09% mean width: 0.05
+p: 0.05 covered: 96.54% mean width: 0.09
+p: 0.10 covered: 95.40% mean width: 0.12
+p: 0.20 covered: 95.32% mean width: 0.16
+p: 0.40 covered: 96.02% mean width: 0.19
+p: 0.50 covered: 93.99% mean width: 0.20
+p: 0.70 covered: 95.10% mean width: 0.18
+p: 0.90 covered: 95.56% mean width: 0.12
+p: 0.95 covered: 96.43% mean width: 0.09
+p: 0.99 covered: 98.26% mean width: 0.05
+</pre></div>
+</div>
+</div>
+</div>
+<p>(I suspect there’s a bug: the coverage at p=0.5 should be higher.)</p>
 </section>
-<section id="example-confidence-interval-for-hypergeometric-g-known-n-n">
-<h3>Example: confidence interval for Hypergeometric <span class="math notranslate nohighlight">\(G\)</span> (known <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-confidence-interval-for-hypergeometric-g-known-n-n" title="Permalink to this headline">¶</a></h3>
+<section id="bootstrap-approximate-confidence-intervals">
+<h3>Bootstrap approximate confidence intervals<a class="headerlink" href="#bootstrap-approximate-confidence-intervals" title="Permalink to this headline">¶</a></h3>
+<p>The bootstrap approximates sampling from a population by sampling with replacement from a sample from the population. That is, it approximates the population distribution by the empirical distribution of the observed sample, which is
+the nonparametric maximum likelihood estimate of the population distribution</p>
+<p>The bootstrap is commonly used to estimate the variability of an estimator of a functional parameter. It generally does a good job of estimating things like the variance of an estimator.</p>
+<p>It is also used to construct approximate confidence intervals using the <em>percentile method</em>, which approximates percentiles of an estimator from percentiles of the resampling distribution of the estimator. However, this generally is not a good approximation.</p>
+<p>Let’s code it up and see.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boot_ci</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">),</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Bootstrap approximate confidence interval for a functional parameter</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : array-like</span>
+<span class="sd">        original sample</span>
+<span class="sd">    estimator : callable</span>
+<span class="sd">        function defined on the empirical distribution of a sample.</span>
+<span class="sd">        Applying it to the population distribution would give the</span>
+<span class="sd">        true value of the parameter of interest. Applying it to a </span>
+<span class="sd">        sample yields an estimator of the parameter of interest</span>
+<span class="sd">    cl : float in (0,1)</span>
+<span class="sd">        confidence level</span>
+<span class="sd">    reps : int, nonnegative</span>
+<span class="sd">        number of bootstrap samples to use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">random_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">prng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randomstate</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">prng</span> <span class="o">=</span> <span class="n">random_state</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">estimates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+        <span class="n">estimates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estimator</span><span class="p">(</span><span class="n">prng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+    <span class="n">estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">estimates</span><span class="p">)</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span> <span class="n">tail</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">reps_boot</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">12345678</span>
+<span class="n">prng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]:</span>
+        <span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">mean_width</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">reps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+            <span class="n">sample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">boot_ci</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="n">reps_boot</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">prng</span><span class="p">)</span>
+            <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>             
+                      <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">mean_width</span> <span class="o">+=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">% mean width: </span><span class="si">{</span><span class="n">mean_width</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
+p: 0.01 covered:  8.70% mean width: 0.03
+p: 0.05 covered:  39.10% mean width: 0.13
+p: 0.10 covered:  66.20% mean width: 0.26
+p: 0.20 covered:  89.50% mean width: 0.42
+p: 0.40 covered:  95.10% mean width: 0.56
+p: 0.50 covered:  98.10% mean width: 0.58
+p: 0.70 covered:  95.90% mean width: 0.50
+p: 0.90 covered:  66.20% mean width: 0.26
+p: 0.95 covered:  39.40% mean width: 0.13
+p: 0.99 covered:  9.20% mean width: 0.03
+
+n: 50
+p: 0.01 covered:  41.70% mean width: 0.03
+p: 0.05 covered:  91.00% mean width: 0.11
+p: 0.10 covered:  96.30% mean width: 0.16
+p: 0.20 covered:  94.80% mean width: 0.21
+p: 0.40 covered:  95.40% mean width: 0.27
+p: 0.50 covered:  96.40% mean width: 0.27
+p: 0.70 covered:  96.00% mean width: 0.25
+p: 0.90 covered:  95.70% mean width: 0.16
+p: 0.95 covered:  90.00% mean width: 0.10
+p: 0.99 covered:  40.10% mean width: 0.03
+
+n: 100
+p: 0.01 covered:  62.70% mean width: 0.03
+p: 0.05 covered:  94.90% mean width: 0.08
+p: 0.10 covered:  96.60% mean width: 0.11
+p: 0.20 covered:  95.90% mean width: 0.15
+p: 0.40 covered:  96.00% mean width: 0.19
+p: 0.50 covered:  95.10% mean width: 0.19
+p: 0.70 covered:  96.10% mean width: 0.18
+p: 0.90 covered:  95.60% mean width: 0.11
+p: 0.95 covered:  95.00% mean width: 0.08
+p: 0.99 covered:  63.10% mean width: 0.03
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the coverage of bootstrap percentile confidence intervals can be quite low compared to their nominal level (here, as low as 3% when they should be 95%). Where their coverage is about right, their average width is comparable to the average width of the conservative intervals derived by inverting two-sided tests.</p>
+<p>This example is a fairly simple situation: estimating the mean of a population of zeros and ones from a random sample with replacement. In more complicated examples, bootstrap confidence intervals generally do not attain their nominal level.
+There is a substantial body of work on how to improve the coverage of bootstrap CIs.
+<em>Pre-pivoting</em> can help substantially. See <a class="reference external" href="https://www.jstor.org/stable/2336685?seq=1">Beran (1987)</a>.</p>
+</section>
+<section id="example-2-confidence-interval-for-hypergeometric-g-known-n-n">
+<h3>Example 2: confidence interval for Hypergeometric <span class="math notranslate nohighlight">\(G\)</span> (known <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-2-confidence-interval-for-hypergeometric-g-known-n-n" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we will observe <span class="math notranslate nohighlight">\(X \sim \mbox{Hyper}(N, G, n)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are known but <span class="math notranslate nohighlight">\(G\)</span> is not.
 We seek a one-sided lower confidence interval for <span class="math notranslate nohighlight">\(G\)</span>, that is, a set of the form
 <span class="math notranslate nohighlight">\([f(X,U), \infty)\)</span> such that for all <span class="math notranslate nohighlight">\(G \in \{0, 1, \ldots, N\}\)</span>, if <span class="math notranslate nohighlight">\(X \sim \mbox{Hyper}(N, G, n)\)</span>
@@ -886,7 +1197,7 @@ Instead, we will use a search.</p>
 <span class="sd">    n : int</span>
 <span class="sd">        number of trials, nonnegative integer &lt;= N</span>
 <span class="sd">    x : int</span>
-<span class="sd">        observed number of successes, nonnegative integer not larger than n</span>
+<span class="sd">        observed number of successes, nonnegative integer &lt;= n</span>
 <span class="sd">    cl : float</span>
 <span class="sd">        confidence level, between 0 and 1</span>
 <span class="sd">        </span>
@@ -926,9 +1237,9 @@ Instead, we will use a search.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  98.73%
-N=50, G=30, n=20: covered  98.40%
-N=100, G=25, n=30: covered  97.34%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  99.04%
+N=50, G=30, n=20: covered  98.19%
+N=100, G=25, n=30: covered  97.50%
 </pre></div>
 </div>
 </div>
@@ -946,6 +1257,7 @@ We have a group of <span class="math notranslate nohighlight">\(n+m\)</span> sub
 and the other <span class="math notranslate nohighlight">\(m\)</span> receive the active treatment.
 The <em>strong null hypothesis</em> of no treatment effect is as follows: each subject would have had the same response, regardles of whether the subject was assigned to treatment or control.
 It is as if the response were determined before the assignment to treatment or control occurred. The assignment just reveals the response.</p>
+<p>[To be continued!]</p>
 </section>
 </section>
 <section id="the-neyman-model-for-causal-inference">
