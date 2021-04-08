@@ -413,13 +413,49 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#alternative-hypotheses-constant-multiple">
-     Alternative hypotheses: constant multiple
+    <a class="reference internal nav-link" href="#other-tractable-alternative-hypotheses">
+     Other tractable alternative hypotheses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-intervals-when-there-are-nuisance-parameters-stratified-sampling">
+   Confidence intervals when there are nuisance parameters: stratified sampling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-problem">
+     The problem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#aside-feller-s-bars-and-stars-argument">
+       <em>
+        Aside: Feller’s Bars and Stars Argument
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wright-s-method-sum-of-sidak-intervals">
+     Wright’s Method: Sum of Šidák Intervals
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-statistics">
-     Test statistics
+    <a class="reference internal nav-link" href="#the-wendell-schmee-test">
+     The Wendell-Schmee Test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructive-maximization">
+     Constructive maximization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-the-direction-of-the-test">
+     Changing the direction of the test
     </a>
    </li>
   </ul>
@@ -462,8 +498,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca113589-558d-4a93-b284-d7e639c38eaa">
-<span class="eqno">()<a class="headerlink" href="#equation-ca113589-558d-4a93-b284-d7e639c38eaa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f9a9a689-8694-4e6f-8255-26eb1f64e216">
+<span class="eqno">()<a class="headerlink" href="#equation-f9a9a689-8694-4e6f-8255-26eb1f64e216" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -475,8 +511,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca2ca5eb-8abc-4c79-90da-3c5f227fa439">
-<span class="eqno">()<a class="headerlink" href="#equation-ca2ca5eb-8abc-4c79-90da-3c5f227fa439" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5085f933-682d-4955-a399-edb4b8307e1f">
+<span class="eqno">()<a class="headerlink" href="#equation-5085f933-682d-4955-a399-edb4b8307e1f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -576,8 +612,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54f9d934-69c3-4b67-8374-ecd3afe40857">
-<span class="eqno">()<a class="headerlink" href="#equation-54f9d934-69c3-4b67-8374-ecd3afe40857" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bc35fef3-2ac6-42bd-a05e-2a04a5a837c2">
+<span class="eqno">()<a class="headerlink" href="#equation-bc35fef3-2ac6-42bd-a05e-2a04a5a837c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -587,7 +623,7 @@ parameter <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</spa
 <p>If we observe <span class="math notranslate nohighlight">\(X=x\)</span>, <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for <span class="math notranslate nohighlight">\(\theta\)</span></em>.
 The <em>confidence level</em> of the set is <span class="math notranslate nohighlight">\(1-\alpha\)</span>.</p>
 <p>When <span class="math notranslate nohighlight">\(\mathcal{I}(x) \ni \theta\)</span>, we say that the confidence set <em>covers</em> <span class="math notranslate nohighlight">\(\theta\)</span>.
-The <em>coverage probability</em> of the confidence set <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>
+The <em>coverage probability</em> of the confidence set procedure <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>
 is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -605,8 +641,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-742a475e-a82c-443c-8a14-680240566a5f">
-<span class="eqno">()<a class="headerlink" href="#equation-742a475e-a82c-443c-8a14-680240566a5f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff37949f-74bd-412f-80d2-28d44de60596">
+<span class="eqno">()<a class="headerlink" href="#equation-ff37949f-74bd-412f-80d2-28d44de60596" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -646,14 +682,14 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 <p>Consider the set</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\mathcal{I}(X,U) \equiv \{ \eta \in \Theta : \phi_\eta(X) \ge U \}.
+\mathcal{I}(X,U) \equiv \{ \eta \in \Theta : \phi_\eta(X) &gt; U \}.
 \end{equation*}\]</div>
 <p>That is, <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> is the set of possible parameters <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span> for which the corresponding test <span class="math notranslate nohighlight">\(\phi_\eta\)</span> does not reject the hypothesis that <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span>, for the observed values of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(U\)</span>.
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf5ba0c8-5639-4cfa-ac33-39671e0c755b">
-<span class="eqno">()<a class="headerlink" href="#equation-bf5ba0c8-5639-4cfa-ac33-39671e0c755b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6ecc6655-141b-4cde-91ef-076f0ebbfeda">
+<span class="eqno">()<a class="headerlink" href="#equation-6ecc6655-141b-4cde-91ef-076f0ebbfeda" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -666,7 +702,7 @@ But when <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \thet
 \end{equation*}\]</div>
 <p>In general, there are many ways to construct a set of tests <span class="math notranslate nohighlight">\(\{\phi_\eta\}_{\eta \in \Theta}\)</span> with significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.
 Inverting different tests will lead to confidence sets with different properties.
-As a simple example, inverting 10-sided tests for a real parameter will give a 1-seded confidence interval for the parameter, while inverting 2-sided tests will yield a 2-sided confidence interval.</p>
+As a simple example, inverting 1-sided tests for a real parameter will give a 1-seded confidence interval for the parameter, while inverting 2-sided tests will yield a 2-sided confidence interval.</p>
 <p>It is often possible to design confidence sets that have desirable characteristics–such as avoiding including zero to the extent possible (so that they determine the sign of their parameter), or being on average as small as possible–by inverting suitably chosen tests.
 See, e.g., <a class="reference external" href="https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1998.10474112#.YGk8ERRKg-Q">Benjamini, Hochberg, and Stark (1996)</a>, <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476692">Benjamini and Stark (1996)</a>,
 <span class="xref myst">Evans, Hansen, and Stark (19??)</span>, and <a class="reference external" href="https://arxiv.org/abs/1906.00505">Benjamini, Hechtlinger, and Stark (2019)</a>.</p>
@@ -708,7 +744,7 @@ That is,</p>
 corresponding test does not reject:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-f(x) \equiv \min \{q : \sum_{k=x}^n \binom{n}{k}q^k(1-q)^{n-k} \ge \alpha \}.
+f(x) \equiv \min \left \{q \in [0, 1]: \sum_{k=x}^n \binom{n}{k}q^k(1-q)^{n-k} \ge \alpha \right \}.
 \end{equation*}\]</div>
 <p>Note that the upper tail probability, <span class="math notranslate nohighlight">\(\sum_{k=x}^n \binom{n}{k}q^k(1-q)^{n-k}\)</span>,
 increases continuously and
@@ -778,39 +814,39 @@ root-finding problem.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.01 covered:  99.54%
-p: 0.05 covered:  98.86%
-p: 0.10 covered:  98.97%
-p: 0.20 covered:  96.83%
-p: 0.40 covered:  98.56%
-p: 0.50 covered:  99.10%
-p: 0.70 covered:  97.17%
+p: 0.01 covered:  99.55%
+p: 0.05 covered:  98.75%
+p: 0.10 covered:  98.73%
+p: 0.20 covered:  96.71%
+p: 0.40 covered:  98.86%
+p: 0.50 covered:  99.04%
+p: 0.70 covered:  97.38%
 p: 0.90 covered:  100.00%
 p: 0.95 covered:  100.00%
 p: 0.99 covered:  100.00%
 
 n: 50
-p: 0.01 covered:  98.70%
-p: 0.05 covered:  96.25%
-p: 0.10 covered:  97.76%
-p: 0.20 covered:  96.79%
-p: 0.40 covered:  96.82%
-p: 0.50 covered:  96.89%
-p: 0.70 covered:  96.14%
-p: 0.90 covered:  96.82%
+p: 0.01 covered:  98.81%
+p: 0.05 covered:  96.27%
+p: 0.10 covered:  97.44%
+p: 0.20 covered:  96.82%
+p: 0.40 covered:  96.85%
+p: 0.50 covered:  96.68%
+p: 0.70 covered:  95.77%
+p: 0.90 covered:  97.01%
 p: 0.95 covered:  100.00%
 p: 0.99 covered:  100.00%
 
 n: 100
-p: 0.01 covered:  98.23%
-p: 0.05 covered:  97.51%
-p: 0.10 covered:  96.21%
-p: 0.20 covered:  96.49%
+p: 0.01 covered:  98.25%
+p: 0.05 covered:  97.16%
+p: 0.10 covered:  95.84%
+p: 0.20 covered:  96.31%
 p: 0.40 covered:  95.78%
-p: 0.50 covered:  95.66%
-p: 0.70 covered:  95.03%
-p: 0.90 covered:  97.68%
-p: 0.95 covered:  96.56%
+p: 0.50 covered:  95.46%
+p: 0.70 covered:  95.55%
+p: 0.90 covered:  97.53%
+p: 0.95 covered:  96.29%
 p: 0.99 covered:  100.00%
 </pre></div>
 </div>
@@ -844,7 +880,9 @@ The latter choice in general will lead to shorter confidence intervals.</p>
 <span class="sd">    p : float</span>
 <span class="sd">        probability of success in each trial</span>
 <span class="sd">    alpha : float</span>
-<span class="sd">        desired significance level    </span>
+<span class="sd">        desired significance level  </span>
+<span class="sd">    ramndomized : Boolean</span>
+<span class="sd">        return randomized exact test or conservative non-randomized test?</span>
 <span class="sd">  </span>
 <span class="sd">    Returns</span>
 <span class="sd">    --------</span>
@@ -967,58 +1005,59 @@ The latter choice in general will lead to shorter confidence intervals.</p>
             <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>             
                       <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">mean_width</span> <span class="o">+=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% mean width: </span><span class="si">{</span><span class="n">mean_width</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">mean_width</span> <span class="o">/=</span> <span class="n">reps</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% mean width: </span><span class="si">{</span><span class="n">mean_width</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.01 covered: 99.56% mean width: 0.31
-p: 0.05 covered: 98.84% mean width: 0.36
-p: 0.10 covered: 98.87% mean width: 0.41
-p: 0.20 covered: 96.44% mean width: 0.48
-p: 0.40 covered: 98.14% mean width: 0.54
-p: 0.50 covered: 97.54% mean width: 0.54
-p: 0.70 covered: 96.35% mean width: 0.52
-p: 0.90 covered: 98.78% mean width: 0.41
-p: 0.95 covered: 98.78% mean width: 0.36
-p: 0.99 covered: 99.49% mean width: 0.31
+p: 0.01 covered: 99.60% mean width: 0.31
+p: 0.05 covered: 98.81% mean width: 0.36
+p: 0.10 covered: 98.65% mean width: 0.41
+p: 0.20 covered: 96.98% mean width: 0.48
+p: 0.40 covered: 98.20% mean width: 0.54
+p: 0.50 covered: 97.98% mean width: 0.55
+p: 0.70 covered: 96.27% mean width: 0.52
+p: 0.90 covered: 98.91% mean width: 0.41
+p: 0.95 covered: 98.75% mean width: 0.36
+p: 0.99 covered: 99.59% mean width: 0.31
 
 n: 50
-p: 0.01 covered: 98.50% mean width: 0.09
-p: 0.05 covered: 96.13% mean width: 0.13
-p: 0.10 covered: 97.05% mean width: 0.17
-p: 0.20 covered: 95.23% mean width: 0.22
-p: 0.40 covered: 95.76% mean width: 0.27
-p: 0.50 covered: 93.74% mean width: 0.27
-p: 0.70 covered: 95.44% mean width: 0.25
-p: 0.90 covered: 96.83% mean width: 0.17
-p: 0.95 covered: 96.26% mean width: 0.13
-p: 0.99 covered: 98.72% mean width: 0.09
+p: 0.01 covered: 98.52% mean width: 0.09
+p: 0.05 covered: 96.02% mean width: 0.14
+p: 0.10 covered: 97.11% mean width: 0.17
+p: 0.20 covered: 94.93% mean width: 0.22
+p: 0.40 covered: 95.21% mean width: 0.27
+p: 0.50 covered: 93.60% mean width: 0.27
+p: 0.70 covered: 95.63% mean width: 0.25
+p: 0.90 covered: 97.06% mean width: 0.17
+p: 0.95 covered: 96.24% mean width: 0.13
+p: 0.99 covered: 98.75% mean width: 0.09
 
 n: 100
-p: 0.01 covered: 98.09% mean width: 0.05
-p: 0.05 covered: 96.54% mean width: 0.09
-p: 0.10 covered: 95.40% mean width: 0.12
-p: 0.20 covered: 95.32% mean width: 0.16
-p: 0.40 covered: 96.02% mean width: 0.19
-p: 0.50 covered: 93.99% mean width: 0.20
-p: 0.70 covered: 95.10% mean width: 0.18
-p: 0.90 covered: 95.56% mean width: 0.12
-p: 0.95 covered: 96.43% mean width: 0.09
-p: 0.99 covered: 98.26% mean width: 0.05
+p: 0.01 covered: 98.31% mean width: 0.05
+p: 0.05 covered: 96.61% mean width: 0.09
+p: 0.10 covered: 95.53% mean width: 0.12
+p: 0.20 covered: 95.44% mean width: 0.16
+p: 0.40 covered: 95.87% mean width: 0.19
+p: 0.50 covered: 93.93% mean width: 0.20
+p: 0.70 covered: 94.80% mean width: 0.18
+p: 0.90 covered: 95.52% mean width: 0.12
+p: 0.95 covered: 96.67% mean width: 0.09
+p: 0.99 covered: 98.00% mean width: 0.05
 </pre></div>
 </div>
 </div>
 </div>
-<p>(I suspect there’s a bug: the coverage at p=0.5 should be higher.)</p>
+<p>(I suspect there’s a bug: the coverage at p=0.5 should be higher for <span class="math notranslate nohighlight">\(n=50\)</span> and <span class="math notranslate nohighlight">\(n=100\)</span>.)</p>
 </section>
 <section id="bootstrap-approximate-confidence-intervals">
 <h3>Bootstrap approximate confidence intervals<a class="headerlink" href="#bootstrap-approximate-confidence-intervals" title="Permalink to this headline">¶</a></h3>
 <p>The bootstrap approximates sampling from a population by sampling with replacement from a sample from the population. That is, it approximates the population distribution by the empirical distribution of the observed sample, which is
 the nonparametric maximum likelihood estimate of the population distribution</p>
 <p>The bootstrap is commonly used to estimate the variability of an estimator of a functional parameter. It generally does a good job of estimating things like the variance of an estimator.</p>
-<p>It is also used to construct approximate confidence intervals using the <em>percentile method</em>, which approximates percentiles of an estimator from percentiles of the resampling distribution of the estimator. However, this generally is not a good approximation.</p>
+<p>It can also be used to construct approximate confidence intervals in a variety of ways, including the <em>percentile method</em>, which approximates percentiles of an estimator from percentiles of the resampling distribution of the estimator. However, this generally is not a good approximation.</p>
 <p>Let’s code it up and see.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1075,51 +1114,20 @@ the nonparametric maximum likelihood estimate of the population distribution</p>
             <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>             
                       <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">mean_width</span> <span class="o">+=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">% mean width: </span><span class="si">{</span><span class="n">mean_width</span><span class="o">/</span><span class="n">reps</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">mean_width</span> <span class="o">/=</span> <span class="n">reps</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> covered: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">% mean width: </span><span class="si">{</span><span class="n">mean_width</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.01 covered:  8.70% mean width: 0.03
-p: 0.05 covered:  39.10% mean width: 0.13
-p: 0.10 covered:  66.20% mean width: 0.26
-p: 0.20 covered:  89.50% mean width: 0.42
-p: 0.40 covered:  95.10% mean width: 0.56
-p: 0.50 covered:  98.10% mean width: 0.58
-p: 0.70 covered:  95.90% mean width: 0.50
-p: 0.90 covered:  66.20% mean width: 0.26
-p: 0.95 covered:  39.40% mean width: 0.13
-p: 0.99 covered:  9.20% mean width: 0.03
-
-n: 50
-p: 0.01 covered:  41.70% mean width: 0.03
-p: 0.05 covered:  91.00% mean width: 0.11
-p: 0.10 covered:  96.30% mean width: 0.16
-p: 0.20 covered:  94.80% mean width: 0.21
-p: 0.40 covered:  95.40% mean width: 0.27
-p: 0.50 covered:  96.40% mean width: 0.27
-p: 0.70 covered:  96.00% mean width: 0.25
-p: 0.90 covered:  95.70% mean width: 0.16
-p: 0.95 covered:  90.00% mean width: 0.10
-p: 0.99 covered:  40.10% mean width: 0.03
-
-n: 100
-p: 0.01 covered:  62.70% mean width: 0.03
-p: 0.05 covered:  94.90% mean width: 0.08
-p: 0.10 covered:  96.60% mean width: 0.11
-p: 0.20 covered:  95.90% mean width: 0.15
-p: 0.40 covered:  96.00% mean width: 0.19
-p: 0.50 covered:  95.10% mean width: 0.19
-p: 0.70 covered:  96.10% mean width: 0.18
-p: 0.90 covered:  95.60% mean width: 0.11
-p: 0.95 covered:  95.00% mean width: 0.08
-p: 0.99 covered:  63.10% mean width: 0.03
+p: 0.01 covered:  11.00% mean width: 0.03
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you can see, the coverage of bootstrap percentile confidence intervals can be quite low compared to their nominal level (here, as low as 3% when they should be 95%). Where their coverage is about right, their average width is comparable to the average width of the conservative intervals derived by inverting two-sided tests.</p>
+<p>As you can see, the coverage probability of bootstrap percentile confidence intervals can be
+much lower than their nominal level (here, as low as about 9% when they should be 95%). Where their coverage is about right, their average width is comparable to the average width of the conservative intervals derived by inverting two-sided tests.</p>
 <p>This example is a fairly simple situation: estimating the mean of a population of zeros and ones from a random sample with replacement. In more complicated examples, bootstrap confidence intervals generally do not attain their nominal level.
 There is a substantial body of work on how to improve the coverage of bootstrap CIs.
 <em>Pre-pivoting</em> can help substantially. See <a class="reference external" href="https://www.jstor.org/stable/2336685?seq=1">Beran (1987)</a>.</p>
@@ -1236,13 +1244,6 @@ Instead, we will use a search.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  99.04%
-N=50, G=30, n=20: covered  98.19%
-N=100, G=25, n=30: covered  97.50%
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -1251,13 +1252,14 @@ N=100, G=25, n=30: covered  97.50%
 <section id="the-two-sample-problem">
 <h3>The two-sample problem<a class="headerlink" href="#the-two-sample-problem" title="Permalink to this headline">¶</a></h3>
 <p>Recall from the chapter on <a class="reference internal" href="tests.html"><span class="doc std std-doc">hypothesis tests</span></a> that the two-sample problem asks whether two groups plausibly resulted from allocating their union randomly into two groups of their observed sizes.</p>
-<p>That is, we have two groups of data, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span>, and hypothesize that they arose by taking the multiset of <span class="math notranslate nohighlight">\(n+m\)</span> values <span class="math notranslate nohighlight">\(\{x_1, \ldots, x_n, y_1, \ldots, y_m\}\)</span> and randomly selecting <span class="math notranslate nohighlight">\(n\)</span> of them to comprise the first group, with the remaining <span class="math notranslate nohighlight">\(m\)</span> comprising the second group.</p>
+<p>That is, we have two groups of data, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span>, and hypothesize that they arose by taking the multiset of <span class="math notranslate nohighlight">\(n+m\)</span> values <span class="math notranslate nohighlight">\(\{x_1, \ldots, x_n, y_1, \ldots, y_m\}\)</span> and randomly selecting <span class="math notranslate nohighlight">\(n\)</span> items to comprise the first group, with the remaining <span class="math notranslate nohighlight">\(m\)</span> comprising the second group.</p>
 <p>This problem arises in many contexts, including randomized controlled trials:
 We have a group of <span class="math notranslate nohighlight">\(n+m\)</span> subjects of whom <span class="math notranslate nohighlight">\(n\)</span> are selected at random to be the control/placebo group
 and the other <span class="math notranslate nohighlight">\(m\)</span> receive the active treatment.
-The <em>strong null hypothesis</em> of no treatment effect is as follows: each subject would have had the same response, regardles of whether the subject was assigned to treatment or control.
-It is as if the response were determined before the assignment to treatment or control occurred. The assignment just reveals the response.</p>
-<p>[To be continued!]</p>
+The <em>strong null hypothesis</em> of no treatment effect is that each subject would have had the same response, no matter which treatment the subject was assigned.
+It is as if the response were determined before the assignment occurred.
+The assignment just reveals the response corresponding to the assigned treatment.</p>
+<p>Thus, testing the strong null hypothesis is an instance of the two-sample problem: did the two sets of values plausibly arise from dividing a single set of values at random into two groups by simple random sampling?</p>
 </section>
 </section>
 <section id="the-neyman-model-for-causal-inference">
@@ -1321,11 +1323,906 @@ The treatment affects both subjects, but the average effect of treatment is the 
 <p>Again, once the original data are observed, this completely specifies the probability distribution of the data: we know what subject <span class="math notranslate nohighlight">\(j\)</span>’s response would have been had the subject been assigned the other treatment. If the subject was assigned treatment 1, the response would have been larger by <span class="math notranslate nohighlight">\(\Delta\)</span> if the subject had been assigned treatment 2 instead. if the subject was assigned treatment 2, the response would have been smaller by <span class="math notranslate nohighlight">\(\Delta\)</span> if the subject had been assigned treatment 1 instead.</p>
 </section>
 </section>
-<section id="alternative-hypotheses-constant-multiple">
-<h3>Alternative hypotheses: constant multiple<a class="headerlink" href="#alternative-hypotheses-constant-multiple" title="Permalink to this headline">¶</a></h3>
+<section id="other-tractable-alternative-hypotheses">
+<h3>Other tractable alternative hypotheses<a class="headerlink" href="#other-tractable-alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
+<p>A more general alternative is that <span class="math notranslate nohighlight">\(x_{j2} = f(x_{j1})\)</span> for some strictly monotonic (and thus invertible) function <span class="math notranslate nohighlight">\(f\)</span>.</p>
 </section>
-<section id="test-statistics">
-<h3>Test statistics<a class="headerlink" href="#test-statistics" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="confidence-intervals-when-there-are-nuisance-parameters-stratified-sampling">
+<h2>Confidence intervals when there are nuisance parameters: stratified sampling<a class="headerlink" href="#confidence-intervals-when-there-are-nuisance-parameters-stratified-sampling" title="Permalink to this headline">¶</a></h2>
+<p>We now look at an example of constructing a confidence interval when there are nuisance parameters: finding a confidence bound for the mean of a binary population from a stratified sample from the population.
+This problem occurs in opinion surveys, financial auditing, and election auditing.
+It will let us see some of the issues that arise when there are nuisance parameters.</p>
+<p>We will use four powerful techniques:</p>
+<ul class="simple">
+<li><p>the duality between hypothesis tests and confidence sets</p></li>
+<li><p>maximizing <span class="math notranslate nohighlight">\(P\)</span>-values over nuisance parameters</p></li>
+<li><p>union-intersection tests</p></li>
+<li><p>combining independent <span class="math notranslate nohighlight">\(P\)</span>-values</p></li>
+</ul>
+<p>It is also an example of a combinatorial optimization problem that can be solved quickly using a greedy algorithm–which is rare.</p>
+<section id="the-problem">
+<h3>The problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h3>
+<p>A population of <span class="math notranslate nohighlight">\(N\)</span> items of which <span class="math notranslate nohighlight">\(G\)</span> are labeled “1” and <span class="math notranslate nohighlight">\(N-G\)</span> are labeled “0”
+is partitioned into <span class="math notranslate nohighlight">\(S\)</span> strata.
+Stratum <span class="math notranslate nohighlight">\(s\)</span> contains <span class="math notranslate nohighlight">\(N_s\)</span> items, of which <span class="math notranslate nohighlight">\(G_s\)</span> are labeled “1.”
+Thus <span class="math notranslate nohighlight">\(N = \sum_{s=1}^S N_s\)</span> and <span class="math notranslate nohighlight">\(G \equiv \sum_{s=1}^S G_s\)</span>.
+We draw a simple random sample of size <span class="math notranslate nohighlight">\(n_s\)</span> from stratum <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(s = 1, \ldots, S\)</span>, independently across strata.
+(I.e., from stratum <span class="math notranslate nohighlight">\(s\)</span> we draw a sample of size <span class="math notranslate nohighlight">\(n_s\)</span> in such a way
+that every subset of <span class="math notranslate nohighlight">\(n_s\)</span> distinct items of the <span class="math notranslate nohighlight">\(N_s\)</span> items is equally likely;
+and the <span class="math notranslate nohighlight">\(S\)</span> samples are drawn independently.)</p>
+<p>Let <span class="math notranslate nohighlight">\(x_{sj}\)</span> denote the value if the <span class="math notranslate nohighlight">\(j\)</span>th item in stratum <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(s=1, \ldots, S\)</span>, <span class="math notranslate nohighlight">\(j=1, \ldots, N_s\)</span>.
+Then <span class="math notranslate nohighlight">\(G_s = \sum_{j=1}^{N_s} x_{sj}\)</span> and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+G = \sum_{s=1}^S \sum_{j=1}^{N_s} x_{sj}.
+\end{equation*}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(Y_s\)</span> denote the sum of the values in the sample from stratum <span class="math notranslate nohighlight">\(s\)</span>.
+The variables <span class="math notranslate nohighlight">\(\{Y_s \}_{s=1}^S\)</span> are independent.
+The observed value of <span class="math notranslate nohighlight">\(Y_s\)</span> is <span class="math notranslate nohighlight">\(y_s\)</span>.</p>
+<p>We seek hypothesis tests and confidence bounds for <span class="math notranslate nohighlight">\(G\)</span>.
+We first consider one-sided tests of the hypothesis <span class="math notranslate nohighlight">\(G = g\)</span> against the
+alternative <span class="math notranslate nohighlight">\(G &gt; g\)</span>, and
+corresponding lower confidence bounds for <span class="math notranslate nohighlight">\(G\)</span>.
+Reversing the roles of “0” and “1” gives upper confidence
+bounds, <em>mutatis mutandis</em>.</p>
+<p>The general strategy for testing the hypothesis <span class="math notranslate nohighlight">\(G=g\)</span> is to
+find the largest <span class="math notranslate nohighlight">\(P\)</span>-value among all ways of allocating <span class="math notranslate nohighlight">\(g\)</span>
+items labeled “1” among the <span class="math notranslate nohighlight">\(S\)</span> strata
+(honoring the stratum sizes <span class="math notranslate nohighlight">\(\{N_s\}\)</span>).
+That is a <span class="math notranslate nohighlight">\(P\)</span>-value for the <em>composite</em> hypothesis <span class="math notranslate nohighlight">\(G=g\)</span>.
+The maximum can be found by examining all such allocations and
+calculating the <span class="math notranslate nohighlight">\(P\)</span>-value for each.</p>
+<p>Maximizing the <span class="math notranslate nohighlight">\(P\)</span>-value over all allocations of <span class="math notranslate nohighlight">\(G\)</span> ones
+across <span class="math notranslate nohighlight">\(S\)</span> strata
+is combinatorially complex: Feller’s “bars and stars” argument shows that there are <span class="math notranslate nohighlight">\(\binom{G+S-1}{S-1}\)</span> ways to allocate <span class="math notranslate nohighlight">\(G\)</span> objects among <span class="math notranslate nohighlight">\(S\)</span> strata.
+(Some of those can be ruled out, for instance if <span class="math notranslate nohighlight">\(G\)</span> exceeds the size of any stratum.)
+For <span class="math notranslate nohighlight">\(S=10\)</span> strata of size <span class="math notranslate nohighlight">\(N_s = 400\)</span> and <span class="math notranslate nohighlight">\(G = 300\)</span>,
+there are roughly 6.3e+16 allocations: impractical by any standard.</p>
+<section id="aside-feller-s-bars-and-stars-argument">
+<h4><em>Aside: Feller’s Bars and Stars Argument</em><a class="headerlink" href="#aside-feller-s-bars-and-stars-argument" title="Permalink to this headline">¶</a></h4>
+<p>How many ways are there to divide <span class="math notranslate nohighlight">\(G\)</span> objects into <span class="math notranslate nohighlight">\(S\)</span> groups?
+<a class="reference external" href="https://www.wiley.com/en-us/An+Introduction+to+Probability+Theory+and+Its+Applications%2C+Volume+2%2C+2nd+Edition-p-9780471257097">Feller (1950)</a> argues as follows.</p>
+<p>Consider <span class="math notranslate nohighlight">\(G\)</span> “stars” lined up in a row:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+********* \cdots *********
+\end{equation*}\]</div>
+<p>To divide them into <span class="math notranslate nohighlight">\(S\)</span> groups, we place <span class="math notranslate nohighlight">\(S-1\)</span> “bars” somewhere among them.
+For instance,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+**|****|*** \cdots ******|***
+\end{equation*}\]</div>
+<p>corresponds to having 2 items in the first group, 4 in the second, …, and 3 in the <span class="math notranslate nohighlight">\(S\)</span>th group.
+Similarly,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+|||||********* \cdots *********
+\end{equation*}\]</div>
+<p>corresponds to having all the items in the <span class="math notranslate nohighlight">\(S\)</span>th group.
+The number of ways of partitioning the <span class="math notranslate nohighlight">\(G\)</span> items into <span class="math notranslate nohighlight">\(S\)</span> groups is thus the number of ways of choosing <span class="math notranslate nohighlight">\(S-1\)</span> places to put bars among a total of <span class="math notranslate nohighlight">\(G+S-1\)</span> places (the bars and stars pooled together), i.e., <span class="math notranslate nohighlight">\(\binom{G+S-1}{S-1}\)</span>.</p>
+<p>We now examine some approaches to making confidence intervals for the population total <span class="math notranslate nohighlight">\(G\)</span> (equivalently, for the population mean <span class="math notranslate nohighlight">\(\mu = G/N\)</span>) from a stratified sample.</p>
+</section>
+</section>
+<section id="wright-s-method-sum-of-sidak-intervals">
+<h3>Wright’s Method: Sum of Šidák Intervals<a class="headerlink" href="#wright-s-method-sum-of-sidak-intervals" title="Permalink to this headline">¶</a></h3>
+<p>One easy way to get a lower confidence bound for the sum is to take the sum of
+simultaneous lower confidence bounds for each stratum.
+Because the samples from different strata are independent, Šidák’s adjustment works.
+Wright (1991) suggests this approach.</p>
+<p>A confidence bound for <span class="math notranslate nohighlight">\(G_s\)</span> can be constructed from <span class="math notranslate nohighlight">\(Y\)</span> by inverting hypergeometric tests.</p>
+<p>To have joint confidence level <span class="math notranslate nohighlight">\(1-\alpha\)</span>, make each confidence interval at <span class="math notranslate nohighlight">\((1-\alpha)^{1/S}\)</span>.</p>
+<p>The chance that <em>all</em> of the <span class="math notranslate nohighlight">\(S\)</span> confidence bounds cover their corresponding parameters is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\prod_{s=1}^S (1-\alpha)^{1/S} = 1-\alpha
+\end{equation*}\]</div>
+<p>because the intervals all based on independent data.
+This approach to making simultaneous confidence bounds for a set of parameters using
+independent data for each parameter is called <em>Šidák’s</em> method.</p>
+<p>Wright’s method is an example of a much more general approach: make a joint <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for all the parameters <span class="math notranslate nohighlight">\(\{G_j\}_{j=1}^S\)</span>, then find a lower bound on a functional of interest (here, their sum) over the joint set.
+Whenever the joint confidence set covers the parameter, the lower bound does not exceed the true value of the functional of the parameter.
+But because we do not care about the individual stratum sums, only the overall population sum, this approach is unnecessarily conservative: we are “wasting” effort constraining them separately.</p>
+</section>
+<section id="the-wendell-schmee-test">
+<h3>The Wendell-Schmee Test<a class="headerlink" href="#the-wendell-schmee-test" title="Permalink to this headline">¶</a></h3>
+<p>Wendell and Schmee (1996, https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476950) proposed making inferences about the population total by maximizing a <span class="math notranslate nohighlight">\(P\)</span>-value over a set of nuisance parameters—the individual stratum totals.
+They find the <span class="math notranslate nohighlight">\(P\)</span>-value by ordering possible outcomes based on the estimated population proportion:
+the test statistic is the “tail probability” of <span class="math notranslate nohighlight">\(\hat{p}\)</span>, the unbiased
+estimator of the population percentage from the stratified sample.
+They construct confidence bounds by inverting hypothesis tests.</p>
+<p>The test statistic for the Wendell-Schmee test is the unbiased estimate
+of the population proportion, <span class="math notranslate nohighlight">\(G/N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \hat{p} = \frac{1}{N} \sum_{s=1}^S N_s y_s/n_s.
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(P\)</span>-value of the hypothesis <span class="math notranslate nohighlight">\(G_s=g_s\)</span>, <span class="math notranslate nohighlight">\(s=1, \ldots, S\)</span>,
+is the “lower tail probability” of <span class="math notranslate nohighlight">\(\hat{p}\)</span>.</p>
+<p>Wendell and Schmee consider maximizing this lower tail probability over all allocations
+of <span class="math notranslate nohighlight">\(g\)</span> ones across strata, either by exhaustive search, or by numerical optimization
+using a descent method from some number of random starting points.
+(They show graphically that the tail probability is not convex in the original
+parametrization.)</p>
+<p>In practice, their method is computationally intractable when there are more than <span class="math notranslate nohighlight">\(S=3\)</span> strata.</p>
+</section>
+<section id="constructive-maximization">
+<h3>Constructive maximization<a class="headerlink" href="#constructive-maximization" title="Permalink to this headline">¶</a></h3>
+<p>For some test statistics, there is a much more efficient approach.</p>
+<p>Define
+$<span class="math notranslate nohighlight">\(
+   p_s(g_s) \equiv \Pr \{ Y_s \ge y_s || G_s = g_s \} =
+   \sum_{y = y_s}^{g_s} \frac{\binom{g_s}{y} \binom{N_s-g_s}{n_s - y}}{\binom{N_s}{n_s}},
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\binom{a}{b} \equiv 0<span class="math notranslate nohighlight">\( if \)</span>a \le 0<span class="math notranslate nohighlight">\( or \)</span>b &gt; a<span class="math notranslate nohighlight">\(.
+(The double vertical bars denote &quot;computed on the assumption that.&quot;)
+This is the \)</span>P<span class="math notranslate nohighlight">\(-value of the hypothesis \)</span>G_s = g_s<span class="math notranslate nohighlight">\( tested against the
+alternative \)</span>G_s &gt; g_s$.</p>
+<p>A test of the conjunction hypothesis <span class="math notranslate nohighlight">\(G_s = g_s\)</span>, <span class="math notranslate nohighlight">\(s=1, \ldots, S\)</span> can be constructed
+using <em>Fisher’s combining function</em>:
+if all <span class="math notranslate nohighlight">\(S\)</span> hypotheses are true, the distribution of
+$<span class="math notranslate nohighlight">\(
+  X^2(\vec{g}) \equiv -2 \sum_{s=1}^S \log p_s(g_s)
+\)</span><span class="math notranslate nohighlight">\(
+is _dominated_ by the chi-square distribution with \)</span>2S<span class="math notranslate nohighlight">\( degrees of freedom.
+(That is, the chance \)</span>X^2 \ge t<span class="math notranslate nohighlight">\( is less then or equal to the chance that a random variable with
+a chi-square distribution is \)</span>\ge t<span class="math notranslate nohighlight">\(, for all \)</span>t$.)</p>
+<p>Let <span class="math notranslate nohighlight">\(\chi_d(z)\)</span> denote the survival function for the chi-sqare distribution with <span class="math notranslate nohighlight">\(d\)</span> degrees
+of freedom, i.e., the chance that a random variable with the chi-square
+distribution with <span class="math notranslate nohighlight">\(d\)</span> degrees of freedom is greater than or equal to <span class="math notranslate nohighlight">\(z\)</span>.
+Then a conservative <span class="math notranslate nohighlight">\(P\)</span>-value for the allocation <span class="math notranslate nohighlight">\(\vec{g}\)</span>
+$<span class="math notranslate nohighlight">\(
+   P(\vec{g}) = \chi_{2S}(X^2(\vec{g})).
+\)</span><span class="math notranslate nohighlight">\(
+The allocation \)</span>\vec{g}<span class="math notranslate nohighlight">\( of \)</span>g<span class="math notranslate nohighlight">\( ones across strata that maximizes the \)</span>P<span class="math notranslate nohighlight">\(-value
+is the allocation that minimizes \)</span>X^2(\vec{g})<span class="math notranslate nohighlight">\( and satisfies \)</span>\sum_s g_s = g<span class="math notranslate nohighlight">\(.
+Equivalently, it is the allocation that maximizes \)</span>\sum_{s=1}^S \log p_s(g_s)$.</p>
+<p>Let
+$<span class="math notranslate nohighlight">\(
+   a_s(j) \equiv \left \{ 
+                 \begin{array}{ll} 
+          \log p_s(y_s), &amp; j = y_s \\
+          \log \left (p_s(j)/p_s(j-1) \right ), &amp; j = y_s+1, \ldots N_s-(n_s-y_s).
+                 \end{array}
+                 \right .
+\)</span>$</p>
+<p>Then <span class="math notranslate nohighlight">\(\log p_s(g_s) = \sum_{j=y_s}^{g_s} a_s(j)\)</span> if
+<span class="math notranslate nohighlight">\(y_s \le g_s \le N-(n_s-y_s)\)</span>, and
+<span class="math notranslate nohighlight">\(\log p_s(g_s) = -\infty\)</span> otherwise.
+Moreover,
+$<span class="math notranslate nohighlight">\(
+  X^2(\vec{g}) =  -2\sum_{s=1}^S a_s(y_s) -2\sum_{s=1}^S \sum_{j=y_s+1}^{g_s} a_s(j)
+\)</span><span class="math notranslate nohighlight">\(
+provided \)</span>y_s \le g_s \le N-(n_s-y_s)<span class="math notranslate nohighlight">\(, \)</span>s=1, \ldots, S$; otherwise, it is infinite.</p>
+<p>An allocation of <span class="math notranslate nohighlight">\(g\)</span> ones across strata is inconsistent with the data unless
+<span class="math notranslate nohighlight">\(g_s \ge y_s\)</span>, <span class="math notranslate nohighlight">\(s=1, \ldots, S\)</span>.
+Thus, in considering how to allocate <span class="math notranslate nohighlight">\(g\)</span> ones to maximize the <span class="math notranslate nohighlight">\(P\)</span>-value,
+the first sum above, accounting for <span class="math notranslate nohighlight">\(\sum_s y_s\)</span> ones, is “mandatory,” or the <span class="math notranslate nohighlight">\(P\)</span>-value will be zero.
+The question is how to allocate the remaining <span class="math notranslate nohighlight">\(g - \sum_s y_s\)</span> ones to maximize
+the <span class="math notranslate nohighlight">\(P\)</span>-value (equivalently, to minimize <span class="math notranslate nohighlight">\(X^2(\vec{g})\)</span>).</p>
+<p>Let <span class="math notranslate nohighlight">\(b_k\)</span> denote the <span class="math notranslate nohighlight">\(k\)</span>th largest element of the set</p>
+<div class="math notranslate nohighlight">
+\[
+   \{a_s(j): j=y_s+1, \ldots, N_s-(n_s-y_s), \;\; s=1, \ldots, S \},
+\]</div>
+<p>with ties broken arbitrarily.
+Define <span class="math notranslate nohighlight">\(\tilde{g}_y \equiv g - \sum_{s=1}^S y_s\)</span>.</p>
+<p><strong>Proposition.</strong> For every <span class="math notranslate nohighlight">\(\vec{g}\)</span> with <span class="math notranslate nohighlight">\(\sum_s g_s = g\)</span>,
+$<span class="math notranslate nohighlight">\(
+X^2(\vec{g}) \ge X_*^2(g) \equiv \left \{ \begin{array}{ll}
+    -2 \left ( \sum_{s=1}^S a_s(y_s) + \sum_{k=1}^{\tilde{g}_y} b_k 
+                \right ), &amp; \sum_s y_s \le g \le N - \sum_s (n_s-y_s) \\
+    \infty, &amp; \mbox{ otherwise }
+    \end{array}
+    \right . .
+\)</span>$</p>
+<p><strong>Proof.</strong> Any <span class="math notranslate nohighlight">\(\vec{g}\)</span> for which <span class="math notranslate nohighlight">\(X^2(\vec{g})\)</span> is finite includes the first sum
+and a sum of <span class="math notranslate nohighlight">\(\tilde{g}_y\)</span> elements of <span class="math notranslate nohighlight">\(\{b_k\}\)</span>; the latter is at most the sum of the
+<span class="math notranslate nohighlight">\(\tilde{g}_y\)</span> largest elements of <span class="math notranslate nohighlight">\(\{b_k\}\)</span>. <span class="math notranslate nohighlight">\(\Box\)</span></p>
+<p>Moreover, if the <span class="math notranslate nohighlight">\(\tilde{g}_y\)</span> largest elements of <span class="math notranslate nohighlight">\(\{b_k \}\)</span> correspond to
+an allocation of <span class="math notranslate nohighlight">\(\tilde{g}_y\)</span> ones across the strata, the bound is sharp.
+That turns out to be true (the proof involves log convexity of the distributions).
+The second sum thus corresponds
+to a particular allocation
+<span class="math notranslate nohighlight">\(\vec{g}\)</span> of <span class="math notranslate nohighlight">\(g\)</span> ones across the <span class="math notranslate nohighlight">\(S\)</span> strata, with <span class="math notranslate nohighlight">\(y_s \le g_s \le N_s-(n_s-y_s)\)</span>.
+Among all allocations of <span class="math notranslate nohighlight">\(g\)</span> items labeled “1,” this one minimizes has the smallest tail
+probability, because it is the exponentiation of the smallest sum of logs
+(the largest negative sum of logs). <span class="math notranslate nohighlight">\(\Box\)</span></p>
+<p><strong>Proposition:</strong> For <span class="math notranslate nohighlight">\(j \in y_s+1, \ldots, N_s-(n_s-y_s)\)</span>, <span class="math notranslate nohighlight">\(a_s(j)\)</span> is monotone
+decreasing in <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(P(g) \equiv \max_{\vec{g}: \sum_s g_s = g} P(\vec{g})\)</span>.</p>
+<p><strong>Theorem:</strong> If <span class="math notranslate nohighlight">\(\sum_s y_s \le g \le N - \sum_s (n_s-y_s)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P(g) \le \chi_d(X_*^2(g)).
+\]</div>
+<p><strong>Proof:</strong>
+Immediate from the definitions.</p>
+<p>The theorem shows that a “greedy” approach finds a conservative <span class="math notranslate nohighlight">\(P\)</span>-value:</p>
+<ul class="simple">
+<li><p>Construct the values <span class="math notranslate nohighlight">\(a_s(j)\)</span> and the set <span class="math notranslate nohighlight">\(\{b_k\}\)</span>.</p></li>
+<li><p>Add the <span class="math notranslate nohighlight">\(S\)</span> values <span class="math notranslate nohighlight">\(\{a_s(x_k)\)</span> to the <span class="math notranslate nohighlight">\(g-g_y\)</span> largest elements of <span class="math notranslate nohighlight">\(\{b_k\}\)</span> and
+multiply the sum by <span class="math notranslate nohighlight">\(-2\)</span>.</p></li>
+<li><p>The upper tail probability of the chi-square distribution with <span class="math notranslate nohighlight">\(2S\)</span> degrees of
+freedom is a conservative <span class="math notranslate nohighlight">\(P\)</span>-value for the hypothesis <span class="math notranslate nohighlight">\(G=g\)</span>.</p></li>
+</ul>
+<p>A conservative upper <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(G\)</span> can be found by inverting the test: it is the largest <span class="math notranslate nohighlight">\(g\)</span> for which
+<span class="math notranslate nohighlight">\(P(g) \ge \alpha\)</span>.</p>
+</section>
+<section id="changing-the-direction-of-the-test">
+<h3>Changing the direction of the test<a class="headerlink" href="#changing-the-direction-of-the-test" title="Permalink to this headline">¶</a></h3>
+<p>The test of the hypothesis <span class="math notranslate nohighlight">\(G=g\)</span> given above is a one-sided test against the alternative
+<span class="math notranslate nohighlight">\(G &gt; g\)</span>: it rejects if the chance of observing “so few” good objects is small.</p>
+<p>To test against the alternative <span class="math notranslate nohighlight">\(G &lt; g\)</span> (i.e., to reject if the chance of observing “so many”
+good objects is small), exchange the role of “good” and “bad.”
+The hypothesis <span class="math notranslate nohighlight">\(G &lt; g\)</span> is equivalent to the hypothesis <span class="math notranslate nohighlight">\((N-G) &gt; (N-g)\)</span>.</p>
+<p>The resulting null hypothesis is <span class="math notranslate nohighlight">\(G = N-g\)</span>, and the data are <span class="math notranslate nohighlight">\(n_s - Y_s\)</span>.</p>
+<p>We now code the combinatorial optimization and the greedy optimization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install permute and cryptorandom in the current kernel, if not already installed</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install permute --user
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install cryptorandom --user
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span><span class="p">,</span> <span class="n">hypergeom</span><span class="p">,</span> <span class="n">chi2</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">permute.utils</span> <span class="kn">import</span> <span class="n">binom_conf_interval</span><span class="p">,</span> <span class="n">hypergeom_conf_interval</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># decorate the function to cache the results </span>
+                          <span class="c1"># of calls to the function</span>
+<span class="k">def</span> <span class="nf">strat_test_brute</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">good</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find p-value of the hypothesis that the number G of &quot;good&quot; objects in a </span>
+<span class="sd">    stratified population is less than or equal to good, using a stratified</span>
+<span class="sd">    random sample.</span>
+<span class="sd">    </span>
+<span class="sd">    Assumes that a simple random sample of size sams[s] was drawn from stratum s, </span>
+<span class="sd">    which contains strata[s] objects in all.</span>
+<span class="sd">    </span>
+<span class="sd">    The P-value is the maximum Fisher combined P-value across strata</span>
+<span class="sd">    over all allocations of good objects among the strata. The allocations are</span>
+<span class="sd">    enumerated using Feller&#39;s &quot;bars and stars&quot; construction, constrained to honor the</span>
+<span class="sd">    stratum sizes (each stratum can contain no more &quot;good&quot; items than it has items in all,</span>
+<span class="sd">    nor fewer &quot;good&quot; items than the sample contains).</span>
+<span class="sd">    </span>
+<span class="sd">    The number of allocations grows combinatorially: there can be as many as</span>
+<span class="sd">    [(#strata + #good items) choose (#strata-1)] allocations, making the brute-force</span>
+<span class="sd">    approach computationally infeasible when the number of strata and/or the number of</span>
+<span class="sd">    good items is large.</span>
+<span class="sd">    </span>
+<span class="sd">    The test is a union-intersection test: the null hypothesis is the union over allocations</span>
+<span class="sd">    of the intersection across strata of the hypothesis that the number of good items</span>
+<span class="sd">    in the stratum is less than or equal to a constant.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        sizes of the strata. One int per stratum.</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        the sample sizes from each stratum</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        the numbers of &quot;good&quot; items found in the samples from the strata</span>
+<span class="sd">    good : int</span>
+<span class="sd">        the hypothesized total number of &quot;good&quot; objects in the population</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        test against the alternative that the true value is less than good (lower)</span>
+<span class="sd">        or greater than good (upper)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    p : float</span>
+<span class="sd">        maximum combined p-value over all ways of allocating good &quot;good&quot; objects</span>
+<span class="sd">        among the strata, honoring the stratum sizes.        </span>
+<span class="sd">    best_part : list</span>
+<span class="sd">        the partition that attained the maximum p-value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span> <span class="c1"># exchange roles of &quot;good&quot; and &quot;bad&quot;</span>
+        <span class="n">p_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">logcdf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span>
+        <span class="n">p_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">logsf</span><span class="p">(</span><span class="n">f</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;alternative </span><span class="si">{}</span><span class="s2"> not implemented&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alternative</span><span class="p">))</span>
+    <span class="n">best_part</span> <span class="o">=</span> <span class="n">found</span> <span class="c1"># start with what you see</span>
+    <span class="n">strata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">sams</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">good</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">good</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">good</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span>     
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span> <span class="k">else</span> <span class="mi">1</span> 
+    <span class="k">elif</span> <span class="n">good</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># use Feller&#39;s &quot;bars and stars&quot; enumeration of combinations, constrained</span>
+        <span class="n">log_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span>   <span class="c1"># initial value for the max</span>
+        <span class="n">n_strata</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">good</span><span class="o">+</span><span class="n">n_strata</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_strata</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parts</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;warning--large number of partitions: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parts</span><span class="p">))</span>
+        <span class="n">barsNstars</span> <span class="o">=</span> <span class="n">good</span> <span class="o">+</span> <span class="n">n_strata</span>
+        <span class="n">bars</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n_strata</span> <span class="o">+</span> <span class="p">[</span><span class="n">barsNstars</span><span class="p">]</span>
+        <span class="n">partition</span> <span class="o">=</span> <span class="p">([</span><span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_strata</span><span class="p">)]</span> \
+            <span class="k">for</span> <span class="n">bars</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">barsNstars</span><span class="p">),</span> <span class="n">n_strata</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> \
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(((</span><span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">strata</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="ow">and</span> \
+                   <span class="p">(</span><span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">found</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_strata</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">partition</span><span class="p">:</span>
+            <span class="n">log_p_new</span> <span class="o">=</span> <span class="mi">0</span> 
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_strata</span><span class="p">):</span> <span class="c1"># should be possible to vectorize this</span>
+                <span class="n">log_p_new</span> <span class="o">+=</span> <span class="n">p_func</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">part</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">log_p_new</span> <span class="o">&gt;</span> <span class="n">log_p</span><span class="p">:</span>
+                <span class="n">best_part</span> <span class="o">=</span> <span class="n">part</span>
+                <span class="n">log_p</span> <span class="o">=</span> <span class="n">log_p_new</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">log_p</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">best_part</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># decorate the function to cache the results </span>
+                          <span class="c1"># of calls to the function</span>
+<span class="k">def</span> <span class="nf">strat_ci_bisect</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+                  <span class="n">p_value</span><span class="o">=</span><span class="n">strat_test_brute</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Confidence bound on the number of ones in a stratified population,</span>
+<span class="sd">    based on a stratified random sample (without replacement) from</span>
+<span class="sd">    the population.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    If alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">    If alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+
+<span class="sd">    Uses an integer bisection search to find an exact confidence bound.</span>
+<span class="sd">    The starting upper endpoint for the search is the unbiased estimate</span>
+<span class="sd">    of the number of ones in the population. That could be refined in various</span>
+<span class="sd">    ways to improve efficiency.</span>
+<span class="sd">    </span>
+<span class="sd">    The lower endpoint for the search is the Šidák joint lower confidence bounds,</span>
+<span class="sd">    which should be more conservative than the exact bound.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes in the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        if alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">        if alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">        While this is not mnemonic, it corresponds to the sidedness of the tests</span>
+<span class="sd">        that are inverted to get the confidence bound.</span>
+<span class="sd">    cl : float</span>
+<span class="sd">        confidence level. Assumed to be at least 50%.</span>
+<span class="sd">    p_value : callable</span>
+<span class="sd">        method for computing the p-value</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    b : int</span>
+<span class="sd">        confidence bound</span>
+<span class="sd">    best_part : list of ints</span>
+<span class="sd">        partition that attains the confidence bound</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span>  <span class="c1"># interchange good and bad</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>  <span class="c1"># bad items found</span>
+        <span class="n">cb</span><span class="p">,</span> <span class="n">best_part</span> <span class="o">=</span> <span class="n">strat_ci_bisect</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">compl</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
+                                       <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">p_value</span><span class="o">=</span><span class="n">p_value</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">cb</span>    <span class="c1"># good from bad</span>
+        <span class="n">best_part_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">best_part</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cl_sidak</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))</span>  <span class="c1"># Šidák adjustment</span>
+        <span class="n">tail</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">cl</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">hypergeom_conf_interval</span><span class="p">(</span> \
+                <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl_sidak</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> \
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))))</span> <span class="c1"># Šidák should give a lower bound</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)))</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># expected good</span>
+        <span class="n">p_a</span><span class="p">,</span> <span class="n">best_part_a</span> <span class="o">=</span> <span class="n">p_value</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+        <span class="n">p_b</span><span class="p">,</span> <span class="n">best_part_b</span> <span class="o">=</span> <span class="n">p_value</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+        <span class="n">tot_found</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">p_a</span> <span class="o">&gt;</span> <span class="n">tail</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">tot_found</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">p_a</span><span class="p">,</span> <span class="n">best_part_a</span> <span class="o">=</span> <span class="n">p_value</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">p_a</span> <span class="o">&gt;</span> <span class="n">tail</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+            <span class="n">best_part_b</span> <span class="o">=</span> <span class="n">best_part_a</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">p_c</span><span class="p">,</span> <span class="n">best_part_c</span> <span class="o">=</span> <span class="n">p_value</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> 
+                                           <span class="n">c</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">p_c</span> <span class="o">&gt;</span> <span class="n">tail</span><span class="p">:</span>
+                    <span class="n">b</span><span class="p">,</span> <span class="n">p_b</span><span class="p">,</span> <span class="n">best_part_b</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">p_c</span><span class="p">,</span> <span class="n">best_part_c</span>
+                <span class="k">elif</span> <span class="n">p_c</span> <span class="o">&lt;</span> <span class="n">tail</span><span class="p">:</span>
+                    <span class="n">a</span><span class="p">,</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">best_part_a</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">p_c</span><span class="p">,</span> <span class="n">best_part_c</span>
+                <span class="k">elif</span> <span class="n">p_c</span> <span class="o">==</span> <span class="n">tail</span><span class="p">:</span>
+                    <span class="n">b</span><span class="p">,</span> <span class="n">p_b</span><span class="p">,</span> <span class="n">best_part_b</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">p_c</span><span class="p">,</span> <span class="n">best_part_c</span>
+                    <span class="k">break</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_part_b</span><span class="p">)</span>
+    
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># decorate the function to cache the results </span>
+                          <span class="c1"># of calls to the function</span>
+<span class="k">def</span> <span class="nf">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">good</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    P-value for the hypothesis the number of ones in a stratified population is not </span>
+<span class="sd">    greater than (or not less than) a hypothesized value, based on a stratified </span>
+<span class="sd">    random sample without replacement from the population.</span>
+<span class="sd">    </span>
+<span class="sd">    Uses a fast algorithm to find (an upper bound on) the P-value constructively.</span>
+<span class="sd">    </span>
+<span class="sd">    Uses Fisher&#39;s combining function to combine stratum-level P-values.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes in the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    good : int</span>
+<span class="sd">        hypothesized number of ones in the population</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        test against the alternative that the true number of &quot;good&quot; items </span>
+<span class="sd">        is less than (lower) or greater than (upper) the hypothesized number, good</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    p : float</span>
+<span class="sd">        P-value</span>
+<span class="sd">    best_part : list</span>
+<span class="sd">        the partition that attained the maximum p-value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span>                 <span class="c1"># exchange roles of &quot;good&quot; and &quot;bad&quot;</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span> <span class="c1"># bad items found </span>
+        <span class="n">bad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">good</span>            <span class="c1"># total bad items hypothesized</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">compl</span><span class="p">,</span> <span class="n">bad</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>  
+        <span class="n">good</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">good</span><span class="p">)</span>
+        <span class="n">best_part</span> <span class="o">=</span> <span class="p">[]</span>               <span class="c1"># best partition</span>
+        <span class="k">if</span> <span class="n">good</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span>     <span class="c1"># impossible</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>  
+            <span class="n">best_part</span> <span class="o">=</span> <span class="n">found</span>
+        <span class="k">elif</span> <span class="n">good</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span> <span class="c1"># guaranteed</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">best_part</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">-</span> \
+                             <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> \
+                             <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>       
+        <span class="k">elif</span> <span class="n">good</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span>  <span class="c1"># outcome is possible under the null  </span>
+            <span class="n">log_p</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># log of joint probability</span>
+            <span class="n">contrib</span> <span class="o">=</span> <span class="p">[]</span>             <span class="c1"># contributions to the log joint probability</span>
+            <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>     <span class="c1"># must have at least this many good items</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)):</span>
+                <span class="n">log_p_j</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">logsf</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+                                     <span class="c1"># baseline p for minimum number of good items in stratum</span>
+                <span class="n">log_p</span> <span class="o">+=</span> <span class="n">log_p_j</span>     <span class="c1"># log of the product of stratum-wise P-values</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">log_p_j1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">logsf</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">j</span><span class="p">,</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+                                     <span class="c1"># tail probability for j good in stratum</span>
+                    <span class="n">contrib</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">log_p_j1</span> <span class="o">-</span> <span class="n">log_p_j</span><span class="p">,</span> <span class="n">s</span><span class="p">])</span>  
+                                     <span class="c1"># relative increase in P from new item</span>
+                    <span class="n">log_p_j</span> <span class="o">=</span> <span class="n">log_p_j1</span>
+            <span class="n">sorted_contrib</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">contrib</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">best_part</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">good</span><span class="o">-</span><span class="n">base</span><span class="p">):</span>
+                <span class="n">log_p</span> <span class="o">+=</span> <span class="n">sorted_contrib</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">best_part</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">sorted_contrib</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">log_p</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_part</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">strat_ci_search</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Confidence bound on the number of ones in a stratified population,</span>
+<span class="sd">    based on a stratified random sample (without replacement) from</span>
+<span class="sd">    the population.</span>
+<span class="sd">        </span>
+<span class="sd">    If alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">    If alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">    </span>
+<span class="sd">    Searches for the allocation of items that attains the confidence bound</span>
+<span class="sd">    by increasing the number of ones from the minimum consistent</span>
+<span class="sd">    with the data (total found in the sample) until the P-value is greater</span>
+<span class="sd">    than 1-cl.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes in the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        if alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">        if alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">        While this is not mnemonic, it corresponds to the sidedness of the tests</span>
+<span class="sd">        that are inverted to get the confidence bound.</span>
+<span class="sd">    cl : float</span>
+<span class="sd">        confidence level. Assumed to be at least 50%.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    cb : int</span>
+<span class="sd">        confidence bound</span>
+<span class="sd">    best_part : list of ints</span>
+<span class="sd">        partition that attains the confidence bound (give or take one item)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span>  <span class="c1"># interchange good and bad</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>  <span class="c1"># bad items found</span>
+        <span class="n">cb</span><span class="p">,</span> <span class="n">best_part</span> <span class="o">=</span> <span class="n">strat_ci</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">compl</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">)</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">cb</span>    <span class="c1"># good from bad</span>
+        <span class="n">best_part</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">best_part</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)))</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># expected good</span>
+        <span class="n">p_attained</span><span class="p">,</span> <span class="n">best_part</span> <span class="o">=</span> <span class="n">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">cb</span><span class="p">,</span> 
+                                                 <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">p_attained</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">:</span>
+            <span class="n">cb</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">p_attained</span><span class="p">,</span> <span class="n">best_part</span> <span class="o">=</span> <span class="n">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">cb</span><span class="p">,</span> 
+                                                     <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+        <span class="n">cb</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">p_attained</span><span class="p">,</span> <span class="n">best_part</span> <span class="o">=</span> <span class="n">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">cb</span><span class="p">,</span> 
+                                                 <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cb</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_part</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">strat_ci</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Conservative confidence bound on the number of ones in a population,</span>
+<span class="sd">    based on a stratified random sample (without replacement) from</span>
+<span class="sd">    the population.</span>
+<span class="sd">    </span>
+<span class="sd">    If alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">    If alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">    </span>
+<span class="sd">    Constructs the confidence bound directly by constructing the</span>
+<span class="sd">    allocation of the maximum number of ones that would not be</span>
+<span class="sd">    rejected at (conservative) level 1-cl.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes in the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        if alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">        if alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">        While this is not mnemonic, it corresponds to the sidedness of the tests</span>
+<span class="sd">        that are inverted to get the confidence bound.</span>
+<span class="sd">    cl : float</span>
+<span class="sd">        confidence level</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    cb : int</span>
+<span class="sd">        confidence bound</span>
+<span class="sd">    best_part : list of ints</span>
+<span class="sd">        partition that attains the confidence bound (give or take one item)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span>  <span class="c1"># interchange role of good and bad</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>  <span class="c1"># bad found</span>
+        <span class="n">cb</span><span class="p">,</span> <span class="n">best_part</span> <span class="o">=</span> <span class="n">strat_ci</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">compl</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">)</span>
+        <span class="n">best_part</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">best_part</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">cb</span>   <span class="c1"># good to bad</span>
+    <span class="k">else</span><span class="p">:</span>                
+        <span class="n">threshold</span> <span class="o">=</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+        <span class="c1"># g is in the set if </span>
+        <span class="c1">#   chi2.sf(-2*log(p), df=2*len(strata)) &gt;= 1-cl</span>
+        <span class="c1">#  i.e.,   -2*log(p) &lt;=  chi2.ppf(cl, df)</span>
+        <span class="c1">#  i.e.,   log(p) &gt;= -chi2.ppf(cl, df)/2</span>
+        <span class="n">log_p</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># log of joint probability</span>
+        <span class="n">contrib</span> <span class="o">=</span> <span class="p">[]</span>             <span class="c1"># contributions to the log joint probability</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>     <span class="c1"># must have at least this many good items</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)):</span>
+            <span class="n">log_p_j</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">logsf</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+                                 <span class="c1"># baseline p for minimum number of good items in stratum</span>
+            <span class="n">log_p</span> <span class="o">+=</span> <span class="n">log_p_j</span>     <span class="c1"># log of the product of stratum-wise P-values</span>
+            <span class="n">small</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">PINF</span>      <span class="c1"># for monotonicity check</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">log_p_j1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">logsf</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">j</span><span class="p">,</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+                <span class="n">log_p_j1</span> <span class="o">=</span> <span class="n">log_p_j</span> <span class="k">if</span> <span class="n">log_p_j1</span> <span class="o">&lt;</span> <span class="n">log_p_j</span> <span class="k">else</span> <span class="n">log_p_j1</span> <span class="c1"># true difference is nonnegative</span>
+                <span class="n">contrib</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">log_p_j1</span> <span class="o">-</span> <span class="n">log_p_j</span><span class="p">,</span> <span class="n">s</span><span class="p">])</span> 
+                <span class="n">log_p_j</span> <span class="o">=</span> <span class="n">log_p_j1</span>
+                <span class="k">if</span> <span class="n">contrib</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">small</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;reversal in stratum </span><span class="si">{}</span><span class="s2"> for </span><span class="si">{}</span><span class="s2"> good; old: </span><span class="si">{}</span><span class="s2"> new:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> 
+                                    <span class="n">j</span><span class="p">,</span> <span class="n">small</span><span class="p">,</span> <span class="n">contrib</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+                <span class="n">small</span> <span class="o">=</span> <span class="n">contrib</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sorted_contrib</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">contrib</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">best_part</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>
+        <span class="n">added</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">log_p</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span> 
+            <span class="n">log_p</span> <span class="o">+=</span> <span class="n">sorted_contrib</span><span class="p">[</span><span class="n">added</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">best_part</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">sorted_contrib</span><span class="p">[</span><span class="n">added</span><span class="p">][</span><span class="mi">1</span><span class="p">])]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">added</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">added</span> 
+    <span class="k">return</span> <span class="n">cb</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_part</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">strat_p</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">hypo</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds tail probability for the hypothesized population counts &lt;hypo&gt; for </span>
+<span class="sd">    simple random samples of sizes &lt;sams&gt; from strata of sizes &lt;strata&gt; if </span>
+<span class="sd">    &lt;found&gt; ones are found in the strata.</span>
+<span class="sd">    </span>
+<span class="sd">    Uses Fisher&#39;s combining function across strata.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes from the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    hypo : list of ints</span>
+<span class="sd">        hypothesized number of ones in the strata</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    p : float</span>
+<span class="sd">        appropriate tail probability</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span>
+        <span class="n">p_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>    
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)):</span>
+        <span class="n">p</span> <span class="o">*=</span> <span class="n">p_func</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">hypo</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">strat_p_ws</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">hypo</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds Wendell-Schmee P-value for the hypothesized population counts &lt;hypo&gt; for </span>
+<span class="sd">    simple random samples of sizes &lt;sams&gt; from strata of sizes &lt;strata&gt; if </span>
+<span class="sd">    &lt;found&gt; ones are found in the strata.</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes from the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    hypo : list of ints</span>
+<span class="sd">        hypothesized number of ones in the strata</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    p : float</span>
+<span class="sd">        tail probability</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span>                     <span class="c1"># exchange roles of &quot;good&quot; and &quot;bad&quot;</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>   <span class="c1"># bad items found </span>
+        <span class="n">hypo_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hypo</span><span class="p">)</span> <span class="c1"># total bad items hypothesized</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">strat_p_ws</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">compl</span><span class="p">,</span> <span class="n">hypo_c</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>    
+        <span class="n">p_hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">st</span><span class="o">=</span><span class="n">strata</span><span class="p">,</span> <span class="n">sa</span><span class="o">=</span><span class="n">sams</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">st</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sa</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="c1"># pooled estimate</span>
+        <span class="n">p_hat_0</span> <span class="o">=</span> <span class="n">p_hat</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>
+        <span class="n">per_strat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span>
+        <span class="n">strat_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">p_hat_0</span><span class="o">/</span><span class="n">per_strat</span><span class="p">)</span>
+        <span class="n">lo_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strat_max</span><span class="p">])</span> \
+                    <span class="k">if</span> <span class="n">p_hat</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p_hat_0</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">strata</span><span class="p">,</span> <span class="n">hypo</span><span class="p">,</span> <span class="n">sams</span><span class="p">))</span> \
+                    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">lo_t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># decorate the function to cache the results </span>
+                          <span class="c1"># of calls to the function</span>
+<span class="k">def</span> <span class="nf">strat_test_ws</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">good</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find p-value of the hypothesis that the number G of &quot;good&quot; objects in a </span>
+<span class="sd">    stratified population is less than or equal to good, using a stratified</span>
+<span class="sd">    random sample.</span>
+<span class="sd">    </span>
+<span class="sd">    Assumes that a simple random sample of size sams[s] was drawn from stratum s, </span>
+<span class="sd">    which contains strata[s] objects in all.</span>
+<span class="sd">    </span>
+<span class="sd">    The P-value is the maximum Windell-Schmee P-value over all allocations of </span>
+<span class="sd">    good objects among the strata. The allocations are enumerated using Feller&#39;s </span>
+<span class="sd">    &quot;bars and stars&quot; construction, constrained to honor the stratum sizes (each </span>
+<span class="sd">    stratum can contain no more &quot;good&quot; items than it has items in all, nor fewer </span>
+<span class="sd">    &quot;good&quot; items than the sample contains).</span>
+<span class="sd">    </span>
+<span class="sd">    The number of allocations grows combinatorially: there can be as many as</span>
+<span class="sd">    [(#strata + #good items) choose (#strata-1)] allocations, making the brute-force</span>
+<span class="sd">    approach computationally infeasible when the number of strata and/or the number of</span>
+<span class="sd">    good items is large.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        sizes of the strata. One int per stratum.</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        the sample sizes from each stratum</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        the numbers of &quot;good&quot; items found in the samples from the strata</span>
+<span class="sd">    good : int</span>
+<span class="sd">        the hypothesized total number of &quot;good&quot; objects in the population</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        test against the alternative that the true value is less than good (lower)</span>
+<span class="sd">        or greater than good (upper)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    p : float</span>
+<span class="sd">        maximum combined p-value over all ways of allocating good &quot;good&quot; objects</span>
+<span class="sd">        among the strata, honoring the stratum sizes.        </span>
+<span class="sd">    best_part : list</span>
+<span class="sd">        the partition that attained the maximum p-value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span>                   <span class="c1"># exchange roles of &quot;good&quot; and &quot;bad&quot;</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">)</span> <span class="c1"># bad items found </span>
+        <span class="n">bad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">good</span>              <span class="c1"># total bad items hypothesized</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">strat_test_ws</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">compl</span><span class="p">,</span> <span class="n">bad</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>        
+    <span class="n">best_part</span> <span class="o">=</span> <span class="n">found</span> <span class="c1"># start with what you see</span>
+    <span class="n">good</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">good</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">good</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span>     
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span> <span class="k">else</span> <span class="mi">1</span> 
+    <span class="k">elif</span> <span class="n">good</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">found</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># use Feller&#39;s &quot;bars and stars&quot; enumeration of combinations, constrained</span>
+        <span class="n">p_hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">st</span><span class="o">=</span><span class="n">strata</span><span class="p">,</span> <span class="n">sa</span><span class="o">=</span><span class="n">sams</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">st</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sa</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="c1"># pooled estimate</span>
+        <span class="n">p_hat_0</span> <span class="o">=</span> <span class="n">p_hat</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>
+        <span class="n">per_strat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span>
+        <span class="n">strat_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">p_hat_0</span><span class="o">/</span><span class="n">per_strat</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># initial value for the max</span>
+        <span class="n">n_strata</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">good</span><span class="o">+</span><span class="n">n_strata</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_strata</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parts</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;warning--large number of partitions: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parts</span><span class="p">))</span>
+        <span class="n">barsNstars</span> <span class="o">=</span> <span class="n">good</span> <span class="o">+</span> <span class="n">n_strata</span>
+        <span class="n">bars</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n_strata</span> <span class="o">+</span> <span class="p">[</span><span class="n">barsNstars</span><span class="p">]</span>
+        <span class="n">partition</span> <span class="o">=</span> <span class="p">([</span><span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_strata</span><span class="p">)]</span> \
+            <span class="k">for</span> <span class="n">bars</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">barsNstars</span><span class="p">),</span> <span class="n">n_strata</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> \
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(((</span><span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">strata</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="ow">and</span> \
+                   <span class="p">(</span><span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">found</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_strata</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">partition</span><span class="p">:</span>
+            <span class="n">lo_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strat_max</span><span class="p">])</span> \
+                    <span class="k">if</span> <span class="n">p_hat</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p_hat_0</span><span class="p">)</span>
+            <span class="n">p_new</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">lo_t</span><span class="p">:</span>
+                <span class="n">p_temp</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)):</span>
+                    <span class="n">p_temp</span> <span class="o">*=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">part</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+                <span class="n">p_new</span> <span class="o">+=</span> <span class="n">p_temp</span>
+            <span class="k">if</span> <span class="n">p_new</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">:</span>
+                <span class="n">best_part</span> <span class="o">=</span> <span class="n">part</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">p_new</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_part</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">strat_ci_wright</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Confidence bound on the number of ones in a stratified population,</span>
+<span class="sd">    based on a stratified random sample (without replacement) from</span>
+<span class="sd">    the population.</span>
+<span class="sd">    </span>
+<span class="sd">    If alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">    If alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">    </span>
+<span class="sd">    Constructs the confidence bound by finding Šidák multiplicity-adjusted</span>
+<span class="sd">    joint lower confidence bounds for the number of ones in each stratum.</span>
+<span class="sd">    </span>
+<span class="sd">    This approach is mentioned in Wright, 1991.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------    </span>
+<span class="sd">    strata : list of ints</span>
+<span class="sd">        stratum sizes</span>
+<span class="sd">    sams : list of ints</span>
+<span class="sd">        sample sizes in the strata</span>
+<span class="sd">    found : list of ints</span>
+<span class="sd">        number of ones found in each stratum in each sample</span>
+<span class="sd">    alternative : string {&#39;lower&#39;, &#39;upper&#39;}</span>
+<span class="sd">        if alternative==&#39;lower&#39;, finds an upper confidence bound.</span>
+<span class="sd">        if alternative==&#39;upper&#39;, finds a lower confidence bound.</span>
+<span class="sd">        While this is not mnemonic, it corresponds to the sidedness of the tests</span>
+<span class="sd">        that are inverted to get the confidence bound.</span>
+<span class="sd">    cl : float</span>
+<span class="sd">        confidence level</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    cb : int</span>
+<span class="sd">        confidence bound</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]</span>
+    <span class="n">inx</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">alternative</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="n">cl_sidak</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))</span>  <span class="c1"># Šidák-adjusted confidence level per stratum</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">hypergeom_conf_interval</span><span class="p">(</span>
+                <span class="n">sams</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">strata</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl_sidak</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)[</span><span class="n">inx</span><span class="p">]</span> 
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">))))</span>
+    <span class="k">return</span> <span class="n">cb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check the empirical coverage of the greedy method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test empirical coverage</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;upper&#39;</span>
+<span class="n">strata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">sams</span> <span class="o">=</span> <span class="p">[</span><span class="mi">75</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">25</span><span class="p">]</span>
+<span class="n">good</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">good</span><span class="p">)</span>
+<span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">verb</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">good</span><span class="p">,</span> <span class="n">sams</span><span class="p">)</span>
+    <span class="n">ub</span> <span class="o">=</span> <span class="n">strat_ci</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">sams</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="n">cl</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verb</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f: </span><span class="si">{}</span><span class="s2"> ub: </span><span class="si">{}</span><span class="s2"> best: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">found</span><span class="p">,</span> <span class="n">ub</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ub</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">cover</span> <span class="o">=</span> <span class="n">cover</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">ub</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">g</span> <span class="k">else</span> <span class="n">cover</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">cover</span><span class="p">,</span> <span class="n">cover</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">cover</span><span class="o">/</span><span class="n">reps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s write some numerical tests of the functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_strat_test</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">strata</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]]</span>
+    <span class="n">sams</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)):</span>
+        <span class="n">compl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mi">60</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i: </span><span class="si">{}</span><span class="s2"> j: </span><span class="si">{}</span><span class="s2"> alternative: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">alternative</span><span class="p">))</span>
+                <span class="n">p_exact</span> <span class="o">=</span> <span class="n">strat_test_brute</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">j</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+                <span class="n">p_exact_c</span> <span class="o">=</span> <span class="n">strat_test_brute</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">compl</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+                <span class="n">p_lkp</span> <span class="o">=</span> <span class="n">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">j</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+                <span class="n">p_lkp_c</span> <span class="o">=</span> <span class="n">strat_test</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">compl</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">p_exact</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_lkp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">p_exact_c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_lkp_c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_strat_ci</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">strata</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]]</span>
+    <span class="n">sams</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strata</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">alternative</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="s1">&#39;upper&#39;</span><span class="p">]:</span>
+            <span class="n">brute</span> <span class="o">=</span> <span class="n">strat_ci_bisect</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+            <span class="n">lkp</span> <span class="o">=</span> <span class="n">strat_ci</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+            <span class="n">lkp_s</span> <span class="o">=</span> <span class="n">strat_ci_search</span><span class="p">(</span><span class="n">strata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="n">alternative</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">alternative</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i: </span><span class="si">{}</span><span class="s2"> brute: </span><span class="si">{}</span><span class="s2"> lkp: </span><span class="si">{}</span><span class="s2"> lkp_s: </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">best_brute: </span><span class="si">{}</span><span class="s2"> best_lkp: </span><span class="si">{}</span><span class="s2"> best_lkp_s: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                   <span class="n">i</span><span class="p">,</span> <span class="n">brute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lkp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lkp_s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">brute</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lkp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lkp_s</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lkp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lkp_s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lkp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lkp_s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
