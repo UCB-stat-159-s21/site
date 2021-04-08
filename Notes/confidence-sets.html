@@ -498,8 +498,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9a9a689-8694-4e6f-8255-26eb1f64e216">
-<span class="eqno">()<a class="headerlink" href="#equation-f9a9a689-8694-4e6f-8255-26eb1f64e216" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-61e50d08-f2f0-421d-8f7c-858ad210cc28">
+<span class="eqno">()<a class="headerlink" href="#equation-61e50d08-f2f0-421d-8f7c-858ad210cc28" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -511,8 +511,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5085f933-682d-4955-a399-edb4b8307e1f">
-<span class="eqno">()<a class="headerlink" href="#equation-5085f933-682d-4955-a399-edb4b8307e1f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b9f76838-833c-453d-a2d6-71620a249c16">
+<span class="eqno">()<a class="headerlink" href="#equation-b9f76838-833c-453d-a2d6-71620a249c16" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -612,8 +612,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc35fef3-2ac6-42bd-a05e-2a04a5a837c2">
-<span class="eqno">()<a class="headerlink" href="#equation-bc35fef3-2ac6-42bd-a05e-2a04a5a837c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-29af743c-7229-4c2d-9b5f-85f8455bc6f5">
+<span class="eqno">()<a class="headerlink" href="#equation-29af743c-7229-4c2d-9b5f-85f8455bc6f5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -641,8 +641,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff37949f-74bd-412f-80d2-28d44de60596">
-<span class="eqno">()<a class="headerlink" href="#equation-ff37949f-74bd-412f-80d2-28d44de60596" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-99d02ea3-95f9-45ae-8572-aaffaa58830f">
+<span class="eqno">()<a class="headerlink" href="#equation-99d02ea3-95f9-45ae-8572-aaffaa58830f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -688,8 +688,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ecc6655-141b-4cde-91ef-076f0ebbfeda">
-<span class="eqno">()<a class="headerlink" href="#equation-6ecc6655-141b-4cde-91ef-076f0ebbfeda" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f4e1b440-eec1-4c60-9e61-f301f7052c12">
+<span class="eqno">()<a class="headerlink" href="#equation-f4e1b440-eec1-4c60-9e61-f301f7052c12" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -1078,6 +1078,13 @@ the nonparametric maximum likelihood estimate of the population distribution</p>
 <span class="sd">        confidence level</span>
 <span class="sd">    reps : int, nonnegative</span>
 <span class="sd">        number of bootstrap samples to use</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    lb : float</span>
+<span class="sd">        estimated lower confidene bound</span>
+<span class="sd">    ub : float</span>
+<span class="sd">        estimated upper confidence bound</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">random_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randomstate</span><span class="p">()</span>
@@ -1090,7 +1097,7 @@ the nonparametric maximum likelihood estimate of the population distribution</p>
     <span class="n">estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">estimates</span><span class="p">)</span>
     <span class="n">tail</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
     <span class="n">lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>
-    <span class="n">upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span> <span class="n">tail</span><span class="p">)</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">tail</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1122,6 +1129,39 @@ the nonparametric maximum likelihood estimate of the population distribution</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
 p: 0.01 covered:  11.00% mean width: 0.03
+p: 0.05 covered:  40.40% mean width: 0.14
+p: 0.10 covered:  64.60% mean width: 0.25
+p: 0.20 covered:  88.50% mean width: 0.42
+p: 0.40 covered:  94.90% mean width: 0.56
+p: 0.50 covered:  97.20% mean width: 0.58
+p: 0.70 covered:  95.10% mean width: 0.51
+p: 0.90 covered:  65.00% mean width: 0.25
+p: 0.95 covered:  42.30% mean width: 0.15
+p: 0.99 covered:  9.20% mean width: 0.03
+
+n: 50
+p: 0.01 covered:  40.90% mean width: 0.03
+p: 0.05 covered:  92.50% mean width: 0.11
+p: 0.10 covered:  96.70% mean width: 0.16
+p: 0.20 covered:  94.70% mean width: 0.21
+p: 0.40 covered:  96.20% mean width: 0.27
+p: 0.50 covered:  96.30% mean width: 0.27
+p: 0.70 covered:  96.90% mean width: 0.25
+p: 0.90 covered:  95.10% mean width: 0.16
+p: 0.95 covered:  89.90% mean width: 0.11
+p: 0.99 covered:  39.30% mean width: 0.03
+
+n: 100
+p: 0.01 covered:  65.50% mean width: 0.03
+p: 0.05 covered:  96.60% mean width: 0.08
+p: 0.10 covered:  96.20% mean width: 0.11
+p: 0.20 covered:  95.30% mean width: 0.15
+p: 0.40 covered:  96.10% mean width: 0.19
+p: 0.50 covered:  95.20% mean width: 0.19
+p: 0.70 covered:  96.40% mean width: 0.18
+p: 0.90 covered:  96.10% mean width: 0.11
+p: 0.95 covered:  95.60% mean width: 0.08
+p: 0.99 covered:  64.70% mean width: 0.03
 </pre></div>
 </div>
 </div>
@@ -1241,6 +1281,13 @@ Instead, we will use a search.</p>
         <span class="n">cover</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">hypergeom_lower_ci</span><span class="p">(</span><span class="n">NN</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nn</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">cl</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">GG</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
                  <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;N=</span><span class="si">{</span><span class="n">NN</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">, G=</span><span class="si">{</span><span class="n">GG</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">, n=</span><span class="si">{</span><span class="n">nn</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">: covered </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span> <span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  98.98%
+N=50, G=30, n=20: covered  98.13%
+N=100, G=25, n=30: covered  97.65%
 </pre></div>
 </div>
 </div>
@@ -1381,7 +1428,7 @@ For <span class="math notranslate nohighlight">\(S=10\)</span> strata of size <s
 there are roughly 6.3e+16 allocations: impractical by any standard.</p>
 <section id="aside-feller-s-bars-and-stars-argument">
 <h4><em>Aside: Feller’s Bars and Stars Argument</em><a class="headerlink" href="#aside-feller-s-bars-and-stars-argument" title="Permalink to this headline">¶</a></h4>
-<p>How many ways are there to divide <span class="math notranslate nohighlight">\(G\)</span> objects into <span class="math notranslate nohighlight">\(S\)</span> groups?
+<p>How many distinguishable ways are there to divide <span class="math notranslate nohighlight">\(G\)</span> indistinguishable objects into <span class="math notranslate nohighlight">\(S\)</span> groups?
 <a class="reference external" href="https://www.wiley.com/en-us/An+Introduction+to+Probability+Theory+and+Its+Applications%2C+Volume+2%2C+2nd+Edition-p-9780471257097">Feller (1950)</a> argues as follows.</p>
 <p>Consider <span class="math notranslate nohighlight">\(G\)</span> “stars” lined up in a row:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1565,6 +1612,16 @@ The hypothesis <span class="math notranslate nohighlight">\(G &lt; g\)</span> is
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install permute --user
 <span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install cryptorandom --user
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: permute in /opt/anaconda3/lib/python3.7/site-packages (0.1a5)
+Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.7/site-packages (from permute) (1.19.2)
+Requirement already satisfied: scipy in /opt/anaconda3/lib/python3.7/site-packages (from permute) (1.5.2)
+Requirement already satisfied: cryptorandom in /opt/anaconda3/lib/python3.7/site-packages (0.2)
+Requirement already satisfied: scipy in /opt/anaconda3/lib/python3.7/site-packages (from cryptorandom) (1.5.2)
+Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.7/site-packages (from cryptorandom) (1.19.2)
 </pre></div>
 </div>
 </div>
@@ -2181,6 +2238,23 @@ The hypothesis <span class="math notranslate nohighlight">\(G &lt; g\)</span> is
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1 1.0
+101 101 1.0
+201 200 0.9950248756218906
+301 300 0.9966777408637874
+401 400 0.9975062344139651
+501 500 0.998003992015968
+601 600 0.9983361064891847
+701 700 0.9985734664764622
+801 800 0.9987515605493134
+901 899 0.9977802441731409
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.998
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s write some numerical tests of the functions.</p>
 <div class="cell docutils container">
@@ -2219,6 +2293,20 @@ The hypothesis <span class="math notranslate nohighlight">\(G &lt; g\)</span> is
             <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lkp_s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lkp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">brute</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lkp_s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_strat_test</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_strat_ci</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
