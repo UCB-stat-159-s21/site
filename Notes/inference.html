@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Statistical Inference &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -392,11 +391,11 @@
         
               <div>
                 
-  <section id="statistical-inference">
+  <div class="section" id="statistical-inference">
 <h1>Statistical Inference<a class="headerlink" href="#statistical-inference" title="Permalink to this headline">¶</a></h1>
 <p>One of the most fundamental problems statistics tries to address is <em>causal inference</em>, determining what effect some <em>treatment</em> has.</p>
 <p>One of the most serious difficulties in making causal inferences is <em>confounding</em>, the differences due to something other than treatment masquerading as the effect of treatment.</p>
-<section id="the-method-of-comparison">
+<div class="section" id="the-method-of-comparison">
 <h2>The Method of Comparison<a class="headerlink" href="#the-method-of-comparison" title="Permalink to this headline">¶</a></h2>
 <p>The basic method to mitigate confounding is to compare (at least) two groups, one that receives <em>treatment</em> and a <em>control group</em> that does not (or that gets a different treatment).
 To minimize bias, the treatment group and the control group should be as similar as possible but for the fact that
@@ -414,8 +413,8 @@ receive, rather than <em>whether</em> they receive anything.</p>
 making it important for the people assessing the responses to be <em>blind</em> to which subjects received treatment.
 When neither the subjects nor the assessors know who was treated, the experiment is <em>double blind</em>.</p>
 <p>See <a class="reference external" href="http://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm">SticiGui: Does Treatment Have an Effect?</a> for more discussion.</p>
-</section>
-<section id="the-2-sample-problem">
+</div>
+<div class="section" id="the-2-sample-problem">
 <h2>The 2-sample problem<a class="headerlink" href="#the-2-sample-problem" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we have a group of <span class="math notranslate nohighlight">\(N\)</span> individuals who are randomized into two groups, a <em>treatment</em> group of size <span class="math notranslate nohighlight">\(N_t\)</span> and a <em>control</em> group of size <span class="math notranslate nohighlight">\(N_c = N - N_t\)</span>.
 Label the individuals from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.
@@ -451,8 +450,8 @@ treatment are equally likely.</p>
 <p>One way to partition the <span class="math notranslate nohighlight">\(N\)</span> subjects randomly into a group of size <span class="math notranslate nohighlight">\(N_c\)</span> and a group of size <span class="math notranslate nohighlight">\(N_t\)</span> is
 to permute the <span class="math notranslate nohighlight">\(N\)</span> subjects at random, then take the first <span class="math notranslate nohighlight">\(N_c\)</span> in the permuted list to be the control
 group, and the remaining <span class="math notranslate nohighlight">\(N_t\)</span> to be the treatment group.</p>
-</section>
-<section id="aside-random-number-generation-and-simulation">
+</div>
+<div class="section" id="aside-random-number-generation-and-simulation">
 <h2>Aside: Random number generation and simulation<a class="headerlink" href="#aside-random-number-generation-and-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Most computers cannot generate true random numbers (there are rare exceptions that have <em>hardware random
 number generators</em>).
@@ -489,8 +488,8 @@ However, it is not adequate for cryptography (the <em>state space</em> is so sma
 from a relatively small number of observations).
 <em>Linear congruential</em> generators are generally not adequate for statistics.
 In particular, beware the algorithms in <em>Numerical Recipes</em> and the Excel PRNG.</p>
-</section>
-<section id="random-sampling">
+</div>
+<div class="section" id="random-sampling">
 <h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>One standard way to draw a (pseudo-)random sample from a list is to assign a pseudo-random number to each
 element of the list, then sort the list by those numbers.
@@ -502,7 +501,7 @@ Even the Mersenne Twister runs into trouble generating random permutations of lo
 The period of the Mersenne Twister is about <span class="math notranslate nohighlight">\(4 \times 10^{6002}\)</span>.
 That’s less than the number of
 permutations of 2081 objects.</p>
-<section id="the-knuth-shuffle">
+<div class="section" id="the-knuth-shuffle">
 <h3>The Knuth Shuffle<a class="headerlink" href="#the-knuth-shuffle" title="Permalink to this headline">¶</a></h3>
 <p>Constructing a random permutation as described above is inefficient, in part because it requires sorting.
 The <em>Knuth Shuffle</em> is more efficient and can generate a random permutation in place.
@@ -554,8 +553,8 @@ shuffled data: [12, 14, 15, 20, 4, 5, 13, 1, 10, 17, 8, 2, 11, 9, 18, 16, 7, 6, 
 </div>
 </div>
 </div>
-</section>
-<section id="computational-assignment">
+</div>
+<div class="section" id="computational-assignment">
 <h3>Computational Assignment<a class="headerlink" href="#computational-assignment" title="Permalink to this headline">¶</a></h3>
 <p>Implement Knuth’s algorithm in Python from scratch, using numpy.random.random().</p>
 <p>Compare the cpu time taken to generate <span class="math notranslate nohighlight">\(10^4\)</span> random permutations of arrays of length <span class="math notranslate nohighlight">\(10^k\)</span>, for <span class="math notranslate nohighlight">\(k = 2, 3, 4, 5\)</span> for</p>
@@ -613,31 +612,31 @@ shuffled data: [12, 14, 15, 20, 4, 5, 13, 1, 10, 17, 8, 2, 11, 9, 18, 16, 7, 6, 
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="hypothesis-testing">
+</div>
+</div>
+<div class="section" id="hypothesis-testing">
 <h2>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h2>
 <p>[To do.]</p>
-<section id="null-and-alternative-hypotheses">
+<div class="section" id="null-and-alternative-hypotheses">
 <h3>Null and alternative hypotheses<a class="headerlink" href="#null-and-alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
 <p>[To do.]</p>
-</section>
-</section>
-<section id="significance-level-and-power">
+</div>
+</div>
+<div class="section" id="significance-level-and-power">
 <h2>Significance level and power<a class="headerlink" href="#significance-level-and-power" title="Permalink to this headline">¶</a></h2>
 <p>Chance of the same event: rejecting the null hypothesis.</p>
 <p>Currently vilified, partly because it is misused.</p>
 <p>[To do.]</p>
-</section>
-<section id="p-values">
+</div>
+<div class="section" id="p-values">
 <h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
 <p>[To do.]
 Start with family of hypothesis tests for any desired significance level…</p>
-</section>
-<section id="confidence-sets">
+</div>
+<div class="section" id="confidence-sets">
 <h2>Confidence Sets<a class="headerlink" href="#confidence-sets" title="Permalink to this headline">¶</a></h2>
 <p>[To do.]</p>
-<section id="confidence-bounds-for-binomial-p-and-hypergeometric-g">
+<div class="section" id="confidence-bounds-for-binomial-p-and-hypergeometric-g">
 <h3>Confidence bounds for Binomial <span class="math notranslate nohighlight">\(p\)</span>  and Hypergeometric <span class="math notranslate nohighlight">\(G\)</span><a class="headerlink" href="#confidence-bounds-for-binomial-p-and-hypergeometric-g" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -780,17 +779,17 @@ Start with family of hypothesis tests for any desired significance level…</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="permutation-tests">
+</div>
+</div>
+<div class="section" id="permutation-tests">
 <h2>Permutation tests<a class="headerlink" href="#permutation-tests" title="Permalink to this headline">¶</a></h2>
 <p>Basic setup: null hypothesis under which the probability distribution of the data is invariant under the action of some group.
 That is, if the null hypothesis is true, then there are many sets of data that would be (known to be) just as
 likely as the data actually observed.</p>
 <p>Examples: symmetry about a point, rotational invariance, …
 [To do.]</p>
-</section>
-<section id="neyman-model-for-causal-inference">
+</div>
+<div class="section" id="neyman-model-for-causal-inference">
 <h2>Neyman model for causal inference<a class="headerlink" href="#neyman-model-for-causal-inference" title="Permalink to this headline">¶</a></h2>
 <p>The ticket model.
 Each “subject” is represented by a ticket with two numbers on it, the response that the subject would have
@@ -800,12 +799,12 @@ These are assumed to be pre-ordained, fixed numbers.
 <p>We assign subjects at random according to the experimental design.</p>
 <p>Non-interference: when is it realistic?
 Strong null hypothesis.</p>
-<section id="generalizations">
+<div class="section" id="generalizations">
 <h3>Generalizations<a class="headerlink" href="#generalizations" title="Permalink to this headline">¶</a></h3>
 <p>Two probability distributions on each ticket instead of two numbers.</p>
-</section>
-</section>
-<section id="gender-bias-in-teaching-evaluations">
+</div>
+</div>
+<div class="section" id="gender-bias-in-teaching-evaluations">
 <h2>Gender Bias in Teaching Evaluations<a class="headerlink" href="#gender-bias-in-teaching-evaluations" title="Permalink to this headline">¶</a></h2>
 <p>MacNell, Driscoll, and Hunt (2014. <a class="reference external" href="http://link.springer.com/article/10.1007%2Fs10755-014-9313-4">What’s in a Name: Exposing Gender Bias in Student Ratings of Teaching</a>, <em>Innovative Higher Education</em>) conducted a controlled, randomized experiment on
 the effect of students’ perception of instructors’ gender on teaching evaluations
@@ -849,7 +848,7 @@ gender - 1 if student is male, 0 if student is female
 </div>
 <p>There are grades for 47 students but evaluations for only 43 (4 did not respond: three in group 5 and one in group 6).
 The grades are not linked to the evaluations, per the IRB protocol.</p>
-<section id="interlude-partitioning-sets-into-more-than-two-subsets">
+<div class="section" id="interlude-partitioning-sets-into-more-than-two-subsets">
 <h3>Interlude: partitioning sets into more than two subsets<a class="headerlink" href="#interlude-partitioning-sets-into-more-than-two-subsets" title="Permalink to this headline">¶</a></h3>
 <p>Recall that there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of picking a subset of size <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(n\)</span> items;
 hence there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of dividing a set into a subset of size <span class="math notranslate nohighlight">\(k\)</span> and one of size <span class="math notranslate nohighlight">\(n-k\)</span>
@@ -945,9 +944,9 @@ evidence that being identified as female really does lower the scores.</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="id1">
+</div>
+</div>
+<div class="section" id="id1">
 <h2>Computational assignment<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Rosenzweig, M.R., E.L. Bennet, and M.C. Diamond, 1972. Brain changes in response to experience, <em>Scientific American</em>, <em>226</em>, 22–29 report an experiment in which 11 triples of male rats, each triple from the same litter, were
 assigned at random to three different environments, “enriched” (E), standard, and “impoverished.”</p>
@@ -992,8 +991,8 @@ these data, so you can check your answer.</p></li>
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

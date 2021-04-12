@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Primer of Linear Algebra and Matrices &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -391,9 +390,9 @@
         
               <div>
                 
-  <section id="primer-of-linear-algebra-and-matrices">
+  <div class="section" id="primer-of-linear-algebra-and-matrices">
 <h1>Primer of Linear Algebra and Matrices<a class="headerlink" href="#primer-of-linear-algebra-and-matrices" title="Permalink to this headline">¶</a></h1>
-<section id="notation">
+<div class="section" id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\({\mathcal M}(m,n)\)</span> will denote the set of <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices.
 <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> has elements <span class="math notranslate nohighlight">\(A_{ij}\)</span>, <span class="math notranslate nohighlight">\(i \in \{1, \ldots, m\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, \ldots, n\}\)</span>.</p>
@@ -539,7 +538,7 @@ The row rank and the column rank if any matrix are equal; we denote them <span c
 <p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> can be multiplied, <span class="math notranslate nohighlight">\({\mbox{rank}}(AB) \le \min({\mbox{rank}}(A), {\mbox{rank}}(B))\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same dimensions, <span class="math notranslate nohighlight">\({\mbox{rank}}(A+B) \le {\mbox{rank}}(A) + {\mbox{rank}}(B)\)</span>.</p>
 <p>A square matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is invertible if and only if <span class="math notranslate nohighlight">\({\mbox{rank}}(A) = n\)</span>.</p>
-<section id="definitions">
+<div class="section" id="definitions">
 <h3>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span>.</p>
 <ul class="simple">
@@ -549,8 +548,8 @@ The row rank and the column rank if any matrix are equal; we denote them <span c
 <li><p>If <span class="math notranslate nohighlight">\(x'Ax &gt; 0\)</span> for all <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> except <span class="math notranslate nohighlight">\(x = {\mathbf 0}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is <em>positive definite</em></p></li>
 <li><p><span class="math notranslate nohighlight">\(A\)</span> has <em>full rank</em> if <span class="math notranslate nohighlight">\({\mbox{rank}}(A) = n\)</span>. Otherwise, <span class="math notranslate nohighlight">\(A\)</span> is <em>rank deficient</em>.</p></li>
 </ul>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Show that if <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> and <span class="math notranslate nohighlight">\(B \in {\mathcal M}(n,p)\)</span> then <span class="math notranslate nohighlight">\((AB)' = B'A'\)</span>.</p></li>
@@ -592,8 +591,8 @@ a_nb_1 &amp; a_nb_2 &amp; \cdots &amp; a_nb_n
 \end{pmatrix}
 .
 \end{equation*}\]</div>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Show that if <span class="math notranslate nohighlight">\(R \in {\mathcal M}(n,n)\)</span> is an orthogonal matrix, then for
@@ -605,9 +604,9 @@ where <span class="math notranslate nohighlight">\(\|x\|_G \equiv \sqrt{x'Gx}\)<
 <li><p>Show that the 1-norm <span class="math notranslate nohighlight">\(\|a\|_1 \equiv \sum_{i=1}^n | a_{i1} |\)</span> is a norm on <span class="math notranslate nohighlight">\(\Re^n\)</span>.</p></li>
 <li><p>Show that <span class="math notranslate nohighlight">\(\lim_{p \rightarrow \infty} \|a\|_p = \|a\|_\infty\)</span>.</p></li>
 </ol>
-</section>
-</section>
-<section id="r-interlude">
+</div>
+</div>
+<div class="section" id="r-interlude">
 <h2>R interlude<a class="headerlink" href="#r-interlude" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at all these entities and operations in R.</p>
 <div class="cell docutils container">
@@ -1029,8 +1028,8 @@ where <span class="math notranslate nohighlight">\(\|x\|_G \equiv \sqrt{x'Gx}\)<
 <div class="cell_output docutils container">
 <div class="output text_html">15</div><div class="output text_html">15</div><div class="output text_html">15</div></div>
 </div>
-</section>
-<section id="interlude-a-bit-more-computation-and-r">
+</div>
+<div class="section" id="interlude-a-bit-more-computation-and-r">
 <h2>Interlude: a bit more computation and R<a class="headerlink" href="#interlude-a-bit-more-computation-and-r" title="Permalink to this headline">¶</a></h2>
 <p>The notation <span class="math notranslate nohighlight">\(X \sim P\)</span> means that the random variable <span class="math notranslate nohighlight">\(X\)</span> has the probability distribution <span class="math notranslate nohighlight">\(P\)</span>.
 Recall that <span class="math notranslate nohighlight">\(U[a, b]\)</span> denotes the uniform distribution on the interval <span class="math notranslate nohighlight">\([a, b]\)</span>.</p>
@@ -1053,7 +1052,7 @@ on the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, mul
 <img alt="../_images/linalg_22_0.png" src="../_images/linalg_22_0.png" />
 </div>
 </div>
-<section id="id2">
+<div class="section" id="id2">
 <h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Write an R script that computes the <span class="math notranslate nohighlight">\(p\)</span>-norm for general <span class="math notranslate nohighlight">\(p\)</span>, two different ways, from scratch. Do not use the “norm” function.</p></li>
@@ -1074,17 +1073,17 @@ A(\theta) = \begin{pmatrix}
     - Plot a histogram of those 1,000 sums of squares.
 </pre></div>
 </div>
-</section>
-</section>
-<section id="trace-determinant-inverse">
+</div>
+</div>
+<div class="section" id="trace-determinant-inverse">
 <h2>Trace, Determinant, Inverse<a class="headerlink" href="#trace-determinant-inverse" title="Permalink to this headline">¶</a></h2>
-<section id="trace">
+<div class="section" id="trace">
 <h3>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span>, the <em>trace</em> of <span class="math notranslate nohighlight">\(A\)</span> is the sum of the <em>diagonal elements</em> of <span class="math notranslate nohighlight">\(A\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  {\mbox{trace}}(A) = \sum_{i=1}^n A_{ii}.\end{equation*}\]</div>
-</section>
-<section id="determinants">
+</div>
+<div class="section" id="determinants">
 <h3>Determinants<a class="headerlink" href="#determinants" title="Permalink to this headline">¶</a></h3>
 <p>The <em>determinant</em> of a square matrix is a real number; how to compute the determinant
 of a matrix is described below.</p>
@@ -1096,7 +1095,7 @@ of a matrix is described below.</p>
 <li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, <span class="math notranslate nohighlight">\(|A^{-1}| = |A|^{-1}\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(A\)</span> is invertible if and only if its determinant is nonzero.</p></li>
 </ul>
-<section id="computing-the-determinant">
+<div class="section" id="computing-the-determinant">
 <h4>Computing the determinant<a class="headerlink" href="#computing-the-determinant" title="Permalink to this headline">¶</a></h4>
 <p>The determinant of a matrix <span class="math notranslate nohighlight">\(A \in {\mathcal M}(2,2)\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1123,9 +1122,9 @@ pairs of elements.</p>
 \[\begin{equation*} 
 \left |A \right | \equiv \sum_{\pi \in S_n} \mbox{sgn}(\pi) \prod_{i=1}^n A_{i,\pi_i}.
 \end{equation*}\]</div>
-</section>
-</section>
-<section id="inverses">
+</div>
+</div>
+<div class="section" id="inverses">
 <h3>Inverses<a class="headerlink" href="#inverses" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is invertible, its inverse is</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1197,7 +1196,7 @@ A_{22} &amp; -A_{12} \\
 \end{pmatrix}
 .
 \end{equation*}\]</div>
-<section id="examples-of-computing-inverses">
+<div class="section" id="examples-of-computing-inverses">
 <h4>Examples of computing inverses<a class="headerlink" href="#examples-of-computing-inverses" title="Permalink to this headline">¶</a></h4>
 <p>Let</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1348,10 +1347,10 @@ A = \begin{pmatrix}
 </table>
 </div></div>
 </div>
-</section>
-</section>
-</section>
-<section id="eigenvalue-eigenvector-decompositions">
+</div>
+</div>
+</div>
+<div class="section" id="eigenvalue-eigenvector-decompositions">
 <h2>Eigenvalue / Eigenvector decompositions<a class="headerlink" href="#eigenvalue-eigenvector-decompositions" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> be a square matrix.
 An <em>eigenvector</em> of <span class="math notranslate nohighlight">\(A\)</span> is a non-zero vector <span class="math notranslate nohighlight">\(v \in \Re^n\)</span> such that, for some scalar <span class="math notranslate nohighlight">\(\lambda \in \Re\)</span>, <span class="math notranslate nohighlight">\(\lambda \ne 0\)</span>,
@@ -1397,7 +1396,7 @@ This factorization is the <em>eigen-decomposition</em> of <span class="math notr
 the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>, all of which are non-negative.
 The columns of <span class="math notranslate nohighlight">\(R\)</span> are the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>.
 If <span class="math notranslate nohighlight">\(A\)</span> is positive definite, then the diagonal elements of <span class="math notranslate nohighlight">\(\Lambda\)</span> are strictly positive.</p>
-<section id="matrix-square-roots">
+<div class="section" id="matrix-square-roots">
 <h3>Matrix square-roots<a class="headerlink" href="#matrix-square-roots" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix with all non-negative elements.</p>
 <p>Define the matrix <span class="math notranslate nohighlight">\(\Lambda^{1/2}\)</span> by <span class="math notranslate nohighlight">\((\Lambda^{1/2})_{ij} = \sqrt{\Lambda_{ij}}\)</span>:</p>
@@ -1422,8 +1421,8 @@ Define the matrix</p>
 A^{1/2} \equiv R \Lambda^{1/2} R'.
 \end{equation*}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(A^{1/2}\)</span> is the matrix square root of <span class="math notranslate nohighlight">\(A\)</span>, in the sense that <span class="math notranslate nohighlight">\(A^{1/2}A^{1/2} = A\)</span>.</p>
-</section>
-<section id="inverses-of-positive-definite-matrices">
+</div>
+<div class="section" id="inverses-of-positive-definite-matrices">
 <h3>Inverses of Positive-Definite Matrices<a class="headerlink" href="#inverses-of-positive-definite-matrices" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that <span class="math notranslate nohighlight">\(\Lambda \in {\mathcal M}(n,n)\)</span> is a diagonal matrix with strictly positive
 diagonal elements (i.e., <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal, positive definite matrix).
@@ -1447,8 +1446,8 @@ Then the inverse of <span class="math notranslate nohighlight">\(\Lambda\)</span
 \end{equation*}\]</div>
 <p>Suppose that <span class="math notranslate nohighlight">\(A \in {\mathcal M}(n,n)\)</span> is positive definite, with the eigen-decomposition <span class="math notranslate nohighlight">\(R\Lambda R'\)</span>.
 Then <span class="math notranslate nohighlight">\(A^{-1} = R \Lambda^{-1} R'\)</span>.</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Show that if <span class="math notranslate nohighlight">\(\Lambda \in {\mathcal M}(n,n)\)</span> is a diagonal matrix with non-negative elements, then
@@ -1709,9 +1708,9 @@ ApdHalf %*% ApdHalf
 </table>
 </div></div>
 </div>
-</section>
-</section>
-<section id="solving-linear-systems">
+</div>
+</div>
+<div class="section" id="solving-linear-systems">
 <h2>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this headline">¶</a></h2>
 <p>We will often need to solve linear equations of the form <span class="math notranslate nohighlight">\(Ax = b\)</span>, where <span class="math notranslate nohighlight">\(A \in {\mathcal M}(m,n)\)</span> and
 <span class="math notranslate nohighlight">\(b \in {\mathcal M}(1,m)\)</span> are known, and <span class="math notranslate nohighlight">\(x \in {\mathcal M}(n,1)\)</span> is the unknown vector we seek.</p>
@@ -1907,7 +1906,7 @@ Ax = \begin{pmatrix}
 </ol>
 </div></div>
 </div>
-<section id="gaussian-elimination-continued">
+<div class="section" id="gaussian-elimination-continued">
 <h3>Gaussian elimination, continued.<a class="headerlink" href="#gaussian-elimination-continued" title="Permalink to this headline">¶</a></h3>
 <p>What happens if <span class="math notranslate nohighlight">\(A\)</span> is rank deficient?</p>
 <p>Consider the matrix</p>
@@ -2031,9 +2030,9 @@ This matrix <span class="math notranslate nohighlight">\(A\)</span> is not inver
 </div></div>
 </div>
 <p>Next chapter: <a class="reference internal" href="prob.html"><span class="doc std std-doc">Probability,Random Vectors, and the Multivariate Normal Distribution</span></a></p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

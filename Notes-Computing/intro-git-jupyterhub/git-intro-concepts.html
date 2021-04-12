@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>An interactive Git Tutorial: the tool you didn’t know you needed &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -91,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -103,7 +102,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -115,7 +114,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -157,7 +156,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -169,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -325,9 +324,9 @@
         
               <div>
                 
-  <section id="an-interactive-git-tutorial-the-tool-you-didn-t-know-you-needed">
+  <div class="section" id="an-interactive-git-tutorial-the-tool-you-didn-t-know-you-needed">
 <h1>An interactive Git Tutorial: the tool you didn’t know you needed<a class="headerlink" href="#an-interactive-git-tutorial-the-tool-you-didn-t-know-you-needed" title="Permalink to this headline">¶</a></h1>
-<section id="from-personal-workflows-to-open-collaboration">
+<div class="section" id="from-personal-workflows-to-open-collaboration">
 <h2>From personal workflows to open collaboration<a class="headerlink" href="#from-personal-workflows-to-open-collaboration" title="Permalink to this headline">¶</a></h2>
 <p><strong>Note:</strong> this tutorial was particularly modeled, and therefore owes a lot, to the excellent materials offered in:</p>
 <ul class="simple">
@@ -336,8 +335,8 @@
 </ul>
 <p>In particular I’ve reused the excellent images from the <a class="reference external" href="http://git-scm.com/book">Pro Git book</a> that John had already selected and downloaded, as well as some of his outline.  But this version of the tutorial aims to be 100% reproducible by being executed directly as an IPython notebook and is hosted itself on github so that others can more easily make improvements to it by collaborating on Github.  Many thanks to John and Emanuele for making their materials available online.</p>
 <p>After writing this document, I discovered <a class="reference external" href="https://github.com/jrjohansson">J.R. Johansson</a>’s <a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/jrjohansson/scientific-python-lectures/master/Lecture-7-Revision-Control-Software.ipynb">tutorial on version control</a> that is also written as a fully reproducible notebook and is also aimed at a scientific audience.  It has a similar spirit to this one, and is part of his excellent series <a class="reference external" href="https://github.com/jrjohansson/scientific-python-lectures">Lectures on Scientific Computing with Python</a> that is entirely available as Jupyter Notebooks.</p>
-</section>
-<section id="wikipedia">
+</div>
+<div class="section" id="wikipedia">
 <h2>Wikipedia<a class="headerlink" href="#wikipedia" title="Permalink to this headline">¶</a></h2>
 <p>“Revision control, also known as version control, source control
 or software configuration management (SCM), is the
@@ -354,8 +353,8 @@ information stored as computer files.</strong>”</p>
 <li><p>Freedom (exploratory branching)</p></li>
 <li><p>Collaboration (synchronization)</p></li>
 </ul>
-</section>
-<section id="git-is-an-enabling-technology-use-version-control-for-everything">
+</div>
+<div class="section" id="git-is-an-enabling-technology-use-version-control-for-everything">
 <h2>Git is an enabling technology: Use version control for everything<a class="headerlink" href="#git-is-an-enabling-technology-use-version-control-for-everything" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Paper writing (never get <code class="docutils literal notranslate"><span class="pre">paper_v5_john_jane_final_oct22_really_final.tex</span></code> by email again!)</p></li>
@@ -363,28 +362,28 @@ information stored as computer files.</strong>”</p>
 <li><p>Everyday research</p></li>
 <li><p>Teaching (never accept an emailed homework assignment again!)</p></li>
 </ul>
-</section>
-<section id="teaching-courses-with-git">
+</div>
+<div class="section" id="teaching-courses-with-git">
 <h2>Teaching courses with Git<a class="headerlink" href="#teaching-courses-with-git" title="Permalink to this headline">¶</a></h2>
 <p><img alt="" src="../../_images/indefero_projects_notes.png" /></p>
 <!-- offline: 
 <img src="files/images/indefero_projects_notes.png" width="100%">
 <img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects_notes.png" width="100%">
---></section>
-<section id="annotated-history-of-each-student-s-worfklow-and-backup">
+--></div>
+<div class="section" id="annotated-history-of-each-student-s-worfklow-and-backup">
 <h2>Annotated history of each student’s worfklow (and backup!)<a class="headerlink" href="#annotated-history-of-each-student-s-worfklow-and-backup" title="Permalink to this headline">¶</a></h2>
 <!-- offline: 
     <img src="files/images/indefero_projects1.png" width="100%">
 <img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects1.png" width="100%">
     -->
 <p><img alt="" src="../../_images/indefero_projects1.png" /></p>
-</section>
-<section id="git-is-easy">
+</div>
+<div class="section" id="git-is-easy">
 <h2>Git is easy!<a class="headerlink" href="#git-is-easy" title="Permalink to this headline">¶</a></h2>
 <a href="https://xkcd.com/1597"> 
     <img src="images/xkcd-git.png" width="400px"> 
-</a></section>
-<section id="very-high-level-picture-an-overview-of-key-concepts">
+</a></div>
+<div class="section" id="very-high-level-picture-an-overview-of-key-concepts">
 <h2>Very high level picture: an overview of key concepts<a class="headerlink" href="#very-high-level-picture-an-overview-of-key-concepts" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>commit</strong>: <em>a snapshot of work at a point in time</em></p>
 <!-- offline: 
@@ -429,8 +428,8 @@ information stored as computer files.</strong>”</p>
 </div>
 </div>
 <p>And this is pretty much the essence of Git!</p>
-</section>
-<section id="first-things-first-git-must-be-configured-before-first-use">
+</div>
+<div class="section" id="first-things-first-git-must-be-configured-before-first-use">
 <h2>First things first: git must be configured before first use<a class="headerlink" href="#first-things-first-git-must-be-configured-before-first-use" title="Permalink to this headline">¶</a></h2>
 <p>The minimal amount of configuration for git to work without pestering you is to tell it who you are. You should run a version of these commands in your shell:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
@@ -443,8 +442,8 @@ git config --global user.email <span class="s2">&quot;your.email@yourplace.org&q
 </div>
 <p>Set git to use the credential memory cache so we don’t have to retype passwords too frequently.</p>
 <p>Github offers in its help pages instructions on how to configure the credentials helper for <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac">Mac OSX</a>, <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac">Windows</a> and <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-linux">Linux</a>.</p>
-</section>
-<section id="the-plan-for-this-tutorial">
+</div>
+<div class="section" id="the-plan-for-this-tutorial">
 <h2>The plan for this tutorial<a class="headerlink" href="#the-plan-for-this-tutorial" title="Permalink to this headline">¶</a></h2>
 <p>The rests of this tutorial is structured in the following way: after the above brief overview of key concepts you need to understand in order for git to really make sense, we will then dive into hands-on work. We will discuss 5 “stages of git” with scenarios of increasing sophistication and complexity, introducing the necessary commands for each stage:</p>
 <ol class="simple">
@@ -455,8 +454,8 @@ git config --global user.email <span class="s2">&quot;your.email@yourplace.org&q
 <li><p>Full-contact github: distributed collaboration with large teams</p></li>
 </ol>
 <p>In reality, this tutorial only covers stages 1-4, since for #5 there are many software develoment-oriented tutorials and documents of very high quality online.  But most scientists start working alone with a few files or with a small team, so I feel it’s important to build first the key concepts and practices based on problems scientists encounter in their everyday life and without the jargon of the software world.  Once you’ve become familiar with 1-4, the excellent tutorials that exist about collaborating on github on open-source projects should make sense.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wald’s Sequential Probability Ratio Test &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -344,9 +343,9 @@
         
               <div>
                 
-  <section id="wald-s-sequential-probability-ratio-test">
+  <div class="section" id="wald-s-sequential-probability-ratio-test">
 <h1>Wald’s Sequential Probability Ratio Test<a class="headerlink" href="#wald-s-sequential-probability-ratio-test" title="Permalink to this headline">¶</a></h1>
-<section id="sequential-test-draw-data-sequentially">
+<div class="section" id="sequential-test-draw-data-sequentially">
 <h2>Sequential test: draw data sequentially<a class="headerlink" href="#sequential-test-draw-data-sequentially" title="Permalink to this headline">¶</a></h2>
 <p>Sequence of data <span class="math notranslate nohighlight">\(X_1, X_2, \ldots\)</span>.</p>
 <p>Two hypotheses, <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span>, each of which completely specifies the joint distribution of the data.</p>
@@ -372,17 +371,17 @@ More generally, we have:</p>
 <li><p>If <span class="math notranslate nohighlight">\(\frac{f_{1m}}{f_{0m}} \le \frac{\beta}{1-\alpha}\)</span>, stop and do not reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\frac{\beta}{1-\alpha} &lt; \frac{f_{1m}}{f_{0m}} &lt; \frac{1-\beta}{\alpha}\)</span>, go to step 1.</p></li>
 </ol>
-</div></section>
-<section id="sprt-miracle">
+</div></div>
+<div class="section" id="sprt-miracle">
 <h2>SPRT miracle<a class="headerlink" href="#sprt-miracle" title="Permalink to this headline">¶</a></h2>
 <p>Don’t need to know the distribution of the likelihood ratio <span class="math notranslate nohighlight">\(\mbox{LR}=\frac{f_{1m}}{f_{0m}}\)</span> under the null hypothesis
 to find the critical values for the test.</p>
-</section>
-<section id="connection-to-gambler-s-ruin">
+</div>
+<div class="section" id="connection-to-gambler-s-ruin">
 <h2>Connection to Gambler’s ruin<a class="headerlink" href="#connection-to-gambler-s-ruin" title="Permalink to this headline">¶</a></h2>
 <p>For iid data, the likelihood ratio is a product of terms. On a log scale, it’s a sum.  Each “trial” produces another term in the sum, positive or negative. But—unlike the classical Gambler’s Ruin problem in which the game is fair—the terms are not equal in magnitude: the steps are not all the same size.</p>
-</section>
-<section id="likelihood-ratio-for-two-values-of-p-in-iid-bernoulli-trials">
+</div>
+<div class="section" id="likelihood-ratio-for-two-values-of-p-in-iid-bernoulli-trials">
 <h2>Likelihood ratio for two values of <span class="math notranslate nohighlight">\(p\)</span> in iid Bernoulli trials<a class="headerlink" href="#likelihood-ratio-for-two-values-of-p-in-iid-bernoulli-trials" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X_1, X_2, \ldots,\)</span> are iid <span class="math notranslate nohighlight">\(\mbox{Bernoulli}(p)\)</span> random variables
 and let <span class="math notranslate nohighlight">\(p_1 &gt; p_0\)</span>.</p>
@@ -424,8 +423,8 @@ It simplifies further to</p>
 expected sample size
 when <span class="math notranslate nohighlight">\(p \le p_0\)</span> or <span class="math notranslate nohighlight">\(p &gt; p_1\)</span>.
 For values in <span class="math notranslate nohighlight">\((p_1, p_0)\)</span>, it can have larger sample sizes than fixed-sample-size tests.</p>
-</section>
-<section id="simulation-of-sprt-for-binomial">
+</div>
+<div class="section" id="simulation-of-sprt-for-binomial">
 <h2>Simulation of SPRT for Binomial<a class="headerlink" href="#simulation-of-sprt-for-binomial" title="Permalink to this headline">¶</a></h2>
 <p>Let’s watch the SPRT in action for iid Bernoulli trials.</p>
 <div class="cell docutils container">
@@ -500,8 +499,8 @@ For values in <span class="math notranslate nohighlight">\((p_1, p_0)\)</span>, 
 </div>
 </div>
 </div>
-</section>
-<section id="behavior">
+</div>
+<div class="section" id="behavior">
 <h2>Behavior<a class="headerlink" href="#behavior" title="Permalink to this headline">¶</a></h2>
 <p>For <span class="math notranslate nohighlight">\(p_0 &lt; p_1\)</span>,</p>
 <ul class="simple">
@@ -510,13 +509,13 @@ For values in <span class="math notranslate nohighlight">\((p_1, p_0)\)</span>, 
 <li><p>the SPRT approximately minimizes the expected number of trials before rejecting one or the other hypothesis, provided <span class="math notranslate nohighlight">\(p \notin (p_0, p_1)\)</span>.</p></li>
 </ul>
 <p>For <span class="math notranslate nohighlight">\(p_1 &lt; p_0\)</span>, the directions are reversed.</p>
-</section>
-<section id="it-works-for-beta-0-too-p-values">
+</div>
+<div class="section" id="it-works-for-beta-0-too-p-values">
 <h2>It works for <span class="math notranslate nohighlight">\(\beta = 0\)</span> too: <span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#it-works-for-beta-0-too-p-values" title="Permalink to this headline">¶</a></h2>
 <p>The inequalities hold when <span class="math notranslate nohighlight">\(\beta = 0\)</span> also. Then the likelihood ratio has chance at most <span class="math notranslate nohighlight">\(\alpha\)</span> of ever being greater than <span class="math notranslate nohighlight">\(1/\alpha\)</span>, if in fact <span class="math notranslate nohighlight">\(p &gt; p_0\)</span>.</p>
 <p>Hence, <span class="math notranslate nohighlight">\(1/\mbox{LR}\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value of the hypothesis <span class="math notranslate nohighlight">\(p &gt; p_0\)</span>. This can be used to construct one-sided confidence bounds for <span class="math notranslate nohighlight">\(p\)</span> and other parameters. The next chapter does exactly that, to find a lower confidence bound for the mean of a nonnegative population.</p>
-</section>
-<section id="dependent-observations">
+</div>
+<div class="section" id="dependent-observations">
 <h2>Dependent observations<a class="headerlink" href="#dependent-observations" title="Permalink to this headline">¶</a></h2>
 <p>As an illustration of SPRT in for obervations that are not iid, consider the following problem.</p>
 <p>There is a population of <span class="math notranslate nohighlight">\(B\)</span> items. Item <span class="math notranslate nohighlight">\(b\)</span> has “weight” <span class="math notranslate nohighlight">\(N_b\)</span> and “value” <span class="math notranslate nohighlight">\(a_b \in \{0, 1\}\)</span>. Let <span class="math notranslate nohighlight">\(N = \sum_{b=1}^B N_b\)</span>. (You might think of items as manufacturing lots, where <span class="math notranslate nohighlight">\(a_b = 1\)</span> means the lot is acceptable and <span class="math notranslate nohighlight">\(a_b=0\)</span> means the lot is defective.)</p>
@@ -578,8 +577,8 @@ Then</p>
 <p>where the products are defined to be infinite if the denominator vanishes anywhere.</p>
 <p>If <span class="math notranslate nohighlight">\(H_0\)</span> is true, the chance that <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> is ever greater than <span class="math notranslate nohighlight">\(1/\alpha\)</span>
 is at most <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-</section>
-<section id="nuisance-parameters">
+</div>
+<div class="section" id="nuisance-parameters">
 <h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Permalink to this headline">¶</a></h2>
 <p>This example arises in constructing risk-limiting audits using “ballot polling,” which involves selecting
 individual cast ballots and reading voter intent from them manually.</p>
@@ -656,8 +655,8 @@ a stationary point.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="what-s-next">
+</div>
+<div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="pSPRTnoReplacement.html"><span class="doc std std-doc">Optional next: The SPRT for the population percentage, sampling without replacement</span></a></p></li>
@@ -665,8 +664,8 @@ a stationary point.</p>
 <li><p><a class="reference internal" href="markov.html"><span class="doc std std-doc">Lower confidence bounds for the mean of a nonnegative population: Markov’s Inequality &amp; methods based on the empirical distribution</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

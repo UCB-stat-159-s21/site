@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>General test based on group invariance &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -382,7 +381,7 @@
         
               <div>
                 
-  <section id="general-test-based-on-group-invariance">
+  <div class="section" id="general-test-based-on-group-invariance">
 <h1>General test based on group invariance<a class="headerlink" href="#general-test-based-on-group-invariance" title="Permalink to this headline">¶</a></h1>
 <p>References:</p>
 <ul class="simple">
@@ -400,7 +399,7 @@
 \end{equation*}\]</div>
 <p>The <em>orbit of <span class="math notranslate nohighlight">\(x\)</span> (under <span class="math notranslate nohighlight">\(\mathcal G\)</span>)</em> is <span class="math notranslate nohighlight">\(\{ gx : g \in \mathcal G \}\)</span>.
 (Does the orbit of <span class="math notranslate nohighlight">\(x\)</span> always contain <span class="math notranslate nohighlight">\(G\)</span> points?)</p>
-<section id="test-statistic-t">
+<div class="section" id="test-statistic-t">
 <h2>Test statistic <span class="math notranslate nohighlight">\(T\)</span><a class="headerlink" href="#test-statistic-t" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(T: \mathcal{X} \rightarrow \mathbb{R}\)</span> be a test statistic.</p>
 <p>We want to test <span class="math notranslate nohighlight">\(H_0\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
@@ -411,8 +410,8 @@ element of the multiset</p>
     [ T(gx): g \in \mathcal G ].
 \end{equation*}\]</div>
 <p>These are the <span class="math notranslate nohighlight">\(G\)</span> (not necessarily distinct) values <span class="math notranslate nohighlight">\(T\)</span> takes on the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
-</section>
-<section id="finding-the-rejection-region">
+</div>
+<div class="section" id="finding-the-rejection-region">
 <h2>Finding the rejection region<a class="headerlink" href="#finding-the-rejection-region" title="Permalink to this headline">¶</a></h2>
 <p>Let</p>
 <div class="amsmath math notranslate nohighlight">
@@ -448,8 +447,8 @@ element of the multiset</p>
 \end{equation*}\]</div>
 <p>To test the hypothesis, generate <span class="math notranslate nohighlight">\(U \sim U[0, 1]\)</span> independent of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(\phi(x) \ge U\)</span>.  (Randomized test.)</p>
-</section>
-<section id="test-has-level-alpha-unconditionally">
+</div>
+<div class="section" id="test-has-level-alpha-unconditionally">
 <h2>Test has level <span class="math notranslate nohighlight">\(\alpha\)</span> unconditionally<a class="headerlink" href="#test-has-level-alpha-unconditionally" title="Permalink to this headline">¶</a></h2>
 <p>For each <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>,</p>
 <div class="amsmath math notranslate nohighlight">
@@ -470,14 +469,14 @@ element of the multiset</p>
  =  \mathbb{E}_P \phi(X).
 \end{equation*}\]</div>
 <p>The unconditional chance of a Type I error is exactly <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-</section>
-<section id="tests-for-the-mean-of-a-symmetric-distribution">
+</div>
+<div class="section" id="tests-for-the-mean-of-a-symmetric-distribution">
 <h2>Tests for the mean of a symmetric distribution<a class="headerlink" href="#tests-for-the-mean-of-a-symmetric-distribution" title="Permalink to this headline">¶</a></h2>
 <p>Data <span class="math notranslate nohighlight">\(X = (X_j )_{j=1}^N \in \mathcal{X} = \mathbb{R}^n\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\{ X_j \}\)</span> iid <span class="math notranslate nohighlight">\(P\)</span>; <span class="math notranslate nohighlight">\(\mathbb{E} X_j = \mu\)</span>.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(P\)</span> is symmetric.  Examples?</p>
-</section>
-<section id="reflection-group">
+</div>
+<div class="section" id="reflection-group">
 <h2>Reflection group<a class="headerlink" href="#reflection-group" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{G}_\mu\)</span> be the group of reflections of coordinates about <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>.
@@ -515,8 +514,8 @@ the <span class="math notranslate nohighlight">\(2^n\)</span> potential data</p>
    [ T(gx) : g \in \mathcal{G}_\mu ]
 \end{equation*}\]</div>
 <p>are equally likely, conditional on the event that <span class="math notranslate nohighlight">\(X\)</span> is in the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
-</section>
-<section id="how-to-test-h-0-mu-mu-0">
+</div>
+<div class="section" id="how-to-test-h-0-mu-mu-0">
 <h2>How to test <span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\mu = \mu_0\)</span>?<a class="headerlink" href="#how-to-test-h-0-mu-mu-0" title="Permalink to this headline">¶</a></h2>
 <p>We observe <span class="math notranslate nohighlight">\(X = x\)</span>.</p>
 <p>If fewer than <span class="math notranslate nohighlight">\(\alpha G\)</span> values in <span class="math notranslate nohighlight">\([T(gx) : g \in \mathcal{G}_{\mu_0}]\)</span> are greater than
@@ -524,15 +523,15 @@ or equal to
 <span class="math notranslate nohighlight">\(T(x)\)</span>, reject.
 If more than <span class="math notranslate nohighlight">\(\alpha G\)</span> values are greater than <span class="math notranslate nohighlight">\(T(x)\)</span>, don’t reject.
 Otherwise, randomize.</p>
-</section>
-<section id="if-n-is-big">
+</div>
+<div class="section" id="if-n-is-big">
 <h2>If <span class="math notranslate nohighlight">\(n\)</span> is big …<a class="headerlink" href="#if-n-is-big" title="Permalink to this headline">¶</a></h2>
 <p>How can we sample at random from the orbit?</p>
 <p>Toss fair coin <span class="math notranslate nohighlight">\(n\)</span> times in sequence, independently.
 Take <span class="math notranslate nohighlight">\(\gamma_j = 1\)</span> if the <span class="math notranslate nohighlight">\(j\)</span>th toss gives heads; <span class="math notranslate nohighlight">\(\gamma_j = 0\)</span> if tails.</p>
 <p>Amounts to sampling with replacement from the orbit of <span class="math notranslate nohighlight">\(x\)</span>.</p>
-</section>
-<section id="other-test-statistics">
+</div>
+<div class="section" id="other-test-statistics">
 <h2>Other test statistics?<a class="headerlink" href="#other-test-statistics" title="Permalink to this headline">¶</a></h2>
 <p>Could use <span class="math notranslate nohighlight">\(t\)</span>-statistic, but calibrate critical value using the permutation distribution.</p>
 <p>Could use a measure of dispersion around the hypothesized mean (the
@@ -543,8 +542,8 @@ true mean minimizes expected RMS difference, assuming variance is finite).</p>
 \[\begin{equation*} 
 T(x) \equiv \sum_{j=1}^n 1_{x \ge \mu_0}.
 \end{equation*}\]</div>
-</section>
-<section id="sign-test-for-the-median">
+</div>
+<div class="section" id="sign-test-for-the-median">
 <h2>Sign test for the median<a class="headerlink" href="#sign-test-for-the-median" title="Permalink to this headline">¶</a></h2>
 <p>We are assuming <span class="math notranslate nohighlight">\(P\)</span> is symmetric, so the expected value and median are equal.</p>
 <p>To avoid unhelpful complexity, suppose <span class="math notranslate nohighlight">\(P\)</span> is continuous.</p>
@@ -565,8 +564,8 @@ T(x) \equiv \sum_{j=1}^n 1_{x \ge \mu_0}.
 <p>This leads to the sign test:  Reject the hypothesis that the median is <span class="math notranslate nohighlight">\(\mu_0\)</span>
 if <span class="math notranslate nohighlight">\(T(X)\)</span> is too large or too small.
 Thresholds set to get level <span class="math notranslate nohighlight">\(\alpha\)</span> test, using the fact that <span class="math notranslate nohighlight">\(T(X)\sim \mbox{Binomial}(n, 1/2)\)</span>.</p>
-</section>
-<section id="is-the-sign-test-equivalent-to-the-permutation-test-for-the-same-test-statistic">
+</div>
+<div class="section" id="is-the-sign-test-equivalent-to-the-permutation-test-for-the-same-test-statistic">
 <h2>Is the sign test equivalent to the permutation test for the same test statistic?<a class="headerlink" href="#is-the-sign-test-equivalent-to-the-permutation-test-for-the-same-test-statistic" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we are using the test statistic <span class="math notranslate nohighlight">\(T(x) = \sum_{j=1}^n 1_{x \ge \mu_0}\)</span>.
 Do the permutation test and the sign test reject for the same values of <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>?</p>
@@ -579,8 +578,8 @@ If the null is true, all have equal probability <span class="math notranslate no
 Of these points, <span class="math notranslate nohighlight">\({{n}\choose{k}}\)</span> have <span class="math notranslate nohighlight">\(k\)</span> components with positive deviations from <span class="math notranslate nohighlight">\(\mu_0\)</span>.
 Hence, for the permutation test, the chance that <span class="math notranslate nohighlight">\(T(x) = k\)</span> is also
 <span class="math notranslate nohighlight">\({{n} \choose {k}} 2^{-n}\)</span>:  The two tests are equivalent.</p>
-</section>
-<section id="abstract-setting-using-vc-classes">
+</div>
+<div class="section" id="abstract-setting-using-vc-classes">
 <h2>Abstract setting using VC classes<a class="headerlink" href="#abstract-setting-using-vc-classes" title="Permalink to this headline">¶</a></h2>
 <p>The distribution <span class="math notranslate nohighlight">\(P \in \Omega\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> is a known collection of
 distributions on <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
@@ -697,8 +696,8 @@ This is a randomization test.
 Because the level of the randomization test is <span class="math notranslate nohighlight">\(\alpha\)</span>, conditional on the data,
 integrating
 over the distribution of the data shows that it is <span class="math notranslate nohighlight">\(\alpha\)</span> unconditionally.</p>
-</section>
-<section id="examples-of-hypotheses-and-functions-tau">
+</div>
+<div class="section" id="examples-of-hypotheses-and-functions-tau">
 <h2>Examples of hypotheses and functions <span class="math notranslate nohighlight">\(\tau\)</span><a class="headerlink" href="#examples-of-hypotheses-and-functions-tau" title="Permalink to this headline">¶</a></h2>
 <p>Examples Romano gives include testing for independence of the components of each <span class="math notranslate nohighlight">\(X_j\)</span>,
 testing for exchangeability of the components of each <span class="math notranslate nohighlight">\(X_j\)</span>, testing for spherical
@@ -722,8 +721,8 @@ computationally.</p>
 <p>Let’s consider the implementation in more detail, for two hypotheses:
 independence of the components of a <span class="math notranslate nohighlight">\(k\)</span>-variate distribution, and
 rotational invariance of a bivariate distribution.</p>
-</section>
-<section id="independence">
+</div>
+<div class="section" id="independence">
 <h2>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h2>
 <p>We observe <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> iid <span class="math notranslate nohighlight">\(P\)</span>, where each <span class="math notranslate nohighlight">\(X_j = (X_{ij})_{i=1}^k\)</span> takes values in <span class="math notranslate nohighlight">\(\mathbb{R}^k\)</span>.
 Under the null hypothesis, <span class="math notranslate nohighlight">\(P\)</span> is invariant under the mapping <span class="math notranslate nohighlight">\(\tau\)</span> that takes the <span class="math notranslate nohighlight">\(k\)</span>
@@ -774,8 +773,8 @@ computing</p>
 We would reject the null hypothesis
 that the components of <span class="math notranslate nohighlight">\(P\)</span> are independent (at approximate significance level <span class="math notranslate nohighlight">\(\alpha\)</span>) if
 <span class="math notranslate nohighlight">\(T(X)\)</span> exceeds the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of the simulated distribution of <span class="math notranslate nohighlight">\(T(X^*)\)</span>.</p>
-</section>
-<section id="rotational-invariance-in-mathbb-r-2">
+</div>
+<div class="section" id="rotational-invariance-in-mathbb-r-2">
 <h2>Rotational invariance in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#rotational-invariance-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <p>We observe <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^n\)</span> iid <span class="math notranslate nohighlight">\(P\)</span>, where each <span class="math notranslate nohighlight">\(X_j = (X_{1j}, X_{2j})\)</span> takes values in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <p>For <span class="math notranslate nohighlight">\(y \in \mathbb{R}^2\)</span>, define <span class="math notranslate nohighlight">\(|y| \equiv \sqrt{y_1^2 + y_2^2}\)</span> to be the distance from <span class="math notranslate nohighlight">\(y\)</span> to
@@ -884,14 +883,14 @@ We could get an alternative approximate level <span class="math notranslate nohi
 of rotational invariance by comparing <span class="math notranslate nohighlight">\(T(X)\)</span> with the <span class="math notranslate nohighlight">\(1-\alpha\)</span> quantile of
 <span class="math notranslate nohighlight">\(T\)</span> over all such rotations of the data—the orbit of the data under this finite
 subgroup.</p>
-</section>
-<section id="application-testing-whether-seismicity-follows-a-spatially-heterogeneous-temporally-homogeneous-poisson-process">
+</div>
+<div class="section" id="application-testing-whether-seismicity-follows-a-spatially-heterogeneous-temporally-homogeneous-poisson-process">
 <h2>Application: testing whether seismicity follows a spatially heterogeneous, temporally homogeneous Poisson Process<a class="headerlink" href="#application-testing-whether-seismicity-follows-a-spatially-heterogeneous-temporally-homogeneous-poisson-process" title="Permalink to this headline">¶</a></h2>
 <p>Reference: Luen and Stark, 2012. http://onlinelibrary.wiley.com/doi/10.1111/j.1365-246X.2012.05400.x/pdf</p>
 <p>Poisson process: condition on number of events. Given the number of events, temporal distribution uniform, times exchangeable.</p>
 <p>What’s the “projection” operation?</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

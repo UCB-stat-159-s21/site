@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Models, response schedules, and estimators &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -333,12 +332,12 @@
         
               <div>
                 
-  <section id="models-response-schedules-and-estimators">
+  <div class="section" id="models-response-schedules-and-estimators">
 <h1>Models, response schedules, and estimators<a class="headerlink" href="#models-response-schedules-and-estimators" title="Permalink to this headline">¶</a></h1>
 <p>This notebook summarizes some probability distributions and models related to them, and draws a distinction between a model and a response schedule.</p>
-<section id="some-common-probability-distributions">
+<div class="section" id="some-common-probability-distributions">
 <h2>Some common probability distributions<a class="headerlink" href="#some-common-probability-distributions" title="Permalink to this headline">¶</a></h2>
-<section id="discrete">
+<div class="section" id="discrete">
 <h3>Discrete<a class="headerlink" href="#discrete" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Bernoulli: distribution of a single trial that can result in “success” (1) or “failure” (0). A random variable <span class="math notranslate nohighlight">\(X\)</span> has the Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>) distribution iff</p></li>
@@ -383,8 +382,8 @@ which <span class="math notranslate nohighlight">\(N_j\)</span> are in category 
 </ul>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \Pr \{ X_j = x_j,\; j = 1, \ldots, k \} = \frac{{{N_1}\choose{x_1}} \cdots {{N_k}\choose{x_k}}}{{{N}\choose{n}}}, \;\; x_j \ge 0;\;\; \sum_j x_j = n; \;\; \sum_j N_j = N.\end{equation*}\]</div>
-</section>
-<section id="continuous">
+</div>
+<div class="section" id="continuous">
 <h3>Continuous<a class="headerlink" href="#continuous" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Uniform on a domain <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>. A random variable <span class="math notranslate nohighlight">\(X\)</span> has a Uniform distribution on <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> iff</p></li>
@@ -410,16 +409,16 @@ and rate parameter <span class="math notranslate nohighlight">\(\beta\)</span> i
 </ul>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \Pr \{ X \in A \} = \int_{A \cap [0, \infty)}\frac{\beta ^{\alpha }}{\Gamma (\alpha )}x^{\alpha -1}e^{-\beta x} dx.\end{equation*}\]</div>
-</section>
-</section>
-<section id="what-s-a-model">
+</div>
+</div>
+<div class="section" id="what-s-a-model">
 <h2>What’s a model?<a class="headerlink" href="#what-s-a-model" title="Permalink to this headline">¶</a></h2>
 <p>An expression for the probability distribution of data <span class="math notranslate nohighlight">\(X\)</span>, usually “indexed” by a (possibly abstract, possibly infinite-dimensional) parameter, often relating some observables (<em>independent variables</em>, <em>covariates</em>, <em>explanatory variables</em>, <em>predictors</em>) to others (<em>dependent variables</em>, <em>response variables</em>, <em>data</em>, …).</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
    X \sim \mathbb{P}_\theta, \;\; \theta \in \Theta.
 \end{equation*}\]</div>
-<section id="examples">
+<div class="section" id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>coins and 0-1 boxes</p>
@@ -441,9 +440,9 @@ and rate parameter <span class="math notranslate nohighlight">\(\beta\)</span> i
 <li><p>Conjoint analysis</p></li>
 <li><p>avian-turbine interactions</p></li>
 </ul>
-</section>
-</section>
-<section id="some-models">
+</div>
+</div>
+<div class="section" id="some-models">
 <h2>Some models<a class="headerlink" href="#some-models" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Linear regression</p></li>
@@ -453,8 +452,8 @@ and rate parameter <span class="math notranslate nohighlight">\(\beta\)</span> i
 <li><p>Multinomial logit</p></li>
 <li><p>Poisson regression</p></li>
 </ul>
-</section>
-<section id="response-schedules-and-causal-inference">
+</div>
+<div class="section" id="response-schedules-and-causal-inference">
 <h2>Response schedules and causal inference<a class="headerlink" href="#response-schedules-and-causal-inference" title="Permalink to this headline">¶</a></h2>
 <p>A response schedule is an assertion about how Nature generated the data: it says how one variable would respond if you intervened and changed the value of other variables.</p>
 <p>Regression is about <em>conditional expectation</em>: the expected value of
@@ -494,7 +493,7 @@ The multinomial logit model is that <span class="math notranslate nohighlight">\
 </ul>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \log \lambda_j | X = X_j \beta.\end{equation*}\]</div>
-<section id="poisson-regression">
+<div class="section" id="poisson-regression">
 <h3>Poisson regression<a class="headerlink" href="#poisson-regression" title="Permalink to this headline">¶</a></h3>
 <p>Poisson regression fits Poisson models with parametrically related rates <span class="math notranslate nohighlight">\(\lambda_j\)</span> to count data <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> and a vector of covariates <span class="math notranslate nohighlight">\(\{X_j\}\)</span> (each <span class="math notranslate nohighlight">\(X_j\)</span> is a <span class="math notranslate nohighlight">\(p\)</span>-vector).</p>
 <p>According to the model, <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent, and</p>
@@ -505,8 +504,8 @@ The multinomial logit model is that <span class="math notranslate nohighlight">\
 <p>where, given <span class="math notranslate nohighlight">\(X_j\)</span>, <span class="math notranslate nohighlight">\(\ln \lambda_j = X_j \beta\)</span>, for some <span class="math notranslate nohighlight">\(\beta \in \Re^p\)</span>.</p>
 <p>Equivalently, <span class="math notranslate nohighlight">\(\{Y_j\}\)</span> are independent and <span class="math notranslate nohighlight">\(\log \mathbb{E}(Y_j | X_j) = X_j \beta\)</span>.</p>
 <p>Poisson regression estimates <span class="math notranslate nohighlight">\(\beta\)</span> from observations of <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(X\)</span>.</p>
-</section>
-<section id="maximum-likelihood">
+</div>
+<div class="section" id="maximum-likelihood">
 <h3>Maximum likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this headline">¶</a></h3>
 <p>The most common estimator for this model is the maximum-likelihood estimator (MLE), which we shall derive.</p>
 <p>Given <span class="math notranslate nohighlight">\(X_j=x_j\)</span>, the pmf of <span class="math notranslate nohighlight">\(Y_j\)</span> is</p>
@@ -568,9 +567,9 @@ Be aware that numerical optimization is delicate, even for convex problems.
 In this problem, we have analytic expressions for the derivative and Hessian matrix, so it can help to use methods that can incorporate that information.
 (Many methods use numerical approximations to the derivative and the Hessian;
 depending on the computational cost of evaluating the derivative or Hessian, they can save time.)</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

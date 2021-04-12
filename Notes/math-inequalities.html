@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inequalities and Identities &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -407,7 +406,7 @@
         
               <div>
                 
-  <section id="inequalities-and-identities">
+  <div class="section" id="inequalities-and-identities">
 <h1>Inequalities and Identities<a class="headerlink" href="#inequalities-and-identities" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -418,9 +417,9 @@
 </div>
 </div>
 </div>
-<section id="general-purpose-inequalities">
+<div class="section" id="general-purpose-inequalities">
 <h2>General-purpose Inequalities<a class="headerlink" href="#general-purpose-inequalities" title="Permalink to this headline">¶</a></h2>
-<section id="the-arithmetic-geometric-mean-inequality">
+<div class="section" id="the-arithmetic-geometric-mean-inequality">
 <h3>The Arithmetic-Geometric Mean Inequality<a class="headerlink" href="#the-arithmetic-geometric-mean-inequality" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\{ a_j \}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{q_j\}_{j=1}^n\)</span> be sets of nonnegative numbers with
 <span class="math notranslate nohighlight">\(\sum_j q_j = 1\)</span>.
@@ -429,18 +428,18 @@ Then</p>
 \[\begin{equation*} 
      \prod_{j=1}^n a_j^{q_j} &lt; \sum_{j=1}^n q_j a_j.
 \end{equation*}\]</div>
-</section>
-<section id="the-cauchy-schwarz-inequality">
+</div>
+<div class="section" id="the-cauchy-schwarz-inequality">
 <h3>The Cauchy-Schwarz Inequality<a class="headerlink" href="#the-cauchy-schwarz-inequality" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a real linear vector space, and let <span class="math notranslate nohighlight">\(x, y \in \mathcal{X}\)</span>. Then</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
   | \langle x, y \rangle|^2 \le \langle x, x \rangle \langle y, y \rangle.
 \end{equation*}\]</div>
-</section>
-<section id="rearrangement-inequalities">
+</div>
+<div class="section" id="rearrangement-inequalities">
 <h3>Rearrangement Inequalities<a class="headerlink" href="#rearrangement-inequalities" title="Permalink to this headline">¶</a></h3>
-<section id="rearrangements-of-sequences">
+<div class="section" id="rearrangements-of-sequences">
 <h4>Rearrangements of sequences<a class="headerlink" href="#rearrangements-of-sequences" title="Permalink to this headline">¶</a></h4>
 <p>Let <span class="math notranslate nohighlight">\(x \equiv (x_j)_{j=1}^n \in {\mathbb R}^n\)</span>.
 The <em>decreasing rearrangement</em> of <span class="math notranslate nohighlight">\(x\)</span>, denoted <span class="math notranslate nohighlight">\(x^*\)</span>, has the same multiset of
@@ -455,8 +454,8 @@ values as <span class="math notranslate nohighlight">\(x\)</span>, but ordered s
 \[\begin{equation*} 
 x_{*1} \le x_{*2} \le \cdots \le x_{*n}.
 \end{equation*}\]</div>
-</section>
-<section id="the-hardy-littlewood-rearrangement-inequality-for-two-vectors">
+</div>
+<div class="section" id="the-hardy-littlewood-rearrangement-inequality-for-two-vectors">
 <h4>The Hardy-Littlewood Rearrangement Inequality for two vectors<a class="headerlink" href="#the-hardy-littlewood-rearrangement-inequality-for-two-vectors" title="Permalink to this headline">¶</a></h4>
 <p>Suppose <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span> and <span class="math notranslate nohighlight">\(y \in \mathbb{R}^n\)</span>.
 Let <span class="math notranslate nohighlight">\(x \cdot y \equiv \sum_{j=1}^n x_j y_j\)</span>.
@@ -465,8 +464,8 @@ Then</p>
 \[\begin{equation*} 
     x^* \cdot y_* \le x \cdot y \le x^* \cdot y^*.
 \end{equation*}\]</div>
-</section>
-<section id="the-symmetric-decreasing-rearrangement-of-a-function">
+</div>
+<div class="section" id="the-symmetric-decreasing-rearrangement-of-a-function">
 <h4>The Symmetric Decreasing Rearrangement of a function<a class="headerlink" href="#the-symmetric-decreasing-rearrangement-of-a-function" title="Permalink to this headline">¶</a></h4>
 <p>Suppose <span class="math notranslate nohighlight">\(f: \mathbb{R}^n \rightarrow \mathbb{R}^+\)</span> has a finite integral.
 The <em>symmetric decreasing rearrangement</em> <span class="math notranslate nohighlight">\(f^*\)</span> of <span class="math notranslate nohighlight">\(f\)</span> is a function such that:</p>
@@ -475,8 +474,8 @@ The <em>symmetric decreasing rearrangement</em> <span class="math notranslate no
 <li><p><span class="math notranslate nohighlight">\(f(x) \ge f(y)\)</span> if <span class="math notranslate nohighlight">\(y \ge x \ge 0\)</span> (decreasing)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\int_{\mathbb{R}^n} 1_{f(x) \ge t} dx = \int_{\mathbb{R}^n} 1_{f^*(x) \ge t} dx\)</span> for all <span class="math notranslate nohighlight">\(t \ge 0\)</span> (the measure of the level sets is the same)</p></li>
 </ul>
-</section>
-<section id="the-hardy-littlewood-rearrangement-inequality-for-two-functions">
+</div>
+<div class="section" id="the-hardy-littlewood-rearrangement-inequality-for-two-functions">
 <h4>The Hardy-Littlewood Rearrangement Inequality for two functions<a class="headerlink" href="#the-hardy-littlewood-rearrangement-inequality-for-two-functions" title="Permalink to this headline">¶</a></h4>
 <p>Suppose <span class="math notranslate nohighlight">\(f: \mathbb{R}^{n} \to \mathbb{R}^{+}\)</span> and <span class="math notranslate nohighlight">\(g: \mathbb{R}^{n} \to \mathbb{R}^{+}\)</span>.
 Then</p>
@@ -484,8 +483,8 @@ Then</p>
 \[\begin{equation*}  
     \int_{\mathbb{R}^n} f(x) g(x) dx \le \int_{\mathbb{R}^n} f^*(x) g^*(x) dx.
 \end{equation*}\]</div>
-</section>
-<section id="the-riesz-rearrangement-inequality-for-three-functions">
+</div>
+<div class="section" id="the-riesz-rearrangement-inequality-for-three-functions">
 <h4>The Riesz Rearrangement Inequality for three functions<a class="headerlink" href="#the-riesz-rearrangement-inequality-for-three-functions" title="Permalink to this headline">¶</a></h4>
 <p>Suppose <span class="math notranslate nohighlight">\(f: \mathbb{R}^{n} \to \mathbb{R}^{+}\)</span>, <span class="math notranslate nohighlight">\(g: \mathbb{R}^{n} \to \mathbb{R}^{+}\)</span>, and
 <span class="math notranslate nohighlight">\(g: \mathbb{R}^{n} \to \mathbb{R}^{+}\)</span>.</p>
@@ -494,44 +493,44 @@ Then</p>
 \[\begin{equation*}  
 \int f(x)g(x-y)h(y)\,dx\,dy \le \int f^{*}(x)g^{*}(x-y)h^{*}(y)\,dx\,dy.
 \end{equation*}\]</div>
-</section>
-</section>
-</section>
-<section id="identities-involving-conditional-expectation">
+</div>
+</div>
+</div>
+<div class="section" id="identities-involving-conditional-expectation">
 <h2>Identities involving conditional expectation<a class="headerlink" href="#identities-involving-conditional-expectation" title="Permalink to this headline">¶</a></h2>
-<section id="law-of-iterated-expectation-adam-s-law-law-of-total-expectation">
+<div class="section" id="law-of-iterated-expectation-adam-s-law-law-of-total-expectation">
 <h3>Law of Iterated Expectation (Adam’s Law, Law of Total Expectation)<a class="headerlink" href="#law-of-iterated-expectation-adam-s-law-law-of-total-expectation" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are random variables with a joint distribution,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
    \mathbb{E} X = \mathbb{E}_Y \mathbb{E}(X|Y).
 \end{equation*}\]</div>
-</section>
-<section id="law-of-total-variance-eve-s-law">
+</div>
+<div class="section" id="law-of-total-variance-eve-s-law">
 <h3>Law of Total Variance (Eve’s Law)<a class="headerlink" href="#law-of-total-variance-eve-s-law" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are random variables with a joint distribution,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
    Var(X) = \mathbb{E}_Y Var(X|Y) + Var \mathbb{E} (X|Y).
 \end{equation*}\]</div>
-</section>
-</section>
-<section id="probability-inequalities">
+</div>
+</div>
+<div class="section" id="probability-inequalities">
 <h2>Probability Inequalities<a class="headerlink" href="#probability-inequalities" title="Permalink to this headline">¶</a></h2>
 <p>This section follows Lugosi (2006) closely.</p>
-<section id="the-tail-sum-formula">
+<div class="section" id="the-tail-sum-formula">
 <h3>The tail-sum formula<a class="headerlink" href="#the-tail-sum-formula" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a nonnegative real-valued random variable,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  
       {\mathbb E} X = \int_0^\infty {\mathbb{P}} \{X \ge x\} dx
 \end{equation*}\]</div>
-</section>
-<section id="jensen-s-inequality">
+</div>
+<div class="section" id="jensen-s-inequality">
 <h3>Jensen’s Inequality<a class="headerlink" href="#jensen-s-inequality" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(\phi\)</span> is a convex function from <span class="math notranslate nohighlight">\({\mathcal X}\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, then <span class="math notranslate nohighlight">\(\phi({\mathbb E} X) \le {\mathbb E} \phi(X)\)</span>.</p>
-</section>
-<section id="markov-s-chebychev-s-and-related-inequalities">
+</div>
+<div class="section" id="markov-s-chebychev-s-and-related-inequalities">
 <h3>Markov’s, Chebychev’s, and related inequalities<a class="headerlink" href="#markov-s-chebychev-s-and-related-inequalities" title="Permalink to this headline">¶</a></h3>
 <p>From the tail-sum formula,</p>
 <div class="amsmath math notranslate nohighlight">
@@ -565,8 +564,8 @@ random variable and <span class="math notranslate nohighlight">\(f(x) = x^q\)</s
              \frac{{\mathbb E}  | X - {\mathbb E} X |^2}{t^2}
              = \frac{{\mbox{Var}} X}{t^2}.
 \end{equation*}\]</div>
-</section>
-<section id="chernoff-bounds">
+</div>
+<div class="section" id="chernoff-bounds">
 <h3>Chernoff bounds<a class="headerlink" href="#chernoff-bounds" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> has a moment generating function (if <span class="math notranslate nohighlight">\({\mathbb{E}} e^{sX}\)</span> exists for <span class="math notranslate nohighlight">\(s \in [-a, a]\)</span>
 for some <span class="math notranslate nohighlight">\(a &gt; 0\)</span>), we can apply the generalized Markov Inequality with <span class="math notranslate nohighlight">\(f(x) = e^{sx}\)</span> for positive <span class="math notranslate nohighlight">\(s\)</span>:</p>
@@ -581,8 +580,8 @@ For any particular <span class="math notranslate nohighlight">\(X\)</span>, one 
      {\mathbb{P}} \{ X \ge t \} = {\mathbb{P}} \{ e^{sX} \ge e^{st} \} \le \inf_{s \in [-a, a]}
      \frac{{\mathbb E} e^{sX}}{e^{st}}.
 \end{equation*}\]</div>
-</section>
-<section id="hoeffding-s-inequality">
+</div>
+<div class="section" id="hoeffding-s-inequality">
 <h3>Hoeffding’s Inequality<a class="headerlink" href="#hoeffding-s-inequality" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\{ X_j \}_{j=1}^n\)</span> be independent, and define
 <span class="math notranslate nohighlight">\(S_n \equiv \sum_{j=1}^n X_j\)</span>.
@@ -611,8 +610,8 @@ then</p>
 \[\begin{equation*}  
     {\mathbb{P}} \{ S_n - {\mathbb E} S_n \le -t \} \le e^{-2t^2/\sum_{j=1}^n (b_j - a_j)^2}
 \end{equation*}\]</div>
-</section>
-<section id="hoeffding-s-other-inequality">
+</div>
+<div class="section" id="hoeffding-s-other-inequality">
 <h3>Hoeffding’s Other Inequality<a class="headerlink" href="#hoeffding-s-other-inequality" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(f\)</span> is a convex, continuous, real function and <span class="math notranslate nohighlight">\({\mathcal X}\)</span> is a finite set.
 Let <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span> be a simple random sample from <span class="math notranslate nohighlight">\({\mathcal X}\)</span> and
@@ -622,8 +621,8 @@ Then</p>
 \[\begin{equation*}   
    {\mathbb E} f \left ( \sum_{j=1}^n X_j \right ) \le {\mathbb E} f \left ( \sum_{j=1}^n Y_j \right ).
 \end{equation*}\]</div>
-</section>
-<section id="bernstein-s-inequality">
+</div>
+<div class="section" id="bernstein-s-inequality">
 <h3>Bernstein’s Inequality<a class="headerlink" href="#bernstein-s-inequality" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_j \}_{j=1}^n\)</span> are independent with <span class="math notranslate nohighlight">\({\mathbb E} X_j = 0\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>,
 <span class="math notranslate nohighlight">\({\mathbb{P}} \{ | X_j | \le c\} = 1\)</span>,
@@ -633,9 +632,9 @@ Then for any <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</spa
 \[\begin{equation*} 
      {\mathbb{P}} \{ S_n/n &gt; \epsilon \} \le e^{-n \epsilon^2 / 2(\sigma^2 + c\epsilon/3)}.
 \end{equation*}\]</div>
-</section>
-</section>
-<section id="martingales">
+</div>
+</div>
+<div class="section" id="martingales">
 <h2>Martingales<a class="headerlink" href="#martingales" title="Permalink to this headline">¶</a></h2>
 <p>A sequence of random variables <span class="math notranslate nohighlight">\(\{ X_j \}\)</span> is a <em>martingale</em> if</p>
 <ul class="simple">
@@ -649,7 +648,7 @@ Then for any <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</spa
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E} (|X_{j+1}| \mid Y_j) = X_j\)</span>.</p></li>
 </ul>
 <p>A <em>nonnegative martingale</em> is a martingale for which <span class="math notranslate nohighlight">\(\Pr \{X_j \ge 0 \} = 1\)</span> <span class="math notranslate nohighlight">\(\forall j\)</span>.</p>
-<section id="examples">
+<div class="section" id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A gambler’s fortune in a series of fair bets with the same stakes is a martingale: the expected fortune after the <span class="math notranslate nohighlight">\(j+1\)</span>st bet is the fortune after the <span class="math notranslate nohighlight">\(j\)</span>th bet.</p></li>
@@ -657,17 +656,17 @@ Then for any <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</spa
 Then <span class="math notranslate nohighlight">\(\{X_j \}\)</span> is a martingale with respect to <span class="math notranslate nohighlight">\(\{Y_j\}\)</span>.
 (More generaly, likelihood ratios are nonnegative martingales with respect to the distribution in the denominator.)</p></li>
 </ul>
-</section>
-<section id="kolmogorov-s-inequality">
+</div>
+<div class="section" id="kolmogorov-s-inequality">
 <h3>Kolmogorov’s Inequality<a class="headerlink" href="#kolmogorov-s-inequality" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(\{X_j\}\)</span> is a nonnegative martingale, then</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
    \Pr \{ \sup_j X_j \ge a \} \le \mathbb{E} X_1/a.
 \end{equation*}\]</div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Confidence Sets &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -472,15 +471,15 @@
         
               <div>
                 
-  <section id="confidence-sets">
+  <div class="section" id="confidence-sets">
 <h1>Confidence Sets<a class="headerlink" href="#confidence-sets" title="Permalink to this headline">¶</a></h1>
-<section id="this-is-a-rough-work-in-progress">
+<div class="section" id="this-is-a-rough-work-in-progress">
 <h2>This is a rough work in progress!<a class="headerlink" href="#this-is-a-rough-work-in-progress" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="types-of-parameters">
+</div>
+<div class="section" id="types-of-parameters">
 <h2>Types of Parameters<a class="headerlink" href="#types-of-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Many different kinds of things are called “parameters.” Here are several categories.</p>
-<section id="population-parameters">
+<div class="section" id="population-parameters">
 <h3>Population parameters<a class="headerlink" href="#population-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Any property of a population may be called a <em>parameter</em>.
 Examples include the population mean, percentiles, number of modes, etc.</p>
@@ -491,15 +490,15 @@ The difference between the average response without the intervention and the ave
 depends on the values in the population, and thus, in general, on the
 values of population parameters.
 (It will also depend on the sampling design.)</p>
-</section>
-<section id="functional-parameters-of-probability-distributions">
+</div>
+<div class="section" id="functional-parameters-of-probability-distributions">
 <h3>Functional parameters of probability distributions<a class="headerlink" href="#functional-parameters-of-probability-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(X \sim \mathbb{P}\)</span>, where <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> is a probability distribution on some space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> of possible outcomes.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-839d88f7-8cc1-49d5-a276-33250e78ff38">
-<span class="eqno">()<a class="headerlink" href="#equation-839d88f7-8cc1-49d5-a276-33250e78ff38" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3931d2fb-4431-4db8-9ed4-fca4a2e2970b">
+<span class="eqno">()<a class="headerlink" href="#equation-3931d2fb-4431-4db8-9ed4-fca4a2e2970b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -511,8 +510,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd2e9207-6870-4d8b-9876-c29b8478cc03">
-<span class="eqno">()<a class="headerlink" href="#equation-bd2e9207-6870-4d8b-9876-c29b8478cc03" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf092637-9b72-4d7b-9ee4-590c8e722c4c">
+<span class="eqno">()<a class="headerlink" href="#equation-cf092637-9b72-4d7b-9ee4-590c8e722c4c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -522,8 +521,8 @@ are functional parameters.</p>
 <span class="math notranslate nohighlight">\(\mathbb{P} \ne \mathbb{Q}\)</span> but <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \theta(\mathbb{Q})\)</span>.
 For instance there are infinitely many normal distributions with the
 same mean (but different variances).</p>
-</section>
-<section id="parameters-as-indices-for-sets-of-distributions">
+</div>
+<div class="section" id="parameters-as-indices-for-sets-of-distributions">
 <h3>Parameters as indices for sets of distributions<a class="headerlink" href="#parameters-as-indices-for-sets-of-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Another use of the term “parameter” is as an abstract
 index that points to a particular distribution in
@@ -539,7 +538,7 @@ observations.
 Otherwise, the parameter is <em>non-identifiable</em> or <em>unidentifiable</em>: the data
 do not contain enough information to distinguish among different values
 of the parameter, no matter how many observations are made.</p>
-<section id="special-case-location-scale-families">
+<div class="section" id="special-case-location-scale-families">
 <h4>Special case: location-scale families<a class="headerlink" href="#special-case-location-scale-families" title="Permalink to this headline">¶</a></h4>
 <p>Many indexed families of distributions are related through the
 value of their parameter in a particular way.
@@ -553,25 +552,25 @@ with parameter <span class="math notranslate nohighlight">\(\theta = (x, a)\)</s
 As <span class="math notranslate nohighlight">\(x\)</span> varies, the probability distribution “shifts” its location.
 As <span class="math notranslate nohighlight">\(a\)</span> varies, the probability distribution <span class="math notranslate nohighlight">\(P\)</span> is “stretched” or re-scaled.
 The family of univariate normal distributions is a location-scale family over the two-dimensional parameter <span class="math notranslate nohighlight">\(\theta = (\mu, \sigma)\)</span> with <span class="math notranslate nohighlight">\(\mu \in \Re\)</span>, <span class="math notranslate nohighlight">\(\sigma \in \Re \backslash \{0\}\)</span>.</p>
-</section>
-<section id="notation-for-index-parameters">
+</div>
+<div class="section" id="notation-for-index-parameters">
 <h4>Notation for index parameters<a class="headerlink" href="#notation-for-index-parameters" title="Permalink to this headline">¶</a></h4>
 <p>To keep the notation for index parameters
 parallel with the notation for functional parameters, we will define <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) \equiv 
 \{ \eta: \mathbb{P} = \mathbb{P}_\eta\}\)</span>.
 If <span class="math notranslate nohighlight">\(\theta\)</span> is identifiable, <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a singleton set; otherwise,
 it may contain more than one element.</p>
-</section>
-</section>
-<section id="parametric-families-of-distributions">
+</div>
+</div>
+<div class="section" id="parametric-families-of-distributions">
 <h3>Parametric families of distributions<a class="headerlink" href="#parametric-families-of-distributions" title="Permalink to this headline">¶</a></h3>
 <p>A <em>parametric family of distributions</em> is an indexed collection of probability distributions
 that depends on the index parameter (which might be multidimensional) in a
 fixed functional way.
 (We can think of things like the mean and standard deviation of a normal distribution as either a multidimensional parameter or as a collection of parameters.)</p>
 <p>Most distributions that have names are parametric families, e.g., Bernoulli (the parameter <span class="math notranslate nohighlight">\(p\)</span>), Binomial (the two-dimensional parameter <span class="math notranslate nohighlight">\((n, p)\)</span>), Geometric (<span class="math notranslate nohighlight">\(p\)</span>), Hypergeometric (the three-dimensional parameter <span class="math notranslate nohighlight">\((N, G, n)\)</span>), Negative Binomial <span class="math notranslate nohighlight">\((p, k)\)</span>, Normal <span class="math notranslate nohighlight">\((\mu, \sigma)\)</span>, Student’s <span class="math notranslate nohighlight">\(T\)</span> <span class="math notranslate nohighlight">\((\mu, \sigma, \nu)\)</span>, continuous uniform (the endpoints of the interval of support, the two-dimensional parameter <span class="math notranslate nohighlight">\((a, b)\)</span>), and so on.</p>
-</section>
-<section id="nuisance-parameters">
+</div>
+<div class="section" id="nuisance-parameters">
 <h3>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Permalink to this headline">¶</a></h3>
 <p>When the probability distribution of the data depends on a multi-dimensional parameter
 but only some components of that parameter are of interest, the other components are called <em>nuisance parameters</em>.
@@ -580,15 +579,15 @@ variance of the distribution is a nuisance parameter: we don’t care what it is
 but it affects the probability distribution of the data.</p>
 <p>Similarly, in estimating a population mean from a stratified sample, the means
 within the different strata are nuisance parameters.</p>
-</section>
-<section id="abstract-parameters">
+</div>
+<div class="section" id="abstract-parameters">
 <h3>Abstract parameters<a class="headerlink" href="#abstract-parameters" title="Permalink to this headline">¶</a></h3>
 <p>For most of the theory in this chapter, <span class="math notranslate nohighlight">\(\theta\)</span> will be an abstract parameter:
 the development applies to functional parameters, index parameters, parameters of
 parametric families, etc.</p>
-</section>
-</section>
-<section id="id1">
+</div>
+</div>
+<div class="section" id="id1">
 <h2>Confidence sets<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>What can we learn about the value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> from observations?
 <a class="reference internal" href="tests.html"><span class="doc std std-doc">The chapter on testing</span></a> discusses testing hypotheses, including
@@ -612,8 +611,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8aee339-6356-4c57-8d7b-f6ec16875a59">
-<span class="eqno">()<a class="headerlink" href="#equation-a8aee339-6356-4c57-8d7b-f6ec16875a59" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-94e2e3c5-82ed-404c-a001-aaabde22a948">
+<span class="eqno">()<a class="headerlink" href="#equation-94e2e3c5-82ed-404c-a001-aaabde22a948" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -635,14 +634,14 @@ After the data <span class="math notranslate nohighlight">\(X=x\)</span> are obs
 does or does not contain <span class="math notranslate nohighlight">\(\theta\)</span>: there is nothing random anymore.</p>
 <p>A <em>confidence interval</em> is a special case of a confidence set, when the set is an interval of real numbers.
 <em>One-sided confidence intervals</em> are the special case that the confidence set is a semi-infinite interval, i.e., a set of real numbers of the form <span class="math notranslate nohighlight">\((-\infty, c]\)</span> or <span class="math notranslate nohighlight">\([c, \infty)\)</span>.</p>
-<section id="example-confidence-interval-for-a-normal-mean">
+<div class="section" id="example-confidence-interval-for-a-normal-mean">
 <h3>Example: confidence interval for a Normal mean<a class="headerlink" href="#example-confidence-interval-for-a-normal-mean" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>: <span class="math notranslate nohighlight">\(\theta\)</span> is an index parameter for the (parametric) family of unit variance normal distributions (<span class="math notranslate nohighlight">\(\mathcal{P} \equiv \{N(\eta, 1)\}_{\eta \in \Re}\)</span>) and also a functional parameter, since <span class="math notranslate nohighlight">\(\mathbb{E} X = \theta\)</span>.</p>
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5781cc16-4267-465c-8266-de3c4cb1fea1">
-<span class="eqno">()<a class="headerlink" href="#equation-5781cc16-4267-465c-8266-de3c4cb1fea1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-56781658-c866-4501-aede-8ed3b40e1015">
+<span class="eqno">()<a class="headerlink" href="#equation-56781658-c866-4501-aede-8ed3b40e1015" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -657,9 +656,9 @@ equal to <span class="math notranslate nohighlight">\(1-\alpha\)</span>?</p>
 \end{equation*}\]</div>
 <p>But whenever <span class="math notranslate nohighlight">\(|X-\theta| \le z_{1-\alpha/2}\)</span>,
 the interval <span class="math notranslate nohighlight">\([X - z_{1-\alpha/2}, X + z_{1-\alpha/2}]\)</span> contains <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-</section>
-</section>
-<section id="duality-between-hypothesis-tests-and-confidence-sets">
+</div>
+</div>
+<div class="section" id="duality-between-hypothesis-tests-and-confidence-sets">
 <h2>Duality between hypothesis tests and confidence sets<a class="headerlink" href="#duality-between-hypothesis-tests-and-confidence-sets" title="Permalink to this headline">¶</a></h2>
 <p>One of the most versatile ways of constructing confidence sets is to <em>invert</em>
 hypothesis tests.</p>
@@ -688,8 +687,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29b383a4-f92b-41b8-a145-48c8d47d17db">
-<span class="eqno">()<a class="headerlink" href="#equation-29b383a4-f92b-41b8-a145-48c8d47d17db" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-00a36fdd-d0c6-4c2b-8dca-6c7ede5edcc2">
+<span class="eqno">()<a class="headerlink" href="#equation-00a36fdd-d0c6-4c2b-8dca-6c7ede5edcc2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -706,7 +705,7 @@ As a simple example, inverting 1-sided tests for a real parameter will give a 1-
 <p>It is often possible to design confidence sets that have desirable characteristics–such as avoiding including zero to the extent possible (so that they determine the sign of their parameter), or being on average as small as possible–by inverting suitably chosen tests.
 See, e.g., <a class="reference external" href="https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1998.10474112#.YGk8ERRKg-Q">Benjamini, Hochberg, and Stark (1996)</a>, <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476692">Benjamini and Stark (1996)</a>,
 <span class="xref myst">Evans, Hansen, and Stark (19??)</span>, and <a class="reference external" href="https://arxiv.org/abs/1906.00505">Benjamini, Hechtlinger, and Stark (2019)</a>.</p>
-<section id="example-confidence-interval-for-binomial-p-known-n">
+<div class="section" id="example-confidence-interval-for-binomial-p-known-n">
 <h3>Example: confidence interval for Binomial <span class="math notranslate nohighlight">\(p\)</span> (known <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-confidence-interval-for-binomial-p-known-n" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we will observe <span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is known but <span class="math notranslate nohighlight">\(p\)</span> is not.
 We seek a one-sided lower confidence interval for <span class="math notranslate nohighlight">\(p\)</span>, that is, a set of the form
@@ -1051,8 +1050,8 @@ p: 0.99 covered: 98.00% mean width: 0.05
 </div>
 </div>
 <p>(I suspect there’s a bug: the coverage at p=0.5 should be higher for <span class="math notranslate nohighlight">\(n=50\)</span> and <span class="math notranslate nohighlight">\(n=100\)</span>.)</p>
-</section>
-<section id="bootstrap-approximate-confidence-intervals">
+</div>
+<div class="section" id="bootstrap-approximate-confidence-intervals">
 <h3>Bootstrap approximate confidence intervals<a class="headerlink" href="#bootstrap-approximate-confidence-intervals" title="Permalink to this headline">¶</a></h3>
 <p>The bootstrap approximates sampling from a population by sampling with replacement from a sample from the population. That is, it approximates the population distribution by the empirical distribution of the observed sample, which is
 the nonparametric maximum likelihood estimate of the population distribution</p>
@@ -1171,8 +1170,8 @@ much lower than their nominal level (here, as low as about 9% when they should b
 <p>This example is a fairly simple situation: estimating the mean of a population of zeros and ones from a random sample with replacement. In more complicated examples, bootstrap confidence intervals generally do not attain their nominal level.
 There is a substantial body of work on how to improve the coverage of bootstrap CIs.
 <em>Pre-pivoting</em> can help substantially. See <a class="reference external" href="https://www.jstor.org/stable/2336685?seq=1">Beran (1987)</a>.</p>
-</section>
-<section id="example-2-confidence-interval-for-hypergeometric-g-known-n-n">
+</div>
+<div class="section" id="example-2-confidence-interval-for-hypergeometric-g-known-n-n">
 <h3>Example 2: confidence interval for Hypergeometric <span class="math notranslate nohighlight">\(G\)</span> (known <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-2-confidence-interval-for-hypergeometric-g-known-n-n" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we will observe <span class="math notranslate nohighlight">\(X \sim \mbox{Hyper}(N, G, n)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are known but <span class="math notranslate nohighlight">\(G\)</span> is not.
 We seek a one-sided lower confidence interval for <span class="math notranslate nohighlight">\(G\)</span>, that is, a set of the form
@@ -1292,11 +1291,11 @@ N=100, G=25, n=30: covered  97.65%
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="confidence-intervals-from-permutation-tests">
+</div>
+</div>
+<div class="section" id="confidence-intervals-from-permutation-tests">
 <h2>Confidence intervals from permutation tests<a class="headerlink" href="#confidence-intervals-from-permutation-tests" title="Permalink to this headline">¶</a></h2>
-<section id="the-two-sample-problem">
+<div class="section" id="the-two-sample-problem">
 <h3>The two-sample problem<a class="headerlink" href="#the-two-sample-problem" title="Permalink to this headline">¶</a></h3>
 <p>Recall from the chapter on <a class="reference internal" href="tests.html"><span class="doc std std-doc">hypothesis tests</span></a> that the two-sample problem asks whether two groups plausibly resulted from allocating their union randomly into two groups of their observed sizes.</p>
 <p>That is, we have two groups of data, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span>, and hypothesize that they arose by taking the multiset of <span class="math notranslate nohighlight">\(n+m\)</span> values <span class="math notranslate nohighlight">\(\{x_1, \ldots, x_n, y_1, \ldots, y_m\}\)</span> and randomly selecting <span class="math notranslate nohighlight">\(n\)</span> items to comprise the first group, with the remaining <span class="math notranslate nohighlight">\(m\)</span> comprising the second group.</p>
@@ -1307,9 +1306,9 @@ The <em>strong null hypothesis</em> of no treatment effect is that each subject 
 It is as if the response were determined before the assignment occurred.
 The assignment just reveals the response corresponding to the assigned treatment.</p>
 <p>Thus, testing the strong null hypothesis is an instance of the two-sample problem: did the two sets of values plausibly arise from dividing a single set of values at random into two groups by simple random sampling?</p>
-</section>
-</section>
-<section id="the-neyman-model-for-causal-inference">
+</div>
+</div>
+<div class="section" id="the-neyman-model-for-causal-inference">
 <h2>The Neyman model for causal inference<a class="headerlink" href="#the-neyman-model-for-causal-inference" title="Permalink to this headline">¶</a></h2>
 <p>There are <span class="math notranslate nohighlight">\(N\)</span> subjects and <span class="math notranslate nohighlight">\(T\)</span> possible treatments.
 Each subject is represented by a ticket.
@@ -1326,7 +1325,7 @@ mnay come in contact with each other.)</p>
 <em>potential</em> outcomes each subject will have to each treatment. Assigning a subject to a
 treatment just reveals the potential outcome that corresponds to that treatment, for that subject. This model was introduced by Jerzy Neyman, the founder of the U.C. Berkeley Department of Statistics, in a 1923 paper in Polish <a class="reference external" href="https://projecteuclid.org/journals/statistical-science/volume-5/issue-4/On-the-Application-of-Probability-Theory-to-Agricultural-Experiments-Essay/10.1214/ss/1177012031.full">translated into English in 1990</a>.</p>
 <p>There are generalizations of this model, including one in which the “potential outcomes” are random, rather than deterministic, but their distributions are fixed before assignment to treatment: if subject <span class="math notranslate nohighlight">\(j\)</span> is assigned treatment <span class="math notranslate nohighlight">\(t\)</span>, a draw from the distribution <span class="math notranslate nohighlight">\(\mathbb{P}_{jt}\)</span> is observed. Draws for different subjects are independent.</p>
-<section id="null-hypotheses-for-the-neyman-model">
+<div class="section" id="null-hypotheses-for-the-neyman-model">
 <h3>Null hypotheses for the Neyman model<a class="headerlink" href="#null-hypotheses-for-the-neyman-model" title="Permalink to this headline">¶</a></h3>
 <p>The <em>strong</em> null hypothesis is that subject by subject, the effect of
 all <span class="math notranslate nohighlight">\(T\)</span> treatments is the same.
@@ -1361,21 +1360,21 @@ The statistical theory is more complex for the weak null hypothesis than for the
 But the converse is not true: the weak null can be true even if the strong null is false.
 For example, for <span class="math notranslate nohighlight">\(T=2\)</span> and <span class="math notranslate nohighlight">\(N=2\)</span>, we might have potential responses <span class="math notranslate nohighlight">\((0, 1)\)</span> for subject 1 and <span class="math notranslate nohighlight">\((1,0)\)</span> for subject 2. The effect of treatment is to increase subject 1’s response from 0 to 1 and to decrease subject 2’s response from 1 to 0.
 The treatment affects both subjects, but the average effect of treatment is the same: the average response across subjects is 1/2, with or without treatment.</p>
-</section>
-<section id="alternative-hypotheses">
+</div>
+<div class="section" id="alternative-hypotheses">
 <h3>Alternative hypotheses<a class="headerlink" href="#alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
-<section id="constant-shift">
+<div class="section" id="constant-shift">
 <h4>Constant shift<a class="headerlink" href="#constant-shift" title="Permalink to this headline">¶</a></h4>
 <p>This alternative states that the effect of treatment is to change each subject’s response by the same amount, <span class="math notranslate nohighlight">\(\Delta\)</span>. That is, <span class="math notranslate nohighlight">\(x_{j2} = x_{j1}+\Delta\)</span> for all subjects <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <p>Again, once the original data are observed, this completely specifies the probability distribution of the data: we know what subject <span class="math notranslate nohighlight">\(j\)</span>’s response would have been had the subject been assigned the other treatment. If the subject was assigned treatment 1, the response would have been larger by <span class="math notranslate nohighlight">\(\Delta\)</span> if the subject had been assigned treatment 2 instead. if the subject was assigned treatment 2, the response would have been smaller by <span class="math notranslate nohighlight">\(\Delta\)</span> if the subject had been assigned treatment 1 instead.</p>
-</section>
-</section>
-<section id="other-tractable-alternative-hypotheses">
+</div>
+</div>
+<div class="section" id="other-tractable-alternative-hypotheses">
 <h3>Other tractable alternative hypotheses<a class="headerlink" href="#other-tractable-alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
 <p>A more general alternative is that <span class="math notranslate nohighlight">\(x_{j2} = f(x_{j1})\)</span> for some strictly monotonic (and thus invertible) function <span class="math notranslate nohighlight">\(f\)</span>.</p>
-</section>
-</section>
-<section id="confidence-intervals-when-there-are-nuisance-parameters-stratified-sampling">
+</div>
+</div>
+<div class="section" id="confidence-intervals-when-there-are-nuisance-parameters-stratified-sampling">
 <h2>Confidence intervals when there are nuisance parameters: stratified sampling<a class="headerlink" href="#confidence-intervals-when-there-are-nuisance-parameters-stratified-sampling" title="Permalink to this headline">¶</a></h2>
 <p>We now look at an example of constructing a confidence interval when there are nuisance parameters: finding a confidence bound for the mean of a binary population from a stratified sample from the population.
 This problem occurs in opinion surveys, financial auditing, and election auditing.
@@ -1388,7 +1387,7 @@ It will let us see some of the issues that arise when there are nuisance paramet
 <li><p>combining independent <span class="math notranslate nohighlight">\(P\)</span>-values</p></li>
 </ul>
 <p>It is also an example of a combinatorial optimization problem that can be solved quickly using a greedy algorithm–which is rare.</p>
-<section id="the-problem">
+<div class="section" id="the-problem">
 <h3>The problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h3>
 <p>A population of <span class="math notranslate nohighlight">\(N\)</span> items of which <span class="math notranslate nohighlight">\(G\)</span> are labeled “1” and <span class="math notranslate nohighlight">\(N-G\)</span> are labeled “0”
 is partitioned into <span class="math notranslate nohighlight">\(S\)</span> strata.
@@ -1426,7 +1425,7 @@ is combinatorially complex: Feller’s “bars and stars” argument shows that 
 (Some of those can be ruled out, for instance if <span class="math notranslate nohighlight">\(G\)</span> exceeds the size of any stratum.)
 For <span class="math notranslate nohighlight">\(S=10\)</span> strata of size <span class="math notranslate nohighlight">\(N_s = 400\)</span> and <span class="math notranslate nohighlight">\(G = 300\)</span>,
 there are roughly 6.3e+16 allocations: impractical by any standard.</p>
-<section id="aside-feller-s-bars-and-stars-argument">
+<div class="section" id="aside-feller-s-bars-and-stars-argument">
 <h4><em>Aside: Feller’s Bars and Stars Argument</em><a class="headerlink" href="#aside-feller-s-bars-and-stars-argument" title="Permalink to this headline">¶</a></h4>
 <p>How many distinguishable ways are there to divide <span class="math notranslate nohighlight">\(G\)</span> indistinguishable objects into <span class="math notranslate nohighlight">\(S\)</span> groups?
 <a class="reference external" href="https://www.wiley.com/en-us/An+Introduction+to+Probability+Theory+and+Its+Applications%2C+Volume+2%2C+2nd+Edition-p-9780471257097">Feller (1950)</a> argues as follows.</p>
@@ -1450,9 +1449,9 @@ Similarly,</p>
 <p>corresponds to having all the items in the <span class="math notranslate nohighlight">\(S\)</span>th group.
 The number of ways of partitioning the <span class="math notranslate nohighlight">\(G\)</span> items into <span class="math notranslate nohighlight">\(S\)</span> groups is thus the number of ways of choosing <span class="math notranslate nohighlight">\(S-1\)</span> places to put bars among a total of <span class="math notranslate nohighlight">\(G+S-1\)</span> places (the bars and stars pooled together), i.e., <span class="math notranslate nohighlight">\(\binom{G+S-1}{S-1}\)</span>.</p>
 <p>We now examine some approaches to making confidence intervals for the population total <span class="math notranslate nohighlight">\(G\)</span> (equivalently, for the population mean <span class="math notranslate nohighlight">\(\mu = G/N\)</span>) from a stratified sample.</p>
-</section>
-</section>
-<section id="wright-s-method-sum-of-sidak-intervals">
+</div>
+</div>
+<div class="section" id="wright-s-method-sum-of-sidak-intervals">
 <h3>Wright’s Method: Sum of Šidák Intervals<a class="headerlink" href="#wright-s-method-sum-of-sidak-intervals" title="Permalink to this headline">¶</a></h3>
 <p>One easy way to get a lower confidence bound for the sum is to take the sum of
 simultaneous lower confidence bounds for each stratum.
@@ -1471,8 +1470,8 @@ independent data for each parameter is called <em>Šidák’s</em> method.</p>
 <p>Wright’s method is an example of a much more general approach: make a joint <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set for all the parameters <span class="math notranslate nohighlight">\(\{G_j\}_{j=1}^S\)</span>, then find a lower bound on a functional of interest (here, their sum) over the joint set.
 Whenever the joint confidence set covers the parameter, the lower bound does not exceed the true value of the functional of the parameter.
 But because we do not care about the individual stratum sums, only the overall population sum, this approach is unnecessarily conservative: we are “wasting” effort constraining them separately.</p>
-</section>
-<section id="the-wendell-schmee-test">
+</div>
+<div class="section" id="the-wendell-schmee-test">
 <h3>The Wendell-Schmee Test<a class="headerlink" href="#the-wendell-schmee-test" title="Permalink to this headline">¶</a></h3>
 <p>Wendell and Schmee (1996, https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476950) proposed making inferences about the population total by maximizing a <span class="math notranslate nohighlight">\(P\)</span>-value over a set of nuisance parameters—the individual stratum totals.
 They find the <span class="math notranslate nohighlight">\(P\)</span>-value by ordering possible outcomes based on the estimated population proportion:
@@ -1493,8 +1492,8 @@ using a descent method from some number of random starting points.
 (They show graphically that the tail probability is not convex in the original
 parametrization.)</p>
 <p>In practice, their method is computationally intractable when there are more than <span class="math notranslate nohighlight">\(S=3\)</span> strata.</p>
-</section>
-<section id="constructive-maximization">
+</div>
+<div class="section" id="constructive-maximization">
 <h3>Constructive maximization<a class="headerlink" href="#constructive-maximization" title="Permalink to this headline">¶</a></h3>
 <p>For some test statistics, there is a much more efficient approach.</p>
 <p>Define
@@ -1596,8 +1595,8 @@ freedom is a conservative <span class="math notranslate nohighlight">\(P\)</span
 </ul>
 <p>A conservative upper <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(G\)</span> can be found by inverting the test: it is the largest <span class="math notranslate nohighlight">\(g\)</span> for which
 <span class="math notranslate nohighlight">\(P(g) \ge \alpha\)</span>.</p>
-</section>
-<section id="changing-the-direction-of-the-test">
+</div>
+<div class="section" id="changing-the-direction-of-the-test">
 <h3>Changing the direction of the test<a class="headerlink" href="#changing-the-direction-of-the-test" title="Permalink to this headline">¶</a></h3>
 <p>The test of the hypothesis <span class="math notranslate nohighlight">\(G=g\)</span> given above is a one-sided test against the alternative
 <span class="math notranslate nohighlight">\(G &gt; g\)</span>: it rejects if the chance of observing “so few” good objects is small.</p>
@@ -2256,7 +2255,7 @@ Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.7/site-packag
 </div>
 </div>
 </div>
-<p>Let’s write some numerical tests of the functions.</p>
+<p>Let’s write some numerical tests to confirm that the three ways of computing bounds agree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_strat_test</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
@@ -2311,9 +2310,9 @@ Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.7/site-packag
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

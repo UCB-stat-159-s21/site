@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nonparametric Method Shootout &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -292,7 +291,7 @@
         
               <div>
                 
-  <section id="nonparametric-method-shootout">
+  <div class="section" id="nonparametric-method-shootout">
 <h1>Nonparametric Method Shootout<a class="headerlink" href="#nonparametric-method-shootout" title="Permalink to this headline">¶</a></h1>
 <p>I hope you’re convinced that Student-t intervals don’t necessarily have true coverage levels close to their nominal coverage levels, even for large sample sizes.</p>
 <p>Moreover, there are a variety of conservative nonparametric methods that can be used for populations with one-sided or two-sided bounds to produce one-sided or two-sided confidence intervals guaranteed to have coverage probabilities at least as large as their nominal confidence level.</p>
@@ -300,7 +299,7 @@
 <p>If the population really consists of only two values, it is impossible to improve on exact Binomial intervals for samples drawn with replacement or Hypergeometric intervals for sampling without replacement (for one-sided bounds; for two-sided bounds, there is no unique “best” choice).</p>
 <p>For more general populations, your mileage may vary.</p>
 <p>Let’s do some experiments to compare them. None is best in every situation. Relative performance depends on the population distribution and on sample sizes.</p>
-<section id="continuous-penny-sampling-kaplan-wald-hoeffding-and-mdkw">
+<div class="section" id="continuous-penny-sampling-kaplan-wald-hoeffding-and-mdkw">
 <h2>Continuous Penny Sampling, Kaplan-Wald, Hoeffding, and MDKW<a class="headerlink" href="#continuous-penny-sampling-kaplan-wald-hoeffding-and-mdkw" title="Permalink to this headline">¶</a></h2>
 <p>Let’s compare the principal methods we’ve developed, using simulations from a broader variety of populations. We will skip the thresholded binomial, Chebychev’s inequality, and Markov’s inequality: they are dominated by other methods.</p>
 <p>Some of the methods (Hoeffding, Penny Sampling) require upper and lower population bounds. When they are applicable, we might expect them to do better than methods that require only one-sided population bounds (MDKW, Kaplan-Wald), since they use more information.</p>
@@ -1460,15 +1459,15 @@
 </div></div></div>
 </div>
 <p>However, using a small value of <span class="math notranslate nohighlight">\(\gamma\)</span> hurts the confidence bound—at least for small sample sizes—when <span class="math notranslate nohighlight">\(x\)</span> tends to have <em>few</em> values near zero.</p>
-</section>
-<section id="what-s-next">
+</div>
+<div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="pennySampling.html"><span class="doc std std-doc">Previous: Penny Sampling</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

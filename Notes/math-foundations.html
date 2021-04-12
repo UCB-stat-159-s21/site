@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mathematical Preliminaries &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -386,9 +385,9 @@
         
               <div>
                 
-  <section id="mathematical-preliminaries">
+  <div class="section" id="mathematical-preliminaries">
 <h1>Mathematical Preliminaries<a class="headerlink" href="#mathematical-preliminaries" title="Permalink to this headline">¶</a></h1>
-<section id="sets">
+<div class="section" id="sets">
 <h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
 <p>A set is a collection of objects, called <em>members</em> or <em>elements</em> of the set, without
 regard for their order.
@@ -505,8 +504,8 @@ and <span class="math notranslate nohighlight">\(\{A_j : \beta \in B \}\)</span>
 \[\begin{equation*} 
         \# A = \sum_{\beta \in B} \# A_\beta.
 \end{equation*}\]</div>
-</section>
-<section id="cartesian-products">
+</div>
+<div class="section" id="cartesian-products">
 <h2>Cartesian Products<a class="headerlink" href="#cartesian-products" title="Permalink to this headline">¶</a></h2>
 <p>The notation <span class="math notranslate nohighlight">\((s_1, s_2, \ldots, s_n) \equiv (s_j)_{j=1}^n\)</span> denotes an
 <em>ordered <span class="math notranslate nohighlight">\(n\)</span>-tuple</em> consisting of
@@ -569,8 +568,8 @@ By the fundamental rule of counting, it follows that
 \[\begin{equation*} 
         \sum_{j=0}^n {}_nC_k = 2^n.
 \end{equation*}\]</div>
-</section>
-<section id="mappings-and-functions">
+</div>
+<div class="section" id="mappings-and-functions">
 <h2>Mappings and Functions<a class="headerlink" href="#mappings-and-functions" title="Permalink to this headline">¶</a></h2>
 <p>Functions are subsets of Cartesian products.
 We write <span class="math notranslate nohighlight">\(f: \mathcal{X} \rightarrow \mathcal{Y}\)</span>, pronounced “<span class="math notranslate nohighlight">\(f\)</span> maps <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> into <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>”
@@ -606,8 +605,8 @@ For <span class="math notranslate nohighlight">\(B \subset \mathcal{Y}\)</span>,
 If <span class="math notranslate nohighlight">\(\forall y \in \mathcal{Y}\)</span>, <span class="math notranslate nohighlight">\(\# \{ f^{-1} y \} \le 1\)</span>, <span class="math notranslate nohighlight">\(f\)</span> is <em>one-to-one</em> (1:1).
 If <span class="math notranslate nohighlight">\(f\)</span> is one-to-one and onto, i.e., if <span class="math notranslate nohighlight">\(\forall y \in \mathcal{Y}\)</span>, <span class="math notranslate nohighlight">\(\# \{ f^{-1}y \} = 1\)</span>,
 <span class="math notranslate nohighlight">\(f\)</span> is a <em>bijection</em>.</p>
-</section>
-<section id="multisets">
+</div>
+<div class="section" id="multisets">
 <h2>Multisets<a class="headerlink" href="#multisets" title="Permalink to this headline">¶</a></h2>
 <p>A <em>multiset</em> or <em>bag</em> is like a set, except it can contain more than one “copy” of a given element.</p>
 <p>For instance, the sets <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> and <span class="math notranslate nohighlight">\(\{0, 1, 1\}\)</span> are the same, because they contain the same two elements, namely, 0 and 1. But viewed as <em>multisets</em>, they are different, because the second contains the element 1 twice.
@@ -619,8 +618,8 @@ For instance, the multisets <span class="math notranslate nohighlight">\(\{0, 1,
 <p>Generally I will not make a notational distinction between sets and multisets (I use curly braces to denote both sets and multisets).</p>
 <p>If <span class="math notranslate nohighlight">\(x_j\)</span>_{j=1}^n is an ordered n-tuple, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> will denote the multiset containing all
 <span class="math notranslate nohighlight">\(n\)</span> of its coordinates.</p>
-</section>
-<section id="relations-and-orders">
+</div>
+<div class="section" id="relations-and-orders">
 <h2>Relations and Orders<a class="headerlink" href="#relations-and-orders" title="Permalink to this headline">¶</a></h2>
 <p>A <em>relation</em> <span class="math notranslate nohighlight">\(R\)</span> on the set <span class="math notranslate nohighlight">\(A\)</span> is a collection of ordered pairs of elements of <span class="math notranslate nohighlight">\(A\)</span>, that is,
 <span class="math notranslate nohighlight">\(R  \subset A \times A\)</span>.
@@ -646,8 +645,8 @@ If we let <span class="math notranslate nohighlight">\(R\)</span> denote the rel
 <li><p>if <span class="math notranslate nohighlight">\( a \sim b \)</span> and <span class="math notranslate nohighlight">\( b \sim c \)</span>, then <span class="math notranslate nohighlight">\( a \sim c \)</span> (<em>transitivity</em>)</p></li>
 </ul>
 <p>The <em>equivalence class</em> of <span class="math notranslate nohighlight">\(a\)</span> under <span class="math notranslate nohighlight">\(\sim\)</span> is <span class="math notranslate nohighlight">\([a] \equiv \{b \in A : b \sim a \}\)</span>.</p>
-</section>
-<section id="groups">
+</div>
+<div class="section" id="groups">
 <h2>Groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h2>
 <p>A <em>group</em> is an ordered pair <span class="math notranslate nohighlight">\((\mathcal{G}, \times)\)</span>, where <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> is
 a collection of objects (the elements of the group) and <span class="math notranslate nohighlight">\(\times\)</span> is a mapping
@@ -707,8 +706,8 @@ Applying it repeatedly yields $(n-1, n, 1, \ldots, n-2)$, $(n-2, n-1, n, 1, \ldo
 After $n$ applications, we get back to $(1, 2, 3, \ldots, n)$. 
 This permutation gives a cycle of length $n$.
 --> 
-</section>
-<section id="fields">
+</div>
+<div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
 <p>An ordered triple <span class="math notranslate nohighlight">\((\mathcal{F}, \times, +)\)</span> is a <em>field</em> if <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is
 a collection of objects and <span class="math notranslate nohighlight">\(\times\)</span> and <span class="math notranslate nohighlight">\(+\)</span> are operations on <span class="math notranslate nohighlight">\(\mathcal{F} \times \mathcal{F}\)</span>
@@ -728,8 +727,8 @@ such that</p>
 (real) addition.
 The complex numbers <span class="math notranslate nohighlight">\({\mathbf C}\)</span>, with complex multiplication and addition.</p>
 <p>These (and the extended reals) are the only fields we will use.</p>
-</section>
-<section id="arithmetic-with-infty">
+</div>
+<div class="section" id="arithmetic-with-infty">
 <h2>Arithmetic with <span class="math notranslate nohighlight">\(\infty\)</span><a class="headerlink" href="#arithmetic-with-infty" title="Permalink to this headline">¶</a></h2>
 <p>We shall use the following conventions:</p>
 <ul class="simple">
@@ -738,8 +737,8 @@ The complex numbers <span class="math notranslate nohighlight">\({\mathbf C}\)</
 <li><p><span class="math notranslate nohighlight">\(x \cdot \infty = \infty \cdot x = \infty\)</span>, <span class="math notranslate nohighlight">\(x &gt; 0\)</span></p></li>
 </ul>
 <p>With these conventions, <span class="math notranslate nohighlight">\(([-\infty, \infty], \times, +)\)</span> is a field.</p>
-</section>
-<section id="groups-of-transformations-on-a-set">
+</div>
+<div class="section" id="groups-of-transformations-on-a-set">
 <h2>Groups of transformations on a set<a class="headerlink" href="#groups-of-transformations-on-a-set" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\( \mathcal{G} \)</span> be a group (with the group operation implicit) with identity element
 <span class="math notranslate nohighlight">\(e \in \mathcal{G} \)</span> and let <span class="math notranslate nohighlight">\(\mathcal X\)</span> be a set.
@@ -787,8 +786,8 @@ The orbit of a point <span class="math notranslate nohighlight">\(x\)</span> is 
 with the same components as <span class="math notranslate nohighlight">\(x\)</span>, but in all <span class="math notranslate nohighlight">\(n!\)</span> possible orders.
 (The orbit will contain fewer than <span class="math notranslate nohighlight">\(n!\)</span> distinct elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> if the values
 of the components of <span class="math notranslate nohighlight">\(x\)</span> are not all distinct.)</p>
-</section>
-<section id="transformations-of-probability-distributions">
+</div>
+<div class="section" id="transformations-of-probability-distributions">
 <h2>Transformations of probability distributions<a class="headerlink" href="#transformations-of-probability-distributions" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> be a probability distribution on a (measurable) set <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> and let
 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> be a group of transformations of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> with the property that
@@ -802,8 +801,8 @@ is <em>invariant under the group of transformations</em> <span class="math notra
 <p>A collection of random variables is <em>exchangeable</em> if every permutation of the variables has the same
 joint probability distribution, that is, if the joint distribution is invariant under the permutation
 group. Any collection of random variables that are independent and identically distributed (IID) is exchangeable, but IID is a stronger property than exchangeability.</p>
-</section>
-<section id="real-linear-vector-spaces">
+</div>
+<div class="section" id="real-linear-vector-spaces">
 <h2>Real Linear Vector Spaces<a class="headerlink" href="#real-linear-vector-spaces" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a set (the “vectors”) with two relations, <span class="math notranslate nohighlight">\(+\)</span> (vector addition) and <span class="math notranslate nohighlight">\(\cdot\)</span> (scalar multiplication),
 such that for all <span class="math notranslate nohighlight">\(x, y \in \mathcal{X}\)</span> and all <span class="math notranslate nohighlight">\(\alpha, \beta \in \mathbb{R}\)</span>,</p>
@@ -821,14 +820,14 @@ such that for all <span class="math notranslate nohighlight">\(x, y \in \mathcal
 </ul>
 <p>Then <span class="math notranslate nohighlight">\((\mathcal{X}, +, \cdot)\)</span> is a real linear vector space.</p>
 <p>One generally omits the <span class="math notranslate nohighlight">\(\cdot\)</span> notation and just writes <span class="math notranslate nohighlight">\(\alpha x\)</span> rather than <span class="math notranslate nohighlight">\(\alpha \cdot x\)</span>.</p>
-<section id="linear-independence-and-algebraic-bases">
+<div class="section" id="linear-independence-and-algebraic-bases">
 <h3>Linear Independence and Algebraic Bases<a class="headerlink" href="#linear-independence-and-algebraic-bases" title="Permalink to this headline">¶</a></h3>
 <p>A set of vectors <span class="math notranslate nohighlight">\(S \subset \mathcal{X}\)</span> of a linear vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is <em>linearly independent</em> if for every finite subset <span class="math notranslate nohighlight">\(\{s_1, \ldots, s_n \} \subset S\)</span>, and every set of scalars <span class="math notranslate nohighlight">\(\{\alpha_1, \ldots, \alpha_n\}\)</span> if <span class="math notranslate nohighlight">\(\sum_{j=1}^n \alpha_js_j = 0\)</span>, then <span class="math notranslate nohighlight">\(\alpha_1 = \cdots = \alpha_n = 0\)</span>.</p>
 <p>An <em>algebraic basis</em> <span class="math notranslate nohighlight">\(B \subset \mathcal{X}\)</span> for a linear vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is a linearly independent collection of vectors such that for any <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>, there exists a finite subset <span class="math notranslate nohighlight">\(\{b_j\}_{j=1}^n\)</span> and a set of scalars <span class="math notranslate nohighlight">\(\{\alpha_j \}_{j=1}^n\)</span>
 such that <span class="math notranslate nohighlight">\( x = \sum_{j=1}^n \alpha_j b_j\)</span>.</p>
-</section>
-</section>
-<section id="real-inner-product-spaces">
+</div>
+</div>
+<div class="section" id="real-inner-product-spaces">
 <h2>Real Inner Product Spaces<a class="headerlink" href="#real-inner-product-spaces" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a real linear vector space and let <span class="math notranslate nohighlight">\(\langle \cdot, \cdot \rangle : \mathcal{X} \times \mathcal{X}
 \to \mathbb{R}\)</span> such that for all <span class="math notranslate nohighlight">\(x, y, z \in \mathcal{X}\)</span> and all <span class="math notranslate nohighlight">\(\alpha, \beta \in \mathbb{R}\)</span>,</p>
@@ -840,8 +839,8 @@ such that <span class="math notranslate nohighlight">\( x = \sum_{j=1}^n \alpha_
 <li><p><span class="math notranslate nohighlight">\(\langle x, x \rangle  = 0 \)</span> if and only if <span class="math notranslate nohighlight">\(x = 0\)</span> (positive definite)</p></li>
 </ul>
 <p>Then <span class="math notranslate nohighlight">\((\mathcal{X}, \langle, \rangle)\)</span> is a real inner product space.</p>
-</section>
-<section id="norms">
+</div>
+<div class="section" id="norms">
 <h2>Norms<a class="headerlink" href="#norms" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> be a real linear vector space and let <span class="math notranslate nohighlight">\(\| \cdot \|: \mathcal{X} \to \mathbb{R}^+\)</span> such
 that for all <span class="math notranslate nohighlight">\(x, y, x \in \mathcal{X}\)</span> and all <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}\)</span>,</p>
@@ -851,7 +850,7 @@ that for all <span class="math notranslate nohighlight">\(x, y, x \in \mathcal{X
 <li><p><span class="math notranslate nohighlight">\(\| x + y \| \le \| x \| + \| y \|\)</span> (triangle inequality)</p></li>
 </ul>
 <p>Then <span class="math notranslate nohighlight">\(\| \cdot \|\)</span> is a <em>norm</em> on <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, and we call <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> a <em>normed vector space</em>.</p>
-<section id="cauchy-sequences">
+<div class="section" id="cauchy-sequences">
 <h3>Cauchy sequences<a class="headerlink" href="#cauchy-sequences" title="Permalink to this headline">¶</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is a normed vector space with norm <span class="math notranslate nohighlight">\(\| \cdot \|\)</span>, and let <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span>
 be a sequence of elements of <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.</p>
@@ -860,8 +859,8 @@ be a sequence of elements of <span class="math notranslate nohighlight">\(\mathc
    \| x_{j+1} - x_j \| \rightarrow 0
 \end{equation*}\]</div>
 <p>as <span class="math notranslate nohighlight">\(j \rightarrow \infty\)</span>, then <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span> is a <em>Cauchy sequence</em>.</p>
-</section>
-<section id="completeness">
+</div>
+<div class="section" id="completeness">
 <h3>Completeness<a class="headerlink" href="#completeness" title="Permalink to this headline">¶</a></h3>
 <p>A normed vector space is <em>complete</em> if every Cauchy sequence in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> has a limit in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>.
 That is, if <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</span> is a Cauchy sequence, then there exists <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> such that</p>
@@ -869,8 +868,8 @@ That is, if <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</sp
 \[\begin{equation*} 
    \lim_{j \rightarrow \infty} \| x_j - x \| = 0.
 \end{equation*}\]</div>
-</section>
-<section id="balls">
+</div>
+<div class="section" id="balls">
 <h3>Balls<a class="headerlink" href="#balls" title="Permalink to this headline">¶</a></h3>
 <p>In a normed vector space <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, the <em>closed ball of radius <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> centered at <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span></em> is</p>
 <div class="amsmath math notranslate nohighlight">
@@ -879,19 +878,19 @@ That is, if <span class="math notranslate nohighlight">\(x_1, x_2, \ldots \)</sp
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  B_\epsilon(x_0) \equiv \{ x \in \mathcal{X}: \|x - x_0\| &lt; \epsilon \}.\end{equation*}\]</div>
 <p>The (open) <em>unit ball</em> in <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is <span class="math notranslate nohighlight">\(B_1[0]\)</span> (<span class="math notranslate nohighlight">\(B_1(0)\)</span>).</p>
-</section>
-</section>
-<section id="hilbert-space">
+</div>
+</div>
+<div class="section" id="hilbert-space">
 <h2>Hilbert Space<a class="headerlink" href="#hilbert-space" title="Permalink to this headline">¶</a></h2>
 <p>A <em>Hilbert space</em> is an inner product space <span class="math notranslate nohighlight">\((\mathcal{X}, \langle , \rangle)\)</span>, endowed with the norm <span class="math notranslate nohighlight">\(\|x \| \equiv \sqrt{\langle x, x \rangle}\)</span>, that is complete with respect to that norm.</p>
-<section id="the-riesz-representation-theorem">
+<div class="section" id="the-riesz-representation-theorem">
 <h3>The Riesz Representation Theorem<a class="headerlink" href="#the-riesz-representation-theorem" title="Permalink to this headline">¶</a></h3>
 <p>In a Hilbert space, every bounded linear functional can be represented as the inner product with some element of the space.</p>
 <p>That is, suppose <span class="math notranslate nohighlight">\(L\)</span> is a bounded linear functional on a Hilbert space <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>:  <span class="math notranslate nohighlight">\(L(\alpha x + \beta y) = \alpha L(x) + \beta L(y)\)</span> for all <span class="math notranslate nohighlight">\(x, y \in \mathcal{H}\)</span> and all scalars <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, and there exists a real number <span class="math notranslate nohighlight">\(C \ge 0\)</span> such that for all <span class="math notranslate nohighlight">\(x \in \mathcal{H}\)</span>, <span class="math notranslate nohighlight">\(|L(x)| \le C \|x\|\)</span>.</p>
 <p>Then there exists <span class="math notranslate nohighlight">\(\ell \in \mathcal{H}\)</span> such that for all <span class="math notranslate nohighlight">\(x \in \mathcal{H}\)</span>, <span class="math notranslate nohighlight">\(L(x) = \langle \ell, x \rangle\)</span>.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

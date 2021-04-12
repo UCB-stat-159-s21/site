@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git - slightly more advanced topics &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -91,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -103,7 +102,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -115,7 +114,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -157,7 +156,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -169,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -339,9 +338,9 @@
         
               <div>
                 
-  <section id="git-slightly-more-advanced-topics">
+  <div class="section" id="git-slightly-more-advanced-topics">
 <h1>Git - slightly more advanced topics<a class="headerlink" href="#git-slightly-more-advanced-topics" title="Permalink to this headline">¶</a></h1>
-<section id="an-important-aside-conflict-management">
+<div class="section" id="an-important-aside-conflict-management">
 <h2>An important aside: conflict management<a class="headerlink" href="#an-important-aside-conflict-management" title="Permalink to this headline">¶</a></h2>
 <p>While git is very good at merging, if two different branches modify the same file in the same location, it simply can’t decide which change should prevail.  At that point, human intervention is necessary to make the decision.  Git will help you by marking the location in the file that has a problem, but it’s up to you to resolve the conflict.  Let’s see how that works by intentionally creating a conflict.</p>
 <p>We start by creating a branch and making a change to our experiment file:</p>
@@ -417,8 +416,8 @@ git slog
 </div>
 </div>
 <p><em>Note:</em> While it’s a good idea to understand the basics of fixing merge conflicts by hand, in some cases you may find the use of an automated tool useful.  Git supports multiple <a class="reference external" href="https://www.kernel.org/pub/software/scm/git/docs/git-mergetool.html">merge tools</a>: a merge tool is a piece of software that conforms to a basic interface and knows how to merge two files into a new one.  Since these are typically graphical tools, there are various to choose from for the different operating systems, and as long as they obey a basic command structure, git can work with any of them.</p>
-</section>
-<section id="collaborating-on-github-with-a-small-team">
+</div>
+<div class="section" id="collaborating-on-github-with-a-small-team">
 <h2>Collaborating on github with a small team<a class="headerlink" href="#collaborating-on-github-with-a-small-team" title="Permalink to this headline">¶</a></h2>
 <p>Single remote with shared access: we are going to set up a shared collaboration with one partner (the person sitting next to you).  This will show the basic workflow of collaborating on a project with a small team where everyone has write privileges to the same repository.</p>
 <p>We will have two people, let’s call them Alice and Bob, sharing a repository.  Alice will be the owner of the repo and she will give Bob write privileges.</p>
@@ -437,12 +436,12 @@ git slog
 <li><p>Bob tries to push to github.  What happens here?</p></li>
 </ul>
 <p>The problem is that Bob’s changes create a commit that conflicts with Alice’s, so git refuses to apply them.  It forces Bob to first do the merge on his machine, so that if there is a conflict in the merge, Bob deals with the conflict manually (git could try to do the merge on the server, but in that case if there’s a conflict, the server repo would be left in a conflicted state without a human to fix things up).  The solution is for Bob to first pull the changes (pull in git is really fetch+merge), and then push again.</p>
-</section>
-<section id="full-contact-github-distributed-collaboration-with-large-teams">
+</div>
+<div class="section" id="full-contact-github-distributed-collaboration-with-large-teams">
 <h2>Full-contact github: distributed collaboration with large teams<a class="headerlink" href="#full-contact-github-distributed-collaboration-with-large-teams" title="Permalink to this headline">¶</a></h2>
 <p>Multiple remotes and merging based on pull request workflow: this is beyond the scope of this brief tutorial, so we’ll simply discuss how it works very briefly, illustrating it with the activity on the <a class="reference external" href="http://github.com/ipython/ipython">IPython github repository</a>.</p>
-</section>
-<section id="other-useful-commands">
+</div>
+<div class="section" id="other-useful-commands">
 <h2>Other useful commands<a class="headerlink" href="#other-useful-commands" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/git-show.html">show</a></p></li>
@@ -450,10 +449,10 @@ git slog
 <li><p><a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html">rebase</a></p></li>
 <li><p><a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/git-tag.html">tag</a></p></li>
 </ul>
-</section>
-<section id="git-resources">
+</div>
+<div class="section" id="git-resources">
 <h2>Git resources<a class="headerlink" href="#git-resources" title="Permalink to this headline">¶</a></h2>
-<section id="introductory-materials">
+<div class="section" id="introductory-materials">
 <h3>Introductory materials<a class="headerlink" href="#introductory-materials" title="Permalink to this headline">¶</a></h3>
 <p>There are lots of good tutorials and introductions for Git, which you
 can easily find yourself; this is just a short list of things I’ve found
@@ -476,8 +475,8 @@ may be sufficient. It is nicely illustrated with diagrams that show what happens
 it contains also some information about handling SSH (necessary to interface with git hosted on remote servers when collaborating) as well
 as screenshots of the Windows interface.</p>
 <p>Cheat sheets: a useful <a class="reference external" href="https://github.com/nerdgirl/git-cheatsheet-visual/blob/master/gitcheatsheet.pdf">summary of common commands</a> in PDF format that can be printed for frequent reference.  <a class="reference external" href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf">Another nice PDF one</a>.</p>
-</section>
-<section id="beyond-the-basics">
+</div>
+<div class="section" id="beyond-the-basics">
 <h3>Beyond the basics<a class="headerlink" href="#beyond-the-basics" title="Permalink to this headline">¶</a></h3>
 <p>At some point, it will pay off to understand how git itself is <em>built</em>.  These two documents, written in a similar spirit, are probably the most useful descriptions of the Git architecture short of diving into the actual implementation.  They walk you through
 how you would go about building a version control system with a little story. By the end you realize that Git’s model is almost an inevitable outcome of the proposed constraints:</p>
@@ -499,10 +498,10 @@ how you would go about building a version control system with a little story. By
 </div>
 </div>
 </div>
-</section>
-<section id="a-few-useful-tips-for-common-tasks">
+</div>
+<div class="section" id="a-few-useful-tips-for-common-tasks">
 <h3>A few useful tips for common tasks<a class="headerlink" href="#a-few-useful-tips-for-common-tasks" title="Permalink to this headline">¶</a></h3>
-<section id="better-shell-support">
+<div class="section" id="better-shell-support">
 <h4>Better shell support<a class="headerlink" href="#better-shell-support" title="Permalink to this headline">¶</a></h4>
 <p>Adding git branch info to your bash prompt and tab completion for git commands and branches is extremely useful.  I suggest you at least copy:</p>
 <ul class="simple">
@@ -516,8 +515,8 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;   # adjust this to you
 </pre></div>
 </div>
 <p>See the comments in both of those files for lots of extra functionality they offer.</p>
-</section>
-<section id="embedding-git-information-in-latex-documents">
+</div>
+<div class="section" id="embedding-git-information-in-latex-documents">
 <h4>Embedding Git information in LaTeX documents<a class="headerlink" href="#embedding-git-information-in-latex-documents" title="Permalink to this headline">¶</a></h4>
 <p>(Sent by <a class="reference external" href="http://www.onerussian.com">Yaroslav Halchenko</a>)</p>
 <p>I use a Make rule:</p>
@@ -537,17 +536,17 @@ subdirectories which actually contain papers (hence all those
 </div>
 <p>The corresponding <code class="docutils literal notranslate"><span class="pre">paper.pdf</span></code> depends on <code class="docutils literal notranslate"><span class="pre">revision.tex</span></code> and includes the
 line <code class="docutils literal notranslate"><span class="pre">\input{revision}</span></code> to load up the actual revision mark.</p>
-</section>
-<section id="git-export">
+</div>
+<div class="section" id="git-export">
 <h4>git export<a class="headerlink" href="#git-export" title="Permalink to this headline">¶</a></h4>
 <p>Git doesn’t have a native export command, but this works just fine:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git archive --prefix=fperez.org/  master | gzip &gt; ~/tmp/source.tgz
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

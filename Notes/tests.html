@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hypothesis Testing, Combinations of Tests, and Stratified Tests &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -513,16 +512,16 @@
         
               <div>
                 
-  <section id="hypothesis-testing-combinations-of-tests-and-stratified-tests">
+  <div class="section" id="hypothesis-testing-combinations-of-tests-and-stratified-tests">
 <h1>Hypothesis Testing, Combinations of Tests, and Stratified Tests<a class="headerlink" href="#hypothesis-testing-combinations-of-tests-and-stratified-tests" title="Permalink to this headline">¶</a></h1>
-<section id="hypotheses">
+<div class="section" id="hypotheses">
 <h2>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>A <em>scientific hypothesis</em> is an assertion about the world, for instance “this drug increases longevity in patients with Alzheimer’s Disease,” “the outcome of the 2020 presidential election would have been different, but for fraud,” “to 6 significant digits, the gravitational constant is <span class="math notranslate nohighlight">\(6.67430e-11 Nm^2kg^{-2}\)</span>,” “the Moderna COVID-19 vaccine is at least 90% effective for at least 6 months for all ages,” “students give female instructorss lower ratings than equally effective male instructors,” “the universe is expanding at an increasing rate,” “there is a black hole at the center of the universe,” or “female faculty job applicants are interrupted more frequently during their job talks than male applicants are.”</p>
 <p>A <em>statistical hypothesis</em> is an assertion about the probability distribution <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> of data <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Generally, statistical hypotheses are interesting only insofar as they help us evaluate scientific
 hypotheses.
 Whenever a statistical hypothesis is being tested, pay attention to the connection between that hypothesis and the scientific hypothesis it purports to represent.</p>
-<section id="types-of-statistical-hypotheses">
+<div class="section" id="types-of-statistical-hypotheses">
 <h3>Types of Statistical Hypotheses<a class="headerlink" href="#types-of-statistical-hypotheses" title="Permalink to this headline">¶</a></h3>
 <p>A <em>simple</em> statistical hypothesis is an assertion that completely specifies the probability distribution of the data, e.g., <span class="math notranslate nohighlight">\(\mathbb{P} = \mathbb{P}_0\)</span> for some distribution <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span>. Here are some simple hypotheses:</p>
 <ul class="simple">
@@ -570,8 +569,8 @@ A \equiv \left \{x = \{x_1, \ldots, x_n\}: \frac{1}{n} \sum_{j=1}^n x_j \le \fra
 \end{eqnarray*}\]</div>
 <p>In this example, the test statistic is the sample mean, and the region <span class="math notranslate nohighlight">\(A\)</span> is the set of all data for which the
 sample mean does not exceed <span class="math notranslate nohighlight">\(c/\sqrt{n}\)</span>.</p>
-</section>
-<section id="test-functions-versus-acceptance-regions">
+</div>
+<div class="section" id="test-functions-versus-acceptance-regions">
 <h3>Test functions versus acceptance regions<a class="headerlink" href="#test-functions-versus-acceptance-regions" title="Permalink to this headline">¶</a></h3>
 <p>Instead of working with a set <span class="math notranslate nohighlight">\(A\)</span>, we can work with the indicator function of the set <span class="math notranslate nohighlight">\(A\)</span>,</p>
 <div class="amsmath math notranslate nohighlight">
@@ -590,8 +589,8 @@ if <span class="math notranslate nohighlight">\(\phi(X) = 0\)</span>, the test c
 if <span class="math notranslate nohighlight">\(\phi(X) = 1\)</span>, the test certainly rejects the null; and if <span class="math notranslate nohighlight">\(\phi(X) = q \in (0, 1)\)</span>,
 it rejects the null with probability <span class="math notranslate nohighlight">\(q\)</span>.
 This is called a <em>randomized test</em>, discussed further below.</p>
-</section>
-<section id="aside-on-notation">
+</div>
+<div class="section" id="aside-on-notation">
 <h3>Aside on notation<a class="headerlink" href="#aside-on-notation" title="Permalink to this headline">¶</a></h3>
 <p>The following all mean the same thing, namely, the probability that the random variable <span class="math notranslate nohighlight">\(X\)</span> takes a value in the set <span class="math notranslate nohighlight">\(A\)</span> if the distribution of <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -625,9 +624,9 @@ This is called a <em>randomized test</em>, discussed further below.</p>
 \[\begin{equation*}
 \mathbb{E}_{0} X.
 \end{equation*}\]</div>
-</section>
-</section>
-<section id="significance-level">
+</div>
+</div>
+<div class="section" id="significance-level">
 <h2>Significance level<a class="headerlink" href="#significance-level" title="Permalink to this headline">¶</a></h2>
 <p>The <em>significance level</em> of the test <span class="math notranslate nohighlight">\(A\)</span> of the simple null hypothesis <span class="math notranslate nohighlight">\(X \sim \mathbb{P}_0\)</span> is the probability that the test rejects the null hypothesis when the null hypothesis is true:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -668,8 +667,8 @@ the significance level of the simple null hypothesis <span class="math notransla
    \alpha \equiv 1- \inf_{\mathbb{P_0} \in \mathcal{P}_0} \mathbb{E}_{\mathbb{P}_0} \phi(X).
 \end{equation*}\]</div>
 <p>When <span class="math notranslate nohighlight">\(\mathcal{P}_0\)</span> contains only one distribution, the two definitions of significance level coincide.</p>
-</section>
-<section id="power">
+</div>
+<div class="section" id="power">
 <h2>Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
 <p>The <em>power</em> of the test <span class="math notranslate nohighlight">\(A\)</span> against the simple hypothesis <span class="math notranslate nohighlight">\(H_1: X \sim \mathbb{P}_1\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
@@ -697,16 +696,16 @@ the significance level of the simple null hypothesis <span class="math notransla
 <p>Power and significance level are the (extremal) probability of the same event–namely, rejecting the null hypothesis–but computed under different assumptions.
 The power is computed under the assumption that the alternative hypothesis is true; the significance level is computed under the assumption that the null hypothesis is true.</p>
 <p>Seminal work by Jerzy Neyman (the founder of Berkeley’s Department of Statistics) and Egon Pearson showed how to find the most powerful test of a simple null hypothesis against a simple alternative hypothesis among all tests with a given significance level. They showed that the most powerful test had an acceptance region characterized by the likelihood ratio; see below.</p>
-</section>
-<section id="type-i-and-type-ii-errors">
+</div>
+<div class="section" id="type-i-and-type-ii-errors">
 <h2>Type I and Type II errors<a class="headerlink" href="#type-i-and-type-ii-errors" title="Permalink to this headline">¶</a></h2>
 <p>A type I error occurs when a test rejects the null hypothesis but the null hypothesis is true.
 The chance of a type I error is the significance level of the test.</p>
 <p>A type II error occurs when a test does not reject the null hypothesis the null hypothesis is false.
 The chance of a type II error when a particular alternative is true is 100% minus the power of the test
 against that alternative, i.e., <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
-</section>
-<section id="type-iii-errors">
+</div>
+<div class="section" id="type-iii-errors">
 <h2>Type III errors<a class="headerlink" href="#type-iii-errors" title="Permalink to this headline">¶</a></h2>
 <p>There are a number of informal definitions of type III errors.</p>
 <p>One is that a Type III error occurs when a test correctly rejects the null hypothesis “for the wrong reason.” For instance, suppose that we test the null hypothesis <span class="math notranslate nohighlight">\(X \sim N(0, 1)\)</span>
@@ -728,7 +727,7 @@ it is testing the wrong null.</p>
 Indeed, most analyses of clinical trial data I’ve seen test a statistical null hypothesis that involves selecting subjects at random from a superpopulation–which did not occur–rather than test a statistical hypothesis based on the randomization of subjects into treatment or control–which actually did occur.</p>
 <p>It is quite common to base <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span> on a statistical model that has no connection to the scientific hypothesis and how the data were generated, then to claim that rejecting <span class="math notranslate nohighlight">\(\mathbb{P}_0\)</span> says something about the world.
 That logic is flawed.</p>
-<section id="randomized-tests">
+<div class="section" id="randomized-tests">
 <h3>Randomized tests<a class="headerlink" href="#randomized-tests" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes it is useful for a hypothesis test to depend not only on the data but also on “auxilliary” randomness, typically a <span class="math notranslate nohighlight">\(U[0, 1]\)</span> variable <span class="math notranslate nohighlight">\(U\)</span> that is independent of the data <span class="math notranslate nohighlight">\(X\)</span>.
 Then the acceptance region <span class="math notranslate nohighlight">\(A\)</span> is a subset of the Cartesian product of the data space and <span class="math notranslate nohighlight">\([0, 1]\)</span>.
@@ -754,9 +753,9 @@ This is completely equivalent to the description above, but instead of thinking
 in terms of a <em>set</em> <span class="math notranslate nohighlight">\(A \subset \mathcal{X} \times [0, 1]\)</span>, we think of a <em>function</em>
 <span class="math notranslate nohighlight">\(\phi: \mathcal{X} \rightarrow [0, 1]\)</span>.
 In both formulations, we use <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(U\)</span> to decide whether to reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-</section>
-</section>
-<section id="p-values">
+</div>
+</div>
+<div class="section" id="p-values">
 <h2><span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h2>
 <p>Here are two approaches to defining <span class="math notranslate nohighlight">\(P\)</span>-values, in terms of families of hypothesis tests and in terms of a test statistic.</p>
 <p>Family of tests:</p>
@@ -787,8 +786,8 @@ in that form and not everything of that form is a <span class="math notranslate 
 \[\begin{equation*}  
  \mathbb{P}_0 \{ P(X,U) \le x \} \le x \;\; \forall x \in [0, 1].
 \end{equation*}\]</div>
-</section>
-<section id="the-z-test">
+</div>
+<div class="section" id="the-z-test">
 <h2>The <span class="math notranslate nohighlight">\(Z\)</span>-test<a class="headerlink" href="#the-z-test" title="Permalink to this headline">¶</a></h2>
 <p>A <span class="math notranslate nohighlight">\(Z\)</span>-test tests the hypothesis that some function of the data has a standard Normal distribution, that is,
 the hypothesis that for some given test statistic <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(f(X) \sim N(0,1)\)</span>.</p>
@@ -808,7 +807,7 @@ What kinds of things have distributions that are approximately standard normal?<
 </ul>
 <p>When the test statistic is only approximately normally distributed under the null hypothesis, the accuracy
 of the approximation matters–but is rarely addressed.</p>
-<section id="example-of-an-approximate-z-test-with-a-built-in-type-iii-error">
+<div class="section" id="example-of-an-approximate-z-test-with-a-built-in-type-iii-error">
 <h3>Example of an approximate <span class="math notranslate nohighlight">\(Z\)</span>-test with a built-in Type III error<a class="headerlink" href="#example-of-an-approximate-z-test-with-a-built-in-type-iii-error" title="Permalink to this headline">¶</a></h3>
 <p>There are two binary populations, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^n\)</span> and <span class="math notranslate nohighlight">\(\{y_j\}_{j=1}^m\)</span>. (A population is <em>binary</em> if the only possible values in the population are 0 and 1.)
 We are interested in whether the populations are “surprisingly different.”
@@ -839,8 +838,8 @@ a Type III error.
 The hypothesis test has little to do with the original hypothesis.
 The true significance level of the test for the original null hypothesis that the two groups are a random partition
 of the <span class="math notranslate nohighlight">\(n+m\)</span> items could be quite different from <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-</section>
-<section id="numerical-example">
+</div>
+<div class="section" id="numerical-example">
 <h3>Numerical example<a class="headerlink" href="#numerical-example" title="Permalink to this headline">¶</a></h3>
 <p>There are two binary populations, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span> and <span class="math notranslate nohighlight">\(\{ y_j\}_{j=1}^M\)</span>.
 Let <span class="math notranslate nohighlight">\(p_x\)</span> denote the mean of the first population and <span class="math notranslate nohighlight">\(p_y\)</span> the mean of the second.
@@ -1091,8 +1090,8 @@ x = \Pr \{ |Z| \le \Phi^{-1}((x+1)/2) \}
 </div>
 </div>
 <p>Again, the (simulated) distribution is not dominated by the uniform. The <em>nominal</em> <span class="math notranslate nohighlight">\(P\)</span>-value based on treating the <span class="math notranslate nohighlight">\(Z\)</span>-statistic as if it had a standard normal distribution is not an <em>actual</em> <span class="math notranslate nohighlight">\(P\)</span>-value for this problem.</p>
-</section>
-<section id="an-exact-conditional-test-based-on-invariance-permutation-methods">
+</div>
+<div class="section" id="an-exact-conditional-test-based-on-invariance-permutation-methods">
 <h3>An exact conditional test based on invariance: permutation methods<a class="headerlink" href="#an-exact-conditional-test-based-on-invariance-permutation-methods" title="Permalink to this headline">¶</a></h3>
 <p>We now explore a different approach that yields an exact test rather than approximate test.</p>
 <p>Let <span class="math notranslate nohighlight">\(N \equiv n+m\)</span>.
@@ -1193,8 +1192,8 @@ from which the sample was drawn: whatever <span class="math notranslate nohighli
 See <a class="reference internal" href="permute-intro.html"><span class="doc std std-doc">Introduction to Permutation Tests</span></a>.</p>
 <p>This test, in a slightly different form, is called <em>Fisher’s Exact Test</em>.
 It is useful for a wide range of problems, including clinical trials and A/B testing.</p>
-</section>
-<section id="illustration">
+</div>
+<div class="section" id="illustration">
 <h3>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h3>
 <p>To visualize what’s going on, suppose <span class="math notranslate nohighlight">\(n=m=10\)</span> and <span class="math notranslate nohighlight">\(G=5\)</span>. Under the null, the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(G=5\)</span> is hypergeometric with parameters <span class="math notranslate nohighlight">\(N=n+m=20\)</span>, <span class="math notranslate nohighlight">\(G=5\)</span>, and <span class="math notranslate nohighlight">\(n=10\)</span>.
 The pmf of that distribution is plotted below.</p>
@@ -1245,8 +1244,8 @@ The pmf of that distribution is plotted below.</p>
 For the test to have level <span class="math notranslate nohighlight">\(\alpha\)</span>, we need to reject more often: an additional <span class="math notranslate nohighlight">\(0.017492\)</span> of the time.
 If we always rejected when <span class="math notranslate nohighlight">\(X=1\)</span> or <span class="math notranslate nohighlight">\(X=4\)</span>, we would reject too often, because each of those possibilities has probability <span class="math notranslate nohighlight">\(0.13545\)</span>.
 If when <span class="math notranslate nohighlight">\(X \in \{1, 4\}\)</span> we reject with probability <span class="math notranslate nohighlight">\(\gamma = .01749/(2\times 0.13545) = 0.06457\)</span>, the overall chance of erroneously rejecting the null will be 5%, as desired.</p>
-</section>
-<section id="unconditional-tests-from-conditional-tests">
+</div>
+<div class="section" id="unconditional-tests-from-conditional-tests">
 <h3>Unconditional tests from conditional tests<a class="headerlink" href="#unconditional-tests-from-conditional-tests" title="Permalink to this headline">¶</a></h3>
 <p>If you always test conditionally at level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>, that yields a test that has unconditional level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <p>Suppose we condition on the value of a discrete random variable, such as <span class="math notranslate nohighlight">\(G\)</span> in the previous example, then test at level not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>, conditional on the value of <span class="math notranslate nohighlight">\(G\)</span>.
@@ -1259,15 +1258,15 @@ The unconditional significance level of the test is</p>
 \end{equation*}\]</div>
 <p>where the sums are over all values <span class="math notranslate nohighlight">\(g\)</span> that <span class="math notranslate nohighlight">\(G\)</span> can take.</p>
 <p>A similar proof establishes the result when <span class="math notranslate nohighlight">\(G\)</span> does not have a discrete distribution.</p>
-</section>
-<section id="numerical-comparison">
+</div>
+<div class="section" id="numerical-comparison">
 <h3>Numerical comparison<a class="headerlink" href="#numerical-comparison" title="Permalink to this headline">¶</a></h3>
 <p>We saw that the <span class="math notranslate nohighlight">\(Z\)</span>-test does not necessarily have its nominal level in this problem.
 We now implement the permutation test (a randomized version of Fisher’s exact test) for comparison.</p>
-</section>
-<section id="algorithmic-considerations">
+</div>
+<div class="section" id="algorithmic-considerations">
 <h3>Algorithmic considerations<a class="headerlink" href="#algorithmic-considerations" title="Permalink to this headline">¶</a></h3>
-<section id="finding-mathcal-i-and-mathcal-j">
+<div class="section" id="finding-mathcal-i-and-mathcal-j">
 <h4>Finding <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{J}\)</span><a class="headerlink" href="#finding-mathcal-i-and-mathcal-j" title="Permalink to this headline">¶</a></h4>
 <p>In principle, we could sort the <span class="math notranslate nohighlight">\(n+1\)</span> values of the pmf to find the outcomes with the largest probabilities to include in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>, and the largest-probability outcomes not included in <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> to be <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> (if the test needs to be randomized to attain the desired significance level).</p>
 <p>But the best sorting algorithms still take <span class="math notranslate nohighlight">\(n\log n\)</span> operations, and we don’t need a complete sort–we only need to divide the probabilities into two groups, the biggest and the rest.</p>
@@ -1442,9 +1441,9 @@ with the data or the experiment.</p>
 <p>In such situations, it might make sense to use a <em>conservative</em> test rather than an exact randomized test.
 A conservative test is one for which the chance of a Type I error is not greater than <span class="math notranslate nohighlight">\(\alpha\)</span>.
 In the previous example, if the test rejects only when the test</p>
-</section>
-</section>
-<section id="id1">
+</div>
+</div>
+<div class="section" id="id1">
 <h3>Algorithmic considerations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The previous simulation is <strong>slow</strong>, in part because it finds the conditional acceptance region
 <code class="docutils literal notranslate"><span class="pre">reps</span></code> times for each <code class="docutils literal notranslate"><span class="pre">pj</span> <span class="pre">in</span> <span class="pre">p</span></code>.</p>
@@ -1609,9 +1608,9 @@ Wall time: 1min 22s
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="intersection-union-hypotheses">
+</div>
+</div>
+<div class="section" id="intersection-union-hypotheses">
 <h2>Intersection-Union Hypotheses<a class="headerlink" href="#intersection-union-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>In many situations, a null hypothesis of interest is the intersection of simpler hypotheses. For instance, the hypothesis that a university does not discriminate in its graduate admissions might be represented as</p>
 <p>(does not discriminate in arts and humanities) <span class="math notranslate nohighlight">\(\cap\)</span> (does not discriminate in sciences) <span class="math notranslate nohighlight">\(\cap\)</span> (does not discriminate in engineering) <span class="math notranslate nohighlight">\(\cap\)</span> (does not discriminate in professional schools).</p>
@@ -1634,8 +1633,8 @@ In the example just mentioned, the applicant pool might be quite different acros
 <p>(1st component has zero mean) <span class="math notranslate nohighlight">\(\cap\)</span> (2nd component has zero mean) <span class="math notranslate nohighlight">\(\cap\)</span> <span class="math notranslate nohighlight">\(\cdots\)</span> <span class="math notranslate nohighlight">\(\cap\)</span> (<span class="math notranslate nohighlight">\(J\)</span>th component has zero mean)</p>
 <p>The alternative is again a union:</p>
 <p>(1st component has nonzero mean) <span class="math notranslate nohighlight">\(\cup\)</span> (2nd component has nonzero mean) <span class="math notranslate nohighlight">\(\cup\)</span> <span class="math notranslate nohighlight">\(\cdots\)</span> <span class="math notranslate nohighlight">\(\cup\)</span> (<span class="math notranslate nohighlight">\(J\)</span>th component has nonzero mean)</p>
-</section>
-<section id="combinations-of-experiments-and-stratified-experiments">
+</div>
+<div class="section" id="combinations-of-experiments-and-stratified-experiments">
 <h2>Combinations of experiments and stratified experiments<a class="headerlink" href="#combinations-of-experiments-and-stratified-experiments" title="Permalink to this headline">¶</a></h2>
 <p>The same kind of issue arises when combining information from different experiments.
 For instance, imagine testing whether a drug is effective. We might have several randomized, controlled trials in different places, or a large experiment involving a number of centers, each of which performs its own randomization (i.e., the randomization is stratified).</p>
@@ -1645,14 +1644,14 @@ For instance, imagine testing whether a drug is effective. We might have several
 <p>and the alternative can be written as</p>
 <p>(drug helps in experiment 1) <span class="math notranslate nohighlight">\(\cup\)</span> (drug helps in experiment 2) <span class="math notranslate nohighlight">\(\cup\)</span> <span class="math notranslate nohighlight">\(\cdots\)</span>  <span class="math notranslate nohighlight">\(\cup\)</span> (drug helps in experiment <span class="math notranslate nohighlight">\(J\)</span>),</p>
 <p>a union.</p>
-</section>
-<section id="combining-evidence">
+</div>
+<div class="section" id="combining-evidence">
 <h2>Combining evidence<a class="headerlink" href="#combining-evidence" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we have a test of each “partial” null hypothesis <span class="math notranslate nohighlight">\(H_{0j}\)</span>. Clearly, if the <span class="math notranslate nohighlight">\(P\)</span>-value for one of those tests is sufficiently small, that’s evidence that the overall null <span class="math notranslate nohighlight">\(H_0\)</span> is false.</p>
 <p>But suppose none of the individual <span class="math notranslate nohighlight">\(P\)</span>-values is small, but many are “not large.”
 Is there a way to combine them to get sronger evidence about <span class="math notranslate nohighlight">\(H_0\)</span>?</p>
-</section>
-<section id="combining-functions">
+</div>
+<div class="section" id="combining-functions">
 <h2>Combining functions<a class="headerlink" href="#combining-functions" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\lambda\)</span> be a <span class="math notranslate nohighlight">\(J\)</span>-vector of statistics such that the distribution of <span class="math notranslate nohighlight">\(\lambda_j\)</span>
 if hypothesis <span class="math notranslate nohighlight">\(H_{0j}\)</span> is true is known.
@@ -1673,30 +1672,30 @@ For instance, <span class="math notranslate nohighlight">\(\lambda_j\)</span> mi
 \[\begin{equation*} \Pr \{\phi_-(\alpha) \le \phi(\lambda) \le \phi_+(\alpha) \} \ge 1-\alpha\end{equation*}\]</div>
 <p>and <span class="math notranslate nohighlight">\([\phi_-(\alpha), \phi_+(\alpha)] \subset [\phi_-(\alpha'), \phi_+(\alpha')]\)</span> if <span class="math notranslate nohighlight">\(\alpha \ge \alpha'\)</span>.</p>
 <p>Then we can use <span class="math notranslate nohighlight">\(\phi(\lambda)\)</span> as the basis of a test of <span class="math notranslate nohighlight">\(H_0 = \cap_{j=1}^J H_{0j}\)</span>.</p>
-<section id="fisher-s-combining-function">
+<div class="section" id="fisher-s-combining-function">
 <h3>Fisher’s combining function<a class="headerlink" href="#fisher-s-combining-function" title="Permalink to this headline">¶</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \phi_F(\lambda) \equiv -2 \sum_{j=1}^J \ln(\lambda_j).\end{equation*}\]</div>
-</section>
-<section id="liptak-s-combining-function">
+</div>
+<div class="section" id="liptak-s-combining-function">
 <h3>Liptak’s combining function<a class="headerlink" href="#liptak-s-combining-function" title="Permalink to this headline">¶</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \phi_L(\lambda) \equiv \sum_{j=1}^J \Phi^{-1}(1-\lambda_j),\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Phi^{-1}\)</span> is the inverse standard normal CDF.</p>
-</section>
-<section id="tippet-s-combining-function">
+</div>
+<div class="section" id="tippet-s-combining-function">
 <h3>Tippet’s combining function<a class="headerlink" href="#tippet-s-combining-function" title="Permalink to this headline">¶</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \phi_T(\lambda) \equiv \max_{j=1}^J (1-\lambda_j).\end{equation*}\]</div>
-</section>
-<section id="direct-combination-of-test-statistics">
+</div>
+<div class="section" id="direct-combination-of-test-statistics">
 <h3>Direct combination of test statistics<a class="headerlink" href="#direct-combination-of-test-statistics" title="Permalink to this headline">¶</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \phi_D \equiv \sum_{j=1}^J f_j(\lambda_j), \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\{ f_j \}\)</span> are suitable decreasing functions. For instance, if <span class="math notranslate nohighlight">\(\lambda_j\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value for <span class="math notranslate nohighlight">\(H_{0j}\)</span> corresponding to some test statistic <span class="math notranslate nohighlight">\(T_j\)</span> for which larger values are stronger evidence against <span class="math notranslate nohighlight">\(H_{0j}\)</span>, we could use <span class="math notranslate nohighlight">\(\phi_D = \sum_j T_j\)</span>.</p>
-</section>
-</section>
-<section id="fisher-s-combining-function-for-independent-p-values">
+</div>
+</div>
+<div class="section" id="fisher-s-combining-function-for-independent-p-values">
 <h2>Fisher’s combining function for independent <span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#fisher-s-combining-function-for-independent-p-values" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(H_0\)</span> is true, that <span class="math notranslate nohighlight">\(\lambda_j\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value of <span class="math notranslate nohighlight">\(H_{0j}\)</span> for some pre-specified test, that the distribution of <span class="math notranslate nohighlight">\(\lambda_j\)</span> is continuous under <span class="math notranslate nohighlight">\(H_{0j}\)</span>, and that <span class="math notranslate nohighlight">\(\{ \lambda_j \}\)</span> are independent if <span class="math notranslate nohighlight">\(H_0\)</span> is true.</p>
 <p>Then, if <span class="math notranslate nohighlight">\(H_0\)</span> is true, <span class="math notranslate nohighlight">\(\{ \lambda_j \}\)</span> are IID <span class="math notranslate nohighlight">\(U[0,1]\)</span>.</p>
@@ -1773,8 +1772,8 @@ If we reject <span class="math notranslate nohighlight">\(H_0\)</span> when</p>
 </div>
 </div>
 </div>
-</section>
-<section id="when-p-values-have-atoms">
+</div>
+<div class="section" id="when-p-values-have-atoms">
 <h2>When <span class="math notranslate nohighlight">\(P\)</span>-values have atoms<a class="headerlink" href="#when-p-values-have-atoms" title="Permalink to this headline">¶</a></h2>
 <p>A real random variable <span class="math notranslate nohighlight">\(X\)</span> is first-order stochastically larger than a real random variable <span class="math notranslate nohighlight">\(Y\)</span> if for all <span class="math notranslate nohighlight">\(x \in \Re\)</span>,</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1824,7 +1823,7 @@ for which we can define <span class="math notranslate nohighlight">\(\{\tilde{Y_
 \end{equation*}\]</div>
 <p>Thus, we still get a conservative hypothesis test if one or more of the <span class="math notranslate nohighlight">\(p\)</span>-values for the
 partial tests have atoms under their respective null hypotheses <span class="math notranslate nohighlight">\(\{H_{0j}\}\)</span>.</p>
-<section id="estimating-p-values-by-simulation">
+<div class="section" id="estimating-p-values-by-simulation">
 <h3>Estimating <span class="math notranslate nohighlight">\(P\)</span>-values by simulation<a class="headerlink" href="#estimating-p-values-by-simulation" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that if the null hypothesis is true, the probability distribution of the
 data is invariant under some group <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>, for instance, the reflection group or the symmetric (i.e., permutation) group.</p>
@@ -1864,15 +1863,15 @@ There are other reasons for preferring it, discussed below.</p>
    \mathbb{E} \hat{P}' = \frac{K}{K+1} P + \frac{1}{K+1} =
    P  + (1-P) \frac{1}{K+1} &gt; P.
 \end{equation*}\]</div>
-</section>
-</section>
-<section id="accounting-for-simulation-error-in-stratum-wise-p-values">
+</div>
+</div>
+<div class="section" id="accounting-for-simulation-error-in-stratum-wise-p-values">
 <h2>Accounting for simulation error in stratum-wise <span class="math notranslate nohighlight">\(P\)</span>-values<a class="headerlink" href="#accounting-for-simulation-error-in-stratum-wise-p-values" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that the <span class="math notranslate nohighlight">\(P\)</span>-value <span class="math notranslate nohighlight">\(\lambda_j\)</span> for <span class="math notranslate nohighlight">\(H_{0j}\)</span> is estimated by <span class="math notranslate nohighlight">\(b_j\)</span> simulations instead of being known exactly.
 How can we take the uncertainty of the simulation estimate into account?</p>
 <p>Here, we will pretend that the simulation itself is perfect: that the PRNG generates true IID <span class="math notranslate nohighlight">\(U[0,1]\)</span> variables, that pseudo-random integers on <span class="math notranslate nohighlight">\(\{0, 1, \ldots, N\}\)</span> really are equally likely, and that pseudo-random samples or permutations really are equally likely, etc.</p>
 <p>The error we are accounting for is not the imperfection of the PRNG or other algorithms, just the uncertainty due to approximating a theoretical probability <span class="math notranslate nohighlight">\(\lambda_j\)</span> by an estimate via (perfect) simulation.</p>
-<section id="a-crude-approach-simultaneous-one-sided-upper-confidence-bounds-for-every-lambda-j">
+<div class="section" id="a-crude-approach-simultaneous-one-sided-upper-confidence-bounds-for-every-lambda-j">
 <h3>A crude approach: simultaneous one-sided upper confidence bounds for every <span class="math notranslate nohighlight">\(\lambda_j\)</span><a class="headerlink" href="#a-crude-approach-simultaneous-one-sided-upper-confidence-bounds-for-every-lambda-j" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we find, for each <span class="math notranslate nohighlight">\(j\)</span>, an upper confidence bound for <span class="math notranslate nohighlight">\(\lambda_j\)</span> (the “true” <span class="math notranslate nohighlight">\(P\)</span>-value in stratum <span class="math notranslate nohighlight">\(j\)</span>),
 for instance, by inverting binomial tests based on <span class="math notranslate nohighlight">\(\# \{k &gt; 0: T(\pi_k(x_0)) \ge T(x_0) \}\)</span>.</p>
@@ -1895,8 +1894,8 @@ If the <span class="math notranslate nohighlight">\(P\)</span>-value estimates a
 <p>Both of those expressions tend to get small quickly as <span class="math notranslate nohighlight">\(n\)</span> gets large;
 bounding <span class="math notranslate nohighlight">\(\phi(\lambda)\)</span> by bounding the components of <span class="math notranslate nohighlight">\(\lambda\)</span> is inefficient.</p>
 <p>Let’s look for a different approach.</p>
-</section>
-<section id="a-sharper-approach-use-a-related-randomized-test">
+</div>
+<div class="section" id="a-sharper-approach-use-a-related-randomized-test">
 <h3>A sharper approach: use a related randomized test<a class="headerlink" href="#a-sharper-approach-use-a-related-randomized-test" title="Permalink to this headline">¶</a></h3>
 <p>This section presents a different approach, based on <span class="math notranslate nohighlight">\(\hat{P}'\)</span> (the biased estimate of <span class="math notranslate nohighlight">\(P\)</span>) rather than
 <span class="math notranslate nohighlight">\(\hat{P}\)</span>.
@@ -1949,9 +1948,9 @@ That is, <strong><span class="math notranslate nohighlight">\(\hat{\lambda}_j\)<
 <p>The test is defined implicitly: reject <span class="math notranslate nohighlight">\(H_{0j}\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span> if
 <span class="math notranslate nohighlight">\(\hat{\lambda}_j' \le \alpha\)</span>.</p>
 <p>It follows that applying Fisher’s combining function to <span class="math notranslate nohighlight">\(\hat{\lambda}' = (\hat{\lambda}_j')_{j=1}^J\)</span> gives a conservative test of the intersection null hypothesis.</p>
-</section>
-</section>
-<section id="dependent-tests">
+</div>
+</div>
+<div class="section" id="dependent-tests">
 <h2>Dependent tests<a class="headerlink" href="#dependent-tests" title="Permalink to this headline">¶</a></h2>
 <p>If <span class="math notranslate nohighlight">\(\{ \lambda_j \}_{j=1}^J\)</span> are dependent, the distribution of <span class="math notranslate nohighlight">\(\phi_F(\lambda)\)</span> is no longer chi-square when the null hypotheses are true.
 Nonetheless, one can calibrate a test based on Fisher’s combining function (or any other combining function) by simulation.
@@ -2001,16 +2000,16 @@ The overall “Non-Parametric Combination of tests” (NPC) <span class="math no
 <p>Ultimately, this whole thing is just a univariate permutation test that uses a complicated test statistic
 <span class="math notranslate nohighlight">\(\phi_F\)</span> that assigns one number to each permutation of the multivariate data.</p>
 <p>Also see <a class="reference external" href="http://statlab.github.io/permute/">the permute Python package</a>.</p>
-</section>
-<section id="stratified-permutation-tests">
+</div>
+<div class="section" id="stratified-permutation-tests">
 <h2>Stratified Permutation Tests<a class="headerlink" href="#stratified-permutation-tests" title="Permalink to this headline">¶</a></h2>
 <p>Two examples:</p>
 <ul class="simple">
 <li><p>Boring, A., K. Ottoboni, and P.B. Stark, 2016. Student Evaluations of Teaching (Mostly) Do Not Measure Teaching Effectiveness, <em>ScienceOpen</em>, doi 10.14293/S2199-1006.1.SOR-EDU.AETBZC.v1</p></li>
 <li><p>Hessler, M.,  D.M. Pöpping, H. Hollstein, H. Ohlenburg, P.H. Arnemann, C. Massoth, L.M. Seidel, A. Zarbock &amp; M. Wenk, 2018. Availability of cookies during an academic course session affects evaluation of teaching, <em>Medical Education, 52</em>, 1064–1072. doi 10.1111/medu.13627</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

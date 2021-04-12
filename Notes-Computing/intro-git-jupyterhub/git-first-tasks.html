@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git - First tasks with repositories &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -91,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -103,7 +102,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -115,7 +114,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -157,7 +156,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -169,7 +168,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -404,9 +403,9 @@
         
               <div>
                 
-  <section id="git-first-tasks-with-repositories">
+  <div class="section" id="git-first-tasks-with-repositories">
 <h1>Git - First tasks with repositories<a class="headerlink" href="#git-first-tasks-with-repositories" title="Permalink to this headline">¶</a></h1>
-<section id="local-single-user-linear-workflow">
+<div class="section" id="local-single-user-linear-workflow">
 <h2>Local, single-user, linear workflow<a class="headerlink" href="#local-single-user-linear-workflow" title="Permalink to this headline">¶</a></h2>
 <p>Type <code class="docutils literal notranslate"><span class="pre">git</span></code> to see a full list of all the ‘core’ commands.  We’ll now go through most of these via small practical exercises:</p>
 <div class="cell docutils container">
@@ -416,7 +415,7 @@
 </div>
 </div>
 </div>
-<section id="git-init-create-an-empty-repository">
+<div class="section" id="git-init-create-an-empty-repository">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>: create an empty repository<a class="headerlink" href="#git-init-create-an-empty-repository" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,8 +482,8 @@ echo &quot;My first bit of text&quot; &gt; file1.txt
 </div>
 </div>
 </div>
-</section>
-<section id="git-add-tell-git-about-this-new-file">
+</div>
+<div class="section" id="git-add-tell-git-about-this-new-file">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>: tell git about this new file<a class="headerlink" href="#git-add-tell-git-about-this-new-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -507,8 +506,8 @@ git status
 </div>
 </div>
 </div>
-</section>
-<section id="git-commit-permanently-record-our-changes-in-git-s-database">
+</div>
+<div class="section" id="git-commit-permanently-record-our-changes-in-git-s-database">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>: permanently record our changes in git’s database<a class="headerlink" href="#git-commit-permanently-record-our-changes-in-git-s-database" title="Permalink to this headline">¶</a></h3>
 <p>For now, we are <em>always</em> going to call <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> either with the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option <em>or</em> with specific filenames (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">file1</span> <span class="pre">file2...</span></code>).  This delays the discussion of an aspect of git called the <em>index</em> (often referred to also as the ‘staging area’) that we will cover later.  Most everyday work in regular scientific practice doesn’t require understanding the extra moving parts that the index involves, so on a first round we’ll bypass it.  Later on we will discuss how to use it to achieve more fine-grained control of what and how git records our actions.</p>
 <div class="cell docutils container">
@@ -522,8 +521,8 @@ git commit -a -m&quot;This is our first commit&quot;
 </div>
 </div>
 <p>In the commit above, we  used the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag to specify a message at the command line.  If we don’t do that, git will open the editor we specified in our configuration above and require that we enter a message.  By default, git refuses to record changes that don’t have a message to go along with them (though you can obviously ‘cheat’ by using an empty or meaningless string: git only tries to facilitate best practices, it’s not your nanny).</p>
-</section>
-<section id="git-log-what-has-been-committed-so-far">
+</div>
+<div class="section" id="git-log-what-has-been-committed-so-far">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>: what has been committed so far<a class="headerlink" href="#git-log-what-has-been-committed-so-far" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -535,8 +534,8 @@ git log
 </div>
 </div>
 </div>
-</section>
-<section id="git-diff-what-have-i-changed">
+</div>
+<div class="section" id="git-diff-what-have-i-changed">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: what have I changed?<a class="headerlink" href="#git-diff-what-have-i-changed" title="Permalink to this headline">¶</a></h3>
 <p>Let’s do a little bit more work… Again, in practice you’ll be editing the files by hand, here we do it via shell commands for the sake of automation (and therefore the reproducibility of this tutorial!)</p>
 <div class="cell docutils container">
@@ -583,8 +582,8 @@ git diff
 <span class="o">+</span><span class="n">And</span> <span class="n">now</span> <span class="n">some</span> <span class="n">more</span> <span class="n">text</span><span class="o">...</span>
 </pre></div>
 </div>
-</section>
-<section id="the-cycle-of-git-virtue-work-commit-work-commit">
+</div>
+<div class="section" id="the-cycle-of-git-virtue-work-commit-work-commit">
 <h3>The cycle of git virtue: work, commit, work, commit, …<a class="headerlink" href="#the-cycle-of-git-virtue-work-commit-work-commit" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -596,8 +595,8 @@ git commit -a -m&quot;I have made great progress on this critical matter.&quot;
 </div>
 </div>
 </div>
-</section>
-<section id="git-log-revisited">
+</div>
+<div class="section" id="git-log-revisited">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> revisited<a class="headerlink" href="#git-log-revisited" title="Permalink to this headline">¶</a></h3>
 <p>First, let’s see what the log shows us now:</p>
 <div class="cell docutils container">
@@ -636,8 +635,8 @@ git slog
 </div>
 </div>
 </div>
-</section>
-<section id="git-mv-and-rm-moving-and-removing-files">
+</div>
+<div class="section" id="git-mv-and-rm-moving-and-removing-files">
 <h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span></code> and <code class="docutils literal notranslate"><span class="pre">rm</span></code>: moving and removing files<a class="headerlink" href="#git-mv-and-rm-moving-and-removing-files" title="Permalink to this headline">¶</a></h3>
 <p>While <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> is used to add fils to the list git tracks, we must also tell it if we want their  names to change or for it to stop tracking them.  In familiar Unix fashion, the <code class="docutils literal notranslate"><span class="pre">mv</span></code> and <code class="docutils literal notranslate"><span class="pre">rm</span></code> git commands do precisely this:</p>
 <div class="cell docutils container">
@@ -665,13 +664,13 @@ git slog
 </div>
 </div>
 <p>And <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span></code> works in a similar fashion.</p>
-</section>
-<section id="exercise">
+</div>
+<div class="section" id="exercise">
 <h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
 <p>Add a new file <code class="docutils literal notranslate"><span class="pre">file2.txt</span></code>, commit it, make some changes to it, commit them again, and then remove it (and don’t forget to commit this last step!).</p>
-</section>
-</section>
-<section id="using-remotes-as-a-single-user">
+</div>
+</div>
+<div class="section" id="using-remotes-as-a-single-user">
 <h2>Using remotes as a single user<a class="headerlink" href="#using-remotes-as-a-single-user" title="Permalink to this headline">¶</a></h2>
 <p>We are now going to introduce the concept of a <em>remote repository</em>: a pointer to another copy of the repository that lives on a different location.  This can be simply a different path on the filesystem or a server on the internet.</p>
 <p>For this discussion, we’ll be using remotes hosted on the <a class="reference external" href="https://github.com">GitHub.com</a> service, but you can equally use other services like <a class="reference external" href="https://gitlab.com">GitLab</a> or <a class="reference external" href="https://bitbucket.org">BitBucket</a>, as well as host your own.</p>
@@ -760,8 +759,8 @@ git pull
 </div>
 </div>
 </div>
-</section>
-<section id="an-introduction-to-branches">
+</div>
+<div class="section" id="an-introduction-to-branches">
 <h2>An introduction to branches<a class="headerlink" href="#an-introduction-to-branches" title="Permalink to this headline">¶</a></h2>
 <p>What is a branch?  Simply a <em>label for the ‘current’ commit in a sequence of ongoing commits</em>:</p>
 <p><img alt="" src="../../_images/masterbranch.png" /></p>
@@ -870,8 +869,8 @@ git slog
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

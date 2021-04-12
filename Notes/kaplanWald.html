@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Kaplan-Wald Confidence Bound for a Nonnegative Mean &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -343,7 +342,7 @@
         
               <div>
                 
-  <section id="the-kaplan-wald-confidence-bound-for-a-nonnegative-mean">
+  <div class="section" id="the-kaplan-wald-confidence-bound-for-a-nonnegative-mean">
 <h1>The Kaplan-Wald Confidence Bound for a Nonnegative Mean<a class="headerlink" href="#the-kaplan-wald-confidence-bound-for-a-nonnegative-mean" title="Permalink to this headline">¶</a></h1>
 <p>This section presents an approach to finding lower confidence bounds for the mean of a nonnegative random variable described in H.M. Kaplan’s (no longer online) website, http://printmacroj.com/martMean.htm. (An Internet Archive version is available at http://web.archive.org/web/20150220073515/http://printmacroj.com/martMean.htm.) That work fleshes out an idea due to Wald (1945, 2004), and is closely related to a technique presented in Kaplan (1987) based on martingale theory.</p>
 <p>We start with a version for sampling with replacement, then develop finite-population (sampling without replacement) versions.</p>
@@ -376,8 +375,8 @@ Because <span class="math notranslate nohighlight">\(\int_0^\infty dF = 1\)</spa
 <p>Let <span class="math notranslate nohighlight">\(Y\)</span> be a random variable with cdf <span class="math notranslate nohighlight">\(G\)</span>.
 By Jensen’s inequality, <span class="math notranslate nohighlight">\(\mathbb E X_j^2 \ge (\mathbb E X_j)^2 = t \cdot \mathbb E X_j\)</span> (by hypothesis).
 Since <span class="math notranslate nohighlight">\(\mathbb E X_j = t \ge 0\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a908c63-84c9-4707-8c5f-6ca56bf63ff1">
-<span class="eqno">()<a class="headerlink" href="#equation-0a908c63-84c9-4707-8c5f-6ca56bf63ff1" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8c715be3-e1c3-4d4d-8e2e-a6cef9ab25ed">
+<span class="eqno">()<a class="headerlink" href="#equation-8c715be3-e1c3-4d4d-8e2e-a6cef9ab25ed" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \mathbb E Y  &amp;= \int_0^\infty x dG(x) \\
                  &amp;= \int_0^\infty x (x \gamma/t + (1-\gamma)) dF(x) \\
                  &amp;= \gamma/t \int_0^\infty x^2 dF(x) + (1-\gamma) \int_0^\infty x dF(x) \\
@@ -388,7 +387,7 @@ Since <span class="math notranslate nohighlight">\(\mathbb E X_j = t \ge 0\)</sp
 <p>If the data allow us to reject the hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> that <span class="math notranslate nohighlight">\(\{ X_j\}\)</span> are IID with cdf <span class="math notranslate nohighlight">\(F\)</span>
 in favor of the alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> that they are iid with cdf <span class="math notranslate nohighlight">\(G\)</span>,
 we have strong statistical evidence that <span class="math notranslate nohighlight">\(\mu = \mathbb E X_j &gt; t\)</span>.</p>
-<section id="using-the-sprt-to-test-h-1-versus-h-0">
+<div class="section" id="using-the-sprt-to-test-h-1-versus-h-0">
 <h2>Using the SPRT to test <span class="math notranslate nohighlight">\(H_1\)</span> versus <span class="math notranslate nohighlight">\(H_0\)</span><a class="headerlink" href="#using-the-sprt-to-test-h-1-versus-h-0" title="Permalink to this headline">¶</a></h2>
 <p>Now a bit of magic occurs.  For a given observation <span class="math notranslate nohighlight">\(X_j = x_j\)</span>, what is the likelihood ratio of <span class="math notranslate nohighlight">\(H_1\)</span> to <span class="math notranslate nohighlight">\(H_0\)</span>?</p>
 <div class="amsmath math notranslate nohighlight">
@@ -409,7 +408,7 @@ Any value of <span class="math notranslate nohighlight">\(\gamma \in [0, 1]\)</s
 against small values of <span class="math notranslate nohighlight">\(X_j\)</span> (but incur a loss of power when all <span class="math notranslate nohighlight">\(X_j\)</span> are large).</p>
 <p>Recall that the <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> is the <span class="math notranslate nohighlight">\(P\)</span>-value of <span class="math notranslate nohighlight">\(H_0: \mu = t\)</span> based on the observations <span class="math notranslate nohighlight">\(\{X_j\}_{j=1}^m\)</span>.
 We will use this to find a lower confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<section id="lookahead-and-the-sprt">
+<div class="section" id="lookahead-and-the-sprt">
 <h3>“Lookahead” and the SPRT<a class="headerlink" href="#lookahead-and-the-sprt" title="Permalink to this headline">¶</a></h3>
 <p>There’s more: recall that the SPRT says the chance that <span class="math notranslate nohighlight">\(\mbox{LR}\)</span> <em>ever</em> gets larger than <span class="math notranslate nohighlight">\(1/\alpha\)</span> is at most <span class="math notranslate nohighlight">\(\alpha\)</span> if <span class="math notranslate nohighlight">\(H_0\)</span> is true.
 That means that we can use the observations sequentially, maximizing over the partial products.
@@ -420,9 +419,9 @@ If any of the partial products exceeds <span class="math notranslate nohighlight
     \mbox{ Reject } H_0 \mbox{ if } \max_{m=1}^n \prod_{i=1}^m \left [ \gamma X_i/t + 1 - \gamma \right ] \ge 1/\alpha.
 \end{equation*}\]</div>
 <p>It is <em>only</em> legitimate to do this maximization if the data are in random order.  For instance, it’s impermissible to sort them from largest to smallest. And if you maximize over partial products, the result will, in general, depend on the order of the data.</p>
-</section>
-</section>
-<section id="confidence-bounds-from-the-kaplan-wald-test">
+</div>
+</div>
+<div class="section" id="confidence-bounds-from-the-kaplan-wald-test">
 <h2>Confidence bounds from the Kaplan-Wald test<a class="headerlink" href="#confidence-bounds-from-the-kaplan-wald-test" title="Permalink to this headline">¶</a></h2>
 <p>To find a lower confidence bound, we can invert hypothesis tests: the lower endpoint of a one-sided confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span> is the largest value
 of <span class="math notranslate nohighlight">\(t\)</span> for which we would not reject the hypothesis <span class="math notranslate nohighlight">\(\mu = t\)</span> at significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
@@ -480,8 +479,8 @@ of <span class="math notranslate nohighlight">\(t\)</span> for which we would no
 </div>
 </div>
 </div>
-</section>
-<section id="how-well-does-it-work">
+</div>
+<div class="section" id="how-well-does-it-work">
 <h2>How well does it work?<a class="headerlink" href="#how-well-does-it-work" title="Permalink to this headline">¶</a></h2>
 <p>Let’s test the method on our standard test problems: binomial and a mixture of pointmass and uniform.  We will fix <span class="math notranslate nohighlight">\(\gamma\)</span>; you might experiment using different values.</p>
 <div class="cell docutils container">
@@ -684,13 +683,13 @@ of <span class="math notranslate nohighlight">\(t\)</span> for which we would no
 </div></div></div>
 </div>
 <p>Looks pretty good!  Next we will introduce one more method, then we’ll compare the various methods we’ve seen.</p>
-</section>
-<section id="upper-confidence-bounds-and-two-sided-bounds">
+</div>
+<div class="section" id="upper-confidence-bounds-and-two-sided-bounds">
 <h2>Upper confidence bounds and two-sided bounds<a class="headerlink" href="#upper-confidence-bounds-and-two-sided-bounds" title="Permalink to this headline">¶</a></h2>
 <p>If every <span class="math notranslate nohighlight">\(X_j\)</span> has the same finite, a priori upper bound <span class="math notranslate nohighlight">\(u\)</span>, we can transform the problem by defining <span class="math notranslate nohighlight">\(\tilde{X_j}= u - X_j\)</span>.  Then <span class="math notranslate nohighlight">\(\tilde{X_j}\)</span> is a nonnegative random variable, and a lower confidence bound on its mean translated to can be subtracted from <span class="math notranslate nohighlight">\(u\)</span> to make an upper confidence bound on <span class="math notranslate nohighlight">\(\mathbb E X_j\)</span>.</p>
 <p>If every <span class="math notranslate nohighlight">\(X_j\)</span> has the finite, a priori upper and lower bound, we can find two-sided confidence intervals in the analogous way, applying the Kaplan Wald method to the original data to find lower confidence bounds and to the data subtracted from the a priori upper bound to find upper confidence bounds.</p>
-</section>
-<section id="lower-confidence-bounds-on-the-mean-for-sampling-without-replacement-kolmogorov-s-inequality">
+</div>
+<div class="section" id="lower-confidence-bounds-on-the-mean-for-sampling-without-replacement-kolmogorov-s-inequality">
 <h2>Lower confidence bounds on the mean for sampling without replacement: Kolmogorov’s inequality<a class="headerlink" href="#lower-confidence-bounds-on-the-mean-for-sampling-without-replacement-kolmogorov-s-inequality" title="Permalink to this headline">¶</a></h2>
 <p>This is an alternative derivation of the Kaplan-Wald method, also from <a class="reference external" href="http://web.archive.org/web/20131209044835/http://printmacroj.com/martMean.htm">Harold Kaplan’s website</a>, involving the fact that a suitably constructed sequence is a martingale.
 It relies on Kolmogorov’s inequality for optionally stopped closed martingales.</p>
@@ -772,7 +771,7 @@ p_{\mathrm{KK}} \equiv 1 \wedge \left ( \max_{1 \le j \le J} \prod_{k=1}^j (X_{k
 \[\begin{equation*} 
    \sup \left \{t \ge 0: \max_{1 \le j \le J}  \prod_{k=1}^j (X_{k}+\gamma) \frac{1-(k-1)/N}{t - \frac{1}{N} \sum_{\ell=1}^{k-1} (X_\ell+\gamma)} \le 1/\alpha \right \} - \gamma.
 \end{equation*}\]</div>
-<section id="application-marbles-in-a-jar">
+<div class="section" id="application-marbles-in-a-jar">
 <h3>Application: marbles in a jar<a class="headerlink" href="#application-marbles-in-a-jar" title="Permalink to this headline">¶</a></h3>
 <p>A certain jar contains <span class="math notranslate nohighlight">\(N\)</span> (even) marbles, <span class="math notranslate nohighlight">\(G\)</span> green and <span class="math notranslate nohighlight">\(N-G\)</span> non-green.
 We sample marbles sequentially without replacement. We wish to test the hypothesis
@@ -785,9 +784,9 @@ If we can reject the hypothesis that <span class="math notranslate nohighlight">
 <p>Use the previous method, taking <span class="math notranslate nohighlight">\(t = 1/2\)</span> and shift <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span>.
 A pleasing choice for symmetry would be <span class="math notranslate nohighlight">\(\delta = 1/2\)</span>, but the operating characteristics
 depend on the true value of <span class="math notranslate nohighlight">\(G\)</span>.</p>
-</section>
-</section>
-<section id="another-martingale-test-for-the-mean-for-sampling-without-replacement">
+</div>
+</div>
+<div class="section" id="another-martingale-test-for-the-mean-for-sampling-without-replacement">
 <h2>Another martingale test for the mean for sampling without replacement<a class="headerlink" href="#another-martingale-test-for-the-mean-for-sampling-without-replacement" title="Permalink to this headline">¶</a></h2>
 <p>Let’s define a finite-sample version of the Kaplan-Wald approach, to which we can apply Kolmogorov’s Inequality.</p>
 <p>Let <span class="math notranslate nohighlight">\(S_j \equiv \sum_{k=1}^j X_k\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_j \equiv S_j/N\)</span>, and <span class="math notranslate nohighlight">\(\tilde{j} \equiv 1 - (j-1)/N\)</span>.
@@ -1013,8 +1012,8 @@ Using this notation,</p>
 </div>
 </div>
 </div>
-</section>
-<section id="examples-for-testing-the-recursive-algorithm">
+</div>
+<div class="section" id="examples-for-testing-the-recursive-algorithm">
 <h2>Examples for testing the recursive algorithm<a class="headerlink" href="#examples-for-testing-the-recursive-algorithm" title="Permalink to this headline">¶</a></h2>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
@@ -1410,16 +1409,16 @@ Using this notation,</p>
 </div>
 </div>
 </div>
-</section>
-<section id="what-s-next">
+</div>
+<div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="dus.html"><span class="doc std std-doc">Next: Dollar-unit sampling and taint</span></a></p></li>
 <li><p><a class="reference internal" href="sprt.html"><span class="doc std std-doc">Previous: Wald’s Sequential Probability Ratio Test</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

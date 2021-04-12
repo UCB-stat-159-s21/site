@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modeling the COVID-19 Pandemic &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -328,9 +327,9 @@
         
               <div>
                 
-  <section id="modeling-the-covid-19-pandemic">
+  <div class="section" id="modeling-the-covid-19-pandemic">
 <h1>Modeling the COVID-19 Pandemic<a class="headerlink" href="#modeling-the-covid-19-pandemic" title="Permalink to this headline">¶</a></h1>
-<section id="reading">
+<div class="section" id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Bregman D.J., A.D. Langmuir, 1990. Farr’s law applied to AIDS projections. <em>JAMA</em>, 263:1522–1525. doi: 10.1001/jama.263.11.1522.</p></li>
@@ -343,13 +342,13 @@ Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles a
 <li><p>Froese, H., 2020. Infectious Disease Modelling: Fit Your Model to Coronavirus Data, Towards Data Science, https://towardsdatascience.com/infectious-disease-modelling-fit-your-model-to-coronavirus-data-2568e672dbc7; https://github.com/henrifroese/infectious_disease_modelling</p></li>
 <li><p>Smith, D., and L. Moore, 2004. The SIR model for spread of disease, <em>Convergence</em>, https://www.maa.org/press/periodicals/loci/joma/the-sir-model-for-spread-of-disease-introduction</p></li>
 </ol>
-</section>
-<section id="models-of-epidemics">
+</div>
+<div class="section" id="models-of-epidemics">
 <h2>Models of epidemics<a class="headerlink" href="#models-of-epidemics" title="Permalink to this headline">¶</a></h2>
 <p>This notebook explores two basic approaches to modeling the spread of a communicable disease through a population. There are more complicated approaches than are considered here, but these are common, and the predictions of COVID-19 infections, ICU beds, and deaths are often based on variations of these models.</p>
-</section>
-</section>
-<section id="sir-models">
+</div>
+</div>
+<div class="section" id="sir-models">
 <h1>SIR models<a class="headerlink" href="#sir-models" title="Permalink to this headline">¶</a></h1>
 <p>Mathematical models of epidemics date back to the early 1900s.</p>
 <p>One of the simplest models of epidemics is the SIR model, which partitions the population into three disjoint groups: Susceptible, Infected, and Recovered (or Removed).</p>
@@ -596,7 +595,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 </div>
-<section id="fitting-the-sir-model-to-data">
+<div class="section" id="fitting-the-sir-model-to-data">
 <h2>Fitting the SIR model to data<a class="headerlink" href="#fitting-the-sir-model-to-data" title="Permalink to this headline">¶</a></h2>
 <p>Now we will use least squares to fit the SIR model to a time history of infection data collected by researchers at Johns Hopkins University. See https://github.com/CSSEGISandData</p>
 <p>This exercise is for illustration. There are many reasons to be wary of this modeling:</p>
@@ -998,9 +997,9 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="fitting-curves-to-the-cumulative-incidence-function">
+</div>
+</div>
+<div class="section" id="fitting-curves-to-the-cumulative-incidence-function">
 <h1>Fitting curves to the cumulative incidence function<a class="headerlink" href="#fitting-curves-to-the-cumulative-incidence-function" title="Permalink to this headline">¶</a></h1>
 <p>The SIR model and its variants attempt to capture the dynamics of transmission and recovery,
 For some parameter choices, that leads to a sigmoidal shape for the cumulative incidence of infections.</p>
@@ -1009,12 +1008,12 @@ that dates back to William Farr in the 1800s.
 King et al. (2015) showed that this approach does not work well for AIDS or Ebola.
 Nonetheless, this is the approach the IHME takes: they fit a scaled and shifted Gaussian cdf to
 cumulative incidence.</p>
-<section id="sigmoidal-models">
+<div class="section" id="sigmoidal-models">
 <h2>Sigmoidal Models<a class="headerlink" href="#sigmoidal-models" title="Permalink to this headline">¶</a></h2>
 <p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian cdf <span class="math notranslate nohighlight">\(\Phi(x)\)</span>) and the sigmoid function <span class="math notranslate nohighlight">\(1/(e^{-x} + 1)\)</span>, the inverse of the logistic function.</p>
 <p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-588694e4-570d-421b-b32e-6e51a4e59634">
-<span class="eqno">()<a class="headerlink" href="#equation-588694e4-570d-421b-b32e-6e51a4e59634" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ae193419-df3d-4de8-a633-a520260a5c9f">
+<span class="eqno">()<a class="headerlink" href="#equation-ae193419-df3d-4de8-a633-a520260a5c9f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(x; a, b, c) \equiv \frac{c}{e^{-b(x-a)}+1}.
 \end{equation}\]</div>
 <p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
@@ -1180,13 +1179,13 @@ prompt questions:</p>
 <p>In the same paper, Box wrote, “It is inappropriate to be concerned with mice when there are tigers abroad.”
 Most of the fretting people do about statistical models is at the level of mice (e.g., asymptotics under unrealistic assumptions), while the problems with most
 statistical models are tigers: the models have little or no connection to the actual scientific question.</p>
-</section>
-<section id="new-variants">
+</div>
+<div class="section" id="new-variants">
 <h2>New variants<a class="headerlink" href="#new-variants" title="Permalink to this headline">¶</a></h2>
 <p>As of this writing (10 February 2021), new strains of COVID-19 have been detected in the UK, South Africa, and the US, where cases of the new strain have a doubling time of about 10 days. The UK strain is estimated to be 50% to 70% more transmissible than the original virus. There is mounting evidence that the strain is also more lethal.
 https://www.wsj.com/articles/new-u-k-covid-19-variant-could-be-more-deadly-british-officials-say-11611338370 (last visited 22 January 2021).</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

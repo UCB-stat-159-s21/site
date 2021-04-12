@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Permutation Tests &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -436,16 +435,16 @@
         
               <div>
                 
-  <section id="permutation-tests">
+  <div class="section" id="permutation-tests">
 <h1>Permutation Tests<a class="headerlink" href="#permutation-tests" title="Permalink to this headline">¶</a></h1>
-<section id="basic-idea">
+<div class="section" id="basic-idea">
 <h2>Basic idea:<a class="headerlink" href="#basic-idea" title="Permalink to this headline">¶</a></h2>
 <p>If, under the null hypothesis, the probability distribution of the data is invariant under the action of some group <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>, then once we observe the actual data, we know other possible data sets that are equally likely.</p>
 <p>In particular, every element of the <em>orbit</em> of the observed data under <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> was just as probable as the
 observed data.</p>
 <p>Test <em>conditionally</em> on the orbit in which the observed data lie.</p>
-</section>
-<section id="example-effect-of-treatment-in-a-randomized-controlled-experiment">
+</div>
+<div class="section" id="example-effect-of-treatment-in-a-randomized-controlled-experiment">
 <h2>Example: Effect of treatment in a randomized controlled experiment<a class="headerlink" href="#example-effect-of-treatment-in-a-randomized-controlled-experiment" title="Permalink to this headline">¶</a></h2>
 <p>11 pairs of rats, each pair from the same litter.</p>
 <p>Randomly—by coin tosses—put one of each pair into
@@ -466,13 +465,13 @@ observed data.</p>
 <p>Cartoon of Rosenzweig, M.R., E.L. Bennet, and M.C. Diamond, 1972. Brain changes in response to experience, <em>Scientific American</em>, <em>226</em>, 22–29 report an experiment in which 11 triples of male rats, each triple from the same litter, were
 assigned at random to three different environments, “enriched” (E), standard, and “impoverished.”
 See also Bennett et al., 1969.</p>
-<section id="informal-hypotheses">
+<div class="section" id="informal-hypotheses">
 <h3>Informal Hypotheses<a class="headerlink" href="#informal-hypotheses" title="Permalink to this headline">¶</a></h3>
 <p>Null hypothesis: treatment has “no effect.”</p>
 <p>Alternative hypothesis: treatment increases cortical mass.</p>
 <p>Suggests 1-sided test for an increase.</p>
-</section>
-<section id="test-contenders">
+</div>
+<div class="section" id="test-contenders">
 <h3>Test contenders<a class="headerlink" href="#test-contenders" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>2-sample Student <span class="math notranslate nohighlight">\(t\)</span>-test:</p></li>
@@ -495,8 +494,8 @@ See also Bennett et al., 1969.</p>
 same statistic, different way to calculate <span class="math notranslate nohighlight">\(P\)</span>-value.
 Even better?</p></li>
 </ul>
-</section>
-<section id="strong-null-hypothesis">
+</div>
+<div class="section" id="strong-null-hypothesis">
 <h3>Strong null hypothesis<a class="headerlink" href="#strong-null-hypothesis" title="Permalink to this headline">¶</a></h3>
 <p><strong>Treatment has no effect whatsoever—as if cortical mass were
 assigned to each rat before the randomization.</strong></p>
@@ -515,12 +514,12 @@ to treatment or to control, independently across littermate pairs.</p>
     -64</td><td> -7 </td><td> -89 </td><td> -2 </td><td> -11</td>
 </tr>
 </table>
-</section>
-<section id="weak-null-hypothesis">
+</div>
+<div class="section" id="weak-null-hypothesis">
 <h3>Weak null hypothesis<a class="headerlink" href="#weak-null-hypothesis" title="Permalink to this headline">¶</a></h3>
 <p>On average across pairs, treatment makes no difference.</p>
-</section>
-<section id="alternatives">
+</div>
+<div class="section" id="alternatives">
 <h3>Alternatives<a class="headerlink" href="#alternatives" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Individual’s response depends only on that individual’s assignment</p>
@@ -530,8 +529,8 @@ to treatment or to control, independently across littermate pairs.</p>
 </li>
 <li><p>Interactions/Interference: my response could depend on whether you are assigned to treatment or control.</p></li>
 </ol>
-</section>
-<section id="assumptions-of-the-tests">
+</div>
+<div class="section" id="assumptions-of-the-tests">
 <h3>Assumptions of the tests<a class="headerlink" href="#assumptions-of-the-tests" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>2-sample <span class="math notranslate nohighlight">\(t\)</span>-test:</p>
@@ -555,8 +554,8 @@ to treatment or to control, independently across littermate pairs.</p>
 </ol>
 <p>Assumptions of the permutation test are true by design: That’s how treatment
 was assigned.</p>
-</section>
-<section id="what-s-the-group">
+</div>
+<div class="section" id="what-s-the-group">
 <h3>What’s the group?<a class="headerlink" href="#what-s-the-group" title="Permalink to this headline">¶</a></h3>
 <p>The data are elements of <span class="math notranslate nohighlight">\(\Re^{11}\)</span>. The group operations reflect coordinates
 about the axes—they flip the signs of elements of the vectors.</p>
@@ -589,8 +588,8 @@ about the axes—they flip the signs of elements of the vectors.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="student-t-test-calculations">
+</div>
+<div class="section" id="student-t-test-calculations">
 <h3>Student <span class="math notranslate nohighlight">\(t\)</span>-test calculations<a class="headerlink" href="#student-t-test-calculations" title="Permalink to this headline">¶</a></h3>
 <p>Mean of differences:  26.73mg<br />
 Sample SD of differences:  27.33mg<br />
@@ -603,8 +602,8 @@ Sample SD of differences:  27.33mg<br />
 <li><p><span class="math notranslate nohighlight">\(P\)</span>-value depends on assuming differences are iid sample from a normal distribution.</p></li>
 <li><p>If we reject the null, is that because there is a treatment effect, or because the other assumptions are wrong?</p></li>
 </ul>
-</section>
-<section id="permutation-t-test-calculations">
+</div>
+<div class="section" id="permutation-t-test-calculations">
 <h3>Permutation <span class="math notranslate nohighlight">\(t\)</span>-test calculations<a class="headerlink" href="#permutation-t-test-calculations" title="Permalink to this headline">¶</a></h3>
 <p>Could enumerate all <span class="math notranslate nohighlight">\(2^{11} = 2,048\)</span> equally likely possibilities.
 Calculate <span class="math notranslate nohighlight">\(t\)</span>-statistic for each.</p>
@@ -752,10 +751,10 @@ we can still approxiimate the <span class="math notranslate nohighlight">\(P\)</
 </div>
 </div>
 </div>
-</section>
-<section id="other-tests-sign-test-wilcoxon-signed-rank-test">
+</div>
+<div class="section" id="other-tests-sign-test-wilcoxon-signed-rank-test">
 <h3>Other tests: sign test, Wilcoxon signed-rank test<a class="headerlink" href="#other-tests-sign-test-wilcoxon-signed-rank-test" title="Permalink to this headline">¶</a></h3>
-<section id="sign-test">
+<div class="section" id="sign-test">
 <h4>Sign test:<a class="headerlink" href="#sign-test" title="Permalink to this headline">¶</a></h4>
 <p>Count pairs where treated rat has heavier cortex, i.e., where
 difference is positive.</p>
@@ -765,16 +764,16 @@ of a fair coin.  (Assumes no ties w/i pairs.)</p>
 <p><span class="math notranslate nohighlight">\(P\)</span>-value is chance of 10 or more heads in 11 tosses of a fair coin: 0.0059.</p>
 <p>Only uses signs of differences, not information that only the smallest absolute
 difference was negative.</p>
-</section>
-<section id="wilcoxon-signed-rank-test">
+</div>
+<div class="section" id="wilcoxon-signed-rank-test">
 <h4>Wilcoxon signed-rank test<a class="headerlink" href="#wilcoxon-signed-rank-test" title="Permalink to this headline">¶</a></h4>
 <p>uses information about the ordering of the
 differences: rank the absolute values of the differences, then give them
 the observed signs and sum them.  Null distribution: assign signs at random
 and sum.</p>
-</section>
-</section>
-<section id="still-more-tests-for-other-alternatives">
+</div>
+</div>
+<div class="section" id="still-more-tests-for-other-alternatives">
 <h3>Still more tests, for other alternatives<a class="headerlink" href="#still-more-tests-for-other-alternatives" title="Permalink to this headline">¶</a></h3>
 <p>All the tests we’ve seen here are sensitive to <em>shifts</em>–the alternative
 hypothesis is that treatment increases response (cortical mass).</p>
@@ -786,23 +785,23 @@ the distribution of the responses.</p>
 <p>You can design a test statistic to be sensitive to any change that
 interests you, then use the permutation distribution to get a <span class="math notranslate nohighlight">\(P\)</span>-value
 (and simulation to approximate that <span class="math notranslate nohighlight">\(P\)</span>-value).</p>
-</section>
-<section id="silliness">
+</div>
+<div class="section" id="silliness">
 <h3>Silliness<a class="headerlink" href="#silliness" title="Permalink to this headline">¶</a></h3>
 <p>Treat ordinal data (e.g., Likert scale) as if measured on a linear scale;
 use Student <span class="math notranslate nohighlight">\(t\)</span>-test.</p>
 <p>Maybe not so silly for large samples<span class="math notranslate nohighlight">\(\ldots\)</span></p>
 <p><span class="math notranslate nohighlight">\(t\)</span>-test asymptotically distribution-free.</p>
 <p>How big is big?</p>
-</section>
-</section>
-<section id="back-to-rosenzweig-et-al">
+</div>
+</div>
+<div class="section" id="back-to-rosenzweig-et-al">
 <h2>Back to Rosenzweig et al.<a class="headerlink" href="#back-to-rosenzweig-et-al" title="Permalink to this headline">¶</a></h2>
 <p>Actually had 3 treatments:  enriched, standard, deprived.</p>
 <p>Randomized 3 rats per litter into the 3 treatments, independently across
 <span class="math notranslate nohighlight">\(n\)</span> litters.</p>
 <p><strong>How should we analyze these data?</strong></p>
-<section id="id1">
+<div class="section" id="id1">
 <h3>Test contenders<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><span class="math notranslate nohighlight">\(n\)</span> litters, <span class="math notranslate nohighlight">\(s\)</span> treatments (sibs per litter).</p>
 <ul class="simple">
@@ -821,8 +820,8 @@ F = \frac{\mbox{BSS}/(s-1)}{\mbox{WSS}/(n-s)}
 Q = \frac{12n}{s(s+1)} \sum_{i=1}^s \left ( \bar{R}_i - \frac{s+1}{2} \right )^2.
 \end{equation*}\]</div>
 <p><span class="math notranslate nohighlight">\(P\)</span>-value from permutation distribution.</p>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h3>Strong null hypothesis<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p><strong>Treatment has no effect whatsoever—as if cortical mass were
 assigned to each rat before the randomization.</strong></p>
@@ -831,13 +830,13 @@ independently across litters.</p>
 <p>There are <span class="math notranslate nohighlight">\(3! = 6\)</span> assignments of each triple to treatments. Thus, there <span class="math notranslate nohighlight">\(6^n\)</span> equally likely assignments across all litters.</p>
 <p>For 11 litters, that’s 362,797,056 possibilities.</p>
 <p>(The group under which the distribution of the data is invariant is a subgroup of the permutation group: if you think of the data as an element of <span class="math notranslate nohighlight">\(\Re^{33}\)</span> (33 rats), the group consists of all permutations of the 33 elements that shuffle only adjacent sets of 3 components: components 1–3, components 4–6, … components 31–33.)</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3>Weak null hypothesis<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p><strong>The average cortical weight for all three treatment groups are equal.
 On average across triples, treatment makes no difference.</strong></p>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h3>Assumptions of the tests<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(F\)</span>-test: masses are iid sample from normal distribution, same unknown variance, same unknown mean for all litters and treatments.<br />
@@ -849,8 +848,8 @@ Tests strong null hypothesis.</p></li>
 <p>Assumptions of the permutation test and Friedman test are true by design:
 that’s how treatment was assigned.</p>
 <p>Friedman test statistic has  <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution asymptotically.  Ties are a complication.</p>
-</section>
-<section id="f-test-assumptionsreasonable">
+</div>
+<div class="section" id="f-test-assumptionsreasonable">
 <h3><span class="math notranslate nohighlight">\(F\)</span>-test assumptions—reasonable?<a class="headerlink" href="#f-test-assumptionsreasonable" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Why do cortical weights have normal distribution for each litter and for each treatment?</p></li>
@@ -866,8 +865,8 @@ more stimulation produces greater cortical mass.</p>
 <p>deprived <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  normal  <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  enriched<br />
 low mass  <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  medium mass  <span class="math notranslate nohighlight">\(\Longrightarrow\)</span>  high mass</p>
 <p><em>Can we use that to make a more sensitive test?</em></p>
-</section>
-<section id="a-test-against-an-ordered-alternative">
+</div>
+<div class="section" id="a-test-against-an-ordered-alternative">
 <h3>A test against an ordered alternative<a class="headerlink" href="#a-test-against-an-ordered-alternative" title="Permalink to this headline">¶</a></h3>
 <p>Within each litter triple, count pairs of responses
 that are “in order.”  Sum across litters.</p>
@@ -886,8 +885,8 @@ that are “in order.”  Sum across litters.</p>
 <p>Each litter triple contributes between 0 and 3 to the overall sum.</p>
 <p>Null distribution for the test based on the permutation distribution: 6
 equally likely assignments per litter, independent assignments across litters.</p>
-</section>
-<section id="a-different-test-against-an-ordered-alternative">
+</div>
+<div class="section" id="a-different-test-against-an-ordered-alternative">
 <h3>A different test against an ordered alternative<a class="headerlink" href="#a-different-test-against-an-ordered-alternative" title="Permalink to this headline">¶</a></h3>
 <p>Within each litter triple, add differences
 that are “in order.”  Sum across litters.</p>
@@ -907,9 +906,9 @@ so that pair contributes zero.</p>
 <p>Each litter triple contributes between 0 and <span class="math notranslate nohighlight">\(2\times{\mbox{ range }}\)</span> to the sum.</p>
 <p>Null distribution for the test based on the permutation distribution: 6
 equally likely assignments per litter, independent across litters.</p>
-</section>
-</section>
-<section id="the-2-sample-problem">
+</div>
+</div>
+<div class="section" id="the-2-sample-problem">
 <h2>The 2-sample problem<a class="headerlink" href="#the-2-sample-problem" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we have a group of <span class="math notranslate nohighlight">\(N\)</span> individuals who are randomized into two groups, a <em>treatment</em> group of size <span class="math notranslate nohighlight">\(N_t\)</span> and a <em>control</em> group of size <span class="math notranslate nohighlight">\(N_c = N - N_t\)</span>.
 Label the individuals from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.
@@ -945,8 +944,8 @@ treatment are equally likely.</p>
 <p>One way to partition the <span class="math notranslate nohighlight">\(N\)</span> subjects randomly into a group of size <span class="math notranslate nohighlight">\(N_c\)</span> and a group of size <span class="math notranslate nohighlight">\(N_t\)</span> is
 to permute the <span class="math notranslate nohighlight">\(N\)</span> subjects at random, then take the first <span class="math notranslate nohighlight">\(N_c\)</span> in the permuted list to be the control
 group, and the remaining <span class="math notranslate nohighlight">\(N_t\)</span> to be the treatment group.</p>
-</section>
-<section id="gender-bias-in-teaching-evaluations">
+</div>
+<div class="section" id="gender-bias-in-teaching-evaluations">
 <h2>Gender Bias in Teaching Evaluations<a class="headerlink" href="#gender-bias-in-teaching-evaluations" title="Permalink to this headline">¶</a></h2>
 <p>MacNell, Driscoll, and Hunt (2014. <a class="reference external" href="http://link.springer.com/article/10.1007%2Fs10755-014-9313-4">What’s in a Name: Exposing Gender Bias in Student Ratings of Teaching</a>, <em>Innovative Higher Education</em>) conducted a controlled, randomized experiment on
 the effect of students’ perception of instructors’ gender on teaching evaluations
@@ -991,7 +990,7 @@ gender - 1 if student is male, 0 if student is female
 <p>There are grades for 47 students but evaluations for only 43 (4 did not respond: three in group 5 and one in group 6).
 The grades are not linked to the evaluations, per the IRB protocol.</p>
 <p>Our null hypothesis will include the assumption that whether a student responds does not depend on the identified gender of the TA: the 4 nonresponders would have remained nonresponders had they been in that instructor’s other section, and no additional students would become nonresponders if they had been assigned to the same instructor’s other section.</p>
-<section id="interlude-partitioning-sets-into-more-than-two-subsets">
+<div class="section" id="interlude-partitioning-sets-into-more-than-two-subsets">
 <h3>Interlude: partitioning sets into more than two subsets<a class="headerlink" href="#interlude-partitioning-sets-into-more-than-two-subsets" title="Permalink to this headline">¶</a></h3>
 <p>Recall that there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of picking a subset of size <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(n\)</span> items;
 hence there are <span class="math notranslate nohighlight">\(n \choose k\)</span> ways of dividing a set into a subset of size <span class="math notranslate nohighlight">\(k\)</span> and one of size <span class="math notranslate nohighlight">\(n-k\)</span>
@@ -1349,9 +1348,9 @@ clear                    0.41     0.29
 </div>
 </div>
 <p>Next: <a class="reference internal" href="permute-distance.html"><span class="doc std std-doc">General permutation tests</span></a></p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dollar-unit sampling and “taint” &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -316,14 +315,14 @@
         
               <div>
                 
-  <section id="dollar-unit-sampling-and-taint">
+  <div class="section" id="dollar-unit-sampling-and-taint">
 <h1>Dollar-unit sampling and “taint”<a class="headerlink" href="#dollar-unit-sampling-and-taint" title="Permalink to this headline">¶</a></h1>
-<section id="dollar-unit-sampling">
+<div class="section" id="dollar-unit-sampling">
 <h2>Dollar-unit sampling<a class="headerlink" href="#dollar-unit-sampling" title="Permalink to this headline">¶</a></h2>
 <p>Dollar-unit sampling (DUS) is a form of probability proportional to size (PPS) sampling that originated in statistical financial auditing.  In this case, “size” is an upper bound on the value of the item; DUS is sometimes called sampling with probability proportional to an upper bound (PPUB).</p>
 <p>The idea is that each item in a population has a reported value and a true value; the true value is known only if the item is audited—which is expensive.  There is a possibility that the reported value is too high.  We sample units with probability proportional to their reported values.</p>
 <p>Intuitively, it makes sense to focus attention on the items with larger reported values, because “that’s where the money is.” Errors in the values of those items potentially have a larger effect on the error in the total reported value for the population.</p>
-<section id="the-math">
+<div class="section" id="the-math">
 <h3>The math<a class="headerlink" href="#the-math" title="Permalink to this headline">¶</a></h3>
 <p>There are <span class="math notranslate nohighlight">\(N\)</span> items, <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span>. There are <span class="math notranslate nohighlight">\(N\)</span> known numbers <span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^N\)</span> such that</p>
 <div class="amsmath math notranslate nohighlight">
@@ -335,9 +334,9 @@
 <p>In the <span class="math notranslate nohighlight">\(i\)</span>th draw, we select item <span class="math notranslate nohighlight">\(j\)</span> with probability <span class="math notranslate nohighlight">\(\pi_j \equiv u_j/u\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X_i\)</span> be the true value of the item selected in draw <span class="math notranslate nohighlight">\(i\)</span>, and let <span class="math notranslate nohighlight">\(U_i\)</span> be the reported value of the item selected in draw <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p>If we sample with replacement, <span class="math notranslate nohighlight">\(\{X_i\}\)</span> are iid, as are <span class="math notranslate nohighlight">\(\{U_i \}\)</span>.</p>
-</section>
-</section>
-<section id="taint">
+</div>
+</div>
+<div class="section" id="taint">
 <h2>Taint<a class="headerlink" href="#taint" title="Permalink to this headline">¶</a></h2>
 <p>Define <span class="math notranslate nohighlight">\(t_j \equiv x_j/u_j\)</span>. This value, the “taint,” is the fraction of the reported value that the true value represents.</p>
 <p>Define <span class="math notranslate nohighlight">\(t \equiv x/u\)</span>. (This is <em>not</em> parallel to the definitions of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(u\)</span>.)</p>
@@ -351,10 +350,10 @@
 <p>Since <span class="math notranslate nohighlight">\(u\)</span> is known, we can translate an upper confidence bound for <span class="math notranslate nohighlight">\(\mathbb E T_i\)</span> into an upper confidence bound for <span class="math notranslate nohighlight">\(x\)</span> or for <span class="math notranslate nohighlight">\(\mu\)</span> by multiplication.</p>
 <p>This is the relationship we will exploit to connect auditing problems to the problem of finding a nonparametric confidence bound for the mean of a non-negative or bounded population.</p>
 <p>The main point is that since <span class="math notranslate nohighlight">\(\mathbb P \{T_i \in [0, 1]\} = 1\)</span>, we can use any of the methods we’ve developed for finding confidence bounds for the mean of nonnegative or bounded populations (Binomial with thresholding, Checychev’s inequality, Hoeffding’s inequality, Markov’s inequality, the MDKW inequality, and the Kaplan-Markov method) to make confidence bonds for <span class="math notranslate nohighlight">\(\mathbb E T_i\)</span>.  In turn, any confidence bound for <span class="math notranslate nohighlight">\(t\)</span> can be translated easily into a rigorous confidence bound for the population mean <span class="math notranslate nohighlight">\(\mu\)</span> and population total <span class="math notranslate nohighlight">\(x\)</span>.</p>
-</section>
-<section id="some-examples">
+</div>
+<div class="section" id="some-examples">
 <h2>Some examples<a class="headerlink" href="#some-examples" title="Permalink to this headline">¶</a></h2>
-<section id="litigation-and-elections">
+<div class="section" id="litigation-and-elections">
 <h3>Litigation and elections<a class="headerlink" href="#litigation-and-elections" title="Permalink to this headline">¶</a></h3>
 <p>A plaintiff might want to find a confidence bound in one direction; a defendant might want a confidence bound in the opposite direction.</p>
 <ul class="simple">
@@ -472,17 +471,17 @@
 <img alt="../_images/dus_7_2.png" src="../_images/dus_7_2.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="what-s-next">
+</div>
+</div>
+<div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="pennySampling.html"><span class="doc std std-doc">Next: Penny Sampling</span></a></p></li>
 <li><p><a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Previous: The Kaplan-Wald Confidence Bound for a Nonnegative Mean</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

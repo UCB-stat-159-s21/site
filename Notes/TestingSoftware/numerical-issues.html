@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Numerical stability &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -292,7 +291,7 @@
         
               <div>
                 
-  <section id="numerical-stability">
+  <div class="section" id="numerical-stability">
 <h1>Numerical stability<a class="headerlink" href="#numerical-stability" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we look at some issues with the stability and errors that can arise when doing arithmetic on a computer. This will be a very quick pass over this rich topic, we encourage you to read the classic <a class="reference external" href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a> to learn much more about this important topic.</p>
 <p>In the last lecture, we discussed how <em>binary</em> floating point arithmetic can be subtle.  Consider the follwing three numbers:</p>
@@ -366,7 +365,7 @@ a + (b + c) = 1.0
 </div>
 </div>
 <p>This problem isn’t one of loss of precision, but one of <em>representability</em>: due to the way binary floating point arithmetic represents numbers, not all decimal fractions can be correctly represented, and thus arithmetic operations incur small errors that can lead to unexpected results.</p>
-<section id="decimal-arithmetic-in-python">
+<div class="section" id="decimal-arithmetic-in-python">
 <h2>Decimal Arithmetic in Python<a class="headerlink" href="#decimal-arithmetic-in-python" title="Permalink to this headline">¶</a></h2>
 <p>A quick aside before we continue. This kind of tool isn’t very commonly used in scientific computing, but the Python Standard Library includes the <a class="reference external" href="https://docs.python.org/3/library/decimal.html"><code class="docutils literal notranslate"><span class="pre">decimal</span></code> module</a>, an implementation of Decimal arithmetic (see the full <a class="reference external" href="http://speleotrove.com/decimal/decarith.html">IBM IBM’s General Decimal Arithmetic Specification</a> for more details).  Using <code class="docutils literal notranslate"><span class="pre">Decimal</span></code>s, the above issue doesn’t occur:</p>
 <div class="cell docutils container">
@@ -414,8 +413,8 @@ a + (b + c) = 1.000000000000000000000000000
 </div>
 </div>
 </div>
-</section>
-<section id="back-to-numerics">
+</div>
+<div class="section" id="back-to-numerics">
 <h2>Back to numerics<a class="headerlink" href="#back-to-numerics" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p><strong>Note:</strong> For numerical computing, if you need arbitrary precision arithmetic in floating point with support for advanced mathematical operations including special functions, the <a class="reference external" href="https://mpmath.org">mpmath library</a> is an excellent resource to know about.</p>
@@ -732,8 +731,8 @@ div.warning ul, div.warning ol {
 
 </style></div></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

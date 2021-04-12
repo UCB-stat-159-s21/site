@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Confidence intervals based on the normal approximation &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -310,7 +309,7 @@
         
               <div>
                 
-  <section id="confidence-intervals-based-on-the-normal-approximation">
+  <div class="section" id="confidence-intervals-based-on-the-normal-approximation">
 <h1>Confidence intervals based on the normal approximation<a class="headerlink" href="#confidence-intervals-based-on-the-normal-approximation" title="Permalink to this headline">¶</a></h1>
 <p>One of the first things most statisticians would consider is to use confidence based on the normal approximation, especially if it were possible to draw a moderately large sample (e.g., 100 or more units).</p>
 <p>The procedure would be:</p>
@@ -323,7 +322,7 @@ population size)</p></li>
 <li><p>find <span class="math notranslate nohighlight">\(t\)</span>, the appropriate critical value of Student’s t distribution with <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom</p></li>
 <li><p>the approximate 2-sided confidence interval is <span class="math notranslate nohighlight">\([\bar{X} - t \hat{SE}, \bar{X} + t \hat{SE}]\)</span>.</p></li>
 </ul>
-<section id="formally-this-gives-an-approximate-confidence-interval-but-there-s-no-guarantee-that-the-actual-coverage-probability-is-close-to-the-nominal-coverage-probability">
+<div class="section" id="formally-this-gives-an-approximate-confidence-interval-but-there-s-no-guarantee-that-the-actual-coverage-probability-is-close-to-the-nominal-coverage-probability">
 <h2><em>Formally</em>, this gives an approximate confidence interval, but there’s no guarantee that the actual coverage probability is close to the nominal coverage probability<a class="headerlink" href="#formally-this-gives-an-approximate-confidence-interval-but-there-s-no-guarantee-that-the-actual-coverage-probability-is-close-to-the-nominal-coverage-probability" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Normal approximation is common, but can be grossly inaccurate, especially with:</p>
@@ -511,8 +510,8 @@ population size)</p></li>
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="why-when-is-the-coverage-bad">
+</div>
+<div class="section" id="why-when-is-the-coverage-bad">
 <h2>Why/When is the coverage bad?<a class="headerlink" href="#why-when-is-the-coverage-bad" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Because of the high population mass at 0, the sample will often contain <em>only</em> 0s. Then the SD will be zero, the length of the interval will be 0, and the interval won’t cover the mean—which is bigger than zero.</p></li>
@@ -549,8 +548,8 @@ population size)</p></li>
 </div>
 </div>
 </div>
-</section>
-<section id="nonstandard-mixtures-of-distributions">
+</div>
+<div class="section" id="nonstandard-mixtures-of-distributions">
 <h2>Nonstandard mixtures of distributions<a class="headerlink" href="#nonstandard-mixtures-of-distributions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Common in statistical study of auditing to consider “nonstandard mixtures” of a pointmass and continuous distribution</p></li>
@@ -709,8 +708,8 @@ population size)</p></li>
 </div>
 <p>Again the distribution of the sample mean is skewed, which hurts the coverage of Student-t intervals.</p>
 <p>When the mass at 0 gets large enough, there is again a large chance that the sample will contain <em>only</em> 0s, in which case the sample SD will be zero, the length of the interval will be zero, and the interval won’t cover.</p>
-</section>
-<section id="summary">
+</div>
+<div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The actual coverage probability of confidence intervals based on the normal approximation can be <em>much</em> less than the nominal coverage probability, even for large-ish sample sizes, for skewed population distributions.</p></li>
@@ -722,8 +721,8 @@ population size)</p></li>
 </ul>
 </li>
 </ul>
-</section>
-<section id="what-s-next">
+</div>
+<div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <p>We will consider some conservative methods for constructing confidence bounds by inverting hypothesis tests.</p>
 <ul class="simple">
@@ -731,8 +730,8 @@ population size)</p></li>
 <li><p><a class="reference internal" href="canonical.html"><span class="doc std std-doc">Previous: Canonical examples of real-world problems we will consider</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

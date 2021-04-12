@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pseudo-random number generators and random sampling &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -655,10 +654,10 @@
         
               <div>
                 
-  <section id="pseudo-random-number-generators-and-random-sampling">
+  <div class="section" id="pseudo-random-number-generators-and-random-sampling">
 <h1>Pseudo-random number generators and random sampling<a class="headerlink" href="#pseudo-random-number-generators-and-random-sampling" title="Permalink to this headline">¶</a></h1>
-</section>
-<section id="properties-of-prngs">
+</div>
+<div class="section" id="properties-of-prngs">
 <h1>Properties of PRNGs<a class="headerlink" href="#properties-of-prngs" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>dimension of output</p>
@@ -703,10 +702,10 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="some-prngs">
+</div>
+<div class="section" id="some-prngs">
 <h1>Some PRNGs<a class="headerlink" href="#some-prngs" title="Permalink to this headline">¶</a></h1>
-<section id="middle-square">
+<div class="section" id="middle-square">
 <h2>Middle Square<a class="headerlink" href="#middle-square" title="Permalink to this headline">¶</a></h2>
 <p>Dates to Franciscan friar ca. 1240 (per <a class="reference external" href="https://en.wikipedia.org/wiki/Middle-square_method">Wikipedia</a>); reinvented by von Neumann ca. 1949.</p>
 <p>Take <span class="math notranslate nohighlight">\(n\)</span>-digit number, square it, use middle <span class="math notranslate nohighlight">\(n\)</span> digits as the “random” and the new seed.</p>
@@ -722,27 +721,27 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="linear-congruential-generators-lcgs">
+</div>
+<div class="section" id="linear-congruential-generators-lcgs">
 <h2>Linear Congruential Generators (LCGs)<a class="headerlink" href="#linear-congruential-generators-lcgs" title="Permalink to this headline">¶</a></h2>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  X_{n+1} = (aX_n +c)\mod m.\end{equation*}\]</div>
 <p>LCG period is at most <span class="math notranslate nohighlight">\(m\)</span>.</p>
-<section id="hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff">
+<div class="section" id="hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff">
 <h3>Hull-Dobell Theorem: the period of an LCG is <span class="math notranslate nohighlight">\(m\)</span> for all seeds <span class="math notranslate nohighlight">\(X_0\)</span> iff<a class="headerlink" href="#hull-dobell-theorem-the-period-of-an-lcg-is-m-for-all-seeds-x-0-iff" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are relatively prime</p></li>
 <li><p><span class="math notranslate nohighlight">\(a-1\)</span>  is divisible by all prime factors of <span class="math notranslate nohighlight">\(m\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(a-1\)</span>  is divisible by 4 if <span class="math notranslate nohighlight">\(m\)</span> is divisible by 4</p></li>
 </ul>
-</section>
-<section id="marsaglia-pnas-1968-random-numbers-fall-mainly-in-the-planes">
+</div>
+<div class="section" id="marsaglia-pnas-1968-random-numbers-fall-mainly-in-the-planes">
 <h3>Marsaglia (PNAS, 1968): Random Numbers Fall Mainly in the Planes<a class="headerlink" href="#marsaglia-pnas-1968-random-numbers-fall-mainly-in-the-planes" title="Permalink to this headline">¶</a></h3>
 <p>Multiplicative congruential generators (<span class="math notranslate nohighlight">\(c=0\)</span>), Lehmer (1949).</p>
 <p><img alt="Marsaglia68" src="../_images/marsaglia68.png" /></p>
-</section>
-</section>
-<section id="randu">
+</div>
+</div>
+<div class="section" id="randu">
 <h2>RANDU<a class="headerlink" href="#randu" title="Permalink to this headline">¶</a></h2>
 <p>RANDU is a particularly bad <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">linear congruential generator</a> promulgated in the 1960s and widely copied.</p>
 <p>RANDU is given by the recursion</p>
@@ -837,8 +836,8 @@
 <img alt="../_images/pseudo-random_10_0.png" src="../_images/pseudo-random_10_0.png" />
 </div>
 </div>
-</section>
-<section id="wichmann-hill-1982">
+</div>
+<div class="section" id="wichmann-hill-1982">
 <h2>Wichmann-Hill (1982)<a class="headerlink" href="#wichmann-hill-1982" title="Permalink to this headline">¶</a></h2>
 <p>Sum of 3 LCGs. Period is 6,953,607,871,644.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def WH(s1, s2, s3):
@@ -849,7 +848,7 @@
     return [r, s1, s2, s3]
 </pre></div>
 </div>
-<section id="the-right-way-the-wrong-way-and-the-microsoft-way">
+<div class="section" id="the-right-way-the-wrong-way-and-the-microsoft-way">
 <h3>The right way, the wrong way, and the Microsoft way.<a class="headerlink" href="#the-right-way-the-wrong-way-and-the-microsoft-way" title="Permalink to this headline">¶</a></h3>
 <p>WH generally not considered adequate for statistics, but was (nominally) the PRNG in Excel for several
 generations. Excel did not allow the seed to be set, so analyses were not reproducible.</p>
@@ -857,9 +856,9 @@ generations. Excel did not allow the seed to be set, so analyses were not reprod
 McCullough, B.D., 2008. Microsoft Excel’s ‘Not The Wichmann–Hill’ random number generators
 <em>Computational Statistics &amp; Data Analysis</em>, <em>52</em>, 4587–4593
 doi:10.1016/j.csda.2008.03.006</p>
-</section>
-</section>
-<section id="mersenne-twister-mt-matsumoto-nishimura-1997">
+</div>
+</div>
+<div class="section" id="mersenne-twister-mt-matsumoto-nishimura-1997">
 <h2>Mersenne Twister (MT)  Matsumoto &amp; Nishimura (1997)<a class="headerlink" href="#mersenne-twister-mt-matsumoto-nishimura-1997" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>example of “twisted generalized feedback shift register”</p></li>
@@ -936,8 +935,8 @@ doi:10.1016/j.csda.2008.03.006</p>
 </div>
 </div>
 </div>
-</section>
-<section id="xorshift-family">
+</div>
+<div class="section" id="xorshift-family">
 <h2>xorshift family<a class="headerlink" href="#xorshift-family" title="Permalink to this headline">¶</a></h2>
 <p>Originated by Marsaglia, 2003.</p>
 <p>Vigna, S., 2014. Further scramblings of Marsaglia’s xorshift generators. https://arxiv.org/abs/1404.0390</p>
@@ -971,9 +970,9 @@ return result;
 <p>xorshift+ passes all the tests in BigCrush, has 128-bit state space and period <span class="math notranslate nohighlight">\(2^{128}-1\)</span>, but is
 only <span class="math notranslate nohighlight">\((k-1)\)</span>-dimensionally equidistributed, where <span class="math notranslate nohighlight">\(k\)</span> is the dimension of the distribution of the xorshift
 generator from which it’s derived. E.g., for the 128-bit version, xorshift+ is only 1-dimensionally equidistributed.</p>
-</section>
-</section>
-<section id="other-non-cryptographic-prngs">
+</div>
+</div>
+<div class="section" id="other-non-cryptographic-prngs">
 <h1>Other non-cryptographic PRNGs<a class="headerlink" href="#other-non-cryptographic-prngs" title="Permalink to this headline">¶</a></h1>
 <p>See http://www.pcg-random.org/ and the talk http://www.pcg-random.org/posts/stanford-colloquium-talk.html</p>
 <p>PCG family permutes the output of a LCG; good statistical properties and very fast and compact. Related to Rivest’s RC5 cipher.</p>
@@ -995,8 +994,8 @@ uint32_t pcg32_random_r(pcg32_random_t* rng)
 }
 </pre></div>
 </div>
-</section>
-<section id="prngs-based-on-cryptographic-hash-functions">
+</div>
+<div class="section" id="prngs-based-on-cryptographic-hash-functions">
 <h1>PRNGs based on cryptographic hash functions<a class="headerlink" href="#prngs-based-on-cryptographic-hash-functions" title="Permalink to this headline">¶</a></h1>
 <p>Cryptographic hash functions have several basic properties:</p>
 <ol class="simple">
@@ -1008,8 +1007,8 @@ uint32_t pcg32_random_r(pcg32_random_t* rng)
 <li><p>equidistributed: bits of the hash are essentially random</p></li>
 </ol>
 <p>Summary: <em>as if</em> <span class="math notranslate nohighlight">\(H(M)\)</span> is random <span class="math notranslate nohighlight">\(L\)</span>-bit string is assigned to <span class="math notranslate nohighlight">\(M\)</span> in a way that’s essentially unique.</p>
-</section>
-<section id="step-of-sha-256">
+</div>
+<div class="section" id="step-of-sha-256">
 <h1>1 step of SHA-256<a class="headerlink" href="#step-of-sha-256" title="Permalink to this headline">¶</a></h1>
 <p>By User:kockmeyer - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1823488</p>
 <p><img alt="SHA-2" src="../_images/SHA-2.svg" /></p>
@@ -1023,7 +1022,7 @@ uint32_t pcg32_random_r(pcg32_random_t* rng)
 \[\begin{equation*}  \Sigma _1 (E) \equiv (E\!\ggg \!6)\oplus (E\!\ggg \!11)\oplus (E\!\ggg \!25) \end{equation*}\]</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} \boxplus  \mbox{ is addition mod } 2^{32}\end{equation*}\]</div>
-<section id="simple-hash-based-prng">
+<div class="section" id="simple-hash-based-prng">
 <h2>Simple, hash-based PRNG<a class="headerlink" href="#simple-hash-based-prng" title="Permalink to this headline">¶</a></h2>
 <p>Generate a random string <span class="math notranslate nohighlight">\(S\)</span> of reasonable length, e.g., 20 digits.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1035,61 +1034,61 @@ uint32_t pcg32_random_r(pcg32_random_t* rng)
 <p>Implementation in Python by Ron Rivest: http://people.csail.mit.edu/rivest/sampler.py</p>
 <p>Implementation in angular-js by Chris Jerdonek: https://github.com/cjerdonek/quick-sampler</p>
 <p>Implementation in JavaScript by Philip Stark: https://www.stat.berkeley.edu/~stark/Java/Html/sha256Rand.htm</p>
-</section>
-<section id="variation-to-take-advantage-of-incremental-hashing">
+</div>
+<div class="section" id="variation-to-take-advantage-of-incremental-hashing">
 <h2>Variation to take advantage of incremental hashing<a class="headerlink" href="#variation-to-take-advantage-of-incremental-hashing" title="Permalink to this headline">¶</a></h2>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  X_i = {\mbox{Hash}}(S+0*i),
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(+\)</span> denotes string concatenation and <span class="math notranslate nohighlight">\(0*i\)</span> denotes a string of <span class="math notranslate nohighlight">\(i\)</span> zeros.</p>
 <p>This is the method used in the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> python package.</p>
-</section>
-</section>
-<section id="some-trainwrecks">
+</div>
+</div>
+<div class="section" id="some-trainwrecks">
 <h1>Some trainwrecks<a class="headerlink" href="#some-trainwrecks" title="Permalink to this headline">¶</a></h1>
-<section id="microsoft-visual-studio-system-random-2011">
+<div class="section" id="microsoft-visual-studio-system-random-2011">
 <h2>Microsoft Visual Studio system.random, 2011<a class="headerlink" href="#microsoft-visual-studio-system-random-2011" title="Permalink to this headline">¶</a></h2>
 <p><img alt="Microsoft" src="../_images/visualStudiosysRand.png" /></p>
 <p>https://connect.microsoft.com/VisualStudio/feedback/details/634761/system-random-serious-bug</p>
 <p><img alt="XP2" src="../_images/xp2k.png" /></p>
-</section>
-<section id="aristocrat-leisure-of-australia-slot-machines">
+</div>
+<div class="section" id="aristocrat-leisure-of-australia-slot-machines">
 <h2>Aristocrat Leisure of Australia Slot Machines<a class="headerlink" href="#aristocrat-leisure-of-australia-slot-machines" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="../_images/wiredRussianSlot.png"><img alt="Wired Slots" src="../_images/wiredRussianSlot.png" style="height: 600px;" /></a>
 <a class="reference internal image-reference" href="../_images/russiaLeisure.png"><img alt="Russian hack" src="../_images/russiaLeisure.png" style="height: 600px;" /></a>
-</section>
-<section id="dual-elliptic-curve">
+</div>
+<div class="section" id="dual-elliptic-curve">
 <h2>Dual Elliptic Curve<a class="headerlink" href="#dual-elliptic-curve" title="Permalink to this headline">¶</a></h2>
 <p><img alt="dual EC" src="../_images/dualEC-1.png" /></p>
 <hr class="docutils" />
 <p><img alt="dual EC" src="../_images/dualEC-2.png" />
 Bernstein, D.J., T. Lange, and R. Niederhagen, 2016. Dual EC: A Standardized Backdoor, in <em>The New Codebreakers, Essays Dedicated to David Kahn on the Occasion of his 85th Birthday</em>, Ryan, P.Y.A., D. Naccache, and J-J Quisquater, eds., Springer, Berlin.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="gnupg-rng-bug-18-years-1998-2016">
+<div class="section" id="gnupg-rng-bug-18-years-1998-2016">
 <h2>GnuPG RNG bug (18 years, 1998–2016)<a class="headerlink" href="#gnupg-rng-bug-18-years-1998-2016" title="Permalink to this headline">¶</a></h2>
 <p>“An attacker who obtains 4640 bits from the RNG can trivially predict the next 160 bits of output”</p>
 <p>https://threatpost.com/gpg-patches-18-year-old-libgcrypt-rng-bug/119984/</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="rsa">
+<div class="section" id="rsa">
 <h2>RSA<a class="headerlink" href="#rsa" title="Permalink to this headline">¶</a></h2>
 <p>https://www.schneier.com/blog/archives/2012/02/lousy_random_nu.html</p>
 <p><img alt="Lenstra" src="../_images/lenstraEtal.png" /></p>
 <p>“An analysis comparing millions of RSA public keys gathered from the Internet was announced in 2012 by Lenstra, Hughes, Augier, Bos, Kleinjung, and Wachter. They were able to factor 0.2% of the keys using only Euclid’s algorithm. They exploited a weakness unique to cryptosystems based on integer factorization. If n = pq is one public key and n′ = p′q′ is another, then if by chance p = p′, then a simple computation of gcd(n,n′) = p factors both n and n′, totally compromising both keys. Nadia Heninger, part of a group that did a similar experiment, said that the bad keys occurred almost entirely in embedded applications, and explains that the one-shared-prime problem uncovered by the two groups results from situations where the pseudorandom number generator is poorly seeded initially and then reseeded between the generation of the first and second primes.”</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="php">
+<div class="section" id="php">
 <h2>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
 <p><img alt="php" src="../_images/argyrosKiayias.png" /></p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="bitcoin-on-android-java-nonce-collision">
+<div class="section" id="bitcoin-on-android-java-nonce-collision">
 <h2>Bitcoin on Android: Java nonce collision<a class="headerlink" href="#bitcoin-on-android-java-nonce-collision" title="Permalink to this headline">¶</a></h2>
 <p>“In August 2013, it was revealed that bugs in the Java class SecureRandom could generate collisions in the k nonce values used for ECDSA in implementations of Bitcoin on Android. When this occurred the private key could be recovered, in turn allowing stealing Bitcoins from the containing wallet.”</p>
 <p>https://en.wikipedia.org/wiki/Random_number_generator_attack#Java_nonce_collision</p>
-</section>
-<section id="debian-openssl">
+</div>
+<div class="section" id="debian-openssl">
 <h2>Debian OpenSSL<a class="headerlink" href="#debian-openssl" title="Permalink to this headline">¶</a></h2>
 <p><img alt="openSSL" src="../_images/openSSL.png" /></p>
 <p>Valgrind and Purify warned about uninitialized data.
@@ -1099,9 +1098,9 @@ Only remaining entropy in seed was the process ID.</p>
 <p>XKCD
 <img alt="xkcd" src="https://imgs.xkcd.com/comics/security_holes.png" /></p>
 <hr class="docutils" />
-<section id="generating-a-random-integer-uniformly-distributed-on-1-ldots-m">
+<div class="section" id="generating-a-random-integer-uniformly-distributed-on-1-ldots-m">
 <h3>Generating a random integer uniformly distributed on <span class="math notranslate nohighlight">\(\{1, \ldots, m\}\)</span><a class="headerlink" href="#generating-a-random-integer-uniformly-distributed-on-1-ldots-m" title="Permalink to this headline">¶</a></h3>
-<section id="naive-method">
+<div class="section" id="naive-method">
 <h4>Naive method<a class="headerlink" href="#naive-method" title="Permalink to this headline">¶</a></h4>
 <p>A standard way to generate a random integer is to start with <span class="math notranslate nohighlight">\(X \sim U[0,1)\)</span> and define <span class="math notranslate nohighlight">\(Y \equiv 1 + \lfloor mX \rfloor\)</span>.</p>
 <p>In theory, that’s fine. But in practice, <span class="math notranslate nohighlight">\(X\)</span> is not really <span class="math notranslate nohighlight">\(U[0,1)\)</span> but instead is derived by normalizing a PRN
@@ -1110,11 +1109,11 @@ is, to first order,  <span class="math notranslate nohighlight">\(1+ m 2^{-w}\)<
 <p>For <span class="math notranslate nohighlight">\(m = 10^9\)</span> and <span class="math notranslate nohighlight">\(w=32\)</span>, <span class="math notranslate nohighlight">\(1 + m 2^{-w} \approx 1.233\)</span>. That could easily matter.</p>
 <p>For <span class="math notranslate nohighlight">\(m &gt; 2^{w}\)</span>, at least <span class="math notranslate nohighlight">\(m-2^w\)</span> values will have probability 0 instead of probability <span class="math notranslate nohighlight">\(1/m\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(w=32\)</span>, then for <span class="math notranslate nohighlight">\(m&gt;2^{32}=4.24e9\)</span>, some values will have probability 0. Until relatively recently, R did not support 64-bit integers.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 <hr class="docutils" />
-<section id="r-random-integer-generator-sample">
+<div class="section" id="r-random-integer-generator-sample">
 <h2>R random integer generator / sample()<a class="headerlink" href="#r-random-integer-generator-sample" title="Permalink to this headline">¶</a></h2>
 <p>From version 3.5.x and earlier</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dn</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span><span class="p">)</span> <span class="p">{</span>
@@ -1183,7 +1182,7 @@ table(x %% 2)<br />
 0      1<br />
 499958 500042</p>
 </div></blockquote>
-<section id="more-accurate-method">
+<div class="section" id="more-accurate-method">
 <h3>More accurate method<a class="headerlink" href="#more-accurate-method" title="Permalink to this headline">¶</a></h3>
 <p>A better way to generate a (pseudo-)random integer on <span class="math notranslate nohighlight">\(\{1, \ldots m\}\)</span> from a (pseudo-random) <span class="math notranslate nohighlight">\(w\)</span>-bit integer in practice is as follows:</p>
 <ol class="simple">
@@ -1198,19 +1197,19 @@ However, <code class="docutils literal notranslate"><span class="pre">numpy.rand
 <p>In <code class="docutils literal notranslate"><span class="pre">R</span></code>, one would generally use the function <code class="docutils literal notranslate"><span class="pre">sample(1:m,</span> <span class="pre">k,</span> <span class="pre">replace=FALSE)</span></code> to draw pseudo-random
 integers.
 Before version 3.6, <code class="docutils literal notranslate"><span class="pre">sample()</span></code> used a variant of the faulty <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">floor(m*X)</span></code> approach.</p>
-</section>
-</section>
-<section id="how-can-you-tell-whether-a-sequence-is-random">
+</div>
+</div>
+<div class="section" id="how-can-you-tell-whether-a-sequence-is-random">
 <h2>How can you tell whether a sequence is random?<a class="headerlink" href="#how-can-you-tell-whether-a-sequence-is-random" title="Permalink to this headline">¶</a></h2>
 <p>http://dilbert.com/strip/2001-10-25</p>
-</section>
-<section id="tests-of-prngs">
+</div>
+<div class="section" id="tests-of-prngs">
 <h2>Tests of PRNGS<a class="headerlink" href="#tests-of-prngs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Theoretical analyses, e.g., Knuth (1969), Marsaglia (1968)</p></li>
 <li><p>Statistical tests</p></li>
 </ul>
-<section id="knuth-1969-the-art-of-computer-programming-v-2">
+<div class="section" id="knuth-1969-the-art-of-computer-programming-v-2">
 <h3>Knuth (1969) <em>The Art of Computer Programming</em>, v.2<a class="headerlink" href="#knuth-1969-the-art-of-computer-programming-v-2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>11 types of behavior: equidistribution, series, gaps, poker, coupon collector, permutation frequency, runs, max of <span class="math notranslate nohighlight">\(t\)</span>, collisions, birthday spacings, serial correlation</p></li>
@@ -1220,8 +1219,8 @@ Before version 3.6, <code class="docutils literal notranslate"><span class="pre"
 <li><p>Sphere-packing</p></li>
 <li><p><strong>MORE</strong></p></li>
 </ul>
-</section>
-<section id="marsaglia-1996-diehard-tests">
+</div>
+<div class="section" id="marsaglia-1996-diehard-tests">
 <h3>Marsaglia (1996) DIEHARD tests<a class="headerlink" href="#marsaglia-1996-diehard-tests" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Birthday spacings</p></li>
@@ -1237,23 +1236,23 @@ Before version 3.6, <code class="docutils literal notranslate"><span class="pre"
 <li><p>Runs test for random floats</p></li>
 <li><p>#wins and #rolls in 200,000 games of craps</p></li>
 </ul>
-</section>
-<section id="lecuyer-and-simard-2007-testu01-http-dl-acm-org-citation-cfm-doid-1268776-1268777">
+</div>
+<div class="section" id="lecuyer-and-simard-2007-testu01-http-dl-acm-org-citation-cfm-doid-1268776-1268777">
 <h3>L’Ecuyer and Simard (2007) TestU01 http://dl.acm.org/citation.cfm?doid=1268776.1268777<a class="headerlink" href="#lecuyer-and-simard-2007-testu01-http-dl-acm-org-citation-cfm-doid-1268776-1268777" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Kolmogorov-Smirnov, Crámer-von Mises, Anderson-Darling, clustering, runs, gaps, hits in partition of a hypercube (collisions, empty cells, time between visits, …), birthday spacings, close pairs, coupon collector, sum collector, complexity of bit strings (<strong>linear complexity</strong>, jump complexity, jump size complexity, Lempel-Ziv complexity), spectral tests on bit strings, autocorrelation of bits, runs and gaps in bits, …, ranks of binary matrices, longest runs, Hamming weights, random walks, close pairs of binary sequences,</p></li>
 </ul>
-</section>
-<section id="nist-tests">
+</div>
+<div class="section" id="nist-tests">
 <h3>NIST Tests<a class="headerlink" href="#nist-tests" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>http://csrc.nist.gov/groups/ST/toolkit/rng/stats_tests.html</p></li>
 <li><p>http://csrc.nist.gov/groups/ST/toolkit/rng/documents/SP800-22rev1a.pdf</p></li>
 </ul>
 <p><img alt="NIST" src="../_images/NISTTests.png" /></p>
-</section>
-</section>
-<section id="random-sampling">
+</div>
+</div>
+<div class="section" id="random-sampling">
 <h2>Random Sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>One of the most fundamental tools in Statistics.</p>
 <ul class="simple">
@@ -1290,44 +1289,44 @@ Before version 3.6, <code class="docutils literal notranslate"><span class="pre"
 </li>
 </ul>
 <p>etc.</p>
-</section>
-<section id="simple-random-sampling">
+</div>
+<div class="section" id="simple-random-sampling">
 <h2>Simple random sampling<a class="headerlink" href="#simple-random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>Draw <span class="math notranslate nohighlight">\(k \le n\)</span> items from a population of <span class="math notranslate nohighlight">\(n\)</span> items, in such a way that
 each of the <span class="math notranslate nohighlight">\(n \choose k\)</span> subsets of size <span class="math notranslate nohighlight">\(k\)</span> is equally likely.</p>
 <p>Many standard statistical methods assume the sample is drawn in this way, or allocated between treatment and control in this way (e.g., <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(n\)</span> subjects are assigned to treatment, and the remaining <span class="math notranslate nohighlight">\(n-k\)</span> to control).</p>
-</section>
-<section id="pigeonhole-principle">
+</div>
+<div class="section" id="pigeonhole-principle">
 <h2>Pigeonhole principle<a class="headerlink" href="#pigeonhole-principle" title="Permalink to this headline">¶</a></h2>
 <p>If you put <span class="math notranslate nohighlight">\(N&gt;n\)</span> pigeons in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, then at least one
 pigeonhole must contain more than one pigeon.</p>
-</section>
-<section id="corollary">
+</div>
+<div class="section" id="corollary">
 <h2>Corollary<a class="headerlink" href="#corollary" title="Permalink to this headline">¶</a></h2>
 <p>At most <span class="math notranslate nohighlight">\(n\)</span> pigeons can be put in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes if at most
 one pigeon is put in each hole.</p>
-</section>
-<section id="stirling-bounds-on-permutations">
+</div>
+<div class="section" id="stirling-bounds-on-permutations">
 <h2>Stirling bounds on permutations<a class="headerlink" href="#stirling-bounds-on-permutations" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[ e n^{n+1/2} e^{-n} \ge n! \ge \sqrt{2 \pi} n^{n+1/2} e^{-n}.\]</div>
-</section>
-<section id="sampling-without-replacement">
+</div>
+<div class="section" id="sampling-without-replacement">
 <h2>Sampling without replacement<a class="headerlink" href="#sampling-without-replacement" title="Permalink to this headline">¶</a></h2>
-<section id="entropy-bounds">
+<div class="section" id="entropy-bounds">
 <h3>Entropy bounds<a class="headerlink" href="#entropy-bounds" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[ \frac{2^{nH(k/n)}}{n+1} \le {n \choose k} \le 2^{nH(k/n)},\]</div>
 <p>where <span class="math notranslate nohighlight">\(H(q) \equiv -q \log_2(q) - (1-q) \log_2 (1-q)\)</span>.</p>
-</section>
-<section id="stirling-bounds">
+</div>
+<div class="section" id="stirling-bounds">
 <h3>Stirling bounds<a class="headerlink" href="#stirling-bounds" title="Permalink to this headline">¶</a></h3>
 <p>For <span class="math notranslate nohighlight">\(\ell \ge 1\)</span> and <span class="math notranslate nohighlight">\(m \ge 2\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[ { {\ell m } \choose { \ell }} \ge \frac{m^{m(\ell-1)+1}}{\sqrt{\ell} (m-1)^{(m-1)(\ell-1)}}. \]</div>
-</section>
-</section>
-<section id="sampling-with-replacement">
+</div>
+</div>
+<div class="section" id="sampling-with-replacement">
 <h2>Sampling with replacement<a class="headerlink" href="#sampling-with-replacement" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(n^k\)</span> possible samples of size <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(n\)</span> items</p>
 <div class="cell docutils container">
@@ -1353,8 +1352,8 @@ one pigeon is put in each hole.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="sizes-of-some-coops-flocks">
+</div>
+<div class="section" id="sizes-of-some-coops-flocks">
 <h2>Sizes of some coops &amp; flocks<a class="headerlink" href="#sizes-of-some-coops-flocks" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -1426,8 +1425,8 @@ one pigeon is put in each hole.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="l-1-bounds">
+</div>
+<div class="section" id="l-1-bounds">
 <h2><span class="math notranslate nohighlight">\(L_1\)</span> bounds<a class="headerlink" href="#l-1-bounds" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\({\mathbb P}_0\)</span> and <span class="math notranslate nohighlight">\({\mathbb P}_1\)</span> are probability distributions on a common measurable space.</p>
 <p>If there is some set <span class="math notranslate nohighlight">\(S\)</span> for which <span class="math notranslate nohighlight">\({\mathbb P}_0 = \epsilon\)</span> and <span class="math notranslate nohighlight">\({\mathbb P}_1(S) = 0\)</span>, then <span class="math notranslate nohighlight">\(\|{\mathbb P}_0 - {\mathbb P}_1 \|_1 \ge 2 \epsilon\)</span>.</p>
@@ -1438,13 +1437,13 @@ one pigeon is put in each hole.</p>
 <li><p>If PRNG has <span class="math notranslate nohighlight">\(n\)</span> states and want to generate <span class="math notranslate nohighlight">\(N&gt;n\)</span> equally likely outcomes, at least <span class="math notranslate nohighlight">\(N-n\)</span> outcomes will have probability zero instead of <span class="math notranslate nohighlight">\(1/N\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\| \mbox{true} - \mbox{desired} \|_1 \ge 2 \times \frac{N-n}{N}\)</span></p></li>
 </ul>
-<section id="id1">
+<div class="section" id="id1">
 <h3>Random sampling<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Given a good source of randomness, many ways to draw a simple random sample.</p>
 <p>One basic approach is like shuffling a deck of <span class="math notranslate nohighlight">\(n\)</span> cards, then dealing the top <span class="math notranslate nohighlight">\(k\)</span>: permute the population at random, then take the first <span class="math notranslate nohighlight">\(k\)</span> elements of the permutation to be the sample.</p>
 <p>There are a number of standard ways to generate a random permutation—i.e., to shuffle the deck.</p>
-</section>
-<section id="algorithm-pikk-permute-indices-and-keep-k">
+</div>
+<div class="section" id="algorithm-pikk-permute-indices-and-keep-k">
 <h3>Algorithm <code class="docutils literal notranslate"><span class="pre">PIKK</span></code> (permute indices and keep <span class="math notranslate nohighlight">\(k\)</span>)<a class="headerlink" href="#algorithm-pikk-permute-indices-and-keep-k" title="Permalink to this headline">¶</a></h3>
 <p>For instance, if we had a way to generate independent, identically distributed (iid) <span class="math notranslate nohighlight">\(U[0,1]\)</span> random numbers, we could do it as follows:</p>
 <p><strong>Algorithm <code class="docutils literal notranslate"><span class="pre">PIKK</span></code></strong></p>
@@ -1509,8 +1508,8 @@ while there are records left:
 </div>
 </div>
 </div>
-</section>
-<section id="proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works">
+</div>
+<div class="section" id="proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works">
 <h3>Proof that the streaming Fisher-Yates-Knuth-Durstenfeld algorithm works<a class="headerlink" href="#proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works" title="Permalink to this headline">¶</a></h3>
 <p>Induction:</p>
 <p>For <span class="math notranslate nohighlight">\(i=1\)</span>, obvious.</p>
@@ -1519,9 +1518,9 @@ while there are records left:
 of the first <span class="math notranslate nohighlight">\(i\)</span>, or putting it in position <span class="math notranslate nohighlight">\(i+1\)</span>. These possibilities are mutually exclusive of
 the permutations attainable from a different permutation of the first <span class="math notranslate nohighlight">\(i\)</span> items.</p>
 <p>Thus, this enumerates all <span class="math notranslate nohighlight">\((i+1)i! = (i+1)!\)</span> permutations of <span class="math notranslate nohighlight">\((i+1)\)</span> items, and they are equally likely. ■</p>
-</section>
-</section>
-<section id="a-good-way-to-get-a-bad-shuffle">
+</div>
+</div>
+<div class="section" id="a-good-way-to-get-a-bad-shuffle">
 <h2>A good way to get a bad shuffle<a class="headerlink" href="#a-good-way-to-get-a-bad-shuffle" title="Permalink to this headline">¶</a></h2>
 <p>Sort using a “random” comparison function, e.g.,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def RandomSort(a,b):
@@ -1532,7 +1531,7 @@ the permutations attainable from a different permutation of the first <span clas
 <div class="alert alert-block alert-warning"><big>The right way, the wrong way, and the Microsoft way.</big></div>
 <p>Notoriously used by Microsoft to offer a selection of browsers in the EU. Resulted in IE being 5th of 5 about half the time in IE and about 26% of the time in Chrome, but only 6% of the time in Safari (4th about 40% of the time).</p>
 <p>See, e.g., http://www.computerworld.com/article/2520190/web-apps/microsoft-s-eu-ballot-fails-to-randomize-browser-order.html</p>
-<section id="cormen-et-al-2009-algorithm-random-sample">
+<div class="section" id="cormen-et-al-2009-algorithm-random-sample">
 <h3>Cormen et al. (2009) Algorithm <code class="docutils literal notranslate"><span class="pre">Random_Sample</span></code><a class="headerlink" href="#cormen-et-al-2009-algorithm-random-sample" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>recursive algorithm</p></li>
@@ -1564,16 +1563,16 @@ the permutations attainable from a different permutation of the first <span clas
 </div>
 </div>
 <p><strong>Proof.</strong> Recursion.</p>
-</section>
-</section>
-<section id="reservoir-algorithms">
+</div>
+</div>
+<div class="section" id="reservoir-algorithms">
 <h2>Reservoir algorithms<a class="headerlink" href="#reservoir-algorithms" title="Permalink to this headline">¶</a></h2>
 <p>The previous algorithms require <span class="math notranslate nohighlight">\(n\)</span> to be known.
 There are <em>reservoir</em> algorithms that do not.
 Moreover, the algorithms are suitable for streaming (aka <em>online</em>) use: items are examined
 sequentially and either enter into the reservoir, or, if not, are never revisited.</p>
-</section>
-<section id="algorithm-r-waterman-per-knuth-1997">
+</div>
+<div class="section" id="algorithm-r-waterman-per-knuth-1997">
 <h2>Algorithm <code class="docutils literal notranslate"><span class="pre">R</span></code>, Waterman (per Knuth, 1997)<a class="headerlink" href="#algorithm-r-waterman-per-knuth-1997" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Put first <span class="math notranslate nohighlight">\(k\)</span> items into the <em>reservoir</em></p></li>
@@ -1602,13 +1601,13 @@ sequentially and either enter into the reservoir, or, if not, are never revisite
 </div>
 </div>
 <p>Like <code class="docutils literal notranslate"><span class="pre">Random-Sample</span></code>, the proof that algorithm <code class="docutils literal notranslate"><span class="pre">R</span></code> generates an SRS uses the ability to generate independent random integers, uniformly distributed on <span class="math notranslate nohighlight">\(\{1, \ldots, m \}\)</span>.</p>
-</section>
-<section id="algorithm-z-vitter-1985">
+</div>
+<div class="section" id="algorithm-z-vitter-1985">
 <h2>Algorithm Z, Vitter (1985)<a class="headerlink" href="#algorithm-z-vitter-1985" title="Permalink to this headline">¶</a></h2>
 <p>Much more efficient than <code class="docutils literal notranslate"><span class="pre">R</span></code>, using random skips. Works in time essentially linear in <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p>Note: Vitter proposes using the (inaccurate) <span class="math notranslate nohighlight">\(J = \lfloor mU \rfloor\)</span> to generate a random integer between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(m\)</span> in both algorithm <code class="docutils literal notranslate"><span class="pre">R</span></code> and algorithm <code class="docutils literal notranslate"><span class="pre">Z</span></code>. The issue is pervasive!</p>
-</section>
-<section id="example-frequency-of-samples-using-pikk">
+</div>
+<div class="section" id="example-frequency-of-samples-using-pikk">
 <h2>Example: frequency of samples using PIKK<a class="headerlink" href="#example-frequency-of-samples-using-pikk" title="Permalink to this headline">¶</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">PIKK</span></code> to generate samples using RANDU and MT.</p>
 <p>Tally empirical probability of each sample; test for uniformity by range.</p>
@@ -1724,8 +1723,8 @@ how bad is the approximation?</p>
 </div>
 </div>
 <p>RANDU with PIKK hits all 435 samples, but not equally often. Based on the chi-square test and the range test, the <span class="math notranslate nohighlight">\(p\)</span>-value for the hypothesis that these <span class="math notranslate nohighlight">\(10^7\)</span> samples are simple random samples is essentially 0.</p>
-</section>
-<section id="hypothesis-tests-for-mt-and-randu">
+</div>
+<div class="section" id="hypothesis-tests-for-mt-and-randu">
 <h2>Hypothesis tests for MT and RANDU<a class="headerlink" href="#hypothesis-tests-for-mt-and-randu" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(5 \times 10^7\)</span> replications, <span class="math notranslate nohighlight">\(n=30\)</span>, <span class="math notranslate nohighlight">\(k=2\)</span>.</p>
 <p>Sample variance of a population
@@ -2131,8 +2130,8 @@ with 28 zeros, one 1, one -1.</p>
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="prngs-in-common-packages">
+</div>
+<div class="section" id="prngs-in-common-packages">
 <h2>PRNGs in Common packages<a class="headerlink" href="#prngs-in-common-packages" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -2189,8 +2188,8 @@ with 28 zeros, one 1, one -1.</p>
 generators, the 3-shift register SHR3 and the congruential generator CONG.</p>
 <p>Prior to April 2011, in Stata 10 exhibited predictable behavior:
 95.1% of the <span class="math notranslate nohighlight">\(2^{31}\)</span> possible seed values resulted in the first and second draws from rnormal() having the same sign.</p>
-</section>
-<section id="is-mt-adequate-for-statistics">
+</div>
+<div class="section" id="is-mt-adequate-for-statistics">
 <h2>Is MT adequate for statistics?<a class="headerlink" href="#is-mt-adequate-for-statistics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Know from pigeonhole argument that <span class="math notranslate nohighlight">\(L_1\)</span> distance between true and desired is big for modest sampling &amp; permutation problems.</p></li>
@@ -2199,8 +2198,8 @@ generators, the 3-shift register SHR3 and the congruential generator CONG.</p>
 <li><p>Examined simple random sample frequencies, derangements, partial derangements, Spearman correlation, etc.</p></li>
 <li><p><em>Must</em> be problems, but where are they?</p></li>
 </ul>
-</section>
-<section id="best-practices">
+</div>
+<div class="section" id="best-practices">
 <h2>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Use a source of real randomness to set the seed with a substantial amount of entropy, e.g., 20 rolls of 10-sided dice.</p></li>
@@ -2213,8 +2212,8 @@ generators, the 3-shift register SHR3 and the congruential generator CONG.</p>
 <li><p>Consider the size of the problem: are your PRNG and sampling algorithm adequate?</p></li>
 <li><p>Avoid “tests of representativeness” and procedures that reject some samples. They alter the distribution of the sample.</p></li>
 </ul>
-</section>
-<section id="recommendations">
+</div>
+<div class="section" id="recommendations">
 <h2>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Replace the standard PRNGs in R and Python with PRNGs with unbounded state spaces, and cryptographic or near-cryptographic quality</p>
@@ -2224,8 +2223,8 @@ generators, the 3-shift register SHR3 and the congruential generator CONG.</p>
 </li>
 <li><p>Replace R’s sample() with the mask algorithm <strong>Done in 2019!</strong></p></li>
 </ul>
-</section>
-<section id="references">
+</div>
+<div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Argyros, G. and A. Kiayias, 2012. PRNG: Pwning Random Number Generators.
@@ -2246,8 +2245,8 @@ https://media.blackhat.com/bh-us-12/Briefings/Argyros/BH_US_12_Argyros_PRNG_WP.p
 <li><p>Vitter, J.S., 1985. Random Sampling with a Reservoir, <em>ACM Transactions on Mathematical Software, 11</em>, 37–57.</p></li>
 <li><p>Wikipedia articles, including https://en.wikipedia.org/wiki/Mersenne_Twister, https://en.wikipedia.org/wiki/Linear_congruential_generator, https://en.wikipedia.org/wiki/Comparison_of_hardware_random_number_generators, https://en.wikipedia.org/wiki/Pseudorandom_number_generator, https://en.wikipedia.org/wiki/List_of_random_number_generators, https://en.wikipedia.org/wiki/Random_number_generator_attack</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lower confidence bounds for the mean of a nonnegative population &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -345,9 +344,9 @@
         
               <div>
                 
-  <section id="lower-confidence-bounds-for-the-mean-of-a-nonnegative-population">
+  <div class="section" id="lower-confidence-bounds-for-the-mean-of-a-nonnegative-population">
 <h1>Lower confidence bounds for the mean of a nonnegative population<a class="headerlink" href="#lower-confidence-bounds-for-the-mean-of-a-nonnegative-population" title="Permalink to this headline">¶</a></h1>
-<section id="markov-s-inequality-and-methods-based-on-the-empirical-distribution">
+<div class="section" id="markov-s-inequality-and-methods-based-on-the-empirical-distribution">
 <h2>Markov’s Inequality and methods based on the Empirical Distribution<a class="headerlink" href="#markov-s-inequality-and-methods-based-on-the-empirical-distribution" title="Permalink to this headline">¶</a></h2>
 <p>Recall the set-up. We have:</p>
 <ol class="simple">
@@ -359,12 +358,12 @@
 \[\begin{equation*} \mu \equiv \frac{1}{N} \sum_{j=1}^N x_j.\end{equation*}\]</div>
 <p>In this section, <span class="math notranslate nohighlight">\(\ell_j = 0\)</span> and <span class="math notranslate nohighlight">\(u_j = \infty\)</span>, <span class="math notranslate nohighlight">\(\forall j\)</span> (the population is known to be nonnegative).</p>
 <p>We seek a <em>lower</em> confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-</section>
-</section>
-<section id="markov-s-inequality">
+</div>
+</div>
+<div class="section" id="markov-s-inequality">
 <h1>Markov’s Inequality:<a class="headerlink" href="#markov-s-inequality" title="Permalink to this headline">¶</a></h1>
 <p>If <span class="math notranslate nohighlight">\(\mathbb P(X \ge 0) = 1\)</span>, then <span class="math notranslate nohighlight">\(\mathbb P (X \ge a) \le \mathbb E(X)/a\)</span>.</p>
-<section id="confidence-bounds-from-markov-s-inequality">
+<div class="section" id="confidence-bounds-from-markov-s-inequality">
 <h2>Confidence bounds from Markov’s inequality<a class="headerlink" href="#confidence-bounds-from-markov-s-inequality" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we draw a random sample (with or without replacement) of size <span class="math notranslate nohighlight">\(n\)</span>.  Let <span class="math notranslate nohighlight">\(X_j\)</span> be the value of the <span class="math notranslate nohighlight">\(j\)</span>th draw, and let</p>
 <div class="amsmath math notranslate nohighlight">
@@ -385,9 +384,9 @@
 <p>Note that this bound does not involve <span class="math notranslate nohighlight">\(n\)</span> at all!<br />
 It only uses the fact that <span class="math notranslate nohighlight">\(\mathbb P (\bar{X} \ge 0) = 1\)</span>.
 Clearly it has a great deal of slack, getting worse as <span class="math notranslate nohighlight">\(n\)</span> grows.</p>
-</section>
-</section>
-<section id="the-kolmogorov-statistic">
+</div>
+</div>
+<div class="section" id="the-kolmogorov-statistic">
 <h1>The Kolmogorov statistic<a class="headerlink" href="#the-kolmogorov-statistic" title="Permalink to this headline">¶</a></h1>
 <p>We now take a completely different approach, based on the empirical cumulative distribution function (ecdf).</p>
 <p>We draw a uniform sample of size <span class="math notranslate nohighlight">\(n\)</span> with replacement from the population <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span>.</p>
@@ -486,8 +485,8 @@ statistics, which have the same distribution—a distribution that does not depe
 <img alt="../_images/markov_4_1.png" src="../_images/markov_4_1.png" />
 </div>
 </div>
-</section>
-<section id="the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality-and-confidence-set-for-f">
+</div>
+<div class="section" id="the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality-and-confidence-set-for-f">
 <h1>The Massart-Dvoretzky-Kiefer-Wolfowitz (MDKW) Inequality and confidence set for <span class="math notranslate nohighlight">\(F\)</span><a class="headerlink" href="#the-massart-dvoretzky-kiefer-wolfowitz-mdkw-inequality-and-confidence-set-for-f" title="Permalink to this headline">¶</a></h1>
 <p>Dvoretsky, Kiefer and Wolfowitz (1956, DKW) showed that</p>
 <div class="amsmath math notranslate nohighlight">
@@ -515,8 +514,8 @@ It follows from the MDKW inequality that</p>
     \mathcal C(X) \equiv \left \{ \mbox{cdfs } G: \sup_x (G(x) - \hat{F}_n(x)) \le  \sqrt{-\frac{\ln \alpha}{2n}} \right \}
 \end{equation*}\]</div>
 <p>is a nonparametric confidence set for the true population cdf <span class="math notranslate nohighlight">\(F\)</span>.</p>
-</section>
-<section id="using-mdkw-to-get-a-lower-confidence-bound-for-the-mean-of-a-nonnegative-population">
+</div>
+<div class="section" id="using-mdkw-to-get-a-lower-confidence-bound-for-the-mean-of-a-nonnegative-population">
 <h1>Using MDKW to get a lower confidence bound for the mean of a nonnegative population<a class="headerlink" href="#using-mdkw-to-get-a-lower-confidence-bound-for-the-mean-of-a-nonnegative-population" title="Permalink to this headline">¶</a></h1>
 <p>We now assume all <span class="math notranslate nohighlight">\(\{x_j\}_{j=1}^N\)</span> are nonnegative, so <span class="math notranslate nohighlight">\(F(0^-) = 0\)</span>.
 The population mean is</p>
@@ -540,7 +539,7 @@ probability <span class="math notranslate nohighlight">\(1-\alpha\)</span>: ther
 <p>This general approach—make a confidence set for an entire function, then use that
 confidence set to derive confidence bounds on properties (parameters) of that function—is
 extremely flexible, and gives conservative results.</p>
-<section id="among-all-g-in-mathcal-c-x-which-has-smallest-mean">
+<div class="section" id="among-all-g-in-mathcal-c-x-which-has-smallest-mean">
 <h2>Among all <span class="math notranslate nohighlight">\(G \in \mathcal C(X)\)</span>, which has smallest mean?<a class="headerlink" href="#among-all-g-in-mathcal-c-x-which-has-smallest-mean" title="Permalink to this headline">¶</a></h2>
 <p>It’s the distribution function that has as much mass as possible as far “left” as possible,
 but never exceeds <span class="math notranslate nohighlight">\(\hat{F}_n\)</span> by more than <span class="math notranslate nohighlight">\(\sqrt{-\frac{\ln \alpha}{2n}}\)</span>.</p>
@@ -644,13 +643,13 @@ at (a subset of) the data.</p>
 </div>
 <p>Note that sometimes the average lower bound for the MDKW interval is <em>larger</em> even though it has better coverage. To some extent, that’s because we have not truncated the Student-t interval below at 0, which would be legitimate.</p>
 <p>Still, the length penalty for conservative coverage is modest, especially given that the nominal 95% Student-t interval has coverage below 2% in some of these scenarios.</p>
-</section>
-</section>
-<section id="what-else">
+</div>
+</div>
+<div class="section" id="what-else">
 <h1>What else?<a class="headerlink" href="#what-else" title="Permalink to this headline">¶</a></h1>
 <p>The MDKW inequality is not the only way to construct a confidence set for a cdf. One can also use differences of order statistics, among other things.  I have not compared the relative efficiency of such methods.</p>
-</section>
-<section id="what-s-next">
+</div>
+<div class="section" id="what-s-next">
 <h1>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h1>
 <p>Next we consider confidence bounds for bounded populations, using common probability inequalities.</p>
 <ul class="simple">
@@ -658,7 +657,7 @@ at (a subset of) the data.</p>
 <li><p><a class="reference internal" href="hoeffding.html"><span class="doc std std-doc">Previous: Confidence bounds from the Chebychev and Hoeffding Inequalities</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {

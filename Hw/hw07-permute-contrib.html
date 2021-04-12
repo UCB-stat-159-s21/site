@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6. Homework 6: Cryptorandom - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
+    <title>Homework 7: Permute - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Some tips for HW06" href="hw06-cryptorandom-tips.html" />
-    <link rel="prev" title="5. Homework 5: Selective inference and outlier rejection" href="hw05-selection-outliers.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -121,7 +119,7 @@
   Homework Assignments
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="hw01-background.html">
    1. Homework 1. Stats review and intro to Git
@@ -147,8 +145,8 @@
    5. Homework 5: Selective inference and outlier rejection
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw06-cryptorandom-contrib.html">
    6. Homework 6: Cryptorandom - contributing to an open source project
   </a>
  </li>
@@ -221,7 +219,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Hw/hw06-cryptorandom-contrib.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Hw/hw07-permute-contrib.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -254,27 +252,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grading">
-   6.1. Grading
+   Grading
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#workflow">
-   6.2. Workflow
+   Workflow
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tips-for-this-assignment">
-   6.3. Tips for this assignment
+   Tips for this assignment
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#initial-setup-personal-and-team-repositories">
-     6.3.1. Initial setup: personal and team repositories
+     Initial setup: personal and team repositories
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#install-cryptorandom-locally-in-development-mode">
-     6.3.2. Install
+     Install
      <code class="docutils literal notranslate">
       <span class="pre">
        cryptorandom
@@ -285,27 +283,27 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#set-up-the-sphinx-build-for-jupyterhub-hosted-viewing">
-     6.3.3. Set up the Sphinx build for JupyterHub-hosted viewing
+     Set up the Sphinx build for JupyterHub-hosted viewing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#editing-the-docs-and-testing-your-build">
-     6.3.4. Editing the docs and testing your build
+     Editing the docs and testing your build
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#development-workfow">
-     6.3.5. Development workfow
+     Development workfow
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#general-suggestions-on-documentation">
-     6.3.6. General suggestions on documentation
+     General suggestions on documentation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#general-suggestions-on-testing">
-     6.3.7. General suggestions on testing
+     General suggestions on testing
     </a>
    </li>
   </ul>
@@ -322,8 +320,8 @@
         
               <div>
                 
-  <div class="section" id="homework-6-cryptorandom-contributing-to-an-open-source-project">
-<h1><span class="section-number">6. </span>Homework 6: Cryptorandom - contributing to an open source project<a class="headerlink" href="#homework-6-cryptorandom-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="homework-7-permute-contributing-to-an-open-source-project">
+<h1>Homework 7: Permute - contributing to an open source project<a class="headerlink" href="#homework-7-permute-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
 <li><p><strong>Due 4/7/2021, 11:59PM PT</strong></p></li>
@@ -331,18 +329,31 @@
 <li><p>This assignment is worth a maximum of <strong>60 points</strong>.</p></li>
 <li><p>Assignment type: <strong>group</strong>.</p></li>
 </ul>
-<p>The purpose of this assignment is for your team to collaborate on the development of new contributions to a real-world open source repository, in this case the <a class="reference external" href="https://github.com/statlab/cryptorandom"><code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code></a> project we’ve discussed in class.  The high-level goal of the assignment is to make contributions to <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> in two areas: <strong>testing</strong> and <strong>documentation</strong>.</p>
-<p>Think of this project as a scenario where your team are the maintainers of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code>. You are starting from the code in its current state, and are going to work on the next release of the project. You will have to:</p>
+<p>The purpose of this assignment is for your team to collaborate on the development
+of new contributions to another real-world open source repository,
+the <a class="reference external" href="https://github.com/statlab/permute"><code class="docutils literal notranslate"><span class="pre">permute</span></code></a> project we’ve discussed in class.<br />
+The high-level goal of the assignment is to make contributions to <code class="docutils literal notranslate"><span class="pre">permute</span></code> in three areas:
+<strong>functionality</strong>, <strong>tests</strong> of that functionality, and <strong>documentation</strong> of that functionality.</p>
+<p>All of the changes will be to the <span class="xref myst">utils</span>
+file.</p>
+<p>Think of this project as a scenario where your team are developers and
+maintainers of <code class="docutils literal notranslate"><span class="pre">permute</span></code>.
+You are starting from the code in its current state, and are going to work on the next release of the project.
+You will have to:</p>
 <ul class="simple">
-<li><p>Identify areas where you will make new contributions/fixes.</p></li>
+<li><p>Identify the new functionality to be added</p>
+<ul>
+<li><p>specific functions, calling signatures, etc.</p></li>
+</ul>
+</li>
 <li><p>Parcel out the work among team members.</p></li>
 <li><p>Review each other’s work, that will be submitted to the team repository in the form of Pull Requests (PRs).</p></li>
 <li><p>Provide feedback and discussion for each PR.</p></li>
 <li><p>Ensure that each PR passes all existing tests and adds new ones as necessary. The project repo is already configured to run the test suite with Github Actions, but you will need to ensure that any changes you make are still covered by the automated execution.</p></li>
 </ul>
-<p>While each team will work against a private fork of the official <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> repo, we hope to later incorporate some of your contributions (with full public credit going to you) into the public repo. But your grade will <em>not</em> be based on that - we only want you to be aware of this for you to know that we consider this a “real world” project.</p>
+<p>While each team will work against a private fork of the official <code class="docutils literal notranslate"><span class="pre">permute</span></code> repo, we hope to later incorporate some of your contributions (with full public credit going to you) into the public repo. But your grade will <em>not</em> be based on that - we only want you to be aware of this for you to know that we consider this a “real world” project.</p>
 <div class="section" id="grading">
-<h2><span class="section-number">6.1. </span>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
 <p>The entire assignment is worth 60 points, broken down as follows:</p>
 <ul class="simple">
 <li><p>25 points: contributions to testing.</p></li>
@@ -363,7 +374,7 @@
 </ul>
 </div>
 <div class="section" id="workflow">
-<h2><span class="section-number">6.2. </span>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>You will be assigned to a team of 4–5 students.</p>
 <ul>
@@ -394,7 +405,7 @@
 </ul>
 </div>
 <div class="section" id="tips-for-this-assignment">
-<h2><span class="section-number">6.3. </span>Tips for this assignment<a class="headerlink" href="#tips-for-this-assignment" title="Permalink to this headline">¶</a></h2>
+<h2>Tips for this assignment<a class="headerlink" href="#tips-for-this-assignment" title="Permalink to this headline">¶</a></h2>
 <p><em>Note:</em> some of these tips were previously in a separate document, now merged here as part of the homework (partly so the automated numbering scheme matches our homework numbers).</p>
 <p>These notes should help you work through some of the issues we discussed in lecture, regarding how to render the sphinx documentation for <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> in the hub, and how to then view your own build of these docs through the hub.</p>
 <p>Basically we need to solve the following problems:</p>
@@ -404,7 +415,7 @@
 </ol>
 <p>Credit and huge thanks to <a class="reference external" href="https://github.com/yuvipanda">Yuvi Panda</a> from the JupyterHub/Berkeley team for his help navigating the proxy issues detailed below.</p>
 <div class="section" id="initial-setup-personal-and-team-repositories">
-<h3><span class="section-number">6.3.1. </span>Initial setup: personal and team repositories<a class="headerlink" href="#initial-setup-personal-and-team-repositories" title="Permalink to this headline">¶</a></h3>
+<h3>Initial setup: personal and team repositories<a class="headerlink" href="#initial-setup-personal-and-team-repositories" title="Permalink to this headline">¶</a></h3>
 <p>You will need to fork the team repo to your personal user and then clone your personal fork into the hub. That will be your “working space”, one for each member of the team. You will do all your work in your personal copy, pushing your changes up to github in your personal fork, and then from there, making PRs to the team repo.</p>
 <p>As we discussed in class, a good way to track both is to have <em>two</em> remotes, using your personal fork as <code class="docutils literal notranslate"><span class="pre">origin</span></code> and the team repo as <code class="docutils literal notranslate"><span class="pre">upstream</span></code>. This also makes it convenient to have more remotes if for example you want to check locally the work of your teammate whose github username is <code class="docutils literal notranslate"><span class="pre">alice</span></code> by having a remote of that name.  As an illustration, this is what my remotes setup for the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> repo looks like on my system:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="p">(</span><span class="n">main</span><span class="p">)</span><span class="n">blanca</span><span class="p">[</span><span class="n">cryptorandom</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
@@ -416,7 +427,7 @@
 </div>
 </div>
 <div class="section" id="install-cryptorandom-locally-in-development-mode">
-<h3><span class="section-number">6.3.2. </span>Install <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> locally in development mode<a class="headerlink" href="#install-cryptorandom-locally-in-development-mode" title="Permalink to this headline">¶</a></h3>
+<h3>Install <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> locally in development mode<a class="headerlink" href="#install-cryptorandom-locally-in-development-mode" title="Permalink to this headline">¶</a></h3>
 <p>The first issue we must solve is for Sphinx to find the version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> that you are working on, rather than the installed one. This manifests itself immediately as the <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> you see regarding a missing <code class="docutils literal notranslate"><span class="pre">__version__</span></code> attribute when trying to build the docs, but even if you fix that with a quick hack as I did in lecture, you’ll still have a problem. The issue is that the docs will import the <em>system-wide installed</em> version of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code>, and not your local development copy. So any new docstrings or function signatures you edit will not be correctly reflected in the resulting docs.</p>
 <p>The solution is to install your working copy as a <em>development version</em>, also known as an <em>“editable install”</em> (hence the <code class="docutils literal notranslate"><span class="pre">-e</span></code> command line argument, short for <code class="docutils literal notranslate"><span class="pre">--editable</span></code>). We now explain how to do this, and you can find more details in the <a class="reference external" href="https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs">pip documentation</a>.</p>
 <p>In the top-level of the <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> directory, where the file <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> lives, run the command:</p>
@@ -448,7 +459,7 @@
 </div>
 </div>
 <div class="section" id="set-up-the-sphinx-build-for-jupyterhub-hosted-viewing">
-<h3><span class="section-number">6.3.3. </span>Set up the Sphinx build for JupyterHub-hosted viewing<a class="headerlink" href="#set-up-the-sphinx-build-for-jupyterhub-hosted-viewing" title="Permalink to this headline">¶</a></h3>
+<h3>Set up the Sphinx build for JupyterHub-hosted viewing<a class="headerlink" href="#set-up-the-sphinx-build-for-jupyterhub-hosted-viewing" title="Permalink to this headline">¶</a></h3>
 <p>Now we turn to the second problem: once we build our docs with Sphinx against our development version, how do we look at the built HTML results? These files are hosted in the Hub, not our home computer, so we can’t easily view them immediately. While JupyterLab can display individual HTML files, this will not show a fully styled version with all the necessary extra assets such as images, CSS, etc.  We need to use a full <em>web server</em> for that, and we need to be able to access that web server from outside the Hub. We now explain how to achieve this.</p>
 <p>First, you need to make a change to <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> so that the build can be seen through a JupyterHub installation. This change can probably go into cryptorandom proper in the end, but for now we suggest you make it directly into the team repo in a single commit, that all team members then pull from, so you all have it in one place. You need to add three lines below - the comment is there in the file already, around line 108, and we leave it here for ease of reference. You neeed to add the code starting with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- Options for HTML output ----------------------------------------------</span>
@@ -463,7 +474,7 @@
 <p>Once you make these changes you should commit and push them to the team repo, and all members need to ensure they pull from that correctly and they all have the same <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
 </div>
 <div class="section" id="editing-the-docs-and-testing-your-build">
-<h3><span class="section-number">6.3.4. </span>Editing the docs and testing your build<a class="headerlink" href="#editing-the-docs-and-testing-your-build" title="Permalink to this headline">¶</a></h3>
+<h3>Editing the docs and testing your build<a class="headerlink" href="#editing-the-docs-and-testing-your-build" title="Permalink to this headline">¶</a></h3>
 <p>Make your edits and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory.  To check your build, then go to your other terminal (if you chose to have more than one) and go to the <code class="docutils literal notranslate"><span class="pre">build/html</span></code> subdirectory. There, run:</p>
 <p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">http.server</span></code></p>
 <p>as we saw today in class.  This will print a message like:</p>
@@ -481,12 +492,12 @@
 <p>As a side note, you may want to explore using <a class="reference external" href="https://github.com/executablebooks/sphinx-autobuild">sphinx-autobuild</a>, a tool that automatically builds and reloads your Sphinx docs as you make changes. I haven’t personally tested it yet but it looks interesting, it is developed by the same team from the Executable Books project that builds JupyterBook.</p>
 </div>
 <div class="section" id="development-workfow">
-<h3><span class="section-number">6.3.5. </span>Development workfow<a class="headerlink" href="#development-workfow" title="Permalink to this headline">¶</a></h3>
+<h3>Development workfow<a class="headerlink" href="#development-workfow" title="Permalink to this headline">¶</a></h3>
 <p>You can now keep the Python HTTP server running, and continue a cycle of making edits, running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory, and checking the resulting HTML until it is to your liking.</p>
 <p>Once you’re happy, commit, push, make PRs, and communicate happily with your team on your progress!</p>
 </div>
 <div class="section" id="general-suggestions-on-documentation">
-<h3><span class="section-number">6.3.6. </span>General suggestions on documentation<a class="headerlink" href="#general-suggestions-on-documentation" title="Permalink to this headline">¶</a></h3>
+<h3>General suggestions on documentation<a class="headerlink" href="#general-suggestions-on-documentation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>check the docstrings within <code class="docutils literal notranslate"><span class="pre">cryptorandom.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> and edit/augment them as you see fit.</p></li>
 <li><p>check whether the formal documentation accurately portrays the code.</p></li>
@@ -495,7 +506,7 @@
 </ul>
 </div>
 <div class="section" id="general-suggestions-on-testing">
-<h3><span class="section-number">6.3.7. </span>General suggestions on testing<a class="headerlink" href="#general-suggestions-on-testing" title="Permalink to this headline">¶</a></h3>
+<h3>General suggestions on testing<a class="headerlink" href="#general-suggestions-on-testing" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Identify code that is not currently tested</p></li>
 <li><p>Identify tests that do not really “exercise” the code
@@ -531,8 +542,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="hw05-selection-outliers.html" title="previous page"><span class="section-number">5. </span>Homework 5: Selective inference and outlier rejection</a>
-    <a class='right-next' id="next-link" href="hw06-cryptorandom-tips.html" title="next page"><span class="section-number">7. </span>Some tips for HW06</a>
 
         </div>
         

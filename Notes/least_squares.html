@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solving least squares problems &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -304,14 +303,14 @@
         
               <div>
                 
-  <section id="solving-least-squares-problems">
+  <div class="section" id="solving-least-squares-problems">
 <h1>Solving least squares problems<a class="headerlink" href="#solving-least-squares-problems" title="Permalink to this headline">¶</a></h1>
 <p>Formally, if <span class="math notranslate nohighlight">\(Y = X\beta + \epsilon\)</span> with <span class="math notranslate nohighlight">\(Y, \epsilon \in \Re^n\)</span>, <span class="math notranslate nohighlight">\(X\)</span> an <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(p\)</span> matrix, <span class="math notranslate nohighlight">\(\beta \in \Re^p\)</span>, <span class="math notranslate nohighlight">\(p \le n\)</span>, and <span class="math notranslate nohighlight">\(\mathrm{rank}(X) = p\)</span>, then</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \hat{\beta}_{\mathrm{OLS}} = \arg \min_{\gamma \in \Re^p} \| Y - X\gamma \|^2 =  (X^TX)^{-1} X^T Y.\end{equation*}\]</div>
 <p>We will derive this, then explain why–although the solution is mathematically correct–it is not a good way to find
 <span class="math notranslate nohighlight">\(\hat{\beta}_{\mathrm{OLS}}\)</span> in practice, because it is numerically less stable than other approaches.</p>
-<section id="the-normal-equations">
+<div class="section" id="the-normal-equations">
 <h2>The normal equations<a class="headerlink" href="#the-normal-equations" title="Permalink to this headline">¶</a></h2>
 <p>Note that <span class="math notranslate nohighlight">\(\| Y - X\gamma \|^2 = (Y - X\gamma)^T(Y - X\gamma)\)</span> is a quadratic function of <span class="math notranslate nohighlight">\(\gamma\)</span>.
 Extrema with respect to <span class="math notranslate nohighlight">\(\gamma\)</span> will be at stationary points.</p>
@@ -326,10 +325,10 @@ Extrema with respect to <span class="math notranslate nohighlight">\(\gamma\)</s
 <p><strong>This is mathematically true, but it is not a numerically stable way to solve the problem.</strong>
 In general, one should avoid inverting matrices numerically to solve linear problems.
 Other approaches, such as Gaussian elimination and matrix factorization (decomposition) methods, are much more stable.</p>
-</section>
-<section id="characterizing-the-optimum">
+</div>
+<div class="section" id="characterizing-the-optimum">
 <h2>Characterizing the optimum<a class="headerlink" href="#characterizing-the-optimum" title="Permalink to this headline">¶</a></h2>
-<section id="reminders">
+<div class="section" id="reminders">
 <h3>Reminders<a class="headerlink" href="#reminders" title="Permalink to this headline">¶</a></h3>
 <p>Two vectors of the same dimension, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, are <em>orthogonal</em> if <span class="math notranslate nohighlight">\(x^Ty = 0\)</span>.</p>
 <p>A very useful result is that the residual vector, <span class="math notranslate nohighlight">\(e = Y - X\hat{\beta}\)</span>, is orthogonal to the subspace spanned by the columns of <span class="math notranslate nohighlight">\(X\)</span>; that is, <span class="math notranslate nohighlight">\(X^Te = 0\)</span>.</p>
@@ -340,15 +339,15 @@ Other approaches, such as Gaussian elimination and matrix factorization (decompo
 \end{equation*}\]</div>
 <p>Suppose not. Any vector <span class="math notranslate nohighlight">\(e \in \Re^n\)</span> can be decomposed into a component that is contained in the subspace spanned by the columns of <span class="math notranslate nohighlight">\(X\)</span> and a component that is orthogonal to that subspace.
 Write <span class="math notranslate nohighlight">\(e = e_\parallel + e_\perp\)</span>, where <span class="math notranslate nohighlight">\(e_\parallel \in \mathrm{colspan}(X)\)</span> and <span class="math notranslate nohighlight">\(e_\perp \perp \mathrm{colspan}(X)\)</span></p>
-</section>
-</section>
-<section id="operator-norm-of-a-matrix">
+</div>
+</div>
+<div class="section" id="operator-norm-of-a-matrix">
 <h2>Operator norm of a matrix<a class="headerlink" href="#operator-norm-of-a-matrix" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> is an <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(p\)</span> matrix.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \| X \| \equiv \sup_{\gamma \in \Re^p} \frac{ \| X\gamma \|}{\|\gamma \|}.\end{equation*}\]</div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Re-analyze Karp et al. (2105) data &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -399,9 +398,9 @@
         
               <div>
                 
-  <section id="re-analyze-karp-et-al-2105-data">
+  <div class="section" id="re-analyze-karp-et-al-2105-data">
 <h1>Re-analyze Karp et al. (2105) data<a class="headerlink" href="#re-analyze-karp-et-al-2105-data" title="Permalink to this headline">¶</a></h1>
-<section id="p-b-stark">
+<div class="section" id="p-b-stark">
 <h2>P.B. Stark<a class="headerlink" href="#p-b-stark" title="Permalink to this headline">¶</a></h2>
 <p>Python 3 notebook</p>
 <div class="cell docutils container">
@@ -551,11 +550,11 @@ The estimate is unbiased if the model <span class="math notranslate nohighlight"
 <p>The t statistic -3.328 can be computed whenever coef and std err can be computed.
 But the p-value, P&gt;|t|, is correct only if the model is true, <span class="math notranslate nohighlight">\(X\)</span> has full rank, <span class="math notranslate nohighlight">\(n &gt; p\)</span>, and <span class="math notranslate nohighlight">\(\epsilon \sim N(0, \sigma^2 I_n)\)</span>.
 The same is true for the confidence interval.</p>
-</section>
-</section>
-<section id="significance-of-the-slope">
+</div>
+</div>
+<div class="section" id="significance-of-the-slope">
 <h1>Significance of the slope<a class="headerlink" href="#significance-of-the-slope" title="Permalink to this headline">¶</a></h1>
-<section id="standard-regression-model">
+<div class="section" id="standard-regression-model">
 <h2>Standard regression model<a class="headerlink" href="#standard-regression-model" title="Permalink to this headline">¶</a></h2>
 <p>The “usual” regression model says <span class="math notranslate nohighlight">\(Y = X\beta + \epsilon\)</span>, where</p>
 <div class="amsmath math notranslate nohighlight">
@@ -568,7 +567,7 @@ The same is true for the confidence interval.</p>
 We assume that <span class="math notranslate nohighlight">\(X\)</span> is full rank <span class="math notranslate nohighlight">\(p\)</span> and either that <span class="math notranslate nohighlight">\(X\)</span> is not random or that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(\epsilon\)</span> are independent, in which case we will condition on <span class="math notranslate nohighlight">\(X\)</span>.
 We also assume <span class="math notranslate nohighlight">\(n &gt; p\)</span>.</p>
 <p>The OLS estimate is <span class="math notranslate nohighlight">\(\hat{\beta} \equiv (X^TX)^{-1}X^T Y\)</span>.</p>
-<section id="theorem-the-ols-estimate-is-unbiased-and-mathrm-cov-hat-beta-x-tx-1-x-t-mathrm-cov-epsilon-x-x-x-tx-1">
+<div class="section" id="theorem-the-ols-estimate-is-unbiased-and-mathrm-cov-hat-beta-x-tx-1-x-t-mathrm-cov-epsilon-x-x-x-tx-1">
 <h3>Theorem: the OLS estimate is unbiased and <span class="math notranslate nohighlight">\(\mathrm{cov}(\hat{\beta}) = (X^TX)^{-1} X^T \mathrm{cov}(\epsilon | X) X (X^TX)^{-1}\)</span>.<a class="headerlink" href="#theorem-the-ols-estimate-is-unbiased-and-mathrm-cov-hat-beta-x-tx-1-x-t-mathrm-cov-epsilon-x-x-x-tx-1" title="Permalink to this headline">¶</a></h3>
 <p><strong>Proof.</strong></p>
 <div class="amsmath math notranslate nohighlight">
@@ -598,8 +597,8 @@ We also assume <span class="math notranslate nohighlight">\(n &gt; p\)</span>.</
 <p>A conditionally unbiased estimate for <span class="math notranslate nohighlight">\(\sigma^2\)</span> is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}  \hat{\sigma}^2 = \frac{1}{n-p} \sum_{j=1}^n e_j^2 = \frac{1}{n-p} \sum_{j=1}^n (Y_j - X_j \hat{\beta})^2.\end{equation*}\]</div>
-</section>
-<section id="the-t-test">
+</div>
+<div class="section" id="the-t-test">
 <h3>The t-test<a class="headerlink" href="#the-t-test" title="Permalink to this headline">¶</a></h3>
 <p>The <span class="math notranslate nohighlight">\(t\)</span>-test for whether a coefficient is significantly different from zero requires the further assumption that
 <span class="math notranslate nohighlight">\(\{ \epsilon_j \}\)</span> have a distribution that is jointly normal (given <span class="math notranslate nohighlight">\(X\)</span>):  given <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\{ \epsilon_j \}\)</span> are IID <span class="math notranslate nohighlight">\(N(0, \sigma^2)\)</span>.</p>
@@ -609,9 +608,9 @@ We also assume <span class="math notranslate nohighlight">\(n &gt; p\)</span>.</
 \[\begin{equation*}  t = \hat{\beta}_k/\hat{\mathrm{SE}}_k, \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{\mathrm{SE}}_k \equiv \hat{\sigma} \sqrt{(X^TX)^{-1}_{kk}}\)</span>.</p>
 <p>Under all the assumptions, <span class="math notranslate nohighlight">\(t\)</span> has Student’s <span class="math notranslate nohighlight">\(t\)</span> distribution with <span class="math notranslate nohighlight">\(n-p\)</span> degrees of freedom if <span class="math notranslate nohighlight">\(\beta_k = 0\)</span>.</p>
-</section>
-</section>
-<section id="permutation-test">
+</div>
+</div>
+<div class="section" id="permutation-test">
 <h2>Permutation test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h2>
 <p>Because the assumptions that lead to the t-test are unreasonable in this application, we will look at other ways of assessing the evidence that the two variables are associated.</p>
 <p>Let’s specialize to the case <span class="math notranslate nohighlight">\(p = 2\)</span>, with <span class="math notranslate nohighlight">\(X_{k1} = 1\)</span> (an intercept term in the regression).</p>
@@ -628,11 +627,11 @@ Then for every permutation <span class="math notranslate nohighlight">\(\pi\)</s
 \[\begin{equation*} \Pr \{ Z_j = z_j, j=1, \ldots, n \} = \Pr \{ Z_j = z_{\pi_j}, j = 1, \ldots, n \}.\end{equation*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(z = (z_1, \ldots, z_n)\)</span>.
 The set of all <span class="math notranslate nohighlight">\((z_{\pi_j})_{j=1}^n\)</span> for all permutations <span class="math notranslate nohighlight">\(\pi\)</span> of <span class="math notranslate nohighlight">\(\{1, \ldots, n \}\)</span> is <em>the orbit of <span class="math notranslate nohighlight">\(z\)</span> under the permutation group</em>.</p>
-<section id="what-s-the-justification-for-this-model-here">
+<div class="section" id="what-s-the-justification-for-this-model-here">
 <h3>What’s the justification for <em>this</em> model here?<a class="headerlink" href="#what-s-the-justification-for-this-model-here" title="Permalink to this headline">¶</a></h3>
 <p>Why linear? Why additive errors? Why IID errors?</p>
-</section>
-<section id="another-approach-the-neyman-ticket-model">
+</div>
+<div class="section" id="another-approach-the-neyman-ticket-model">
 <h3>Another approach: the Neyman “ticket” model<a class="headerlink" href="#another-approach-the-neyman-ticket-model" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -672,10 +671,10 @@ the components of <span class="math notranslate nohighlight">\(\epsilon\)</span>
 <p><span class="math notranslate nohighlight">\(\hat{\beta}_1 = r \mathrm{SD}(Y)/\mathrm{SD}(X)\)</span>, where <span class="math notranslate nohighlight">\(r\)</span> is the (sample) correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p>One-to-one, monotonic relationship between them, so reject the null for exactly the
 same data sets.</p>
-</section>
-</section>
-</section>
-<section id="how-to-shuffle">
+</div>
+</div>
+</div>
+<div class="section" id="how-to-shuffle">
 <h1>How to shuffle<a class="headerlink" href="#how-to-shuffle" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li><p>Assign a pseudo-random number to every element, then sort based on that number</p></li>
@@ -714,7 +713,7 @@ while there are records left:
 </div>
 </div>
 </div>
-<section id="proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works">
+<div class="section" id="proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works">
 <h2>Proof that the streaming Fisher-Yates-Knuth-Durstenfeld algorithm works<a class="headerlink" href="#proof-that-the-streaming-fisher-yates-knuth-durstenfeld-algorithm-works" title="Permalink to this headline">¶</a></h2>
 <p>Induction:</p>
 <p>For <span class="math notranslate nohighlight">\(i=1\)</span>, obvious.</p>
@@ -723,9 +722,9 @@ while there are records left:
 of the first <span class="math notranslate nohighlight">\(i\)</span>, or putting it in position <span class="math notranslate nohighlight">\(i+1\)</span>. These possibilities are mutually exclusive of
 the permutations attainable from a different permutation of the first <span class="math notranslate nohighlight">\(i\)</span> items.</p>
 <p>Thus, this enumerates all <span class="math notranslate nohighlight">\((i+1)i! = (i+1)!\)</span> permutations of <span class="math notranslate nohighlight">\((i+1)\)</span> items, and they are equally likely. ■</p>
-</section>
-</section>
-<section id="how-not-to-shuffle">
+</div>
+</div>
+<div class="section" id="how-not-to-shuffle">
 <h1>How not to shuffle<a class="headerlink" href="#how-not-to-shuffle" title="Permalink to this headline">¶</a></h1>
 <p>Sort using a “random” comparison function, e.g.,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def RandomSort(a,b):
@@ -735,8 +734,8 @@ the permutations attainable from a different permutation of the first <span clas
 <p>But this fails the basic properties of an ordering, e.g., transitivity, reflexiveness, etc. Doesn’t produce random permutation. Output also depends on sorting algorithm.</p>
 <p>Notoriously used by Microsoft to offer a selection of browsers in the EU. Resulted in IE being 5th of 5 about half the time in IE and about 26% of the time in Chrome, but only 6% of the time in Safari (4th about 40% of the time).</p>
 <p>See, e.g., http://www.computerworld.com/article/2520190/web-apps/microsoft-s-eu-ballot-fails-to-randomize-browser-order.html</p>
-</section>
-<section id="how-to-generate-random-integers">
+</div>
+<div class="section" id="how-to-generate-random-integers">
 <h1>How to generate random integers<a class="headerlink" href="#how-to-generate-random-integers" title="Permalink to this headline">¶</a></h1>
 <p>Textbook approach:</p>
 <p>To generate a random integer between 0 and m-1</p>
@@ -749,7 +748,7 @@ the permutations attainable from a different permutation of the first <span clas
 <p>Better approach (used in python):</p>
 <p>Let <span class="math notranslate nohighlight">\(k = \lceil \log_2(m-1) \rceil\)</span>. Generate <span class="math notranslate nohighlight">\(k\)</span> random bits and interpret the result <span class="math notranslate nohighlight">\(M\)</span> as an integer. If <span class="math notranslate nohighlight">\(M \le m-1\)</span>, return <span class="math notranslate nohighlight">\(M\)</span>. Otherwise, generate <span class="math notranslate nohighlight">\(k\)</span> more random bits and try again.</p>
 <p>See <a class="reference external" href="https://github.com/statlab/cryptorandom/blob/master/cryptorandom/cryptorandom.py">cryptorandom</a></p>
-<section id="how-r-generates-random-integers">
+<div class="section" id="how-r-generates-random-integers">
 <h2>How R generates random integers<a class="headerlink" href="#how-r-generates-random-integers" title="Permalink to this headline">¶</a></h2>
 <p>R uses a variant of the floor approach, but uses floating-point numbers at an intermediate step.</p>
 <div class="cell docutils container">
@@ -790,9 +789,9 @@ the permutations attainable from a different permutation of the first <span clas
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="sensitivity-to-farm-31">
+</div>
+</div>
+<div class="section" id="sensitivity-to-farm-31">
 <h1>Sensitivity to farm 31<a class="headerlink" href="#sensitivity-to-farm-31" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,8 +844,8 @@ Warnings:
 </div>
 </div>
 </div>
-</section>
-<section id="fourth-root-transformation">
+</div>
+<div class="section" id="fourth-root-transformation">
 <h1>Fourth-root transformation<a class="headerlink" href="#fourth-root-transformation" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,7 +901,7 @@ Warnings:
 </div>
 </div>
 </div>
-<section id="th-root-without-farm-31">
+<div class="section" id="th-root-without-farm-31">
 <h2>4th root without farm 31<a class="headerlink" href="#th-root-without-farm-31" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -958,9 +957,9 @@ Warnings:
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="questions">
+</div>
+</div>
+<div class="section" id="questions">
 <h1>Questions:<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li><p>How did Karp et al. decide to use the 4th-root transformation?</p></li>
@@ -969,8 +968,8 @@ Warnings:
 <li><p>What effect does testing for normality and trying different transformations have on the p-value?</p></li>
 </ol>
 <p>Gelman and Loken, 2013: <a class="reference external" href="http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf">“Garden of Forking Paths”</a></p>
-</section>
-<section id="technical-issues">
+</div>
+<div class="section" id="technical-issues">
 <h1>Technical issues:<a class="headerlink" href="#technical-issues" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li><p>Formally, <span class="math notranslate nohighlight">\(\hat{\beta} = (X^TX)^{-1}X^TY\)</span>, but that’s not how to compute it. Why?</p></li>
@@ -992,7 +991,7 @@ Warnings:
 </div>
 <div class="output text_html"><table><tr><th>Software</th><th>Version</th></tr><tr><td>Python</td><td>3.6.1 64bit [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)]</td></tr><tr><td>IPython</td><td>6.4.0</td></tr><tr><td>OS</td><td>Darwin 17.7.0 x86_64 i386 64bit</td></tr><tr><td>scipy</td><td>1.1.0</td></tr><tr><td>numpy</td><td>1.14.5</td></tr><tr><td>pandas</td><td>0.23.1</td></tr><tr><td>matplotlib</td><td>2.2.2</td></tr><tr><td>notebook</td><td>5.5.0</td></tr><tr><td>jupyter</td><td>1.0.0</td></tr><tr><td colspan='2'>Sun Sep 16 20:40:01 2018 PDT</td></tr></table></div></div>
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {

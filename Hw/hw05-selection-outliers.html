@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5. Homework 5: Selective inference and outlier rejection &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -95,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -107,7 +106,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -119,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -161,7 +160,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -173,7 +172,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -299,7 +298,7 @@
         
               <div>
                 
-  <section id="homework-5-selective-inference-and-outlier-rejection">
+  <div class="section" id="homework-5-selective-inference-and-outlier-rejection">
 <h1><span class="section-number">5. </span>Homework 5: Selective inference and outlier rejection<a class="headerlink" href="#homework-5-selective-inference-and-outlier-rejection" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
@@ -321,7 +320,7 @@ See, e.g., <a class="reference external" href="http://stat.columbia.edu/~gelman/
 <li><p>The notebook should include the capture of the run of your unit tests like you’ve done before (see next point).</p></li>
 <li><p>A python file called <code class="docutils literal notranslate"><span class="pre">lognormals.py</span></code> with your three implementations of a lognormal random variable, accompanied by a file called <code class="docutils literal notranslate"><span class="pre">test_lognormals.py</span></code> that includes the unit tests.</p></li>
 </ul>
-<section id="points-selective-inference">
+<div class="section" id="points-selective-inference">
 <h2><span class="section-number">5.1. </span>[20 points] Selective inference<a class="headerlink" href="#points-selective-inference" title="Permalink to this headline">¶</a></h2>
 <p>Imagine that you are selecting variables to include in a regression model.
 A common method for selecting which coefficients/variables/parameters to include in a
@@ -388,8 +387,8 @@ False Discovery Rate-Adjusted Multiple Confidence Intervals for Selected Paramet
 and Methods</em>, <em>100</em>(469), DOI 10.1198/016214504000001907</a></p></li>
 <li><p>The <a class="reference external" href="https://www.selectiveinferenceseminar.com">online Seminar on Selective Inference</a> is a great resource on this topic. In particular you may want to watch the talk on “Confidence Intervals for Selected Parameters” by Benjamini - <a class="reference external" href="https://drive.google.com/file/d/1D2cq1n_e0LlbxvQjyG0feNKPd4GY1ZCe/view?usp=sharing">recording</a>, <a class="reference external" href="https://drive.google.com/file/d/1qGk4wFZkBEizYEUyGL7HCaduV_GXNMvj/view">slides</a> and <a class="reference external" href="https://arxiv.org/abs/1906.00505">preprint co-authored with Hechtlinger &amp; Stark</a>.</p></li>
 </ul>
-</section>
-<section id="points-outlier-rejection-and-the-trimmed-mean">
+</div>
+<div class="section" id="points-outlier-rejection-and-the-trimmed-mean">
 <h2><span class="section-number">5.2. </span>[6 points] Outlier rejection and the trimmed mean<a class="headerlink" href="#points-outlier-rejection-and-the-trimmed-mean" title="Permalink to this headline">¶</a></h2>
 <p>It is common to discard extreme data as “outliers.”
 Two common ways of dealing with putative outliers are to discard observations that are
@@ -418,12 +417,12 @@ and explain why it is justified.</p></li>
 <li><p>Sketch a real-world scenario where you think it is not scientifically justified to discard “outliers,”
 and explain why.</p></li>
 </ul>
-</section>
-<section id="points-outliers-computational-example">
+</div>
+<div class="section" id="points-outliers-computational-example">
 <h2><span class="section-number">5.3. </span>[14 points] Outliers: computational example<a class="headerlink" href="#points-outliers-computational-example" title="Permalink to this headline">¶</a></h2>
 <p>This example involves simulating from a lognormal distribution. It shows that discarding extreme
 observations can produce misleading results, both for point estimates and confidence intervals.</p>
-<section id="points-implementation-comparison">
+<div class="section" id="points-implementation-comparison">
 <h3><span class="section-number">5.3.1. </span>[6 points] Implementation Comparison<a class="headerlink" href="#points-implementation-comparison" title="Permalink to this headline">¶</a></h3>
 <p>Implement three separate ways of simulating a lognormal random variable:</p>
 <ul class="simple">
@@ -446,8 +445,8 @@ variables that are “mixed” (neither continuous nor discrete)</p></li>
 <ul class="simple">
 <li><p>What is the expected value of a lognormal distribution with parameters <span class="math notranslate nohighlight">\(\mu=0\)</span>, <span class="math notranslate nohighlight">\(\sigma=1\)</span>?</p></li>
 </ul>
-</section>
-<section id="points-trimmed-mean">
+</div>
+<div class="section" id="points-trimmed-mean">
 <h3><span class="section-number">5.3.2. </span>[4 points] Trimmed mean<a class="headerlink" href="#points-trimmed-mean" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Repeat 10,000 times:</p>
@@ -468,8 +467,8 @@ percentage of the 10,000 intervals that contain the true expected value.</p>
 </ul>
 </li>
 </ul>
-</section>
-<section id="points-outlier-rejection">
+</div>
+<div class="section" id="points-outlier-rejection">
 <h3><span class="section-number">5.3.3. </span>[4 points] Outlier rejection<a class="headerlink" href="#points-outlier-rejection" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Repeat 10,000 times:</p>
@@ -490,9 +489,9 @@ percentage of the 10,000 intervals that contain the true expected value.</p>
 </ul>
 </li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Penny sampling and Conditional Expectation &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -93,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Overview
  </span>
@@ -105,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Syllabus
  </span>
@@ -117,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Homework Assignments
  </span>
@@ -159,7 +158,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Notes
  </span>
@@ -171,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Lecture Index
  </span>
@@ -331,13 +330,13 @@
         
               <div>
                 
-  <section id="penny-sampling-and-conditional-expectation">
+  <div class="section" id="penny-sampling-and-conditional-expectation">
 <h1>Penny sampling and Conditional Expectation<a class="headerlink" href="#penny-sampling-and-conditional-expectation" title="Permalink to this headline">¶</a></h1>
-<section id="penny-sampling">
+<div class="section" id="penny-sampling">
 <h2>Penny Sampling<a class="headerlink" href="#penny-sampling" title="Permalink to this headline">¶</a></h2>
 <p>“Penny sampling” is a sampling and estimation approach closely related to DUS, but that allows particularly simple analysis. It was introduced by Edwards et al. (2013).</p>
 <p>We shall derive a continuous version of Penny Sampling that turns the problem of making confidence bounds for the mean of a bounded random variable into the problem of making confidence bounds for a Binomial <span class="math notranslate nohighlight">\(p\)</span>, by introducing auxiliary independent randomization.</p>
-<section id="basic-penny-sampling">
+<div class="section" id="basic-penny-sampling">
 <h3>Basic Penny Sampling<a class="headerlink" href="#basic-penny-sampling" title="Permalink to this headline">¶</a></h3>
 <p>We shall derive basic Penny Sampling in the context of financial auditing.</p>
 <p>Again, we have a population of <span class="math notranslate nohighlight">\(N\)</span> items; item <span class="math notranslate nohighlight">\(j\)</span> has unknown value <span class="math notranslate nohighlight">\(x_j\)</span>, but the value is known to be nonnegative and less than <span class="math notranslate nohighlight">\(u_j\)</span>.</p>
@@ -356,15 +355,15 @@ that was drawn to be “good.” Otherwise the penny is “bad.”</p>
 for <span class="math notranslate nohighlight">\(\mu\)</span> by dividing by <span class="math notranslate nohighlight">\(u\)</span>.</p>
 <p>Again, we are imagining situations in which the sample is very small compared to the number of items in the population—much less the number of pennies in those items—so we will act as if we are sampling with replacement, which gives a conservative result in any case.</p>
 <p>Thus we treat the distribution of the number of “good” pennies in the sample as Binomial with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p = \mu = x/u\)</span>, rather than hypergeometric.</p>
-</section>
-<section id="relation-between-penny-sampling-and-pps-dus-sampling">
+</div>
+<div class="section" id="relation-between-penny-sampling-and-pps-dus-sampling">
 <h3>Relation between penny sampling and PPS/DUS sampling<a class="headerlink" href="#relation-between-penny-sampling-and-pps-dus-sampling" title="Permalink to this headline">¶</a></h3>
 <p>While the chance of selecting each “penny” is equal, the chance of selecting item <span class="math notranslate nohighlight">\(j\)</span> is proportional to <span class="math notranslate nohighlight">\(u_j\)</span>, just as in dollar-unit sampling.  The difference is in how the data are analyzed: using <span class="math notranslate nohighlight">\(X_i\)</span>, the value of <span class="math notranslate nohighlight">\(x_j\)</span> for the item selected on the <span class="math notranslate nohighlight">\(i\)</span>th draw, or using information about whether just the single “penny” is good or bad.</p>
-</section>
-</section>
-<section id="continuous-penny-sampling-and-the-conditional-expectation">
+</div>
+</div>
+<div class="section" id="continuous-penny-sampling-and-the-conditional-expectation">
 <h2>Continuous Penny Sampling and the Conditional Expectation<a class="headerlink" href="#continuous-penny-sampling-and-the-conditional-expectation" title="Permalink to this headline">¶</a></h2>
-<section id="the-two-step">
+<div class="section" id="the-two-step">
 <h3>The Two-Step<a class="headerlink" href="#the-two-step" title="Permalink to this headline">¶</a></h3>
 <p>One can think of penny sampling as taking place in two steps: first, select an item <span class="math notranslate nohighlight">\(J\)</span> with PPS sampling, then select a penny uniformly at random from that item. If the penny’s index is less than <span class="math notranslate nohighlight">\(X_J\)</span>, the penny is good. In other words, pennies are selected conditionally uniformly, given the item they are selected from, and compared to the true value of the item.</p>
 <p>In the limit as pennies shrink in value, this amounts to comparing <span class="math notranslate nohighlight">\(X_J\)</span> to a random variable <span class="math notranslate nohighlight">\(Z_J\)</span> that is (continuously) conditionally uniformly distributed on <span class="math notranslate nohighlight">\([0, U_J]\)</span>, where <span class="math notranslate nohighlight">\(U_J\)</span> is the upper bound on the item selected. Let <span class="math notranslate nohighlight">\(W\)</span> be the event that <span class="math notranslate nohighlight">\(Z_J \le X_J\)</span>. Then</p>
@@ -379,8 +378,8 @@ for <span class="math notranslate nohighlight">\(\mu\)</span> by dividing by <sp
 <p>In <span class="math notranslate nohighlight">\(n\)</span> iid draws, the distribution of the sum of the corresponding values of <span class="math notranslate nohighlight">\(W\)</span> is Binomial with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p=\mu = x/u\)</span>.</p>
 <p>Alternatively, we can think of the process as creating a new set of <span class="math notranslate nohighlight">\(n\)</span> random variables <span class="math notranslate nohighlight">\(\{W_i\}\)</span> where <span class="math notranslate nohighlight">\(W_i \sim \mbox{Bernoulli}(X_i/U_i)\)</span>.
 It is clear that unconditionally, <span class="math notranslate nohighlight">\(\{W_i\}\)</span> are iid Benoulli(<span class="math notranslate nohighlight">\(x/u\)</span>), so <span class="math notranslate nohighlight">\(\sum_{i=1}^n W_i \sim \mbox{Binomial}(n, \mu)\)</span>, where <span class="math notranslate nohighlight">\(\mu \equiv x/u\)</span>.</p>
-</section>
-<section id="sequences-of-iid-variables">
+</div>
+<div class="section" id="sequences-of-iid-variables">
 <h3>Sequences of iid variables<a class="headerlink" href="#sequences-of-iid-variables" title="Permalink to this headline">¶</a></h3>
 <p>This kind of “continuous penny sampling” lets us make confidence bounds for iid samples from an arbitrary bounded distribution, such as the mixture of a uniform and a point-mass at 0. The lower and upper bounds on each draw are 0 and 1. For each <span class="math notranslate nohighlight">\(X_i\)</span> in the sample, we generate a uniformly distributed <span class="math notranslate nohighlight">\(Z_i\)</span>, with all <span class="math notranslate nohighlight">\(\{X_i\}\)</span> and <span class="math notranslate nohighlight">\(\{Z_i\}\)</span> independent. Let <span class="math notranslate nohighlight">\(W_i = 1_{Z_i \le X_i}\)</span>.
 Then <span class="math notranslate nohighlight">\(\{W_i \}_{i=1}^n\)</span> are iid Bernoulli random variables with <span class="math notranslate nohighlight">\(\mathbb P \{W_i = 1\} = \mathbb E X_i = \mu\)</span>:</p>
@@ -392,9 +391,9 @@ Then <span class="math notranslate nohighlight">\(\{W_i \}_{i=1}^n\)</span> are 
        &amp;= \mathbb E X_i,
 \end{align*}\]</div>
 <p>by the tail-integral formula for expectation.</p>
-</section>
-</section>
-<section id="implementation">
+</div>
+</div>
+<div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>Let’s implement continuous penny sampling in Python.</p>
 <div class="cell docutils container">
@@ -482,8 +481,8 @@ Then <span class="math notranslate nohighlight">\(\{W_i \}_{i=1}^n\)</span> are 
 </div>
 </div>
 </div>
-</section>
-<section id="illustration">
+</div>
+<div class="section" id="illustration">
 <h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h2>
 <p>Let’s imagine a population of <span class="math notranslate nohighlight">\(N\)</span> items bounded between 0 and 1.</p>
 <p>Let’s test this:</p>
@@ -663,16 +662,16 @@ Then <span class="math notranslate nohighlight">\(\{W_i \}_{i=1}^n\)</span> are 
 </div></div></div>
 </div>
 <p>As is the case with the other nonparametric methods, the Continuous Penny Sample intervals are in some cases shorter on average than Student-t intervals, but have higher coverage.</p>
-</section>
-<section id="what-s-next">
+</div>
+<div class="section" id="what-s-next">
 <h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="shootout.html"><span class="doc std std-doc">Next: Nonparametric Method Shootout</span></a></p></li>
 <li><p><a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Previous: The Kaplan-Wald Confidence Bound for a Nonnegative Mean</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Index</span></a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
