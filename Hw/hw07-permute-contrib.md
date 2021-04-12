@@ -82,7 +82,7 @@ The expression for hypergeometric is analogous, but should use the hypergeometri
 pmf rather than the binomial pmf. 
     iii. Discuss the difference between the two methods. 
     iv. Which would you recommend, and why? If you would recommend one method over the other 
-in some circumstances but the other over the first in other circumstances, explain why.
+in some circumstances but not in other circumstances, explain why.
 
 Think of this project as a scenario where your team are developers and 
 maintainers of `permute`. 
