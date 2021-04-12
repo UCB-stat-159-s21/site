@@ -359,6 +359,15 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-approximate-confidence-intervals-for-binomial-p">
+     Other approximate confidence intervals for Binomial(
+     <span class="math notranslate nohighlight">
+      \(p\)
+     </span>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-2-confidence-interval-for-hypergeometric-g-known-n-n">
      Example 2: confidence interval for Hypergeometric
      <span class="math notranslate nohighlight">
@@ -497,8 +506,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3931d2fb-4431-4db8-9ed4-fca4a2e2970b">
-<span class="eqno">()<a class="headerlink" href="#equation-3931d2fb-4431-4db8-9ed4-fca4a2e2970b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9bfe8485-8d4c-4102-b5d9-ff3273873fcb">
+<span class="eqno">()<a class="headerlink" href="#equation-9bfe8485-8d4c-4102-b5d9-ff3273873fcb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -510,8 +519,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf092637-9b72-4d7b-9ee4-590c8e722c4c">
-<span class="eqno">()<a class="headerlink" href="#equation-cf092637-9b72-4d7b-9ee4-590c8e722c4c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-27dee36d-b564-499d-a0ca-a333e1d8d56f">
+<span class="eqno">()<a class="headerlink" href="#equation-27dee36d-b564-499d-a0ca-a333e1d8d56f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -611,8 +620,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-94e2e3c5-82ed-404c-a001-aaabde22a948">
-<span class="eqno">()<a class="headerlink" href="#equation-94e2e3c5-82ed-404c-a001-aaabde22a948" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3914eaaf-d3a1-4fcd-97d6-f80114253fa1">
+<span class="eqno">()<a class="headerlink" href="#equation-3914eaaf-d3a1-4fcd-97d6-f80114253fa1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -640,8 +649,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56781658-c866-4501-aede-8ed3b40e1015">
-<span class="eqno">()<a class="headerlink" href="#equation-56781658-c866-4501-aede-8ed3b40e1015" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2f2befcf-2489-4563-9c93-f45aaabe9681">
+<span class="eqno">()<a class="headerlink" href="#equation-2f2befcf-2489-4563-9c93-f45aaabe9681" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -687,8 +696,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00a36fdd-d0c6-4c2b-8dca-6c7ede5edcc2">
-<span class="eqno">()<a class="headerlink" href="#equation-00a36fdd-d0c6-4c2b-8dca-6c7ede5edcc2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-64685cfa-76a2-4f61-9964-9bad8868d05b">
+<span class="eqno">()<a class="headerlink" href="#equation-64685cfa-76a2-4f61-9964-9bad8868d05b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -1170,6 +1179,12 @@ much lower than their nominal level (here, as low as about 9% when they should b
 <p>This example is a fairly simple situation: estimating the mean of a population of zeros and ones from a random sample with replacement. In more complicated examples, bootstrap confidence intervals generally do not attain their nominal level.
 There is a substantial body of work on how to improve the coverage of bootstrap CIs.
 <em>Pre-pivoting</em> can help substantially. See <a class="reference external" href="https://www.jstor.org/stable/2336685?seq=1">Beran (1987)</a>.</p>
+</div>
+<div class="section" id="other-approximate-confidence-intervals-for-binomial-p">
+<h3>Other approximate confidence intervals for Binomial(<span class="math notranslate nohighlight">\(p\)</span>)<a class="headerlink" href="#other-approximate-confidence-intervals-for-binomial-p" title="Permalink to this headline">¶</a></h3>
+<p>There are many approximate methods for binomial confidence intervals, for instance, based on the normal approximation or the normal approximation to a transformation of the data.
+They generally do not attain their nominal confidence level, even for modest sample sizes,
+and their coverage probability varies erratically as <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> vary. See <a class="reference external" href="https://www.jstor.org/stable/2676784?seq=1">Brown, Cai, and DasGupta (2001)</a></p>
 </div>
 <div class="section" id="example-2-confidence-interval-for-hypergeometric-g-known-n-n">
 <h3>Example 2: confidence interval for Hypergeometric <span class="math notranslate nohighlight">\(G\)</span> (known <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-2-confidence-interval-for-hypergeometric-g-known-n-n" title="Permalink to this headline">¶</a></h3>
