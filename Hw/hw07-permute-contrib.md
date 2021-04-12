@@ -2,7 +2,7 @@
 
 - **Statistics 159/259, Spring 2021**
 
-- **Due 4/7/2021, 11:59PM PT**
+- **Due 4/25/2021, 11:59PM PT**
 
 - Profs. Pérez and Stark, Department of Statistics, UC Berkeley.
 
@@ -20,19 +20,89 @@ The high-level goal of the assignment is to make contributions to `permute` in t
 All of the changes will be to the [utils](`https://github.com/statlab/permute/blob/main/permute/utils.py`)
 file.
 
+The assignment involves improving and extending two existing functions:
+`binom_conf_interval` and `hypergeom_conf_interval`.
+
+Those functions compute 1-sided and 2-sided confidence intervals for the binomial 
+parameter $p$ ($n$ known)
+and for the hypergeometric parameter $G$ ($N$ and $n$ known).
+The current implementations are variants of the "Clopper-Pearson" approach
+(see [Brown, Cai, and DasGupta (2001)](https://www.jstor.org/stable/2676784?seq=1)).
+
+You will improve the two-sided intervals by adding a different method.
+The notes on [hypothesis tests](../Notes/tests.ipynb) and [confidence sets](../Notes/confidence-sets.ipynb)
+and code in those notes will probably be helpful.
+
+Here are the goals of the assignment.
+They apply both to `binom_conf_interval` and to `hypergeom_conf_interval`.
+
+1. Test the 1-sided confidence bounds that are already implemented. 
+    i. Check whether they correctly implement the mathematics. Correct them if not. 
+    ii. Check the endpoints are found in a numerically stable and efficient manner. Provide a better method if not.
+    iii. Add unit tests that exercise all the options.
+1. Test the 2-sided confidence bounds that are already implemented.
+(The $1-\alpha$ Clopper-Pearson two-sided confidence bounds are the intersection 
+of a 1-sided upper $1-\alpha/2$ confidence interval and a 1-sided 
+lower $1-\alpha/2$ confidence interval.)
+    i. Check whether the functions correctly implement the mathematics. Correct them if not.
+    ii. Add unit tests that exercise all the options.
+1. Extend the signature of the functions to include a `method` parameter. The default value
+of `method` should be "`clopper-pearson`". The `method` parameter should not affect how
+1-sided confidence bounds are calculated.
+    i. When `method="clopper-pearson"`, the 2-sided intervals should be calculated as the 
+intersection of the 1-sided intervals using confidence level $1-\alpha/2$, based on 
+the current implementation of the 1-sided bounds (or on your modification
+of the current implentation, if you improve them). This amounts
+to inverting 2-sided, significance level $\alpha$ hypothesis tests where the 
+chance that the observation will be larger than the largest value in the acceptance region
+is not greater than $\alpha/2$ and the chance that the observation will be smaller than the
+smallest value in the acceptance region is not greater than $\alpha/2$.
+That is, it balances the probability of the tails.
+    ii. When `method="smallest-ar"`, the 2-sided intervals should be calculated by inverting
+tests that have the _smallest_ acceptance regions, following the approaches in the notes.
+Rather than balance the probability of the tails, this approach minimizes the
+number of outcomes in the acceptance region, which tends to produce shorter confidence
+intervals.
+To implement this method, consider writing helper functions that calculate the acceptance regions.
+That will make it easier to debug and test your work.
+**Note that there might be a bug in the implementation of 2-sided confidence bounds 
+for binomial $p$ in the notes. Be sure you are implementing the right thing!**
+    iii. If `method` takes any other value, the code should raise an exception.
+    iv. Provide unit tests for the new functionality and any helper functions.
+    v. Provide appropriate docstrings for the new functionality.
+    vi. Follow PEP-8 and PEP-257.
+1. Calculate (not simulate) the expected width of the 2-sided 95%
+confidence intervals for 
+`method="clopper-pearson"` and `method="smallest-ar"` for a range of values of
+$n$ and $p$ (for the binomial) and for $N$, $G$, and $n$ (for the hypergeometric).
+    i. This should be turned in separately as a Jupyter notebook.
+    ii. See the top of the left column of p.111 of [Brown, Cai, and DasGupta (2001)](https://www.jstor.org/stable/2676784?seq=1)
+for a hint of how to calculate the expected length of binomial confidence intervals.
+The expression for hypergeometric is analogous, but should use the hypergeometric
+pmf rather than the binomial pmf. 
+    iii. Discuss the difference between the two methods. 
+    iv. Which would you recommend, and why? If you would recommend one method over the other 
+in some circumstances but the other over the first in other circumstances, explain why.
+
 Think of this project as a scenario where your team are developers and 
 maintainers of `permute`. 
 You are starting from the code in its current state, and are going to work on the next release of the project. 
 You will have to:
 
-* Identify the new functionality to be added
-    + specific functions, calling signatures, etc.
-* Parcel out the work among team members.
-* Review each other's work, that will be submitted to the team repository in the form of Pull Requests (PRs).
-* Provide feedback and discussion for each PR.
-* Ensure that each PR passes all existing tests and adds new ones as necessary. The project repo is already configured to run the test suite with Github Actions, but you will need to ensure that any changes you make are still covered by the automated execution.
+* specify the new functionality to be added
+* create appropriate GitHub issues
+* assign issues to team members
+* review each other's work, that will be submitted to the team repository in the form of Pull Requests (PRs)
+* provide feedback and discussion for each PR
+* ensure that each PR passes all existing tests and adds new ones as necessary
+The project repo is already configured to run the test suite with Github Actions, 
+but you will need to ensure that any changes you make are still covered by the automated execution.
 
-While each team will work against a private fork of the official `permute` repo, we hope to later incorporate some of your contributions (with full public credit going to you) into the public repo. But your grade will _not_ be based on that - we only want you to be aware of this for you to know that we consider this a "real world" project.
+While each team will work against a private fork of the official `permute` repo, 
+we hope to later incorporate some of your contributions (with full public credit going to you) 
+into the public repo. 
+But your grade will _not_ be based on that--we only want you to be aware of this for you to 
+know that we consider this a "real world" project.
 
 
 ## Grading
@@ -72,7 +142,7 @@ For each of the main areas (testing and documentation) we will look at the follo
   - a description of each of your new tests and the functionality it tests
   - the coverage reports for your team's test PR.
 
-* As an illustration of the kind of level of description and detail we have in mind, you can consult the [Numpy release notes](https://github.com/numpy/numpy/releases/tag/v1.20.0), but use your own judgment. You should think of this document as something that a third party interested in `cryptorandom` will be able to read to inform themselves about all the great new work that was done in this "new release."
+* As an illustration of the kind of level of description and detail we have in mind, you can consult the [Numpy release notes](https://github.com/numpy/numpy/releases/tag/v1.20.0), but use your own judgment. You should think of this document as something that a third party interested in `permute` will be able to read to inform themselves about all the great new work that was done in this "new release."
 
 * You will use a "pull cycle" development model. That is, no team member pushes directly to the team repository, but instead you each make your own personal fork of the team repo, and create pull requests into the team repo from your personal one.  This is how many real-world open source projects work (in fact, some enforce that no team member can push directly to the main repo even if they try).
 
@@ -87,11 +157,11 @@ For each of the main areas (testing and documentation) we will look at the follo
 
 _Note:_ some of these tips were previously in a separate document, now merged here as part of the homework (partly so the automated numbering scheme matches our homework numbers).
 
-These notes should help you work through some of the issues we discussed in lecture, regarding how to render the sphinx documentation for `cryptorandom` in the hub, and how to then view your own build of these docs through the hub.
+These notes should help you work through some of the issues we discussed in lecture, regarding how to render the sphinx documentation for `permute` in the hub, and how to then view your own build of these docs through the hub.
 
 Basically we need to solve the following problems:
 
-1. We need to ensure that pytest, Sphinx and other tools find and use our in-development version of `cryptorandom` instead of the system-wide one, so our new work is reflected in the tests and documentation we create.
+1. We need to ensure that pytest, Sphinx and other tools find and use our in-development version of `permute` instead of the system-wide one, so our new work is reflected in the tests and documentation we create.
 1. We need to be able to build the documentation on JupyterHub and view the resulting docs online easily, through the Hub.
 
 Credit and huge thanks to [Yuvi Panda](https://github.com/yuvipanda) from the JupyterHub/Berkeley team for his help navigating the proxy issues detailed below.
@@ -99,58 +169,67 @@ Credit and huge thanks to [Yuvi Panda](https://github.com/yuvipanda) from the Ju
 
 ### Initial setup: personal and team repositories
 
-You will need to fork the team repo to your personal user and then clone your personal fork into the hub. That will be your "working space", one for each member of the team. You will do all your work in your personal copy, pushing your changes up to github in your personal fork, and then from there, making PRs to the team repo. 
+You will need to fork the team repo to your personal user and then clone your personal fork into the hub. 
+That will be your "working space", one for each member of the team. 
+You will do all your work in your personal copy, pushing your changes up to github in your personal fork, 
+and then from there, making PRs to the team repo. 
 
-As we discussed in class, a good way to track both is to have _two_ remotes, using your personal fork as `origin` and the team repo as `upstream`. This also makes it convenient to have more remotes if for example you want to check locally the work of your teammate whose github username is `alice` by having a remote of that name.  As an illustration, this is what my remotes setup for the `cryptorandom` repo looks like on my system:
+As we discussed in class, a good way to track both is to have _two_ remotes, 
+using your personal fork as `origin` and the team repo as `upstream`. 
+This also makes it convenient to have more remotes if for example you want to check locally 
+the work of your teammate whose github username is `alice` by having a remote of that name.
+As an illustration, this is what my remotes setup for the `permute` repo looks like on my system:
 
 ```
-(base) (main)blanca[cryptorandom]> git remote -v
-origin	git@github.com:fperez/cryptorandom.git (fetch)
-origin	git@github.com:fperez/cryptorandom.git (push)
-upstream	git@github.com:statlab/cryptorandom.git (fetch)
-upstream	git@github.com:statlab/cryptorandom.git (push)
+(base) (main)blanca[permute]> git remote -v
+origin	git@github.com:fperez/permute.git (fetch)
+origin	git@github.com:fperez/permute.git (push)
+upstream	git@github.com:statlab/permute.git (fetch)
+upstream	git@github.com:statlab/permute.git (push)
 ```
 
 
-### Install `cryptorandom` locally in development mode
+### Install `permute` locally in development mode
 
-The first issue we must solve is for Sphinx to find the version of `cryptorandom` that you are working on, rather than the installed one. This manifests itself immediately as the `AttributeError` you see regarding a missing `__version__` attribute when trying to build the docs, but even if you fix that with a quick hack as I did in lecture, you'll still have a problem. The issue is that the docs will import the _system-wide installed_ version of `cryptorandom`, and not your local development copy. So any new docstrings or function signatures you edit will not be correctly reflected in the resulting docs.
+The first issue we must solve is for Sphinx to find the version of `permute` that you are working on, rather than the installed one. This manifests itself immediately as the `AttributeError` you see regarding a missing `__version__` attribute when trying to build the docs, but even if you fix that with a quick hack as I did in lecture, you'll still have a problem. The issue is that the docs will import the _system-wide installed_ version of `permute`, and not your local development copy. So any new docstrings or function signatures you edit will not be correctly reflected in the resulting docs.
 
 The solution is to install your working copy as a _development version_, also known as an _"editable install"_ (hence the `-e` command line argument, short for `--editable`). We now explain how to do this, and you can find more details in the [pip documentation](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs).
 
-In the top-level of the `cryptorandom` directory, where the file `setup.py` lives, run the command:
+In the top-level of the `permute` directory, where the file `setup.py` lives, run the command:
 
 `pip install -e .`
 
 You should see something like the following output (with your own user name in the path):
 
 
+**THIS WILL BE DIFFERENT SINCE PERMUTE USES CRYPTORANDOM**
+
 ```
-jovyan@jupyter-fernando-2eperez:~/cryptorandom> pip install -e .
-Obtaining file:///home/jovyan/cryptorandom
-Requirement already satisfied: numpy>=1.20 in /opt/conda/lib/python3.8/site-packages (from cryptorandom==0.3rc2.dev0) (1.20.1)
-Requirement already satisfied: scipy>=1.6 in /opt/conda/lib/python3.8/site-packages (from cryptorandom==0.3rc2.dev0) (1.6.0)
-Installing collected packages: cryptorandom
-  Attempting uninstall: cryptorandom
-    Found existing installation: cryptorandom 0.2
-    Uninstalling cryptorandom-0.2:
-      Successfully uninstalled cryptorandom-0.2
-  Running setup.py develop for cryptorandom
-Successfully installed cryptorandom
+jovyan@jupyter-fernando-2eperez:~/permute> pip install -e .
+Obtaining file:///home/jovyan/permute
+Requirement already satisfied: numpy>=1.20 in /opt/conda/lib/python3.8/site-packages (from permute==0.3rc2.dev0) (1.20.1)
+Requirement already satisfied: scipy>=1.6 in /opt/conda/lib/python3.8/site-packages (from permute==0.3rc2.dev0) (1.6.0)
+Installing collected packages: permute
+  Attempting uninstall: permute
+    Found existing installation: permute 0.2
+    Uninstalling permute-0.2:
+      Successfully uninstalled permute-0.2
+  Running setup.py develop for permute
+Successfully installed permute
 ```
 
 Check that you got it right by doing the following:
 
 ```
 cd doc/
-python -c "import cryptorandom as cr;print(cr.__version__)"
+python -c "import permute as pm;print(pm.__version__)"
 ```
 
 You should see:
 
 ```
-jovyan@jupyter-fernando-2eperez:~/cryptorandom> cd doc/
-jovyan@jupyter-fernando-2eperez:~/cryptorandom/doc> python -c "import cryptorandom as cr;print(cr.__version__)"
+jovyan@jupyter-fernando-2eperez:~/permute> cd doc/
+jovyan@jupyter-fernando-2eperez:~/permute/doc> python -c "import permute as pm;print(pm.__version__)"
 0.3rc2.dev0
 ```
 
@@ -159,7 +238,8 @@ jovyan@jupyter-fernando-2eperez:~/cryptorandom/doc> python -c "import cryptorand
 
 Now we turn to the second problem: once we build our docs with Sphinx against our development version, how do we look at the built HTML results? These files are hosted in the Hub, not our home computer, so we can't easily view them immediately. While JupyterLab can display individual HTML files, this will not show a fully styled version with all the necessary extra assets such as images, CSS, etc.  We need to use a full _web server_ for that, and we need to be able to access that web server from outside the Hub. We now explain how to achieve this.
 
-First, you need to make a change to `conf.py` so that the build can be seen through a JupyterHub installation. This change can probably go into cryptorandom proper in the end, but for now we suggest you make it directly into the team repo in a single commit, that all team members then pull from, so you all have it in one place. You need to add three lines below - the comment is there in the file already, around line 108, and we leave it here for ease of reference. You neeed to add the code starting with `import os`:
+First, you need to make a change to `conf.py` so that the build can be seen through a JupyterHub installation. 
+This change can probably go into permute proper in the end, but for now we suggest you make it directly into the team repo in a single commit, that all team members then pull from, so you all have it in one place. You need to add three lines below - the comment is there in the file already, around line 108, and we leave it here for ease of reference. You neeed to add the code starting with `import os`:
 
 ```python
 # -- Options for HTML output ----------------------------------------------
@@ -170,21 +250,28 @@ if "JUPYTERHUB_SERVICE_PREFIX" in os.environ:
     html_baseurl = f'{os.environ["JUPYTERHUB_SERVICE_PREFIX"]}/proxy/absolute/8000'
 ```
 
-Just to make sure these changes apply everywhere, in the `doc/` directory run `make clean` once after the above, and then continue with the below. In what follows you may want to keep at least _two_ terminals open, one where you keep running the HTML Sphinx build, and one to run the server to check your builds (some might keep a third open in the top-level directory for git work, commits, pushes, etc). Take advantage of JupyterLab's ability to lay them out in whatever way you find most visually convenient!
+Just to make sure these changes apply everywhere, in the `doc/` directory run `make clean` 
+once after the above, and then continue with the below. 
+In what follows you may want to keep at least _two_ terminals open, one where you keep 
+running the HTML Sphinx build, and one to run the server to check your builds (some might keep a third open in the top-level directory for git work, commits, pushes, etc). Take advantage of JupyterLab's ability to lay them out in whatever way you find most visually convenient!
 
-Once you make these changes you should commit and push them to the team repo, and all members need to ensure they pull from that correctly and they all have the same `conf.py`.
+Once you make these changes you should commit and push them to the team repo, and all 
+members need to ensure they pull from that correctly and they all have the same `conf.py`.
 
 
 ### Editing the docs and testing your build
 
-Make your edits and run `make html` in the `doc/` directory.  To check your build, then go to your other terminal (if you chose to have more than one) and go to the `build/html` subdirectory. There, run:
+Make your edits and run `make html` in the `doc/` directory.  
+To check your build, then go to your other terminal (if you chose to have more than one) 
+and go to the `build/html` subdirectory. 
+There, run:
 
 `python -m http.server`
 
 as we saw today in class.  This will print a message like:
 
 ```
-jovyan@jupyter-fernando-2eperez:~/cryptorandom/doc/build/html> python -m http.server
+jovyan@jupyter-fernando-2eperez:~/permute/doc/build/html> python -m http.server
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ```
 
@@ -214,7 +301,7 @@ Once you're happy, commit, push, make PRs, and communicate happily with your tea
 
 ### General suggestions on documentation
 
-- check the docstrings within `cryptorandom.py` and `sample.py` and edit/augment them as you see fit.
+- check the docstrings within `utils.py` and edit/augment them as you see fit.
 - check whether the formal documentation accurately portrays the code.
 - Read [this discussion about Four types of documentation](https://documentation.divio.com) for inspiration - you can make contributions in each of these dimensions. Docstrings aren't the only thing you can work on!
 - To build the documentation you can type `make html` in the `doc/` subdirectory.
@@ -225,4 +312,4 @@ Once you're happy, commit, push, make PRs, and communicate happily with your tea
 - Identify code that is not currently tested
 - Identify tests that do not really "exercise" the code
 - Make one PR that aims to push line-based test coverage as close to 100% as possible. This PR should also have individual tests that add *conceptual* test coverage in areas currently not covered.
-- To run the test suite, you can run `make test-all` from the top-level directory, which is the same command that [the testing GitHub action uses](https://github.com/statlab/cryptorandom/actions/workflows/test.yml).
+- To run the test suite, you can run `make test-all` from the top-level directory, which is the same command that [the testing GitHub action uses](https://github.com/statlab/permute/actions/workflows/test.yml).
