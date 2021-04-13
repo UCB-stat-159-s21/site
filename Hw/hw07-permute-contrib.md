@@ -47,10 +47,10 @@ For both `binom_conf_interval` and `hypergeom_conf_interval`, test the 2-sided c
     7. Follow PEP-8 and PEP-257.
     
 1. _[10 points]_ Calculate (not simulate) the expected width of the 2-sided 95% confidence intervals for `method="clopper-pearson"` , `method="smallest-ar"`, and `method="wang"` for a range of values of
-$n$ and $p$ (for the binomial) and for $N$, $G$, and $n$ (for the hypergeometric).
+$n$ and $p$ (for the binomial using Clopper-Pearson and smallest acceptance region) and for $N$, $G$, and $n$ (for the hypergeometric using Clopper-Pearson, smallest acceptance region, and Wang).
     1. This should be turned in separately as a Jupyter notebook (called `confidence-intervals.ipynb`).
     2. See the top of the left column of p.111 of [Brown, Cai, and DasGupta (2001)](https://www.jstor.org/stable/2676784?seq=1) for a hint of how to calculate the expected length of binomial confidence intervals. The expression for hypergeometric is analogous, but should use the hypergeometric pmf rather than the binomial pmf. 
-    3. Discuss the difference between the two methods. 
+    3. Discuss the differences among the three methods. You might consider how long it takes the methods to run and the expected lengths of the intervals as the parameters vary.
     4. Which would you recommend, and why? If you would recommend one method over the other in some circumstances but not in others, explain why.
 
 
