@@ -6,7 +6,7 @@
 
 - Profs. Pérez and Stark, Department of Statistics, UC Berkeley.
 
-- This assignment is worth a maximum of **40 points**.
+- This assignment is worth a maximum of **50 points**.
 
 - Assignment type: **group** (teams of two).
 
@@ -56,7 +56,7 @@ $n$ and $p$ (for the binomial using Clopper-Pearson and Sterne) and for $N$, $G$
 
 ## Grading
 
-The entire assignment is worth 40 points, broken down as follows:
+The entire assignment is worth 50 points, broken down as follows:
 
 * 15 points: work on 1-sided confidence bounds.
 * 30 points: work on 2-sided confidence bounds.  Note that this includes as a deliverable, a standalone Jupyter notebook that you should add at the top of your team's repository, called `confidence-intervals.ipynb`.
