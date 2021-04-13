@@ -29,30 +29,31 @@ and for the hypergeometric parameter $G$ ($N$ and $n$ known).
 The current implementations are variants of the "Clopper-Pearson" approach
 (see [Brown, Cai, and DasGupta (2001)](https://www.jstor.org/stable/2676784?seq=1)).
 
-You will improve the two-sided intervals by adding a different method.
+You will improve the two-sided intervals by adding a different method for the
+binomial and two different methods for the hypergeometric.
 The notes on [hypothesis tests](../Notes/tests.ipynb) and [confidence sets](../Notes/confidence-sets.ipynb)
 and code in those notes will probably be helpful.
 
 Here are the goals of the assignment.
-They apply both to `binom_conf_interval` and to `hypergeom_conf_interval`.
 
-1. Test the 1-sided confidence bounds that are already implemented. 
+1. For both `binom_conf_interval` and `hypergeom_conf_interval`, test the 1-sided confidence bounds that are already implemented. 
     i. Check whether they correctly implement the mathematics. Correct them if not. 
-    ii. Check the endpoints are found in a numerically stable and efficient manner. Provide a better method if not.
+    ii. Check the endpoints are found in a numerically stable and efficient manner.
+Provide a better method if not.
     iii. Add unit tests that exercise all the options.
-1. Test the 2-sided confidence bounds that are already implemented.
+1. For both `binom_conf_interval` and `hypergeom_conf_interval`, test the 2-sided confidence bounds that are already implemented.
 (The $1-\alpha$ Clopper-Pearson two-sided confidence bounds are the intersection 
 of a 1-sided upper $1-\alpha/2$ confidence interval and a 1-sided 
 lower $1-\alpha/2$ confidence interval.)
     i. Check whether the functions correctly implement the mathematics. Correct them if not.
     ii. Add unit tests that exercise all the options.
-1. Extend the signature of the functions to include a `method` parameter. The default value
+1. For both `binom_conf_interval` and `hypergeom_conf_interval`, extend the signature to include a `method` parameter. The default value
 of `method` should be "`clopper-pearson`". The `method` parameter should not affect how
 1-sided confidence bounds are calculated.
     i. When `method="clopper-pearson"`, the 2-sided intervals should be calculated as the 
 intersection of the 1-sided intervals using confidence level $1-\alpha/2$, based on 
 the current implementation of the 1-sided bounds (or on your modification
-of the current implentation, if you improve them). This amounts
+of the current implementation, if you improve them). This amounts
 to inverting 2-sided, significance level $\alpha$ hypothesis tests where the 
 chance that the observation will be larger than the largest value in the acceptance region
 is not greater than $\alpha/2$ and the chance that the observation will be smaller than the
@@ -67,13 +68,20 @@ To implement this method, consider writing helper functions that calculate the a
 That will make it easier to debug and test your work.
 **Note that there might be a bug in the implementation of 2-sided confidence bounds 
 for binomial $p$ in the notes. Be sure you are implementing the right thing!**
-    iii. If `method` takes any other value, the code should raise an exception.
-    iv. Provide unit tests for the new functionality and any helper functions.
-    v. Provide appropriate docstrings for the new functionality.
-    vi. Follow PEP-8 and PEP-257.
+    iii. When `method="wang"`, the 2-sided intervals should be calculated using the 
+"exact optimal" method of [Wang (2015)[( http://dx.doi.org/10.1080/01621459.2014.966191).
+(Note that the
+[supplementary materials](https://www.tandfonline.com/doi/suppl/10.1080/01621459.2014.966191)
+contain R code that purports to implement the method.
+We do not vouch for that code, but you might start by translating it into python.)
+    iv. If `method` takes any value other than "clopper-pearson", "smallest-ar", or "wang", 
+the code should raise an exception.
+    v. Provide unit tests for the new functionality and any helper functions.
+    vi. Provide appropriate docstrings for the new functionality.
+    vii. Follow PEP-8 and PEP-257.
 1. Calculate (not simulate) the expected width of the 2-sided 95%
 confidence intervals for 
-`method="clopper-pearson"` and `method="smallest-ar"` for a range of values of
+`method="clopper-pearson"`, `method="smallest-ar"`, and `method="wang"` for a range of values of
 $n$ and $p$ (for the binomial) and for $N$, $G$, and $n$ (for the hypergeometric).
     i. This should be turned in separately as a Jupyter notebook.
     ii. See the top of the left column of p.111 of [Brown, Cai, and DasGupta (2001)](https://www.jstor.org/stable/2676784?seq=1)
@@ -82,7 +90,7 @@ The expression for hypergeometric is analogous, but should use the hypergeometri
 pmf rather than the binomial pmf. 
     iii. Discuss the difference between the two methods. 
     iv. Which would you recommend, and why? If you would recommend one method over the other 
-in some circumstances but not in other circumstances, explain why.
+in some circumstances but not in others, explain why.
 
 Think of this project as a scenario where your team are developers and 
 maintainers of `permute`. 
