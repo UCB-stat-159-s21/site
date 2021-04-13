@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 7: Permute - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
+    <title>7. Homework 7: Permute - contributing to an open source project &#8212; Collaborative and Reproducible Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,6 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="An Idiosyncratic Sample of Applied Statistics" href="../Notes/index.html" />
+    <link rel="prev" title="6. Homework 6: Cryptorandom - contributing to an open source project" href="hw06-cryptorandom-contrib.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -121,7 +123,7 @@
   Homework Assignments
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="hw01-background.html">
    1. Homework 1. Stats review and intro to Git
@@ -150,6 +152,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="hw06-cryptorandom-contrib.html">
    6. Homework 6: Cryptorandom - contributing to an open source project
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Homework 7: Permute - contributing to an open source project
   </a>
  </li>
 </ul>
@@ -249,22 +256,22 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-1-sided-bounds">
-   [15 points] 1-sided bounds
+   7.1. [15 points] 1-sided bounds
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-2-sided-bounds">
-   [30 points] 2-sided bounds.
+   7.2. [30 points] 2-sided bounds.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grading">
-   Grading
+   7.3. Grading
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#workflow">
-   Workflow
+   7.4. Workflow
   </a>
  </li>
 </ul>
@@ -280,20 +287,20 @@
               <div>
                 
   <div class="section" id="homework-7-permute-contributing-to-an-open-source-project">
-<h1>Homework 7: Permute - contributing to an open source project<a class="headerlink" href="#homework-7-permute-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Homework 7: Permute - contributing to an open source project<a class="headerlink" href="#homework-7-permute-contributing-to-an-open-source-project" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
-<li><p><strong>Due 4/25/2021, 11:59PM PT</strong></p></li>
+<li><p><strong>Due Monday 4/26/2021, 11:59PM PT</strong></p></li>
 <li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
 <li><p>This assignment is worth a maximum of <strong>40 points</strong>.</p></li>
-<li><p>Assignment type: <strong>group</strong>.</p></li>
+<li><p>Assignment type: <strong>group</strong> (teams of two).</p></li>
 </ul>
 <p>The purpose of this assignment is for your team to collaborate on the development of new contributions to another real-world open source repository, the <a class="reference external" href="https://github.com/statlab/permute"><code class="docutils literal notranslate"><span class="pre">permute</span></code></a> project we’ve discussed in class.  The high-level goal of the assignment is to make contributions to <code class="docutils literal notranslate"><span class="pre">permute</span></code> in three areas: <strong>functionality</strong>, <strong>tests</strong> of that functionality, and <strong>documentation</strong> of that functionality.  All of the changes will be to the <a class="reference external" href="https://github.com/statlab/permute/blob/main/permute/utils.py"><code class="docutils literal notranslate"><span class="pre">utils.py</span></code></a> file.</p>
 <p>The assignment involves improving and extending two existing functions: <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>. Those functions compute 1-sided and 2-sided confidence intervals for the binomial parameter <span class="math notranslate nohighlight">\(p\)</span> (<span class="math notranslate nohighlight">\(n\)</span> known) and for the hypergeometric parameter <span class="math notranslate nohighlight">\(G\)</span> (<span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span> known). The current implementations are variants of the “Clopper-Pearson” approach (see <a class="reference external" href="https://www.jstor.org/stable/2676784?seq=1">Brown, Cai, and DasGupta (2001)</a>).</p>
 <p>You will improve the two-sided intervals by adding a different method for the binomial and two different methods for the hypergeometric. The notes on <a class="reference internal" href="../Notes/tests.html"><span class="doc std std-doc">hypothesis tests</span></a> and <a class="reference internal" href="../Notes/confidence-sets.html"><span class="doc std std-doc">confidence sets</span></a> and code in those notes will probably be helpful.</p>
 <p>Here are the goals of the assignment. They apply both to <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and to <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>.</p>
 <div class="section" id="points-1-sided-bounds">
-<h2>[15 points] 1-sided bounds<a class="headerlink" href="#points-1-sided-bounds" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>[15 points] 1-sided bounds<a class="headerlink" href="#points-1-sided-bounds" title="Permalink to this headline">¶</a></h2>
 <p>For both <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>, test the 1-sided confidence bounds that are already implemented. Report on the following and provide code, tests and documentation as appropriate:</p>
 <ol class="simple">
 <li><p><em>[5 points]</em> Check whether they correctly implement the mathematics. Correct them if not.</p></li>
@@ -302,7 +309,7 @@
 </ol>
 </div>
 <div class="section" id="points-2-sided-bounds">
-<h2>[30 points] 2-sided bounds.<a class="headerlink" href="#points-2-sided-bounds" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>[30 points] 2-sided bounds.<a class="headerlink" href="#points-2-sided-bounds" title="Permalink to this headline">¶</a></h2>
 <p>For both <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>, test the 2-sided confidence bounds that are already implemented. Report on the following and provide code, tests and documentation as appropriate. (The <span class="math notranslate nohighlight">\(1-\alpha\)</span> Clopper-Pearson two-sided confidence bounds are the intersection of a 1-sided upper <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence interval and a 1-sided lower <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence interval.)</p>
 <ol class="simple">
 <li><p><em>[5 points]</em> Check whether the functions correctly implement the mathematics. Correct them if not.</p></li>
@@ -330,7 +337,7 @@
 </ol>
 </div>
 <div class="section" id="grading">
-<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
 <p>The entire assignment is worth 40 points, broken down as follows:</p>
 <ul class="simple">
 <li><p>15 points: work on 1-sided confidence bounds.</p></li>
@@ -340,8 +347,8 @@
 <p>As in the previous assignment, we will look at the workflow of opening issues and evolving your code as PRs on your repo.</p>
 </div>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>You will be assigned to a small team of <strong>2</strong> students. We suggest that you use this as an opportunity to try out pair programming (here <a class="reference external" href="https://martinfowler.com/articles/on-pair-programming.html">some</a> <a class="reference external" href="https://medium.com/&#64;weblab_tech/pair-programming-guide-a76ca43ff389">resources</a> you might find useful on this topic).</p>
+<h2><span class="section-number">7.4. </span>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>You will be assigned to a small team of <strong>two</strong> students. We suggest that you use this as an opportunity to try out pair programming (here <a class="reference external" href="https://martinfowler.com/articles/on-pair-programming.html">some</a> <a class="reference external" href="https://medium.com/&#64;weblab_tech/pair-programming-guide-a76ca43ff389">resources</a> you might find useful on this topic).</p>
 <p>In this case, we will <em>not</em> set up separate team Slack channels - you can talk to your partner via DM, and the two of you can ping <code class="docutils literal notranslate"><span class="pre">&#64;instructors</span></code> if you need us for a private question, or ask on the <code class="docutils literal notranslate"><span class="pre">#homework</span></code> channel as usueal for anything that’s not private (and we highly encourage public questions, as the answers may help everyone else as well).</p>
 <p>Otherwise you should still work “in public” as before: Keep the team repo the system creates as your <code class="docutils literal notranslate"><span class="pre">upstream</span></code> and each of you make a personal fork that is your <code class="docutils literal notranslate"><span class="pre">origin</span></code>. Use Github issues as a “bulletin board” for each PR you will create, and do a proper code review of the PR on GitHub.   If you wrote the code together while pair programming you can note that fact in the PR review and keep it short, but you should still have a PR and some evidence of a public check on the work. This is part of the work of building public trust on an open source tool by communicating not only with one another, but also by leaving a public record for the rest of the community.</p>
 <p>In general, all other guidelines regarding testing, documentation, PRs, GitHub Actions and more, from the HW06 group assignment, apply equally here, so we won’t repeat them. You can refresh your memory by <a class="reference external" href="hw06-cryptorandom-contrib.md#Tips-for-this-assignment">checking out those notes</a> as they apply equally to this one (obviously substituting the paths and names for the <code class="docutils literal notranslate"><span class="pre">permute</span></code> repo and project instead of <code class="docutils literal notranslate"><span class="pre">cryptorandom</span></code> as appropriate).</p>
@@ -373,6 +380,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="hw06-cryptorandom-contrib.html" title="previous page"><span class="section-number">6. </span>Homework 6: Cryptorandom - contributing to an open source project</a>
+    <a class='right-next' id="next-link" href="../Notes/index.html" title="next page">An Idiosyncratic Sample of Applied Statistics</a>
 
         </div>
         

@@ -2,13 +2,13 @@
 
 - **Statistics 159/259, Spring 2021**
 
-- **Due 4/25/2021, 11:59PM PT**
+- **Due Monday 4/26/2021, 11:59PM PT**
 
 - Profs. Pérez and Stark, Department of Statistics, UC Berkeley.
 
 - This assignment is worth a maximum of **40 points**.
 
-- Assignment type: **group**.
+- Assignment type: **group** (teams of two).
 
 
 The purpose of this assignment is for your team to collaborate on the development of new contributions to another real-world open source repository, the [`permute`](https://github.com/statlab/permute) project we've discussed in class.  The high-level goal of the assignment is to make contributions to `permute` in three areas: **functionality**, **tests** of that functionality, and **documentation** of that functionality.  All of the changes will be to the [`utils.py`](https://github.com/statlab/permute/blob/main/permute/utils.py) file.
@@ -66,7 +66,7 @@ As in the previous assignment, we will look at the workflow of opening issues an
 
 ## Workflow
 
-You will be assigned to a small team of **2** students. We suggest that you use this as an opportunity to try out pair programming (here [some](https://martinfowler.com/articles/on-pair-programming.html) [resources](https://medium.com/@weblab_tech/pair-programming-guide-a76ca43ff389) you might find useful on this topic).
+You will be assigned to a small team of **two** students. We suggest that you use this as an opportunity to try out pair programming (here [some](https://martinfowler.com/articles/on-pair-programming.html) [resources](https://medium.com/@weblab_tech/pair-programming-guide-a76ca43ff389) you might find useful on this topic).
 
 In this case, we will _not_ set up separate team Slack channels - you can talk to your partner via DM, and the two of you can ping `@instructors` if you need us for a private question, or ask on the `#homework` channel as usueal for anything that's not private (and we highly encourage public questions, as the answers may help everyone else as well).
 
