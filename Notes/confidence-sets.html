@@ -479,6 +479,11 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#effect-size-for-the-weak-null">
+       Effect Size for the Weak Null
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#binomial-responses">
        Binomial responses
       </a>
@@ -530,8 +535,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a67e842a-e09d-4f3d-b2cb-78716bdf4a50">
-<span class="eqno">()<a class="headerlink" href="#equation-a67e842a-e09d-4f3d-b2cb-78716bdf4a50" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8b580303-6a27-45f4-a5d4-5d0c1b20cbaf">
+<span class="eqno">()<a class="headerlink" href="#equation-8b580303-6a27-45f4-a5d4-5d0c1b20cbaf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -543,8 +548,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38ef1306-10af-4ec3-834e-66c249f8f6ba">
-<span class="eqno">()<a class="headerlink" href="#equation-38ef1306-10af-4ec3-834e-66c249f8f6ba" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7435e2a1-5d81-4a62-b038-a50193ad7e8b">
+<span class="eqno">()<a class="headerlink" href="#equation-7435e2a1-5d81-4a62-b038-a50193ad7e8b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -644,8 +649,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffdcd26f-68bb-42bd-8c46-b8f11d768ef2">
-<span class="eqno">()<a class="headerlink" href="#equation-ffdcd26f-68bb-42bd-8c46-b8f11d768ef2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8791773f-7f47-4c39-bf72-3b7424b23ad4">
+<span class="eqno">()<a class="headerlink" href="#equation-8791773f-7f47-4c39-bf72-3b7424b23ad4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -673,8 +678,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43a4cb27-59da-41c2-b62d-2ac133b0f15c">
-<span class="eqno">()<a class="headerlink" href="#equation-43a4cb27-59da-41c2-b62d-2ac133b0f15c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ef3f405e-2bbb-404a-a259-96b8785e15b7">
+<span class="eqno">()<a class="headerlink" href="#equation-ef3f405e-2bbb-404a-a259-96b8785e15b7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -720,8 +725,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cbf3d5e9-7e9f-4a99-82b1-d4e48444ec00">
-<span class="eqno">()<a class="headerlink" href="#equation-cbf3d5e9-7e9f-4a99-82b1-d4e48444ec00" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15b5211f-7931-4e1a-a3dc-f7b516e8aa3a">
+<span class="eqno">()<a class="headerlink" href="#equation-15b5211f-7931-4e1a-a3dc-f7b516e8aa3a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -887,8 +892,9 @@ p: 0.99 covered:  100.00%
 <p>Think about how you might make a 2-sided confidence interval for <span class="math notranslate nohighlight">\(p\)</span> instead of a lower 1-sided confidence interval.
 There are countless ways of constructing acceptance regions for the underlying tests, as mentioned in the <a class="reference internal" href="tests.html"><span class="doc std std-doc">testing</span></a> chapter.
 For instance, we could trim the same probability <span class="math notranslate nohighlight">\(\alpha/2\)</span> from both tails, or use the acceptance region that contains the fewest outcomes.
-The latter choice in general will lead to shorter confidence intervals.</p>
-<p>Let’s implement that approach now. The development is analogous to the randomized hypergeometric test in <span class="xref myst">the chapter on testing</span>.</p>
+The latter choice in general will lead to shorter confidence intervals.
+This approach is due to <a class="reference external" href="https://www.jstor.org/stable/2333026">Sterne (1954)</a>.</p>
+<p>Let’s implement Sterne’s approach now. The development is analogous to the randomized hypergeometric test in <span class="xref myst">the chapter on testing</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
@@ -2380,9 +2386,45 @@ This is Fisher’s Exact Test.</p>
 <p>But how can we find a confidence interval for the treatment effect?</p>
 <p>First, we need to define what we mean by the treatment effect!
 In general, that will require some model.</p>
+<div class="section" id="effect-size-for-the-weak-null">
+<h4>Effect Size for the Weak Null<a class="headerlink" href="#effect-size-for-the-weak-null" title="Permalink to this headline">¶</a></h4>
+<p>Recall that the “weak” null hypothesis that average response is the same, regardless
+of the assigned treatment, but individuals might have different responses to treatment.
+Under the Neyman potential outcomes model, each of the <span class="math notranslate nohighlight">\(N\)</span> individuals has two
+potential responses, <span class="math notranslate nohighlight">\((z_{cj}, z_{tj})\)</span>, <span class="math notranslate nohighlight">\(j=1, \ldots, N\)</span>.
+If subject <span class="math notranslate nohighlight">\(j\)</span> is assigned to the control group, we observe <span class="math notranslate nohighlight">\(z_{cj}\)</span>;
+otherwise, we observe <span class="math notranslate nohighlight">\(z_{tj}\)</span>.
+Let <span class="math notranslate nohighlight">\(T_j = 1\)</span> if subject <span class="math notranslate nohighlight">\(j\)</span> is assigned to treatment and <span class="math notranslate nohighlight">\(T_j = 0\)</span> if not.
+Then <span class="math notranslate nohighlight">\(\sum_{j=1}^N T_j = N_t\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+x_c = \sum_{j=1}^n (1-T_j)z_{cj}
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+x_t = \sum_{j=1}^n T_j z_{tj}
+\end{equation*}\]</div>
+<p>The corresponding population parameters are</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\bar{C} := \frac{1}{N} \sum_{j=1}^n z_{cj}
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\bar{T}:= \frac{1}{N} \sum_{j=1}^n z_{tj}
+\end{equation*}\]</div>
+<p>The <em>average treatment effect</em> for the study population is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mbox{ATE} := \bar{x_t} - \bar{x_c} = \frac{1}{N} \sum_{j=1}^N (z_{cj}-z_{tj}).
+\end{equation*}\]</div>
+</div>
 <div class="section" id="binomial-responses">
 <h4>Binomial responses<a class="headerlink" href="#binomial-responses" title="Permalink to this headline">¶</a></h4>
-<p>In one of the simplest models, whether a given individual becomes infected with probability <span class="math notranslate nohighlight">\(p_c\)</span> if the subject is not vaccinated and with probability <span class="math notranslate nohighlight">\(p_t\)</span> if the subject is vaccinated.
+<p>In one of the simplest stochastic response models, the probabiity that a given individual
+becomes infected is <span class="math notranslate nohighlight">\(p_c\)</span> if the subject is not vaccinated and <span class="math notranslate nohighlight">\(p_t\)</span> if the subject is vaccinated.
 Whether different subjects become infected are independent events.
 The assumption of independence would not be reasonable for a communicable disease if some subjects were in a position to infect each other, for instance, people who live or work or study together.
 Modeling responses as if all subjects have the same two values of <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(p_c\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>, might be unreasonable, too: individual differences might matter.
@@ -2391,6 +2433,14 @@ who become infected has a Binomial distribution with parameters <span class="mat
 The “true” relative risk is <span class="math notranslate nohighlight">\(p_t/p_c\)</span>.
 The “true” treatment effect could be defined to be <span class="math notranslate nohighlight">\(p_c-p_t\)</span> or <span class="math notranslate nohighlight">\(p_c/p_t\)</span> or the
 “true” vaccine efficacy, <span class="math notranslate nohighlight">\(1-p_t/p_c\)</span>.</p>
+<p><strong>The Santner-Snell Test</strong>
+<a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1980.10477482">Santner and Snell (1980)</a>
+give a procedure for finding an exact confidence interval for
+<span class="math notranslate nohighlight">\(p_c-p_t\)</span> and <span class="math notranslate nohighlight">\(p_c/p_t\)</span>.</p>
+<p>Alternative approach using potential outcomes:
+We have <span class="math notranslate nohighlight">\(\{U_j\}_{j=1}^N\)</span> iid <span class="math notranslate nohighlight">\(U[0,1]\)</span>, independent of the
+<span class="math notranslate nohighlight">\(\{T_j\}_{j=1}^N\)</span>. Let <span class="math notranslate nohighlight">\(z_{cj} = 1_{U_j \le p_c}\)</span> and <span class="math notranslate nohighlight">\(z_{tj} = 1_{U_j \le p_t}\)</span>.
+Condition on <span class="math notranslate nohighlight">\(\{U_j\}\)</span>.</p>
 </div>
 <div class="section" id="individual-probabilities">
 <h4>Individual probabilities<a class="headerlink" href="#individual-probabilities" title="Permalink to this headline">¶</a></h4>
