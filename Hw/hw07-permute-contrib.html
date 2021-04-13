@@ -345,29 +345,30 @@ parameter <span class="math notranslate nohighlight">\(p\)</span> (<span class="
 and for the hypergeometric parameter <span class="math notranslate nohighlight">\(G\)</span> (<span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span> known).
 The current implementations are variants of the “Clopper-Pearson” approach
 (see <a class="reference external" href="https://www.jstor.org/stable/2676784?seq=1">Brown, Cai, and DasGupta (2001)</a>).</p>
-<p>You will improve the two-sided intervals by adding a different method.
+<p>You will improve the two-sided intervals by adding a different method for the
+binomial and two different methods for the hypergeometric.
 The notes on <a class="reference internal" href="../Notes/tests.html"><span class="doc std std-doc">hypothesis tests</span></a> and <a class="reference internal" href="../Notes/confidence-sets.html"><span class="doc std std-doc">confidence sets</span></a>
 and code in those notes will probably be helpful.</p>
-<p>Here are the goals of the assignment.
-They apply both to <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and to <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>.</p>
+<p>Here are the goals of the assignment.</p>
 <ol class="simple">
-<li><p>Test the 1-sided confidence bounds that are already implemented.
+<li><p>For both <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>, test the 1-sided confidence bounds that are already implemented.
 i. Check whether they correctly implement the mathematics. Correct them if not.
-ii. Check the endpoints are found in a numerically stable and efficient manner. Provide a better method if not.
+ii. Check the endpoints are found in a numerically stable and efficient manner.
+Provide a better method if not.
 iii. Add unit tests that exercise all the options.</p></li>
-<li><p>Test the 2-sided confidence bounds that are already implemented.
+<li><p>For both <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>, test the 2-sided confidence bounds that are already implemented.
 (The <span class="math notranslate nohighlight">\(1-\alpha\)</span> Clopper-Pearson two-sided confidence bounds are the intersection
 of a 1-sided upper <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence interval and a 1-sided
 lower <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence interval.)
 i. Check whether the functions correctly implement the mathematics. Correct them if not.
 ii. Add unit tests that exercise all the options.</p></li>
-<li><p>Extend the signature of the functions to include a <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter. The default value
+<li><p>For both <code class="docutils literal notranslate"><span class="pre">binom_conf_interval</span></code> and <code class="docutils literal notranslate"><span class="pre">hypergeom_conf_interval</span></code>, extend the signature to include a <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter. The default value
 of <code class="docutils literal notranslate"><span class="pre">method</span></code> should be “<code class="docutils literal notranslate"><span class="pre">clopper-pearson</span></code>”. The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter should not affect how
 1-sided confidence bounds are calculated.
 i. When <code class="docutils literal notranslate"><span class="pre">method=&quot;clopper-pearson&quot;</span></code>, the 2-sided intervals should be calculated as the
 intersection of the 1-sided intervals using confidence level <span class="math notranslate nohighlight">\(1-\alpha/2\)</span>, based on
 the current implementation of the 1-sided bounds (or on your modification
-of the current implentation, if you improve them). This amounts
+of the current implementation, if you improve them). This amounts
 to inverting 2-sided, significance level <span class="math notranslate nohighlight">\(\alpha\)</span> hypothesis tests where the
 chance that the observation will be larger than the largest value in the acceptance region
 is not greater than <span class="math notranslate nohighlight">\(\alpha/2\)</span> and the chance that the observation will be smaller than the
@@ -382,13 +383,20 @@ To implement this method, consider writing helper functions that calculate the a
 That will make it easier to debug and test your work.
 <strong>Note that there might be a bug in the implementation of 2-sided confidence bounds
 for binomial <span class="math notranslate nohighlight">\(p\)</span> in the notes. Be sure you are implementing the right thing!</strong>
-iii. If <code class="docutils literal notranslate"><span class="pre">method</span></code> takes any other value, the code should raise an exception.
-iv. Provide unit tests for the new functionality and any helper functions.
-v. Provide appropriate docstrings for the new functionality.
-vi. Follow PEP-8 and PEP-257.</p></li>
+iii. When <code class="docutils literal notranslate"><span class="pre">method=&quot;wang&quot;</span></code>, the 2-sided intervals should be calculated using the
+“exact optimal” method of [Wang (2015)[( http://dx.doi.org/10.1080/01621459.2014.966191).
+(Note that the
+<a class="reference external" href="https://www.tandfonline.com/doi/suppl/10.1080/01621459.2014.966191">supplementary materials</a>
+contain R code that purports to implement the method.
+We do not vouch for that code, but you might start by translating it into python.)
+iv. If <code class="docutils literal notranslate"><span class="pre">method</span></code> takes any value other than “clopper-pearson”, “smallest-ar”, or “wang”,
+the code should raise an exception.
+v. Provide unit tests for the new functionality and any helper functions.
+vi. Provide appropriate docstrings for the new functionality.
+vii. Follow PEP-8 and PEP-257.</p></li>
 <li><p>Calculate (not simulate) the expected width of the 2-sided 95%
 confidence intervals for
-<code class="docutils literal notranslate"><span class="pre">method=&quot;clopper-pearson&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">method=&quot;smallest-ar&quot;</span></code> for a range of values of
+<code class="docutils literal notranslate"><span class="pre">method=&quot;clopper-pearson&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">method=&quot;smallest-ar&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">method=&quot;wang&quot;</span></code> for a range of values of
 <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> (for the binomial) and for <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span> (for the hypergeometric).
 i. This should be turned in separately as a Jupyter notebook.
 ii. See the top of the left column of p.111 of <a class="reference external" href="https://www.jstor.org/stable/2676784?seq=1">Brown, Cai, and DasGupta (2001)</a>
@@ -397,7 +405,7 @@ The expression for hypergeometric is analogous, but should use the hypergeometri
 pmf rather than the binomial pmf.
 iii. Discuss the difference between the two methods.
 iv. Which would you recommend, and why? If you would recommend one method over the other
-in some circumstances but not in other circumstances, explain why.</p></li>
+in some circumstances but not in others, explain why.</p></li>
 </ol>
 <p>Think of this project as a scenario where your team are developers and
 maintainers of <code class="docutils literal notranslate"><span class="pre">permute</span></code>.

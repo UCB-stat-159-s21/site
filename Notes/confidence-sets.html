@@ -468,6 +468,35 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-vaccine-efficacy">
+   Testing Vaccine Efficacy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-the-strong-null-hypothesis">
+     Testing the strong null hypothesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-about-the-size-of-the-treatment-effect">
+     Inference about the size of the treatment effect
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#binomial-responses">
+       Binomial responses
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#individual-probabilities">
+       Individual probabilities
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -506,8 +535,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20b37059-52f1-46aa-aa37-ba55e96757db">
-<span class="eqno">()<a class="headerlink" href="#equation-20b37059-52f1-46aa-aa37-ba55e96757db" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e4a1813d-cf80-4d7c-b2bb-4fdfe91a3a34">
+<span class="eqno">()<a class="headerlink" href="#equation-e4a1813d-cf80-4d7c-b2bb-4fdfe91a3a34" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -519,8 +548,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca340bd9-5b42-4732-84c8-2d7c82f557dc">
-<span class="eqno">()<a class="headerlink" href="#equation-ca340bd9-5b42-4732-84c8-2d7c82f557dc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2b1c133-36dc-4e61-9a9a-2f4eb5946756">
+<span class="eqno">()<a class="headerlink" href="#equation-d2b1c133-36dc-4e61-9a9a-2f4eb5946756" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -620,8 +649,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56963e37-85fd-4c90-a71e-0f20b3c13511">
-<span class="eqno">()<a class="headerlink" href="#equation-56963e37-85fd-4c90-a71e-0f20b3c13511" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36528895-2d29-4ff6-a65c-e1b8026ba541">
+<span class="eqno">()<a class="headerlink" href="#equation-36528895-2d29-4ff6-a65c-e1b8026ba541" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -649,8 +678,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9a6faad5-d60a-43d3-bcc2-814c5b5d06c0">
-<span class="eqno">()<a class="headerlink" href="#equation-9a6faad5-d60a-43d3-bcc2-814c5b5d06c0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-707a9050-3834-4fb4-992f-d51c5c6ab892">
+<span class="eqno">()<a class="headerlink" href="#equation-707a9050-3834-4fb4-992f-d51c5c6ab892" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -696,8 +725,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5ab19c2-8c20-420c-bd4b-f8d2dadc98ba">
-<span class="eqno">()<a class="headerlink" href="#equation-b5ab19c2-8c20-420c-bd4b-f8d2dadc98ba" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f108f2d0-d620-499a-8756-6939d4a63ad2">
+<span class="eqno">()<a class="headerlink" href="#equation-f108f2d0-d620-499a-8756-6939d4a63ad2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -2324,6 +2353,53 @@ Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.7/site-packag
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-vaccine-efficacy">
+<h2>Testing Vaccine Efficacy<a class="headerlink" href="#testing-vaccine-efficacy" title="Permalink to this headline">¶</a></h2>
+<p>We now consider testing vaccine efficacy. We start with a cartoon version of the problem, as follows:</p>
+<p>We recruit <span class="math notranslate nohighlight">\(N\)</span> subjects for the study. None of the subjects has the disease when the trial starts.
+The vaccine is administered to <span class="math notranslate nohighlight">\(N_t\)</span> of the subjects (the <em>treatment group</em>), selected at random; the remaining <span class="math notranslate nohighlight">\(N_c=N-N_t\)</span> subjects (the <em>control group</em>) reveive a placebo.</p>
+<p>In a real study, the randomization is typically <em>stratified</em> and at least partially <em>balanced</em>.
+The randomization is stratified because subjects are generally recruited at a number of centers and the randomization to treatment or control is conducted independently at different centers.
+The randomization might also be stratified by gender, age, or other covariates.
+It is generally <em>balanced</em> to ensuring that subgroups are assigned in roughly equal numbers to treatment and control.</p>
+<p>(Why is administering a placebo important?)</p>
+<p>All subjects are observed for the same period of time.
+(In a real trial, different subjects are observed for different periods of time: subjects recruited early in the trial are generally observed longer than those recruited later, and some subjects are lost to followup.)</p>
+<p>At the end of the observation period, <span class="math notranslate nohighlight">\(x_t\)</span> of the vaccinated subjects and
+<span class="math notranslate nohighlight">\(x_c\)</span> of the unvaccinated subjects have contracted the disease.</p>
+<p>The <em>incidence rate</em> is <span class="math notranslate nohighlight">\(r_t := x_t/N_t\)</span> among the vaccinated and <span class="math notranslate nohighlight">\(r_c := x_c/N_c\)</span> among
+the unvaccinated.
+The <em>relative risk</em> is <span class="math notranslate nohighlight">\(1-r_t/r_c\)</span>.
+We assume that <span class="math notranslate nohighlight">\(r_t &lt; r_c\)</span>: there is <em>prima facie</em> evidence that the vaccine works.</p>
+<div class="section" id="testing-the-strong-null-hypothesis">
+<h3>Testing the strong null hypothesis<a class="headerlink" href="#testing-the-strong-null-hypothesis" title="Permalink to this headline">¶</a></h3>
+<p>Under the strong null that the vaccine makes no difference whatsoever—as if whether a subject would become infected was predetermined before assignment to treatment or control—the distribution of the number of infections among the vaccinated would have a hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=x_t+x_c\)</span>, and <span class="math notranslate nohighlight">\(n=N_t\)</span>.</p>
+<p>This model can be generalized by considering the total number of infections <span class="math notranslate nohighlight">\(x_t+x_c\)</span> to be random, then conditioning on the observed value to get a conditional test.
+This is Fisher’s Exact Test.</p>
+</div>
+<div class="section" id="inference-about-the-size-of-the-treatment-effect">
+<h3>Inference about the size of the treatment effect<a class="headerlink" href="#inference-about-the-size-of-the-treatment-effect" title="Permalink to this headline">¶</a></h3>
+<p>But how can we find a confidence interval for the treatment effect?</p>
+<p>First, we need to define what we mean by the treatment effect!
+In general, that will require some model.</p>
+<div class="section" id="binomial-responses">
+<h4>Binomial responses<a class="headerlink" href="#binomial-responses" title="Permalink to this headline">¶</a></h4>
+<p>In one of the simplest models, whether a given individual becomes infected with probability <span class="math notranslate nohighlight">\(p_c\)</span> if the subject is not vaccinated and with probability <span class="math notranslate nohighlight">\(p_t\)</span> if the subject is vaccinated.
+Whether different subjects become infected are independent events.
+The assumption of independence would not be reasonable for a communicable disease if some subjects were in a position to infect each other, for instance, people who live or work or study together.
+Modeling responses as if all subjects have the same two values of <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(p_c\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>, might be unreasonable, too: individual differences might matter.
+If this model holds, the number of vaccinated subjects who become infected has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n_t\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>, and the number of unvaccinated subjects
+who become infected has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n_c\)</span> and <span class="math notranslate nohighlight">\(p_c\)</span>.
+The “true” relative risk is <span class="math notranslate nohighlight">\(p_t/p_c\)</span>.
+The “true” treatment effect could be defined to be <span class="math notranslate nohighlight">\(p_c-p_t\)</span> or <span class="math notranslate nohighlight">\(p_c/p_t\)</span> or the
+“true” vaccine efficacy, <span class="math notranslate nohighlight">\(1-p_t/p_c\)</span>.</p>
+</div>
+<div class="section" id="individual-probabilities">
+<h4>Individual probabilities<a class="headerlink" href="#individual-probabilities" title="Permalink to this headline">¶</a></h4>
+<p>A more reasonable model is that individual <span class="math notranslate nohighlight">\(j\)</span> has a “personal” probability <span class="math notranslate nohighlight">\(p_{tj}\)</span> of becoming infected if vaccinated and <span class="math notranslate nohighlight">\(p_{tc}\)</span> if unvaccinated.</p>
 </div>
 </div>
 </div>
