@@ -319,11 +319,11 @@
 </ol>
 </li>
 <li><p><em>[10 points]</em> Calculate (not simulate) the expected width of the 2-sided 95% confidence intervals for <code class="docutils literal notranslate"><span class="pre">method=&quot;clopper-pearson&quot;</span></code> , <code class="docutils literal notranslate"><span class="pre">method=&quot;smallest-ar&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">method=&quot;wang&quot;</span></code> for a range of values of
-<span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> (for the binomial) and for <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span> (for the hypergeometric).</p>
+<span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> (for the binomial using Clopper-Pearson and smallest acceptance region) and for <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, and <span class="math notranslate nohighlight">\(n\)</span> (for the hypergeometric using Clopper-Pearson, smallest acceptance region, and Wang).</p>
 <ol class="simple">
 <li><p>This should be turned in separately as a Jupyter notebook (called <code class="docutils literal notranslate"><span class="pre">confidence-intervals.ipynb</span></code>).</p></li>
 <li><p>See the top of the left column of p.111 of <a class="reference external" href="https://www.jstor.org/stable/2676784?seq=1">Brown, Cai, and DasGupta (2001)</a> for a hint of how to calculate the expected length of binomial confidence intervals. The expression for hypergeometric is analogous, but should use the hypergeometric pmf rather than the binomial pmf.</p></li>
-<li><p>Discuss the difference between the two methods.</p></li>
+<li><p>Discuss the differences among the three methods. You might consider how long it takes the methods to run and the expected lengths of the intervals as the parameters vary.</p></li>
 <li><p>Which would you recommend, and why? If you would recommend one method over the other in some circumstances but not in others, explain why.</p></li>
 </ol>
 </li>
