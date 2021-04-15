@@ -1,0 +1,52 @@
+name: stat159-sp21
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter-repo2docker
+  - jupyterlab
+  - ipydatagrid
+  - jupyter-book
+  - ipympl
+  - ipywidgets
+  - ipycanvas
+  - jupyter
+  - sympy
+  - scipy
+  - numpy
+  - scikit-learn
+  - networkx
+  - scikit-image
+  - xlrd
+  - statsmodels
+  - xarray
+  - pandas = 1.2.4
+  - seaborn
+  - numba
+  - cython
+  - pyflakes
+  - pylint
+  - pytest-cov
+  - pytest
+  - jedi
+  - black
+  - pep8
+  - flake8
+  - sphinx
+  - numpydoc
+  - geopandas
+  - h5py
+  - pytables
+  - jupyterlab-geojson
+  - bqplot
+  - plotly_express
+  - plotly
+  - yaml
+  - nodejs
+  - lxml
+  - requests
+  - pip
+  - pip:
+    - jupyterlab-spreadsheet-editor
+    - cryptorandom
+    - permute
