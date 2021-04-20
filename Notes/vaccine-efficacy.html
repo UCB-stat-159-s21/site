@@ -270,13 +270,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-experiment">
-   The experiment
+  <a class="reference internal nav-link" href="#tests">
+   Tests
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#complications">
-     Complications
+    <a class="reference internal nav-link" href="#complications-in-practice">
+     Complications in practice
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binomial-responses">
+     Binomial responses
     </a>
    </li>
   </ul>
@@ -326,25 +331,52 @@
 <h1>Estimating Vaccine Efficacy<a class="headerlink" href="#estimating-vaccine-efficacy" title="Permalink to this headline">¶</a></h1>
 <p>You have probably read things like “the Moderna vaccine is 90% effective.” What does that mean?
 How is effectiveness estimated? Can the uncertainty of the estimate be quantified meaningfully? How?</p>
-<div class="section" id="the-experiment">
-<h2>The experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline">¶</a></h2>
-<p>We will idealize the experiment as follows: there is a population of <span class="math notranslate nohighlight">\(N\)</span> subjects of whom <span class="math notranslate nohighlight">\(n\)</span> are selected at random to be vaccinated with the active vaccine; the remaining <span class="math notranslate nohighlight">\(m=N-n\)</span> subjects receive a placebo.
-In reality, the randomization involves stratifying on age and other covariates and may also be stratified by recruitment center.</p>
-<p>We will ignore how the <span class="math notranslate nohighlight">\(N\)</span> subjects were recruited: they are not necessarily representative of any larger group.</p>
-<p>In</p>
+<p>Answering the question will involve many of the ideas and techniques we have seen, including inference in the presence of nuisance parameters.</p>
 <p>Vaccine efficacy is defined as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \mbox{VE} \equiv 1 - \frac{\mbox{risk among unvaccinated} - \mbox{risk among vaccinated}}{\mbox{risk among unvaccinated}}.
 \end{equation*}\]</div>
-<p>This is the naive estimate of the fraction of infections vaccinations prevent.</p>
-<div class="section" id="complications">
-<h3>Complications<a class="headerlink" href="#complications" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>recruitment happens over some period of time</p></li>
-<li><p>infections are observed only if they occur during some period; not all infections during that period are necessarily observed</p></li>
-<li><p>vaccination may affect behavior</p></li>
-</ul>
+<p>This is the naive estimate of the fraction of infections that vaccination prevents.</p>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>We now consider testing vaccine efficacy. We start with a cartoon version of the problem, as follows:</p>
+<p>We recruit <span class="math notranslate nohighlight">\(N\)</span> subjects for the study. (They are not a random sample and thus
+cannot be assumed to be representative of any larger group.)</p>
+<p>None of the subjects has the disease when the trial starts.
+The vaccine is administered to <span class="math notranslate nohighlight">\(N_t\)</span> of the subjects (the <em>treatment group</em>), selected at random; the remaining <span class="math notranslate nohighlight">\(N_c=N-N_t\)</span> subjects (the <em>control group</em>) reveive a placebo.</p>
+<p>(Why is administering a placebo important?)</p>
+<p>All subjects are observed for the same period of time.
+(In a real trial, different subjects are observed for different periods of time: subjects recruited early in the trial are generally observed longer than those recruited later, and some subjects are lost to followup.)</p>
+<p>At the end of the observation period, <span class="math notranslate nohighlight">\(x_t\)</span> of the vaccinated subjects and
+<span class="math notranslate nohighlight">\(x_c\)</span> of the unvaccinated subjects have contracted the disease.</p>
+<p>The <em>incidence rate</em> is <span class="math notranslate nohighlight">\(r_t := x_t/N_t\)</span> among the vaccinated and <span class="math notranslate nohighlight">\(r_c := x_c/N_c\)</span> among
+the unvaccinated.
+The <em>relative risk</em> is <span class="math notranslate nohighlight">\(1-r_t/r_c\)</span>.
+We assume that <span class="math notranslate nohighlight">\(r_t &lt; r_c\)</span>: there is <em>prima facie</em> evidence that the vaccine works.</p>
+<div class="section" id="complications-in-practice">
+<h3>Complications in practice<a class="headerlink" href="#complications-in-practice" title="Permalink to this headline">¶</a></h3>
+<p>In a real study, recruitment happens over a period of time, so not all subjects are “on trial” for the same amount of time.
+This is often addressed using methods from <em>survival analysis</em>.</p>
+<p>In a real study, the randomization is typically <em>stratified</em> and at least partially <em>balanced</em>.
+The randomization is stratified because subjects are generally recruited at a number of centers and the randomization to treatment or control is conducted independently at different centers.
+The randomization might also be stratified by gender, age, or other covariates.
+It is generally <em>balanced</em> to ensuring that subgroups are assigned in roughly equal numbers to treatment and control.</p>
+<p>Infections are observed only if they occur during the trial period, but not all infections during that period are necessarily observed.
+Vaccination may affect behavior.</p>
+</div>
+<div class="section" id="binomial-responses">
+<h3>Binomial responses<a class="headerlink" href="#binomial-responses" title="Permalink to this headline">¶</a></h3>
+<p>In one of the simplest stochastic response models, the probabiity that a given individual
+becomes infected is <span class="math notranslate nohighlight">\(p_c\)</span> if the subject is not vaccinated and <span class="math notranslate nohighlight">\(p_t\)</span> if the subject is vaccinated.
+Whether different subjects become infected are independent events.
+The assumption of independence would not be reasonable for a communicable disease if some subjects were in a position to infect each other, for instance, people who live or work or study together.
+Modeling responses as if all subjects have the same two values of <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(p_c\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>, might be unreasonable, too: individual differences might matter.
+If this model holds, the number of vaccinated subjects who become infected has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n_t\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>, and the number of unvaccinated subjects
+who become infected has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n_c\)</span> and <span class="math notranslate nohighlight">\(p_c\)</span>.
+The “true” relative risk is <span class="math notranslate nohighlight">\(p_t/p_c\)</span>.
+The “true” treatment effect could be defined to be <span class="math notranslate nohighlight">\(p_c-p_t\)</span> or <span class="math notranslate nohighlight">\(p_c/p_t\)</span> or the
+“true” vaccine efficacy, <span class="math notranslate nohighlight">\(1-p_t/p_c\)</span>.</p>
 </div>
 </div>
 <div class="section" id="bayesian-estimation-of-a-binomial-probability">
@@ -436,226 +468,19 @@ If we sample from this population and each time we draw, we not only replace the
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/vaccine-efficacy_8_0.png" src="../_images/vaccine-efficacy_8_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D_0</span> <span class="o">=</span> <span class="mi">2474507</span>
-<span class="n">D_6</span> <span class="o">=</span> <span class="mi">1877963</span>
-<span class="n">N_0</span> <span class="o">=</span> <span class="mi">4997716</span>
-<span class="n">N_6</span> <span class="o">=</span> <span class="mi">4092373</span>
-<span class="n">p_6</span> <span class="o">=</span> <span class="o">.</span><span class="mi">459</span>
-<span class="n">p_0</span> <span class="o">=</span> <span class="o">.</span><span class="mi">495</span>
-<span class="n">p_pool</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_6</span><span class="o">*</span><span class="n">N_6</span> <span class="o">+</span> <span class="n">p_0</span><span class="o">*</span><span class="n">N_0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N_6</span> <span class="o">+</span> <span class="n">N_0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">D_0</span> <span class="o">-</span> <span class="n">D_6</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N_6</span><span class="o">*</span><span class="n">p_6</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_6</span><span class="p">)</span><span class="o">+</span><span class="n">N_0</span><span class="o">*</span><span class="n">p_0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_0</span><span class="p">))</span>
-<span class="n">Z_1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>396.33161841757175
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">D_0</span> <span class="o">-</span> <span class="n">D_6</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N_6</span><span class="o">*</span><span class="n">p_pool</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pool</span><span class="p">)</span><span class="o">+</span><span class="n">N_0</span><span class="o">*</span><span class="n">p_pool</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pool</span><span class="p">))</span>
-<span class="n">Z_2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>396.0768029064531
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span><span class="p">,</span> <span class="n">binomial</span><span class="p">,</span> <span class="n">exponential</span>
-<span class="n">rng</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">(</span><span class="mi">1502021</span><span class="p">)</span> <span class="c1"># set the seed for reproducibility</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">p</span><span class="o">=</span><span class="mf">0.3</span>
-<span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.00000000e+00, -2.00000000e-01, -4.00000000e-01,  4.00000000e-01,
-        1.20000000e+00,  1.00000000e+00,  1.80000000e+00,  1.60000000e+00,
-        4.00000000e-01,  2.00000000e-01,  2.00000000e+00,  1.80000000e+00,
-        1.60000000e+00,  2.40000000e+00,  1.20000000e+00,  1.00000000e+00,
-        1.80000000e+00,  6.00000000e-01,  4.00000000e-01,  2.00000000e-01,
-       -1.00000000e+00, -2.00000000e-01,  6.00000000e-01,  4.00000000e-01,
-        2.00000000e-01,  1.00000000e+00,  8.00000000e-01,  6.00000000e-01,
-        1.40000000e+00,  2.20000000e+00,  1.00000000e+00,  8.00000000e-01,
-        6.00000000e-01, -6.00000000e-01, -8.00000000e-01, -1.00000000e+00,
-       -1.20000000e+00, -1.40000000e+00, -6.00000000e-01,  1.20000000e+00,
-        1.00000000e+00,  1.80000000e+00,  6.00000000e-01,  1.40000000e+00,
-        2.20000000e+00,  3.00000000e+00,  2.80000000e+00,  1.60000000e+00,
-        2.40000000e+00,  1.20000000e+00,  1.77635684e-15,  8.00000000e-01,
-       -4.00000000e-01, -6.00000000e-01, -8.00000000e-01, -2.00000000e+00,
-       -1.20000000e+00, -1.40000000e+00,  1.40000000e+00,  2.00000000e-01,
-        1.99840144e-15, -1.20000000e+00, -4.00000000e-01, -6.00000000e-01,
-        2.00000000e-01,  2.22044605e-15,  8.00000000e-01,  6.00000000e-01,
-        4.00000000e-01,  2.00000000e-01,  2.00000000e+00,  1.80000000e+00,
-        2.60000000e+00,  2.40000000e+00,  3.20000000e+00,  3.00000000e+00,
-        1.80000000e+00,  1.60000000e+00,  1.40000000e+00,  2.20000000e+00,
-        2.00000000e+00,  2.80000000e+00,  3.60000000e+00,  4.40000000e+00,
-        5.20000000e+00,  4.00000000e+00,  2.80000000e+00,  3.60000000e+00,
-        3.40000000e+00,  3.20000000e+00,  3.00000000e+00,  2.80000000e+00,
-        3.60000000e+00,  4.40000000e+00,  4.20000000e+00,  5.00000000e+00,
-        5.80000000e+00,  6.60000000e+00,  5.40000000e+00,  6.20000000e+00,
-        5.00000000e+00])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.0000e+00, -2.0000e-01,  3.8000e+00,  9.8000e+00,  1.6800e+01,
-        2.4800e+01,  3.4800e+01,  4.6800e+01,  5.9800e+01,  7.2800e+01,
-        8.6800e+01,  1.0180e+02,  1.1780e+02,  1.3580e+02,  1.5580e+02,
-        1.7680e+02,  1.9780e+02,  2.1880e+02,  2.3980e+02,  2.6080e+02,
-        2.8380e+02,  3.0780e+02,  3.3180e+02,  3.5680e+02,  3.8480e+02,
-        4.1380e+02,  4.4380e+02,  4.7580e+02,  5.0880e+02,  5.4280e+02,
-        5.7680e+02,  6.1180e+02,  6.4880e+02,  6.8780e+02,  7.2880e+02,
-        7.6980e+02,  8.1180e+02,  8.5480e+02,  8.9980e+02,  9.4480e+02,
-        9.9080e+02,  1.0388e+03,  1.0878e+03,  1.1388e+03,  1.1908e+03,
-        1.2458e+03,  1.3018e+03,  1.3588e+03,  1.4168e+03,  1.4758e+03,
-        1.5348e+03,  1.5948e+03,  1.6558e+03,  1.7168e+03,  1.7808e+03,
-        1.8448e+03,  1.9098e+03,  1.9768e+03,  2.0448e+03,  2.1128e+03,
-        2.1828e+03,  2.2538e+03,  2.3258e+03,  2.3988e+03,  2.4718e+03,
-        2.5448e+03,  2.6188e+03,  2.6928e+03,  2.7678e+03,  2.8448e+03,
-        2.9218e+03,  2.9998e+03,  3.0798e+03,  3.1608e+03,  3.2438e+03,
-        3.3278e+03,  3.4128e+03,  3.4998e+03,  3.5878e+03,  3.6758e+03,
-        3.7668e+03,  3.8588e+03,  3.9528e+03,  4.0478e+03,  4.1438e+03,
-        4.2418e+03,  4.3408e+03,  4.4408e+03,  4.5418e+03,  4.6428e+03,
-        4.7448e+03,  4.8468e+03,  4.9508e+03,  5.0558e+03,  5.1618e+03,
-        5.2688e+03,  5.3768e+03,  5.4848e+03,  5.5938e+03,  5.7028e+03,
-        5.8138e+03])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.05148214114725
-</pre></div>
-</div>
+<img alt="../_images/vaccine-efficacy_10_0.png" src="../_images/vaccine-efficacy_10_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="a-permutation-approach">
 <h2>A permutation approach<a class="headerlink" href="#a-permutation-approach" title="Permalink to this headline">¶</a></h2>
-<p>Shift model for effect; assume exchangeability under the null.</p>
-<p>How many 1s need to be added to the treatment group for the test not to reject?</p>
+<p>See <a class="reference internal" href="nuisance.html"><span class="doc std std-doc">nuisance parameters</span></a>. [MORE TO COME]</p>
 <div class="section" id="critiquing-the-permutation-approach">
 <h3>Critiquing the permutation approach<a class="headerlink" href="#critiquing-the-permutation-approach" title="Permalink to this headline">¶</a></h3>
 <p>Assumes “non-interference.” Any given subject’s response depends only on that subject’s assignment, not on the assignment of any other subject.
 Might or might not be a good model, depending on how the subjects were recruited.</p>
 <p>Does not account for clustering of cases, contact among subjects, etc.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
-
-<span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">factorial</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">**</span><span class="n">n</span><span class="p">))</span>
-    <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
-        <span class="n">prob</span> <span class="o">+=</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">prob</span>
-    
-<span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span>
-
-<span class="n">prob</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.31302316081931464
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">lognorm</span>
-
-<span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mf">1.96</span>
-<span class="n">sam_size</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">sqrt_sam_size</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sam_size</span><span class="p">)</span>
-<span class="n">reps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
-<span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">pop_mean</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
-    <span class="n">sam</span> <span class="o">=</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">sam_size</span><span class="p">)</span>
-    <span class="n">stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sam</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam</span><span class="p">)</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">stdev</span>
-    <span class="n">sam_keep</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sam</span> <span class="k">if</span> <span class="n">m</span><span class="o">-</span><span class="n">w</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">+</span><span class="n">w</span><span class="p">])</span>  <span class="c1"># &quot;outlier&quot; rejection</span>
-    <span class="n">means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sam_keep</span><span class="p">)</span>
-    <span class="n">stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sam_keep</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
-    <span class="n">w</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">stdev</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sam_keep</span><span class="p">))</span>
-    <span class="n">cover</span> <span class="o">=</span> <span class="n">cover</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">w</span> <span class="o">&lt;=</span> <span class="n">pop_mean</span> <span class="o">&lt;=</span> <span class="n">means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">w</span>
-                     <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">cover</span><span class="o">/</span><span class="n">reps</span><span class="si">}</span><span class="s1">% cover; estimated relative bias </span><span class="si">{</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">-</span><span class="n">pop_mean</span><span class="p">)</span><span class="o">/</span><span class="n">pop_mean</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.94% cover; estimated relative bias -0.2155112739569918
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
