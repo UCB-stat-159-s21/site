@@ -57,7 +57,7 @@ notebooks and materials : [Confidence Sets Finished](https://ucb-stat-159-s21.gi
 - **Lecture 24** (2021-04-15) : [video](https://drive.google.com/file/d/1VR32FOVwsjlGkw6KTFSM1rzbDPBV1sRk/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1h9AEODcqDkufXoqUPGD0mzz4ECYWvX6tvdDOLL3QmD0/edit?usp=sharing)   
 notebooks and materials : [Conda environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file), [Datahub Dockerfile](https://github.com/berkeley-dsep-infra/datahub/blob/staging/deployments/stat159/image/Dockerfile), [Mamba](https://github.com/mamba-org/mamba), [Course Binder](https://mybinder.org/v2/gh/UCB-stat-159-s21/site/HEAD?filepath=lab/tree/Notes%2Findex.ipynb)
 - **Lecture 25** (2021-04-20) : [video](https://drive.google.com/file/d/1N8VJD07XH8P_3oGZjjiok4artazpehaI/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1o2xDICsiUl_uAvAstfIvGHMEnMRW_3JdJBvjh8TqcT8/edit?usp=sharing)   
-notebooks and materials : [Exact confidence intervals for the average causal effect on a binary outcome (Li & Ding 2016)](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764), [arXiv link for Li & Ding](https://arxiv.org/abs/1509.07138
+notebooks and materials : [Peng Ding Guest Lecture Notes](https://drive.google.com/file/d/1K5xoLj0_LdYUqzCFYr1MQ_eJNryG8VGq/view?usp=sharing), [Exact confidence intervals for the average causal effect on a binary outcome (Li & Ding 2016)](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764), [arXiv link for Li & Ding](https://arxiv.org/abs/1509.07138
 ), [R code for Li & Ding](https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fsim.6764&file=sim6764-sup-0002-Supplementary.R)
 
 
