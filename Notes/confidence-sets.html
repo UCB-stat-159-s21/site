@@ -436,8 +436,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2dacd4d1-0649-41ee-8755-24bbf9610178">
-<span class="eqno">()<a class="headerlink" href="#equation-2dacd4d1-0649-41ee-8755-24bbf9610178" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dbb6a8ef-14e1-47be-b90f-6cbcae13b0c2">
+<span class="eqno">()<a class="headerlink" href="#equation-dbb6a8ef-14e1-47be-b90f-6cbcae13b0c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -449,8 +449,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7bead6af-95d9-433f-8d55-0b7ed84b9fa1">
-<span class="eqno">()<a class="headerlink" href="#equation-7bead6af-95d9-433f-8d55-0b7ed84b9fa1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a0358698-582b-4b15-b54a-97cba6fe8a1c">
+<span class="eqno">()<a class="headerlink" href="#equation-a0358698-582b-4b15-b54a-97cba6fe8a1c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -550,8 +550,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6b148dd-02b5-4385-a0b5-3cb99f234ca4">
-<span class="eqno">()<a class="headerlink" href="#equation-f6b148dd-02b5-4385-a0b5-3cb99f234ca4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-096e724b-d129-453e-9f13-824493c3ab86">
+<span class="eqno">()<a class="headerlink" href="#equation-096e724b-d129-453e-9f13-824493c3ab86" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -579,8 +579,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93297918-2b78-43c7-bc64-3a6befa944d2">
-<span class="eqno">()<a class="headerlink" href="#equation-93297918-2b78-43c7-bc64-3a6befa944d2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-346324dd-37ec-4f06-894b-7abd8112d046">
+<span class="eqno">()<a class="headerlink" href="#equation-346324dd-37ec-4f06-894b-7abd8112d046" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -626,8 +626,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c21a10b5-e16f-4f74-99ed-42005d1a5696">
-<span class="eqno">()<a class="headerlink" href="#equation-c21a10b5-e16f-4f74-99ed-42005d1a5696" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fef9fca8-d02d-40db-aef4-38c2475a9a0e">
+<span class="eqno">()<a class="headerlink" href="#equation-fef9fca8-d02d-40db-aef4-38c2475a9a0e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set
@@ -642,8 +642,8 @@ But when <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \thet
 Inverting different tests will lead to confidence sets with different properties.
 As a simple example, inverting 1-sided tests for a real parameter will give a 1-seded confidence interval for the parameter, while inverting 2-sided tests will yield a 2-sided confidence interval.</p>
 <p>It is often possible to design confidence sets that have desirable characteristics–such as avoiding including zero to the extent possible (so that they determine the sign of their parameter), or being on average as small as possible–by inverting suitably chosen tests.
-See, e.g., <a class="reference external" href="https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1998.10474112#.YGk8ERRKg-Q">Benjamini, Hochberg, and Stark (1996)</a>, <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476692">Benjamini and Stark (1996)</a>,
-<span class="xref myst">Evans, Hansen, and Stark (19??)</span>, and <a class="reference external" href="https://arxiv.org/abs/1906.00505">Benjamini, Hechtlinger, and Stark (2019)</a>.</p>
+See, e.g., <a class="reference external" href="https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1998.10474112#.YGk8ERRKg-Q">Benjamini, Hochberg, and Stark (1996)</a>; <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476692">Benjamini and Stark (1996)</a>;
+<a class="reference external" href="https://projecteuclid.org/journals/bernoulli/volume-11/issue-4/Minimax-expected-measure-confidence-sets-for-restricted-location-parameters/10.3150/bj/1126126761.full">Evans, Hansen, and Stark (2005)</a>; and <a class="reference external" href="https://arxiv.org/abs/1906.00505">Benjamini, Hechtlinger, and Stark (2019)</a>.</p>
 <div class="section" id="example-confidence-interval-for-binomial-p-known-n">
 <h3>Example: confidence interval for Binomial <span class="math notranslate nohighlight">\(p\)</span> (known <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-confidence-interval-for-binomial-p-known-n" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we will observe <span class="math notranslate nohighlight">\(X \sim \mbox{Binom}(n, p)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is known but <span class="math notranslate nohighlight">\(p\)</span> is not.
@@ -752,39 +752,39 @@ root-finding problem.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.01 covered:  99.55%
-p: 0.05 covered:  98.75%
-p: 0.10 covered:  98.73%
-p: 0.20 covered:  96.71%
-p: 0.40 covered:  98.86%
-p: 0.50 covered:  99.04%
-p: 0.70 covered:  97.38%
+p: 0.01 covered:  99.60%
+p: 0.05 covered:  98.91%
+p: 0.10 covered:  98.69%
+p: 0.20 covered:  97.02%
+p: 0.40 covered:  98.81%
+p: 0.50 covered:  99.18%
+p: 0.70 covered:  97.18%
 p: 0.90 covered:  100.00%
 p: 0.95 covered:  100.00%
 p: 0.99 covered:  100.00%
 
 n: 50
-p: 0.01 covered:  98.81%
-p: 0.05 covered:  96.27%
-p: 0.10 covered:  97.44%
-p: 0.20 covered:  96.82%
-p: 0.40 covered:  96.85%
-p: 0.50 covered:  96.68%
-p: 0.70 covered:  95.77%
-p: 0.90 covered:  97.01%
+p: 0.01 covered:  98.54%
+p: 0.05 covered:  96.44%
+p: 0.10 covered:  97.55%
+p: 0.20 covered:  97.01%
+p: 0.40 covered:  96.78%
+p: 0.50 covered:  96.55%
+p: 0.70 covered:  95.63%
+p: 0.90 covered:  96.69%
 p: 0.95 covered:  100.00%
 p: 0.99 covered:  100.00%
 
 n: 100
-p: 0.01 covered:  98.25%
-p: 0.05 covered:  97.16%
-p: 0.10 covered:  95.84%
-p: 0.20 covered:  96.31%
-p: 0.40 covered:  95.78%
-p: 0.50 covered:  95.46%
-p: 0.70 covered:  95.55%
-p: 0.90 covered:  97.53%
-p: 0.95 covered:  96.29%
+p: 0.01 covered:  98.27%
+p: 0.05 covered:  97.24%
+p: 0.10 covered:  96.04%
+p: 0.20 covered:  96.50%
+p: 0.40 covered:  95.58%
+p: 0.50 covered:  95.93%
+p: 0.70 covered:  95.42%
+p: 0.90 covered:  97.57%
+p: 0.95 covered:  96.35%
 p: 0.99 covered:  100.00%
 </pre></div>
 </div>
@@ -923,7 +923,7 @@ This approach is due to <a class="reference external" href="https://www.jstor.or
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">binom_accept</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ub</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
             <span class="n">ub</span> <span class="o">-=</span> <span class="n">eps</span>
-        <span class="n">lb</span> <span class="o">+=</span> <span class="n">eps</span>
+        <span class="n">ub</span> <span class="o">+=</span> <span class="n">eps</span>
     <span class="k">return</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span>
 </pre></div>
 </div>
@@ -951,45 +951,44 @@ This approach is due to <a class="reference external" href="https://www.jstor.or
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.01 covered: 99.60% mean width: 0.31
-p: 0.05 covered: 98.81% mean width: 0.36
-p: 0.10 covered: 98.65% mean width: 0.41
-p: 0.20 covered: 96.98% mean width: 0.48
-p: 0.40 covered: 98.20% mean width: 0.54
-p: 0.50 covered: 97.98% mean width: 0.55
-p: 0.70 covered: 96.27% mean width: 0.52
-p: 0.90 covered: 98.91% mean width: 0.41
-p: 0.95 covered: 98.75% mean width: 0.36
-p: 0.99 covered: 99.59% mean width: 0.31
+p: 0.01 covered: 99.65% mean width: 0.31
+p: 0.05 covered: 98.84% mean width: 0.36
+p: 0.10 covered: 98.86% mean width: 0.41
+p: 0.20 covered: 96.80% mean width: 0.48
+p: 0.40 covered: 98.23% mean width: 0.54
+p: 0.50 covered: 97.95% mean width: 0.55
+p: 0.70 covered: 96.03% mean width: 0.52
+p: 0.90 covered: 98.82% mean width: 0.41
+p: 0.95 covered: 98.94% mean width: 0.36
+p: 0.99 covered: 99.55% mean width: 0.31
 
 n: 50
-p: 0.01 covered: 98.52% mean width: 0.09
-p: 0.05 covered: 96.02% mean width: 0.14
-p: 0.10 covered: 97.11% mean width: 0.17
-p: 0.20 covered: 94.93% mean width: 0.22
-p: 0.40 covered: 95.21% mean width: 0.27
-p: 0.50 covered: 93.60% mean width: 0.27
-p: 0.70 covered: 95.63% mean width: 0.25
-p: 0.90 covered: 97.06% mean width: 0.17
-p: 0.95 covered: 96.24% mean width: 0.13
-p: 0.99 covered: 98.75% mean width: 0.09
+p: 0.01 covered: 98.69% mean width: 0.09
+p: 0.05 covered: 95.98% mean width: 0.13
+p: 0.10 covered: 96.95% mean width: 0.17
+p: 0.20 covered: 94.79% mean width: 0.22
+p: 0.40 covered: 95.42% mean width: 0.27
+p: 0.50 covered: 96.89% mean width: 0.27
+p: 0.70 covered: 96.00% mean width: 0.25
+p: 0.90 covered: 97.19% mean width: 0.17
+p: 0.95 covered: 96.08% mean width: 0.14
+p: 0.99 covered: 98.73% mean width: 0.09
 
 n: 100
-p: 0.01 covered: 98.31% mean width: 0.05
-p: 0.05 covered: 96.61% mean width: 0.09
+p: 0.01 covered: 98.07% mean width: 0.05
+p: 0.05 covered: 96.73% mean width: 0.09
 p: 0.10 covered: 95.53% mean width: 0.12
-p: 0.20 covered: 95.44% mean width: 0.16
-p: 0.40 covered: 95.87% mean width: 0.19
-p: 0.50 covered: 93.93% mean width: 0.20
-p: 0.70 covered: 94.80% mean width: 0.18
-p: 0.90 covered: 95.52% mean width: 0.12
-p: 0.95 covered: 96.67% mean width: 0.09
-p: 0.99 covered: 98.00% mean width: 0.05
+p: 0.20 covered: 95.56% mean width: 0.16
+p: 0.40 covered: 96.06% mean width: 0.19
+p: 0.50 covered: 96.62% mean width: 0.20
+p: 0.70 covered: 95.43% mean width: 0.18
+p: 0.90 covered: 95.51% mean width: 0.12
+p: 0.95 covered: 96.53% mean width: 0.09
+p: 0.99 covered: 98.22% mean width: 0.05
 </pre></div>
 </div>
 </div>
 </div>
-<p>(I suspect there’s a bug: the coverage at p=0.5 should be higher for <span class="math notranslate nohighlight">\(n=50\)</span> and <span class="math notranslate nohighlight">\(n=100\)</span>.)</p>
 </div>
 <div class="section" id="bootstrap-approximate-confidence-intervals">
 <h3>Bootstrap approximate confidence intervals<a class="headerlink" href="#bootstrap-approximate-confidence-intervals" title="Permalink to this headline">¶</a></h3>
@@ -1067,40 +1066,40 @@ the nonparametric maximum likelihood estimate of the population distribution</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n: 10
-p: 0.01 covered:  11.00% mean width: 0.03
-p: 0.05 covered:  40.40% mean width: 0.14
-p: 0.10 covered:  64.60% mean width: 0.25
-p: 0.20 covered:  88.50% mean width: 0.42
-p: 0.40 covered:  94.90% mean width: 0.56
-p: 0.50 covered:  97.20% mean width: 0.58
-p: 0.70 covered:  95.10% mean width: 0.51
-p: 0.90 covered:  65.00% mean width: 0.25
-p: 0.95 covered:  42.30% mean width: 0.15
-p: 0.99 covered:  9.20% mean width: 0.03
+p: 0.01 covered:  8.50% mean width: 0.03
+p: 0.05 covered:  39.10% mean width: 0.13
+p: 0.10 covered:  65.20% mean width: 0.25
+p: 0.20 covered:  88.20% mean width: 0.41
+p: 0.40 covered:  91.70% mean width: 0.56
+p: 0.50 covered:  97.30% mean width: 0.58
+p: 0.70 covered:  96.50% mean width: 0.52
+p: 0.90 covered:  64.90% mean width: 0.25
+p: 0.95 covered:  38.00% mean width: 0.13
+p: 0.99 covered:  8.80% mean width: 0.03
 
 n: 50
-p: 0.01 covered:  40.90% mean width: 0.03
-p: 0.05 covered:  92.50% mean width: 0.11
-p: 0.10 covered:  96.70% mean width: 0.16
+p: 0.01 covered:  38.20% mean width: 0.03
+p: 0.05 covered:  91.00% mean width: 0.10
+p: 0.10 covered:  96.60% mean width: 0.16
 p: 0.20 covered:  94.70% mean width: 0.21
-p: 0.40 covered:  96.20% mean width: 0.27
+p: 0.40 covered:  95.10% mean width: 0.27
 p: 0.50 covered:  96.30% mean width: 0.27
 p: 0.70 covered:  96.90% mean width: 0.25
-p: 0.90 covered:  95.10% mean width: 0.16
-p: 0.95 covered:  89.90% mean width: 0.11
-p: 0.99 covered:  39.30% mean width: 0.03
+p: 0.90 covered:  96.30% mean width: 0.16
+p: 0.95 covered:  89.90% mean width: 0.10
+p: 0.99 covered:  38.40% mean width: 0.03
 
 n: 100
-p: 0.01 covered:  65.50% mean width: 0.03
-p: 0.05 covered:  96.60% mean width: 0.08
-p: 0.10 covered:  96.20% mean width: 0.11
+p: 0.01 covered:  62.90% mean width: 0.03
+p: 0.05 covered:  96.80% mean width: 0.08
+p: 0.10 covered:  94.90% mean width: 0.11
 p: 0.20 covered:  95.30% mean width: 0.15
-p: 0.40 covered:  96.10% mean width: 0.19
-p: 0.50 covered:  95.20% mean width: 0.19
-p: 0.70 covered:  96.40% mean width: 0.18
-p: 0.90 covered:  96.10% mean width: 0.11
-p: 0.95 covered:  95.60% mean width: 0.08
-p: 0.99 covered:  64.70% mean width: 0.03
+p: 0.40 covered:  95.10% mean width: 0.19
+p: 0.50 covered:  94.90% mean width: 0.19
+p: 0.70 covered:  95.40% mean width: 0.18
+p: 0.90 covered:  95.00% mean width: 0.11
+p: 0.95 covered:  95.30% mean width: 0.08
+p: 0.99 covered:  63.80% mean width: 0.03
 </pre></div>
 </div>
 </div>
@@ -1230,13 +1229,15 @@ Instead, we will use a search.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  98.98%
-N=50, G=30, n=20: covered  98.13%
-N=100, G=25, n=30: covered  97.65%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=20, G=10, n=10: covered  98.83%
+N=50, G=30, n=20: covered  97.92%
+N=100, G=25, n=30: covered  97.78%
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can make two-sided confidence bounds for <span class="math notranslate nohighlight">\(G\)</span> by inverting two-sided tests, such as those given in the <a class="reference internal" href="tests.html"><span class="doc std std-doc">chapter on testing</span></a>.
+Recall that we discussed two different constructions of two-sided tests there, one based on trimming the same probability from each tail, and one based on minimizing the number of outcomes in the acceptance region.</p>
 </div>
 </div>
 <div class="section" id="confidence-intervals-from-permutation-tests">

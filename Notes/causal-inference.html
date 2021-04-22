@@ -311,6 +311,16 @@
        Effect Size for the Weak Null
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#first-approach-bonferroni-simultaneous-confidence-intervals">
+       First approach: Bonferroni simultaneous confidence intervals
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#second-approach-testing-all-2x2-tables-of-potential-outcomes">
+       Second approach: testing all 2x2 tables of potential outcomes
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -422,16 +432,23 @@ Let <span class="math notranslate nohighlight">\(W_j\)</span> denote the treatme
 After some time has passed, we observe</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   X_1 := \sum_{j=1}^N W_j x_{j1}
+X_j := (1-W_j) x_{j0} + W_j x_{j1}, \;\; j=1, \ldots, N.
 \end{equation*}\]</div>
-<p>and</p>
+<p>These are random variables, but the only source of randomness is <span class="math notranslate nohighlight">\(\{W_j\}\)</span>, the
+treatment assignment variables.</p>
+<p>The total number of infections among the vaccinated is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   X_0 := \sum_{j=1}^N (1-W_j) x_{j0}.
+   X_1^* := \sum_{j=1}^N W_j x_{j1}
 \end{equation*}\]</div>
-<p>Under the strong null that the vaccine makes no difference whatsoever–as if whether a subject would become ill was predetermined before assignment to treatment or control–the distribution of the number of infections among the vaccinated would have a hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=X_0+X_1\)</span>, and <span class="math notranslate nohighlight">\(n=n\)</span>.
+<p>and the total among the unvaccinated is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   X_0^* := \sum_{j=1}^N (1-W_j) x_{j0}.
+\end{equation*}\]</div>
+<p>Under the strong null that the vaccine makes no difference whatsoever–as if whether a subject would become ill was predetermined before assignment to treatment or control–the distribution of the number of infections among the vaccinated would have a hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=X_0^*+X_1^*\)</span>, and <span class="math notranslate nohighlight">\(n=n\)</span>.
 Testing the strong null using this hypergeometric distribution yields <em>Fisher’s Exact Test</em>.</p>
-<p>This model can be generalized by considering the total number of infections <span class="math notranslate nohighlight">\(x_t+x_c\)</span> to be random, then conditioning on the observed value to get a conditional test.</p>
+<p>This model can be generalized by considering the total number of infections <span class="math notranslate nohighlight">\(X_0^*+X_1^*\)</span> to be random, then conditioning on the observed value to get a conditional test.</p>
 <div class="section" id="inference-about-the-size-of-the-treatment-effect">
 <h3>Inference about the size of the treatment effect<a class="headerlink" href="#inference-about-the-size-of-the-treatment-effect" title="Permalink to this headline">¶</a></h3>
 <p>But how can we find a confidence interval for the treatment effect?</p>
@@ -440,7 +457,7 @@ Testing the strong null using this hypergeometric distribution yields <em>Fisher
 <h4>Effect Size for the Weak Null<a class="headerlink" href="#effect-size-for-the-weak-null" title="Permalink to this headline">¶</a></h4>
 <p>Recall that the “weak” null hypothesis that average response is the same, regardless
 of the assigned treatment (but individuals might have different responses to treatment).
-Define <span class="math notranslate nohighlight">\(\bar{X}_0 := X_0/(N-n)\)</span> and <span class="math notranslate nohighlight">\(\bar{X}_1 := X_1/n\)</span>, the observed mean
+Define <span class="math notranslate nohighlight">\(\bar{X}_0 := X_0^*/(N-n)\)</span> and <span class="math notranslate nohighlight">\(\bar{X}_1 := X_1^*/n\)</span>, the observed mean
 responses for the control group and the treatment group.
 These are unbiased estimates of
 the corresponding population parameters,</p>
@@ -456,19 +473,99 @@ the corresponding population parameters,</p>
 <p>The <em>average treatment effect</em> for the study population is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\mbox{ATE} := \bar{x}_1 - \bar{x}_0 = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} \sum_{j=1}^N \tau_j,
+\tau := \bar{x}_1 - \bar{x}_0 = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} \sum_{j=1}^N \tau_j,
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_j := x_{1j}-x_{0j}\)</span>.
-An unbiased estimate of the treatment effect is <span class="math notranslate nohighlight">\(\bar{X}_1 - \bar{X}_0\)</span>.</p>
+An unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</span> is <span class="math notranslate nohighlight">\(\hat{\tau} := \bar{X}_1 - \bar{X}_0\)</span>.</p>
 <p>The study population can be summarized by 4 numbers, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>, where <span class="math notranslate nohighlight">\(N_{ik}\)</span> is the number of subjects <span class="math notranslate nohighlight">\(j\)</span> for whom
 <span class="math notranslate nohighlight">\(x_{j0} = k\)</span> and <span class="math notranslate nohighlight">\(x_{j1} = k\)</span>, for <span class="math notranslate nohighlight">\(i, k \in \{0, 1\}\)</span>.
 Of course, <span class="math notranslate nohighlight">\(N = N_{00} + N_{01} + N_{10} + N_{11}\)</span>.
-The ATE can be written <span class="math notranslate nohighlight">\((N_{01}-N_{10})/N\)</span>.</p>
+The average treatment effect can be written <span class="math notranslate nohighlight">\(\tau = (N_{01}-N_{10})/N\)</span>.</p>
+</div>
+<div class="section" id="first-approach-bonferroni-simultaneous-confidence-intervals">
+<h4>First approach: Bonferroni simultaneous confidence intervals<a class="headerlink" href="#first-approach-bonferroni-simultaneous-confidence-intervals" title="Permalink to this headline">¶</a></h4>
+<p>A collection of confidence set procedures <span class="math notranslate nohighlight">\(\{\mathcal{I}_i \}_{i=1}^m\)</span> for a corresponding set of parameters <span class="math notranslate nohighlight">\(\{ \theta_i \}_{i=1}^m\)</span> has <em>simultaneous coverage probability</em> <span class="math notranslate nohighlight">\(1-\alpha\)</span> if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}_{\theta_1, \ldots, \theta_m} \cap_{i=1}^m ( \theta_i \in \mathcal{I}_i ) \ge 1-\alpha
+\end{equation*}\]</div>
+<p>whatever the true values <span class="math notranslate nohighlight">\(\{\theta_i\}\)</span> are.</p>
+<p>Bonferroni’s inequality says that for any collection of events <span class="math notranslate nohighlight">\(\{A_i\}\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P} \left ( \cup_i A_i \right ) \le \sum_i \mathbb{P}(A_i).
+\end{equation*}\]</div>
+<p>It follows that if <span class="math notranslate nohighlight">\(\mathcal{I}_i\)</span> is a confidence interval procedure for <span class="math notranslate nohighlight">\(\theta_i\)</span> with coverage probability <span class="math notranslate nohighlight">\(1-\alpha_i\)</span>, <span class="math notranslate nohighlight">\(i=1, \ldots, m\)</span>, then the collection of
+confidence set procedures <span class="math notranslate nohighlight">\(\{\mathcal{I}_i \}_{i=1}^m\)</span> has simultaneous coverage probability
+not smaller than <span class="math notranslate nohighlight">\(1-\sum_i \alpha_i\)</span>.</p>
+<p>In the current situation, if we had simultaneous confidence sets for both <span class="math notranslate nohighlight">\(N_{01}\)</span> and <span class="math notranslate nohighlight">\(N_{10}\)</span>, we could find a confidence set for <span class="math notranslate nohighlight">\(\tau\)</span> because <span class="math notranslate nohighlight">\(\tau = (N_{01}-N_{10})/N\)</span>.</p>
+</div>
+<div class="section" id="second-approach-testing-all-2x2-tables-of-potential-outcomes">
+<h4>Second approach: testing all 2x2 tables of potential outcomes<a class="headerlink" href="#second-approach-testing-all-2x2-tables-of-potential-outcomes" title="Permalink to this headline">¶</a></h4>
 <p>After the randomization, for each subject <span class="math notranslate nohighlight">\(j\)</span>, we observe either <span class="math notranslate nohighlight">\(x_{j0}\)</span> or
 <span class="math notranslate nohighlight">\(x_{j1}\)</span>.
 At that point, we know <span class="math notranslate nohighlight">\(N\)</span> of the <span class="math notranslate nohighlight">\(2N\)</span> numbers <span class="math notranslate nohighlight">\(\{x_{jk}\}_{j=1}^N{}_{k=0}^1\)</span>.
 The other <span class="math notranslate nohighlight">\(N\)</span> numbers–the responses that were not observed–can be any combination of 0s and 1s: there are <span class="math notranslate nohighlight">\(2^N\)</span> possibilities in all.</p>
-<p>One approach to testing is to enumerate all <span class="math notranslate nohighlight">\(2^N\)</span> possibilities …</p>
+<p>But at the end of the day, all that matters are the four numbers <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>.
+Together, these sum to <span class="math notranslate nohighlight">\(N\)</span>.
+The total number of ways there are of partitioning <span class="math notranslate nohighlight">\(N\)</span> items into 4 groups can be found by Feller’s “bars and stars” argument (see the <a class="reference internal" href="nuisance.html"><span class="doc std std-doc">notes on nuisance parameters</span></a>);
+the answer is <span class="math notranslate nohighlight">\(\binom{N+3}{3}\)</span>.
+This is <span class="math notranslate nohighlight">\(O(N^3)\)</span> tables
+(<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6384">Rigdon and Hudgens (2015)</a>).
+But many of those tables are incompatible with the observed data.
+<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that taking into account the observed data constrains
+the number of tables to <span class="math notranslate nohighlight">\(O(N^2)\)</span>, greatly speeding the computation.</p>
+<p>The (unknown) complete table of results is as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(w_j\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_{j0}\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_{j1}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <p>[MORE TO COME]</p>
 </div>
 </div>
