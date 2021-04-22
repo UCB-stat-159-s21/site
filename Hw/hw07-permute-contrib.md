@@ -60,9 +60,18 @@ The entire assignment is worth 50 points, broken down as follows:
 
 * 15 points: work on 1-sided confidence bounds.
 * 30 points: work on 2-sided confidence bounds.  Note that this includes as a deliverable, a standalone Jupyter notebook that you should add at the top of your team's repository, called `confidence-intervals.ipynb`.
-* 5 points: summary release notes that highlight your changes to the various functions, called `hw07-summary.md`, along with a PDF render of the same.
+* 5 points: summary release notes that highlight your changes to the various functions, called `hw07-summary.md`, along with a PDF render of the same.  Your release notes _must_ include a section with your team's _Author Contribution Statement_ (see below for details).
 
 As in the previous assignment, we will look at the workflow of opening issues and evolving your code as PRs on your repo.
+
+## Author contribution statement
+
+In the summary release notes (file `hw07-summary.md`), you will include an **Author Contribution Statement**, similar to what we requested in HW06. This type of statement is an increasingly common requirement in the published literature, so creating one for this project (and subsequent ones) will be good practice for you.
+
+This statement should provide, concisely (it should be no longer than a page and you can probably fit it well within 1/2 page), a summary, high-level description of the activities each member of the team did during the project. You do not need to list individual commits or comments (we have access to your team repo with all this information).  You can find more discussion about this type of statement [on this site](https://www.editage.com/insights/how-to-draft-the-authorship-contribution-statement).
+
+If you find yourself with an _important concern or disagreement_ regarding the team contribution statement that you feel requires private communication to the instructors, you can do so by [filling out this short form](https://forms.gle/ictvEUiZpaLFi3Hy6).
+
 
 ## Workflow
 
