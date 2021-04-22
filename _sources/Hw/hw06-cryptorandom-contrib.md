@@ -6,7 +6,7 @@
 
 - Profs. Pérez and Stark, Department of Statistics, UC Berkeley.
 
-- This assignment is worth a maximum of **60 points**.
+- This assignment is worth a maximum of **70 points**. (note change on 4/19/2021)
 
 - Assignment type: **group**.
 
@@ -31,6 +31,7 @@ The entire assignment is worth 60 points, broken down as follows:
 * 25 points: contributions to testing.
 * 25 points: contributions to documentation.
 * 10 points: release notes.
+* 10 points: author contribution statement (see below).
 
 For each of the main areas (testing and documentation) we will look at the following aspects to assign points:
 
@@ -215,3 +216,14 @@ Once you're happy, commit, push, make PRs, and communicate happily with your tea
 - Identify tests that do not really "exercise" the code
 - Make one PR that aims to push line-based test coverage as close to 100% as possible. This PR should also have individual tests that add *conceptual* test coverage in areas currently not covered.
 - To run the test suite, you can run `make test-all` from the top-level directory, which is the same command that [the testing GitHub action uses](https://github.com/statlab/cryptorandom/actions/workflows/test.yml).
+
+
+## Addendum - Author contribution statement
+
+We have added a requirement to this assignment. This is a short task, it will be due **4/28/2021 at 11:59 Pacific** and will be worth **10 points** (making the total score for the assignment 70 points).
+
+You will submit (by adding it to the team repo) an **Author Contribution Statement**, in a file named `authorship-contributions.md` (please also include a PDF render of it, as usual). This type of statement is an increasingly common requirement in the published literature, so creating one for this project (and subsequent ones) will be good practice for you.
+
+This statement should provide, concisely (it should be no longer than a page and you can probably fit it well within 1/2 page), a summary, high-level description of the activities each member of the team did during the project. You do not need to list individual commits or comments (we have access to your team repo with all this information).  You can find more discussion about this type of statement [on this site](https://www.editage.com/insights/how-to-draft-the-authorship-contribution-statement).
+
+If you find yourself with an _important concern or disagreement_ regarding the team contribution statement that you feel requires private communication to the instructors, you can do so by [filling out this short form](https://forms.gle/ZHqLQzCBf1SWJHHP6).
