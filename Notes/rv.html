@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Variables, Expectation, Random Vectors, and Stochastic Processes &#8212; Collaborative and Reproducible Data Science</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,14 +53,14 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -72,56 +69,56 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview.html">
    Statistics 159/259, Spring 2021 Course Summary
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Overview
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../schedule.html">
    Statistics 159/259: Weekly Plan
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Syllabus
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../syllabus.html">
    Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Homework Assignments
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Hw/hw01-background.html">
    1. Homework 1. Stats review and intro to Git
@@ -158,24 +155,24 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Lecture Notes
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
    An Idiosyncratic Sample of Applied Statistics
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Lecture Index
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Index/index.html">
    Index of Lectures and Materials
@@ -183,6 +180,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -232,12 +230,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -263,17 +261,16 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Random Variables, Expectation, Random Vectors, and Stochastic Processes
   </a>
-  <ul class="nav section-nav flex-column">
+  <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#random-variables">
      Random Variables
@@ -430,7 +427,7 @@
   <a class="reference internal nav-link" href="#right">
    \right )
   </a>
-  <ul class="nav section-nav flex-column">
+  <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-multivariate-normal-distribution">
      The Multivariate Normal Distribution
@@ -498,8 +495,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -894,8 +890,8 @@ However, the converse is not necessarily true: <span class="math notranslate noh
 <p>Suppose <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> are jointly distributed random variables, and let
 $$
 X =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9735f7c5-49c6-4632-8500-d401773c07d0">
-<span class="eqno">()<a class="headerlink" href="#equation-9735f7c5-49c6-4632-8500-d401773c07d0" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-566ec614-ac9d-480b-9588-c59d319e730a">
+<span class="eqno">()<a class="headerlink" href="#equation-566ec614-ac9d-480b-9588-c59d319e730a" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 \\
 \vdots \\
 X_n
@@ -906,8 +902,8 @@ Then \)</span>X<span class="math notranslate nohighlight">\( is a random vector,
 <p>The expected value of <span class="math notranslate nohighlight">\(X\)</span> is
 $$
 {\mathbb E} X \equiv</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e36569df-90b5-4ed9-8ed6-6077ae67912c">
-<span class="eqno">()<a class="headerlink" href="#equation-e36569df-90b5-4ed9-8ed6-6077ae67912c" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-71f1b026-e64e-431b-b993-1f479edc75ae">
+<span class="eqno">()<a class="headerlink" href="#equation-71f1b026-e64e-431b-b993-1f479edc75ae" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E} X_1 \\
 \vdots \\
 {\mathbb E} X_n
@@ -919,14 +915,14 @@ $$
 \mbox{cov } X \equiv
 {\mathbb E}
 \left (</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb9d9b54-aacc-4b26-b0ab-ed4bf82a0376">
-<span class="eqno">()<a class="headerlink" href="#equation-cb9d9b54-aacc-4b26-b0ab-ed4bf82a0376" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-c52b9d94-f571-4962-aae1-b9d61ce18cca">
+<span class="eqno">()<a class="headerlink" href="#equation-c52b9d94-f571-4962-aae1-b9d61ce18cca" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 \\
 \vdots \\
 X_n - {\mathbb E} X_n
 \end{pmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-a883a46a-386b-4af9-a3cf-089daba75f25">
-<span class="eqno">()<a class="headerlink" href="#equation-a883a46a-386b-4af9-a3cf-089daba75f25" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-fc85edcf-03e5-46eb-b112-1b000b73b14c">
+<span class="eqno">()<a class="headerlink" href="#equation-fc85edcf-03e5-46eb-b112-1b000b73b14c" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 \end{pmatrix}\]</div>
 </div>
@@ -934,8 +930,8 @@ X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 <div class="section" id="right">
 <h1>\right )<a class="headerlink" href="#right" title="Permalink to this headline">¶</a></h1>
 <p>{\mathbb E}</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25674de4-3348-488b-83a2-897b85c201c4">
-<span class="eqno">()<a class="headerlink" href="#equation-25674de4-3348-488b-83a2-897b85c201c4" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-9c1cba3e-09e5-42aa-910d-6ba6a1fa9d06">
+<span class="eqno">()<a class="headerlink" href="#equation-9c1cba3e-09e5-42aa-910d-6ba6a1fa9d06" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 (X_1 - {\mathbb E} X_1)^2 &amp; (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; \cdots &amp; (X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n) \\
 (X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2) &amp; (X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; (X_2 - {\mathbb E} X_2)(X_n - {\mathbb E} X_n) \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
@@ -944,8 +940,8 @@ X_1 - {\mathbb E} X_1 &amp; \cdots &amp; X_n - {\mathbb E} X_n
 <div class="math notranslate nohighlight">
 \[\]</div>
 <p>=</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e99a90cb-a71f-4036-bec5-44194b3e1ed8">
-<span class="eqno">()<a class="headerlink" href="#equation-e99a90cb-a71f-4036-bec5-44194b3e1ed8" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-b4e19e6b-ddb4-4335-8374-bb388891d1d8">
+<span class="eqno">()<a class="headerlink" href="#equation-b4e19e6b-ddb4-4335-8374-bb388891d1d8" title="Permalink to this equation">¶</a></span>\[\begin{pmatrix}
 {\mathbb E}(X_1 - {\mathbb E} X_1)^2 &amp; {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; \cdots &amp; 
 {\mathbb E}(X_1 - {\mathbb E} X_1)(X_n - {\mathbb E} X_n)) \\
 {\mathbb E}((X_1 - {\mathbb E} X_1)(X_2 - {\mathbb E} X_2)) &amp; {\mathbb E}(X_2 - {\mathbb E} X_2)^2 &amp; \cdots &amp; 
@@ -1121,9 +1117,8 @@ Alternative characterizations.</p>
 
       </div>
     </div>
-
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
 
     
