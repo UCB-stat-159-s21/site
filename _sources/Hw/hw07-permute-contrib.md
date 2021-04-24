@@ -11,7 +11,7 @@
 - Assignment type: **group** (teams of two).
 
 
-The purpose of this assignment is for your team to collaborate on the development of new contributions to another real-world open source repository, the [`permute`](https://github.com/statlab/permute) project we've discussed in class.  The high-level goal of the assignment is to make contributions to `permute` in three areas: **functionality**, **tests** of that functionality, and **documentation** of that functionality.  All of the changes will be to the [`utils.py`](https://github.com/statlab/permute/blob/main/permute/utils.py) file.
+The purpose of this assignment is for your team to collaborate on the development of new contributions to another real-world open source repository, the [`permute`](https://github.com/statlab/permute) project we've discussed in class.  The high-level goal of the assignment is to make contributions to `permute` in three areas: **functionality**, **tests** of that functionality, and **documentation** of that functionality.  All of the changes to functionality will be to the [`utils.py`](https://github.com/statlab/permute/blob/main/permute/utils.py) file, while the unit tests should be added to the [`test_utils.py`](https://github.com/statlab/permute/blob/main/permute/tests/test_utils.py) file where the existing unit tests reside.
 
 The assignment involves improving and extending two existing functions: `binom_conf_interval` and `hypergeom_conf_interval`. Those functions compute 1-sided and 2-sided confidence intervals for the binomial parameter $p$ ($n$ known) and for the hypergeometric parameter $G$ ($N$ and $n$ known). The current implementations are variants of the "Clopper-Pearson" approach (see [Brown, Cai, and DasGupta (2001)](https://www.jstor.org/stable/2676784?seq=1)).
 
@@ -28,6 +28,8 @@ For both `binom_conf_interval` and `hypergeom_conf_interval`, test the 1-sided c
 1. _[5 points]_ Check the endpoints are found in a numerically stable and efficient manner. Provide a better method if not.
 
 1. _[5 points]_ Add unit tests that exercise all the options.
+
+Please put the responses to these write up questions along with the results of running the unit tests in your `confidence-intervals.ipynb` submission file.
 
 ## [30 points] 2-sided bounds. 
 
@@ -63,6 +65,8 @@ The entire assignment is worth 50 points, broken down as follows:
 * 5 points: summary release notes that highlight your changes to the various functions, called `hw07-summary.md`, along with a PDF render of the same.  Your release notes _must_ include a section with your team's _Author Contribution Statement_ (see below for details).
 
 As in the previous assignment, we will look at the workflow of opening issues and evolving your code as PRs on your repo.
+
+**Note**: The repo's `.gitignore` file will cause git to ignore .ipynb files by default, so you may have to force add your Jupyter notebook to be tracked by using the command `git add -f confidence-intervals.ipynb`.
 
 ## Author contribution statement
 
