@@ -281,12 +281,12 @@
      Constant shift
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-tractable-alternative-hypotheses">
+     Other tractable alternative hypotheses
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-tractable-alternative-hypotheses">
-   Other tractable alternative hypotheses
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#testing-the-strong-null-hypothesis">
@@ -304,8 +304,8 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#effect-size-for-the-weak-null">
-       Effect Size for the Weak Null
+      <a class="reference internal nav-link" href="#average-treatment-effect-and-the-weak-null">
+       Average Treatment Effect and the Weak Null
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -397,16 +397,16 @@ The treatment affects both subjects, but the average effect of treatment is the 
 <div class="section" id="constant-shift">
 <h3>Constant shift<a class="headerlink" href="#constant-shift" title="Permalink to this headline">¶</a></h3>
 <p>For example, if we assume that the effect of treatment is to shift every subject’s response by the same amount, then we can use a test of the strong null to make inferences about that constant effect.
-In symbols, this alternative states that there is some number <span class="math notranslate nohighlight">\(\Delta\)</span>
-such that <span class="math notranslate nohighlight">\(x_{j1} = x_{j0}+\Delta\)</span> for all subjects <span class="math notranslate nohighlight">\(j\)</span>.</p>
+In symbols, this alternative states that there is some number <span class="math notranslate nohighlight">\(\tau\)</span>
+such that <span class="math notranslate nohighlight">\(x_{j1} = x_{j0}+\tau\)</span> for all subjects <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <p>Again, once the original data are observed, this hypothesis completely specifies the probability distribution of the data: we know what subject <span class="math notranslate nohighlight">\(j\)</span>’s response would have been had the subject been assigned the other treatment. If the subject was assigned treatment 0, the response would have been larger by <span class="math notranslate nohighlight">\(\Delta\)</span> if the subject had been assigned treatment 1 instead. if the subject was assigned treatment 1, the response would have been smaller by <span class="math notranslate nohighlight">\(\Delta\)</span> if the subject had been assigned treatment 0 instead.</p>
 </div>
-</div>
 <div class="section" id="other-tractable-alternative-hypotheses">
-<h2>Other tractable alternative hypotheses<a class="headerlink" href="#other-tractable-alternative-hypotheses" title="Permalink to this headline">¶</a></h2>
+<h3>Other tractable alternative hypotheses<a class="headerlink" href="#other-tractable-alternative-hypotheses" title="Permalink to this headline">¶</a></h3>
 <p>A more general alternative is that <span class="math notranslate nohighlight">\(x_{j1} = f(x_{j0})\)</span> for some strictly monotonic (and thus invertible) function <span class="math notranslate nohighlight">\(f\)</span>.
 A simple example is that treatment multiplies the response by a constant.</p>
 <p>In some contexts, it can be reasonable to assume that treatment can only help, that is that <span class="math notranslate nohighlight">\(x_{j1} \ge x_{j0}\)</span>, without specifying a functional relationship between them.</p>
+</div>
 </div>
 <div class="section" id="testing-the-strong-null-hypothesis">
 <h2>Testing the strong null hypothesis<a class="headerlink" href="#testing-the-strong-null-hypothesis" title="Permalink to this headline">¶</a></h2>
@@ -430,7 +430,8 @@ After some time has passed, we observe</p>
 \[\begin{equation*}
 X_j := (1-W_j) x_{j0} + W_j x_{j1}, \;\; j=1, \ldots, N.
 \end{equation*}\]</div>
-<p>These are random variables, but the only source of randomness is <span class="math notranslate nohighlight">\(\{W_j\}\)</span>, the
+<p>These are random variables, but (in this model)
+the only source of randomness is <span class="math notranslate nohighlight">\(\{W_j\}\)</span>, the
 treatment assignment variables.</p>
 <p>The total number of infections among the vaccinated is</p>
 <div class="amsmath math notranslate nohighlight">
@@ -444,17 +445,27 @@ treatment assignment variables.</p>
 \end{equation*}\]</div>
 <p>Under the strong null that the vaccine makes no difference whatsoever–as if whether a subject would become ill was predetermined before assignment to treatment or control–the distribution of the number of infections among the vaccinated would have a hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=X_0^*+X_1^*\)</span>, and <span class="math notranslate nohighlight">\(n=n\)</span>.
 Testing the strong null using this hypergeometric distribution yields <em>Fisher’s Exact Test</em>.</p>
-<p>This model can be generalized by considering the total number of infections <span class="math notranslate nohighlight">\(X_0^*+X_1^*\)</span> to be random, then conditioning on the observed value to get a conditional test.</p>
+<p>This model can be generalized by considering the total number of infections <span class="math notranslate nohighlight">\(X_0^*+X_1^*\)</span> to be random, then conditioning on the observed number of infections to get a conditional test.</p>
 <div class="section" id="inference-about-the-size-of-the-treatment-effect">
 <h3>Inference about the size of the treatment effect<a class="headerlink" href="#inference-about-the-size-of-the-treatment-effect" title="Permalink to this headline">¶</a></h3>
 <p>But how can we find a confidence interval for the treatment effect?</p>
 <p>First, we need to define what we mean by the treatment effect!</p>
-<div class="section" id="effect-size-for-the-weak-null">
-<h4>Effect Size for the Weak Null<a class="headerlink" href="#effect-size-for-the-weak-null" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="average-treatment-effect-and-the-weak-null">
+<h4>Average Treatment Effect and the Weak Null<a class="headerlink" href="#average-treatment-effect-and-the-weak-null" title="Permalink to this headline">¶</a></h4>
 <p>Recall that the “weak” null hypothesis that average response is the same, regardless
 of the assigned treatment (but individuals might have different responses to treatment).
-Define <span class="math notranslate nohighlight">\(\bar{X}_0 := X_0^*/(N-n)\)</span> and <span class="math notranslate nohighlight">\(\bar{X}_1 := X_1^*/n\)</span>, the observed mean
-responses for the control group and the treatment group.
+Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\bar{X}_0 := X_0^*/(N-n)
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\bar{X}_1 := X_1^*/n,
+\end{equation*}\]</div>
+<p>the observed mean
+responses for the control group and the treatment group, respectively.
 These are unbiased estimates of
 the corresponding population parameters,</p>
 <div class="amsmath math notranslate nohighlight">
@@ -473,95 +484,84 @@ the corresponding population parameters,</p>
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_j := x_{1j}-x_{0j}\)</span>.
 An unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</span> is <span class="math notranslate nohighlight">\(\hat{\tau} := \bar{X}_1 - \bar{X}_0\)</span>.</p>
-<p>The study population can be summarized by 4 numbers, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>, where <span class="math notranslate nohighlight">\(N_{ik}\)</span> is the number of subjects <span class="math notranslate nohighlight">\(j\)</span> for whom
-<span class="math notranslate nohighlight">\(x_{j0} = k\)</span> and <span class="math notranslate nohighlight">\(x_{j1} = k\)</span>, for <span class="math notranslate nohighlight">\(i, k \in \{0, 1\}\)</span>.
-Of course, <span class="math notranslate nohighlight">\(N = N_{00} + N_{01} + N_{10} + N_{11}\)</span>.
-The average treatment effect can be written <span class="math notranslate nohighlight">\(\tau = (N_{01}-N_{10})/N\)</span>.</p>
+<p>Note that since each <span class="math notranslate nohighlight">\(\tau_j\)</span> is either <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, or <span class="math notranslate nohighlight">\(1\)</span>, the only possible values of
+<span class="math notranslate nohighlight">\(\tau\)</span> are multiples of <span class="math notranslate nohighlight">\(1/N\)</span>.</p>
+<p>The study population can be summarized by four numbers, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>, where <span class="math notranslate nohighlight">\(N_{ik}\)</span> is the number of subjects <span class="math notranslate nohighlight">\(j\)</span> for whom
+<span class="math notranslate nohighlight">\(x_{j0} = i\)</span> and <span class="math notranslate nohighlight">\(x_{j1} = k\)</span>, for <span class="math notranslate nohighlight">\(i, k \in \{0, 1\}\)</span>.
+That is, <span class="math notranslate nohighlight">\(N_{00}\)</span> is the number of subjects whose response is “0” whether they are assigned to treatment or to control, while <span class="math notranslate nohighlight">\(N_{01}\)</span> is the number of subjects whose response would be
+“0” if assigned to control and “1” if assigned to treatment, etc.
+Of course, <span class="math notranslate nohighlight">\(N = N_{00} + N_{01} + N_{10} + N_{11}\)</span>.</p>
+<p>Define <span class="math notranslate nohighlight">\(N_{\cdot 1} := N_{01} + N_{11}\)</span> and <span class="math notranslate nohighlight">\(N_{1\cdot} := N_{10} + N_{11}\)</span>.
+Then <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> is the number of subjects whose response would be “1” if assigned to treatment and <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> is the number of subjects whose response would be “1” if
+assigned to control.</p>
+<p>Now <span class="math notranslate nohighlight">\(\sum_{j=1}^N x_{0j} = N_{1\cdot}\)</span> and <span class="math notranslate nohighlight">\(\sum_{j=1}^N x_{1j} = N_{\cdot 1}\)</span>, so
+the average treatment effect can be written</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tau = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} (N_{\cdot 1} - N_{1\cdot}).
+\end{equation*}\]</div>
 </div>
 <div class="section" id="first-approach-bonferroni-simultaneous-confidence-intervals">
 <h4>First approach: Bonferroni simultaneous confidence intervals<a class="headerlink" href="#first-approach-bonferroni-simultaneous-confidence-intervals" title="Permalink to this headline">¶</a></h4>
 <p>A collection of confidence set procedures <span class="math notranslate nohighlight">\(\{\mathcal{I}_i \}_{i=1}^m\)</span> for a corresponding set of parameters <span class="math notranslate nohighlight">\(\{ \theta_i \}_{i=1}^m\)</span> has <em>simultaneous coverage probability</em> <span class="math notranslate nohighlight">\(1-\alpha\)</span> if</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\mathbb{P}_{\theta_1, \ldots, \theta_m} \cap_{i=1}^m ( \theta_i \in \mathcal{I}_i ) \ge 1-\alpha
+\mathbb{P}_{\theta_1, \ldots, \theta_m} \bigcap_{i=1}^m ( \theta_i \in \mathcal{I}_i ) \ge 1-\alpha
 \end{equation*}\]</div>
 <p>whatever the true values <span class="math notranslate nohighlight">\(\{\theta_i\}\)</span> are.</p>
 <p>Bonferroni’s inequality says that for any collection of events <span class="math notranslate nohighlight">\(\{A_i\}\)</span>,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\mathbb{P} \left ( \cup_i A_i \right ) \le \sum_i \mathbb{P}(A_i).
+\mathbb{P} \left ( \bigcup_i A_i \right ) \le \sum_i \mathbb{P}(A_i).
 \end{equation*}\]</div>
-<p>It follows that if <span class="math notranslate nohighlight">\(\mathcal{I}_i\)</span> is a confidence interval procedure for <span class="math notranslate nohighlight">\(\theta_i\)</span> with coverage probability <span class="math notranslate nohighlight">\(1-\alpha_i\)</span>, <span class="math notranslate nohighlight">\(i=1, \ldots, m\)</span>, then the collection of
+<p>It follows that if <span class="math notranslate nohighlight">\(\mathcal{I}_i\)</span> is a confidence interval procedure for <span class="math notranslate nohighlight">\(\theta_i\)</span> with coverage probability <span class="math notranslate nohighlight">\(1-\alpha_i\)</span>, <span class="math notranslate nohighlight">\(i=1, \ldots, m\)</span>, then the collection of <span class="math notranslate nohighlight">\(m\)</span>
 confidence set procedures <span class="math notranslate nohighlight">\(\{\mathcal{I}_i \}_{i=1}^m\)</span> has simultaneous coverage probability
-not smaller than <span class="math notranslate nohighlight">\(1-\sum_i \alpha_i\)</span>.</p>
-<p>In the current situation, if we had simultaneous confidence sets for both <span class="math notranslate nohighlight">\(N_{01}\)</span> and <span class="math notranslate nohighlight">\(N_{10}\)</span>, we could find a confidence set for <span class="math notranslate nohighlight">\(\tau\)</span> because <span class="math notranslate nohighlight">\(\tau = (N_{01}-N_{10})/N\)</span>.</p>
+not smaller than <span class="math notranslate nohighlight">\(1-\sum_{i=1}^m \alpha_i\)</span>.</p>
+<p>In the current situation, if we had simultaneous confidence sets for both <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> and <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span>, we could find a confidence set for <span class="math notranslate nohighlight">\(\tau\)</span>, because
+<span class="math notranslate nohighlight">\(\tau = (N_{\cdot 1} - N_{1\cdot})/N\)</span>.</p>
+<p>Now, <span class="math notranslate nohighlight">\(X_1^*\)</span> is the number of “1”s in a random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of size <span class="math notranslate nohighlight">\(N\)</span> of which <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> are labeled “1” and the rest are labeled “0.”
+Similarly, <span class="math notranslate nohighlight">\(X_0^*\)</span> is the number of “1”s in a random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of size <span class="math notranslate nohighlight">\(N\)</span> of which <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> are labeled “1” and the rest are labeled “0.”
+That is, the probability distribution of <span class="math notranslate nohighlight">\(X_1^*\)</span> is
+hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=N_{\cdot 1}\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>,
+and the probability distribution of <span class="math notranslate nohighlight">\(X_0^*\)</span> is
+hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=N_{1 \cdot}\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>, but <span class="math notranslate nohighlight">\(X_1^*\)</span> and <span class="math notranslate nohighlight">\(X_0^*\)</span> are
+dependent.</p>
+<p>To construct an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>, subtract a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, and divide the result by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>To construct a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>, subtract an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, and divide the result by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>To construct a 2-sided confidence interval for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find a
+2-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> and a 2-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>.
+The lower endpoint of the <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence interval for <span class="math notranslate nohighlight">\(\tau\)</span>
+is the lower endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>  minus the upper
+endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.
+The upper endpoint of the <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence interval for <span class="math notranslate nohighlight">\(\tau\)</span>
+is the upper endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>  minus the lower
+endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>This approach has a number of advantages: it is conceptually simple, conservative, and
+only requires the ability to compute confidence intervals for <span class="math notranslate nohighlight">\(G\)</span> for
+hypergeometric distributions.
+But the intervals will in general be quite conservative, i.e., unnecessarily wide.
+We now examine sharper approaches.</p>
 </div>
 <div class="section" id="second-approach-testing-all-2x2-tables-of-potential-outcomes">
 <h4>Second approach: testing all 2x2 tables of potential outcomes<a class="headerlink" href="#second-approach-testing-all-2x2-tables-of-potential-outcomes" title="Permalink to this headline">¶</a></h4>
+<p>Consider the hypothesis <span class="math notranslate nohighlight">\(H_0: \{N_{00}=N_{00}^0, N_{01}=N_{01}^0, N_{10}=N_{10}^0, N_{11}=N_{11}^0\)</span>.
+How could we test this hypothesis using the known data <span class="math notranslate nohighlight">\(X_0^*\)</span> and <span class="math notranslate nohighlight">\(X_1^*\)</span>?</p>
 <p>After the randomization, for each subject <span class="math notranslate nohighlight">\(j\)</span>, we observe either <span class="math notranslate nohighlight">\(x_{j0}\)</span> or
 <span class="math notranslate nohighlight">\(x_{j1}\)</span>.
 At that point, we know <span class="math notranslate nohighlight">\(N\)</span> of the <span class="math notranslate nohighlight">\(2N\)</span> numbers <span class="math notranslate nohighlight">\(\{x_{jk}\}_{j=1}^N{}_{k=0}^1\)</span>.
-The other <span class="math notranslate nohighlight">\(N\)</span> numbers–the responses that were not observed–can be any combination of 0s and 1s: there are <span class="math notranslate nohighlight">\(2^N\)</span> possibilities in all.</p>
-<p>But at the end of the day, all that matters are the four numbers <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>.
-Together, these sum to <span class="math notranslate nohighlight">\(N\)</span>.
+The other <span class="math notranslate nohighlight">\(N\)</span> numbers–the responses that were not observed–can be any combination of 0s and 1s: there are <span class="math notranslate nohighlight">\(2^N\)</span> possibilities in all.
+But not all of those yield distinguishable tables of results.</p>
+<p>At the end of the day, the average treatment effect <span class="math notranslate nohighlight">\(\tau\)</span> is determined by
+the four numbers, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>, which to sum to <span class="math notranslate nohighlight">\(N\)</span>.
+How many possible values are there for those four numbers?
 The total number of ways there are of partitioning <span class="math notranslate nohighlight">\(N\)</span> items into 4 groups can be found by Feller’s “bars and stars” argument (see the <a class="reference internal" href="nuisance.html"><span class="doc std std-doc">notes on nuisance parameters</span></a>);
-the answer is <span class="math notranslate nohighlight">\(\binom{N+3}{3}\)</span>.
+the answer is <span class="math notranslate nohighlight">\(\binom{N+3}{3} = (N+3)(N+2)(N+1)/6\)</span>.
 This is <span class="math notranslate nohighlight">\(O(N^3)\)</span> tables
-(<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6384">Rigdon and Hudgens (2015)</a>).
-But many of those tables are incompatible with the observed data.
+(see <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6384">Rigdon and Hudgens (2015)</a>).</p>
+<p>But many of those tables are incompatible with the observed data.
+For instance, we know that <span class="math notranslate nohighlight">\( N_{1\cdot} \ge X_0^*\)</span> and <span class="math notranslate nohighlight">\(N_{\cdot 1} \ge X_1^*\)</span>.
 <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that taking into account the observed data constrains
 the number of tables to <span class="math notranslate nohighlight">\(O(N^2)\)</span>, greatly speeding the computation.</p>
-<p>The (unknown) complete table of results is as follows:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(w_j\)</span></p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_{j0}\)</span></p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_{j1}\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
-</tr>
-</tbody>
-</table>
 <p>[MORE TO COME]</p>
 </div>
 </div>
@@ -613,10 +613,9 @@ the number of tables to <span class="math notranslate nohighlight">\(O(N^2)\)</s
 
       </div>
     </div>
-    
+  
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
-    
+  
   </body>
 </html>
