@@ -304,18 +304,17 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#average-treatment-effect-and-the-weak-null">
-       Average Treatment Effect and the Weak Null
+      <a class="reference internal nav-link" href="#first-approach-to-confidence-bounds-for-tau-bonferroni-simultaneous-confidence-intervals">
+       First approach to confidence bounds for
+       <span class="math notranslate nohighlight">
+        \(\tau\)
+       </span>
+       : Bonferroni simultaneous confidence intervals
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#first-approach-bonferroni-simultaneous-confidence-intervals">
-       First approach: Bonferroni simultaneous confidence intervals
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#second-approach-testing-all-2x2-tables-of-potential-outcomes">
-       Second approach: testing all 2x2 tables of potential outcomes
+      <a class="reference internal nav-link" href="#second-approach-testing-all-tables-of-potential-outcomes">
+       Second approach: testing all tables of potential outcomes
       </a>
      </li>
     </ul>
@@ -390,7 +389,13 @@ The statistical theory is more complex for the weak null hypothesis than for the
 But the converse is not true: the weak null can be true even if the strong null is false.
 For example, for <span class="math notranslate nohighlight">\(T=2\)</span> and <span class="math notranslate nohighlight">\(N=2\)</span>, we might have potential responses <span class="math notranslate nohighlight">\((0, 1)\)</span> for subject 1 and <span class="math notranslate nohighlight">\((1,0)\)</span> for subject 2. The effect of treatment is to increase subject 1’s response from 0 to 1 and to decrease subject 2’s response from 1 to 0.
 The treatment affects both subjects, but the average effect of treatment is the same: the average response across subjects is 1/2, with or without treatment.</p>
-<p>If we can test the weak null, we can also make inferences about the <em>average treatment effect</em>. If we can only test the strong null, in general we have to make assumptions about how treatment affects responses in order to make inferences about the average treatment effect.</p>
+<p>If we can test the weak null, we can also make inferences about the <em>average treatment effect</em></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tau := \frac{1}{N} \sum_{j=1}^N (x_{j1} - x_{j0})
+\end{equation*}\]</div>
+<p>(when treatment 1 is being compared to control).</p>
+<p>If we can only test the strong null, in general we have to make assumptions about how treatment affects responses in order to make inferences about the average treatment effect.</p>
 </div>
 <div class="section" id="alternative-hypotheses-in-the-neyman-model">
 <h2>Alternative hypotheses in the Neyman model<a class="headerlink" href="#alternative-hypotheses-in-the-neyman-model" title="Permalink to this headline">¶</a></h2>
@@ -448,10 +453,6 @@ Testing the strong null using this hypergeometric distribution yields <em>Fisher
 <p>This model can be generalized by considering the total number of infections <span class="math notranslate nohighlight">\(X_0^*+X_1^*\)</span> to be random, then conditioning on the observed number of infections to get a conditional test.</p>
 <div class="section" id="inference-about-the-size-of-the-treatment-effect">
 <h3>Inference about the size of the treatment effect<a class="headerlink" href="#inference-about-the-size-of-the-treatment-effect" title="Permalink to this headline">¶</a></h3>
-<p>But how can we find a confidence interval for the treatment effect?</p>
-<p>First, we need to define what we mean by the treatment effect!</p>
-<div class="section" id="average-treatment-effect-and-the-weak-null">
-<h4>Average Treatment Effect and the Weak Null<a class="headerlink" href="#average-treatment-effect-and-the-weak-null" title="Permalink to this headline">¶</a></h4>
 <p>Recall that the “weak” null hypothesis that average response is the same, regardless
 of the assigned treatment (but individuals might have different responses to treatment).
 Define</p>
@@ -480,12 +481,15 @@ the corresponding population parameters,</p>
 <p>The <em>average treatment effect</em> for the study population is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\tau := \bar{x}_1 - \bar{x}_0 = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} \sum_{j=1}^N \tau_j,
+\tau = \bar{x}_1 - \bar{x}_0 = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} \sum_{j=1}^N \tau_j,
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_j := x_{1j}-x_{0j}\)</span>.
 An unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</span> is <span class="math notranslate nohighlight">\(\hat{\tau} := \bar{X}_1 - \bar{X}_0\)</span>.</p>
-<p>Note that since each <span class="math notranslate nohighlight">\(\tau_j\)</span> is either <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, or <span class="math notranslate nohighlight">\(1\)</span>, the only possible values of
-<span class="math notranslate nohighlight">\(\tau\)</span> are multiples of <span class="math notranslate nohighlight">\(1/N\)</span>.</p>
+<p>Since each <span class="math notranslate nohighlight">\(\tau_j\)</span> is either <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, or <span class="math notranslate nohighlight">\(1\)</span>, the only possible values of
+<span class="math notranslate nohighlight">\(\tau\)</span> are multiples of <span class="math notranslate nohighlight">\(1/N\)</span>.
+The largest and smallest possible values are <span class="math notranslate nohighlight">\(\tau=-1\)</span> (which
+occurs if <span class="math notranslate nohighlight">\(x_{1j}=0\)</span> and <span class="math notranslate nohighlight">\(x_{0j}=1\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>) and
+<span class="math notranslate nohighlight">\(\tau=11\)</span> (which occurs if <span class="math notranslate nohighlight">\(x_{1j}=1\)</span> and <span class="math notranslate nohighlight">\(x_{0j}=0\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>), a range of 2.</p>
 <p>The study population can be summarized by four numbers, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>, where <span class="math notranslate nohighlight">\(N_{ik}\)</span> is the number of subjects <span class="math notranslate nohighlight">\(j\)</span> for whom
 <span class="math notranslate nohighlight">\(x_{j0} = i\)</span> and <span class="math notranslate nohighlight">\(x_{j1} = k\)</span>, for <span class="math notranslate nohighlight">\(i, k \in \{0, 1\}\)</span>.
 That is, <span class="math notranslate nohighlight">\(N_{00}\)</span> is the number of subjects whose response is “0” whether they are assigned to treatment or to control, while <span class="math notranslate nohighlight">\(N_{01}\)</span> is the number of subjects whose response would be
@@ -500,9 +504,31 @@ the average treatment effect can be written</p>
 \[\begin{equation*}
 \tau = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} (N_{\cdot 1} - N_{1\cdot}).
 \end{equation*}\]</div>
-</div>
-<div class="section" id="first-approach-bonferroni-simultaneous-confidence-intervals">
-<h4>First approach: Bonferroni simultaneous confidence intervals<a class="headerlink" href="#first-approach-bonferroni-simultaneous-confidence-intervals" title="Permalink to this headline">¶</a></h4>
+<p>Once the data have been observed, we know that <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> is at least <span class="math notranslate nohighlight">\(X_0^*\)</span>
+(we saw that many ones in the control group)
+and at most <span class="math notranslate nohighlight">\(X_0^* + n\)</span> (if every unobserved control response were one).
+Similarly, we know that <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> is at least <span class="math notranslate nohighlight">\(X_1^*\)</span>
+(we saw that many ones in the treatment group)
+and at most <span class="math notranslate nohighlight">\(X_1^* + (N-n)\)</span> (if every unobserved
+treatment response were one).
+Their difference is thus between</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+X_1^* - X_0^ - n* 
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+X_1^* - X_0^* + N - n)
+\end{equation*}\]</div>
+<p>so</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tau \in \{ (X_1^* - X_0^* - n)/N, (X_1^* - X_0^* - n + 1)/N, \ldots, (X_1^* - X_0^* + N-n)\},
+\end{equation*}\]</div>
+<p>which has range <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="section" id="first-approach-to-confidence-bounds-for-tau-bonferroni-simultaneous-confidence-intervals">
+<h4>First approach to confidence bounds for <span class="math notranslate nohighlight">\(\tau\)</span>: Bonferroni simultaneous confidence intervals<a class="headerlink" href="#first-approach-to-confidence-bounds-for-tau-bonferroni-simultaneous-confidence-intervals" title="Permalink to this headline">¶</a></h4>
 <p>A collection of confidence set procedures <span class="math notranslate nohighlight">\(\{\mathcal{I}_i \}_{i=1}^m\)</span> for a corresponding set of parameters <span class="math notranslate nohighlight">\(\{ \theta_i \}_{i=1}^m\)</span> has <em>simultaneous coverage probability</em> <span class="math notranslate nohighlight">\(1-\alpha\)</span> if</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -542,10 +568,8 @@ hypergeometric distributions.
 But the intervals will in general be quite conservative, i.e., unnecessarily wide.
 We now examine sharper approaches.</p>
 </div>
-<div class="section" id="second-approach-testing-all-2x2-tables-of-potential-outcomes">
-<h4>Second approach: testing all 2x2 tables of potential outcomes<a class="headerlink" href="#second-approach-testing-all-2x2-tables-of-potential-outcomes" title="Permalink to this headline">¶</a></h4>
-<p>Consider the hypothesis <span class="math notranslate nohighlight">\(H_0: \{N_{00}=N_{00}^0, N_{01}=N_{01}^0, N_{10}=N_{10}^0, N_{11}=N_{11}^0\)</span>.
-How could we test this hypothesis using the known data <span class="math notranslate nohighlight">\(X_0^*\)</span> and <span class="math notranslate nohighlight">\(X_1^*\)</span>?</p>
+<div class="section" id="second-approach-testing-all-tables-of-potential-outcomes">
+<h4>Second approach: testing all tables of potential outcomes<a class="headerlink" href="#second-approach-testing-all-tables-of-potential-outcomes" title="Permalink to this headline">¶</a></h4>
 <p>After the randomization, for each subject <span class="math notranslate nohighlight">\(j\)</span>, we observe either <span class="math notranslate nohighlight">\(x_{j0}\)</span> or
 <span class="math notranslate nohighlight">\(x_{j1}\)</span>.
 At that point, we know <span class="math notranslate nohighlight">\(N\)</span> of the <span class="math notranslate nohighlight">\(2N\)</span> numbers <span class="math notranslate nohighlight">\(\{x_{jk}\}_{j=1}^N{}_{k=0}^1\)</span>.
@@ -562,7 +586,73 @@ This is <span class="math notranslate nohighlight">\(O(N^3)\)</span> tables
 For instance, we know that <span class="math notranslate nohighlight">\( N_{1\cdot} \ge X_0^*\)</span> and <span class="math notranslate nohighlight">\(N_{\cdot 1} \ge X_1^*\)</span>.
 <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that taking into account the observed data constrains
 the number of tables to <span class="math notranslate nohighlight">\(O(N^2)\)</span>, greatly speeding the computation.</p>
+<p><strong>A permutation approach</strong></p>
+<p>Together, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span> determine the sampling distribution of any statistic, through the random allocation of subjects to treatments.
+To test the null hypothesis <span class="math notranslate nohighlight">\(H_0: \{N_{00}=N_{00}^0, N_{01}=N_{01}^0, N_{10}=N_{10}^0, N_{11}=N_{11}^0 \}\)</span>, we can define some function <span class="math notranslate nohighlight">\(T\)</span> of <span class="math notranslate nohighlight">\(X_0^*\)</span> and <span class="math notranslate nohighlight">\(X_1^*\)</span> and reject <span class="math notranslate nohighlight">\(H_0\)</span> if the observed value of <span class="math notranslate nohighlight">\(T\)</span> is in the tail of the probability distribution corresponding to
+<span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>What should we use for <span class="math notranslate nohighlight">\(T\)</span>? Since we are interested in <span class="math notranslate nohighlight">\(\tau\)</span>,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\hat{\tau} := \bar{X}_1 - \bar{X}_0 = X_1^*/n - X_0^*/(N-n)
+\end{equation*}\]</div>
+<p>an unbiased estimator of <span class="math notranslate nohighlight">\(\tau\)</span>, is a sensible choice (although not necessarily optimal in any sense).</p>
+<p>Recall that <span class="math notranslate nohighlight">\(N_{\cdot 1} := N_{01} + N_{11}\)</span>, <span class="math notranslate nohighlight">\(N_{1\cdot} := N_{10} + N_{11}\)</span>,
+and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tau = (N_{\cdot 1} - N_{1\cdot})/N = (N_{01}-N_{10})/N.
+\end{equation*}\]</div>
+<p>if <span class="math notranslate nohighlight">\(H_0\)</span> is true, then <span class="math notranslate nohighlight">\(\tau = \tau_0 = (N_{01}^0 - N_{10}^0)/N\)</span>.
+If we do not reject <span class="math notranslate nohighlight">\(H_0\)</span>, then we cannot reject the hypothesis <span class="math notranslate nohighlight">\(\tau = \tau_0\)</span>.
+We can reject the hypothesis <span class="math notranslate nohighlight">\(\tau = \tau_0\)</span> if we can reject <em>every</em> table for which
+<span class="math notranslate nohighlight">\(\tau = \tau_0\)</span>.</p>
+<p>We might calibrate the test by figuring out the probability distribution of <span class="math notranslate nohighlight">\(T\)</span> under <span class="math notranslate nohighlight">\(H_0\)</span>:
+For each of the <span class="math notranslate nohighlight">\(\binom{N}{n}\)</span> equally likely possible treatment assignments, we can find
+the corresponding value of <span class="math notranslate nohighlight">\(T\)</span>.
+When <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(n\)</span> is not close to <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(N\)</span>, that approach is impractical.
+Instead, we might approximate the probability distribution by simulation: actually drawing
+pseudo-random samples.</p>
 <p>[MORE TO COME]</p>
+<p><strong>Enumerating all feasible 2x2 tables</strong></p>
+<p>Constraints on <span class="math notranslate nohighlight">\(N_{jk}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(N_{10} + N_{11} \ge \)</span>X_0^*<span class="math notranslate nohighlight">\(
+\)</span>N_{01} + N_{11} \ge <span class="math notranslate nohighlight">\(X_1^*\)</span></p>
+<p>Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+n_{wk} \equiv = \sum_{j=1}^N 1_{W_j=w, x_{jw}=k}
+\end{equation*}\]</div>
+<p>for <span class="math notranslate nohighlight">\(w \in \{0, 1\}\)</span> and <span class="math notranslate nohighlight">\(k \in \{0, 1\}\)</span>.
+That is, <span class="math notranslate nohighlight">\(n_{00} = (N-n)-X_0^*\)</span>, <span class="math notranslate nohighlight">\(n_{01} = X_0^*\)</span>, <span class="math notranslate nohighlight">\(n_{10} = n-X_1^*\)</span>, and
+<span class="math notranslate nohighlight">\(n_{11} = X_1^*\)</span>.
+Clearly, <span class="math notranslate nohighlight">\(\sum_{w,k} n_{wk} = N\)</span>: these numbers count the elements in
+a partition of the subjects.</p>
+<p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6384">Rigdon and Hudgens (2014)</a> show that it suffices to examine
+<span class="math notranslate nohighlight">\(n_{RH} := (n_{11} + 1)(n_{10} + 1)(n_{01} + 1)(n_{00} + 1)\)</span> 2 by 2 tables to find confidence bounds
+for <span class="math notranslate nohighlight">\(\tau\)</span> using <span class="math notranslate nohighlight">\(\hat{\tau}\)</span> as the test statistic.</p>
+<p>The argument is as follows: Consider the <span class="math notranslate nohighlight">\(n_{11}\)</span> subjects who were assigned to treatment <span class="math notranslate nohighlight">\(w=1\)</span> and whose response was <span class="math notranslate nohighlight">\(x_{j1}=1\)</span>.
+Fix the unobserved values of the remaining <span class="math notranslate nohighlight">\(N-n_{11}\)</span> subjects.
+As the unobserved responses of those <span class="math notranslate nohighlight">\(n_{11}\)</span> vary, the value of <span class="math notranslate nohighlight">\(\tau\)</span>
+and the probability distribution of <span class="math notranslate nohighlight">\(T\)</span> depend only on how many of them
+have <span class="math notranslate nohighlight">\(x_{j0}=0\)</span> and how many have <span class="math notranslate nohighlight">\(x_{j0}=1\)</span>.
+The number <span class="math notranslate nohighlight">\(m\)</span> for which <span class="math notranslate nohighlight">\(x_{j0}=0\)</span> could be 0, 1, <span class="math notranslate nohighlight">\(\ldots\)</span>, or <span class="math notranslate nohighlight">\(n_{11}\)</span>;
+the other <span class="math notranslate nohighlight">\(n_{11}-m\)</span> have <span class="math notranslate nohighlight">\(x_{j0}=1\)</span>.
+There are thus only <span class="math notranslate nohighlight">\(n_{11}+1\)</span> tables that need to be examined,
+given the unobserved values in the other three groups.
+By an analogous argument, as the unobserved values of the <span class="math notranslate nohighlight">\(n_{01}\)</span>
+subjects vary, holding constant the unobserved valoes for the rest, there are at
+most <span class="math notranslate nohighlight">\(n_{01}+1\)</span> distinct values of <span class="math notranslate nohighlight">\(\tau\)</span> and distinct probability distributions for
+<span class="math notranslate nohighlight">\(T\)</span>. The same goes for <span class="math notranslate nohighlight">\(n_{10}\)</span> and <span class="math notranslate nohighlight">\(n_{11}\)</span>. By the fundamental rule of counting,
+the total number of tables that give rise to distinguishable probability distributions
+for <span class="math notranslate nohighlight">\(T\)</span> is thus at most <span class="math notranslate nohighlight">\(n_{RH}\)</span>.</p>
+<p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that
+a table is consistent with the observed values <span class="math notranslate nohighlight">\(n_{wk}\)</span> iff</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\max \{0,n_{11}-N_{10}, N_{11}-n_{01}, N_{\cdot 1} - n_{10} - n_{01} \}
+  \le
+\min \{N_{11}, n_{11}, N_{\cdot 1}-n_{01}, N - N_{10} - n_{01} - n_{10} \}.
+\end{equation*}\]</div>
 </div>
 </div>
 </div>
