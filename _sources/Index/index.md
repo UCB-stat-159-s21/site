@@ -61,7 +61,10 @@ notebooks and materials : [Peng Ding's Site](https://sites.google.com/site/pengd
 ), [R code for Li & Ding](https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fsim.6764&file=sim6764-sup-0002-Supplementary.R)
 - **Lecture 26** (2021-04-22) : [video](https://drive.google.com/file/d/14TUHmElgCmq4KTk2X-hAweuYijzo_D4i/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1R6PA3OoXZYWnxcVTvBF6CYisEG0yWZ-tufSbS5xQTdA/edit?usp=sharing)   
 notebooks and materials:
-[Containers jamboard](https://jamboard.google.com/d/1h9AEODcqDkufXoqUPGD0mzz4ECYWvX6tvdDOLL3QmD0/edit?usp=sharing), [Docker Hub](https://hub.docker.com/), [Ubuntu Images](https://hub.docker.com/_/ubuntu), [Storage in Docker](https://docs.docker.com/storage/), [Exporting Conda Envs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment), [Tiny Binder Example](https://github.com/fperez/tiny-binder), [Site Binder](https://mybinder.org/v2/gh/UCB-stat-159-s21/site/HEAD?filepath=lab/tree/Notes%2Findex.ipynb), 
+[Containers jamboard](https://jamboard.google.com/d/1h9AEODcqDkufXoqUPGD0mzz4ECYWvX6tvdDOLL3QmD0/edit?usp=sharing), [Docker Hub](https://hub.docker.com/), [Ubuntu Images](https://hub.docker.com/_/ubuntu), [Storage in Docker](https://docs.docker.com/storage/), [Exporting Conda Envs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment), [Tiny Binder Example](https://github.com/fperez/tiny-binder), [Site Binder](https://mybinder.org/v2/gh/UCB-stat-159-s21/site/HEAD?filepath=lab/tree/Notes%2Findex.ipynb)
+- **Lecture 27** (2021-04-27) : [video](https://drive.google.com/file/d/1denFfXjZ4GIit_m-ulGq6KSWPiD_WRk6/view?usp=sharing), [jamboard](https://jamboard.google.com/d/1mVGvv5iC7k89tG5pNEB9D6R52KDHYoSyPImYk27hPtE/edit?usp=sharing)   
+notebooks and materials: [Causal Inference](https://ucb-stat-159-s21.github.io/site/Notes/causal-inference.html)
+
 
 ## Labs
 - **Lab 1** (2021-02-03) : no recording   
