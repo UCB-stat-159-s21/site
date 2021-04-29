@@ -489,25 +489,27 @@ An unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</spa
 <span class="math notranslate nohighlight">\(\tau\)</span> are multiples of <span class="math notranslate nohighlight">\(1/N\)</span>.
 The largest and smallest possible values are <span class="math notranslate nohighlight">\(\tau=-1\)</span> (which
 occurs if <span class="math notranslate nohighlight">\(x_{1j}=0\)</span> and <span class="math notranslate nohighlight">\(x_{0j}=1\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>) and
-<span class="math notranslate nohighlight">\(\tau=11\)</span> (which occurs if <span class="math notranslate nohighlight">\(x_{1j}=1\)</span> and <span class="math notranslate nohighlight">\(x_{0j}=0\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>), a range of 2.</p>
+<span class="math notranslate nohighlight">\(\tau=1\)</span> (which occurs if <span class="math notranslate nohighlight">\(x_{1j}=1\)</span> and <span class="math notranslate nohighlight">\(x_{0j}=0\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>), a range of 2.</p>
 <p>The study population can be summarized by four numbers, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span>, where <span class="math notranslate nohighlight">\(N_{ik}\)</span> is the number of subjects <span class="math notranslate nohighlight">\(j\)</span> for whom
 <span class="math notranslate nohighlight">\(x_{j0} = i\)</span> and <span class="math notranslate nohighlight">\(x_{j1} = k\)</span>, for <span class="math notranslate nohighlight">\(i, k \in \{0, 1\}\)</span>.
 That is, <span class="math notranslate nohighlight">\(N_{00}\)</span> is the number of subjects whose response is “0” whether they are assigned to treatment or to control, while <span class="math notranslate nohighlight">\(N_{01}\)</span> is the number of subjects whose response would be
 “0” if assigned to control and “1” if assigned to treatment, etc.
-Of course, <span class="math notranslate nohighlight">\(N = N_{00} + N_{01} + N_{10} + N_{11}\)</span>.</p>
-<p>Define <span class="math notranslate nohighlight">\(N_{\cdot 1} := N_{01} + N_{11}\)</span> and <span class="math notranslate nohighlight">\(N_{1\cdot} := N_{10} + N_{11}\)</span>.
-Then <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> is the number of subjects whose response would be “1” if assigned to treatment and <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> is the number of subjects whose response would be “1” if
-assigned to control.</p>
-<p>Now <span class="math notranslate nohighlight">\(\sum_{j=1}^N x_{0j} = N_{1\cdot}\)</span> and <span class="math notranslate nohighlight">\(\sum_{j=1}^N x_{1j} = N_{\cdot 1}\)</span>, so
+Of course, <span class="math notranslate nohighlight">\(N = N_{00} + N_{01} + N_{10} + N_{11}\)</span>.
+(<strong>Note</strong>: this notation has the indices in the opposite order from that in <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a>.)</p>
+<p>Define <span class="math notranslate nohighlight">\(N_{1+} := N_{10} + N_{11}\)</span> and <span class="math notranslate nohighlight">\(N_{+1} := N_{01} + N_{11}\)</span>.
+Then <span class="math notranslate nohighlight">\(N_{1+}\)</span> is the number of subjects whose response would be “1” if assigned to control and <span class="math notranslate nohighlight">\(N_{+1}\)</span> is the number of subjects whose response would be “1” if
+assigned to treatment.
+(<strong>Note</strong>: this notation also has the indices in the opposite order from that in <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a>.)</p>
+<p>Now <span class="math notranslate nohighlight">\(\sum_{j=1}^N x_{0j} = N_{1+}\)</span> and <span class="math notranslate nohighlight">\(\sum_{j=1}^N x_{1j} = N_{+1}\)</span>, so
 the average treatment effect can be written</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\tau = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} (N_{\cdot 1} - N_{1\cdot}).
+\tau = \frac{1}{N} \sum_{j=1}^N (x_{1j}-x_{0j}) = \frac{1}{N} (N_{+1} - N_{1+}).
 \end{equation*}\]</div>
-<p>Once the data have been observed, we know that <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> is at least <span class="math notranslate nohighlight">\(X_0^*\)</span>
+<p>Once the data have been observed, we know that <span class="math notranslate nohighlight">\(N_{1+}\)</span> is at least <span class="math notranslate nohighlight">\(X_0^*\)</span>
 (we saw that many ones in the control group)
 and at most <span class="math notranslate nohighlight">\(X_0^* + n\)</span> (if every unobserved control response were one).
-Similarly, we know that <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> is at least <span class="math notranslate nohighlight">\(X_1^*\)</span>
+Similarly, we know that <span class="math notranslate nohighlight">\(N_{+1}\)</span> is at least <span class="math notranslate nohighlight">\(X_1^*\)</span>
 (we saw that many ones in the treatment group)
 and at most <span class="math notranslate nohighlight">\(X_1^* + (N-n)\)</span> (if every unobserved
 treatment response were one).
@@ -519,7 +521,7 @@ X_1^* - X_0^* - n
 <p>and</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-X_1^* - X_0^* + N - n)
+X_1^* - X_0^* + N - n
 \end{equation*}\]</div>
 <p>so</p>
 <div class="amsmath math notranslate nohighlight">
@@ -543,30 +545,31 @@ X_1^* - X_0^* + N - n)
 <p>It follows that if <span class="math notranslate nohighlight">\(\mathcal{I}_i\)</span> is a confidence interval procedure for <span class="math notranslate nohighlight">\(\theta_i\)</span> with coverage probability <span class="math notranslate nohighlight">\(1-\alpha_i\)</span>, <span class="math notranslate nohighlight">\(i=1, \ldots, m\)</span>, then the collection of <span class="math notranslate nohighlight">\(m\)</span>
 confidence set procedures <span class="math notranslate nohighlight">\(\{\mathcal{I}_i \}_{i=1}^m\)</span> has simultaneous coverage probability
 not smaller than <span class="math notranslate nohighlight">\(1-\sum_{i=1}^m \alpha_i\)</span>.</p>
-<p>In the current situation, if we had simultaneous confidence sets for both <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> and <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span>, we could find a confidence set for <span class="math notranslate nohighlight">\(\tau\)</span>, because
-<span class="math notranslate nohighlight">\(\tau = (N_{\cdot 1} - N_{1\cdot})/N\)</span>.</p>
-<p>Now, <span class="math notranslate nohighlight">\(X_1^*\)</span> is the number of “1”s in a random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of size <span class="math notranslate nohighlight">\(N\)</span> of which <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> are labeled “1” and the rest are labeled “0.”
-Similarly, <span class="math notranslate nohighlight">\(X_0^*\)</span> is the number of “1”s in a random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of size <span class="math notranslate nohighlight">\(N\)</span> of which <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> are labeled “1” and the rest are labeled “0.”
+<p>In the current situation, if we had simultaneous confidence sets for both <span class="math notranslate nohighlight">\(N_{1+}\)</span> and <span class="math notranslate nohighlight">\(N_{+1}\)</span>, we could find a confidence set for <span class="math notranslate nohighlight">\(\tau\)</span>, because
+<span class="math notranslate nohighlight">\(\tau = (N_{+1} - N_{1+})/N\)</span>.</p>
+<p>Now, <span class="math notranslate nohighlight">\(X_1^*\)</span> is the number of “1”s in a random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of size <span class="math notranslate nohighlight">\(N\)</span> of which <span class="math notranslate nohighlight">\(N_{+1}\)</span> are labeled “1” and the rest are labeled “0.”
+Similarly, <span class="math notranslate nohighlight">\(X_0^*\)</span> is the number of “1”s in a random sample of size <span class="math notranslate nohighlight">\(n\)</span> from a population of size <span class="math notranslate nohighlight">\(N\)</span> of which <span class="math notranslate nohighlight">\(N_{1+}\)</span> are labeled “1” and the rest are labeled “0.”
 That is, the probability distribution of <span class="math notranslate nohighlight">\(X_1^*\)</span> is
-hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=N_{\cdot 1}\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>,
+hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=N_{+1}\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>,
 and the probability distribution of <span class="math notranslate nohighlight">\(X_0^*\)</span> is
-hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=N_{1 \cdot}\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>, but <span class="math notranslate nohighlight">\(X_1^*\)</span> and <span class="math notranslate nohighlight">\(X_0^*\)</span> are
-dependent.</p>
-<p>To construct an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>, subtract a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, and divide the result by <span class="math notranslate nohighlight">\(N\)</span>.</p>
-<p>To construct a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>, subtract an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, and divide the result by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+hypergeometric with parameters <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(G=N_{1+}\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>.
+The variables <span class="math notranslate nohighlight">\(X_1^*\)</span> and <span class="math notranslate nohighlight">\(X_0^*\)</span> are dependent.</p>
+<p>To construct an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{+1}\)</span>, subtract a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1+}\)</span>, and divide the result by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>To construct a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bound for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find a <em>lower</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{+1}\)</span>, subtract an <em>upper</em> 1-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1+}\)</span>, and divide the result by <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>To construct a 2-sided confidence interval for <span class="math notranslate nohighlight">\(\tau\)</span>, we can find a
-2-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> and a 2-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>.
+2-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{+1}\)</span> and a 2-sided <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> confidence bound for <span class="math notranslate nohighlight">\(N_{1+}\)</span>.
 The lower endpoint of the <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence interval for <span class="math notranslate nohighlight">\(\tau\)</span>
-is the lower endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>  minus the upper
-endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.
+is the lower endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{+1}\)</span>  minus the upper
+endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{1+}\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.
 The upper endpoint of the <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence interval for <span class="math notranslate nohighlight">\(\tau\)</span>
-is the upper endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span>  minus the lower
-endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{1 \cdot}\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+is the upper endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{+1}\)</span>  minus the lower
+endpoint of the 2-sided interval for <span class="math notranslate nohighlight">\(N_{1+}\)</span>, divided by <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>This approach has a number of advantages: it is conceptually simple, conservative, and
 only requires the ability to compute confidence intervals for <span class="math notranslate nohighlight">\(G\)</span> for
 hypergeometric distributions.
 But the intervals will in general be quite conservative, i.e., unnecessarily wide.
-We now examine sharper approaches.</p>
+(See Table 1 of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a>.)
+We now examine a sharper approach.</p>
 </div>
 <div class="section" id="second-approach-testing-all-tables-of-potential-outcomes">
 <h4>Second approach: testing all tables of potential outcomes<a class="headerlink" href="#second-approach-testing-all-tables-of-potential-outcomes" title="Permalink to this headline">¶</a></h4>
@@ -583,54 +586,73 @@ the answer is <span class="math notranslate nohighlight">\(\binom{N+3}{3} = (N+3
 This is <span class="math notranslate nohighlight">\(O(N^3)\)</span> tables
 (see <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6384">Rigdon and Hudgens (2015)</a>).</p>
 <p>But many of those tables are incompatible with the observed data.
-For instance, we know that <span class="math notranslate nohighlight">\( N_{1\cdot} \ge X_0^*\)</span> and <span class="math notranslate nohighlight">\(N_{\cdot 1} \ge X_1^*\)</span>.
-<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that taking into account the observed data constrains
-the number of tables to <span class="math notranslate nohighlight">\(O(N^2)\)</span>, greatly speeding the computation.</p>
+For instance, we know that <span class="math notranslate nohighlight">\( N_{1+} \ge X_0^*\)</span> and <span class="math notranslate nohighlight">\(N_{+1} \ge X_1^*\)</span>.
+<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that taking into account
+the observed data reduces the number of tables that must be considered to <span class="math notranslate nohighlight">\(O(N^2)\)</span>, greatly speeding the computation.</p>
 <p><strong>A permutation approach</strong></p>
-<p>Together, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span> determine the sampling distribution of any statistic, through the random allocation of subjects to treatments.
-To test the null hypothesis <span class="math notranslate nohighlight">\(H_0: \{N_{00}=N_{00}^0, N_{01}=N_{01}^0, N_{10}=N_{10}^0, N_{11}=N_{11}^0 \}\)</span>, we can define some function <span class="math notranslate nohighlight">\(T\)</span> of <span class="math notranslate nohighlight">\(X_0^*\)</span> and <span class="math notranslate nohighlight">\(X_1^*\)</span> and reject <span class="math notranslate nohighlight">\(H_0\)</span> if the observed value of <span class="math notranslate nohighlight">\(T\)</span> is in the tail of the probability distribution corresponding to
-<span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-<p>What should we use for <span class="math notranslate nohighlight">\(T\)</span>? Since we are interested in <span class="math notranslate nohighlight">\(\tau\)</span>,</p>
+<p>Together, <span class="math notranslate nohighlight">\(N_{00}\)</span>, <span class="math notranslate nohighlight">\(N_{01}\)</span>, <span class="math notranslate nohighlight">\(N_{10}\)</span>, and <span class="math notranslate nohighlight">\(N_{11}\)</span> determine the sampling distribution of any statistic,
+through the random allocation of subjects to treatments.
+Let <span class="math notranslate nohighlight">\(\mathbf{N} := (N_{00}, N_{01}, N_{10}, N_{11})\)</span> be the 2x2 summary table of counts of subjects with each combination of potential outcomes.
+To test the null hypothesis <span class="math notranslate nohighlight">\(H_0: \mathbf{N} = \mathbf{N}_0\)</span>,
+we can define some function <span class="math notranslate nohighlight">\(T\)</span> of <span class="math notranslate nohighlight">\(X_0^*\)</span> and <span class="math notranslate nohighlight">\(X_1^*\)</span> and reject <span class="math notranslate nohighlight">\(H_0\)</span> if the observed value of <span class="math notranslate nohighlight">\(T\)</span> is in the
+tail of the probability distribution corresponding to <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>What should we use for <span class="math notranslate nohighlight">\(T\)</span>? Since we are interested in <span class="math notranslate nohighlight">\(\tau\)</span>, we might base the test on</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\hat{\tau} := \bar{X}_1 - \bar{X}_0 = X_1^*/n - X_0^*/(N-n)
+\hat{\tau} := \bar{X}_1 - \bar{X}_0 = \frac{X_1^*}{n} - \frac{X_0^*}{N-n}.
 \end{equation*}\]</div>
-<p>an unbiased estimator of <span class="math notranslate nohighlight">\(\tau\)</span>, is a sensible choice (although not necessarily optimal in any sense).</p>
-<p>Recall that <span class="math notranslate nohighlight">\(N_{\cdot 1} := N_{01} + N_{11}\)</span>, <span class="math notranslate nohighlight">\(N_{1\cdot} := N_{10} + N_{11}\)</span>,
+<p>This is an unbiased estimator of <span class="math notranslate nohighlight">\(\tau\)</span>: <span class="math notranslate nohighlight">\(X_1^*/n\)</span> is the sample mean of a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from <span class="math notranslate nohighlight">\(\{x_{j1}\}_{j=1}^N\)</span>, so it is unbiased for
+<span class="math notranslate nohighlight">\(N_{+1}/N\)</span> and
+<span class="math notranslate nohighlight">\(X_0^*/(N-n)\)</span> is the sample mean of a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from <span class="math notranslate nohighlight">\(\{x_{j0}\}_{j=1}^N\)</span>, so it is unbiased for
+<span class="math notranslate nohighlight">\(N_{1+}/N\)</span>. The difference is thus unbiased for <span class="math notranslate nohighlight">\(N_{+1}/N - \)</span>N_{1+}/N = \tau$.</p>
+<p>Rigdon and Hudgens (2015)  and Li and Ding (2016) take the test statistic to be <span class="math notranslate nohighlight">\(T=|\hat{\tau} - \tau|\)</span> (they look at other things, too).</p>
+<p>Recall that <span class="math notranslate nohighlight">\(N_{1+} := N_{10} + N_{11}\)</span>, <span class="math notranslate nohighlight">\(N_{+1} := N_{01} + N_{11}\)</span>,
 and</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\tau = (N_{\cdot 1} - N_{1\cdot})/N = (N_{01}-N_{10})/N.
+\tau = \frac{N_{+1} - N_{1+}}{N} = \frac{N_{01}-N_{10}}{N}.
 \end{equation*}\]</div>
-<p>if <span class="math notranslate nohighlight">\(H_0\)</span> is true, then <span class="math notranslate nohighlight">\(\tau = \tau_0 = (N_{01}^0 - N_{10}^0)/N\)</span>.
-If we do not reject <span class="math notranslate nohighlight">\(H_0\)</span>, then we cannot reject the hypothesis <span class="math notranslate nohighlight">\(\tau = \tau_0\)</span>.
-We can reject the hypothesis <span class="math notranslate nohighlight">\(\tau = \tau_0\)</span> if we can reject <em>every</em> table for which
-<span class="math notranslate nohighlight">\(\tau = \tau_0\)</span>.</p>
-<p>We might calibrate the test by figuring out the probability distribution of <span class="math notranslate nohighlight">\(T\)</span> under <span class="math notranslate nohighlight">\(H_0\)</span>:
+<p>For any 2x2 summary table <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> of counts of potential outcomes, define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tau(\mathbf{M}) := \frac{M_{01} - M_{10}}{\sum_{j,k} M_{jk}}.
+\end{equation*}\]</div>
+<p>If we do not reject the simple hypothesis <span class="math notranslate nohighlight">\(\mathbf{N} = \mathbf{N}_0\)</span>, then we cannot reject the hypothesis <span class="math notranslate nohighlight">\(\tau = \tau(\mathbf{N}_0) := \tau_0\)</span>.
+We can reject the composite hypothesis <span class="math notranslate nohighlight">\(\tau = \tau_0\)</span> if we can reject the simple hypothesis <span class="math notranslate nohighlight">\(\mathbf{N} = \mathbf{M}\)</span>
+for <em>every</em> summary table <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> for which <span class="math notranslate nohighlight">\(\tau(\mathbf{M}) = \tau_0\)</span>.</p>
+<p>We can calibrate the test of the hypothesis <span class="math notranslate nohighlight">\(\mathbf{N} = \mathbf{N}_0\)</span>
+by finding out the probability distribution of <span class="math notranslate nohighlight">\(T\)</span> under <span class="math notranslate nohighlight">\(H_0\)</span>:
+Given the summary table <span class="math notranslate nohighlight">\(\mathbf{N}_0\)</span> of counts of subjets with each possible combination of potential outcomes,
+we can construct a table of potential outcomes that is consistent
+with that table.
 For each of the <span class="math notranslate nohighlight">\(\binom{N}{n}\)</span> equally likely possible treatment assignments, we can find
-the corresponding value of <span class="math notranslate nohighlight">\(T\)</span>.
-When <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(n\)</span> is not close to <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(N\)</span>, that approach is impractical.
-Instead, we might approximate the probability distribution by simulation: actually drawing
-pseudo-random samples.</p>
-<p>[MORE TO COME]</p>
-<p><strong>Enumerating all feasible 2x2 tables</strong></p>
-<p>Constraints on <span class="math notranslate nohighlight">\(N_{jk}\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(N_{10} + N_{11} \ge \)</span>X_0^*<span class="math notranslate nohighlight">\(
-\)</span>N_{01} + N_{11} \ge <span class="math notranslate nohighlight">\(X_1^*\)</span></p>
+the corresponding value of <span class="math notranslate nohighlight">\(T\)</span> by allocating the subjects accordingly, finding <span class="math notranslate nohighlight">\(\hat{\tau}\)</span>, subtracting <span class="math notranslate nohighlight">\(\tau(\mathbf{N}_0)\)</span>, and
+taking the absolute value.</p>
+<p>When <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(n\)</span> is not close to <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(N\)</span>, it is impractical to construct all <span class="math notranslate nohighlight">\(\binom{N}{n}\)</span> possible treatment assignments.
+Then, we might approximate the probability distribution by simulation: actually drawing
+pseudo-random samples of size <span class="math notranslate nohighlight">\(n\)</span> from the subjects, considering them to be the treatment group, calculating <span class="math notranslate nohighlight">\(\hat{\tau}\)</span>, etc.
+As discussed in the chapter on <a class="reference internal" href="tests.html"><span class="doc std std-doc">testing</span></a>, that can be viewed as an approximation to a theoretical <span class="math notranslate nohighlight">\(P\)</span>-value or as
+the exact <span class="math notranslate nohighlight">\(P\)</span>-value for a randomized test.</p>
+<p><strong>Enumerating all 2x2 tables consistent with the data</strong></p>
+<p>The table <span class="math notranslate nohighlight">\(\mathbf{N}\)</span> summarizing potential outcomes is constrained by the data.
+For instance, <span class="math notranslate nohighlight">\(N_{10} + N_{11} \ge X_0^*\)</span> and <span class="math notranslate nohighlight">\(N_{01} + N_{11} \ge X_1^*\)</span>.
+There are other constraints, too, as we shall see.</p>
 <p>Define</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-n_{wk} \equiv = \sum_{j=1}^N 1_{W_j=w, x_{jw}=k}
+  n_{wk} := \sum_{j=1}^N 1_{W_j=w, x_{jw}=k}
 \end{equation*}\]</div>
 <p>for <span class="math notranslate nohighlight">\(w \in \{0, 1\}\)</span> and <span class="math notranslate nohighlight">\(k \in \{0, 1\}\)</span>.
 That is, <span class="math notranslate nohighlight">\(n_{00} = (N-n)-X_0^*\)</span>, <span class="math notranslate nohighlight">\(n_{01} = X_0^*\)</span>, <span class="math notranslate nohighlight">\(n_{10} = n-X_1^*\)</span>, and
 <span class="math notranslate nohighlight">\(n_{11} = X_1^*\)</span>.
 Clearly, <span class="math notranslate nohighlight">\(\sum_{w,k} n_{wk} = N\)</span>: these numbers count the elements in
-a partition of the subjects.</p>
+a partition of the subjects.
+Using this notation, <span class="math notranslate nohighlight">\(\hat{\tau} = n_{11}/n - n_{01}/(N-n)\)</span>.</p>
 <p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6384">Rigdon and Hudgens (2014)</a> show that it suffices to examine
-<span class="math notranslate nohighlight">\(n_{RH} := (n_{11} + 1)(n_{10} + 1)(n_{01} + 1)(n_{00} + 1)\)</span> 2 by 2 tables to find confidence bounds
+<span class="math notranslate nohighlight">\(n_{RH} := (n_{11} + 1)(n_{10} + 1)(n_{01} + 1)(n_{00} + 1)\)</span> 2x2 tables to find confidence bounds
 for <span class="math notranslate nohighlight">\(\tau\)</span> using <span class="math notranslate nohighlight">\(\hat{\tau}\)</span> as the test statistic.</p>
-<p>The argument is as follows: Consider the <span class="math notranslate nohighlight">\(n_{11}\)</span> subjects who were assigned to treatment <span class="math notranslate nohighlight">\(w=1\)</span> and whose response was <span class="math notranslate nohighlight">\(x_{j1}=1\)</span>.
+<p>Their argument is as follows:
+Consider the <span class="math notranslate nohighlight">\(n_{11}\)</span> subjects who were assigned to treatment <span class="math notranslate nohighlight">\(w=1\)</span> and whose response was <span class="math notranslate nohighlight">\(x_{j1}=1\)</span>.
 Fix the unobserved values of the remaining <span class="math notranslate nohighlight">\(N-n_{11}\)</span> subjects.
 As the unobserved responses of those <span class="math notranslate nohighlight">\(n_{11}\)</span> vary, the value of <span class="math notranslate nohighlight">\(\tau\)</span>
 and the probability distribution of <span class="math notranslate nohighlight">\(T\)</span> depend only on how many of them
@@ -639,20 +661,167 @@ The number <span class="math notranslate nohighlight">\(m\)</span> for which <sp
 the other <span class="math notranslate nohighlight">\(n_{11}-m\)</span> have <span class="math notranslate nohighlight">\(x_{j0}=1\)</span>.
 There are thus only <span class="math notranslate nohighlight">\(n_{11}+1\)</span> tables that need to be examined,
 given the unobserved values in the other three groups.
-By an analogous argument, as the unobserved values of the <span class="math notranslate nohighlight">\(n_{01}\)</span>
-subjects vary, holding constant the unobserved valoes for the rest, there are at
+By the same argument, as the unobserved values of the <span class="math notranslate nohighlight">\(n_{01}\)</span>
+subjects vary, holding constant the unobserved values for the rest, there are at
 most <span class="math notranslate nohighlight">\(n_{01}+1\)</span> distinct values of <span class="math notranslate nohighlight">\(\tau\)</span> and distinct probability distributions for
-<span class="math notranslate nohighlight">\(T\)</span>. The same goes for <span class="math notranslate nohighlight">\(n_{10}\)</span> and <span class="math notranslate nohighlight">\(n_{11}\)</span>. By the fundamental rule of counting,
+<span class="math notranslate nohighlight">\(T\)</span>.
+The same goes for <span class="math notranslate nohighlight">\(n_{10}\)</span> and <span class="math notranslate nohighlight">\(n_{11}\)</span>.
+By the <em>fundamental rule of counting</em>,
 the total number of tables that give rise to distinguishable probability distributions
 for <span class="math notranslate nohighlight">\(T\)</span> is thus at most <span class="math notranslate nohighlight">\(n_{RH}\)</span>.</p>
-<p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> show that
-a table is consistent with the observed values <span class="math notranslate nohighlight">\(n_{wk}\)</span> iff</p>
+<p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> improve on that result.
+They prove that
+a table <span class="math notranslate nohighlight">\(\mathbf{N} = (N_{00}, N_{01}, N_{10}, N_{11})\)</span> is consistent with the observed values <span class="math notranslate nohighlight">\((n_{wk})\)</span> iff</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\max \{0,n_{11}-N_{10}, N_{11}-n_{01}, N_{\cdot 1} - n_{10} - n_{01} \}
+\max \{0,n_{11}-N_{01}, N_{11}-n_{01}, N_{10}+N_{11} - n_{10} - n_{01} \}
   \le
-\min \{N_{11}, n_{11}, N_{\cdot 1}-n_{01}, N - N_{10} - n_{01} - n_{10} \}.
+\min \{N_{11}, n_{11}, N_{10}+N_{11}-n_{01}, N - N_{01} - n_{01} - n_{10} \}.
 \end{equation*}\]</div>
+<p><strong>The algorithm</strong></p>
+<p>The overall approach is as follows:</p>
+<p>The values <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\((n_{wk})\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span> are given.
+Set</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tau^* := \frac{n_{11}}{n} - \frac{n_{01}}{N-n},
+\end{equation*}\]</div>
+<p>the observed value of the unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<ul class="simple">
+<li><p>for each table <span class="math notranslate nohighlight">\(\mathbf{N}\)</span> that is consistent with the observed values <span class="math notranslate nohighlight">\((n_{wk})\)</span>:</p>
+<ul>
+<li><p>find <span class="math notranslate nohighlight">\(\tau(\mathbf{N})\)</span></p></li>
+<li><p>calculate <span class="math notranslate nohighlight">\(t = |\tau^* - \tau(\mathbf{N})|\)</span></p></li>
+<li><p>find or simulate the sampling distribution of <span class="math notranslate nohighlight">\(|\hat{\tau} - \tau|\)</span> using a table with potential outcomes consistent with <span class="math notranslate nohighlight">\(\mathbf{N}\)</span></p></li>
+<li><p>if <span class="math notranslate nohighlight">\(t\)</span> is above the <span class="math notranslate nohighlight">\(1-\alpha\)</span> percentile of the sampling distribution, pass; otherwise include <span class="math notranslate nohighlight">\(\tau(\mathbf{N})\)</span> in the confidence set</p></li>
+</ul>
+</li>
+</ul>
+<p>To implement this in python, we first need to construct all such tables <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>.</p>
+<p>The strategy is to make an <code class="docutils literal notranslate"><span class="pre">generator</span></code> that yields tables consistent with the data (and perhaps some others), then filter out any that are not consistent.
+We will start with a very crude approach and refine it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">filterfalse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">N_generator</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">    generate tables consistent with data from an experiment with binary outcomes</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N : int</span>
+<span class="sd">        number of subjects</span>
+<span class="sd">    n00 : int</span>
+<span class="sd">        number of subjects assigned to control who had outcome 0</span>
+<span class="sd">    n01 : int</span>
+<span class="sd">        number of subjects assigned to control who had outcome 0</span>
+<span class="sd">    n10 : int</span>
+<span class="sd">        number of subjects assigned to treatment who had outcome 0</span>
+<span class="sd">    n11 : int</span>
+<span class="sd">        number of subjects assigned to treatment who had outcome 1</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Nt : list of 4 ints </span>
+<span class="sd">        N00, subjects with potential outcome 0 under control and treatment</span>
+<span class="sd">        N01, subjects with potential outcome 0 under control and 1 under treatment</span>
+<span class="sd">        N10, subjects with potential outcome 1 under control and 0 under treatment</span>
+<span class="sd">        N11, subjects with potential outcome 1 under control and treatment</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Nt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n00</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">n10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>                    <span class="c1"># allocate space for the observed 0 outcomes, n00 and n10</span>
+        <span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>                                           <span class="c1"># N11</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n01</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">N</span><span class="o">-</span><span class="n">n00</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>     <span class="c1"># N11+N10 &gt;= n01; N11+N10+n00 &lt;= N</span>
+            <span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>                                       <span class="c1"># N10</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n11</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n10</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">N</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">])):</span> <span class="c1"># N11+N01 &gt;= n11; N11+N01+n10 &lt;= N; no more than N subjects</span>
+                <span class="n">Nt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+                <span class="n">Nt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Nt</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="k">if</span> <span class="n">filterTable</span><span class="p">(</span><span class="n">Nt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="n">Nt</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filterTable</span><span class="p">(</span><span class="n">Nt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    check whether summary table Ntab of binary outcomes is consistent with observed counts</span>
+<span class="sd">    </span>
+<span class="sd">    implements the test in Theorem 1 of Li and Ding (2016)</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Nt : list of four ints</span>
+<span class="sd">        the table of counts of subjects with each combination of potential outcomes, in the order</span>
+<span class="sd">        N_00, N_01, N_10, N_11</span>
+<span class="sd">    </span>
+<span class="sd">    n : int</span>
+<span class="sd">        number of subjects assigned to treatment</span>
+<span class="sd">    </span>
+<span class="sd">    n01 : int</span>
+<span class="sd">        number of subjects assigned to control whose observed response was 1</span>
+
+<span class="sd">    n11 : int</span>
+<span class="sd">        number of subjects assigned to treatment whose observed response was 1</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    ok : boolean</span>
+<span class="sd">        True if table is consistent with the data</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span>   <span class="c1"># total subjects</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n11</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">n01</span><span class="p">,</span> <span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">n10</span><span class="o">-</span><span class="n">n01</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">n11</span><span class="p">,</span> <span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">n01</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">n01</span><span class="o">-</span><span class="n">n10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hypothetical experiment</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">n00</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n01</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n10</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n11</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Regeneron data from </span>
+<span class="c1"># https://investor.regeneron.com/news-releases/news-release-details/phase-3-prevention-trial-showed-81-reduced-risk-symptomatic-sars</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">753</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">752</span>
+<span class="n">N</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="n">m</span>
+<span class="n">n01</span> <span class="o">=</span> <span class="mi">59</span>
+<span class="n">n11</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">n00</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="n">n01</span>
+<span class="n">n10</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="n">n11</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">N_generator</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
