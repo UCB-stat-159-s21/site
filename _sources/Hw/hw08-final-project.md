@@ -2,7 +2,7 @@
 
 - **Statistics 159/259, Spring 2021**
 
-- **Due Monday 5/14/2021, 11:59PM PT**
+- **Due Friday 5/14/2021, 11:59PM PT**
 
 - Profs. Pérez and Stark, Department of Statistics, UC Berkeley.
 
