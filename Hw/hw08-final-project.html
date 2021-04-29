@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 8. Final Project - Antibody Cocktail Efficacy &#8212; Collaborative and Reproducible Data Science</title>
+    <title>8. Homework 8. Final Project - Antibody Cocktail Efficacy &#8212; Collaborative and Reproducible Data Science</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,6 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="An Idiosyncratic Sample of Applied Statistics" href="../Notes/index.html" />
+    <link rel="prev" title="7. Homework 7: Permute - contributing to an open source project" href="hw07-permute-contrib.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -118,7 +120,7 @@
   Homework Assignments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="hw01-background.html">
    1. Homework 1. Stats review and intro to Git
@@ -152,6 +154,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="hw07-permute-contrib.html">
    7. Homework 7: Permute - contributing to an open source project
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Homework 8. Final Project - Antibody Cocktail Efficacy
   </a>
  </li>
 </ul>
@@ -251,42 +258,42 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-code-confidence-bounds">
-   [50 points] Code: confidence bounds
+   8.1. [50 points] Code: confidence bounds
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-analysis-part-i">
-   [20 points] Analysis Part I
+   8.2. [20 points] Analysis Part I
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-analysis-part-ii">
-   [10 points] Analysis Part II
+   8.3. [10 points] Analysis Part II
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-analysis-part-iii">
-   [10 points] Analysis Part III
+   8.4. [10 points] Analysis Part III
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#points-analysis-part-iv">
-   [10 points] Analysis Part IV
+   8.5. [10 points] Analysis Part IV
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#author-contribution-statement">
-   Author contribution statement
+   8.6. Author contribution statement
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#workflow">
-   Workflow
+   8.7. Workflow
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resources">
-   Resources
+   8.8. Resources
   </a>
  </li>
 </ul>
@@ -301,13 +308,13 @@
               <div>
                 
   <div class="section" id="homework-8-final-project-antibody-cocktail-efficacy">
-<h1>Homework 8. Final Project - Antibody Cocktail Efficacy<a class="headerlink" href="#homework-8-final-project-antibody-cocktail-efficacy" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Homework 8. Final Project - Antibody Cocktail Efficacy<a class="headerlink" href="#homework-8-final-project-antibody-cocktail-efficacy" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
 <li><p><strong>Due Monday 5/14/2021, 11:59PM PT</strong></p></li>
 <li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
 <li><p>This assignment is worth a maximum of <strong>100 points</strong>.</p></li>
-<li><p>Assignment type: <strong>group</strong> (same teams as HW06).</p></li>
+<li><p>Assignment type: <strong>group</strong> (similar-sized teams as HW06).</p></li>
 </ul>
 <p>The goal of this project is to implement and apply the method in section 3 of
 <a class="reference external" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/sim.6764">Li and Ding</a> for
@@ -317,7 +324,7 @@ that claims their antibody cocktail is 81% effective at preventing symptomatic
 COVID-19 infections in people living in a household with others who are already
 infected, through 29 days after injection.</p>
 <div class="section" id="points-code-confidence-bounds">
-<h2>[50 points] Code: confidence bounds<a class="headerlink" href="#points-code-confidence-bounds" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>[50 points] Code: confidence bounds<a class="headerlink" href="#points-code-confidence-bounds" title="Permalink to this headline">¶</a></h2>
 <p>You will create a small python package called <code class="docutils literal notranslate"><span class="pre">cibin</span></code> that can be imported with
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cibin</span></code> and tested at the command line with <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">cibin</span></code>. This small
 package will implement “Method 3” of Li and Ding in Python to find
@@ -329,8 +336,8 @@ you to use.  You should study the R code and paper as a reference and to run
 validation tests, but you should create your own Pythonic implementation rather
 than trying to translate R code line-by-line.</p>
 <p>You can use cryptorandom and permute, along with your implementations of
-hypergeometric confidence bounds from the previous homework assignment.</p>
-<p>Provide appropriate docstrings, unit tests, etc. Code should comply with PEP-8 and PEP-257.</p>
+hypergeometric confidence bounds from the previous homework assignment and any code we’ve provided from the class notebooks.</p>
+<p>You must provide appropriate docstrings, unit tests, etc. Your code should comply with PEP-8 and PEP-257.</p>
 <p>We have provided a <a class="reference external" href="https://github.com/fperez/mytoy">toy Python package on Github</a> to show you how to structure a repository to contain a minimally installable Python package with the basics.  Feel free to copy the layout and basic <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file from that repo to get going.  You may also find the blog post series <a class="reference external" href="https://jacobtomlinson.dev/series/creating-an-open-source-python-project-from-scratch/">Creating an open source Python project from scratch</a> valuable.</p>
 <p>The deliverables for this part will be:</p>
 <ul class="simple">
@@ -338,12 +345,23 @@ hypergeometric confidence bounds from the previous homework assignment.</p>
 <li><p>A top-level notebook called <code class="docutils literal notranslate"><span class="pre">cibin-demo.ipynb</span></code> that reproduces, using your implementation, column “3” of table I in the Li and Ding paper.</p></li>
 </ul>
 <p>The calling signature for the confidence procedure should be:</p>
-<p><code class="docutils literal notranslate"><span class="pre">tau_twosided_ci(n11,</span> <span class="pre">n10,</span> <span class="pre">n01,</span> <span class="pre">n00,</span> <span class="pre">alpha,</span> <span class="pre">exact=True,</span> <span class="pre">max_tables=int(10**5),</span> <span class="pre">reps=int(10**3))</span></code></p>
-<p>when <code class="docutils literal notranslate"><span class="pre">exact=True</span></code>, …</p>
-<p>Returns: [lb, ub], [allocation that gives lb, allocation that gives ub], [# tables examined, total reps across simulations]</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tau_twosided_ci</span><span class="p">(</span><span class="n">n11</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_combinations</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">exact=True</span></code>, your function should compute the exact result (by enumerating all possible samples rather than using simulation), but it should stop by raising an exception if it hits the limit of <code class="docutils literal notranslate"><span class="pre">max_combinations</span></code>. This exception should indicate the required number of combinations so that you can increase the value of <code class="docutils literal notranslate"><span class="pre">max_combinations</span></code> to that value, if you are willing to pay that computational price.</p>
+<p>You can for example see how scipy’s <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton_krylov.html"><code class="docutils literal notranslate"><span class="pre">newton_krylov</span></code></a> routine handles non-convergence for an illustration of this pattern that is common in scientific algorithms.</p>
+<p>Conversely, when <code class="docutils literal notranslate"><span class="pre">exact=False</span></code>, then your code should perform <code class="docutils literal notranslate"><span class="pre">reps</span></code> number of total simulations per table tested to produce an approximate answer.</p>
+<p>The function should return three two-element lists with the following information:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[lb,</span> <span class="pre">ub]</span></code>: lower/upper bound of the confidence interval.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[allocation</span> <span class="pre">that</span> <span class="pre">gives</span> <span class="pre">lb,</span> <span class="pre">allocation</span> <span class="pre">that</span> <span class="pre">gives</span> <span class="pre">ub]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[#</span> <span class="pre">tables</span> <span class="pre">examined,</span> <span class="pre">total</span> <span class="pre">reps</span> <span class="pre">across</span> <span class="pre">simulations]</span></code>.</p></li>
+</ul>
+<p>For this assignment, you may find the <code class="docutils literal notranslate"><span class="pre">combinations</span></code> function in the <a class="reference external" href="https://docs.python.org/3/library/itertools.html">Python itertools module</a> useful. In general that module is a great resource for implementing (often tricky to get right) combinatorial algorithms, as it provides a number of well-tested basic building blocks.</p>
+<p>Note that in the causal inference notebook there’s an implementation (discussed during 4/29’s lecture) of a few utility functions that can be handy for this work.  You are welcome to either look at them or use them verbatim, but we warn you <strong>they have not been tested!</strong>. Before you use them, you are responsible for testing and validating they are actually correct (and please let us know if you find bugs in them!).</p>
 </div>
 <div class="section" id="points-analysis-part-i">
-<h2>[20 points] Analysis Part I<a class="headerlink" href="#points-analysis-part-i" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>[20 points] Analysis Part I<a class="headerlink" href="#points-analysis-part-i" title="Permalink to this headline">¶</a></h2>
 <p>Find 95% lower (one-sided) and two-sided confidence intervals for the reduction
 in risk corresponding to the primary endpoint (data “Through day 29”), using
 method 3 and also using the cruder conservative approach via simultaneous
@@ -361,7 +379,7 @@ Why or why not?</p></li>
 <p><strong>Note:</strong> for this and all parts below, write out your code and analysis narrative in one or more Notebooks or Markdown files at your discretion. You must name them <code class="docutils literal notranslate"><span class="pre">analysis-I</span></code>, <code class="docutils literal notranslate"><span class="pre">analysis-II</span></code>, etc. if you choose to break each part into its own file, or say <code class="docutils literal notranslate"><span class="pre">analysis-I-IV</span></code> if you combine multiple sections into one file.  Regardless of whether you use notebooks or markdown files, at the end you should compile them all to PDF and include them next to the source in the repo (tip: use a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>!).</p>
 </div>
 <div class="section" id="points-analysis-part-ii">
-<h2>[10 points] Analysis Part II<a class="headerlink" href="#points-analysis-part-ii" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>[10 points] Analysis Part II<a class="headerlink" href="#points-analysis-part-ii" title="Permalink to this headline">¶</a></h2>
 <p>Is the same method applicable to the two intermediate endpoints, symptoms
 within 1 week and symptoms after 1 week? If so, how? Identify any additional
 assumptions or adjustments that would be required to use the method on the
@@ -369,7 +387,7 @@ intermediate endpoints. If the method is not applicable to the intermediate
 endpoints, explain why.</p>
 </div>
 <div class="section" id="points-analysis-part-iii">
-<h2>[10 points] Analysis Part III<a class="headerlink" href="#points-analysis-part-iii" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>[10 points] Analysis Part III<a class="headerlink" href="#points-analysis-part-iii" title="Permalink to this headline">¶</a></h2>
 <p>Imagine enumerating all the subject-weeks (4 weeks per subject), and labeling
 each as either “has symptoms” or “does not have symptoms,” so that each week is
 labeled with a binary outcome. Can either of the methods you implemented be
@@ -378,7 +396,7 @@ the reduction in the average number of symptomatic weeks per subject? If so,
 explain how; if not, explain why.</p>
 </div>
 <div class="section" id="points-analysis-part-iv">
-<h2>[10 points] Analysis Part IV<a class="headerlink" href="#points-analysis-part-iv" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>[10 points] Analysis Part IV<a class="headerlink" href="#points-analysis-part-iv" title="Permalink to this headline">¶</a></h2>
 <p>Read the safety information and the information about the subjects in the press
 release, including information about race, age, and risk factors. Based on the
 evidence in the press release, would you recommend this prophylactic treatment
@@ -386,17 +404,17 @@ to a friend or relative? Why or why not? Is there something else you would want
 to know first? If so, what?</p>
 </div>
 <div class="section" id="author-contribution-statement">
-<h2>Author contribution statement<a class="headerlink" href="#author-contribution-statement" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6. </span>Author contribution statement<a class="headerlink" href="#author-contribution-statement" title="Permalink to this headline">¶</a></h2>
 <p>In the last one of your analysis files (depending on how you chose to split up your work), include an <strong>Author Contribution Statement</strong>, similar to what we requested in HW06 and HW07.</p>
 <p>If you find yourself with an <em>important concern or disagreement</em> regarding the team contribution statement that you feel requires private communication to the instructors, you can do so by <a class="reference external" href="https://forms.gle/v9iBZy4VTYYb3mbC9">filling out this short form</a>.</p>
 </div>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>You will be assigned to <em>the same team from HW 6</em>, and we will use the same workflow as for that assignment, with a private Slack channel for each team where we’ll add the three instructors.</p>
-<p>In general, all other guidelines regarding testing, documentation, PRs, GitHub Actions and more, from the HW06 group assignment, apply equally here, so we won’t repeat them. You can refresh your memory by <a class="reference external" href="hw06-cryptorandom-contrib.md#Tips-for-this-assignment">checking out those notes</a>.</p>
+<h2><span class="section-number">8.7. </span>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>You will be assigned to similarly-sized teams from HW 6, and in some cases it may be the same people (we’ve done some reshuffling based on your feedback in HW 6 and 7, but didn’t create a completely new set of teams from scratch).</p>
+<p>We will use the same workflow as for that assignment, with a private Slack channel for each team where we’ll add the three instructors.  All other guidelines regarding testing, documentation, PRs, GitHub Actions and more, from the HW06 group assignment, apply equally here, so we won’t repeat them. You can refresh your memory by <a class="reference external" href="hw06-cryptorandom-contrib.md#Tips-for-this-assignment">checking out those notes</a>.</p>
 </div>
 <div class="section" id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.8. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/fperez/mytoy">Example “toy” repository with a minimal, but full, Python package</a>.</p></li>
 <li><p><a class="reference external" href="https://www.statnews.com/2021/04/12/regeneron-antibody-cocktail-covid-simple-injection/">Regeneron press release</a>.</p></li>
@@ -431,6 +449,8 @@ to know first? If so, what?</p>
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="hw07-permute-contrib.html" title="previous page"><span class="section-number">7. </span>Homework 7: Permute - contributing to an open source project</a>
+    <a class='right-next' id="next-link" href="../Notes/index.html" title="next page">An Idiosyncratic Sample of Applied Statistics</a>
 
         </div>
         
