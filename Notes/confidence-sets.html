@@ -432,8 +432,8 @@ values of population parameters.
 We assume that <span class="math notranslate nohighlight">\(\mathbb{P} \in \mathcal{P}\)</span>, some known set of possible distributions.</p>
 <p>A <em>functional parameter</em> <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> is a function of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.
 For instance the (population) mean is a functional parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c971ce6-1d05-4bb2-8e1f-9a5500927f54">
-<span class="eqno">()<a class="headerlink" href="#equation-4c971ce6-1d05-4bb2-8e1f-9a5500927f54" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8b4dd131-9e2c-478c-992e-db7193770def">
+<span class="eqno">()<a class="headerlink" href="#equation-8b4dd131-9e2c-478c-992e-db7193770def" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \mathbb{E}X \equiv \int_\mathcal{X} x d\mathbb{P}(x).
 \end{equation}\]</div>
 <p>So are other moments of the probability distribution:</p>
@@ -445,8 +445,8 @@ For instance the (population) mean is a functional parameter:</p>
 distribution, are also functional parameters.
 For instance, if <span class="math notranslate nohighlight">\(X\)</span> is a real-valued random variable,
 then the <span class="math notranslate nohighlight">\(\alpha\)</span> percentile of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93297fd5-a6c4-4147-9da3-430abe4a0e1f">
-<span class="eqno">()<a class="headerlink" href="#equation-93297fd5-a6c4-4147-9da3-430abe4a0e1f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ee6096e4-6f7d-42d2-971f-fa9cb5853008">
+<span class="eqno">()<a class="headerlink" href="#equation-ee6096e4-6f7d-42d2-971f-fa9cb5853008" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \theta(\mathbb{P}) = \inf \left \{x: \int_{-\infty}^x d\mathbb{P}(x) \ge \alpha \right \},
 \end{equation}\]</div>
 <p>is a functional parameter.</p>
@@ -546,8 +546,8 @@ Let <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> be 
 For instance, we might observe <span class="math notranslate nohighlight">\(X \sim N(\theta, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{I}(x)\)</span> might be <span class="math notranslate nohighlight">\([x-c, x+c]\)</span>.</p>
 <p>Fix <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
 Suppose that for all <span class="math notranslate nohighlight">\(\eta \in \Theta\)</span>, if <span class="math notranslate nohighlight">\(\theta(\mathbb{P}) = \eta\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-991ad7bc-6f09-4007-ad0c-31115d53a415">
-<span class="eqno">()<a class="headerlink" href="#equation-991ad7bc-6f09-4007-ad0c-31115d53a415" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed854b3e-d6dd-46ac-ab4d-5104ea65b5f9">
+<span class="eqno">()<a class="headerlink" href="#equation-ed854b3e-d6dd-46ac-ab4d-5104ea65b5f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{\mathcal{I}(X) \ni \eta \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p>Then <span class="math notranslate nohighlight">\(\mathcal{I}(\cdot)\)</span> is <em>a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence set procedure</em> for <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span>.
@@ -575,8 +575,8 @@ does or does not contain <span class="math notranslate nohighlight">\(\theta\)</
 <p>Define <span class="math notranslate nohighlight">\(\mathcal{I}(x) \equiv [x - z_{1-\alpha/2}, x + z_{1-\alpha/2}]\)</span>, where
 <span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span> is the <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> percentile of the standard normal distribution.
 Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0faa23f4-b9a5-4c56-9c37-5cafe6cfb9c9">
-<span class="eqno">()<a class="headerlink" href="#equation-0faa23f4-b9a5-4c56-9c37-5cafe6cfb9c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-074897ea-f463-4a0c-a7f4-f9c72eb04d99">
+<span class="eqno">()<a class="headerlink" href="#equation-074897ea-f463-4a0c-a7f4-f9c72eb04d99" title="Permalink to this equation">¶</a></span>\[\begin{equation}
    \mathbb{P}_\theta \{ \mathcal{I}(X) \ni \theta \} = 1-\alpha
 \end{equation}\]</div>
 <p>whatever be <span class="math notranslate nohighlight">\(\theta \in \Re\)</span>.
@@ -622,8 +622,8 @@ See <a class="reference internal" href="tests.html"><span class="doc std std-doc
 (If <span class="math notranslate nohighlight">\(\phi\)</span> can only take the values 0 and 1, i.e., if the test is not randomized, then <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> does not depend on <span class="math notranslate nohighlight">\(U\)</span>.)</p>
 <p><strong>Claim:</strong> <span class="math notranslate nohighlight">\(\mathcal{I}(X,U)\)</span> is a <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence procedure. That is,
 whatever the true value of <span class="math notranslate nohighlight">\(\theta(\mathbb{P})\)</span> happens to be,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b39adcba-9a92-423e-b316-39b5a1b0b410">
-<span class="eqno">()<a class="headerlink" href="#equation-b39adcba-9a92-423e-b316-39b5a1b0b410" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0c955130-5396-4fd2-b17b-c86b521deb52">
+<span class="eqno">()<a class="headerlink" href="#equation-0c955130-5396-4fd2-b17b-c86b521deb52" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{P} \{ \mathcal{I}(X,U) \ni \theta(\mathbb{P}) \} \ge 1-\alpha.
 \end{equation}\]</div>
 <p><strong>Proof:</strong> The set

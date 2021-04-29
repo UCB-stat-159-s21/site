@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 8. Final Project - Antibody Cocktail Efficacy &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Statistics 159/259, Spring 2021 Course Summary
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw01-background.html">
+   1. Homework 1. Stats review and intro to Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw02-election-fraud.html">
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw03-testing.html">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw04-phil-sci-covid.html">
+   4. Homework 4: Reproducibility, Philosophy of Science, and COVID-19 Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw05-selection-outliers.html">
+   5. Homework 5: Selective inference and outlier rejection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw06-cryptorandom-contrib.html">
+   6. Homework 6: Cryptorandom - contributing to an open source project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw07-permute-contrib.html">
+   7. Homework 7: Permute - contributing to an open source project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lecture Index
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Index/index.html">
+   Index of Lectures and Materials
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Hw/hw08-final-project.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-code-confidence-bounds">
+   [50 points] Code: confidence bounds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-analysis-part-i">
+   [20 points] Analysis Part I
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-analysis-part-ii">
+   [10 points] Analysis Part II
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-analysis-part-iii">
+   [10 points] Analysis Part III
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#points-analysis-part-iv">
+   [10 points] Analysis Part IV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#author-contribution-statement">
+   Author contribution statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources">
+   Resources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="homework-8-final-project-antibody-cocktail-efficacy">
+<h1>Homework 8. Final Project - Antibody Cocktail Efficacy<a class="headerlink" href="#homework-8-final-project-antibody-cocktail-efficacy" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Statistics 159/259, Spring 2021</strong></p></li>
+<li><p><strong>Due Monday 5/14/2021, 11:59PM PT</strong></p></li>
+<li><p>Profs. Pérez and Stark, Department of Statistics, UC Berkeley.</p></li>
+<li><p>This assignment is worth a maximum of <strong>100 points</strong>.</p></li>
+<li><p>Assignment type: <strong>group</strong> (same teams as HW06).</p></li>
+</ul>
+<p>The goal of this project is to implement and apply the method in section 3 of
+<a class="reference external" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/sim.6764">Li and Ding</a> for
+confidence intervals, and apply it to the data from the <a class="reference external" href="https://www.statnews.com/2021/04/12/regeneron-antibody-cocktail-covid-simple-injection/">Regeneron
+study</a>
+that claims their antibody cocktail is 81% effective at preventing symptomatic
+COVID-19 infections in people living in a household with others who are already
+infected, through 29 days after injection.</p>
+<div class="section" id="points-code-confidence-bounds">
+<h2>[50 points] Code: confidence bounds<a class="headerlink" href="#points-code-confidence-bounds" title="Permalink to this headline">¶</a></h2>
+<p>You will create a small python package called <code class="docutils literal notranslate"><span class="pre">cibin</span></code> that can be imported with
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cibin</span></code> and tested at the command line with <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">cibin</span></code>. This small
+package will implement “Method 3” of Li and Ding in Python.</p>
+<p>Note that both the Li and Ding paper, and the supplementary materials with an R
+implementation, are available in the class Google Drive Literature Folder, for
+you to use.  You should study the R code and paper as a reference and to run
+validation tests, but you should create your own Pythonic implementation rather
+than trying to translate R code line-by-line.</p>
+<p>You can use cryptorandom and permute, along with your implementations of
+hypergeometric confidence bounds from the previous homework assignment.</p>
+<p>Provide appropriate docstrings, unit tests, etc. Code should comply with PEP-8 and PEP-257.</p>
+<p>We have provided a <a class="reference external" href="https://github.com/fperez/mytoy">toy Python package on Github</a> to show you how to structure a repository to contain a minimally installable Python package with the basics.  Feel free to copy the layout and basic <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file from that repo to get going.  You may also find the blog post series <a class="reference external" href="https://jacobtomlinson.dev/series/creating-an-open-source-python-project-from-scratch/">Creating an open source Python project from scratch</a> valuable.</p>
+<p>The deliverables for this part will be:</p>
+<ul class="simple">
+<li><p>The code in the <code class="docutils literal notranslate"><span class="pre">cibin</span></code> directory implementing these functions, with tests, docstrings, etc.</p></li>
+<li><p>A top-level notebook called <code class="docutils literal notranslate"><span class="pre">cibin-demo.ipynb</span></code> that reproduces, using your implementation, column “3” of table I in the Li and Ding paper.</p></li>
+</ul>
+</div>
+<div class="section" id="points-analysis-part-i">
+<h2>[20 points] Analysis Part I<a class="headerlink" href="#points-analysis-part-i" title="Permalink to this headline">¶</a></h2>
+<p>Find 95% lower (one-sided) and two-sided confidence intervals for the reduction
+in risk corresponding to the primary endpoint (data “Through day 29”), using
+method 3 and also using the cruder conservative approach via simultaneous
+Bonferroni confidence bounds for <span class="math notranslate nohighlight">\(N_{\cdot 1}\)</span> and <span class="math notranslate nohighlight">\(N_{1\cdot}\)</span> described in
+the notes on causal inference. (For the Bonferroni approach to two-sided
+intervals, use Sterne’s method for the underlying hypergeometric confidence
+intervals. Feel free to re-use your own code from the previous problem set.)</p>
+<ul class="simple">
+<li><p>Discuss the differences between the two sets of confidence intervals.</p></li>
+<li><p>Is it statistically legitimate to use one-sided confidence intervals? Why
+or why not?</p></li>
+<li><p>Are the 2-sided confidence intervals preferable to the one-sided intervals?
+Why or why not?</p></li>
+</ul>
+<p><strong>Note:</strong> for this and all parts below, write out your code and analysis narrative in one or more Notebooks or Markdown files at your discretion. You must name them <code class="docutils literal notranslate"><span class="pre">analysis-I</span></code>, <code class="docutils literal notranslate"><span class="pre">analysis-II</span></code>, etc. if you choose to break each part into its own file, or say <code class="docutils literal notranslate"><span class="pre">analysis-I-IV</span></code> if you combine multiple sections into one file.  Regardless of whether you use notebooks or markdown files, at the end you should compile them all to PDF and include them next to the source in the repo (tip: use a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>!).</p>
+</div>
+<div class="section" id="points-analysis-part-ii">
+<h2>[10 points] Analysis Part II<a class="headerlink" href="#points-analysis-part-ii" title="Permalink to this headline">¶</a></h2>
+<p>Is the same method applicable to the two intermediate endpoints, symptoms
+within 1 week and symptoms after 1 week? If so, how? Identify any additional
+assumptions or adjustments that would be required to use the method on the
+intermediate endpoints. If the method is not applicable to the intermediate
+endpoints, explain why.</p>
+</div>
+<div class="section" id="points-analysis-part-iii">
+<h2>[10 points] Analysis Part III<a class="headerlink" href="#points-analysis-part-iii" title="Permalink to this headline">¶</a></h2>
+<p>Imagine enumerating all the subject-weeks (4 weeks per subject), and labeling
+each as either “has symptoms” or “does not have symptoms,” so that each week is
+labeled with a binary outcome. Can either of the methods you implemented be
+used to find confidence bounds for the average treatment effect, measured as
+the reduction in the average number of symptomatic weeks per subject? If so,
+explain how; if not, explain why.</p>
+</div>
+<div class="section" id="points-analysis-part-iv">
+<h2>[10 points] Analysis Part IV<a class="headerlink" href="#points-analysis-part-iv" title="Permalink to this headline">¶</a></h2>
+<p>Read the safety information and the information about the subjects in the press
+release, including information about race, age, and risk factors. Based on the
+evidence in the press release, would you recommend this prophylactic treatment
+to a friend or relative? Why or why not? Is there something else you would want
+to know first? If so, what?</p>
+</div>
+<div class="section" id="author-contribution-statement">
+<h2>Author contribution statement<a class="headerlink" href="#author-contribution-statement" title="Permalink to this headline">¶</a></h2>
+<p>In the last one of your analysis files (depending on how you chose to split up your work), include an <strong>Author Contribution Statement</strong>, similar to what we requested in HW06 and HW07.</p>
+<p>If you find yourself with an <em>important concern or disagreement</em> regarding the team contribution statement that you feel requires private communication to the instructors, you can do so by <a class="reference external" href="https://forms.gle/v9iBZy4VTYYb3mbC9">filling out this short form</a>.</p>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>You will be assigned to <em>the same team from HW 6</em>, and we will use the same workflow as for that assignment, with a private Slack channel for each team where we’ll add the three instructors.</p>
+<p>In general, all other guidelines regarding testing, documentation, PRs, GitHub Actions and more, from the HW06 group assignment, apply equally here, so we won’t repeat them. You can refresh your memory by <a class="reference external" href="hw06-cryptorandom-contrib.md#Tips-for-this-assignment">checking out those notes</a>.</p>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/fperez/mytoy">Example “toy” repository with a minimal, but full, Python package</a>.</p></li>
+<li><p><a class="reference external" href="https://www.statnews.com/2021/04/12/regeneron-antibody-cocktail-covid-simple-injection/">Regeneron press release</a>.</p></li>
+<li><p><a class="reference external" href="https://investor.regeneron.com/news-releases/news-release-details/phase-3-prevention-trial-showed-81-reduced-risk-symptomatic-sars">Data tables for the above Press Release</a>.</p></li>
+<li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> and <a class="reference external" href="https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fsim.6764&amp;file=sim6764-sup-0002-Supplementary.R">supplementary materials</a>  (also in the Drive folder of literature).</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Hw"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Philip Stark and Fernando Pérez<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
