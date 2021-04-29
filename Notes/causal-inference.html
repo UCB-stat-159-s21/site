@@ -738,22 +738,21 @@ We will start with a very crude approach and refine it.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Nt : list of 4 ints </span>
-<span class="sd">        N00, subjects with potential outcome 0 under control and treatment</span>
-<span class="sd">        N01, subjects with potential outcome 0 under control and 1 under treatment</span>
-<span class="sd">        N10, subjects with potential outcome 1 under control and 0 under treatment</span>
-<span class="sd">        N11, subjects with potential outcome 1 under control and treatment</span>
+<span class="sd">        N00, subjects with potential outcome 0 under treatments 0 and 1</span>
+<span class="sd">        N01, subjects with potential outcome 0 under treatment 0 and 1 under treatment 1</span>
+<span class="sd">        N10, subjects with potential outcome 1 under treatment 0 and 0 under treatment 1</span>
+<span class="sd">        N11, subjects with potential outcome 1 under treatments 0 and 1</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">Nt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n00</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">n10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>                    <span class="c1"># allocate space for the observed 0 outcomes, n00 and n10</span>
-        <span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>                                           <span class="c1"># N11</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n01</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">N</span><span class="o">-</span><span class="n">n00</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>     <span class="c1"># N11+N10 &gt;= n01; N11+N10+n00 &lt;= N</span>
-            <span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>                                       <span class="c1"># N10</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n11</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n10</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">N</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">])):</span> 
-                                                            <span class="c1"># N11+N01 &gt;= n11; N11+N01+n10 &lt;= N; no more than N subjects</span>
-                <span class="n">Nt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>                                   <span class="c1"># N01</span>
-                <span class="n">Nt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Nt</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>                    <span class="c1"># N00</span>
-                <span class="k">if</span> <span class="n">filterTable</span><span class="p">(</span><span class="n">Nt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
-                    <span class="k">yield</span> <span class="n">Nt</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n00</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">n10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>               <span class="c1"># allocate space for the observed 0 outcomes, n00 and n10</span>
+        <span class="n">N11</span> <span class="o">=</span> <span class="n">i</span>                                           
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n01</span><span class="o">-</span><span class="n">N11</span><span class="p">),</span> <span class="n">N</span><span class="o">-</span><span class="n">n00</span><span class="o">-</span><span class="n">N11</span><span class="p">):</span>    <span class="c1"># N11+N10 &gt;= n01; N11+N10+n00 &lt;= N</span>
+            <span class="n">N10</span> <span class="o">=</span> <span class="n">j</span>                                        
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n11</span><span class="o">-</span><span class="n">N11</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n10</span><span class="o">-</span><span class="n">N11</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">N11</span><span class="o">-</span><span class="n">N10</span><span class="p">)):</span> 
+                                                       <span class="c1"># N11+N01 &gt;= n11; N11+N01+n10 &lt;= N; no more than N subjects</span>
+                <span class="n">N01</span> <span class="o">=</span> <span class="n">k</span>                                  
+                <span class="n">N00</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="n">N11</span><span class="o">-</span><span class="n">N10</span><span class="o">-</span><span class="n">N01</span>                  
+                <span class="k">if</span> <span class="n">filterTable</span><span class="p">([</span><span class="n">N00</span><span class="p">,</span> <span class="n">N01</span><span class="p">,</span> <span class="n">N10</span><span class="p">,</span> <span class="n">N11</span><span class="p">],</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="p">[</span><span class="n">N00</span><span class="p">,</span> <span class="n">N01</span><span class="p">,</span> <span class="n">N10</span><span class="p">,</span> <span class="n">N11</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">pass</span>
 </pre></div>
@@ -764,7 +763,7 @@ We will start with a very crude approach and refine it.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filterTable</span><span class="p">(</span><span class="n">Nt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    check whether summary table Ntab of binary outcomes is consistent with observed counts</span>
+<span class="sd">    check whether summary table Nt of binary outcomes is consistent with observed counts</span>
 <span class="sd">    </span>
 <span class="sd">    implements the test in Theorem 1 of Li and Ding (2016)</span>
 <span class="sd">    </span>
@@ -790,6 +789,36 @@ We will start with a very crude approach and refine it.</p>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span>   <span class="c1"># total subjects</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n11</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">n01</span><span class="p">,</span> <span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">n10</span><span class="o">-</span><span class="n">n01</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">n11</span><span class="p">,</span> <span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">n01</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">n01</span><span class="o">-</span><span class="n">n10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_potential_outcomes</span><span class="p">(</span><span class="n">Nt</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    make a table of potential outcomes from the 2x2 summary table Nt</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    </span>
+<span class="sd">    Nt : list of 4 ints</span>
+<span class="sd">        N00, N01, N10, N11</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    po : Nx2 table of potential outcomes consistent with Nt</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test</span>
+<span class="n">Nt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">make_potential_outcomes</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -862,13 +891,6 @@ We will start with a very crude approach and refine it.</p>
 <span class="n">n11</span> <span class="o">=</span> <span class="mi">11</span>
 <span class="n">n00</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="n">n01</span>
 <span class="n">n10</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="n">n11</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">N_generator</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
