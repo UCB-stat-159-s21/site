@@ -24,7 +24,9 @@ infected, through 29 days after injection.
 
 You will create a small python package called `cibin` that can be imported with
 `import cibin` and tested at the command line with `pytest cibin`. This small
-package will implement "Method 3" of Li and Ding in Python.
+package will implement "Method 3" of Li and Ding in Python to find
+2-sided $1-\alpha$ confidence bounds for the average treatment effect
+in a randomized experiment with binary outcomes and two treatments (active treatment and control).
 
 Note that both the Li and Ding paper, and the supplementary materials with an R
 implementation, are available in the class Google Drive Literature Folder, for
@@ -44,6 +46,14 @@ The deliverables for this part will be:
 - The code in the `cibin` directory implementing these functions, with tests, docstrings, etc.
 
 - A top-level notebook called `cibin-demo.ipynb` that reproduces, using your implementation, column "3" of table I in the Li and Ding paper.
+
+The calling signature for the confidence procedure should be:
+
+`tau_twosided_ci(n11, n10, n01, n00, alpha, exact=True, max_tables=int(10**5), reps=int(10**3))`
+
+when `exact=True`, ...
+
+Returns: [lb, ub], [allocation that gives lb, allocation that gives ub], [# tables examined, total reps across simulations]
 
 
 ## [20 points] Analysis Part I
