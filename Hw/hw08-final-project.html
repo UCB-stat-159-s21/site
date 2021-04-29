@@ -320,7 +320,9 @@ infected, through 29 days after injection.</p>
 <h2>[50 points] Code: confidence bounds<a class="headerlink" href="#points-code-confidence-bounds" title="Permalink to this headline">¶</a></h2>
 <p>You will create a small python package called <code class="docutils literal notranslate"><span class="pre">cibin</span></code> that can be imported with
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cibin</span></code> and tested at the command line with <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">cibin</span></code>. This small
-package will implement “Method 3” of Li and Ding in Python.</p>
+package will implement “Method 3” of Li and Ding in Python to find
+2-sided <span class="math notranslate nohighlight">\(1-\alpha\)</span> confidence bounds for the average treatment effect
+in a randomized experiment with binary outcomes and two treatments (active treatment and control).</p>
 <p>Note that both the Li and Ding paper, and the supplementary materials with an R
 implementation, are available in the class Google Drive Literature Folder, for
 you to use.  You should study the R code and paper as a reference and to run
@@ -335,6 +337,10 @@ hypergeometric confidence bounds from the previous homework assignment.</p>
 <li><p>The code in the <code class="docutils literal notranslate"><span class="pre">cibin</span></code> directory implementing these functions, with tests, docstrings, etc.</p></li>
 <li><p>A top-level notebook called <code class="docutils literal notranslate"><span class="pre">cibin-demo.ipynb</span></code> that reproduces, using your implementation, column “3” of table I in the Li and Ding paper.</p></li>
 </ul>
+<p>The calling signature for the confidence procedure should be:</p>
+<p><code class="docutils literal notranslate"><span class="pre">tau_twosided_ci(n11,</span> <span class="pre">n10,</span> <span class="pre">n01,</span> <span class="pre">n00,</span> <span class="pre">alpha,</span> <span class="pre">exact=True,</span> <span class="pre">max_tables=int(10**5),</span> <span class="pre">reps=int(10**3))</span></code></p>
+<p>when <code class="docutils literal notranslate"><span class="pre">exact=True</span></code>, …</p>
+<p>Returns: [lb, ub], [allocation that gives lb, allocation that gives ub], [# tables examined, total reps across simulations]</p>
 </div>
 <div class="section" id="points-analysis-part-i">
 <h2>[20 points] Analysis Part I<a class="headerlink" href="#points-analysis-part-i" title="Permalink to this headline">¶</a></h2>
