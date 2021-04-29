@@ -8,7 +8,7 @@
 
 - This assignment is worth a maximum of **100 points**.
 
-- Assignment type: **group** (same teams as HW06).
+- Assignment type: **group** (similar-sized teams as HW06).
 
 
 The goal of this project is to implement and apply the method in section 3 of
@@ -35,9 +35,9 @@ validation tests, but you should create your own Pythonic implementation rather
 than trying to translate R code line-by-line.
 
 You can use cryptorandom and permute, along with your implementations of
-hypergeometric confidence bounds from the previous homework assignment.
+hypergeometric confidence bounds from the previous homework assignment and any code we've provided from the class notebooks.
 
-Provide appropriate docstrings, unit tests, etc. Code should comply with PEP-8 and PEP-257. 
+You must provide appropriate docstrings, unit tests, etc. Your code should comply with PEP-8 and PEP-257.
 
 We have provided a [toy Python package on Github](https://github.com/fperez/mytoy) to show you how to structure a repository to contain a minimally installable Python package with the basics.  Feel free to copy the layout and basic `setup.py` file from that repo to get going.  You may also find the blog post series [Creating an open source Python project from scratch](https://jacobtomlinson.dev/series/creating-an-open-source-python-project-from-scratch/) valuable.
 
@@ -49,12 +49,25 @@ The deliverables for this part will be:
 
 The calling signature for the confidence procedure should be:
 
-`tau_twosided_ci(n11, n10, n01, n00, alpha, exact=True, max_tables=int(10**5), reps=int(10**3))`
+```python
+tau_twosided_ci(n11, n10, n01, n00, alpha, exact=True, max_combinations=10**5, reps=10**3)
+```
 
-when `exact=True`, ...
+When `exact=True`, your function should compute the exact result (by enumerating all possible samples rather than using simulation), but it should stop by raising an exception if it hits the limit of `max_combinations`. This exception should indicate the required number of combinations so that you can increase the value of `max_combinations` to that value, if you are willing to pay that computational price.
 
-Returns: [lb, ub], [allocation that gives lb, allocation that gives ub], [# tables examined, total reps across simulations]
+You can for example see how scipy's [`newton_krylov`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton_krylov.html) routine handles non-convergence for an illustration of this pattern that is common in scientific algorithms.
 
+Conversely, when `exact=False`, then your code should perform `reps` number of total simulations per table tested to produce an approximate answer.
+
+The function should return three two-element lists with the following information:
+
+- `[lb, ub]`: lower/upper bound of the confidence interval.
+- `[allocation that gives lb, allocation that gives ub]`. 
+- `[# tables examined, total reps across simulations]`.
+
+For this assignment, you may find the `combinations` function in the [Python itertools module](https://docs.python.org/3/library/itertools.html) useful. In general that module is a great resource for implementing (often tricky to get right) combinatorial algorithms, as it provides a number of well-tested basic building blocks.
+
+Note that in the causal inference notebook there's an implementation (discussed during 4/29's lecture) of a few utility functions that can be handy for this work.  You are welcome to either look at them or use them verbatim, but we warn you **they have not been tested!**. Before you use them, you are responsible for testing and validating they are actually correct (and please let us know if you find bugs in them!).
 
 ## [20 points] Analysis Part I
 
@@ -113,9 +126,9 @@ If you find yourself with an _important concern or disagreement_ regarding the t
 
 ## Workflow
 
-You will be assigned to _the same team from HW 6_, and we will use the same workflow as for that assignment, with a private Slack channel for each team where we'll add the three instructors.
+You will be assigned to similarly-sized teams from HW 6, and in some cases it may be the same people (we've done some reshuffling based on your feedback in HW 6 and 7, but didn't create a completely new set of teams from scratch). 
 
-In general, all other guidelines regarding testing, documentation, PRs, GitHub Actions and more, from the HW06 group assignment, apply equally here, so we won't repeat them. You can refresh your memory by [checking out those notes](hw06-cryptorandom-contrib.md#Tips-for-this-assignment).
+We will use the same workflow as for that assignment, with a private Slack channel for each team where we'll add the three instructors.  All other guidelines regarding testing, documentation, PRs, GitHub Actions and more, from the HW06 group assignment, apply equally here, so we won't repeat them. You can refresh your memory by [checking out those notes](hw06-cryptorandom-contrib.md#Tips-for-this-assignment).
 
 
 ## Resources
