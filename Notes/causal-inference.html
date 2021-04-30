@@ -756,7 +756,7 @@ We will start with a very crude approach and refine it.</p>
                                                        <span class="c1"># N11+N01 &gt;= n11; N11+N01+n10 &lt;= N; no more than N subjects</span>
                 <span class="n">N01</span> <span class="o">=</span> <span class="n">k</span>                                  
                 <span class="n">N00</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="n">N11</span><span class="o">-</span><span class="n">N10</span><span class="o">-</span><span class="n">N01</span>                  
-                <span class="k">if</span> <span class="n">filterTable</span><span class="p">([</span><span class="n">N00</span><span class="p">,</span> <span class="n">N01</span><span class="p">,</span> <span class="n">N10</span><span class="p">,</span> <span class="n">N11</span><span class="p">],</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">filterTable</span><span class="p">([</span><span class="n">N00</span><span class="p">,</span> <span class="n">N01</span><span class="p">,</span> <span class="n">N10</span><span class="p">,</span> <span class="n">N11</span><span class="p">],</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
                     <span class="k">yield</span> <span class="p">[</span><span class="n">N00</span><span class="p">,</span> <span class="n">N01</span><span class="p">,</span> <span class="n">N10</span><span class="p">,</span> <span class="n">N11</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">pass</span>
@@ -766,7 +766,7 @@ We will start with a very crude approach and refine it.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filterTable</span><span class="p">(</span><span class="n">Nt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filterTable</span><span class="p">(</span><span class="n">Nt</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    check whether summary table Nt of binary outcomes is consistent with observed counts</span>
 <span class="sd">    </span>
@@ -777,10 +777,7 @@ We will start with a very crude approach and refine it.</p>
 <span class="sd">    Nt : list of four ints</span>
 <span class="sd">        the table of counts of subjects with each combination of potential outcomes, in the order</span>
 <span class="sd">        N_00, N_01, N_10, N_11</span>
-<span class="sd">    </span>
-<span class="sd">    n : int</span>
-<span class="sd">        number of subjects assigned to treatment</span>
-<span class="sd">    </span>
+<span class="sd">       </span>
 <span class="sd">    n01 : int</span>
 <span class="sd">        number of subjects assigned to control whose observed response was 1</span>
 
@@ -800,18 +797,17 @@ We will start with a very crude approach and refine it.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_potential_outcomes</span><span class="p">(</span><span class="n">Nt</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">potential_outcomes</span><span class="p">(</span><span class="n">Nt</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    make a table of potential outcomes from the 2x2 summary table Nt</span>
+<span class="sd">    make a 2xN table of potential outcomes from the 2x2 summary table Nt</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    </span>
+<span class="sd">    ----------   </span>
 <span class="sd">    Nt : list of 4 ints</span>
 <span class="sd">        N00, N01, N10, N11</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
-<span class="sd">    --------</span>
+<span class="sd">    -------</span>
 <span class="sd">    po : Nx2 table of potential outcomes consistent with Nt</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Nt</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
@@ -823,7 +819,25 @@ We will start with a very crude approach and refine it.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test</span>
 <span class="n">Nt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">make_potential_outcomes</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span>
+<span class="n">potential_outcomes</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 1],
+       [0, 1],
+       [0, 1],
+       [0, 1],
+       [1, 0],
+       [1, 0],
+       [1, 0],
+       [1, 1],
+       [1, 1]])
 </pre></div>
 </div>
 </div>
@@ -843,44 +857,44 @@ We will start with a very crude approach and refine it.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span> <span class="k">for</span> <span class="n">Nt</span> <span class="ow">in</span> <span class="n">N_generator</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Nt</span> <span class="k">for</span> <span class="n">Nt</span> <span class="ow">in</span> <span class="n">N_generator</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 3, 3, 1),
- (2, 4, 3, 1),
- (1, 5, 3, 1),
- (4, 2, 2, 2),
- (3, 3, 2, 2),
- (2, 4, 2, 2),
- (1, 5, 2, 2),
- (3, 2, 3, 2),
- (2, 3, 3, 2),
- (1, 4, 3, 2),
- (4, 1, 2, 3),
- (3, 2, 2, 3),
- (2, 3, 2, 3),
- (1, 4, 2, 3),
- (3, 1, 3, 3),
- (2, 2, 3, 3),
- (1, 3, 3, 3),
- (5, 0, 1, 4),
- (4, 1, 1, 4),
- (3, 2, 1, 4),
- (2, 3, 1, 4),
- (1, 4, 1, 4),
- (4, 0, 2, 4),
- (3, 1, 2, 4),
- (2, 2, 2, 4),
- (1, 3, 2, 4),
- (4, 0, 1, 5),
- (3, 1, 1, 5),
- (2, 2, 1, 5),
- (1, 3, 1, 5),
- (4, 0, 0, 6),
- (3, 1, 0, 6),
- (2, 2, 0, 6)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3, 3, 3, 1],
+ [2, 4, 3, 1],
+ [1, 5, 3, 1],
+ [4, 2, 2, 2],
+ [3, 3, 2, 2],
+ [2, 4, 2, 2],
+ [1, 5, 2, 2],
+ [3, 2, 3, 2],
+ [2, 3, 3, 2],
+ [1, 4, 3, 2],
+ [4, 1, 2, 3],
+ [3, 2, 2, 3],
+ [2, 3, 2, 3],
+ [1, 4, 2, 3],
+ [3, 1, 3, 3],
+ [2, 2, 3, 3],
+ [1, 3, 3, 3],
+ [5, 0, 1, 4],
+ [4, 1, 1, 4],
+ [3, 2, 1, 4],
+ [2, 3, 1, 4],
+ [1, 4, 1, 4],
+ [4, 0, 2, 4],
+ [3, 1, 2, 4],
+ [2, 2, 2, 4],
+ [1, 3, 2, 4],
+ [4, 0, 1, 5],
+ [3, 1, 1, 5],
+ [2, 2, 1, 5],
+ [1, 3, 1, 5],
+ [4, 0, 0, 6],
+ [3, 1, 0, 6],
+ [2, 2, 0, 6]]
 </pre></div>
 </div>
 </div>
