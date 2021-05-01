@@ -324,6 +324,16 @@
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-measures-of-the-effect-of-treatment">
+     Other measures of the effect of treatment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-s-special-about-binary-outcomes">
+     What’s special about binary outcomes?
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -490,12 +500,6 @@ the corresponding population parameters,</p>
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_j := x_{1j}-x_{0j}\)</span>.
 An unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</span> is <span class="math notranslate nohighlight">\(\hat{\tau} := \bar{X}_1 - \bar{X}_0\)</span>.</p>
-<p>There are other common measures of effect size, such as vaccine efficacy, defined as</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-\mbox{VE} := 1 - \frac{\mbox{risk among unvaccinated} - \mbox{risk among vaccinated}}{\mbox{risk among unvaccinated}}.
-\end{equation*}\]</div>
-<p>This is the naive estimate of the fraction of infections that vaccination prevents.</p>
 <p>Since each <span class="math notranslate nohighlight">\(\tau_j\)</span> is either <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, or <span class="math notranslate nohighlight">\(1\)</span>, the only possible values of
 <span class="math notranslate nohighlight">\(\tau\)</span> are multiples of <span class="math notranslate nohighlight">\(1/N\)</span>.
 The largest and smallest possible values are <span class="math notranslate nohighlight">\(\tau=-1\)</span> (which
@@ -915,6 +919,35 @@ We will start with a very crude approach and refine it.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="other-measures-of-the-effect-of-treatment">
+<h3>Other measures of the effect of treatment<a class="headerlink" href="#other-measures-of-the-effect-of-treatment" title="Permalink to this headline">¶</a></h3>
+<p>The average treatment effect is one of many ways of quantifying the effect of treatment.
+For vaccines, a common measure of effect size is <em>vaccine efficacy</em>, defined as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mbox{VE} := 1 - \frac{\mbox{risk among unvaccinated} - \mbox{risk among vaccinated}}{\mbox{risk among unvaccinated}}.
+\end{equation*}\]</div>
+<p>This is the naive estimate of the fraction of infections that vaccinating everyone would prevent.</p>
+<p>Here, <em>risk</em> is the fraction of subjects who become infected.
+In the notation we’ve been using,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mbox{VE}(\mathbf{N}) = 1 - \frac{N_{1+}/N - N_{+1}/N}{N_{1+}/N} = 1 - \frac{N_{1+} - N_{+1}}{N_{1+}}.
+\end{equation*}\]</div>
+<p>We can make confidence intervals for vaccine efficiacy in the same way as for the average treatment effect:</p>
+<ul class="simple">
+<li><p>Choose a reasonable test statistic <span class="math notranslate nohighlight">\(T\)</span> (Here, we might use the <em>plug-in estimator</em> of VE: <span class="math notranslate nohighlight">\(\widehat{\mbox{VE}} = 1 - (\bar{X}_0^* - \bar{X}_1^*)/\bar{X}_0^*\)</span>. This is a biased estimate of VE, but still a sensible choice.)</p></li>
+<li><p>For each summary table of potential outcomes, <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>, test the hypothesis that the observations came from that table using the randomization distribution of <span class="math notranslate nohighlight">\(T\)</span>: reject if the observed value of <span class="math notranslate nohighlight">\(T\)</span> exceeds the <span class="math notranslate nohighlight">\(1-\alpha\)</span> percentile of that distribution.</p></li>
+<li><p>If the hypothesis is not rejected, include <span class="math notranslate nohighlight">\(\mbox{VE}(\mathbf{N})\)</span> in the confidence set.</p></li>
+</ul>
+<p>A similar approach works with any measure of effect size in a randomized experiment with binary outcomes.</p>
+</div>
+<div class="section" id="what-s-special-about-binary-outcomes">
+<h3>What’s special about binary outcomes?<a class="headerlink" href="#what-s-special-about-binary-outcomes" title="Permalink to this headline">¶</a></h3>
+<p>The approach above uses the assumption that the potential outcomes can be only 0 or 1.
+If the potential outcomes take values in a known finite set, a similar approach works, but if there are more than 2 possible values, constructing all tables algebraically consistent with the data is in general harder, and the number of such tables will be larger.</p>
+<p>If the potential outcomes are bounded with known bounds (but not necessarily discrete with known support), the approach can be generalized using nonparametric methods for estimating the mean of bounded, finite populations (see other chapters in the notes for such methods, including <a class="reference internal" href="hoeffding.html"><span class="doc std std-doc">Confidence bounds via the Chebychev and Hoeffding Inequalities</span></a>, <a class="reference internal" href="markov.html"><span class="doc std std-doc">Lower confidence bounds for the mean via Markov’s Inequality and methods based on the Empirical Distribution</span></a>, <a class="reference internal" href="pennySampling.html"><span class="doc std std-doc">Penny sampling</span></a>, <a class="reference internal" href="sprt.html"><span class="doc std std-doc">Wald’s Sequential Probability Ratio Test (SPRT)</span></a>, <a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Kaplan-Wald Confidence Bound for a Nonnegative Mean</span></a>, and <a class="reference internal" href="shootout.html"><span class="doc std std-doc">Method shootout</span></a>.</p>
 </div>
 </div>
 </div>

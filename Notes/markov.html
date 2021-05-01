@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lower confidence bounds for the mean of a nonnegative population &#8212; Collaborative and Reproducible Data Science</title>
+    <title>Lower confidence bounds for the mean via Markov’s Inequality and methods based on the Empirical Distribution &#8212; Collaborative and Reproducible Data Science</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -273,15 +273,8 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Lower confidence bounds for the mean of a nonnegative population
+   Lower confidence bounds for the mean via Markov’s Inequality and methods based on the Empirical Distribution
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#markov-s-inequality-and-methods-based-on-the-empirical-distribution">
-     Markov’s Inequality and methods based on the Empirical Distribution
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#markov-s-inequality">
@@ -345,10 +338,8 @@
         
               <div>
                 
-  <div class="section" id="lower-confidence-bounds-for-the-mean-of-a-nonnegative-population">
-<h1>Lower confidence bounds for the mean of a nonnegative population<a class="headerlink" href="#lower-confidence-bounds-for-the-mean-of-a-nonnegative-population" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="markov-s-inequality-and-methods-based-on-the-empirical-distribution">
-<h2>Markov’s Inequality and methods based on the Empirical Distribution<a class="headerlink" href="#markov-s-inequality-and-methods-based-on-the-empirical-distribution" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="lower-confidence-bounds-for-the-mean-via-markov-s-inequality-and-methods-based-on-the-empirical-distribution">
+<h1>Lower confidence bounds for the mean via Markov’s Inequality and methods based on the Empirical Distribution<a class="headerlink" href="#lower-confidence-bounds-for-the-mean-via-markov-s-inequality-and-methods-based-on-the-empirical-distribution" title="Permalink to this headline">¶</a></h1>
 <p>Recall the set-up. We have:</p>
 <ol class="simple">
 <li><p>known numbers <span class="math notranslate nohighlight">\(N &gt; 0\)</span>,  <span class="math notranslate nohighlight">\( \{\ell_j\}_{j=1}^N\)</span>, and <span class="math notranslate nohighlight">\(\{u_j\}_{j=1}^N\)</span>, with <span class="math notranslate nohighlight">\(\ell_j \le u_j, \; \forall j\)</span></p></li>
@@ -359,7 +350,6 @@
 \[\begin{equation*} \mu \equiv \frac{1}{N} \sum_{j=1}^N x_j.\end{equation*}\]</div>
 <p>In this section, <span class="math notranslate nohighlight">\(\ell_j = 0\)</span> and <span class="math notranslate nohighlight">\(u_j = \infty\)</span>, <span class="math notranslate nohighlight">\(\forall j\)</span> (the population is known to be nonnegative).</p>
 <p>We seek a <em>lower</em> confidence bound for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-</div>
 </div>
 <div class="section" id="markov-s-inequality">
 <h1>Markov’s Inequality:<a class="headerlink" href="#markov-s-inequality" title="Permalink to this headline">¶</a></h1>
