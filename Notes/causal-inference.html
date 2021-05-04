@@ -703,18 +703,21 @@ Set</p>
 \end{equation*}\]</div>
 <p>the observed value of the unbiased estimate of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <ul class="simple">
-<li><p>for each table <span class="math notranslate nohighlight">\(\mathbf{N}\)</span> that is consistent with the observed values <span class="math notranslate nohighlight">\((n_{wk})\)</span>:</p>
+<li><p>for each table <span class="math notranslate nohighlight">\(\mathbf{N}\)</span> that is algebraically consistent with the observed values <span class="math notranslate nohighlight">\((n_{wk})\)</span>:</p>
 <ul>
-<li><p>find <span class="math notranslate nohighlight">\(\tau(\mathbf{N})\)</span></p></li>
+<li><p>find <span class="math notranslate nohighlight">\(\tau(\mathbf{N}) = \frac{N_{01}-N_{10}}{N}\)</span>.</p></li>
 <li><p>calculate <span class="math notranslate nohighlight">\(t = |\tau^* - \tau(\mathbf{N})|\)</span></p></li>
-<li><p>find or simulate the sampling distribution of <span class="math notranslate nohighlight">\(|\hat{\tau} - \tau|\)</span> using a table with potential outcomes consistent with <span class="math notranslate nohighlight">\(\mathbf{N}\)</span></p></li>
+<li><p>create a “full” table of potential outcomes <span class="math notranslate nohighlight">\((x_{ik})\)</span> consistent with the summary table <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>.</p></li>
+<li><p>find or simulate the sampling distribution of <span class="math notranslate nohighlight">\(|\hat{\tau} - \tau|\)</span> using <span class="math notranslate nohighlight">\((x_{ik})\)</span></p></li>
 <li><p>if <span class="math notranslate nohighlight">\(t\)</span> is above the <span class="math notranslate nohighlight">\(1-\alpha\)</span> percentile of the sampling distribution, pass; otherwise include <span class="math notranslate nohighlight">\(\tau(\mathbf{N})\)</span> in the confidence set</p></li>
 </ul>
 </li>
+<li><p>report the smallest and largest values of <span class="math notranslate nohighlight">\(\tau\)</span> in the confidence set as the endpoints of the confidence interval</p></li>
 </ul>
-<p>To implement this in python, we first need to construct all such tables <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>.</p>
-<p>The strategy is to make an <code class="docutils literal notranslate"><span class="pre">generator</span></code> that yields tables consistent with the data (and perhaps some others), then filter out any that are not consistent.
-We will start with a very crude approach and refine it.</p>
+<p>To implement this in python, we first need to construct all such tables <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>.
+Below, the main step–generating tables that are algebraically consistent with the data–is implemented in python
+(<code class="docutils literal notranslate"><span class="pre">N_generator()</span></code>), as is the step of
+creating a table of potential outcomes consistent with <span class="math notranslate nohighlight">\(\mathbf{N}\)</span> (<code class="docutils literal notranslate"><span class="pre">potential_outcomes()</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -729,7 +732,7 @@ We will start with a very crude approach and refine it.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">N_generator</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n00</span><span class="p">,</span> <span class="n">n01</span><span class="p">,</span> <span class="n">n10</span><span class="p">,</span> <span class="n">n11</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; </span>
-<span class="sd">    generate tables consistent with data from an experiment with binary outcomes</span>
+<span class="sd">    generate tables algebraically consistent with data from an experiment with binary outcomes</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -960,6 +963,7 @@ still a sensible choice:</p></li>
 <p>The approach above uses the assumption that the potential outcomes can be only 0 or 1.
 If the potential outcomes take values in a known finite set, a similar approach works, but if there are more than 2 possible values, constructing all tables algebraically consistent with the data is in general harder, and the number of such tables will be larger.</p>
 <p>If the potential outcomes are bounded with known bounds (but not necessarily discrete with known support), the approach can be generalized using nonparametric methods for estimating the mean of bounded, finite populations (see other chapters in the notes for such methods, including <a class="reference internal" href="hoeffding.html"><span class="doc std std-doc">Confidence bounds via the Chebychev and Hoeffding Inequalities</span></a>, <a class="reference internal" href="markov.html"><span class="doc std std-doc">Lower confidence bounds for the mean via Markov’s Inequality and methods based on the Empirical Distribution</span></a>, <a class="reference internal" href="pennySampling.html"><span class="doc std std-doc">Penny sampling</span></a>, <a class="reference internal" href="sprt.html"><span class="doc std std-doc">Wald’s Sequential Probability Ratio Test (SPRT)</span></a>, <a class="reference internal" href="kaplanWald.html"><span class="doc std std-doc">Kaplan-Wald Confidence Bound for a Nonnegative Mean</span></a>, and <a class="reference internal" href="shootout.html"><span class="doc std std-doc">Method shootout</span></a>.</p>
+<p>If the outcomes can be arbitrary, there is no</p>
 </div>
 </div>
 </div>
