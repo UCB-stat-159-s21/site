@@ -133,6 +133,8 @@ We will use the same workflow as for that assignment, with a private Slack chann
 
 ## Resources
 
+- [The lecture notes on Causal Inference](../Notes/causal-inference.ipynb). Method 3 is written down as a pseudo-algorithm in a cell with the heading "The algorithm."
+
 - [Example "toy" repository with a minimal, but full, Python package](https://github.com/fperez/mytoy).
 
 - [Regeneron press release](https://www.statnews.com/2021/04/12/regeneron-antibody-cocktail-covid-simple-injection/).
@@ -140,3 +142,17 @@ We will use the same workflow as for that assignment, with a private Slack chann
 - [Data tables for the above Press Release](https://investor.regeneron.com/news-releases/news-release-details/phase-3-prevention-trial-showed-81-reduced-risk-symptomatic-sars).
 
 -  [Li and Ding (2016)](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764) and [supplementary materials](https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fsim.6764&file=sim6764-sup-0002-Supplementary.R)  (also in the Drive folder of literature).
+
+## Hints regarding unit tests
+
+- Keep in mind that there are two very different kinds of things to check in determining whether code does what you want: 
+    1. Does the code correctly implement the math?
+    1. Is the math correct?
+
+- Compare your output for method 3 with Li and Ding's Table I, column labelled "3." However, you should *not* trust that their calculations are correct, so this is not a complete test. (This test is more probative the less you relied on the R code for writing your python implementation!)
+
+- Compare results with `exact=True` to results with `exact=False` for examples that are small enough to use `exact=True`
+
+- Implement an even less efficient approach that enumerates **all** summary tables of potential outcomes and use it to check results for small examples. (This test allows you to check without relying on Li and Ding's Theorem 1, without relying on their R code, without relying on the underlying logic of their algorithm, and without relying on your primary implementation.)
+
+- Check that the method based on Bonferroni's inequality gives wider confidence intervals than Li and Ding's method 3. It should generally give wider intervals, but the intervals do not necessarily nest.
