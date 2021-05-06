@@ -296,6 +296,11 @@
    8.8. Resources
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hints-regarding-unit-tests">
+   8.9. Hints regarding unit tests
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -416,10 +421,26 @@ to know first? If so, what?</p>
 <div class="section" id="resources">
 <h2><span class="section-number">8.8. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference internal" href="../Notes/causal-inference.html"><span class="doc std std-doc">The lecture notes on Causal Inference</span></a>. Method 3 is written down as a pseudo-algorithm in a cell with the heading “The algorithm.”</p></li>
 <li><p><a class="reference external" href="https://github.com/fperez/mytoy">Example “toy” repository with a minimal, but full, Python package</a>.</p></li>
 <li><p><a class="reference external" href="https://www.statnews.com/2021/04/12/regeneron-antibody-cocktail-covid-simple-injection/">Regeneron press release</a>.</p></li>
 <li><p><a class="reference external" href="https://investor.regeneron.com/news-releases/news-release-details/phase-3-prevention-trial-showed-81-reduced-risk-symptomatic-sars">Data tables for the above Press Release</a>.</p></li>
 <li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.6764">Li and Ding (2016)</a> and <a class="reference external" href="https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fsim.6764&amp;file=sim6764-sup-0002-Supplementary.R">supplementary materials</a>  (also in the Drive folder of literature).</p></li>
+</ul>
+</div>
+<div class="section" id="hints-regarding-unit-tests">
+<h2><span class="section-number">8.9. </span>Hints regarding unit tests<a class="headerlink" href="#hints-regarding-unit-tests" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Keep in mind that there are two very different kinds of things to check in determining whether code does what you want:</p>
+<ol class="simple">
+<li><p>Does the code correctly implement the math?</p></li>
+<li><p>Is the math correct?</p></li>
+</ol>
+</li>
+<li><p>Compare your output for method 3 with Li and Ding’s Table I, column labelled “3.” However, you should <em>not</em> trust that their calculations are correct, so this is not a complete test. (This test is more probative the less you relied on the R code for writing your python implementation!)</p></li>
+<li><p>Compare results with <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to results with <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> for examples that are small enough to use <code class="docutils literal notranslate"><span class="pre">exact=True</span></code></p></li>
+<li><p>Implement an even less efficient approach that enumerates <strong>all</strong> summary tables of potential outcomes and use it to check results for small examples. (This test allows you to check without relying on Li and Ding’s Theorem 1, without relying on their R code, without relying on the underlying logic of their algorithm, and without relying on your primary implementation.)</p></li>
+<li><p>Check that the method based on Bonferroni’s inequality gives wider confidence intervals than Li and Ding’s method 3. It should generally give wider intervals, but the intervals do not necessarily nest.</p></li>
 </ul>
 </div>
 </div>
