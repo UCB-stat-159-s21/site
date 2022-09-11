@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modeling the COVID-19 Pandemic &#8212; Collaborative and Reproducible Data Science</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -31,7 +28,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -40,24 +38,40 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -66,10 +80,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/logo.png" class="logo" alt="logo">
       
@@ -80,16 +99,17 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Statistics 159/259, Spring 2021 Course Summary
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Statistics 159/259, Spring 2021 Course Summary
+                </a>
+            </li>
+        </ul>
+        <p class="caption">
  <span class="caption-text">
   Overview
  </span>
@@ -186,91 +206,164 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Notes/pandemic.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/pandemic.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/pandemic.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Notes/pandemic.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Modeling the COVID-19 Pandemic
@@ -319,13 +412,77 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Modeling the COVID-19 Pandemic</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Modeling the COVID-19 Pandemic
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading">
+     Reading
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#models-of-epidemics">
+     Models of epidemics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sir-models">
+   SIR models
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-the-sir-model-to-data">
+     Fitting the SIR model to data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-curves-to-the-cumulative-incidence-function">
+   Fitting curves to the cumulative incidence function
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sigmoidal-models">
+     Sigmoidal Models
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-variants">
+     New variants
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="section" id="modeling-the-covid-19-pandemic">
@@ -590,7 +747,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b533047964264c1fa0fa805be86283a3", "version_major": 2, "version_minor": 0}
+{"model_id": "da8e0e4dea6143c2932312d32071b4b6", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_sir(N, i_0, beta=0.14285714285714285, gamma=0.07142857142857142, delta=0, steps=365, verbose=False)&gt;
 </pre></div>
 </div>
@@ -709,16 +866,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <th>1/26/20</th>
       <th>1/27/20</th>
       <th>...</th>
-      <th>2/8/21</th>
-      <th>2/9/21</th>
-      <th>2/10/21</th>
-      <th>2/11/21</th>
-      <th>2/12/21</th>
-      <th>2/13/21</th>
-      <th>2/14/21</th>
-      <th>2/15/21</th>
-      <th>2/16/21</th>
-      <th>2/17/21</th>
+      <th>3/4/22</th>
+      <th>3/5/22</th>
+      <th>3/6/22</th>
+      <th>3/7/22</th>
+      <th>3/8/22</th>
+      <th>3/9/22</th>
+      <th>3/10/22</th>
+      <th>3/11/22</th>
+      <th>3/12/22</th>
+      <th>3/13/22</th>
     </tr>
   </thead>
   <tbody>
@@ -735,16 +892,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>55359</td>
-      <td>55384</td>
-      <td>55402</td>
-      <td>55420</td>
-      <td>55445</td>
-      <td>55473</td>
-      <td>55492</td>
-      <td>55514</td>
-      <td>55518</td>
-      <td>55540</td>
+      <td>174214</td>
+      <td>174331</td>
+      <td>174582</td>
+      <td>175000</td>
+      <td>175353</td>
+      <td>175525</td>
+      <td>175893</td>
+      <td>175974</td>
+      <td>176039</td>
+      <td>176201</td>
     </tr>
     <tr>
       <th>1</th>
@@ -759,16 +916,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>86289</td>
-      <td>87528</td>
-      <td>88671</td>
-      <td>89776</td>
-      <td>90835</td>
-      <td>91987</td>
-      <td>93075</td>
-      <td>93850</td>
-      <td>94651</td>
-      <td>95726</td>
+      <td>272030</td>
+      <td>272030</td>
+      <td>272210</td>
+      <td>272250</td>
+      <td>272337</td>
+      <td>272412</td>
+      <td>272479</td>
+      <td>272552</td>
+      <td>272621</td>
+      <td>272663</td>
     </tr>
     <tr>
       <th>2</th>
@@ -783,16 +940,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>109313</td>
-      <td>109559</td>
-      <td>109782</td>
-      <td>110049</td>
-      <td>110303</td>
-      <td>110513</td>
-      <td>110711</td>
-      <td>110894</td>
-      <td>111069</td>
-      <td>111247</td>
+      <td>265186</td>
+      <td>265227</td>
+      <td>265265</td>
+      <td>265297</td>
+      <td>265323</td>
+      <td>265346</td>
+      <td>265366</td>
+      <td>265391</td>
+      <td>265410</td>
+      <td>265432</td>
     </tr>
     <tr>
       <th>3</th>
@@ -807,16 +964,16 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>10275</td>
-      <td>10312</td>
-      <td>10352</td>
-      <td>10391</td>
-      <td>10427</td>
-      <td>10463</td>
-      <td>10503</td>
-      <td>10538</td>
-      <td>10555</td>
-      <td>10583</td>
+      <td>38434</td>
+      <td>38434</td>
+      <td>38434</td>
+      <td>38620</td>
+      <td>38710</td>
+      <td>38794</td>
+      <td>38794</td>
+      <td>38794</td>
+      <td>38794</td>
+      <td>38794</td>
     </tr>
     <tr>
       <th>4</th>
@@ -831,20 +988,20 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>20112</td>
-      <td>20163</td>
-      <td>20210</td>
-      <td>20261</td>
-      <td>20294</td>
-      <td>20329</td>
-      <td>20366</td>
-      <td>20381</td>
-      <td>20389</td>
-      <td>20400</td>
+      <td>98796</td>
+      <td>98796</td>
+      <td>98806</td>
+      <td>98806</td>
+      <td>98829</td>
+      <td>98855</td>
+      <td>98855</td>
+      <td>98855</td>
+      <td>98909</td>
+      <td>98927</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 397 columns</p>
+<p>5 rows × 786 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -860,42 +1017,89 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>357 [     1      1      3      4      4      6     10     10     23     23
-     35     90    262    442    615    801    827    864    914    977
-   1057   1151   1255   1326   1395   1450   1591   1724   1877   2046
-   2201   2395   2577   2860   3107   3386   3757   4077   4369   4681
-   5071   5402   5635   5819   5996   6174   6318   6511   6681   6879
-   7073   7242   7384   7515   7695   7912   8073   8210   8445   8575
-   8698   8851   9008   9158   9311   9407   9523   9670   9821   9938
-  10083  10218  10319  10429  10513  10591  10667  10713  10791  10858
-  10927  10968  11044  11117  11182  11230  11289  11360  11387  11428
-  11480  11512  11593  11633  11669  11699  11734  11771  11811  11875
-  11924  11948  11962  12001  12016  12035  12099  12139  12193  12217
-  12250  12294  12344  12391  12391  12391  12527  12561  12615  12636
-  12675  12675  12675  12751  12768  12794  12815  12832  12832  12832
-  12878  12888  12900  12916  12946  12946  12946  13037  13061  13092
-  13124  13173  13173  13173  13262  13302  13350  13390  13438  13438
-  13438  13547  13577  13634  13725  13789  13789  13789  13996  14073
-  14185  14306  14442  14442  14442  14815  14959  15070  15214  15379
-  15483  15617  15740  15855  15940  16056  16127  16239  16317  16397
-  16480  16537  16627  16700  16779  16891  16985  17084  17195  17374
-  17547  17736  17883  18113  18356  18607  18924  19216  19557  19890
-  20237  20571  20571  21393  21847  22436  22905  23323  23799  24357
-  24916  25594  26213  26637  27072  27464  27998  28396  28932  29302
-  29680  30057  30379  30710  31156  31638  32082  32422  32811  33101
-  33593  34023  34441  34941  35392  35844  36373  37003  37763  38622
-  39411  40356  41412  42157  43174  44034  45225  46351  47299  48241
-  49594  50530  51753  53180  54230  55121  55892  56958  57952  58963
-  60000  61078  62136  63331  64551  65808  67105  68362  69635  70485
-  71654  73021  74204  75395  76718  78354  79352  80481  81949  83535
-  85140  86743  88858  90603  92649  94799  97357 100489 103564 107116
- 109758 113095 116087 119779 123813 128321 131606 134434 137632 140175
- 143472 146341 149333 151167 153347 155826 158447 161230 163479 165930
- 167541 168711 170787 172779 174995 176837 178497 180240 181486 182725
- 183801 185159 185159 187320 188199 189088 189895 190619 191505 192265
- 193038 193917 194671 195296 195948 196540 197208 197664 198095 198472
- 198960 199357 199782 200335 200773 201186 201621 202051 202417 202887
- 203365 203793 204067 204362 204799 205183 205597]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>746 [      1       1       3       4       4       6      10      10      23
+      23      35      90     262     442     615     801     827     864
+     914     977    1057    1151    1255    1326    1395    1450    1591
+    1724    1877    2046    2201    2395    2577    2860    3107    3386
+    3757    4077    4369    4681    5071    5402    5635    5819    5996
+    6174    6318    6511    6681    6879    7073    7242    7384    7515
+    7695    7912    8073    8210    8445    8575    8698    8851    9008
+    9158    9311    9407    9523    9670    9821    9938   10083   10218
+   10319   10429   10513   10591   10667   10713   10791   10858   10927
+   10968   11044   11117   11182   11230   11289   11360   11387   11428
+   11480   11512   11593   11633   11669   11699   11734   11771   11811
+   11875   11924   11948   11962   12001   12016   12035   12099   12139
+   12193   12217   12250   12294   12344   12391   12391   12391   12527
+   12561   12615   12636   12675   12675   12675   12751   12768   12794
+   12815   12832   12832   12832   12878   12888   12900   12916   12946
+   12946   12946   13037   13061   13092   13124   13173   13173   13173
+   13262   13302   13350   13390   13438   13438   13438   13547   13577
+   13634   13725   13789   13789   13789   13996   14073   14185   14306
+   14442   14442   14442   14815   14959   15070   15214   15379   15483
+   15617   15740   15855   15940   16056   16127   16239   16317   16397
+   16480   16537   16627   16700   16779   16891   16985   17084   17195
+   17374   17547   17736   17883   18113   18356   18607   18924   19216
+   19557   19890   20237   20571   20571   21393   21847   22436   22905
+   23323   23799   24357   24916   25594   26213   26637   27072   27464
+   27998   28396   28932   29302   29680   30057   30379   30710   31156
+   31638   32082   32422   32811   33101   33593   34023   34441   34941
+   35392   35844   36373   37003   37763   38622   39411   40356   41412
+   42157   43174   44034   45225   46351   47299   48241   49594   50530
+   51753   53180   54230   55121   55892   56958   57952   58963   60000
+   61078   62136   63331   64551   65808   67105   68362   69635   70485
+   71654   73021   74204   75395   76718   78354   79352   80481   81949
+   83535   85140   86743   88858   90603   92649   94799   97357  100489
+  103564  107116  109758  113095  116087  119779  123813  128321  131606
+  134434  137632  140175  143472  146341  149333  151167  153347  155826
+  158447  161230  163479  165930  167541  168711  170787  172779  174995
+  176837  178497  180240  181486  182725  183801  185159  185159  187320
+  188199  189088  189895  190619  191505  192265  193038  193917  194671
+  195296  195948  196540  197208  197664  198095  198472  198960  199357
+  199782  200335  200773  201186  201621  202051  202417  202887  203365
+  203793  204067  204362  204799  205183  205597  206065  206617  207081
+  207577  208027  208556  209079  209682  210212  210732  211195  211692
+  212224  212798  213318  213932  214326  214839  215264  215791  217798
+  218660  219305  219918  220459  221071  221842  222629  223415  224258
+  224848  225505  226777  227031  225030  225844  226633  227049  228013
+  228692  229902  230603  231265  231973  232718  233318  233797  234317
+  234931  235648  236346  237101  237792  238306  238869  239532  240330
+  241007  241731  242633  243374  244065  244868  245761  246463  247010
+  247622  248326  248950  249785  250554  250554  252045  252912  253673
+  254482  254482  256482  257505  258182  259056  259988  260913  262159
+  263514  264465  265539  266503  267339  268255  269343  270557  271908
+  272659  273494  274413  275207  276280  277399  278396  279434  280383
+  281227  282135  283089  284117  285044  285636  286489  286948  287325
+  288229  288704  289122  289559  289874  290111  290333  290686  291017
+  291220  291463  291652  291801  291956  292179  292352  292574  292769
+  292943  293094  293337  293677  294152  294478  294925  295317  295654
+  296196  296885  297543  298094  298614  299223  300071  301126  302328
+  303469  304429  305459  306100  306944  307764  308615  309420  310127
+  310876  311520  312292  312851  314135  314983  316068  316807  317700
+  318485  319295  320222  321154  322019  322965  323786  324721  325725
+  326887  327972  329010  329927  330777  331736  332622  333815  334799
+  335722  336746  337466  338240  339580  340567  341549  342474  343351
+  344088  344850  345693  346518  347212  347909  348347  348979  349440
+  349891  350405  350996  351553  351939  352373  352636  353061  353431
+  353744  354068  354393  354645  354913  355257  355603  355944  356326
+  356684  357037  357370  357827  358369  358796  359237  359663  360031
+  360411  360888  361461  362068  362738  363356  363900  364464  365051
+  365840  366607  367307  368060  368651  369403  370159  371286  372533
+  373803  375065  376414  377825  379078  380949  382796  384580  386251
+  387783  389240  391221  393199  395797  398048  400145  402561  404855
+  407417  410434  412566  417151  420099  423322  426992  430891  434798
+  438811  442881  446676  450091  453802  458001  462427  466817  470893
+  474637  478927  483253  487401  492521  497201  501760  506085  509111
+  516257  522581  529210  536195  542794  548400  554389  562188  570502
+  579275  589274  600468  609062  617274  627356  647934  661320  673807
+  685036  685036  685036  726071  739071  762299  783702  802397  823282
+  831236  840037  865110  893393  919388  937649  950237  969485  983899
+ 1006295 1030638 1056389 1080003 1105037 1131206 1159986 1193479 1232238
+ 1272864 1319695 1355815 1397833 1438181 1484771 1531518 1582551 1636206
+ 1677289 1713485 1742569 1787935 1842936 1887161 1927340 1966530 2003042
+ 2037891 2087689 2142809 2196556 2244726 2289076 2327399 2356873 2399851
+ 2442799 2483399 2519057 2552361 2578051 2606934 2637414 2666454 2691663
+ 2714447 2731806 2748260 2764838 2783399 2803857 2803857 2837501 2853236
+ 2864063 2876288 2891763 2908721 2923030 2936856 2943947 2950605]
 </pre></div>
 </div>
 </div>
@@ -933,7 +1137,7 @@ and <span class="math notranslate nohighlight">\(R_0 = 2 = \beta/\gamma\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.02925185, 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.11506788e-02, 4.12605498e-16])
 </pre></div>
 </div>
 </div>
@@ -980,7 +1184,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0292518479858943
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>51261262636618.664
 </pre></div>
 </div>
 </div>
@@ -993,7 +1197,7 @@ To first order, <span class="math notranslate nohighlight">\(\beta\)</span> is e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9710246825487783
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>219047240451.27252
 </pre></div>
 </div>
 </div>
@@ -1013,8 +1217,8 @@ cumulative incidence.</p>
 <h2>Sigmoidal Models<a class="headerlink" href="#sigmoidal-models" title="Permalink to this headline">¶</a></h2>
 <p>Common sigmoidal models include CDFs of unimodal distributions (such as the Gaussian cdf <span class="math notranslate nohighlight">\(\Phi(x)\)</span>) and the sigmoid function <span class="math notranslate nohighlight">\(1/(e^{-x} + 1)\)</span>, the inverse of the logistic function.</p>
 <p>To allow this function to be shifted and scaled, we can introduce the family of curves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-303c502d-62ef-4bc3-b913-e455ba554f30">
-<span class="eqno">()<a class="headerlink" href="#equation-303c502d-62ef-4bc3-b913-e455ba554f30" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dbb61a21-c7ca-45fe-9415-542b44958690">
+<span class="eqno">()<a class="headerlink" href="#equation-dbb61a21-c7ca-45fe-9415-542b44958690" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(x; a, b, c) \equiv \frac{c}{e^{-b(x-a)}+1}.
 \end{equation}\]</div>
 <p>The parameter <span class="math notranslate nohighlight">\(a\)</span> controls where the function crosses <span class="math notranslate nohighlight">\(c/2\)</span>; <span class="math notranslate nohighlight">\(b\)</span> controls how rapidly it increases, and <span class="math notranslate nohighlight">\(c\)</span> is its asymptotic limit.</p>
@@ -1039,7 +1243,7 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbd68c78b90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f98b0dde0a0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/pandemic_32_1.png" src="../_images/pandemic_32_1.png" />
@@ -1054,7 +1258,7 @@ cumulative incidence.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.00375870e+02, 2.72648531e-02, 2.70241486e+05])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.00000000e+02, 1.11921669e-02, 1.16292975e+06])
 </pre></div>
 </div>
 </div>
@@ -1132,7 +1336,7 @@ cumulative incidence.</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "fbe792555aa94fd6863d9b1988d487ef", "version_major": 2, "version_minor": 0}
+{"model_id": "30e27a949c394f4ca345aa3ddebe4b93", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_predictions(y, n, points)&gt;
 </pre></div>
 </div>
@@ -1210,32 +1414,34 @@ https://www.wsj.com/articles/new-u-k-covid-19-variant-could-be-more-deadly-briti
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-
-        </div>
-        
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Philip Stark and Fernando Pérez<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Philip Stark and Fernando Pérez<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

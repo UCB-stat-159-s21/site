@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALPHA: Audit that Learns from Previously Hand-Audited Ballots &#8212; Collaborative and Reproducible Data Science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Collaborative and Reproducible Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Statistics 159/259, Spring 2021 Course Summary
+                </a>
+            </li>
+        </ul>
+        <p class="caption">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Statistics 159/259: Weekly Plan
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus for Statistics 159/259: Reproducible and Collaborative Statistical Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Homework Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw01-background.html">
+   1. Homework 1. Stats review and intro to Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw02-election-fraud.html">
+   2. Homework 2. Election Fraud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw03-testing.html">
+   3. Homework 3: Coding style, docstrings, algorithmic choices, and unit tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw04-phil-sci-covid.html">
+   4. Homework 4: Reproducibility, Philosophy of Science, and COVID-19 Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw05-selection-outliers.html">
+   5. Homework 5: Selective inference and outlier rejection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw06-cryptorandom-contrib.html">
+   6. Homework 6: Cryptorandom - contributing to an open source project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw07-permute-contrib.html">
+   7. Homework 7: Permute - contributing to an open source project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hw/hw08-final-project.html">
+   8. Homework 8. Final Project - Antibody Cocktail Efficacy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lecture Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   An Idiosyncratic Sample of Applied Statistics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lecture Index
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Index/index.html">
+   Index of Lectures and Materials
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notes/alpha.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Notes/alpha.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-without-replacement">
+   Sampling without replacement
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ALPHA: Audit that Learns from Previously Hand-Audited Ballots</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-without-replacement">
+   Sampling without replacement
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="alpha-audit-that-learns-from-previously-hand-audited-ballots">
+<h1>ALPHA: Audit that Learns from Previously Hand-Audited Ballots<a class="headerlink" href="#alpha-audit-that-learns-from-previously-hand-audited-ballots" title="Permalink to this headline">¶</a></h1>
+<p>See [ALPHA: Audit that Learns from Previously Hand-Audited Ballots] (https://arxiv.org/abs/2201.02707)</p>
+<p>Consider draws from a population <span class="math notranslate nohighlight">\(\{x_i\}_{i=1}^N\)</span>,
+where each <span class="math notranslate nohighlight">\(x_i \in [0, u]\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\theta = \bar{x} := \frac{1}{N} \sum_{i=1}^N x_i\)</span> be the population mean.
+Let <span class="math notranslate nohighlight">\(X_k\)</span> be the value of <span class="math notranslate nohighlight">\(x_i\)</span> selected on the <span class="math notranslate nohighlight">\(k\)</span>th draw.</p>
+<p>We start by developing a one-sided test of the hypothesis <span class="math notranslate nohighlight">\(\theta = \mu\)</span>, then show the <span class="math notranslate nohighlight">\(P\)</span>-value is monotone in
+<span class="math notranslate nohighlight">\(\mu\)</span>, so the test is valid for the hypothesis <span class="math notranslate nohighlight">\(\theta \le \mu\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(X^j := (X_1, \ldots, X_j)\)</span>.
+Assume <span class="math notranslate nohighlight">\(X_j \in [0, u_j]\)</span> for some known <span class="math notranslate nohighlight">\(u_j\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mu_j := \mathbb{E}(X_j | X^{j-1})\)</span> computed under the null hypothesis <span class="math notranslate nohighlight">\(\theta = \mu\)</span>.
+Let <span class="math notranslate nohighlight">\(\eta_j = \eta_j(X^{j-1}) \in (\mu_j, u_j]\)</span>, <span class="math notranslate nohighlight">\(j=1, \ldots\)</span>, be a \emph{predictable sequence} in the sense that
+<span class="math notranslate nohighlight">\(\eta_j\)</span> may depend on <span class="math notranslate nohighlight">\(X^{j-1}\)</span>, but not on <span class="math notranslate nohighlight">\(X_k\)</span> for <span class="math notranslate nohighlight">\(k \ge j\)</span>.
+We now define the ALPHA martingale <span class="math notranslate nohighlight">\((T_j)\)</span>.
+Let <span class="math notranslate nohighlight">\(T_0 := 1\)</span> and</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0c8e5830-4226-435e-94f9-a2315d4cfb9a">
+<span class="eqno">()<a class="headerlink" href="#equation-0c8e5830-4226-435e-94f9-a2315d4cfb9a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    T_j := T_{j-1} u_j^{-1}\left ( X_j\frac{\eta_j}{\mu_j} + (u_j-X_j) \frac{u_j-\eta_j}{u_j-\mu_j} \right ), \;\; j=1, \ldots .
+\end{equation}\]</div>
+<p>This can be rearranged to yield</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1fe59a7f-8642-4dfd-8ee4-f90acda51ae6">
+<span class="eqno">()<a class="headerlink" href="#equation-1fe59a7f-8642-4dfd-8ee4-f90acda51ae6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    T_j := T_{j-1} \left ( \frac{X_j}{\mu_j} \cdot \frac{\eta_j-\mu_j}{u_j-\mu_j} + \frac{u_j-\eta_j}{u_j-\mu_j} \right ). \label{eq:alphaMult}
+\end{equation}\]</div>
+<p>Equivalently,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-032c4e99-e535-4f32-b893-ca3cc4ed939e">
+<span class="eqno">()<a class="headerlink" href="#equation-032c4e99-e535-4f32-b893-ca3cc4ed939e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    T_j := \prod_{i=1}^j \left ( \frac{X_i}{\mu_i} \cdot \frac{\eta_i-\mu_i}{u_i-\mu_i} + \frac{u_i-\eta_i}{u_i-\mu_i} \right ), \;\; j \ge 1. \label{eq:alphaMultProd}
+\end{equation}\]</div>
+<p>Under the null hypothesis, <span class="math notranslate nohighlight">\(\theta_j = \mu_j\)</span> and <span class="math notranslate nohighlight">\(T_j\)</span> is nonnegative since <span class="math notranslate nohighlight">\(X_j\)</span>, <span class="math notranslate nohighlight">\(\mu_j\)</span>, and <span class="math notranslate nohighlight">\(\eta_j\)</span>
+are all in <span class="math notranslate nohighlight">\([0, u_j]\)</span>.
+Also,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-14ac7fc8-0488-4c5c-ad21-344ab5bb1f7c">
+<span class="eqno">()<a class="headerlink" href="#equation-14ac7fc8-0488-4c5c-ad21-344ab5bb1f7c" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+    \mathbb{E} (T_j | X^{j-1} ) &amp;=&amp; T_{j-1} \left ( \frac{\mu_j}{\mu_j} \cdot \frac{\eta_j-\mu_j}{u_j-\mu_j} + \frac{u_j-\eta_j}{u_j-\mu_j} \right ) \nonumber \\
+    &amp;=&amp;  T_{j-1} \left ( \frac{\eta_j-\mu_j}{u_j-\mu_j} + \frac{u_j-\eta_j}{u_j-\mu_j} \right ) \nonumber \\
+    &amp;=&amp; T_{j-1}.
+\end{eqnarray}\]</div>
+<p>Thus if <span class="math notranslate nohighlight">\(\theta = \mu\)</span>, <span class="math notranslate nohighlight">\((T_j)\)</span> is a nonnegative martingale with respect to <span class="math notranslate nohighlight">\((X_j)\)</span>, starting at <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\theta &lt; \mu\)</span>, then <span class="math notranslate nohighlight">\(\mathbb{E} (X_j | X^{j-1}) &lt; \mu_j\)</span> and <span class="math notranslate nohighlight">\(r_j = \frac{\mathbb{E} (X_j | X^{j-1})}{\mu_j} &lt; 1\)</span>, so</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2f7f915a-6d68-4349-946b-8526401ccebc">
+<span class="eqno">()<a class="headerlink" href="#equation-2f7f915a-6d68-4349-946b-8526401ccebc" title="Permalink to this equation">¶</a></span>\[\begin{equation} \label{eq:supermartingale}
+    \mathbb{E} (T_j | X^{j-1} ) = T_{j-1} \left ( r_j \cdot \frac{\eta_j-\mu_j}{u_j-\mu_j} + \frac{u_j-\eta_j}{u_j-\mu_j} \right ) &lt; T_{j-1}.
+\end{equation}\]</div>
+<p>Thus <span class="math notranslate nohighlight">\((T_j)\)</span> is a nonnegative supermartingale starting at 1 if <span class="math notranslate nohighlight">\(\theta \le \mu\)</span>.</p>
+<p>It follows from Ville’s inequality (1939) that if <span class="math notranslate nohighlight">\(\theta \le \mu\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a90679ec-5e15-49a3-83e3-e755d2c5aba6">
+<span class="eqno">()<a class="headerlink" href="#equation-a90679ec-5e15-49a3-83e3-e755d2c5aba6" title="Permalink to this equation">¶</a></span>\[\begin{equation} \label{eq:p-value-adapt}
+\Pr \{ \exists j :  T_j \ge \alpha^{-1} \} \le \alpha.
+\end{equation}\]</div>
+<p>That is, <span class="math notranslate nohighlight">\(\min(1, 1/T_j)\)</span> is an “anytime <span class="math notranslate nohighlight">\(P\)</span>-value” for the null hypothesis <span class="math notranslate nohighlight">\(\theta = \mu\)</span>.</p>
+<p>The derivation did not use any information about <span class="math notranslate nohighlight">\(\{x_i\}\)</span> other than <span class="math notranslate nohighlight">\(X_j \in [0, u_j]\)</span>:
+it applies to populations <span class="math notranslate nohighlight">\(\{x_i\}\)</span> that are nonnegative and bounded, not merely binary populations,
+to sampling with or without replacement, and to weighted sampling.</p>
+<p>These martingales comprise the same family of betting martingales studied by Waudby-Smith and Ramdas (2021) and
+Waudby-Smith et al. (2021), but are parametrized
+differently.</p>
+<div class="section" id="sampling-without-replacement">
+<h2>Sampling without replacement<a class="headerlink" href="#sampling-without-replacement" title="Permalink to this headline">¶</a></h2>
+<p>For tests about the mean of a finite population from a sample drawn without replacement, we need <span class="math notranslate nohighlight">\(\mathbb{E}(X_j | X^{j-1})\)</span> computed on the assumption that
+<span class="math notranslate nohighlight">\(\theta =  \frac{1}{N} \sum_{i=1}^N x_i = \mu\)</span>.</p>
+<p>For sampling without replacement from a population with mean <span class="math notranslate nohighlight">\(\mu\)</span>, after draw <span class="math notranslate nohighlight">\(j-1\)</span>, the mean of the remaining numbers is <span class="math notranslate nohighlight">\((N\mu - \sum_{k=1}^{j-1}X_k)/(N-j+1)\)</span>.</p>
+<p>Thus the conditional expectation of <span class="math notranslate nohighlight">\(X_j\)</span> given <span class="math notranslate nohighlight">\(X^{j-1}\)</span> under the null is <span class="math notranslate nohighlight">\((N\mu - \sum_{k=1}^{j-1}X_k)/(N-j+1)\)</span>.
+If <span class="math notranslate nohighlight">\(N\mu - \sum_{k=1}^{j-1}X_k &lt; 0\)</span> for any <span class="math notranslate nohighlight">\(k\)</span>, the null hypothesis <span class="math notranslate nohighlight">\(\theta = \mu\)</span> is certainly false.</p>
+<p>Waudby-Smith and Ramdas (2021 and Waudby-Smith et al. (2021) develop tests and
+confidence sequences for the mean of a bounded population
+using “betting” martingales of the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-55ff7ebd-b790-4f11-a80d-fd70aaf06246">
+<span class="eqno">()<a class="headerlink" href="#equation-55ff7ebd-b790-4f11-a80d-fd70aaf06246" title="Permalink to this equation">¶</a></span>\[\begin{equation} \label{eq:lambda-rilacs}
+M_j := \prod_{i=1}^j (1 + \lambda_i (X_i- \mu_i)),
+\end{equation}\]</div>
+<p>where, as above, <span class="math notranslate nohighlight">\(\mu_i := \mathbb{E}(X_i | X_{i-1})\)</span> computed on the assumption that the null hypothesis is true.
+The sequence <span class="math notranslate nohighlight">\((M_j)\)</span> can be viewed as the fortune of a gambler in a series of wagers.
+The gambler starts with a stake of <span class="math notranslate nohighlight">\(1\)</span> unit and bets a fraction <span class="math notranslate nohighlight">\(\lambda_i\)</span> of their current wealth on the outcome
+of the <span class="math notranslate nohighlight">\(i\)</span>th wager.
+The value <span class="math notranslate nohighlight">\(M_j\)</span> is the gambler’s wealth after the <span class="math notranslate nohighlight">\(j\)</span>th wager.
+The gambler is not permitted to borrow money, so to ensure that when <span class="math notranslate nohighlight">\(X_i = 0\)</span> (corresponding to losing the <span class="math notranslate nohighlight">\(i\)</span>th bet)
+the gambler does not end up in debt (<span class="math notranslate nohighlight">\(M_i &lt; 0\)</span>), <span class="math notranslate nohighlight">\(\lambda_i\)</span> cannot exceed <span class="math notranslate nohighlight">\(1/\mu_i\)</span>.</p>
+<p>The ALPHA martingale is of the same form:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-885acb34-ddaf-4618-a876-9d204ae1ecab">
+<span class="eqno">()<a class="headerlink" href="#equation-885acb34-ddaf-4618-a876-9d204ae1ecab" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray} \label{eq:lambda-form}
+T_j &amp;=&amp; \prod_{i=1}^j \left ( \frac{X_i}{\mu_i} \cdot \frac{\eta_i-\mu_i}{u_i-\mu_i} + \frac{u_i-\eta_i}{u_i-\mu_i} \right ) \nonumber \\
+&amp;=&amp; \prod_{i=1}^j \frac{X_i (\eta_i/\mu_i -1) + u_i - \eta_i}{u_i-\mu_i} \nonumber \\
+&amp;=&amp; \prod_{i=1}^j \left ( 1 + \frac{X_i (\eta_i/\mu_i -1) + \mu_i - \eta_i}{u_i-\mu_i} \right ) \nonumber \\
+&amp;=&amp;  \prod_{i=1}^j \left ( 1 + \frac{\eta_i/\mu_i -1}{u_i-\mu_i} \cdot (X_i - \mu_i) \right ),
+\end{eqnarray}\]</div>
+<p>identifying <span class="math notranslate nohighlight">\(\lambda_i \equiv \frac{\eta_i/\mu_i -1}{u_i-\mu_i}\)</span>.
+Choosing <span class="math notranslate nohighlight">\(\lambda_i\)</span> is equivalent to choosing <span class="math notranslate nohighlight">\(\eta_i\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7220ac36-28d6-4156-a739-32254bd3163d">
+<span class="eqno">()<a class="headerlink" href="#equation-7220ac36-28d6-4156-a739-32254bd3163d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\lambda_i = \frac{\eta_i/\mu_i -1}{u_i-\mu_i} \;\; \Longleftrightarrow \;\; \eta_i = \mu_i \left ( 1 + \lambda_i (u_i-\mu_i) \right ).
+\end{equation}\]</div>
+<p>As <span class="math notranslate nohighlight">\(\eta_i\)</span> ranges from <span class="math notranslate nohighlight">\(\mu_i\)</span> to <span class="math notranslate nohighlight">\(u_i\)</span>, <span class="math notranslate nohighlight">\(\frac{\eta_i/\mu_i -1}{u_i-\mu_i}\)</span> ranges continuously from
+0 to <span class="math notranslate nohighlight">\(1/\mu_i\)</span>, the same range of values of <span class="math notranslate nohighlight">\(\lambda_i\)</span> permitted in Waudby-Smith et al.:
+selecting <span class="math notranslate nohighlight">\(\lambda_i\)</span> is equivalent to selecting a method for estimating <span class="math notranslate nohighlight">\(\theta_i\)</span>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Philip Stark and Fernando Pérez<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
